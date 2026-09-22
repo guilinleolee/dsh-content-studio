@@ -35,6 +35,17 @@ cd D:/dsh-content-studio && git add -A && git commit -m "release: <notes>"
 | `packages/content-outputs` | host 网关：`contentOutputs/list`，产物库只读投影 |
 | `packages/content-schedule` | host 网关：`contentSchedule/list|put|delete`，发布日历 |
 
+## 发版流程（维护者）
+
+改完版本号（`packages/content-studio/package.json` 的 `version`）后一条命令：
+
+```sh
+node release.mjs          # pack + 打 tag + push + 创建附 zip 的 GitHub Release
+node release.mjs --no-push  # 只做本地 pack + tag，先检查再推
+```
+
+护栏：工作树未提交会拒绝；tag 已存在会拒绝（提示先升版本号）。全流程无任何手填占位符。
+
 ## 后续发布到 npm（可选）
 
 仓库形态已与 npm 发布兼容：三包元数据完整（exports/files/dsh 清单），届时 `pnpm publish --access public` 并把 studio 的两个 `file:` 依赖改为版本号即可；接收方安装命令变为 `dsh plugin --profile web add @guilinleolee/dsh-content-studio`。
