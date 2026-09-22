@@ -4,8 +4,8 @@ window.__ModuleLoader__.load({
 		var module = { exports: {} };
 		var exports = module.exports;
 		Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-		let _deepseek_ai_dsh_client_ui_primitives = require("@deepseek-ai/dsh-client-ui-primitives");
 		let react_jsx_runtime = require("react/jsx-runtime");
+		let _deepseek_ai_dsh_client_ui_primitives = require("@deepseek-ai/dsh-client-ui-primitives");
 		let react = require("react");
 		//#region ../../../node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/core.js
 		var _a$1;
@@ -4253,7 +4253,13 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			]
 		};
 		//#endregion
-		//#region src/client/studio-store.ts
+		//#region lib/types/client/studio-store.js
+		/**
+		* The open/close controller shared by the sidebar entry and the frame-wide
+		* surface. apply() creates one instance and injects it into both slot
+		* registrations — component state cannot cross two slot entries, and no
+		* store seat is needed for a single boolean observable.
+		*/
 		/**
 		* Create the shared open/close controller.
 		* @returns the controller with an initially closed state.
@@ -4365,7 +4371,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"views": "jTHpnG_views"
 		};
 		//#endregion
-		//#region src/client/StudioEntry.tsx
+		//#region lib/types/client/StudioEntry.js
 		/**
 		* The sidebar entry occupying the `sidebar.footer.action` hole: a labeled
 		* row while the column is wide, a 16px icon on the 56px rail. Clicking opens
@@ -4377,19 +4383,19 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		* @returns the entry button element tree.
 		*/
 		function StudioEntry({ wide, studio, t }) {
-			const button = /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+			const button = (0, react_jsx_runtime.jsxs)("button", {
 				type: "button",
 				className: wide ? ContentStudio_module_css_default.entryWide : ContentStudio_module_css_default.entryRail,
 				"aria-label": t("entry.aria"),
 				onClick: () => {
 					studio.open();
 				},
-				children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: wide ? 16 : 18 }), wide && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+				children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: wide ? 16 : 18 }), wide && (0, react_jsx_runtime.jsx)("span", {
 					className: ContentStudio_module_css_default.entryLabel,
 					children: t("entry.label")
 				})]
 			});
-			return wide ? button : /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.Tooltip, {
+			return wide ? button : (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.Tooltip, {
 				label: t("entry.label"),
 				delayMs: 500,
 				children: button
@@ -4411,7 +4417,13 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			return n;
 		}
 		//#endregion
-		//#region src/client/capabilities.ts
+		//#region lib/types/client/capabilities.js
+		/**
+		* The Content Studio capability catalog: the static dual-tab menu of creation
+		* and operation verbs this plugin ships. Display copy lives in the locale
+		* dictionaries under `cap.<id>.title` / `cap.<id>.detail`; this module owns
+		* the structure, the clipboard payload, and the maturity classification.
+		*/
 		/** Tab order and the group sequence each tab renders. */
 		const STUDIO_TABS = [{
 			id: "create",
@@ -4548,7 +4560,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			return groups;
 		}
 		//#endregion
-		//#region src/client/ContentLibrary.tsx
+		//#region lib/types/client/ContentLibrary.js
 		/**
 		* The library view: one card per outputs project, read through the
 		* `contentOutputs/list` Remote wrapped by the injected face. Loading, error,
@@ -4581,38 +4593,38 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			(0, react.useEffect)(() => {
 				load();
 			}, [load]);
-			if (failed) return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+			if (failed) return (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.libraryState,
 				children: [
-					/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 16 }),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("library.error") }),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+					(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 16 }),
+					(0, react_jsx_runtime.jsx)("span", { children: t("library.error") }),
+					(0, react_jsx_runtime.jsxs)("button", {
 						type: "button",
 						className: ContentStudio_module_css_default.retry,
 						onClick: () => {
 							load();
 						},
-						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconRefreshOutline14, { size: 14 }), t("library.retry")]
+						children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconRefreshOutline14, { size: 14 }), t("library.retry")]
 					})
 				]
 			});
-			if (snapshot === void 0) return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+			if (snapshot === void 0) return (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.libraryState,
 				children: t("library.loading")
 			});
-			if (snapshot.projects.length === 0) return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+			if (snapshot.projects.length === 0) return (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.libraryState,
-				children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("library.empty") })
+				children: (0, react_jsx_runtime.jsx)("span", { children: t("library.empty") })
 			});
-			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+			return (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.library,
-				children: [snapshot.problems.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+				children: [snapshot.problems.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
 					className: ContentStudio_module_css_default.libraryProblems,
 					role: "alert",
-					children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("library.problems", { n: snapshot.problems.length }) })]
-				}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+					children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), (0, react_jsx_runtime.jsx)("span", { children: t("library.problems", { n: snapshot.problems.length }) })]
+				}), (0, react_jsx_runtime.jsx)("div", {
 					className: ContentStudio_module_css_default.grid,
-					children: snapshot.projects.map((project) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)(ProjectCard, {
+					children: snapshot.projects.map((project) => (0, react_jsx_runtime.jsx)(ProjectCard, {
 						project,
 						t
 					}, project.topic))
@@ -4621,35 +4633,35 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		}
 		/** One outputs project as a read-only card. */
 		function ProjectCard({ project, t }) {
-			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+			return (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.libraryCard,
 				children: [
-					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+					(0, react_jsx_runtime.jsxs)("span", {
 						className: ContentStudio_module_css_default.cardHead,
-						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+						children: [(0, react_jsx_runtime.jsx)("span", {
 							className: ContentStudio_module_css_default.cardTitle,
 							children: project.title
-						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+						}), (0, react_jsx_runtime.jsx)("span", {
 							className: clsx(ContentStudio_module_css_default.badge, STATUS_CLASS[project.status]),
 							children: t(`status.${project.status}`)
 						})]
 					}),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+					(0, react_jsx_runtime.jsxs)("span", {
 						className: ContentStudio_module_css_default.cardDetail,
 						children: [t(`kind.${project.kind}`), project.platform !== null && ` · ${project.platform}`]
 					}),
-					project.summary !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+					project.summary !== null && (0, react_jsx_runtime.jsx)("span", {
 						className: ContentStudio_module_css_default.cardDetail,
 						children: project.summary
 					}),
-					project.tags.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+					project.tags.length > 0 && (0, react_jsx_runtime.jsx)("span", {
 						className: ContentStudio_module_css_default.libraryTags,
-						children: project.tags.map((tag) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+						children: project.tags.map((tag) => (0, react_jsx_runtime.jsx)("span", {
 							className: ContentStudio_module_css_default.libraryTag,
 							children: tag
 						}, tag))
 					}),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+					(0, react_jsx_runtime.jsxs)("span", {
 						className: ContentStudio_module_css_default.cardHint,
 						children: [
 							project.hasMetadata ? t("library.deliverables", { n: project.deliverables.length }) : t("library.noMetadata"),
@@ -4663,7 +4675,12 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			});
 		}
 		//#endregion
-		//#region src/client/calendar.ts
+		//#region lib/types/client/calendar.js
+		/**
+		* Pure month-grid math for the calendar view: no React, no IO — weeks start
+		* Monday, and every day carries its `YYYY-MM-DD` wire date plus an
+		* in-month flag so leading/trailing padding renders dimmed.
+		*/
 		/**
 		* Local-time today as `YYYY-MM-DD`.
 		* @returns today's wire date in the host time zone.
@@ -4730,7 +4747,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			return byDate;
 		}
 		//#endregion
-		//#region src/client/ContentCalendar.tsx
+		//#region lib/types/client/ContentCalendar.js
 		/**
 		* The calendar view: one month grid over the publication calendar, read and
 		* mutated through the injected `contentSchedule` wrappers. Clicking a day
@@ -4832,21 +4849,21 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					setFailed(true);
 				}
 			};
-			if (failed) return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+			if (failed) return (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.libraryState,
 				children: t("library.error")
 			});
-			if (snapshot === void 0) return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+			if (snapshot === void 0) return (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.libraryState,
 				children: t("calendar.loading")
 			});
-			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+			return (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.calendar,
 				children: [
-					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+					(0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.calendarBar,
 						children: [
-							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+							(0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.calendarNav,
 								"aria-label": t("calendar.prev"),
@@ -4855,7 +4872,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 								},
 								children: "‹"
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+							(0, react_jsx_runtime.jsxs)("span", {
 								className: ContentStudio_module_css_default.calendarMonth,
 								children: [
 									month.year,
@@ -4863,7 +4880,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 									t(`calendar.month.${month.month}`)
 								]
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+							(0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.calendarNav,
 								"aria-label": t("calendar.next"),
@@ -4872,7 +4889,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 								},
 								children: "›"
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+							(0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.calendarToday,
 								onClick: () => {
@@ -4886,18 +4903,18 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 							})
 						]
 					}),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+					(0, react_jsx_runtime.jsx)("div", {
 						className: ContentStudio_module_css_default.calendarHead,
-						children: WEEKDAY_KEYS.map((key) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+						children: WEEKDAY_KEYS.map((key) => (0, react_jsx_runtime.jsx)("span", {
 							className: ContentStudio_module_css_default.calendarWeekday,
 							children: t(key)
 						}, key))
 					}),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+					(0, react_jsx_runtime.jsx)("div", {
 						className: ContentStudio_module_css_default.calendarGrid,
 						children: grid.flat().map((day) => {
 							const items = byDate.get(day.date) ?? [];
-							return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+							return (0, react_jsx_runtime.jsxs)("div", {
 								className: clsx(ContentStudio_module_css_default.calendarCell, !day.inMonth && ContentStudio_module_css_default.calendarCellOutside, day.isToday && ContentStudio_module_css_default.calendarCellToday),
 								role: "button",
 								tabIndex: 0,
@@ -4917,25 +4934,25 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 									});
 								},
 								children: [
-									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+									(0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.calendarDayNum,
 										children: Number(day.date.slice(8, 10))
 									}),
-									items.map((item) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+									items.map((item) => (0, react_jsx_runtime.jsxs)("span", {
 										className: ContentStudio_module_css_default.calendarChip,
 										onClick: (event) => {
 											event.stopPropagation();
 										},
 										children: [
-											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+											(0, react_jsx_runtime.jsx)("span", {
 												className: clsx(ContentStudio_module_css_default.calendarDot, DOT_CLASS[item.status]),
 												"aria-hidden": "true"
 											}),
-											/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+											(0, react_jsx_runtime.jsxs)("span", {
 												className: ContentStudio_module_css_default.calendarChipTitle,
 												children: [item.time !== null && `${item.time} `, item.title]
 											}),
-											item.status !== "published" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+											item.status !== "published" && (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												className: ContentStudio_module_css_default.calendarChipAction,
 												"aria-label": t("calendar.publish.aria"),
@@ -4945,24 +4962,24 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 												},
 												children: "✓"
 											}),
-											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+											(0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												className: ContentStudio_module_css_default.calendarChipAction,
 												"aria-label": t("calendar.remove.aria"),
 												onClick: () => {
 													remove(item.id);
 												},
-												children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 11 })
+												children: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 11 })
 											})
 										]
 									}, item.id)),
-									form?.date === day.date && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+									form?.date === day.date && (0, react_jsx_runtime.jsxs)("div", {
 										className: ContentStudio_module_css_default.calendarForm,
 										onClick: (event) => {
 											event.stopPropagation();
 										},
 										children: [
-											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
+											(0, react_jsx_runtime.jsx)("input", {
 												className: ContentStudio_module_css_default.calendarInput,
 												autoFocus: true,
 												placeholder: t("calendar.titlePlaceholder"),
@@ -4977,7 +4994,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 													if (event.key === "Enter") submit();
 												}
 											}),
-											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
+											(0, react_jsx_runtime.jsx)("input", {
 												className: ContentStudio_module_css_default.calendarInput,
 												placeholder: t("calendar.platformPlaceholder"),
 												value: form.platform,
@@ -4988,17 +5005,17 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 													});
 												}
 											}),
-											/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+											(0, react_jsx_runtime.jsxs)("div", {
 												className: ContentStudio_module_css_default.calendarFormRow,
-												children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+												children: [(0, react_jsx_runtime.jsxs)("button", {
 													type: "button",
 													className: ContentStudio_module_css_default.calendarSubmit,
 													disabled: submitting,
 													onClick: () => {
 														submit();
 													},
-													children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconPlusOutline16, { size: 12 }), t("calendar.add")]
-												}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+													children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconPlusOutline16, { size: 12 }), t("calendar.add")]
+												}), (0, react_jsx_runtime.jsx)("button", {
 													type: "button",
 													className: ContentStudio_module_css_default.calendarChipAction,
 													"aria-label": t("calendar.cancel"),
@@ -5014,7 +5031,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 							}, day.date);
 						})
 					}),
-					form === void 0 && snapshot.items.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+					form === void 0 && snapshot.items.length === 0 && (0, react_jsx_runtime.jsx)("div", {
 						className: ContentStudio_module_css_default.calendarHint,
 						children: t("calendar.empty")
 					})
@@ -5022,7 +5039,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			});
 		}
 		//#endregion
-		//#region src/client/ContentStudio.tsx
+		//#region lib/types/client/ContentStudio.js
 		/**
 		* The frame-wide workbench surface occupying the `shell.overlay` hole. Closed
 		* state renders null (the slot entry stays mounted); open state covers the
@@ -5073,33 +5090,33 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			const pick = async (id, prompt) => {
 				if (await (0, _deepseek_ai_dsh_client_ui_primitives.writeClipboard)(prompt)) setCopiedId(id);
 			};
-			return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+			return (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.surface,
 				role: "dialog",
 				"aria-modal": "true",
 				"aria-label": t("studio.title"),
-				children: /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+				children: (0, react_jsx_runtime.jsxs)("div", {
 					className: ContentStudio_module_css_default.frame,
 					children: [
-						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
+						(0, react_jsx_runtime.jsxs)("header", {
 							className: ContentStudio_module_css_default.header,
-							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h1", {
+							children: [(0, react_jsx_runtime.jsxs)("div", { children: [(0, react_jsx_runtime.jsx)("h1", {
 								className: ContentStudio_module_css_default.title,
 								children: t("studio.title")
-							}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
+							}), (0, react_jsx_runtime.jsx)("p", {
 								className: ContentStudio_module_css_default.subtitle,
 								children: t("studio.subtitle")
-							})] }), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+							})] }), (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.headerControls,
 								children: [
-									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+									(0, react_jsx_runtime.jsx)("div", {
 										className: ContentStudio_module_css_default.views,
 										role: "tablist",
 										children: [
 											"create",
 											"library",
 											"calendar"
-										].map((candidate) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+										].map((candidate) => (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											role: "tab",
 											"aria-selected": view === candidate,
@@ -5110,7 +5127,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 											children: t(candidate === "create" ? "view.create" : candidate === "library" ? "view.library" : "view.calendar")
 										}, candidate))
 									}),
-									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+									(0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.back,
 										onClick: () => {
@@ -5118,32 +5135,32 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 										},
 										children: t("studio.back")
 									}),
-									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+									(0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.close,
 										"aria-label": t("studio.close"),
 										onClick: () => {
 											studio.close();
 										},
-										children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCloseOutline16, { size: 16 })
+										children: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCloseOutline16, { size: 16 })
 									})
 								]
 							})]
 						}),
-						view === "library" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(ContentLibrary, {
+						view === "library" && (0, react_jsx_runtime.jsx)(ContentLibrary, {
 							listOutputs,
 							t
 						}),
-						view === "calendar" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(ContentCalendar, {
+						view === "calendar" && (0, react_jsx_runtime.jsx)(ContentCalendar, {
 							listSchedule: schedule.list,
 							putSchedule: schedule.put,
 							removeSchedule: schedule.remove,
 							t
 						}),
-						view === "create" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+						view === "create" && (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [(0, react_jsx_runtime.jsx)("div", {
 							className: ContentStudio_module_css_default.tabs,
 							role: "tablist",
-							children: STUDIO_TABS.map((candidate) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+							children: STUDIO_TABS.map((candidate) => (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								role: "tab",
 								"aria-selected": tab === candidate.id,
@@ -5154,39 +5171,39 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 								},
 								children: t(candidate.id === "create" ? "tab.create" : "tab.operate")
 							}, candidate.id))
-						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+						}), (0, react_jsx_runtime.jsx)("div", {
 							className: ContentStudio_module_css_default.body,
-							children: groups.map((group) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
+							children: groups.map((group) => (0, react_jsx_runtime.jsxs)("section", {
 								className: ContentStudio_module_css_default.group,
-								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h2", {
+								children: [(0, react_jsx_runtime.jsx)("h2", {
 									className: ContentStudio_module_css_default.groupTitle,
 									children: t(`group.${group.id}`)
-								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+								}), (0, react_jsx_runtime.jsx)("div", {
 									className: ContentStudio_module_css_default.grid,
 									children: group.items.map((item) => {
 										const copied = copiedId === item.id;
-										return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+										return (0, react_jsx_runtime.jsxs)("button", {
 											type: "button",
 											className: clsx(ContentStudio_module_css_default.card, copied && ContentStudio_module_css_default.cardCopied),
 											onClick: () => {
 												pick(item.id, item.prompt);
 											},
 											children: [
-												/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+												(0, react_jsx_runtime.jsxs)("span", {
 													className: ContentStudio_module_css_default.cardHead,
-													children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+													children: [(0, react_jsx_runtime.jsx)("span", {
 														className: ContentStudio_module_css_default.cardTitle,
 														children: t(`cap.${item.id}.title`)
-													}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+													}), (0, react_jsx_runtime.jsx)("span", {
 														className: clsx(ContentStudio_module_css_default.badge, BADGE_CLASS[item.maturity]),
 														children: t(`badge.${item.maturity}`)
 													})]
 												}),
-												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+												(0, react_jsx_runtime.jsx)("span", {
 													className: ContentStudio_module_css_default.cardDetail,
 													children: t(`cap.${item.id}.detail`)
 												}),
-												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+												(0, react_jsx_runtime.jsx)("span", {
 													className: clsx(ContentStudio_module_css_default.cardHint, copied && ContentStudio_module_css_default.cardHintCopied),
 													children: copied ? t("card.copied") : t("card.copyHint")
 												})
@@ -5196,9 +5213,9 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 								})]
 							}, group.id))
 						})] }),
-						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("footer", {
+						(0, react_jsx_runtime.jsxs)("footer", {
 							className: ContentStudio_module_css_default.about,
-							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("studio.brand") }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("a", {
+							children: [(0, react_jsx_runtime.jsx)("span", { children: t("studio.brand") }), (0, react_jsx_runtime.jsx)("a", {
 								className: ContentStudio_module_css_default.aboutLink,
 								href: "https://github.com/guilinleolee/dsh-content-studio/issues",
 								target: "_blank",
@@ -5211,7 +5228,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			});
 		}
 		//#endregion
-		//#region src/client/locales.ts
+		//#region lib/types/client/locales.js
 		/**
 		* `content-studio` namespace dictionaries: the sidebar entry, the workbench
 		* surface chrome, tab/group labels, maturity badges, and every capability
@@ -5445,7 +5462,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"cap.retro.detail": "Attribute wins and misses; actionable adjustments out"
 		};
 		//#endregion
-		//#region src/client/index.ts
+		//#region lib/types/client/index.js
 		/** Dictionary namespace owned by this plugin. */
 		const NS = "content-studio";
 		/**
