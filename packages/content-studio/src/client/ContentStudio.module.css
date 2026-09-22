@@ -1,0 +1,543 @@
+/* Content Studio styles: the sidebar footer entry (wide row / rail icon) and
+   the frame-wide workbench surface. Tokens only — no literal colors. */
+
+/* ── sidebar footer entry ── */
+
+.entryWide {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--dsw-alias-label-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.entryWide:hover,
+.entryRail:hover {
+  background: var(--dsw-alias-interactive-bg-hover);
+  color: var(--dsw-alias-label-primary);
+}
+
+.entryRail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--dsw-alias-label-secondary);
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.entryLabel {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── frame-wide surface ── */
+
+.surface {
+  position: fixed;
+  inset: 0;
+  background: var(--dsw-alias-bg-layer-1);
+  overflow-y: auto;
+}
+
+.frame {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 32px 64px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.headerControls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.views {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 10px;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--dsw-alias-label-primary);
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--dsw-alias-label-secondary);
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.back {
+  flex: none;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 8px;
+  background: var(--dsw-alias-button-primary-fill);
+  color: var(--dsw-alias-label-primary-foreground);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 140ms ease;
+}
+
+.back:hover {
+  background: var(--dsw-alias-button-primary-hover);
+}
+
+.close:hover {
+  background: var(--dsw-alias-interactive-bg-hover);
+  color: var(--dsw-alias-label-primary);
+}
+
+.tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 10px;
+  margin-bottom: 28px;
+}
+
+.tab {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--dsw-alias-label-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.tab:hover {
+  color: var(--dsw-alias-label-primary);
+}
+
+.tabActive,
+.tabActive:hover {
+  background: var(--dsw-alias-button-primary-fill);
+  color: var(--dsw-alias-label-primary-foreground);
+}
+
+.group {
+  margin-bottom: 28px;
+}
+
+.groupTitle {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dsw-alias-label-secondary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 10px;
+  background: var(--dsw-alias-bg-layer-2);
+  color: inherit;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  transition: transform 140ms ease, border-color 140ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--dsw-alias-border-l2);
+}
+
+.cardCopied,
+.cardCopied:hover {
+  border-color: var(--dsw-alias-state-success-primary);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dsw-alias-label-primary);
+}
+
+.cardDetail {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.cardHint {
+  font-size: 11px;
+  color: var(--dsw-alias-label-dimmed);
+}
+
+.cardHintCopied {
+  color: var(--dsw-alias-state-success-primary);
+}
+
+/* ── library view ── */
+
+.library {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.libraryState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 48px 16px;
+  border: 1px dashed var(--dsw-alias-border-l1);
+  border-radius: 10px;
+  color: var(--dsw-alias-label-tertiary);
+  font-size: 13px;
+}
+
+.libraryProblems {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--dsw-alias-state-warn-primary);
+  font-size: 12px;
+}
+
+.libraryCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 10px;
+  background: var(--dsw-alias-bg-layer-2);
+}
+
+.libraryTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.libraryTag {
+  padding: 1px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  color: var(--dsw-alias-label-secondary);
+  font-size: 11px;
+}
+
+.statusDraft {
+  color: var(--dsw-alias-label-tertiary);
+  background: color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent);
+}
+
+.statusReady {
+  color: var(--dsw-alias-state-business-primary);
+  background: color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent);
+}
+
+.statusPublished {
+  color: var(--dsw-alias-state-success-primary);
+  background: color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent);
+}
+
+.retry {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--dsw-alias-label-secondary);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.retry:hover {
+  background: var(--dsw-alias-interactive-bg-hover);
+  color: var(--dsw-alias-label-primary);
+}
+
+/* ── calendar view ── */
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.calendarBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.calendarMonth {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dsw-alias-label-primary);
+  min-width: 88px;
+  text-align: center;
+}
+
+.calendarNav,
+.calendarToday {
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--dsw-alias-label-secondary);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.calendarNav {
+  width: 26px;
+  height: 26px;
+}
+
+.calendarToday {
+  padding: 4px 12px;
+}
+
+.calendarNav:hover,
+.calendarToday:hover {
+  background: var(--dsw-alias-interactive-bg-hover);
+  color: var(--dsw-alias-label-primary);
+}
+
+.calendarHead,
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.calendarWeekday {
+  text-align: center;
+  font-size: 11px;
+  color: var(--dsw-alias-label-tertiary);
+  padding: 2px 0;
+}
+
+.calendarCell {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-height: 76px;
+  padding: 4px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 140ms ease;
+}
+
+.calendarCell:hover {
+  border-color: var(--dsw-alias-border-l2);
+}
+
+.calendarCellOutside {
+  opacity: 0.45;
+}
+
+.calendarCellToday {
+  border-color: var(--dsw-alias-state-business-primary);
+}
+
+.calendarDayNum {
+  font-size: 11px;
+  color: var(--dsw-alias-label-secondary);
+}
+
+.calendarChip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 4px;
+  border-radius: 5px;
+  background: var(--dsw-alias-interactive-bg-hover);
+  font-size: 10px;
+  color: var(--dsw-alias-label-primary);
+  cursor: default;
+  min-width: 0;
+}
+
+.calendarChipTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.calendarChipAction {
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  background: transparent;
+  color: var(--dsw-alias-label-tertiary);
+  cursor: pointer;
+  padding: 0 2px;
+  font-size: 10px;
+}
+
+.calendarChipAction:hover {
+  color: var(--dsw-alias-label-primary);
+}
+
+.calendarDot {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+}
+
+.dotIdea {
+  background: var(--dsw-alias-label-tertiary);
+}
+
+.dotDraft {
+  background: var(--dsw-alias-state-warn-primary);
+}
+
+.dotScheduled {
+  background: var(--dsw-alias-state-business-primary);
+}
+
+.dotPublished {
+  background: var(--dsw-alias-state-success-primary);
+}
+
+.calendarForm {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.calendarInput {
+  width: 100%;
+  padding: 3px 6px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 5px;
+  background: var(--dsw-alias-bg-layer-1);
+  color: var(--dsw-alias-label-primary);
+  font-size: 10px;
+}
+
+.calendarFormRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.calendarSubmit {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 8px;
+  border: none;
+  border-radius: 5px;
+  background: var(--dsw-alias-button-primary-fill);
+  color: var(--dsw-alias-label-primary-foreground);
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.calendarHint {
+  padding: 12px;
+  border: 1px dashed var(--dsw-alias-border-l1);
+  border-radius: 8px;
+  color: var(--dsw-alias-label-tertiary);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* ── maturity badges ── */
+
+.badge {
+  flex: none;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.badgeDone {
+  color: var(--dsw-alias-state-success-primary);
+  background: color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent);
+}
+
+.badgeReady {
+  color: var(--dsw-alias-state-business-primary);
+  background: color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent);
+}
+
+.badgeNeed {
+  color: var(--dsw-alias-state-warn-primary);
+  background: color-mix(in srgb, var(--dsw-alias-state-warn-primary) 12%, transparent);
+}
+
+.badgeIncoming {
+  color: var(--dsw-alias-label-tertiary);
+  background: color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent);
+}

@@ -1,0 +1,12 @@
+# dsh bundle patch: one command installs the whole Content Studio feature —
+# this plugin plus its two host Remote gateways (`dsh plugin add` consumes
+# this via dsh.bundle.patch). The browser half is discovered from the
+# dsh.client manifest of the loaded entry; the host halves register the
+# contentOutputs / contentSchedule Remotes this plugin's client half mounts.
+- insert:
+    - id: content-outputs
+      name: '@guilinleolee/dsh-content-outputs'
+    - id: content-schedule
+      name: '@guilinleolee/dsh-content-schedule'
+    - id: ui-content-studio
+      name: '@guilinleolee/dsh-content-studio'

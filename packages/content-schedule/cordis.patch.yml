@@ -1,0 +1,5 @@
+# dsh bundle patch: inserts the publication-calendar Remote gateway into a
+# profile's layer stack (`dsh plugin add` consumes this via dsh.bundle.patch).
+- insert:
+    - id: content-schedule
+      name: '@guilinleolee/dsh-content-schedule'

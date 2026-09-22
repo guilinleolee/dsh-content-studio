@@ -1,0 +1,122 @@
+/**
+ * `content-studio` namespace dictionaries: the sidebar entry, the workbench
+ * surface chrome, tab/group labels, maturity badges, and every capability
+ * item's title and detail (`cap.<id>.title` / `cap.<id>.detail`). The
+ * clipboard payload is the capability's `prompt` data, not locale copy.
+ */
+/** Simplified Chinese dictionary (the key-set source of truth). */
+export declare const zh: {
+    readonly 'entry.label': "内容创作";
+    readonly 'entry.aria': "打开内容创作工作台";
+    readonly 'studio.title': "内容创作";
+    readonly 'studio.subtitle': "从一个想法开始：选题、创作、发布、复盘";
+    readonly 'studio.close': "关闭工作台";
+    readonly 'studio.back': "← 返回主界面";
+    readonly 'view.create': "开始创作";
+    readonly 'view.library': "内容库";
+    readonly 'view.calendar': "内容日历";
+    readonly 'calendar.loading': "正在读取日历…";
+    readonly 'calendar.prev': "上个月";
+    readonly 'calendar.next': "下个月";
+    readonly 'calendar.today': "今天";
+    readonly 'calendar.empty': "还没有排期。点击某一天，把要发布的内容放上去。";
+    readonly 'calendar.titlePlaceholder': "要发布什么？";
+    readonly 'calendar.platformPlaceholder': "平台（可选）";
+    readonly 'calendar.add': "添加";
+    readonly 'calendar.cancel': "取消";
+    readonly 'calendar.publish': "标记为已发布";
+    readonly 'calendar.publish.aria': "标记为已发布";
+    readonly 'calendar.remove.aria': "删除这条排期";
+    readonly 'weekday.mon': "一";
+    readonly 'weekday.tue': "二";
+    readonly 'weekday.wed': "三";
+    readonly 'weekday.thu': "四";
+    readonly 'weekday.fri': "五";
+    readonly 'weekday.sat': "六";
+    readonly 'weekday.sun': "日";
+    readonly 'calendar.month.1': "1 月";
+    readonly 'calendar.month.2': "2 月";
+    readonly 'calendar.month.3': "3 月";
+    readonly 'calendar.month.4': "4 月";
+    readonly 'calendar.month.5': "5 月";
+    readonly 'calendar.month.6': "6 月";
+    readonly 'calendar.month.7': "7 月";
+    readonly 'calendar.month.8': "8 月";
+    readonly 'calendar.month.9': "9 月";
+    readonly 'calendar.month.10': "10 月";
+    readonly 'calendar.month.11': "11 月";
+    readonly 'calendar.month.12': "12 月";
+    readonly 'library.loading': "正在读取内容库…";
+    readonly 'library.error': "内容库读取失败";
+    readonly 'library.retry': "重试";
+    readonly 'library.empty': "还没有作品。回到会话里完成一次创作，成品会出现在这里。";
+    readonly 'library.noMetadata': "缺少 .dsh-output.json 元数据";
+    readonly 'library.deliverables': "{n} 个成品";
+    readonly 'library.assets': "{n} 个素材";
+    readonly 'library.problems': "{n} 个项目目录无法读取";
+    readonly 'status.draft': "草稿";
+    readonly 'status.ready': "就绪";
+    readonly 'status.published': "已发布";
+    readonly 'kind.article': "文章";
+    readonly 'kind.xhs-note': "小红书笔记";
+    readonly 'kind.video': "视频";
+    readonly 'kind.cards': "图文卡片";
+    readonly 'kind.poster': "海报";
+    readonly 'kind.audio': "音频";
+    readonly 'kind.other': "其他";
+    readonly 'tab.create': "做内容 · 要成品";
+    readonly 'tab.operate': "做运营 · 要动作";
+    readonly 'tab.create.aria': "做内容，要成品";
+    readonly 'tab.operate.aria': "做运营，要动作";
+    readonly 'card.copyHint': "点击复制创作指令";
+    readonly 'card.copied': "已复制，到会话输入框粘贴即可开始";
+    readonly 'badge.done': "已验证";
+    readonly 'badge.ready': "可用";
+    readonly 'badge.need': "需配置";
+    readonly 'badge.incoming': "接入中";
+    readonly 'group.visual': "图文与视觉";
+    readonly 'group.article': "文章写作";
+    readonly 'group.video': "视频";
+    readonly 'group.audio': "音频";
+    readonly 'group.discover': "发现与选题";
+    readonly 'group.plan': "策划与定位";
+    readonly 'group.publish': "发布与质检";
+    readonly 'group.review': "数据与复盘";
+    readonly 'cap.social-card.title': "社媒图文卡片";
+    readonly 'cap.social-card.detail': "多卡片图文：首图钩子 + 逐张要点 + 行动引导";
+    readonly 'cap.cover-poster.title': "封面海报方案";
+    readonly 'cap.cover-poster.detail': "标题排版、视觉主体与配色的完整设计描述";
+    readonly 'cap.infographic.title': "信息图方案";
+    readonly 'cap.infographic.detail': "把原始数据整理成分区结构与图表建议";
+    readonly 'cap.gzh-article.title': "公众号文章";
+    readonly 'cap.gzh-article.detail': "备选标题 + 钩子开头 + 分节正文 + 互动引导";
+    readonly 'cap.long-form.title': "深度长文";
+    readonly 'cap.long-form.detail': "先大纲后成文，立场明确，引用带来源";
+    readonly 'cap.polish.title': "改写润色";
+    readonly 'cap.polish.detail': "指出问题 → 给出改写 → 逐条说明理由";
+    readonly 'cap.short-script.title': "短视频脚本";
+    readonly 'cap.short-script.detail': "3 秒钩子 + 分镜口播 + 画面提示";
+    readonly 'cap.storyboard.title': "分镜表";
+    readonly 'cap.storyboard.detail': "脚本扩写为景别 / 运镜 / 时长的分镜表";
+    readonly 'cap.podcast-outline.title': "播客大纲";
+    readonly 'cap.podcast-outline.detail': "章节话题 + 提问清单 + 时间分配";
+    readonly 'cap.hotspot.title': "热点选题";
+    readonly 'cap.hotspot.detail': "按账号方向给出可切入热点与角度";
+    readonly 'cap.breakdown.title': "爆款拆解";
+    readonly 'cap.breakdown.detail': "五维归因，输出可复用模板";
+    readonly 'cap.positioning.title': "账号定位";
+    readonly 'cap.positioning.detail': "3 个方向：人设、内容支柱、变现路径";
+    readonly 'cap.calendar-plan.title': "内容日历";
+    readonly 'cap.calendar-plan.detail': "按周排布选题，预留机动热点位";
+    readonly 'cap.multi-platform.title': "多平台适配";
+    readonly 'cap.multi-platform.detail': "一份母版改写成各平台约束内的版本";
+    readonly 'cap.pre-publish.title': "发布前检查";
+    readonly 'cap.pre-publish.detail': "事实、合规、标题党、错别字四项门禁";
+    readonly 'cap.retro.title': "复盘报告";
+    readonly 'cap.retro.detail': "好坏表现归因，输出可执行调整";
+};
+/** Type of the dictionary keys owned by this plugin. */
+export type StudioKey = keyof typeof zh;
+/** English dictionary; every zh key must be present. */
+export declare const en: Record<StudioKey, string>;
+//# sourceMappingURL=locales.d.ts.map
