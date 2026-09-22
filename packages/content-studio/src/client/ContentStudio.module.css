@@ -512,6 +512,29 @@
   text-align: center;
 }
 
+/* ── about footer ── */
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--dsw-alias-border-l1);
+  color: var(--dsw-alias-label-dimmed);
+  font-size: 11px;
+}
+
+.aboutLink {
+  color: var(--dsw-alias-label-tertiary);
+  text-decoration: none;
+}
+
+.aboutLink:hover {
+  color: var(--dsw-alias-state-business-primary);
+}
+
 /* ── maturity badges ── */
 
 .badge {

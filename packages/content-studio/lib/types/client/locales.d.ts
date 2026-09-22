@@ -12,6 +12,8 @@ export declare const zh: {
     readonly 'studio.subtitle': "从一个想法开始：选题、创作、发布、复盘";
     readonly 'studio.close': "关闭工作台";
     readonly 'studio.back': "← 返回主界面";
+    readonly 'studio.brand': "内容创作工作台";
+    readonly 'studio.feedback': "问题与反馈";
     readonly 'view.create': "开始创作";
     readonly 'view.library': "内容库";
     readonly 'view.calendar': "内容日历";

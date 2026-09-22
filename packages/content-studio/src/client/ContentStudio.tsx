@@ -192,6 +192,18 @@ export function ContentStudio({ studio, listOutputs, schedule, t }: ContentStudi
             </div>
           </>
         )}
+
+        <footer className={css.about}>
+          <span>{t('studio.brand')}</span>
+          <a
+            className={css.aboutLink}
+            href="https://github.com/guilinleolee/dsh-content-studio/issues"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t('studio.feedback')}
+          </a>
+        </footer>
       </div>
     </div>
   )
