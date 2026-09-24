@@ -166,6 +166,82 @@
 }
 
 .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.panelTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--dsw-alias-state-business-primary);
+}
+
+.panelRowThree {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.panelRowTwo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.statIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--dsw-alias-state-business-primary) 14%, transparent);
+  color: var(--dsw-alias-state-business-primary);
+  margin-bottom: 8px;
+}
+
+.listRowButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 0;
+  border: none;
+  border-top: 1px solid var(--dsw-alias-border-l1);
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.listRowButton:first-of-type {
+  border-top: none;
+}
+
+.listRowCopied .listTitle,
+.listRowCopied .listMeta {
+  color: var(--dsw-alias-state-success-primary);
+}
+
+.dataPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.dataPill {
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  color: var(--dsw-alias-label-secondary);
+  font-size: 11px;
+}
+
+.chip {
   padding: 8px 16px;
   border: 1px solid var(--dsw-alias-border-l1);
   border-radius: 999px;

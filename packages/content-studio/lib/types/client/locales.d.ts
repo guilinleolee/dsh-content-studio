@@ -34,6 +34,12 @@ export declare const zh: {
     readonly 'panel.viewAll': "全部";
     readonly 'panel.emptyRecent': "还没有作品，去「开始创作」生成第一个吧";
     readonly 'panel.emptyUpcoming': "暂无排期，去「内容日历」安排一条吧";
+    readonly 'action.chat': "开始对话";
+    readonly 'action.schedule': "记排期";
+    readonly 'panel.quickCreate': "快捷创作";
+    readonly 'panel.data': "创作数据";
+    readonly 'panel.dataHint': "以上为本地产物库与日历的实时统计";
+    readonly 'panel.recentSchedule': "排期记录";
     readonly 'calendar.loading': "正在读取日历…";
     readonly 'calendar.prev': "上个月";
     readonly 'calendar.next': "下个月";
@@ -73,6 +79,8 @@ export declare const zh: {
     readonly 'library.deliverables': "{n} 个成品";
     readonly 'library.assets': "{n} 个素材";
     readonly 'library.problems': "{n} 个项目目录无法读取";
+    readonly 'status.idea': "想法";
+    readonly 'status.scheduled': "已排期";
     readonly 'status.draft': "草稿";
     readonly 'status.ready': "就绪";
     readonly 'status.published': "已发布";

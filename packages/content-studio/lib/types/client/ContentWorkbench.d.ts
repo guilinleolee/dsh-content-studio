@@ -6,14 +6,15 @@ export interface ContentWorkbenchInjected {
     listOutputs: () => Promise<ContentOutputsSnapshot>;
     listSchedule: () => Promise<ContentScheduleSnapshot>;
 }
-/** Full props: the injected face, view navigation, and the locale seat. */
+/** Full props: the injected face, view navigation/chat, and the locale seat. */
 export type ContentWorkbenchProps = ContentWorkbenchInjected & {
     onNavigate: (view: 'create' | 'library' | 'calendar') => void;
+    onChat: () => void;
 } & PropsLocale<'content-studio'>;
 /**
  * Render the workbench home.
  * @param props - the Remote read wrappers, view navigation, and the locale seat.
  * @returns the dashboard element tree.
  */
-export declare function ContentWorkbench({ listOutputs, listSchedule, onNavigate, t }: ContentWorkbenchProps): import("react").JSX.Element;
+export declare function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat, t }: ContentWorkbenchProps): import("react").JSX.Element;
 //# sourceMappingURL=ContentWorkbench.d.ts.map

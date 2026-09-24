@@ -1,6 +1,6 @@
 {
   "name": "@guilinleolee/dsh-content-studio",
-  "version": "0.1.2-rc.1",
+  "version": "0.1.2-rc.2",
   "description": "Content Studio plugin: sidebar entry plus the frame-wide creation workbench surface",
   "type": "module",
   "main": "lib/index.js",

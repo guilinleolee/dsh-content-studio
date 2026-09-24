@@ -4286,7 +4286,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		}
 		//#endregion
 		//#region \0dsh-css:D:\deepseek-harness\packages\client\ui-content-studio\src\client\ContentStudio.module.css.mjs
-		const css = ".jTHpnG_entryWide{width:100%;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:8px;align-items:center;gap:8px;padding:8px 10px;font-size:13px;transition:background .14s,color .14s;display:flex}.jTHpnG_entryWide:hover,.jTHpnG_entryRail:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_entryRail{width:36px;height:36px;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:8px;justify-content:center;align-items:center;margin:0 auto;padding:0;transition:background .14s,color .14s;display:flex}.jTHpnG_entryLabel{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.jTHpnG_surface{background:var(--dsw-alias-bg-layer-1);position:fixed;inset:0;overflow:hidden}.jTHpnG_shell{height:100%;display:flex}.jTHpnG_side{border-right:1px solid var(--dsw-alias-border-l1);flex-direction:column;flex:none;width:208px;padding:20px 12px 16px;display:flex}.jTHpnG_sideBrand{color:var(--dsw-alias-label-primary);align-items:center;gap:8px;margin-bottom:14px;padding:6px 10px;font-size:15px;font-weight:600;display:flex}.jTHpnG_sideNav{flex-direction:column;gap:2px;display:flex}.jTHpnG_navItem{color:var(--dsw-alias-label-secondary);text-align:left;cursor:pointer;background:0 0;border:none;border-radius:8px;align-items:center;padding:9px 12px;font-size:13px;transition:background .14s,color .14s;display:flex}.jTHpnG_navItem:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_navItemActive,.jTHpnG_navItemActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_sideFoot{flex-direction:column;gap:10px;margin-top:auto;padding:10px 6px 0;display:flex}.jTHpnG_main{flex:1;position:relative;overflow-y:auto}.jTHpnG_main .jTHpnG_close{z-index:1;position:absolute;top:24px;right:28px}.jTHpnG_workbench{flex-direction:column;gap:24px;display:flex}.jTHpnG_helloRow{padding-right:56px}.jTHpnG_hello{color:var(--dsw-alias-label-primary);margin:0;font-size:26px;font-weight:600}.jTHpnG_helloSub{color:var(--dsw-alias-label-tertiary);margin:8px 0 0;font-size:13px}.jTHpnG_quickRow{flex-wrap:wrap;gap:10px;display:flex}.jTHpnG_chip{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:999px;padding:8px 16px;font-size:13px;transition:border-color .14s}.jTHpnG_chip:hover{border-color:var(--dsw-alias-state-business-primary)}.jTHpnG_chipCopied,.jTHpnG_chipCopied:hover{border-color:var(--dsw-alias-state-success-primary);color:var(--dsw-alias-state-success-primary)}.jTHpnG_statRow{grid-template-columns:repeat(4,1fr);gap:12px;display:grid}.jTHpnG_statCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:4px;padding:18px;display:flex}.jTHpnG_statValue{color:var(--dsw-alias-label-primary);font-size:26px;font-weight:600}.jTHpnG_statLabel{color:var(--dsw-alias-label-tertiary);font-size:12px}.jTHpnG_panelRow{grid-template-columns:1fr 1fr;gap:12px;display:grid}.jTHpnG_panel{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;padding:16px}.jTHpnG_panelHead{justify-content:space-between;align-items:center;margin-bottom:10px;display:flex}.jTHpnG_panelTitle{color:var(--dsw-alias-label-primary);margin:0;font-size:13px;font-weight:600}.jTHpnG_panelMore{color:var(--dsw-alias-label-tertiary);cursor:pointer;background:0 0;border:none;font-size:12px}.jTHpnG_panelMore:hover{color:var(--dsw-alias-state-business-primary)}.jTHpnG_panelEmpty{color:var(--dsw-alias-label-dimmed);margin:8px 0;font-size:12px}.jTHpnG_listRow{border-top:1px solid var(--dsw-alias-border-l1);justify-content:space-between;align-items:center;gap:8px;padding:7px 0;font-size:12px;display:flex}.jTHpnG_listRow:first-of-type{border-top:none}.jTHpnG_listTitle{text-overflow:ellipsis;white-space:nowrap;color:var(--dsw-alias-label-primary);overflow:hidden}.jTHpnG_listMeta{color:var(--dsw-alias-label-tertiary);flex:none}.jTHpnG_frame{max-width:960px;margin:0 auto;padding:40px 32px 64px}.jTHpnG_header{justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:24px;display:flex}.jTHpnG_headerControls{align-items:center;gap:12px;display:flex}.jTHpnG_views{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;gap:4px;padding:4px;display:inline-flex}.jTHpnG_title{color:var(--dsw-alias-label-primary);margin:0;font-size:22px;font-weight:600}.jTHpnG_subtitle{color:var(--dsw-alias-label-tertiary);margin:6px 0 0;font-size:13px}.jTHpnG_close{border:1px solid var(--dsw-alias-border-l1);width:32px;height:32px;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:8px;flex:none;justify-content:center;align-items:center;transition:background .14s,color .14s;display:flex}.jTHpnG_back{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:8px;flex:none;padding:6px 14px;font-size:13px;transition:background .14s}.jTHpnG_back:hover{background:var(--dsw-alias-button-primary-hover)}.jTHpnG_close:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_tabs{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;gap:4px;margin-bottom:28px;padding:4px;display:inline-flex}.jTHpnG_tab{color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:7px;padding:6px 14px;font-size:13px;transition:background .14s,color .14s}.jTHpnG_tab:hover{color:var(--dsw-alias-label-primary)}.jTHpnG_tabActive,.jTHpnG_tabActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_group{margin-bottom:28px}.jTHpnG_groupTitle{color:var(--dsw-alias-label-secondary);margin:0 0 10px;font-size:13px;font-weight:600}.jTHpnG_grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;display:grid}.jTHpnG_card{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:inherit;text-align:left;font:inherit;cursor:pointer;border-radius:10px;flex-direction:column;gap:8px;padding:14px;transition:transform .14s,border-color .14s;display:flex}.jTHpnG_card:hover{border-color:var(--dsw-alias-border-l2);transform:translateY(-2px)}.jTHpnG_cardCopied,.jTHpnG_cardCopied:hover{border-color:var(--dsw-alias-state-success-primary)}.jTHpnG_cardHead{justify-content:space-between;align-items:center;gap:8px;display:flex}.jTHpnG_cardTitle{color:var(--dsw-alias-label-primary);font-size:14px;font-weight:600}.jTHpnG_cardDetail{color:var(--dsw-alias-label-tertiary);font-size:12px;line-height:1.5}.jTHpnG_cardHint{color:var(--dsw-alias-label-dimmed);font-size:11px}.jTHpnG_cardHintCopied{color:var(--dsw-alias-state-success-primary)}.jTHpnG_library{flex-direction:column;gap:12px;display:flex}.jTHpnG_libraryState{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-tertiary);border-radius:10px;justify-content:center;align-items:center;gap:8px;padding:48px 16px;font-size:13px;display:flex}.jTHpnG_libraryProblems{color:var(--dsw-alias-state-warn-primary);border-radius:8px;align-items:center;gap:6px;padding:8px 12px;font-size:12px;display:flex}.jTHpnG_libraryCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:8px;padding:14px;display:flex}.jTHpnG_libraryTags{flex-wrap:wrap;gap:4px;display:flex}.jTHpnG_libraryTag{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);border-radius:999px;padding:1px 8px;font-size:11px}.jTHpnG_statusDraft{color:var(--dsw-alias-label-tertiary);background:color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent)}.jTHpnG_statusReady{color:var(--dsw-alias-state-business-primary);background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent)}.jTHpnG_statusPublished{color:var(--dsw-alias-state-success-primary);background:color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent)}.jTHpnG_retry{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:7px;align-items:center;gap:4px;padding:4px 10px;font-size:12px;display:inline-flex}.jTHpnG_retry:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_calendar{flex-direction:column;gap:10px;display:flex}.jTHpnG_calendarBar{align-items:center;gap:8px;display:flex}.jTHpnG_calendarMonth{color:var(--dsw-alias-label-primary);text-align:center;min-width:88px;font-size:14px;font-weight:600}.jTHpnG_calendarNav,.jTHpnG_calendarToday{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:7px;font-size:12px}.jTHpnG_calendarNav{width:26px;height:26px}.jTHpnG_calendarToday{padding:4px 12px}.jTHpnG_calendarNav:hover,.jTHpnG_calendarToday:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_calendarHead,.jTHpnG_calendarGrid{grid-template-columns:repeat(7,1fr);gap:4px;display:grid}.jTHpnG_calendarWeekday{text-align:center;color:var(--dsw-alias-label-tertiary);padding:2px 0;font-size:11px}.jTHpnG_calendarCell{border:1px solid var(--dsw-alias-border-l1);cursor:pointer;border-radius:8px;flex-direction:column;gap:3px;min-height:76px;padding:4px;transition:border-color .14s;display:flex}.jTHpnG_calendarCell:hover{border-color:var(--dsw-alias-border-l2)}.jTHpnG_calendarCellOutside{opacity:.45}.jTHpnG_calendarCellToday{border-color:var(--dsw-alias-state-business-primary)}.jTHpnG_calendarDayNum{color:var(--dsw-alias-label-secondary);font-size:11px}.jTHpnG_calendarChip{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary);cursor:default;border-radius:5px;align-items:center;gap:4px;min-width:0;padding:1px 4px;font-size:10px;display:flex}.jTHpnG_calendarChipTitle{text-overflow:ellipsis;white-space:nowrap;flex:1;overflow:hidden}.jTHpnG_calendarChipAction{color:var(--dsw-alias-label-tertiary);cursor:pointer;background:0 0;border:none;align-items:center;padding:0 2px;font-size:10px;display:inline-flex}.jTHpnG_calendarChipAction:hover{color:var(--dsw-alias-label-primary)}.jTHpnG_calendarDot{border-radius:999px;flex:none;width:6px;height:6px}.jTHpnG_dotIdea{background:var(--dsw-alias-label-tertiary)}.jTHpnG_dotDraft{background:var(--dsw-alias-state-warn-primary)}.jTHpnG_dotScheduled{background:var(--dsw-alias-state-business-primary)}.jTHpnG_dotPublished{background:var(--dsw-alias-state-success-primary)}.jTHpnG_calendarForm{flex-direction:column;gap:4px;margin-top:2px;display:flex}.jTHpnG_calendarInput{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);width:100%;color:var(--dsw-alias-label-primary);border-radius:5px;padding:3px 6px;font-size:10px}.jTHpnG_calendarFormRow{align-items:center;gap:6px;display:flex}.jTHpnG_calendarSubmit{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:5px;align-items:center;gap:3px;padding:2px 8px;font-size:10px;display:inline-flex}.jTHpnG_calendarHint{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-tertiary);text-align:center;border-radius:8px;padding:12px;font-size:12px}.jTHpnG_about{border-top:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-dimmed);justify-content:center;align-items:center;gap:12px;margin-top:32px;padding-top:16px;font-size:11px;display:flex}.jTHpnG_aboutLink{color:var(--dsw-alias-label-tertiary);text-decoration:none}.jTHpnG_aboutLink:hover{color:var(--dsw-alias-state-business-primary)}.jTHpnG_badge{white-space:nowrap;border-radius:999px;flex:none;padding:2px 8px;font-size:11px}.jTHpnG_badgeDone{color:var(--dsw-alias-state-success-primary);background:color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent)}.jTHpnG_badgeReady{color:var(--dsw-alias-state-business-primary);background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent)}.jTHpnG_badgeNeed{color:var(--dsw-alias-state-warn-primary);background:color-mix(in srgb, var(--dsw-alias-state-warn-primary) 12%, transparent)}.jTHpnG_badgeIncoming{color:var(--dsw-alias-label-tertiary);background:color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent)}";
+		const css = ".jTHpnG_entryWide{width:100%;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:8px;align-items:center;gap:8px;padding:8px 10px;font-size:13px;transition:background .14s,color .14s;display:flex}.jTHpnG_entryWide:hover,.jTHpnG_entryRail:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_entryRail{width:36px;height:36px;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:8px;justify-content:center;align-items:center;margin:0 auto;padding:0;transition:background .14s,color .14s;display:flex}.jTHpnG_entryLabel{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.jTHpnG_surface{background:var(--dsw-alias-bg-layer-1);position:fixed;inset:0;overflow:hidden}.jTHpnG_shell{height:100%;display:flex}.jTHpnG_side{border-right:1px solid var(--dsw-alias-border-l1);flex-direction:column;flex:none;width:208px;padding:20px 12px 16px;display:flex}.jTHpnG_sideBrand{color:var(--dsw-alias-label-primary);align-items:center;gap:8px;margin-bottom:14px;padding:6px 10px;font-size:15px;font-weight:600;display:flex}.jTHpnG_sideNav{flex-direction:column;gap:2px;display:flex}.jTHpnG_navItem{color:var(--dsw-alias-label-secondary);text-align:left;cursor:pointer;background:0 0;border:none;border-radius:8px;align-items:center;padding:9px 12px;font-size:13px;transition:background .14s,color .14s;display:flex}.jTHpnG_navItem:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_navItemActive,.jTHpnG_navItemActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_sideFoot{flex-direction:column;gap:10px;margin-top:auto;padding:10px 6px 0;display:flex}.jTHpnG_main{flex:1;position:relative;overflow-y:auto}.jTHpnG_main .jTHpnG_close{z-index:1;position:absolute;top:24px;right:28px}.jTHpnG_workbench{flex-direction:column;gap:24px;display:flex}.jTHpnG_helloRow{padding-right:56px}.jTHpnG_hello{color:var(--dsw-alias-label-primary);margin:0;font-size:26px;font-weight:600}.jTHpnG_helloSub{color:var(--dsw-alias-label-tertiary);margin:8px 0 0;font-size:13px}.jTHpnG_quickRow{flex-wrap:wrap;gap:10px;display:flex}.jTHpnG_chip{align-items:center;gap:6px;display:inline-flex}.jTHpnG_panelTitle{color:var(--dsw-alias-state-business-primary);align-items:center;gap:6px;display:inline-flex}.jTHpnG_panelRowThree{grid-template-columns:repeat(3,1fr);gap:12px;display:grid}.jTHpnG_panelRowTwo{grid-template-columns:1fr 1fr;gap:12px;display:grid}.jTHpnG_statIcon{background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 14%, transparent);width:30px;height:30px;color:var(--dsw-alias-state-business-primary);border-radius:8px;justify-content:center;align-items:center;margin-bottom:8px;display:flex}.jTHpnG_listRowButton{border:none;border-top:1px solid var(--dsw-alias-border-l1);width:100%;font:inherit;text-align:left;cursor:pointer;background:0 0;justify-content:space-between;align-items:center;gap:8px;padding:7px 0;display:flex}.jTHpnG_listRowButton:first-of-type{border-top:none}.jTHpnG_listRowCopied .jTHpnG_listTitle,.jTHpnG_listRowCopied .jTHpnG_listMeta{color:var(--dsw-alias-state-success-primary)}.jTHpnG_dataPills{flex-wrap:wrap;gap:6px;margin-bottom:8px;display:flex}.jTHpnG_dataPill{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);border-radius:999px;padding:3px 10px;font-size:11px}.jTHpnG_chip{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:999px;padding:8px 16px;font-size:13px;transition:border-color .14s}.jTHpnG_chip:hover{border-color:var(--dsw-alias-state-business-primary)}.jTHpnG_chipCopied,.jTHpnG_chipCopied:hover{border-color:var(--dsw-alias-state-success-primary);color:var(--dsw-alias-state-success-primary)}.jTHpnG_statRow{grid-template-columns:repeat(4,1fr);gap:12px;display:grid}.jTHpnG_statCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:4px;padding:18px;display:flex}.jTHpnG_statValue{color:var(--dsw-alias-label-primary);font-size:26px;font-weight:600}.jTHpnG_statLabel{color:var(--dsw-alias-label-tertiary);font-size:12px}.jTHpnG_panelRow{grid-template-columns:1fr 1fr;gap:12px;display:grid}.jTHpnG_panel{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;padding:16px}.jTHpnG_panelHead{justify-content:space-between;align-items:center;margin-bottom:10px;display:flex}.jTHpnG_panelTitle{color:var(--dsw-alias-label-primary);margin:0;font-size:13px;font-weight:600}.jTHpnG_panelMore{color:var(--dsw-alias-label-tertiary);cursor:pointer;background:0 0;border:none;font-size:12px}.jTHpnG_panelMore:hover{color:var(--dsw-alias-state-business-primary)}.jTHpnG_panelEmpty{color:var(--dsw-alias-label-dimmed);margin:8px 0;font-size:12px}.jTHpnG_listRow{border-top:1px solid var(--dsw-alias-border-l1);justify-content:space-between;align-items:center;gap:8px;padding:7px 0;font-size:12px;display:flex}.jTHpnG_listRow:first-of-type{border-top:none}.jTHpnG_listTitle{text-overflow:ellipsis;white-space:nowrap;color:var(--dsw-alias-label-primary);overflow:hidden}.jTHpnG_listMeta{color:var(--dsw-alias-label-tertiary);flex:none}.jTHpnG_frame{max-width:960px;margin:0 auto;padding:40px 32px 64px}.jTHpnG_header{justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:24px;display:flex}.jTHpnG_headerControls{align-items:center;gap:12px;display:flex}.jTHpnG_views{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;gap:4px;padding:4px;display:inline-flex}.jTHpnG_title{color:var(--dsw-alias-label-primary);margin:0;font-size:22px;font-weight:600}.jTHpnG_subtitle{color:var(--dsw-alias-label-tertiary);margin:6px 0 0;font-size:13px}.jTHpnG_close{border:1px solid var(--dsw-alias-border-l1);width:32px;height:32px;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:8px;flex:none;justify-content:center;align-items:center;transition:background .14s,color .14s;display:flex}.jTHpnG_back{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:8px;flex:none;padding:6px 14px;font-size:13px;transition:background .14s}.jTHpnG_back:hover{background:var(--dsw-alias-button-primary-hover)}.jTHpnG_close:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_tabs{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;gap:4px;margin-bottom:28px;padding:4px;display:inline-flex}.jTHpnG_tab{color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:7px;padding:6px 14px;font-size:13px;transition:background .14s,color .14s}.jTHpnG_tab:hover{color:var(--dsw-alias-label-primary)}.jTHpnG_tabActive,.jTHpnG_tabActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_group{margin-bottom:28px}.jTHpnG_groupTitle{color:var(--dsw-alias-label-secondary);margin:0 0 10px;font-size:13px;font-weight:600}.jTHpnG_grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;display:grid}.jTHpnG_card{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:inherit;text-align:left;font:inherit;cursor:pointer;border-radius:10px;flex-direction:column;gap:8px;padding:14px;transition:transform .14s,border-color .14s;display:flex}.jTHpnG_card:hover{border-color:var(--dsw-alias-border-l2);transform:translateY(-2px)}.jTHpnG_cardCopied,.jTHpnG_cardCopied:hover{border-color:var(--dsw-alias-state-success-primary)}.jTHpnG_cardHead{justify-content:space-between;align-items:center;gap:8px;display:flex}.jTHpnG_cardTitle{color:var(--dsw-alias-label-primary);font-size:14px;font-weight:600}.jTHpnG_cardDetail{color:var(--dsw-alias-label-tertiary);font-size:12px;line-height:1.5}.jTHpnG_cardHint{color:var(--dsw-alias-label-dimmed);font-size:11px}.jTHpnG_cardHintCopied{color:var(--dsw-alias-state-success-primary)}.jTHpnG_library{flex-direction:column;gap:12px;display:flex}.jTHpnG_libraryState{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-tertiary);border-radius:10px;justify-content:center;align-items:center;gap:8px;padding:48px 16px;font-size:13px;display:flex}.jTHpnG_libraryProblems{color:var(--dsw-alias-state-warn-primary);border-radius:8px;align-items:center;gap:6px;padding:8px 12px;font-size:12px;display:flex}.jTHpnG_libraryCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:8px;padding:14px;display:flex}.jTHpnG_libraryTags{flex-wrap:wrap;gap:4px;display:flex}.jTHpnG_libraryTag{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);border-radius:999px;padding:1px 8px;font-size:11px}.jTHpnG_statusDraft{color:var(--dsw-alias-label-tertiary);background:color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent)}.jTHpnG_statusReady{color:var(--dsw-alias-state-business-primary);background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent)}.jTHpnG_statusPublished{color:var(--dsw-alias-state-success-primary);background:color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent)}.jTHpnG_retry{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:7px;align-items:center;gap:4px;padding:4px 10px;font-size:12px;display:inline-flex}.jTHpnG_retry:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_calendar{flex-direction:column;gap:10px;display:flex}.jTHpnG_calendarBar{align-items:center;gap:8px;display:flex}.jTHpnG_calendarMonth{color:var(--dsw-alias-label-primary);text-align:center;min-width:88px;font-size:14px;font-weight:600}.jTHpnG_calendarNav,.jTHpnG_calendarToday{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:7px;font-size:12px}.jTHpnG_calendarNav{width:26px;height:26px}.jTHpnG_calendarToday{padding:4px 12px}.jTHpnG_calendarNav:hover,.jTHpnG_calendarToday:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_calendarHead,.jTHpnG_calendarGrid{grid-template-columns:repeat(7,1fr);gap:4px;display:grid}.jTHpnG_calendarWeekday{text-align:center;color:var(--dsw-alias-label-tertiary);padding:2px 0;font-size:11px}.jTHpnG_calendarCell{border:1px solid var(--dsw-alias-border-l1);cursor:pointer;border-radius:8px;flex-direction:column;gap:3px;min-height:76px;padding:4px;transition:border-color .14s;display:flex}.jTHpnG_calendarCell:hover{border-color:var(--dsw-alias-border-l2)}.jTHpnG_calendarCellOutside{opacity:.45}.jTHpnG_calendarCellToday{border-color:var(--dsw-alias-state-business-primary)}.jTHpnG_calendarDayNum{color:var(--dsw-alias-label-secondary);font-size:11px}.jTHpnG_calendarChip{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary);cursor:default;border-radius:5px;align-items:center;gap:4px;min-width:0;padding:1px 4px;font-size:10px;display:flex}.jTHpnG_calendarChipTitle{text-overflow:ellipsis;white-space:nowrap;flex:1;overflow:hidden}.jTHpnG_calendarChipAction{color:var(--dsw-alias-label-tertiary);cursor:pointer;background:0 0;border:none;align-items:center;padding:0 2px;font-size:10px;display:inline-flex}.jTHpnG_calendarChipAction:hover{color:var(--dsw-alias-label-primary)}.jTHpnG_calendarDot{border-radius:999px;flex:none;width:6px;height:6px}.jTHpnG_dotIdea{background:var(--dsw-alias-label-tertiary)}.jTHpnG_dotDraft{background:var(--dsw-alias-state-warn-primary)}.jTHpnG_dotScheduled{background:var(--dsw-alias-state-business-primary)}.jTHpnG_dotPublished{background:var(--dsw-alias-state-success-primary)}.jTHpnG_calendarForm{flex-direction:column;gap:4px;margin-top:2px;display:flex}.jTHpnG_calendarInput{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);width:100%;color:var(--dsw-alias-label-primary);border-radius:5px;padding:3px 6px;font-size:10px}.jTHpnG_calendarFormRow{align-items:center;gap:6px;display:flex}.jTHpnG_calendarSubmit{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:5px;align-items:center;gap:3px;padding:2px 8px;font-size:10px;display:inline-flex}.jTHpnG_calendarHint{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-tertiary);text-align:center;border-radius:8px;padding:12px;font-size:12px}.jTHpnG_about{border-top:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-dimmed);justify-content:center;align-items:center;gap:12px;margin-top:32px;padding-top:16px;font-size:11px;display:flex}.jTHpnG_aboutLink{color:var(--dsw-alias-label-tertiary);text-decoration:none}.jTHpnG_aboutLink:hover{color:var(--dsw-alias-state-business-primary)}.jTHpnG_badge{white-space:nowrap;border-radius:999px;flex:none;padding:2px 8px;font-size:11px}.jTHpnG_badgeDone{color:var(--dsw-alias-state-success-primary);background:color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent)}.jTHpnG_badgeReady{color:var(--dsw-alias-state-business-primary);background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent)}.jTHpnG_badgeNeed{color:var(--dsw-alias-state-warn-primary);background:color-mix(in srgb, var(--dsw-alias-state-warn-primary) 12%, transparent)}.jTHpnG_badgeIncoming{color:var(--dsw-alias-label-tertiary);background:color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent)}";
 		const tagId = "@deepseek-ai/dsh-client-ui-content-studio/ContentStudio.module.css";
 		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId) + "]") === null) {
 			const tag = document.createElement("style");
@@ -4335,6 +4335,8 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"chip": "jTHpnG_chip",
 			"chipCopied": "jTHpnG_chipCopied",
 			"close": "jTHpnG_close",
+			"dataPill": "jTHpnG_dataPill",
+			"dataPills": "jTHpnG_dataPills",
 			"dotDraft": "jTHpnG_dotDraft",
 			"dotIdea": "jTHpnG_dotIdea",
 			"dotPublished": "jTHpnG_dotPublished",
@@ -4359,6 +4361,8 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"libraryTags": "jTHpnG_libraryTags",
 			"listMeta": "jTHpnG_listMeta",
 			"listRow": "jTHpnG_listRow",
+			"listRowButton": "jTHpnG_listRowButton",
+			"listRowCopied": "jTHpnG_listRowCopied",
 			"listTitle": "jTHpnG_listTitle",
 			"main": "jTHpnG_main",
 			"navItem": "jTHpnG_navItem",
@@ -4368,6 +4372,8 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"panelHead": "jTHpnG_panelHead",
 			"panelMore": "jTHpnG_panelMore",
 			"panelRow": "jTHpnG_panelRow",
+			"panelRowThree": "jTHpnG_panelRowThree",
+			"panelRowTwo": "jTHpnG_panelRowTwo",
 			"panelTitle": "jTHpnG_panelTitle",
 			"quickRow": "jTHpnG_quickRow",
 			"retry": "jTHpnG_retry",
@@ -4377,6 +4383,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"sideFoot": "jTHpnG_sideFoot",
 			"sideNav": "jTHpnG_sideNav",
 			"statCard": "jTHpnG_statCard",
+			"statIcon": "jTHpnG_statIcon",
 			"statLabel": "jTHpnG_statLabel",
 			"statRow": "jTHpnG_statRow",
 			"statValue": "jTHpnG_statValue",
@@ -5052,30 +5059,38 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		//#endregion
 		//#region src/client/ContentWorkbench.tsx
 		/**
-		* The workbench home (Easel-style dashboard): greeting, quick capability
-		* chips (pick = copy instruction), four stat cards derived from the outputs
-		* library and the publication calendar, and two panels — recent outputs and
-		* upcoming schedule — each hopping to its full view.
+		* The workbench home (Easel-style dashboard): greeting, icon verb chips
+		* (navigate or copy a capability instruction), four stat cards with tinted
+		* icon tiles, and a 3+2 panel grid — quick-create rows, recent outputs,
+		* upcoming schedule, and a creation-data breakdown — each panel hopping to
+		* its full view.
 		*/
-		/** Quick chips surface these capability ids, in this order. */
+		/** Quick-create panel rows: these capability ids, in this order. */
 		const QUICK_IDS = [
 			"social-card",
 			"gzh-article",
 			"short-script",
-			"multi-platform"
+			"multi-platform",
+			"pre-publish"
 		];
-		/** How long a chip shows its copied state before reverting. */
+		/** How long a row shows its copied state before reverting. */
 		const COPIED_FEEDBACK_MS$1 = 1600;
 		/** Greeting bucket by hour of day. */
 		function greetKey(hour) {
 			return hour < 12 ? "morning" : hour < 18 ? "afternoon" : "evening";
+		}
+		/** Find one capability by id (the catalog is static, ids are pinned by test). */
+		function cap(id) {
+			const found = CAPABILITY_ITEMS.find((item) => item.id === id);
+			if (found === void 0) throw new Error(`unknown capability id: ${id}`);
+			return found;
 		}
 		/**
 		* Render the workbench home.
 		* @param props - the Remote read wrappers, view navigation, and the locale seat.
 		* @returns the dashboard element tree.
 		*/
-		function ContentWorkbench({ listOutputs, listSchedule, onNavigate, t }) {
+		function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat, t }) {
 			const [outputs, setOutputs] = (0, react.useState)(void 0);
 			const [schedule, setSchedule] = (0, react.useState)(void 0);
 			const [failed, setFailed] = (0, react.useState)(false);
@@ -5102,7 +5117,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					window.clearTimeout(timer);
 				};
 			}, [copiedId]);
-			const quick = (0, react.useMemo)(() => QUICK_IDS.map((id) => CAPABILITY_ITEMS.find((item) => item.id === id)).filter((item) => item !== void 0), []);
+			const quick = (0, react.useMemo)(() => QUICK_IDS.map((id) => cap(id)), []);
 			const pick = async (item) => {
 				if (await (0, _deepseek_ai_dsh_client_ui_primitives.writeClipboard)(item.prompt)) setCopiedId(item.id);
 			};
@@ -5110,12 +5125,14 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				className: ContentStudio_module_css_default.libraryState,
 				children: t("library.error")
 			});
-			const ready = outputs?.projects.filter((project) => project.status === "ready").length ?? 0;
-			const pending = schedule?.items.filter((item) => item.status !== "published").length ?? 0;
-			const published = schedule?.items.filter((item) => item.status === "published").length ?? 0;
-			const recent = [...outputs?.projects ?? []].sort((a, b) => a.updatedAt < b.updatedAt ? 1 : -1).slice(0, 4);
+			const projects = outputs?.projects ?? [];
+			const ready = projects.filter((project) => project.status === "ready").length;
+			const pending = (schedule?.items ?? []).filter((item) => item.status !== "published").length;
+			const published = (schedule?.items ?? []).filter((item) => item.status === "published").length;
+			const recent = [...projects].sort((a, b) => a.updatedAt < b.updatedAt ? 1 : -1).slice(0, 5);
 			const today = (/* @__PURE__ */ new Date()).toISOString().slice(0, 10);
-			const upcoming = (schedule?.items ?? []).filter((item) => item.status !== "published" && item.date >= today).slice(0, 4);
+			const upcoming = (schedule?.items ?? []).filter((item) => item.status !== "published" && item.date >= today).slice(0, 5);
+			const allSchedule = schedule?.items ?? [];
 			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.workbench,
 				children: [
@@ -5129,94 +5146,258 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 							children: t("workbench.subtitle")
 						})]
 					}),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.quickRow,
-						children: quick.map((item) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
-							type: "button",
-							className: clsx(ContentStudio_module_css_default.chip, copiedId === item.id && ContentStudio_module_css_default.chipCopied),
-							onClick: () => {
-								pick(item);
-							},
-							children: copiedId === item.id ? t("card.copied") : t(`cap.${item.id}.title`)
-						}, item.id))
+						children: [
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+								type: "button",
+								className: ContentStudio_module_css_default.chip,
+								onClick: onChat,
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconNewChatOutline16, { size: 14 }), t("action.chat")]
+							}),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+								type: "button",
+								className: ContentStudio_module_css_default.chip,
+								onClick: () => {
+									onNavigate("create");
+								},
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 14 }), t("nav.create")]
+							}),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+								type: "button",
+								className: ContentStudio_module_css_default.chip,
+								onClick: () => {
+									onNavigate("calendar");
+								},
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 14 }), t("action.schedule")]
+							}),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+								type: "button",
+								className: clsx(ContentStudio_module_css_default.chip, copiedId === "social-card" && ContentStudio_module_css_default.chipCopied),
+								onClick: () => {
+									pick(cap("social-card"));
+								},
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconEditOutline16, { size: 14 }), copiedId === "social-card" ? t("card.copied") : t("cap.social-card.title")]
+							}),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+								type: "button",
+								className: clsx(ContentStudio_module_css_default.chip, copiedId === "pre-publish" && ContentStudio_module_css_default.chipCopied),
+								onClick: () => {
+									pick(cap("pre-publish"));
+								},
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCheckOutline16, { size: 14 }), copiedId === "pre-publish" ? t("card.copied") : t("cap.pre-publish.title")]
+							})
+						]
 					}),
 					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.statRow,
 						children: [
 							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
-								value: outputs?.projects.length,
+								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconFolderOpenOutline16, { size: 16 }),
+								value: projects.length,
 								label: t("stat.projects")
 							}),
 							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
-								value: ready,
-								label: t("stat.ready")
-							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
+								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 16 }),
 								value: pending,
 								label: t("stat.scheduled")
 							}),
 							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
+								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCheckOutline16, { size: 16 }),
+								value: ready,
+								label: t("stat.ready")
+							}),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
+								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconGoalOutline16, { size: 16 }),
 								value: published,
 								label: t("stat.published")
 							})
 						]
 					}),
 					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
-						className: ContentStudio_module_css_default.panelRow,
+						className: ContentStudio_module_css_default.panelRowThree,
+						children: [
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
+								className: ContentStudio_module_css_default.panel,
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
+									className: ContentStudio_module_css_default.panelHead,
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h2", {
+										className: ContentStudio_module_css_default.panelTitle,
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 13 }), t("panel.quickCreate")]
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+										type: "button",
+										className: ContentStudio_module_css_default.panelMore,
+										onClick: () => {
+											onNavigate("create");
+										},
+										children: [t("nav.create"), " →"]
+									})]
+								}), quick.map((item) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+									type: "button",
+									className: clsx(ContentStudio_module_css_default.listRowButton, copiedId === item.id && ContentStudio_module_css_default.listRowCopied),
+									onClick: () => {
+										pick(item);
+									},
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+										className: ContentStudio_module_css_default.listTitle,
+										children: copiedId === item.id ? t("card.copied") : t(`cap.${item.id}.title`)
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+										className: ContentStudio_module_css_default.listMeta,
+										children: copiedId === item.id ? "" : t("card.copyHint")
+									})]
+								}, item.id))]
+							}),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
+								className: ContentStudio_module_css_default.panel,
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
+									className: ContentStudio_module_css_default.panelHead,
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h2", {
+										className: ContentStudio_module_css_default.panelTitle,
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconFolderOpenOutline16, { size: 13 }), t("panel.recent")]
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+										type: "button",
+										className: ContentStudio_module_css_default.panelMore,
+										onClick: () => {
+											onNavigate("library");
+										},
+										children: [t("nav.library"), " →"]
+									})]
+								}), recent.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
+									className: ContentStudio_module_css_default.panelEmpty,
+									children: t("panel.emptyRecent")
+								}) : recent.map((project) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+									className: ContentStudio_module_css_default.listRow,
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+										className: ContentStudio_module_css_default.listTitle,
+										children: project.title
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+										className: ContentStudio_module_css_default.listMeta,
+										children: t(`status.${project.status}`)
+									})]
+								}, project.topic))]
+							}),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
+								className: ContentStudio_module_css_default.panel,
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
+									className: ContentStudio_module_css_default.panelHead,
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h2", {
+										className: ContentStudio_module_css_default.panelTitle,
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 13 }), t("panel.upcoming")]
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+										type: "button",
+										className: ContentStudio_module_css_default.panelMore,
+										onClick: () => {
+											onNavigate("calendar");
+										},
+										children: [t("nav.calendar"), " →"]
+									})]
+								}), upcoming.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
+									className: ContentStudio_module_css_default.panelEmpty,
+									children: t("panel.emptyUpcoming")
+								}) : upcoming.map((item) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+									className: ContentStudio_module_css_default.listRow,
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+										className: ContentStudio_module_css_default.listTitle,
+										children: item.title
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+										className: ContentStudio_module_css_default.listMeta,
+										children: item.date
+									})]
+								}, item.id))]
+							})
+						]
+					}),
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+						className: ContentStudio_module_css_default.panelRowTwo,
 						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 							className: ContentStudio_module_css_default.panel,
-							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
-								className: ContentStudio_module_css_default.panelHead,
-								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h2", {
-									className: ContentStudio_module_css_default.panelTitle,
-									children: t("panel.recent")
-								}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
-									type: "button",
-									className: ContentStudio_module_css_default.panelMore,
-									onClick: () => {
-										onNavigate("library");
-									},
-									children: [t("panel.viewAll"), " →"]
-								})]
-							}), recent.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
-								className: ContentStudio_module_css_default.panelEmpty,
-								children: t("panel.emptyRecent")
-							}) : recent.map((project) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
-								className: ContentStudio_module_css_default.listRow,
-								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
-									className: ContentStudio_module_css_default.listTitle,
-									children: project.title
-								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
-									className: ContentStudio_module_css_default.listMeta,
-									children: t(`status.${project.status}`)
-								})]
-							}, project.topic))]
+							children: [
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
+									className: ContentStudio_module_css_default.panelHead,
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h2", {
+										className: ContentStudio_module_css_default.panelTitle,
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconGoalOutline16, { size: 13 }), t("panel.data")]
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+										type: "button",
+										className: ContentStudio_module_css_default.panelMore,
+										onClick: () => {
+											onNavigate("library");
+										},
+										children: [t("nav.library"), " →"]
+									})]
+								}),
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+									className: ContentStudio_module_css_default.dataPills,
+									children: [
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+											className: ContentStudio_module_css_default.dataPill,
+											children: [
+												t("stat.projects"),
+												" · ",
+												projects.length
+											]
+										}),
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+											className: ContentStudio_module_css_default.dataPill,
+											children: [
+												t("status.draft"),
+												" · ",
+												projects.filter((project) => project.status === "draft").length
+											]
+										}),
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+											className: ContentStudio_module_css_default.dataPill,
+											children: [
+												t("stat.ready"),
+												" · ",
+												ready
+											]
+										}),
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+											className: ContentStudio_module_css_default.dataPill,
+											children: [
+												t("stat.published"),
+												" · ",
+												published
+											]
+										})
+									]
+								}),
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
+									className: ContentStudio_module_css_default.panelEmpty,
+									children: t("panel.dataHint")
+								})
+							]
 						}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 							className: ContentStudio_module_css_default.panel,
 							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
 								className: ContentStudio_module_css_default.panelHead,
-								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h2", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h2", {
 									className: ContentStudio_module_css_default.panelTitle,
-									children: t("panel.upcoming")
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 13 }), t("panel.recentSchedule")]
 								}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 									type: "button",
 									className: ContentStudio_module_css_default.panelMore,
 									onClick: () => {
 										onNavigate("calendar");
 									},
-									children: [t("panel.viewAll"), " →"]
+									children: [t("nav.calendar"), " →"]
 								})]
-							}), upcoming.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
+							}), allSchedule.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 								className: ContentStudio_module_css_default.panelEmpty,
 								children: t("panel.emptyUpcoming")
-							}) : upcoming.map((item) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+							}) : allSchedule.slice(-5).reverse().map((item) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.listRow,
 								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: ContentStudio_module_css_default.listTitle,
 									children: item.title
-								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 									className: ContentStudio_module_css_default.listMeta,
-									children: item.date
+									children: [
+										item.date,
+										" · ",
+										t(`status.${item.status}`)
+									]
 								})]
 							}, item.id))]
 						})]
@@ -5224,17 +5405,24 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				]
 			});
 		}
-		/** One stat card; the value shows an em dash while its snapshot loads. */
-		function StatCard({ value, label }) {
+		/** One stat card with a tinted icon tile over the value and label. */
+		function StatCard({ icon, value, label }) {
 			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.statCard,
-				children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
-					className: ContentStudio_module_css_default.statValue,
-					children: value === void 0 ? "—" : String(value)
-				}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
-					className: ContentStudio_module_css_default.statLabel,
-					children: label
-				})]
+				children: [
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+						className: ContentStudio_module_css_default.statIcon,
+						children: icon
+					}),
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+						className: ContentStudio_module_css_default.statValue,
+						children: value === void 0 ? "—" : String(value)
+					}),
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+						className: ContentStudio_module_css_default.statLabel,
+						children: label
+					})
+				]
 			});
 		}
 		//#endregion
@@ -5366,6 +5554,9 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 									listOutputs,
 									listSchedule: schedule.list,
 									onNavigate: setView,
+									onChat: () => {
+										studio.close();
+									},
 									t
 								}),
 								view === "library" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(ContentLibrary, {
@@ -5478,6 +5669,12 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"panel.viewAll": "全部",
 			"panel.emptyRecent": "还没有作品，去「开始创作」生成第一个吧",
 			"panel.emptyUpcoming": "暂无排期，去「内容日历」安排一条吧",
+			"action.chat": "开始对话",
+			"action.schedule": "记排期",
+			"panel.quickCreate": "快捷创作",
+			"panel.data": "创作数据",
+			"panel.dataHint": "以上为本地产物库与日历的实时统计",
+			"panel.recentSchedule": "排期记录",
 			"calendar.loading": "正在读取日历…",
 			"calendar.prev": "上个月",
 			"calendar.next": "下个月",
@@ -5517,6 +5714,8 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"library.deliverables": "{n} 个成品",
 			"library.assets": "{n} 个素材",
 			"library.problems": "{n} 个项目目录无法读取",
+			"status.idea": "想法",
+			"status.scheduled": "已排期",
 			"status.draft": "草稿",
 			"status.ready": "就绪",
 			"status.published": "已发布",
@@ -5608,6 +5807,12 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"panel.viewAll": "All",
 			"panel.emptyRecent": "Nothing yet — create your first piece in Create.",
 			"panel.emptyUpcoming": "Nothing scheduled — plan one in Calendar.",
+			"action.chat": "New chat",
+			"action.schedule": "Plan",
+			"panel.quickCreate": "Quick create",
+			"panel.data": "Creation data",
+			"panel.dataHint": "Live counts from the local outputs library and calendar",
+			"panel.recentSchedule": "Schedule log",
 			"calendar.loading": "Reading the calendar…",
 			"calendar.prev": "Previous month",
 			"calendar.next": "Next month",
@@ -5647,6 +5852,8 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"library.deliverables": "{n} deliverables",
 			"library.assets": "{n} assets",
 			"library.problems": "{n} project directories unreadable",
+			"status.idea": "Idea",
+			"status.scheduled": "Scheduled",
 			"status.draft": "Draft",
 			"status.ready": "Ready",
 			"status.published": "Published",

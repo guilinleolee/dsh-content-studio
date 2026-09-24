@@ -152,6 +152,7 @@ export function ContentStudio({ studio, listOutputs, schedule, t }: ContentStudi
                 listOutputs={listOutputs}
                 listSchedule={schedule.list}
                 onNavigate={setView}
+                onChat={() => { studio.close() }}
                 t={t}
               />
             )}
