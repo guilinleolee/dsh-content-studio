@@ -4286,7 +4286,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		}
 		//#endregion
 		//#region \0dsh-css:D:\deepseek-harness\packages\client\ui-content-studio\src\client\ContentStudio.module.css.mjs
-		const css = ".jTHpnG_entryWide{width:100%;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:8px;align-items:center;gap:8px;padding:8px 10px;font-size:13px;transition:background .14s,color .14s;display:flex}.jTHpnG_entryWide:hover,.jTHpnG_entryRail:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_entryRail{width:36px;height:36px;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:8px;justify-content:center;align-items:center;margin:0 auto;padding:0;transition:background .14s,color .14s;display:flex}.jTHpnG_entryLabel{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.jTHpnG_surface{background:var(--dsw-alias-bg-layer-1);position:fixed;inset:0;overflow:hidden}.jTHpnG_shell{height:100%;display:flex}.jTHpnG_side{border-right:1px solid var(--dsw-alias-border-l1);flex-direction:column;flex:none;width:208px;padding:20px 12px 16px;display:flex}.jTHpnG_sideBrand{color:var(--dsw-alias-label-primary);align-items:center;gap:8px;margin-bottom:14px;padding:6px 10px;font-size:15px;font-weight:600;display:flex}.jTHpnG_sideNav{flex-direction:column;gap:2px;display:flex}.jTHpnG_navItem{color:var(--dsw-alias-label-secondary);text-align:left;cursor:pointer;background:0 0;border:none;border-radius:8px;align-items:center;padding:9px 12px;font-size:13px;transition:background .14s,color .14s;display:flex}.jTHpnG_navItem:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_navItemActive,.jTHpnG_navItemActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_sideFoot{flex-direction:column;gap:10px;margin-top:auto;padding:10px 6px 0;display:flex}.jTHpnG_main{flex:1;position:relative;overflow-y:auto}.jTHpnG_main .jTHpnG_close{z-index:1;position:absolute;top:24px;right:28px}.jTHpnG_workbench{flex-direction:column;gap:24px;display:flex}.jTHpnG_helloRow{padding-right:56px}.jTHpnG_hello{color:var(--dsw-alias-label-primary);margin:0;font-size:26px;font-weight:600}.jTHpnG_helloSub{color:var(--dsw-alias-label-tertiary);margin:8px 0 0;font-size:13px}.jTHpnG_quickRow{flex-wrap:wrap;gap:10px;display:flex}.jTHpnG_chip{align-items:center;gap:6px;display:inline-flex}.jTHpnG_panelTitle{color:var(--dsw-alias-state-business-primary);align-items:center;gap:6px;display:inline-flex}.jTHpnG_panelRowThree{grid-template-columns:repeat(3,1fr);gap:12px;display:grid}.jTHpnG_panelRowTwo{grid-template-columns:1fr 1fr;gap:12px;display:grid}.jTHpnG_statIcon{background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 14%, transparent);width:30px;height:30px;color:var(--dsw-alias-state-business-primary);border-radius:8px;justify-content:center;align-items:center;margin-bottom:8px;display:flex}.jTHpnG_listRowButton{border:none;border-top:1px solid var(--dsw-alias-border-l1);width:100%;font:inherit;text-align:left;cursor:pointer;background:0 0;justify-content:space-between;align-items:center;gap:8px;padding:7px 0;display:flex}.jTHpnG_listRowButton:first-of-type{border-top:none}.jTHpnG_listRowCopied .jTHpnG_listTitle,.jTHpnG_listRowCopied .jTHpnG_listMeta{color:var(--dsw-alias-state-success-primary)}.jTHpnG_dataPills{flex-wrap:wrap;gap:6px;margin-bottom:8px;display:flex}.jTHpnG_dataPill{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);border-radius:999px;padding:3px 10px;font-size:11px}.jTHpnG_chip{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:999px;padding:8px 16px;font-size:13px;transition:border-color .14s}.jTHpnG_chip:hover{border-color:var(--dsw-alias-state-business-primary)}.jTHpnG_chipCopied,.jTHpnG_chipCopied:hover{border-color:var(--dsw-alias-state-success-primary);color:var(--dsw-alias-state-success-primary)}.jTHpnG_statRow{grid-template-columns:repeat(4,1fr);gap:12px;display:grid}.jTHpnG_statCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:4px;padding:18px;display:flex}.jTHpnG_statValue{color:var(--dsw-alias-label-primary);font-size:26px;font-weight:600}.jTHpnG_statLabel{color:var(--dsw-alias-label-tertiary);font-size:12px}.jTHpnG_panelRow{grid-template-columns:1fr 1fr;gap:12px;display:grid}.jTHpnG_panel{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;padding:16px}.jTHpnG_panelHead{justify-content:space-between;align-items:center;margin-bottom:10px;display:flex}.jTHpnG_panelTitle{color:var(--dsw-alias-label-primary);margin:0;font-size:13px;font-weight:600}.jTHpnG_panelMore{color:var(--dsw-alias-label-tertiary);cursor:pointer;background:0 0;border:none;font-size:12px}.jTHpnG_panelMore:hover{color:var(--dsw-alias-state-business-primary)}.jTHpnG_panelEmpty{color:var(--dsw-alias-label-dimmed);margin:8px 0;font-size:12px}.jTHpnG_listRow{border-top:1px solid var(--dsw-alias-border-l1);justify-content:space-between;align-items:center;gap:8px;padding:7px 0;font-size:12px;display:flex}.jTHpnG_listRow:first-of-type{border-top:none}.jTHpnG_listTitle{text-overflow:ellipsis;white-space:nowrap;color:var(--dsw-alias-label-primary);overflow:hidden}.jTHpnG_listMeta{color:var(--dsw-alias-label-tertiary);flex:none}.jTHpnG_frame{max-width:960px;margin:0 auto;padding:40px 32px 64px}.jTHpnG_header{justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:24px;display:flex}.jTHpnG_headerControls{align-items:center;gap:12px;display:flex}.jTHpnG_views{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;gap:4px;padding:4px;display:inline-flex}.jTHpnG_title{color:var(--dsw-alias-label-primary);margin:0;font-size:22px;font-weight:600}.jTHpnG_subtitle{color:var(--dsw-alias-label-tertiary);margin:6px 0 0;font-size:13px}.jTHpnG_close{border:1px solid var(--dsw-alias-border-l1);width:32px;height:32px;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:8px;flex:none;justify-content:center;align-items:center;transition:background .14s,color .14s;display:flex}.jTHpnG_back{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:8px;flex:none;padding:6px 14px;font-size:13px;transition:background .14s}.jTHpnG_back:hover{background:var(--dsw-alias-button-primary-hover)}.jTHpnG_close:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_tabs{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;gap:4px;margin-bottom:28px;padding:4px;display:inline-flex}.jTHpnG_tab{color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:7px;padding:6px 14px;font-size:13px;transition:background .14s,color .14s}.jTHpnG_tab:hover{color:var(--dsw-alias-label-primary)}.jTHpnG_tabActive,.jTHpnG_tabActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_group{margin-bottom:28px}.jTHpnG_groupTitle{color:var(--dsw-alias-label-secondary);margin:0 0 10px;font-size:13px;font-weight:600}.jTHpnG_grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;display:grid}.jTHpnG_card{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:inherit;text-align:left;font:inherit;cursor:pointer;border-radius:10px;flex-direction:column;gap:8px;padding:14px;transition:transform .14s,border-color .14s;display:flex}.jTHpnG_card:hover{border-color:var(--dsw-alias-border-l2);transform:translateY(-2px)}.jTHpnG_cardCopied,.jTHpnG_cardCopied:hover{border-color:var(--dsw-alias-state-success-primary)}.jTHpnG_cardHead{justify-content:space-between;align-items:center;gap:8px;display:flex}.jTHpnG_cardTitle{color:var(--dsw-alias-label-primary);font-size:14px;font-weight:600}.jTHpnG_cardDetail{color:var(--dsw-alias-label-tertiary);font-size:12px;line-height:1.5}.jTHpnG_cardHint{color:var(--dsw-alias-label-dimmed);font-size:11px}.jTHpnG_cardHintCopied{color:var(--dsw-alias-state-success-primary)}.jTHpnG_library{flex-direction:column;gap:12px;display:flex}.jTHpnG_libraryState{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-tertiary);border-radius:10px;justify-content:center;align-items:center;gap:8px;padding:48px 16px;font-size:13px;display:flex}.jTHpnG_libraryProblems{color:var(--dsw-alias-state-warn-primary);border-radius:8px;align-items:center;gap:6px;padding:8px 12px;font-size:12px;display:flex}.jTHpnG_libraryCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:8px;padding:14px;display:flex}.jTHpnG_libraryTags{flex-wrap:wrap;gap:4px;display:flex}.jTHpnG_libraryTag{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);border-radius:999px;padding:1px 8px;font-size:11px}.jTHpnG_statusDraft{color:var(--dsw-alias-label-tertiary);background:color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent)}.jTHpnG_statusReady{color:var(--dsw-alias-state-business-primary);background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent)}.jTHpnG_statusPublished{color:var(--dsw-alias-state-success-primary);background:color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent)}.jTHpnG_retry{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:7px;align-items:center;gap:4px;padding:4px 10px;font-size:12px;display:inline-flex}.jTHpnG_retry:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_calendar{flex-direction:column;gap:10px;display:flex}.jTHpnG_calendarBar{align-items:center;gap:8px;display:flex}.jTHpnG_calendarMonth{color:var(--dsw-alias-label-primary);text-align:center;min-width:88px;font-size:14px;font-weight:600}.jTHpnG_calendarNav,.jTHpnG_calendarToday{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:7px;font-size:12px}.jTHpnG_calendarNav{width:26px;height:26px}.jTHpnG_calendarToday{padding:4px 12px}.jTHpnG_calendarNav:hover,.jTHpnG_calendarToday:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_calendarHead,.jTHpnG_calendarGrid{grid-template-columns:repeat(7,1fr);gap:4px;display:grid}.jTHpnG_calendarWeekday{text-align:center;color:var(--dsw-alias-label-tertiary);padding:2px 0;font-size:11px}.jTHpnG_calendarCell{border:1px solid var(--dsw-alias-border-l1);cursor:pointer;border-radius:8px;flex-direction:column;gap:3px;min-height:76px;padding:4px;transition:border-color .14s;display:flex}.jTHpnG_calendarCell:hover{border-color:var(--dsw-alias-border-l2)}.jTHpnG_calendarCellOutside{opacity:.45}.jTHpnG_calendarCellToday{border-color:var(--dsw-alias-state-business-primary)}.jTHpnG_calendarDayNum{color:var(--dsw-alias-label-secondary);font-size:11px}.jTHpnG_calendarChip{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary);cursor:default;border-radius:5px;align-items:center;gap:4px;min-width:0;padding:1px 4px;font-size:10px;display:flex}.jTHpnG_calendarChipTitle{text-overflow:ellipsis;white-space:nowrap;flex:1;overflow:hidden}.jTHpnG_calendarChipAction{color:var(--dsw-alias-label-tertiary);cursor:pointer;background:0 0;border:none;align-items:center;padding:0 2px;font-size:10px;display:inline-flex}.jTHpnG_calendarChipAction:hover{color:var(--dsw-alias-label-primary)}.jTHpnG_calendarDot{border-radius:999px;flex:none;width:6px;height:6px}.jTHpnG_dotIdea{background:var(--dsw-alias-label-tertiary)}.jTHpnG_dotDraft{background:var(--dsw-alias-state-warn-primary)}.jTHpnG_dotScheduled{background:var(--dsw-alias-state-business-primary)}.jTHpnG_dotPublished{background:var(--dsw-alias-state-success-primary)}.jTHpnG_calendarForm{flex-direction:column;gap:4px;margin-top:2px;display:flex}.jTHpnG_calendarInput{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);width:100%;color:var(--dsw-alias-label-primary);border-radius:5px;padding:3px 6px;font-size:10px}.jTHpnG_calendarFormRow{align-items:center;gap:6px;display:flex}.jTHpnG_calendarSubmit{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:5px;align-items:center;gap:3px;padding:2px 8px;font-size:10px;display:inline-flex}.jTHpnG_calendarHint{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-tertiary);text-align:center;border-radius:8px;padding:12px;font-size:12px}.jTHpnG_about{border-top:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-dimmed);justify-content:center;align-items:center;gap:12px;margin-top:32px;padding-top:16px;font-size:11px;display:flex}.jTHpnG_aboutLink{color:var(--dsw-alias-label-tertiary);text-decoration:none}.jTHpnG_aboutLink:hover{color:var(--dsw-alias-state-business-primary)}.jTHpnG_badge{white-space:nowrap;border-radius:999px;flex:none;padding:2px 8px;font-size:11px}.jTHpnG_badgeDone{color:var(--dsw-alias-state-success-primary);background:color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent)}.jTHpnG_badgeReady{color:var(--dsw-alias-state-business-primary);background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent)}.jTHpnG_badgeNeed{color:var(--dsw-alias-state-warn-primary);background:color-mix(in srgb, var(--dsw-alias-state-warn-primary) 12%, transparent)}.jTHpnG_badgeIncoming{color:var(--dsw-alias-label-tertiary);background:color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent)}";
+		const css = ".jTHpnG_entryWide{width:100%;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:8px;align-items:center;gap:8px;padding:8px 10px;font-size:13px;transition:background .14s,color .14s;display:flex}.jTHpnG_entryWide:hover,.jTHpnG_entryRail:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_entryRail{width:36px;height:36px;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:8px;justify-content:center;align-items:center;margin:0 auto;padding:0;transition:background .14s,color .14s;display:flex}.jTHpnG_entryLabel{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.jTHpnG_surface{background:var(--dsw-alias-bg-layer-1);position:fixed;inset:0;overflow:hidden}.jTHpnG_shell{height:100%;display:flex}.jTHpnG_side{border-right:1px solid var(--dsw-alias-border-l1);flex-direction:column;flex:none;width:208px;padding:20px 12px 16px;display:flex}.jTHpnG_sideBrand{color:var(--dsw-alias-label-primary);align-items:center;gap:8px;margin-bottom:14px;padding:6px 10px;font-size:15px;font-weight:600;display:flex}.jTHpnG_accountBox{margin:0 4px 14px;position:relative}.jTHpnG_accountButton{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);width:100%;color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:8px;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;font-size:13px;display:flex}.jTHpnG_accountButton:hover{border-color:var(--dsw-alias-border-l4)}.jTHpnG_accountName{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.jTHpnG_accountList{z-index:5;border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-1);box-shadow:0 8px 24px color-mix(in srgb, var(--dsw-alias-bg-mask-1) 20%, transparent);border-radius:8px;padding:4px;position:absolute;top:calc(100% + 4px);left:0;right:0}.jTHpnG_accountOption{width:100%;color:var(--dsw-alias-label-primary);text-align:left;cursor:pointer;background:0 0;border:none;border-radius:6px;align-items:center;gap:6px;padding:8px 10px;font-size:12px;display:flex}.jTHpnG_accountOption:hover{background:var(--dsw-alias-interactive-bg-hover)}.jTHpnG_accountOptionActive,.jTHpnG_accountOptionActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_accountCreateRow{align-items:center;gap:6px;padding:4px;display:flex}.jTHpnG_accountInput{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);min-width:0;color:var(--dsw-alias-label-primary);border-radius:6px;flex:1;padding:5px 8px;font-size:12px}.jTHpnG_accountCreateAdd{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:6px;flex:none;padding:5px 10px;font-size:11px}.jTHpnG_sideNav{flex-direction:column;gap:2px;display:flex}.jTHpnG_navItem{color:var(--dsw-alias-label-secondary);text-align:left;cursor:pointer;background:0 0;border:none;border-radius:8px;align-items:center;padding:9px 12px;font-size:13px;transition:background .14s,color .14s;display:flex}.jTHpnG_navItem:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_navItemActive,.jTHpnG_navItemActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_sideFoot{flex-direction:column;gap:10px;margin-top:auto;padding:10px 6px 0;display:flex}.jTHpnG_main{flex:1;position:relative;overflow-y:auto}.jTHpnG_main .jTHpnG_close{z-index:1;position:absolute;top:24px;right:28px}.jTHpnG_workbench{flex-direction:column;gap:24px;display:flex}.jTHpnG_helloRow{padding-right:56px}.jTHpnG_hello{color:var(--dsw-alias-label-primary);margin:0;font-size:26px;font-weight:600}.jTHpnG_helloSub{color:var(--dsw-alias-label-tertiary);margin:8px 0 0;font-size:13px}.jTHpnG_quickRow{flex-wrap:wrap;gap:10px;display:flex}.jTHpnG_chip{align-items:center;gap:6px;display:inline-flex}.jTHpnG_panelTitle{color:var(--dsw-alias-state-business-primary);align-items:center;gap:6px;display:inline-flex}.jTHpnG_panelRowThree{grid-template-columns:repeat(3,1fr);gap:12px;display:grid}.jTHpnG_panelRowTwo{grid-template-columns:1fr 1fr;gap:12px;display:grid}.jTHpnG_statIcon{background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 14%, transparent);width:30px;height:30px;color:var(--dsw-alias-state-business-primary);border-radius:8px;justify-content:center;align-items:center;margin-bottom:8px;display:flex}.jTHpnG_listRowButton{border:none;border-top:1px solid var(--dsw-alias-border-l1);width:100%;font:inherit;text-align:left;cursor:pointer;background:0 0;justify-content:space-between;align-items:center;gap:8px;padding:7px 0;display:flex}.jTHpnG_listRowButton:first-of-type{border-top:none}.jTHpnG_listRowCopied .jTHpnG_listTitle,.jTHpnG_listRowCopied .jTHpnG_listMeta{color:var(--dsw-alias-state-success-primary)}.jTHpnG_dataPills{flex-wrap:wrap;gap:6px;margin-bottom:8px;display:flex}.jTHpnG_dataPill{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);border-radius:999px;padding:3px 10px;font-size:11px}.jTHpnG_chip{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:999px;padding:8px 16px;font-size:13px;transition:border-color .14s}.jTHpnG_chip:hover{border-color:var(--dsw-alias-state-business-primary)}.jTHpnG_chipCopied,.jTHpnG_chipCopied:hover{border-color:var(--dsw-alias-state-success-primary);color:var(--dsw-alias-state-success-primary)}.jTHpnG_statRow{grid-template-columns:repeat(4,1fr);gap:12px;display:grid}.jTHpnG_statCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:4px;padding:18px;display:flex}.jTHpnG_statValue{color:var(--dsw-alias-label-primary);font-size:26px;font-weight:600}.jTHpnG_statLabel{color:var(--dsw-alias-label-tertiary);font-size:12px}.jTHpnG_panelRow{grid-template-columns:1fr 1fr;gap:12px;display:grid}.jTHpnG_panel{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;padding:16px}.jTHpnG_panelHead{justify-content:space-between;align-items:center;margin-bottom:10px;display:flex}.jTHpnG_panelTitle{color:var(--dsw-alias-label-primary);margin:0;font-size:13px;font-weight:600}.jTHpnG_panelMore{color:var(--dsw-alias-label-tertiary);cursor:pointer;background:0 0;border:none;font-size:12px}.jTHpnG_panelMore:hover{color:var(--dsw-alias-state-business-primary)}.jTHpnG_panelEmpty{color:var(--dsw-alias-label-dimmed);margin:8px 0;font-size:12px}.jTHpnG_listRow{border-top:1px solid var(--dsw-alias-border-l1);justify-content:space-between;align-items:center;gap:8px;padding:7px 0;font-size:12px;display:flex}.jTHpnG_listRow:first-of-type{border-top:none}.jTHpnG_listTitle{text-overflow:ellipsis;white-space:nowrap;color:var(--dsw-alias-label-primary);overflow:hidden}.jTHpnG_listMeta{color:var(--dsw-alias-label-tertiary);flex:none}.jTHpnG_frame{max-width:960px;margin:0 auto;padding:40px 32px 64px}.jTHpnG_header{justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:24px;display:flex}.jTHpnG_headerControls{align-items:center;gap:12px;display:flex}.jTHpnG_views{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;gap:4px;padding:4px;display:inline-flex}.jTHpnG_title{color:var(--dsw-alias-label-primary);margin:0;font-size:22px;font-weight:600}.jTHpnG_subtitle{color:var(--dsw-alias-label-tertiary);margin:6px 0 0;font-size:13px}.jTHpnG_close{border:1px solid var(--dsw-alias-border-l1);width:32px;height:32px;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:8px;flex:none;justify-content:center;align-items:center;transition:background .14s,color .14s;display:flex}.jTHpnG_back{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:8px;flex:none;padding:6px 14px;font-size:13px;transition:background .14s}.jTHpnG_back:hover{background:var(--dsw-alias-button-primary-hover)}.jTHpnG_close:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_tabs{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;gap:4px;margin-bottom:28px;padding:4px;display:inline-flex}.jTHpnG_tab{color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:7px;padding:6px 14px;font-size:13px;transition:background .14s,color .14s}.jTHpnG_tab:hover{color:var(--dsw-alias-label-primary)}.jTHpnG_tabActive,.jTHpnG_tabActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_group{margin-bottom:28px}.jTHpnG_groupTitle{color:var(--dsw-alias-label-secondary);margin:0 0 10px;font-size:13px;font-weight:600}.jTHpnG_grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;display:grid}.jTHpnG_card{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:inherit;text-align:left;font:inherit;cursor:pointer;border-radius:10px;flex-direction:column;gap:8px;padding:14px;transition:transform .14s,border-color .14s;display:flex}.jTHpnG_card:hover{border-color:var(--dsw-alias-border-l2);transform:translateY(-2px)}.jTHpnG_cardCopied,.jTHpnG_cardCopied:hover{border-color:var(--dsw-alias-state-success-primary)}.jTHpnG_cardHead{justify-content:space-between;align-items:center;gap:8px;display:flex}.jTHpnG_cardTitle{color:var(--dsw-alias-label-primary);font-size:14px;font-weight:600}.jTHpnG_cardDetail{color:var(--dsw-alias-label-tertiary);font-size:12px;line-height:1.5}.jTHpnG_cardHint{color:var(--dsw-alias-label-dimmed);font-size:11px}.jTHpnG_cardHintCopied{color:var(--dsw-alias-state-success-primary)}.jTHpnG_library{flex-direction:column;gap:12px;display:flex}.jTHpnG_libraryState{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-tertiary);border-radius:10px;justify-content:center;align-items:center;gap:8px;padding:48px 16px;font-size:13px;display:flex}.jTHpnG_libraryProblems{color:var(--dsw-alias-state-warn-primary);border-radius:8px;align-items:center;gap:6px;padding:8px 12px;font-size:12px;display:flex}.jTHpnG_libraryCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:8px;padding:14px;display:flex}.jTHpnG_libraryTags{flex-wrap:wrap;gap:4px;display:flex}.jTHpnG_libraryTag{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);border-radius:999px;padding:1px 8px;font-size:11px}.jTHpnG_statusDraft{color:var(--dsw-alias-label-tertiary);background:color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent)}.jTHpnG_statusReady{color:var(--dsw-alias-state-business-primary);background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent)}.jTHpnG_statusPublished{color:var(--dsw-alias-state-success-primary);background:color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent)}.jTHpnG_retry{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:7px;align-items:center;gap:4px;padding:4px 10px;font-size:12px;display:inline-flex}.jTHpnG_retry:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_calendar{flex-direction:column;gap:10px;display:flex}.jTHpnG_calendarBar{align-items:center;gap:8px;display:flex}.jTHpnG_calendarMonth{color:var(--dsw-alias-label-primary);text-align:center;min-width:88px;font-size:14px;font-weight:600}.jTHpnG_calendarNav,.jTHpnG_calendarToday{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:7px;font-size:12px}.jTHpnG_calendarNav{width:26px;height:26px}.jTHpnG_calendarToday{padding:4px 12px}.jTHpnG_calendarNav:hover,.jTHpnG_calendarToday:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_calendarHead,.jTHpnG_calendarGrid{grid-template-columns:repeat(7,1fr);gap:4px;display:grid}.jTHpnG_calendarWeekday{text-align:center;color:var(--dsw-alias-label-tertiary);padding:2px 0;font-size:11px}.jTHpnG_calendarCell{border:1px solid var(--dsw-alias-border-l1);cursor:pointer;border-radius:8px;flex-direction:column;gap:3px;min-height:76px;padding:4px;transition:border-color .14s;display:flex}.jTHpnG_calendarCell:hover{border-color:var(--dsw-alias-border-l2)}.jTHpnG_calendarCellOutside{opacity:.45}.jTHpnG_calendarCellToday{border-color:var(--dsw-alias-state-business-primary)}.jTHpnG_calendarDayNum{color:var(--dsw-alias-label-secondary);font-size:11px}.jTHpnG_calendarChip{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary);cursor:default;border-radius:5px;align-items:center;gap:4px;min-width:0;padding:1px 4px;font-size:10px;display:flex}.jTHpnG_calendarChipTitle{text-overflow:ellipsis;white-space:nowrap;flex:1;overflow:hidden}.jTHpnG_calendarChipAction{color:var(--dsw-alias-label-tertiary);cursor:pointer;background:0 0;border:none;align-items:center;padding:0 2px;font-size:10px;display:inline-flex}.jTHpnG_calendarChipAction:hover{color:var(--dsw-alias-label-primary)}.jTHpnG_calendarDot{border-radius:999px;flex:none;width:6px;height:6px}.jTHpnG_dotIdea{background:var(--dsw-alias-label-tertiary)}.jTHpnG_dotDraft{background:var(--dsw-alias-state-warn-primary)}.jTHpnG_dotScheduled{background:var(--dsw-alias-state-business-primary)}.jTHpnG_dotPublished{background:var(--dsw-alias-state-success-primary)}.jTHpnG_calendarForm{flex-direction:column;gap:4px;margin-top:2px;display:flex}.jTHpnG_calendarInput{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);width:100%;color:var(--dsw-alias-label-primary);border-radius:5px;padding:3px 6px;font-size:10px}.jTHpnG_calendarFormRow{align-items:center;gap:6px;display:flex}.jTHpnG_calendarSubmit{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:5px;align-items:center;gap:3px;padding:2px 8px;font-size:10px;display:inline-flex}.jTHpnG_calendarHint{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-tertiary);text-align:center;border-radius:8px;padding:12px;font-size:12px}.jTHpnG_about{border-top:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-dimmed);justify-content:center;align-items:center;gap:12px;margin-top:32px;padding-top:16px;font-size:11px;display:flex}.jTHpnG_aboutLink{color:var(--dsw-alias-label-tertiary);text-decoration:none}.jTHpnG_aboutLink:hover{color:var(--dsw-alias-state-business-primary)}.jTHpnG_badge{white-space:nowrap;border-radius:999px;flex:none;padding:2px 8px;font-size:11px}.jTHpnG_badgeDone{color:var(--dsw-alias-state-success-primary);background:color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent)}.jTHpnG_badgeReady{color:var(--dsw-alias-state-business-primary);background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent)}.jTHpnG_badgeNeed{color:var(--dsw-alias-state-warn-primary);background:color-mix(in srgb, var(--dsw-alias-state-warn-primary) 12%, transparent)}.jTHpnG_badgeIncoming{color:var(--dsw-alias-label-tertiary);background:color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent)}";
 		const tagId = "@deepseek-ai/dsh-client-ui-content-studio/ContentStudio.module.css";
 		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId) + "]") === null) {
 			const tag = document.createElement("style");
@@ -4298,6 +4298,15 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		var ContentStudio_module_css_default = {
 			"about": "jTHpnG_about",
 			"aboutLink": "jTHpnG_aboutLink",
+			"accountBox": "jTHpnG_accountBox",
+			"accountButton": "jTHpnG_accountButton",
+			"accountCreateAdd": "jTHpnG_accountCreateAdd",
+			"accountCreateRow": "jTHpnG_accountCreateRow",
+			"accountInput": "jTHpnG_accountInput",
+			"accountList": "jTHpnG_accountList",
+			"accountName": "jTHpnG_accountName",
+			"accountOption": "jTHpnG_accountOption",
+			"accountOptionActive": "jTHpnG_accountOptionActive",
 			"back": "jTHpnG_back",
 			"badge": "jTHpnG_badge",
 			"badgeDone": "jTHpnG_badgeDone",
@@ -5099,7 +5108,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		* @param props - the Remote read wrappers, view navigation, and the locale seat.
 		* @returns the dashboard element tree.
 		*/
-		function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat, t }) {
+		function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat, account, t }) {
 			const [outputs, setOutputs] = (0, react.useState)({ state: "loading" });
 			const [schedule, setSchedule] = (0, react.useState)({ state: "loading" });
 			const [copiedId, setCopiedId] = (0, react.useState)(void 0);
@@ -5150,7 +5159,9 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			}, [copiedId]);
 			const quick = (0, react.useMemo)(() => QUICK_IDS.map((id) => cap(id)), []);
 			const pick = async (item) => {
-				if (await (0, _deepseek_ai_dsh_client_ui_primitives.writeClipboard)(item.prompt)) setCopiedId(item.id);
+				if (await (0, _deepseek_ai_dsh_client_ui_primitives.writeClipboard)(account === "通用模式" ? item.prompt : `我的账号/画像：${account}
+
+${item.prompt}`)) setCopiedId(item.id);
 			};
 			if (outputs.state === "failed") console.warn("[content-studio] outputs panel degraded:", outputs.detail);
 			if (schedule.state === "failed") console.warn("[content-studio] schedule panel degraded:", schedule.detail);
@@ -5480,6 +5491,101 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			});
 		}
 		//#endregion
+		//#region src/client/AccountSelect.tsx
+		/**
+		* The account selector under the workbench brand row (Easel's persona
+		* dropdown): a bordered select showing the active creation account, a
+		* dropdown with all accounts plus "+ 新建账号...", and an inline create row.
+		* State is browser-local (localStorage) — the selection is injected into
+		* copied capability instructions by the callers.
+		*/
+		/**
+		* Render the account dropdown.
+		* @param props - controlled state and the locale seat.
+		* @returns the selector element tree.
+		*/
+		function AccountSelect({ account, accounts, onSelect, onAdd, t }) {
+			const [open, setOpen] = (0, react.useState)(false);
+			const [creating, setCreating] = (0, react.useState)(false);
+			const [draft, setDraft] = (0, react.useState)("");
+			const boxRef = (0, react.useRef)(null);
+			(0, _deepseek_ai_dsh_client_ui_primitives.useDismissOnOutsidePointer)(boxRef, open, setOpen);
+			const inputRef = (0, react.useRef)(null);
+			(0, react.useEffect)(() => {
+				if (creating) inputRef.current?.focus();
+			}, [creating]);
+			const commitDraft = () => {
+				const name = draft.trim();
+				if (name.length === 0) return;
+				onAdd(name);
+				setDraft("");
+				setCreating(false);
+				setOpen(false);
+			};
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+				className: ContentStudio_module_css_default.accountBox,
+				ref: boxRef,
+				children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+					type: "button",
+					className: ContentStudio_module_css_default.accountButton,
+					"aria-haspopup": "listbox",
+					"aria-expanded": open,
+					onClick: () => {
+						setOpen(!open);
+					},
+					children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+						className: ContentStudio_module_css_default.accountName,
+						children: account
+					}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChevronDownOutline14, { size: 14 })]
+				}), open && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+					className: ContentStudio_module_css_default.accountList,
+					role: "listbox",
+					"aria-label": t("account.label"),
+					children: [accounts.map((name) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+						type: "button",
+						role: "option",
+						"aria-selected": name === account,
+						className: clsx(ContentStudio_module_css_default.accountOption, name === account && ContentStudio_module_css_default.accountOptionActive),
+						onClick: () => {
+							onSelect(name);
+							setOpen(false);
+						},
+						children: name
+					}, name)), creating ? /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+						className: ContentStudio_module_css_default.accountCreateRow,
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
+							ref: inputRef,
+							className: ContentStudio_module_css_default.accountInput,
+							placeholder: t("account.placeholder"),
+							value: draft,
+							onChange: (event) => {
+								setDraft(event.currentTarget.value);
+							},
+							onKeyDown: (event) => {
+								if (event.key === "Enter") commitDraft();
+								if (event.key === "Escape") {
+									setCreating(false);
+									setDraft("");
+								}
+							}
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+							type: "button",
+							className: ContentStudio_module_css_default.accountCreateAdd,
+							onClick: commitDraft,
+							children: t("account.add")
+						})]
+					}) : /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+						type: "button",
+						className: ContentStudio_module_css_default.accountOption,
+						onClick: () => {
+							setCreating(true);
+						},
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconPlusOutline16, { size: 12 }), t("account.new")]
+					})]
+				})]
+			});
+		}
+		//#endregion
 		//#region src/client/ContentStudio.tsx
 		/**
 		* The frame-wide workbench surface occupying the `shell.overlay` hole.
@@ -5515,6 +5621,27 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		function ContentStudio({ studio, listOutputs, schedule, t }) {
 			const open = (0, react.useSyncExternalStore)((fn) => studio.subscribe(fn), () => studio.isOpen());
 			const [view, setView] = (0, react.useState)("workbench");
+			const [accounts, setAccounts] = (0, react.useState)(() => {
+				try {
+					return JSON.parse(localStorage.getItem("dsh-content-studio.accounts") ?? "");
+				} catch {
+					return ["通用模式"];
+				}
+			});
+			const [account, setAccount] = (0, react.useState)(() => localStorage.getItem("dsh-content-studio.account") ?? "通用模式");
+			const selectAccount = (name) => {
+				setAccount(name);
+				localStorage.setItem("dsh-content-studio.account", name);
+			};
+			const addAccount = (name) => {
+				const next = accounts.includes(name) ? accounts : [...accounts, name];
+				setAccounts(next);
+				localStorage.setItem("dsh-content-studio.accounts", JSON.stringify(next));
+				selectAccount(name);
+			};
+			const withAccount = (prompt) => account === "通用模式" ? prompt : `我的账号/画像：${account}
+
+${prompt}`;
 			const [tab, setTab] = (0, react.useState)("create");
 			const [copiedId, setCopiedId] = (0, react.useState)(void 0);
 			(0, react.useEffect)(() => {
@@ -5539,7 +5666,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			if (!open) return null;
 			const groups = capabilityGroups(tab);
 			const pick = async (id, prompt) => {
-				if (await (0, _deepseek_ai_dsh_client_ui_primitives.writeClipboard)(prompt)) setCopiedId(id);
+				if (await (0, _deepseek_ai_dsh_client_ui_primitives.writeClipboard)(withAccount(prompt))) setCopiedId(id);
 			};
 			return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.surface,
@@ -5554,6 +5681,13 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.sideBrand,
 								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 16 }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("studio.title") })]
+							}),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(AccountSelect, {
+								account,
+								accounts,
+								onSelect: selectAccount,
+								onAdd: addAccount,
+								t
 							}),
 							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("nav", {
 								className: ContentStudio_module_css_default.sideNav,
@@ -5611,6 +5745,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 									onChat: () => {
 										studio.close();
 									},
+									account,
 									t
 								}),
 								view === "library" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(ContentLibrary, {
@@ -5724,6 +5859,11 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"panel.emptyRecent": "还没有作品，去「开始创作」生成第一个吧",
 			"panel.emptyUpcoming": "暂无排期，去「内容日历」安排一条吧",
 			"action.chat": "开始对话",
+			"account.label": "账号",
+			"account.new": "新建账号...",
+			"account.placeholder": "输入账号名称",
+			"account.add": "添加",
+			"account.default": "通用模式",
 			"action.schedule": "记排期",
 			"panel.quickCreate": "快捷创作",
 			"panel.data": "创作数据",
@@ -5862,6 +6002,11 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"panel.emptyRecent": "Nothing yet — create your first piece in Create.",
 			"panel.emptyUpcoming": "Nothing scheduled — plan one in Calendar.",
 			"action.chat": "New chat",
+			"account.label": "Account",
+			"account.new": "New account...",
+			"account.placeholder": "Account name",
+			"account.add": "Add",
+			"account.default": "Generic",
 			"action.schedule": "Plan",
 			"panel.quickCreate": "Quick create",
 			"panel.data": "Creation data",

@@ -29,6 +29,8 @@ export interface ContentWorkbenchInjected {
 export type ContentWorkbenchProps = ContentWorkbenchInjected & {
   onNavigate: (view: 'create' | 'library' | 'calendar') => void
   onChat: () => void
+  /** Active creation account, prepended to copied instructions. */
+  account: string
 } & PropsLocale<'content-studio'>
 
 /** Quick-create panel rows: these capability ids, in this order. */
@@ -57,7 +59,7 @@ function cap(id: CapabilityItem['id']): CapabilityItem {
  * @param props - the Remote read wrappers, view navigation, and the locale seat.
  * @returns the dashboard element tree.
  */
-export function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat, t }: ContentWorkbenchProps) {
+export function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat, account, t }: ContentWorkbenchProps) {
   const [outputs, setOutputs] = useState<Load<ContentOutputsSnapshot>>({ state: 'loading' })
   const [schedule, setSchedule] = useState<Load<ContentScheduleSnapshot>>({ state: 'loading' })
   const [copiedId, setCopiedId] = useState<string | undefined>(undefined)
@@ -95,7 +97,10 @@ export function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat
   )
 
   const pick = async (item: CapabilityItem): Promise<void> => {
-    if (await writeClipboard(item.prompt)) setCopiedId(item.id)
+    const prompt = account === '通用模式' ? item.prompt : `我的账号/画像：${account}
+
+${item.prompt}`
+    if (await writeClipboard(prompt)) setCopiedId(item.id)
   }
 
   if (outputs.state === 'failed') console.warn('[content-studio] outputs panel degraded:', outputs.detail)

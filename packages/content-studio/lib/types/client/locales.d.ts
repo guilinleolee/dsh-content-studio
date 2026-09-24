@@ -35,6 +35,11 @@ export declare const zh: {
     readonly 'panel.emptyRecent': "还没有作品，去「开始创作」生成第一个吧";
     readonly 'panel.emptyUpcoming': "暂无排期，去「内容日历」安排一条吧";
     readonly 'action.chat': "开始对话";
+    readonly 'account.label': "账号";
+    readonly 'account.new': "新建账号...";
+    readonly 'account.placeholder': "输入账号名称";
+    readonly 'account.add': "添加";
+    readonly 'account.default': "通用模式";
     readonly 'action.schedule': "记排期";
     readonly 'panel.quickCreate': "快捷创作";
     readonly 'panel.data': "创作数据";

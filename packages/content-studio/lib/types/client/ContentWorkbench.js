@@ -31,7 +31,7 @@ function cap(id) {
  * @param props - the Remote read wrappers, view navigation, and the locale seat.
  * @returns the dashboard element tree.
  */
-export function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat, t }) {
+export function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat, account, t }) {
     const [outputs, setOutputs] = useState({ state: 'loading' });
     const [schedule, setSchedule] = useState({ state: 'loading' });
     const [copiedId, setCopiedId] = useState(undefined);
@@ -65,7 +65,10 @@ export function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat
     }, [copiedId]);
     const quick = useMemo(() => QUICK_IDS.map(id => cap(id)), []);
     const pick = async (item) => {
-        if (await writeClipboard(item.prompt))
+        const prompt = account === '通用模式' ? item.prompt : `我的账号/画像：${account}
+
+${item.prompt}`;
+        if (await writeClipboard(prompt))
             setCopiedId(item.id);
     };
     if (outputs.state === 'failed')

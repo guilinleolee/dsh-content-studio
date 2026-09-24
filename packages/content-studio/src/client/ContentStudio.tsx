@@ -19,6 +19,7 @@ import { STUDIO_TABS, capabilityGroups, type StudioTab } from './capabilities.ts
 import { ContentLibrary } from './ContentLibrary.tsx'
 import { ContentCalendar } from './ContentCalendar.tsx'
 import { ContentWorkbench } from './ContentWorkbench.tsx'
+import { AccountSelect } from './AccountSelect.tsx'
 import type { StudioKey } from './locales.ts'
 import type { ContentStudioController } from './studio-store.ts'
 import css from './ContentStudio.module.css'
@@ -70,6 +71,28 @@ export function ContentStudio({ studio, listOutputs, schedule, t }: ContentStudi
     () => studio.isOpen(),
   )
   const [view, setView] = useState<StudioView>('workbench')
+  // Browser-local creation accounts (Easel's persona selector): the selection
+  // is injected into every copied capability instruction.
+  const [accounts, setAccounts] = useState<readonly string[]>(() => {
+    try { return JSON.parse(localStorage.getItem('dsh-content-studio.accounts') ?? '') as string[] }
+    catch { return ['通用模式'] }
+  })
+  const [account, setAccount] = useState<string>(() => localStorage.getItem('dsh-content-studio.account') ?? '通用模式')
+  const selectAccount = (name: string): void => {
+    setAccount(name)
+    localStorage.setItem('dsh-content-studio.account', name)
+  }
+  const addAccount = (name: string): void => {
+    const next = accounts.includes(name) ? accounts : [...accounts, name]
+    setAccounts(next)
+    localStorage.setItem('dsh-content-studio.accounts', JSON.stringify(next))
+    selectAccount(name)
+  }
+  // Prepend the active account to a copied instruction (generic mode adds nothing).
+  const withAccount = (prompt: string): string =>
+    account === '通用模式' ? prompt : `我的账号/画像：${account}
+
+${prompt}`
   const [tab, setTab] = useState<StudioTab>('create')
   const [copiedId, setCopiedId] = useState<string | undefined>(undefined)
 
@@ -97,7 +120,7 @@ export function ContentStudio({ studio, listOutputs, schedule, t }: ContentStudi
   const groups = capabilityGroups(tab)
 
   const pick = async (id: string, prompt: string): Promise<void> => {
-    if (await writeClipboard(prompt)) setCopiedId(id)
+    if (await writeClipboard(withAccount(prompt))) setCopiedId(id)
   }
 
   return (
@@ -108,6 +131,13 @@ export function ContentStudio({ studio, listOutputs, schedule, t }: ContentStudi
             <IconSparkle16 size={16} />
             <span>{t('studio.title')}</span>
           </div>
+          <AccountSelect
+            account={account}
+            accounts={accounts}
+            onSelect={selectAccount}
+            onAdd={addAccount}
+            t={t}
+          />
           <nav className={css.sideNav} aria-label={t('studio.title')}>
             {(['workbench', 'create', 'library', 'calendar'] as const).map(candidate => (
               <button
@@ -153,6 +183,7 @@ export function ContentStudio({ studio, listOutputs, schedule, t }: ContentStudi
                 listSchedule={schedule.list}
                 onNavigate={setView}
                 onChat={() => { studio.close() }}
+                account={account}
                 t={t}
               />
             )}
