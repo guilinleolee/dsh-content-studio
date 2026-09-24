@@ -4,8 +4,8 @@ window.__ModuleLoader__.load({
 		var module = { exports: {} };
 		var exports = module.exports;
 		Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-		let _deepseek_ai_dsh_client_ui_primitives = require("@deepseek-ai/dsh-client-ui-primitives");
 		let react_jsx_runtime = require("react/jsx-runtime");
+		let _deepseek_ai_dsh_client_ui_primitives = require("@deepseek-ai/dsh-client-ui-primitives");
 		let react = require("react");
 		//#region ../../../node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/core.js
 		var _a$1;
@@ -4253,7 +4253,13 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			]
 		};
 		//#endregion
-		//#region src/client/studio-store.ts
+		//#region lib/types/client/studio-store.js
+		/**
+		* The open/close controller shared by the sidebar entry and the frame-wide
+		* surface. apply() creates one instance and injects it into both slot
+		* registrations — component state cannot cross two slot entries, and no
+		* store seat is needed for a single boolean observable.
+		*/
 		/**
 		* Create the shared open/close controller.
 		* @returns the controller with an initially closed state.
@@ -4286,7 +4292,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		}
 		//#endregion
 		//#region \0dsh-css:D:\deepseek-harness\packages\client\ui-content-studio\src\client\ContentStudio.module.css.mjs
-		const css = ".jTHpnG_entryWide{width:100%;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:8px;align-items:center;gap:8px;padding:8px 10px;font-size:13px;transition:background .14s,color .14s;display:flex}.jTHpnG_entryWide:hover,.jTHpnG_entryRail:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_entryRail{width:36px;height:36px;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:8px;justify-content:center;align-items:center;margin:0 auto;padding:0;transition:background .14s,color .14s;display:flex}.jTHpnG_entryLabel{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.jTHpnG_surface{background:var(--dsw-alias-bg-layer-1);position:fixed;inset:0;overflow:hidden}.jTHpnG_shell{height:100%;display:flex}.jTHpnG_side{border-right:1px solid var(--dsw-alias-border-l1);flex-direction:column;flex:none;width:208px;padding:20px 12px 16px;display:flex}.jTHpnG_sideBrand{color:var(--dsw-alias-label-primary);align-items:center;gap:8px;margin-bottom:14px;padding:6px 10px;font-size:15px;font-weight:600;display:flex}.jTHpnG_accountBox{margin:0 4px 14px;position:relative}.jTHpnG_accountButton{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);width:100%;color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:8px;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;font-size:13px;display:flex}.jTHpnG_accountButton:hover{border-color:var(--dsw-alias-border-l4)}.jTHpnG_accountName{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.jTHpnG_accountList{z-index:5;border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-1);box-shadow:0 8px 24px color-mix(in srgb, var(--dsw-alias-bg-mask-1) 20%, transparent);border-radius:8px;padding:4px;position:absolute;top:calc(100% + 4px);left:0;right:0}.jTHpnG_accountOption{width:100%;color:var(--dsw-alias-label-primary);text-align:left;cursor:pointer;background:0 0;border:none;border-radius:6px;align-items:center;gap:6px;padding:8px 10px;font-size:12px;display:flex}.jTHpnG_accountOption:hover{background:var(--dsw-alias-interactive-bg-hover)}.jTHpnG_accountOptionActive,.jTHpnG_accountOptionActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_accountCreateRow{align-items:center;gap:6px;padding:4px;display:flex}.jTHpnG_accountInput{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);min-width:0;color:var(--dsw-alias-label-primary);border-radius:6px;flex:1;padding:5px 8px;font-size:12px}.jTHpnG_accountCreateAdd{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:6px;flex:none;padding:5px 10px;font-size:11px}.jTHpnG_sideNav{flex-direction:column;gap:2px;display:flex}.jTHpnG_navItem{color:var(--dsw-alias-label-secondary);text-align:left;cursor:pointer;background:0 0;border:none;border-radius:8px;align-items:center;padding:9px 12px;font-size:13px;transition:background .14s,color .14s;display:flex}.jTHpnG_navItem:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_navItemActive,.jTHpnG_navItemActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_sideFoot{flex-direction:column;gap:10px;margin-top:auto;padding:10px 6px 0;display:flex}.jTHpnG_main{flex:1;position:relative;overflow-y:auto}.jTHpnG_main .jTHpnG_close{z-index:1;position:absolute;top:24px;right:28px}.jTHpnG_workbench{flex-direction:column;gap:24px;display:flex}.jTHpnG_helloRow{padding-right:56px}.jTHpnG_hello{color:var(--dsw-alias-label-primary);margin:0;font-size:26px;font-weight:600}.jTHpnG_helloSub{color:var(--dsw-alias-label-tertiary);margin:8px 0 0;font-size:13px}.jTHpnG_quickRow{flex-wrap:wrap;gap:10px;display:flex}.jTHpnG_chip{align-items:center;gap:6px;display:inline-flex}.jTHpnG_panelTitle{color:var(--dsw-alias-state-business-primary);align-items:center;gap:6px;display:inline-flex}.jTHpnG_panelRowThree{grid-template-columns:repeat(3,1fr);gap:12px;display:grid}.jTHpnG_panelRowTwo{grid-template-columns:1fr 1fr;gap:12px;display:grid}.jTHpnG_statIcon{background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 14%, transparent);width:30px;height:30px;color:var(--dsw-alias-state-business-primary);border-radius:8px;justify-content:center;align-items:center;margin-bottom:8px;display:flex}.jTHpnG_listRowButton{border:none;border-top:1px solid var(--dsw-alias-border-l1);width:100%;font:inherit;text-align:left;cursor:pointer;background:0 0;justify-content:space-between;align-items:center;gap:8px;padding:7px 0;display:flex}.jTHpnG_listRowButton:first-of-type{border-top:none}.jTHpnG_listRowCopied .jTHpnG_listTitle,.jTHpnG_listRowCopied .jTHpnG_listMeta{color:var(--dsw-alias-state-success-primary)}.jTHpnG_dataPills{flex-wrap:wrap;gap:6px;margin-bottom:8px;display:flex}.jTHpnG_dataPill{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);border-radius:999px;padding:3px 10px;font-size:11px}.jTHpnG_chip{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:999px;padding:8px 16px;font-size:13px;transition:border-color .14s}.jTHpnG_chip:hover{border-color:var(--dsw-alias-state-business-primary)}.jTHpnG_chipCopied,.jTHpnG_chipCopied:hover{border-color:var(--dsw-alias-state-success-primary);color:var(--dsw-alias-state-success-primary)}.jTHpnG_statRow{grid-template-columns:repeat(4,1fr);gap:12px;display:grid}.jTHpnG_statCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:4px;padding:18px;display:flex}.jTHpnG_statValue{color:var(--dsw-alias-label-primary);font-size:26px;font-weight:600}.jTHpnG_statLabel{color:var(--dsw-alias-label-tertiary);font-size:12px}.jTHpnG_panelRow{grid-template-columns:1fr 1fr;gap:12px;display:grid}.jTHpnG_panel{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;padding:16px}.jTHpnG_panelHead{justify-content:space-between;align-items:center;margin-bottom:10px;display:flex}.jTHpnG_panelTitle{color:var(--dsw-alias-label-primary);margin:0;font-size:13px;font-weight:600}.jTHpnG_panelMore{color:var(--dsw-alias-label-tertiary);cursor:pointer;background:0 0;border:none;font-size:12px}.jTHpnG_panelMore:hover{color:var(--dsw-alias-state-business-primary)}.jTHpnG_panelEmpty{color:var(--dsw-alias-label-dimmed);margin:8px 0;font-size:12px}.jTHpnG_listRow{border-top:1px solid var(--dsw-alias-border-l1);justify-content:space-between;align-items:center;gap:8px;padding:7px 0;font-size:12px;display:flex}.jTHpnG_listRow:first-of-type{border-top:none}.jTHpnG_listTitle{text-overflow:ellipsis;white-space:nowrap;color:var(--dsw-alias-label-primary);overflow:hidden}.jTHpnG_listMeta{color:var(--dsw-alias-label-tertiary);flex:none}.jTHpnG_frame{max-width:960px;margin:0 auto;padding:40px 32px 64px}.jTHpnG_header{justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:24px;display:flex}.jTHpnG_headerControls{align-items:center;gap:12px;display:flex}.jTHpnG_views{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;gap:4px;padding:4px;display:inline-flex}.jTHpnG_title{color:var(--dsw-alias-label-primary);margin:0;font-size:22px;font-weight:600}.jTHpnG_subtitle{color:var(--dsw-alias-label-tertiary);margin:6px 0 0;font-size:13px}.jTHpnG_close{border:1px solid var(--dsw-alias-border-l1);width:32px;height:32px;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:8px;flex:none;justify-content:center;align-items:center;transition:background .14s,color .14s;display:flex}.jTHpnG_back{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:8px;flex:none;padding:6px 14px;font-size:13px;transition:background .14s}.jTHpnG_back:hover{background:var(--dsw-alias-button-primary-hover)}.jTHpnG_close:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_tabs{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;gap:4px;margin-bottom:28px;padding:4px;display:inline-flex}.jTHpnG_tab{color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:7px;padding:6px 14px;font-size:13px;transition:background .14s,color .14s}.jTHpnG_tab:hover{color:var(--dsw-alias-label-primary)}.jTHpnG_tabActive,.jTHpnG_tabActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_group{margin-bottom:28px}.jTHpnG_groupTitle{color:var(--dsw-alias-label-secondary);margin:0 0 10px;font-size:13px;font-weight:600}.jTHpnG_grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;display:grid}.jTHpnG_card{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:inherit;text-align:left;font:inherit;cursor:pointer;border-radius:10px;flex-direction:column;gap:8px;padding:14px;transition:transform .14s,border-color .14s;display:flex}.jTHpnG_card:hover{border-color:var(--dsw-alias-border-l2);transform:translateY(-2px)}.jTHpnG_cardCopied,.jTHpnG_cardCopied:hover{border-color:var(--dsw-alias-state-success-primary)}.jTHpnG_cardHead{justify-content:space-between;align-items:center;gap:8px;display:flex}.jTHpnG_cardTitle{color:var(--dsw-alias-label-primary);font-size:14px;font-weight:600}.jTHpnG_cardDetail{color:var(--dsw-alias-label-tertiary);font-size:12px;line-height:1.5}.jTHpnG_cardHint{color:var(--dsw-alias-label-dimmed);font-size:11px}.jTHpnG_cardHintCopied{color:var(--dsw-alias-state-success-primary)}.jTHpnG_library{flex-direction:column;gap:12px;display:flex}.jTHpnG_libraryState{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-tertiary);border-radius:10px;justify-content:center;align-items:center;gap:8px;padding:48px 16px;font-size:13px;display:flex}.jTHpnG_libraryProblems{color:var(--dsw-alias-state-warn-primary);border-radius:8px;align-items:center;gap:6px;padding:8px 12px;font-size:12px;display:flex}.jTHpnG_libraryCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:8px;padding:14px;display:flex}.jTHpnG_libraryTags{flex-wrap:wrap;gap:4px;display:flex}.jTHpnG_libraryTag{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);border-radius:999px;padding:1px 8px;font-size:11px}.jTHpnG_statusDraft{color:var(--dsw-alias-label-tertiary);background:color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent)}.jTHpnG_statusReady{color:var(--dsw-alias-state-business-primary);background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent)}.jTHpnG_statusPublished{color:var(--dsw-alias-state-success-primary);background:color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent)}.jTHpnG_retry{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:7px;align-items:center;gap:4px;padding:4px 10px;font-size:12px;display:inline-flex}.jTHpnG_retry:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_calendar{flex-direction:column;gap:10px;display:flex}.jTHpnG_calendarBar{align-items:center;gap:8px;display:flex}.jTHpnG_calendarMonth{color:var(--dsw-alias-label-primary);text-align:center;min-width:88px;font-size:14px;font-weight:600}.jTHpnG_calendarNav,.jTHpnG_calendarToday{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:7px;font-size:12px}.jTHpnG_calendarNav{width:26px;height:26px}.jTHpnG_calendarToday{padding:4px 12px}.jTHpnG_calendarNav:hover,.jTHpnG_calendarToday:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_calendarHead,.jTHpnG_calendarGrid{grid-template-columns:repeat(7,1fr);gap:4px;display:grid}.jTHpnG_calendarWeekday{text-align:center;color:var(--dsw-alias-label-tertiary);padding:2px 0;font-size:11px}.jTHpnG_calendarCell{border:1px solid var(--dsw-alias-border-l1);cursor:pointer;border-radius:8px;flex-direction:column;gap:3px;min-height:76px;padding:4px;transition:border-color .14s;display:flex}.jTHpnG_calendarCell:hover{border-color:var(--dsw-alias-border-l2)}.jTHpnG_calendarCellOutside{opacity:.45}.jTHpnG_calendarCellToday{border-color:var(--dsw-alias-state-business-primary)}.jTHpnG_calendarDayNum{color:var(--dsw-alias-label-secondary);font-size:11px}.jTHpnG_calendarChip{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary);cursor:default;border-radius:5px;align-items:center;gap:4px;min-width:0;padding:1px 4px;font-size:10px;display:flex}.jTHpnG_calendarChipTitle{text-overflow:ellipsis;white-space:nowrap;flex:1;overflow:hidden}.jTHpnG_calendarChipAction{color:var(--dsw-alias-label-tertiary);cursor:pointer;background:0 0;border:none;align-items:center;padding:0 2px;font-size:10px;display:inline-flex}.jTHpnG_calendarChipAction:hover{color:var(--dsw-alias-label-primary)}.jTHpnG_calendarDot{border-radius:999px;flex:none;width:6px;height:6px}.jTHpnG_dotIdea{background:var(--dsw-alias-label-tertiary)}.jTHpnG_dotDraft{background:var(--dsw-alias-state-warn-primary)}.jTHpnG_dotScheduled{background:var(--dsw-alias-state-business-primary)}.jTHpnG_dotPublished{background:var(--dsw-alias-state-success-primary)}.jTHpnG_calendarForm{flex-direction:column;gap:4px;margin-top:2px;display:flex}.jTHpnG_calendarInput{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);width:100%;color:var(--dsw-alias-label-primary);border-radius:5px;padding:3px 6px;font-size:10px}.jTHpnG_calendarFormRow{align-items:center;gap:6px;display:flex}.jTHpnG_calendarSubmit{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:5px;align-items:center;gap:3px;padding:2px 8px;font-size:10px;display:inline-flex}.jTHpnG_calendarHint{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-tertiary);text-align:center;border-radius:8px;padding:12px;font-size:12px}.jTHpnG_about{border-top:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-dimmed);justify-content:center;align-items:center;gap:12px;margin-top:32px;padding-top:16px;font-size:11px;display:flex}.jTHpnG_aboutLink{color:var(--dsw-alias-label-tertiary);text-decoration:none}.jTHpnG_aboutLink:hover{color:var(--dsw-alias-state-business-primary)}.jTHpnG_badge{white-space:nowrap;border-radius:999px;flex:none;padding:2px 8px;font-size:11px}.jTHpnG_badgeDone{color:var(--dsw-alias-state-success-primary);background:color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent)}.jTHpnG_badgeReady{color:var(--dsw-alias-state-business-primary);background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent)}.jTHpnG_badgeNeed{color:var(--dsw-alias-state-warn-primary);background:color-mix(in srgb, var(--dsw-alias-state-warn-primary) 12%, transparent)}.jTHpnG_badgeIncoming{color:var(--dsw-alias-label-tertiary);background:color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent)}";
+		const css = ".jTHpnG_entryWide{width:100%;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:8px;align-items:center;gap:8px;padding:8px 10px;font-size:13px;transition:background .14s,color .14s;display:flex}.jTHpnG_entryWide:hover,.jTHpnG_entryRail:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_entryRail{width:36px;height:36px;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:8px;justify-content:center;align-items:center;margin:0 auto;padding:0;transition:background .14s,color .14s;display:flex}.jTHpnG_entryLabel{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.jTHpnG_surface{background:var(--dsw-alias-bg-layer-1);position:fixed;inset:0;overflow:hidden}.jTHpnG_shell{height:100%;display:flex}.jTHpnG_side{border-right:1px solid var(--dsw-alias-border-l1);flex-direction:column;flex:none;width:208px;padding:20px 12px 16px;display:flex}.jTHpnG_sideBrand{color:var(--dsw-alias-label-primary);align-items:center;gap:8px;margin-bottom:14px;padding:6px 10px;font-size:15px;font-weight:600;display:flex}.jTHpnG_accountBox{margin:0 4px 14px;position:relative}.jTHpnG_accountButton{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);width:100%;color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:8px;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;font-size:13px;display:flex}.jTHpnG_accountButton:hover{border-color:var(--dsw-alias-border-l4)}.jTHpnG_accountName{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.jTHpnG_accountList{z-index:5;border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-1);box-shadow:0 8px 24px color-mix(in srgb, var(--dsw-alias-bg-mask-1) 20%, transparent);border-radius:8px;padding:4px;position:absolute;top:calc(100% + 4px);left:0;right:0}.jTHpnG_accountOption{width:100%;color:var(--dsw-alias-label-primary);text-align:left;cursor:pointer;background:0 0;border:none;border-radius:6px;align-items:center;gap:6px;padding:8px 10px;font-size:12px;display:flex}.jTHpnG_accountOption:hover{background:var(--dsw-alias-interactive-bg-hover)}.jTHpnG_accountOptionActive,.jTHpnG_accountOptionActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_accountCreateRow{align-items:center;gap:6px;padding:4px;display:flex}.jTHpnG_accountInput{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);min-width:0;color:var(--dsw-alias-label-primary);border-radius:6px;flex:1;padding:5px 8px;font-size:12px}.jTHpnG_accountCreateAdd{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:6px;flex:none;padding:5px 10px;font-size:11px}.jTHpnG_sideNav{flex-direction:column;gap:2px;display:flex}.jTHpnG_navItem{color:var(--dsw-alias-label-secondary);text-align:left;cursor:pointer;background:0 0;border:none;border-radius:8px;align-items:center;padding:9px 12px;font-size:13px;transition:background .14s,color .14s;display:flex}.jTHpnG_navItem:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_navItemActive,.jTHpnG_navItemActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_sideFoot{flex-direction:column;gap:10px;margin-top:auto;padding:10px 6px 0;display:flex}.jTHpnG_main{flex:1;position:relative;overflow-y:auto}.jTHpnG_main .jTHpnG_close{z-index:1;position:absolute;top:24px;right:28px}.jTHpnG_workbench{flex-direction:column;gap:24px;display:flex}.jTHpnG_pageTitle{color:var(--dsw-alias-label-primary);margin:0;font-size:20px;font-weight:600}.jTHpnG_accountsPane{flex-direction:column;gap:14px;max-width:420px;display:flex}.jTHpnG_accountsList{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;padding:4px 12px}.jTHpnG_accountActiveTag{background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 14%, transparent);color:var(--dsw-alias-state-business-primary);border-radius:999px;margin-left:8px;padding:1px 8px;font-size:10px}.jTHpnG_personaInput{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);width:100%;max-width:640px;color:var(--dsw-alias-label-primary);font:inherit;resize:vertical;border-radius:10px;padding:12px;font-size:13px;line-height:1.6}.jTHpnG_personaRow{align-items:center;gap:12px;display:flex}.jTHpnG_personaSaved{color:var(--dsw-alias-state-success-primary);font-size:12px}.jTHpnG_helloRow{padding-right:56px}.jTHpnG_hello{color:var(--dsw-alias-label-primary);margin:0;font-size:26px;font-weight:600}.jTHpnG_helloSub{color:var(--dsw-alias-label-tertiary);margin:8px 0 0;font-size:13px}.jTHpnG_quickRow{flex-wrap:wrap;gap:10px;display:flex}.jTHpnG_chip{align-items:center;gap:6px;display:inline-flex}.jTHpnG_panelTitle{color:var(--dsw-alias-state-business-primary);align-items:center;gap:6px;display:inline-flex}.jTHpnG_panelRowThree{grid-template-columns:repeat(3,1fr);gap:12px;display:grid}.jTHpnG_panelRowTwo{grid-template-columns:1fr 1fr;gap:12px;display:grid}.jTHpnG_statIcon{background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 14%, transparent);width:30px;height:30px;color:var(--dsw-alias-state-business-primary);border-radius:8px;justify-content:center;align-items:center;margin-bottom:8px;display:flex}.jTHpnG_listRowButton{border:none;border-top:1px solid var(--dsw-alias-border-l1);width:100%;font:inherit;text-align:left;cursor:pointer;background:0 0;justify-content:space-between;align-items:center;gap:8px;padding:7px 0;display:flex}.jTHpnG_listRowButton:first-of-type{border-top:none}.jTHpnG_listRowCopied .jTHpnG_listTitle,.jTHpnG_listRowCopied .jTHpnG_listMeta{color:var(--dsw-alias-state-success-primary)}.jTHpnG_dataPills{flex-wrap:wrap;gap:6px;margin-bottom:8px;display:flex}.jTHpnG_dataPill{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);border-radius:999px;padding:3px 10px;font-size:11px}.jTHpnG_chip{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:999px;padding:8px 16px;font-size:13px;transition:border-color .14s}.jTHpnG_chip:hover{border-color:var(--dsw-alias-state-business-primary)}.jTHpnG_chipCopied,.jTHpnG_chipCopied:hover{border-color:var(--dsw-alias-state-success-primary);color:var(--dsw-alias-state-success-primary)}.jTHpnG_statRow{grid-template-columns:repeat(4,1fr);gap:12px;display:grid}.jTHpnG_statCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:4px;padding:18px;display:flex}.jTHpnG_statValue{color:var(--dsw-alias-label-primary);font-size:26px;font-weight:600}.jTHpnG_statLabel{color:var(--dsw-alias-label-tertiary);font-size:12px}.jTHpnG_panelRow{grid-template-columns:1fr 1fr;gap:12px;display:grid}.jTHpnG_panel{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;padding:16px}.jTHpnG_panelHead{justify-content:space-between;align-items:center;margin-bottom:10px;display:flex}.jTHpnG_panelTitle{color:var(--dsw-alias-label-primary);margin:0;font-size:13px;font-weight:600}.jTHpnG_panelMore{color:var(--dsw-alias-label-tertiary);cursor:pointer;background:0 0;border:none;font-size:12px}.jTHpnG_panelMore:hover{color:var(--dsw-alias-state-business-primary)}.jTHpnG_panelEmpty{color:var(--dsw-alias-label-dimmed);margin:8px 0;font-size:12px}.jTHpnG_listRow{border-top:1px solid var(--dsw-alias-border-l1);justify-content:space-between;align-items:center;gap:8px;padding:7px 0;font-size:12px;display:flex}.jTHpnG_listRow:first-of-type{border-top:none}.jTHpnG_listTitle{text-overflow:ellipsis;white-space:nowrap;color:var(--dsw-alias-label-primary);overflow:hidden}.jTHpnG_listMeta{color:var(--dsw-alias-label-tertiary);flex:none}.jTHpnG_frame{max-width:960px;margin:0 auto;padding:40px 32px 64px}.jTHpnG_header{justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:24px;display:flex}.jTHpnG_headerControls{align-items:center;gap:12px;display:flex}.jTHpnG_views{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;gap:4px;padding:4px;display:inline-flex}.jTHpnG_title{color:var(--dsw-alias-label-primary);margin:0;font-size:22px;font-weight:600}.jTHpnG_subtitle{color:var(--dsw-alias-label-tertiary);margin:6px 0 0;font-size:13px}.jTHpnG_close{border:1px solid var(--dsw-alias-border-l1);width:32px;height:32px;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:8px;flex:none;justify-content:center;align-items:center;transition:background .14s,color .14s;display:flex}.jTHpnG_back{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:8px;flex:none;padding:6px 14px;font-size:13px;transition:background .14s}.jTHpnG_back:hover{background:var(--dsw-alias-button-primary-hover)}.jTHpnG_close:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_tabs{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;gap:4px;margin-bottom:28px;padding:4px;display:inline-flex}.jTHpnG_tab{color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:7px;padding:6px 14px;font-size:13px;transition:background .14s,color .14s}.jTHpnG_tab:hover{color:var(--dsw-alias-label-primary)}.jTHpnG_tabActive,.jTHpnG_tabActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_group{margin-bottom:28px}.jTHpnG_groupTitle{color:var(--dsw-alias-label-secondary);margin:0 0 10px;font-size:13px;font-weight:600}.jTHpnG_grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;display:grid}.jTHpnG_card{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:inherit;text-align:left;font:inherit;cursor:pointer;border-radius:10px;flex-direction:column;gap:8px;padding:14px;transition:transform .14s,border-color .14s;display:flex}.jTHpnG_card:hover{border-color:var(--dsw-alias-border-l2);transform:translateY(-2px)}.jTHpnG_cardCopied,.jTHpnG_cardCopied:hover{border-color:var(--dsw-alias-state-success-primary)}.jTHpnG_cardHead{justify-content:space-between;align-items:center;gap:8px;display:flex}.jTHpnG_cardTitle{color:var(--dsw-alias-label-primary);font-size:14px;font-weight:600}.jTHpnG_cardDetail{color:var(--dsw-alias-label-tertiary);font-size:12px;line-height:1.5}.jTHpnG_cardHint{color:var(--dsw-alias-label-dimmed);font-size:11px}.jTHpnG_cardHintCopied{color:var(--dsw-alias-state-success-primary)}.jTHpnG_library{flex-direction:column;gap:12px;display:flex}.jTHpnG_libraryState{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-tertiary);border-radius:10px;justify-content:center;align-items:center;gap:8px;padding:48px 16px;font-size:13px;display:flex}.jTHpnG_libraryProblems{color:var(--dsw-alias-state-warn-primary);border-radius:8px;align-items:center;gap:6px;padding:8px 12px;font-size:12px;display:flex}.jTHpnG_libraryCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:8px;padding:14px;display:flex}.jTHpnG_libraryTags{flex-wrap:wrap;gap:4px;display:flex}.jTHpnG_libraryTag{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);border-radius:999px;padding:1px 8px;font-size:11px}.jTHpnG_statusDraft{color:var(--dsw-alias-label-tertiary);background:color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent)}.jTHpnG_statusReady{color:var(--dsw-alias-state-business-primary);background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent)}.jTHpnG_statusPublished{color:var(--dsw-alias-state-success-primary);background:color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent)}.jTHpnG_retry{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:7px;align-items:center;gap:4px;padding:4px 10px;font-size:12px;display:inline-flex}.jTHpnG_retry:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_calendar{flex-direction:column;gap:10px;display:flex}.jTHpnG_calendarBar{align-items:center;gap:8px;display:flex}.jTHpnG_calendarMonth{color:var(--dsw-alias-label-primary);text-align:center;min-width:88px;font-size:14px;font-weight:600}.jTHpnG_calendarNav,.jTHpnG_calendarToday{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:7px;font-size:12px}.jTHpnG_calendarNav{width:26px;height:26px}.jTHpnG_calendarToday{padding:4px 12px}.jTHpnG_calendarNav:hover,.jTHpnG_calendarToday:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_calendarHead,.jTHpnG_calendarGrid{grid-template-columns:repeat(7,1fr);gap:4px;display:grid}.jTHpnG_calendarWeekday{text-align:center;color:var(--dsw-alias-label-tertiary);padding:2px 0;font-size:11px}.jTHpnG_calendarCell{border:1px solid var(--dsw-alias-border-l1);cursor:pointer;border-radius:8px;flex-direction:column;gap:3px;min-height:76px;padding:4px;transition:border-color .14s;display:flex}.jTHpnG_calendarCell:hover{border-color:var(--dsw-alias-border-l2)}.jTHpnG_calendarCellOutside{opacity:.45}.jTHpnG_calendarCellToday{border-color:var(--dsw-alias-state-business-primary)}.jTHpnG_calendarDayNum{color:var(--dsw-alias-label-secondary);font-size:11px}.jTHpnG_calendarChip{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary);cursor:default;border-radius:5px;align-items:center;gap:4px;min-width:0;padding:1px 4px;font-size:10px;display:flex}.jTHpnG_calendarChipTitle{text-overflow:ellipsis;white-space:nowrap;flex:1;overflow:hidden}.jTHpnG_calendarChipAction{color:var(--dsw-alias-label-tertiary);cursor:pointer;background:0 0;border:none;align-items:center;padding:0 2px;font-size:10px;display:inline-flex}.jTHpnG_calendarChipAction:hover{color:var(--dsw-alias-label-primary)}.jTHpnG_calendarDot{border-radius:999px;flex:none;width:6px;height:6px}.jTHpnG_dotIdea{background:var(--dsw-alias-label-tertiary)}.jTHpnG_dotDraft{background:var(--dsw-alias-state-warn-primary)}.jTHpnG_dotScheduled{background:var(--dsw-alias-state-business-primary)}.jTHpnG_dotPublished{background:var(--dsw-alias-state-success-primary)}.jTHpnG_calendarForm{flex-direction:column;gap:4px;margin-top:2px;display:flex}.jTHpnG_calendarInput{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);width:100%;color:var(--dsw-alias-label-primary);border-radius:5px;padding:3px 6px;font-size:10px}.jTHpnG_calendarFormRow{align-items:center;gap:6px;display:flex}.jTHpnG_calendarSubmit{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:5px;align-items:center;gap:3px;padding:2px 8px;font-size:10px;display:inline-flex}.jTHpnG_calendarHint{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-tertiary);text-align:center;border-radius:8px;padding:12px;font-size:12px}.jTHpnG_about{border-top:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-dimmed);justify-content:center;align-items:center;gap:12px;margin-top:32px;padding-top:16px;font-size:11px;display:flex}.jTHpnG_aboutLink{color:var(--dsw-alias-label-tertiary);text-decoration:none}.jTHpnG_aboutLink:hover{color:var(--dsw-alias-state-business-primary)}.jTHpnG_badge{white-space:nowrap;border-radius:999px;flex:none;padding:2px 8px;font-size:11px}.jTHpnG_badgeDone{color:var(--dsw-alias-state-success-primary);background:color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent)}.jTHpnG_badgeReady{color:var(--dsw-alias-state-business-primary);background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent)}.jTHpnG_badgeNeed{color:var(--dsw-alias-state-warn-primary);background:color-mix(in srgb, var(--dsw-alias-state-warn-primary) 12%, transparent)}.jTHpnG_badgeIncoming{color:var(--dsw-alias-label-tertiary);background:color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent)}";
 		const tagId = "@deepseek-ai/dsh-client-ui-content-studio/ContentStudio.module.css";
 		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId) + "]") === null) {
 			const tag = document.createElement("style");
@@ -4298,6 +4304,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		var ContentStudio_module_css_default = {
 			"about": "jTHpnG_about",
 			"aboutLink": "jTHpnG_aboutLink",
+			"accountActiveTag": "jTHpnG_accountActiveTag",
 			"accountBox": "jTHpnG_accountBox",
 			"accountButton": "jTHpnG_accountButton",
 			"accountCreateAdd": "jTHpnG_accountCreateAdd",
@@ -4307,6 +4314,8 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"accountName": "jTHpnG_accountName",
 			"accountOption": "jTHpnG_accountOption",
 			"accountOptionActive": "jTHpnG_accountOptionActive",
+			"accountsList": "jTHpnG_accountsList",
+			"accountsPane": "jTHpnG_accountsPane",
 			"back": "jTHpnG_back",
 			"badge": "jTHpnG_badge",
 			"badgeDone": "jTHpnG_badgeDone",
@@ -4376,6 +4385,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"main": "jTHpnG_main",
 			"navItem": "jTHpnG_navItem",
 			"navItemActive": "jTHpnG_navItemActive",
+			"pageTitle": "jTHpnG_pageTitle",
 			"panel": "jTHpnG_panel",
 			"panelEmpty": "jTHpnG_panelEmpty",
 			"panelHead": "jTHpnG_panelHead",
@@ -4384,6 +4394,9 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"panelRowThree": "jTHpnG_panelRowThree",
 			"panelRowTwo": "jTHpnG_panelRowTwo",
 			"panelTitle": "jTHpnG_panelTitle",
+			"personaInput": "jTHpnG_personaInput",
+			"personaRow": "jTHpnG_personaRow",
+			"personaSaved": "jTHpnG_personaSaved",
 			"quickRow": "jTHpnG_quickRow",
 			"retry": "jTHpnG_retry",
 			"shell": "jTHpnG_shell",
@@ -4409,7 +4422,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"workbench": "jTHpnG_workbench"
 		};
 		//#endregion
-		//#region src/client/StudioEntry.tsx
+		//#region lib/types/client/StudioEntry.js
 		/**
 		* The sidebar entry occupying the `sidebar.footer.action` hole: a labeled
 		* row while the column is wide, a 16px icon on the 56px rail. Clicking opens
@@ -4421,19 +4434,19 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		* @returns the entry button element tree.
 		*/
 		function StudioEntry({ wide, studio, t }) {
-			const button = /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+			const button = (0, react_jsx_runtime.jsxs)("button", {
 				type: "button",
 				className: wide ? ContentStudio_module_css_default.entryWide : ContentStudio_module_css_default.entryRail,
 				"aria-label": t("entry.aria"),
 				onClick: () => {
 					studio.open();
 				},
-				children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: wide ? 16 : 18 }), wide && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+				children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: wide ? 16 : 18 }), wide && (0, react_jsx_runtime.jsx)("span", {
 					className: ContentStudio_module_css_default.entryLabel,
 					children: t("entry.label")
 				})]
 			});
-			return wide ? button : /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.Tooltip, {
+			return wide ? button : (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.Tooltip, {
 				label: t("entry.label"),
 				delayMs: 500,
 				children: button
@@ -4455,7 +4468,13 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			return n;
 		}
 		//#endregion
-		//#region src/client/capabilities.ts
+		//#region lib/types/client/capabilities.js
+		/**
+		* The Content Studio capability catalog: the static dual-tab menu of creation
+		* and operation verbs this plugin ships. Display copy lives in the locale
+		* dictionaries under `cap.<id>.title` / `cap.<id>.detail`; this module owns
+		* the structure, the clipboard payload, and the maturity classification.
+		*/
 		/** Tab order and the group sequence each tab renders. */
 		const STUDIO_TABS = [{
 			id: "create",
@@ -4592,7 +4611,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			return groups;
 		}
 		//#endregion
-		//#region src/client/ContentLibrary.tsx
+		//#region lib/types/client/ContentLibrary.js
 		/**
 		* The library view: one card per outputs project, read through the
 		* `contentOutputs/list` Remote wrapped by the injected face. Loading, error,
@@ -4626,42 +4645,42 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			(0, react.useEffect)(() => {
 				load();
 			}, [load]);
-			if (failed) return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+			if (failed) return (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.libraryState,
 				children: [
-					/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 16 }),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
+					(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 16 }),
+					(0, react_jsx_runtime.jsxs)("span", { children: [
 						t("library.error"),
 						": ",
 						failed
 					] }),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+					(0, react_jsx_runtime.jsxs)("button", {
 						type: "button",
 						className: ContentStudio_module_css_default.retry,
 						onClick: () => {
 							load();
 						},
-						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconRefreshOutline14, { size: 14 }), t("library.retry")]
+						children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconRefreshOutline14, { size: 14 }), t("library.retry")]
 					})
 				]
 			});
-			if (snapshot === void 0) return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+			if (snapshot === void 0) return (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.libraryState,
 				children: t("library.loading")
 			});
-			if (snapshot.projects.length === 0) return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+			if (snapshot.projects.length === 0) return (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.libraryState,
-				children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("library.empty") })
+				children: (0, react_jsx_runtime.jsx)("span", { children: t("library.empty") })
 			});
-			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+			return (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.library,
-				children: [snapshot.problems.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+				children: [snapshot.problems.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
 					className: ContentStudio_module_css_default.libraryProblems,
 					role: "alert",
-					children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("library.problems", { n: snapshot.problems.length }) })]
-				}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+					children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), (0, react_jsx_runtime.jsx)("span", { children: t("library.problems", { n: snapshot.problems.length }) })]
+				}), (0, react_jsx_runtime.jsx)("div", {
 					className: ContentStudio_module_css_default.grid,
-					children: snapshot.projects.map((project) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)(ProjectCard, {
+					children: snapshot.projects.map((project) => (0, react_jsx_runtime.jsx)(ProjectCard, {
 						project,
 						t
 					}, project.topic))
@@ -4670,35 +4689,35 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		}
 		/** One outputs project as a read-only card. */
 		function ProjectCard({ project, t }) {
-			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+			return (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.libraryCard,
 				children: [
-					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+					(0, react_jsx_runtime.jsxs)("span", {
 						className: ContentStudio_module_css_default.cardHead,
-						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+						children: [(0, react_jsx_runtime.jsx)("span", {
 							className: ContentStudio_module_css_default.cardTitle,
 							children: project.title
-						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+						}), (0, react_jsx_runtime.jsx)("span", {
 							className: clsx(ContentStudio_module_css_default.badge, STATUS_CLASS[project.status]),
 							children: t(`status.${project.status}`)
 						})]
 					}),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+					(0, react_jsx_runtime.jsxs)("span", {
 						className: ContentStudio_module_css_default.cardDetail,
 						children: [t(`kind.${project.kind}`), project.platform !== null && ` · ${project.platform}`]
 					}),
-					project.summary !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+					project.summary !== null && (0, react_jsx_runtime.jsx)("span", {
 						className: ContentStudio_module_css_default.cardDetail,
 						children: project.summary
 					}),
-					project.tags.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+					project.tags.length > 0 && (0, react_jsx_runtime.jsx)("span", {
 						className: ContentStudio_module_css_default.libraryTags,
-						children: project.tags.map((tag) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+						children: project.tags.map((tag) => (0, react_jsx_runtime.jsx)("span", {
 							className: ContentStudio_module_css_default.libraryTag,
 							children: tag
 						}, tag))
 					}),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+					(0, react_jsx_runtime.jsxs)("span", {
 						className: ContentStudio_module_css_default.cardHint,
 						children: [
 							project.hasMetadata ? t("library.deliverables", { n: project.deliverables.length }) : t("library.noMetadata"),
@@ -4712,7 +4731,12 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			});
 		}
 		//#endregion
-		//#region src/client/calendar.ts
+		//#region lib/types/client/calendar.js
+		/**
+		* Pure month-grid math for the calendar view: no React, no IO — weeks start
+		* Monday, and every day carries its `YYYY-MM-DD` wire date plus an
+		* in-month flag so leading/trailing padding renders dimmed.
+		*/
 		/**
 		* Local-time today as `YYYY-MM-DD`.
 		* @returns today's wire date in the host time zone.
@@ -4779,7 +4803,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			return byDate;
 		}
 		//#endregion
-		//#region src/client/ContentCalendar.tsx
+		//#region lib/types/client/ContentCalendar.js
 		/**
 		* The calendar view: one month grid over the publication calendar, read and
 		* mutated through the injected `contentSchedule` wrappers. Clicking a day
@@ -4885,21 +4909,21 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					setFailed(true);
 				}
 			};
-			if (failed) return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+			if (failed) return (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.libraryState,
 				children: t("library.error")
 			});
-			if (snapshot === void 0) return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+			if (snapshot === void 0) return (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.libraryState,
 				children: t("calendar.loading")
 			});
-			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+			return (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.calendar,
 				children: [
-					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+					(0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.calendarBar,
 						children: [
-							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+							(0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.calendarNav,
 								"aria-label": t("calendar.prev"),
@@ -4908,7 +4932,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 								},
 								children: "‹"
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+							(0, react_jsx_runtime.jsxs)("span", {
 								className: ContentStudio_module_css_default.calendarMonth,
 								children: [
 									month.year,
@@ -4916,7 +4940,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 									t(`calendar.month.${month.month}`)
 								]
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+							(0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.calendarNav,
 								"aria-label": t("calendar.next"),
@@ -4925,7 +4949,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 								},
 								children: "›"
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+							(0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.calendarToday,
 								onClick: () => {
@@ -4939,18 +4963,18 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 							})
 						]
 					}),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+					(0, react_jsx_runtime.jsx)("div", {
 						className: ContentStudio_module_css_default.calendarHead,
-						children: WEEKDAY_KEYS.map((key) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+						children: WEEKDAY_KEYS.map((key) => (0, react_jsx_runtime.jsx)("span", {
 							className: ContentStudio_module_css_default.calendarWeekday,
 							children: t(key)
 						}, key))
 					}),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+					(0, react_jsx_runtime.jsx)("div", {
 						className: ContentStudio_module_css_default.calendarGrid,
 						children: grid.flat().map((day) => {
 							const items = byDate.get(day.date) ?? [];
-							return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+							return (0, react_jsx_runtime.jsxs)("div", {
 								className: clsx(ContentStudio_module_css_default.calendarCell, !day.inMonth && ContentStudio_module_css_default.calendarCellOutside, day.isToday && ContentStudio_module_css_default.calendarCellToday),
 								role: "button",
 								tabIndex: 0,
@@ -4970,25 +4994,25 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 									});
 								},
 								children: [
-									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+									(0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.calendarDayNum,
 										children: Number(day.date.slice(8, 10))
 									}),
-									items.map((item) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+									items.map((item) => (0, react_jsx_runtime.jsxs)("span", {
 										className: ContentStudio_module_css_default.calendarChip,
 										onClick: (event) => {
 											event.stopPropagation();
 										},
 										children: [
-											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+											(0, react_jsx_runtime.jsx)("span", {
 												className: clsx(ContentStudio_module_css_default.calendarDot, DOT_CLASS[item.status]),
 												"aria-hidden": "true"
 											}),
-											/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+											(0, react_jsx_runtime.jsxs)("span", {
 												className: ContentStudio_module_css_default.calendarChipTitle,
 												children: [item.time !== null && `${item.time} `, item.title]
 											}),
-											item.status !== "published" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+											item.status !== "published" && (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												className: ContentStudio_module_css_default.calendarChipAction,
 												"aria-label": t("calendar.publish.aria"),
@@ -4998,24 +5022,24 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 												},
 												children: "✓"
 											}),
-											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+											(0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												className: ContentStudio_module_css_default.calendarChipAction,
 												"aria-label": t("calendar.remove.aria"),
 												onClick: () => {
 													remove(item.id);
 												},
-												children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 11 })
+												children: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 11 })
 											})
 										]
 									}, item.id)),
-									form?.date === day.date && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+									form?.date === day.date && (0, react_jsx_runtime.jsxs)("div", {
 										className: ContentStudio_module_css_default.calendarForm,
 										onClick: (event) => {
 											event.stopPropagation();
 										},
 										children: [
-											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
+											(0, react_jsx_runtime.jsx)("input", {
 												className: ContentStudio_module_css_default.calendarInput,
 												autoFocus: true,
 												placeholder: t("calendar.titlePlaceholder"),
@@ -5030,7 +5054,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 													if (event.key === "Enter") submit();
 												}
 											}),
-											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
+											(0, react_jsx_runtime.jsx)("input", {
 												className: ContentStudio_module_css_default.calendarInput,
 												placeholder: t("calendar.platformPlaceholder"),
 												value: form.platform,
@@ -5041,17 +5065,17 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 													});
 												}
 											}),
-											/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+											(0, react_jsx_runtime.jsxs)("div", {
 												className: ContentStudio_module_css_default.calendarFormRow,
-												children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+												children: [(0, react_jsx_runtime.jsxs)("button", {
 													type: "button",
 													className: ContentStudio_module_css_default.calendarSubmit,
 													disabled: submitting,
 													onClick: () => {
 														submit();
 													},
-													children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconPlusOutline16, { size: 12 }), t("calendar.add")]
-												}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+													children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconPlusOutline16, { size: 12 }), t("calendar.add")]
+												}), (0, react_jsx_runtime.jsx)("button", {
 													type: "button",
 													className: ContentStudio_module_css_default.calendarChipAction,
 													"aria-label": t("calendar.cancel"),
@@ -5067,7 +5091,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 							}, day.date);
 						})
 					}),
-					form === void 0 && snapshot.items.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+					form === void 0 && snapshot.items.length === 0 && (0, react_jsx_runtime.jsx)("div", {
 						className: ContentStudio_module_css_default.calendarHint,
 						children: t("calendar.empty")
 					})
@@ -5075,7 +5099,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			});
 		}
 		//#endregion
-		//#region src/client/ContentWorkbench.tsx
+		//#region lib/types/client/ContentWorkbench.js
 		/**
 		* The workbench home (Easel-style dashboard): greeting, icon verb chips
 		* (navigate or copy a capability instruction), four stat cards with tinted
@@ -5108,7 +5132,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		* @param props - the Remote read wrappers, view navigation, and the locale seat.
 		* @returns the dashboard element tree.
 		*/
-		function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat, account, t }) {
+		function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat, account, persona, t }) {
 			const [outputs, setOutputs] = (0, react.useState)({ state: "loading" });
 			const [schedule, setSchedule] = (0, react.useState)({ state: "loading" });
 			const [copiedId, setCopiedId] = (0, react.useState)(void 0);
@@ -5159,9 +5183,11 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			}, [copiedId]);
 			const quick = (0, react.useMemo)(() => QUICK_IDS.map((id) => cap(id)), []);
 			const pick = async (item) => {
-				if (await (0, _deepseek_ai_dsh_client_ui_primitives.writeClipboard)(account === "通用模式" ? item.prompt : `我的账号/画像：${account}
+				const identity = account === "通用模式" ? persona.length > 0 ? `账号画像：${persona}` : "" : persona.length > 0 ? `我的账号/画像：${account}
+账号画像：${persona}` : `我的账号/画像：${account}`;
+				if (await (0, _deepseek_ai_dsh_client_ui_primitives.writeClipboard)(identity.length > 0 ? `${identity}
 
-${item.prompt}`)) setCopiedId(item.id);
+${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			};
 			if (outputs.state === "failed") console.warn("[content-studio] outputs panel degraded:", outputs.detail);
 			if (schedule.state === "failed") console.warn("[content-studio] schedule panel degraded:", schedule.detail);
@@ -5176,17 +5202,17 @@ ${item.prompt}`)) setCopiedId(item.id);
 			const allSchedule = items;
 			/** Loading / failed seat for a panel fed by one Remote. */
 			const panelState = (load, retry) => {
-				if (load.state === "loading") return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
+				if (load.state === "loading") return (0, react_jsx_runtime.jsx)("p", {
 					className: ContentStudio_module_css_default.panelEmpty,
 					children: t("library.loading")
 				});
-				if (load.state === "failed") return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+				if (load.state === "failed") return (0, react_jsx_runtime.jsxs)("div", {
 					className: ContentStudio_module_css_default.libraryState,
-					children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
+					children: [(0, react_jsx_runtime.jsxs)("span", { children: [
 						t("library.error"),
 						": ",
 						load.detail
-					] }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+					] }), (0, react_jsx_runtime.jsx)("button", {
 						type: "button",
 						className: ContentStudio_module_css_default.retry,
 						onClick: retry,
@@ -5194,98 +5220,98 @@ ${item.prompt}`)) setCopiedId(item.id);
 					})]
 				});
 			};
-			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+			return (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.workbench,
 				children: [
-					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+					(0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.helloRow,
-						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h1", {
+						children: [(0, react_jsx_runtime.jsxs)("h1", {
 							className: ContentStudio_module_css_default.hello,
 							children: [t(`greet.${greetKey((/* @__PURE__ */ new Date()).getHours())}`), " 👋"]
-						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
+						}), (0, react_jsx_runtime.jsx)("p", {
 							className: ContentStudio_module_css_default.helloSub,
 							children: t("workbench.subtitle")
 						})]
 					}),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+					(0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.quickRow,
 						children: [
-							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+							(0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.chip,
 								onClick: onChat,
-								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconNewChatOutline16, { size: 14 }), t("action.chat")]
+								children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconNewChatOutline16, { size: 14 }), t("action.chat")]
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+							(0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.chip,
 								onClick: () => {
 									onNavigate("create");
 								},
-								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 14 }), t("nav.create")]
+								children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 14 }), t("nav.create")]
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+							(0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.chip,
 								onClick: () => {
 									onNavigate("calendar");
 								},
-								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 14 }), t("action.schedule")]
+								children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 14 }), t("action.schedule")]
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+							(0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								className: clsx(ContentStudio_module_css_default.chip, copiedId === "social-card" && ContentStudio_module_css_default.chipCopied),
 								onClick: () => {
 									pick(cap("social-card"));
 								},
-								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconEditOutline16, { size: 14 }), copiedId === "social-card" ? t("card.copied") : t("cap.social-card.title")]
+								children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconEditOutline16, { size: 14 }), copiedId === "social-card" ? t("card.copied") : t("cap.social-card.title")]
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+							(0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								className: clsx(ContentStudio_module_css_default.chip, copiedId === "pre-publish" && ContentStudio_module_css_default.chipCopied),
 								onClick: () => {
 									pick(cap("pre-publish"));
 								},
-								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCheckOutline16, { size: 14 }), copiedId === "pre-publish" ? t("card.copied") : t("cap.pre-publish.title")]
+								children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCheckOutline16, { size: 14 }), copiedId === "pre-publish" ? t("card.copied") : t("cap.pre-publish.title")]
 							})
 						]
 					}),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+					(0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.statRow,
 						children: [
-							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
-								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconFolderOpenOutline16, { size: 16 }),
+							(0, react_jsx_runtime.jsx)(StatCard, {
+								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconFolderOpenOutline16, { size: 16 }),
 								value: outputs.state === "ok" ? projects.length : void 0,
 								label: t("stat.projects")
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
-								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 16 }),
+							(0, react_jsx_runtime.jsx)(StatCard, {
+								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 16 }),
 								value: schedule.state === "ok" ? pending : void 0,
 								label: t("stat.scheduled")
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
-								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCheckOutline16, { size: 16 }),
+							(0, react_jsx_runtime.jsx)(StatCard, {
+								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCheckOutline16, { size: 16 }),
 								value: outputs.state === "ok" ? ready : void 0,
 								label: t("stat.ready")
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
-								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconGoalOutline16, { size: 16 }),
+							(0, react_jsx_runtime.jsx)(StatCard, {
+								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconGoalOutline16, { size: 16 }),
 								value: schedule.state === "ok" ? published : void 0,
 								label: t("stat.published")
 							})
 						]
 					}),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+					(0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.panelRowThree,
 						children: [
-							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
+							(0, react_jsx_runtime.jsxs)("section", {
 								className: ContentStudio_module_css_default.panel,
-								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
+								children: [(0, react_jsx_runtime.jsxs)("header", {
 									className: ContentStudio_module_css_default.panelHead,
-									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h2", {
+									children: [(0, react_jsx_runtime.jsxs)("h2", {
 										className: ContentStudio_module_css_default.panelTitle,
-										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 13 }), t("panel.quickCreate")]
-									}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+										children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 13 }), t("panel.quickCreate")]
+									}), (0, react_jsx_runtime.jsxs)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.panelMore,
 										onClick: () => {
@@ -5293,29 +5319,29 @@ ${item.prompt}`)) setCopiedId(item.id);
 										},
 										children: [t("nav.create"), " →"]
 									})]
-								}), quick.map((item) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+								}), quick.map((item) => (0, react_jsx_runtime.jsxs)("button", {
 									type: "button",
 									className: clsx(ContentStudio_module_css_default.listRowButton, copiedId === item.id && ContentStudio_module_css_default.listRowCopied),
 									onClick: () => {
 										pick(item);
 									},
-									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+									children: [(0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.listTitle,
 										children: copiedId === item.id ? t("card.copied") : t(`cap.${item.id}.title`)
-									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+									}), (0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.listMeta,
 										children: copiedId === item.id ? "" : t("card.copyHint")
 									})]
 								}, item.id))]
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
+							(0, react_jsx_runtime.jsxs)("section", {
 								className: ContentStudio_module_css_default.panel,
-								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
+								children: [(0, react_jsx_runtime.jsxs)("header", {
 									className: ContentStudio_module_css_default.panelHead,
-									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h2", {
+									children: [(0, react_jsx_runtime.jsxs)("h2", {
 										className: ContentStudio_module_css_default.panelTitle,
-										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconFolderOpenOutline16, { size: 13 }), t("panel.recent")]
-									}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+										children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconFolderOpenOutline16, { size: 13 }), t("panel.recent")]
+									}), (0, react_jsx_runtime.jsxs)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.panelMore,
 										onClick: () => {
@@ -5325,28 +5351,28 @@ ${item.prompt}`)) setCopiedId(item.id);
 									})]
 								}), panelState(outputs, () => {
 									loadOutputs();
-								}) ?? (recent.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
+								}) ?? (recent.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
 									className: ContentStudio_module_css_default.panelEmpty,
 									children: t("panel.emptyRecent")
-								}) : recent.map((project) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+								}) : recent.map((project) => (0, react_jsx_runtime.jsxs)("div", {
 									className: ContentStudio_module_css_default.listRow,
-									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+									children: [(0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.listTitle,
 										children: project.title
-									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+									}), (0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.listMeta,
 										children: t(`status.${project.status}`)
 									})]
 								}, project.topic)))]
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
+							(0, react_jsx_runtime.jsxs)("section", {
 								className: ContentStudio_module_css_default.panel,
-								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
+								children: [(0, react_jsx_runtime.jsxs)("header", {
 									className: ContentStudio_module_css_default.panelHead,
-									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h2", {
+									children: [(0, react_jsx_runtime.jsxs)("h2", {
 										className: ContentStudio_module_css_default.panelTitle,
-										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 13 }), t("panel.upcoming")]
-									}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+										children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 13 }), t("panel.upcoming")]
+									}), (0, react_jsx_runtime.jsxs)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.panelMore,
 										onClick: () => {
@@ -5356,15 +5382,15 @@ ${item.prompt}`)) setCopiedId(item.id);
 									})]
 								}), panelState(schedule, () => {
 									loadSchedule();
-								}) ?? (upcoming.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
+								}) ?? (upcoming.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
 									className: ContentStudio_module_css_default.panelEmpty,
 									children: t("panel.emptyUpcoming")
-								}) : upcoming.map((item) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+								}) : upcoming.map((item) => (0, react_jsx_runtime.jsxs)("div", {
 									className: ContentStudio_module_css_default.listRow,
-									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+									children: [(0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.listTitle,
 										children: item.title
-									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+									}), (0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.listMeta,
 										children: item.date
 									})]
@@ -5372,16 +5398,16 @@ ${item.prompt}`)) setCopiedId(item.id);
 							})
 						]
 					}),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+					(0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.panelRowTwo,
-						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
+						children: [(0, react_jsx_runtime.jsxs)("section", {
 							className: ContentStudio_module_css_default.panel,
-							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
+							children: [(0, react_jsx_runtime.jsxs)("header", {
 								className: ContentStudio_module_css_default.panelHead,
-								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h2", {
+								children: [(0, react_jsx_runtime.jsxs)("h2", {
 									className: ContentStudio_module_css_default.panelTitle,
-									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconGoalOutline16, { size: 13 }), t("panel.data")]
-								}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+									children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconGoalOutline16, { size: 13 }), t("panel.data")]
+								}), (0, react_jsx_runtime.jsxs)("button", {
 									type: "button",
 									className: ContentStudio_module_css_default.panelMore,
 									onClick: () => {
@@ -5389,10 +5415,10 @@ ${item.prompt}`)) setCopiedId(item.id);
 									},
 									children: [t("nav.library"), " →"]
 								})]
-							}), outputs.state === "ok" ? /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+							}), outputs.state === "ok" ? (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [(0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.dataPills,
 								children: [
-									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+									(0, react_jsx_runtime.jsxs)("span", {
 										className: ContentStudio_module_css_default.dataPill,
 										children: [
 											t("stat.projects"),
@@ -5400,7 +5426,7 @@ ${item.prompt}`)) setCopiedId(item.id);
 											projects.length
 										]
 									}),
-									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+									(0, react_jsx_runtime.jsxs)("span", {
 										className: ContentStudio_module_css_default.dataPill,
 										children: [
 											t("status.draft"),
@@ -5408,7 +5434,7 @@ ${item.prompt}`)) setCopiedId(item.id);
 											projects.filter((project) => project.status === "draft").length
 										]
 									}),
-									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+									(0, react_jsx_runtime.jsxs)("span", {
 										className: ContentStudio_module_css_default.dataPill,
 										children: [
 											t("stat.ready"),
@@ -5416,7 +5442,7 @@ ${item.prompt}`)) setCopiedId(item.id);
 											ready
 										]
 									}),
-									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+									(0, react_jsx_runtime.jsxs)("span", {
 										className: ContentStudio_module_css_default.dataPill,
 										children: [
 											t("stat.published"),
@@ -5425,20 +5451,20 @@ ${item.prompt}`)) setCopiedId(item.id);
 										]
 									})
 								]
-							}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
+							}), (0, react_jsx_runtime.jsx)("p", {
 								className: ContentStudio_module_css_default.panelEmpty,
 								children: t("panel.dataHint")
 							})] }) : panelState(outputs, () => {
 								loadOutputs();
 							})]
-						}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
+						}), (0, react_jsx_runtime.jsxs)("section", {
 							className: ContentStudio_module_css_default.panel,
-							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
+							children: [(0, react_jsx_runtime.jsxs)("header", {
 								className: ContentStudio_module_css_default.panelHead,
-								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h2", {
+								children: [(0, react_jsx_runtime.jsxs)("h2", {
 									className: ContentStudio_module_css_default.panelTitle,
-									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 13 }), t("panel.recentSchedule")]
-								}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+									children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 13 }), t("panel.recentSchedule")]
+								}), (0, react_jsx_runtime.jsxs)("button", {
 									type: "button",
 									className: ContentStudio_module_css_default.panelMore,
 									onClick: () => {
@@ -5446,15 +5472,15 @@ ${item.prompt}`)) setCopiedId(item.id);
 									},
 									children: [t("nav.calendar"), " →"]
 								})]
-							}), schedule.state === "ok" ? allSchedule.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
+							}), schedule.state === "ok" ? allSchedule.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
 								className: ContentStudio_module_css_default.panelEmpty,
 								children: t("panel.emptyUpcoming")
-							}) : allSchedule.slice(-5).reverse().map((item) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+							}) : allSchedule.slice(-5).reverse().map((item) => (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.listRow,
-								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+								children: [(0, react_jsx_runtime.jsx)("span", {
 									className: ContentStudio_module_css_default.listTitle,
 									children: item.title
-								}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+								}), (0, react_jsx_runtime.jsxs)("span", {
 									className: ContentStudio_module_css_default.listMeta,
 									children: [
 										item.date,
@@ -5472,18 +5498,18 @@ ${item.prompt}`)) setCopiedId(item.id);
 		}
 		/** One stat card with a tinted icon tile over the value and label. */
 		function StatCard({ icon, value, label }) {
-			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+			return (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.statCard,
 				children: [
-					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+					(0, react_jsx_runtime.jsx)("span", {
 						className: ContentStudio_module_css_default.statIcon,
 						children: icon
 					}),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+					(0, react_jsx_runtime.jsx)("span", {
 						className: ContentStudio_module_css_default.statValue,
 						children: value === void 0 ? "—" : String(value)
 					}),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+					(0, react_jsx_runtime.jsx)("span", {
 						className: ContentStudio_module_css_default.statLabel,
 						children: label
 					})
@@ -5491,7 +5517,7 @@ ${item.prompt}`)) setCopiedId(item.id);
 			});
 		}
 		//#endregion
-		//#region src/client/AccountSelect.tsx
+		//#region lib/types/client/AccountSelect.js
 		/**
 		* The account selector under the workbench brand row (Easel's persona
 		* dropdown): a bordered select showing the active creation account, a
@@ -5522,10 +5548,10 @@ ${item.prompt}`)) setCopiedId(item.id);
 				setCreating(false);
 				setOpen(false);
 			};
-			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+			return (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.accountBox,
 				ref: boxRef,
-				children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+				children: [(0, react_jsx_runtime.jsxs)("button", {
 					type: "button",
 					className: ContentStudio_module_css_default.accountButton,
 					"aria-haspopup": "listbox",
@@ -5533,15 +5559,15 @@ ${item.prompt}`)) setCopiedId(item.id);
 					onClick: () => {
 						setOpen(!open);
 					},
-					children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+					children: [(0, react_jsx_runtime.jsx)("span", {
 						className: ContentStudio_module_css_default.accountName,
 						children: account
-					}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChevronDownOutline14, { size: 14 })]
-				}), open && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+					}), (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChevronDownOutline14, { size: 14 })]
+				}), open && (0, react_jsx_runtime.jsxs)("div", {
 					className: ContentStudio_module_css_default.accountList,
 					role: "listbox",
 					"aria-label": t("account.label"),
-					children: [accounts.map((name) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+					children: [accounts.map((name) => (0, react_jsx_runtime.jsx)("button", {
 						type: "button",
 						role: "option",
 						"aria-selected": name === account,
@@ -5551,9 +5577,9 @@ ${item.prompt}`)) setCopiedId(item.id);
 							setOpen(false);
 						},
 						children: name
-					}, name)), creating ? /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+					}, name)), creating ? (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.accountCreateRow,
-						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
+						children: [(0, react_jsx_runtime.jsx)("input", {
 							ref: inputRef,
 							className: ContentStudio_module_css_default.accountInput,
 							placeholder: t("account.placeholder"),
@@ -5568,44 +5594,254 @@ ${item.prompt}`)) setCopiedId(item.id);
 									setDraft("");
 								}
 							}
-						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+						}), (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: ContentStudio_module_css_default.accountCreateAdd,
 							onClick: commitDraft,
 							children: t("account.add")
 						})]
-					}) : /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+					}) : (0, react_jsx_runtime.jsxs)("button", {
 						type: "button",
 						className: ContentStudio_module_css_default.accountOption,
 						onClick: () => {
 							setCreating(true);
 						},
-						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconPlusOutline16, { size: 12 }), t("account.new")]
+						children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconPlusOutline16, { size: 12 }), t("account.new")]
 					})]
 				})]
 			});
 		}
 		//#endregion
-		//#region src/client/ContentStudio.tsx
+		//#region lib/types/client/CapabilityPage.js
+		/**
+		* A capability page: one titled grid of capability cards for a nav view that
+		* fronts a slice of the catalog (对标 / 选题). Pick = copy the instruction.
+		*/
+		/**
+		* Render one capability page.
+		* @param props - ids, title, copy state, and the locale seat.
+		* @returns the page element tree.
+		*/
+		function CapabilityPage({ title, ids, copiedId, pick, t }) {
+			const items = ids.map((id) => CAPABILITY_ITEMS.find((item) => item.id === id)).filter((item) => item !== void 0);
+			return (0, react_jsx_runtime.jsxs)("div", {
+				className: ContentStudio_module_css_default.workbench,
+				children: [(0, react_jsx_runtime.jsx)("h2", {
+					className: ContentStudio_module_css_default.pageTitle,
+					children: title
+				}), (0, react_jsx_runtime.jsx)("div", {
+					className: ContentStudio_module_css_default.grid,
+					children: items.map((item) => {
+						const copied = copiedId === item.id;
+						return (0, react_jsx_runtime.jsxs)("button", {
+							type: "button",
+							className: clsx(ContentStudio_module_css_default.card, copied && ContentStudio_module_css_default.cardCopied),
+							onClick: () => {
+								pick(item);
+							},
+							children: [
+								(0, react_jsx_runtime.jsxs)("span", {
+									className: ContentStudio_module_css_default.cardHead,
+									children: [(0, react_jsx_runtime.jsx)("span", {
+										className: ContentStudio_module_css_default.cardTitle,
+										children: t(`cap.${item.id}.title`)
+									}), (0, react_jsx_runtime.jsx)("span", {
+										className: clsx(ContentStudio_module_css_default.badge, ContentStudio_module_css_default.badgeReady),
+										children: t("badge.ready")
+									})]
+								}),
+								(0, react_jsx_runtime.jsx)("span", {
+									className: ContentStudio_module_css_default.cardDetail,
+									children: t(`cap.${item.id}.detail`)
+								}),
+								(0, react_jsx_runtime.jsx)("span", {
+									className: clsx(ContentStudio_module_css_default.cardHint, copied && ContentStudio_module_css_default.cardHintCopied),
+									children: copied ? t("card.copied") : t("card.copyHint")
+								})
+							]
+						}, item.id);
+					})
+				})]
+			});
+		}
+		//#endregion
+		//#region lib/types/client/AccountsView.js
+		/**
+		* The accounts view: select the active creation account, add new ones, and
+		* delete non-default ones. State is browser-local and owned by the workbench
+		* surface; 通用模式 can never be deleted.
+		*/
+		/**
+		* Render the accounts management page.
+		* @param props - controlled state, mutators, and the locale seat.
+		* @returns the page element tree.
+		*/
+		function AccountsView({ account, accounts, onSelect, onAdd, onRemove, t }) {
+			return (0, react_jsx_runtime.jsxs)("div", {
+				className: ContentStudio_module_css_default.workbench,
+				children: [
+					(0, react_jsx_runtime.jsx)("h2", {
+						className: ContentStudio_module_css_default.pageTitle,
+						children: t("accounts.title")
+					}),
+					(0, react_jsx_runtime.jsx)("p", {
+						className: ContentStudio_module_css_default.helloSub,
+						children: t("accounts.hint")
+					}),
+					(0, react_jsx_runtime.jsxs)("div", {
+						className: ContentStudio_module_css_default.accountsPane,
+						children: [(0, react_jsx_runtime.jsx)(AccountSelect, {
+							account,
+							accounts,
+							onSelect,
+							onAdd,
+							t
+						}), (0, react_jsx_runtime.jsx)("div", {
+							className: ContentStudio_module_css_default.accountsList,
+							children: accounts.map((name) => (0, react_jsx_runtime.jsxs)("div", {
+								className: ContentStudio_module_css_default.listRow,
+								children: [(0, react_jsx_runtime.jsxs)("span", {
+									className: ContentStudio_module_css_default.listTitle,
+									children: [name, name === account && (0, react_jsx_runtime.jsx)("span", {
+										className: ContentStudio_module_css_default.accountActiveTag,
+										children: t("account.active")
+									})]
+								}), name !== "通用模式" && (0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: ContentStudio_module_css_default.calendarChipAction,
+									"aria-label": t("accounts.delete"),
+									onClick: () => {
+										onRemove(name);
+									},
+									children: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 12 })
+								})]
+							}, name))
+						})]
+					})
+				]
+			});
+		}
+		//#endregion
+		//#region lib/types/client/PersonaView.js
+		/**
+		* The persona view: a browser-local persona description for the active
+		* account, injected into copied capability instructions alongside the
+		* account name.
+		*/
+		/** How long the saved flash shows. */
+		const SAVED_FEEDBACK_MS = 1600;
+		/**
+		* Render the persona editor.
+		* @param props - the controlled persona text, saver, and the locale seat.
+		* @returns the page element tree.
+		*/
+		function PersonaView({ persona, onSave, t }) {
+			const [draft, setDraft] = (0, react.useState)(persona);
+			const [saved, setSaved] = (0, react.useState)(false);
+			(0, react.useEffect)(() => {
+				setDraft(persona);
+			}, [persona]);
+			(0, react.useEffect)(() => {
+				if (!saved) return;
+				const timer = window.setTimeout(() => {
+					setSaved(false);
+				}, SAVED_FEEDBACK_MS);
+				return () => {
+					window.clearTimeout(timer);
+				};
+			}, [saved]);
+			const save = () => {
+				onSave(draft.trim());
+				setSaved(true);
+			};
+			return (0, react_jsx_runtime.jsxs)("div", {
+				className: ContentStudio_module_css_default.workbench,
+				children: [
+					(0, react_jsx_runtime.jsx)("h2", {
+						className: ContentStudio_module_css_default.pageTitle,
+						children: t("persona.title")
+					}),
+					(0, react_jsx_runtime.jsx)("p", {
+						className: ContentStudio_module_css_default.helloSub,
+						children: t("persona.hint")
+					}),
+					(0, react_jsx_runtime.jsx)("textarea", {
+						className: ContentStudio_module_css_default.personaInput,
+						rows: 10,
+						placeholder: t("persona.placeholder"),
+						value: draft,
+						onChange: (event) => {
+							setDraft(event.currentTarget.value);
+						}
+					}),
+					(0, react_jsx_runtime.jsxs)("div", {
+						className: ContentStudio_module_css_default.personaRow,
+						children: [(0, react_jsx_runtime.jsx)("button", {
+							type: "button",
+							className: ContentStudio_module_css_default.back,
+							onClick: save,
+							children: t("persona.save")
+						}), saved && (0, react_jsx_runtime.jsx)("span", {
+							className: ContentStudio_module_css_default.personaSaved,
+							children: t("persona.saved")
+						})]
+					})
+				]
+			});
+		}
+		//#endregion
+		//#region lib/types/client/ContentStudio.js
 		/**
 		* The frame-wide workbench surface occupying the `shell.overlay` hole.
-		* Easel-style two-column shell: a left inner nav (工作台 / 开始创作 / 内容库 /
-		* 内容日历, with the back-to-chat verb and the feedback link at the foot) and
-		* a main column rendering the active view — defaulting to the workbench home
-		* dashboard. Picking a capability in 开始创作 copies its structured
-		* instruction to the clipboard — the composer draft seam does not exist yet,
-		* so the paste-into-session hop is the user's one action. Escape dismisses
-		* the surface; closed state renders null while the slot entry stays mounted.
+		* Easel-style two-column shell: a left inner nav — 工作台 / 对话 / 对标 /
+		* 选题 / 内容 / 创作 / 账号 / 画像, with the back-to-chat verb and the
+		* feedback link at the foot — and a main column rendering the active view,
+		* defaulting to the workbench home dashboard. 对话 closes back to the chat;
+		* 对标 and 选题 are capability slices of the catalog; 账号 and 画像 manage the
+		* browser-local creation identity that is injected into every copied
+		* capability instruction. Escape dismisses the surface; closed state renders
+		* null while the slot entry stays mounted.
 		*/
 		/** How long a card shows its copied state before reverting. */
 		const COPIED_FEEDBACK_MS = 1600;
-		/** Nav key per view. */
-		const NAV_KEY = {
-			workbench: "nav.workbench",
-			create: "nav.create",
-			library: "nav.library",
-			calendar: "nav.calendar"
-		};
+		/** The nav order exactly as specified: 对话 rides between 工作台 and 对标 as a verb. */
+		const NAV_ITEMS = [
+			{
+				view: "workbench",
+				key: "nav.workbench"
+			},
+			{
+				view: "chat",
+				key: "nav.chat"
+			},
+			{
+				view: "benchmark",
+				key: "nav.benchmark"
+			},
+			{
+				view: "topics",
+				key: "nav.topics"
+			},
+			{
+				view: "library",
+				key: "nav.content"
+			},
+			{
+				view: "create",
+				key: "nav.create"
+			},
+			{
+				view: "accounts",
+				key: "nav.accounts"
+			},
+			{
+				view: "persona",
+				key: "nav.persona"
+			}
+		];
+		/** Capability slices behind the 对标 / 选题 nav views. */
+		const BENCHMARK_IDS = ["breakdown"];
+		const TOPICS_IDS = ["hotspot", "calendar-plan"];
 		/** Maturity → its badge modifier class. */
 		const BADGE_CLASS = {
 			done: ContentStudio_module_css_default.badgeDone ?? "",
@@ -5629,6 +5865,7 @@ ${item.prompt}`)) setCopiedId(item.id);
 				}
 			});
 			const [account, setAccount] = (0, react.useState)(() => localStorage.getItem("dsh-content-studio.account") ?? "通用模式");
+			const [persona, setPersona] = (0, react.useState)(() => localStorage.getItem("dsh-content-studio.persona") ?? "");
 			const selectAccount = (name) => {
 				setAccount(name);
 				localStorage.setItem("dsh-content-studio.account", name);
@@ -5639,9 +5876,20 @@ ${item.prompt}`)) setCopiedId(item.id);
 				localStorage.setItem("dsh-content-studio.accounts", JSON.stringify(next));
 				selectAccount(name);
 			};
-			const withAccount = (prompt) => account === "通用模式" ? prompt : `我的账号/画像：${account}
-
-${prompt}`;
+			const removeAccount = (name) => {
+				const next = accounts.filter((candidate) => candidate !== name);
+				setAccounts(next);
+				localStorage.setItem("dsh-content-studio.accounts", JSON.stringify(next));
+				if (account === name) selectAccount("通用模式");
+			};
+			const savePersona = (text) => {
+				setPersona(text);
+				localStorage.setItem("dsh-content-studio.persona", text);
+			};
+			const withIdentity = (prompt) => {
+				const identity = account === "通用模式" ? persona.length > 0 ? `账号画像：${persona}` : "" : persona.length > 0 ? `我的账号/画像：${account}\n账号画像：${persona}` : `我的账号/画像：${account}`;
+				return identity.length > 0 ? `${identity}\n\n${prompt}` : prompt;
+			};
 			const [tab, setTab] = (0, react.useState)("create");
 			const [copiedId, setCopiedId] = (0, react.useState)(void 0);
 			(0, react.useEffect)(() => {
@@ -5665,58 +5913,59 @@ ${prompt}`;
 			}, [copiedId]);
 			if (!open) return null;
 			const groups = capabilityGroups(tab);
-			const pick = async (id, prompt) => {
-				if (await (0, _deepseek_ai_dsh_client_ui_primitives.writeClipboard)(withAccount(prompt))) setCopiedId(id);
+			const pickItem = (item) => {
+				(async () => {
+					if (await (0, _deepseek_ai_dsh_client_ui_primitives.writeClipboard)(withIdentity(item.prompt))) setCopiedId(item.id);
+				})();
 			};
-			return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+			const pick = async (id, prompt) => {
+				if (await (0, _deepseek_ai_dsh_client_ui_primitives.writeClipboard)(withIdentity(prompt))) setCopiedId(id);
+			};
+			return (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.surface,
 				role: "dialog",
 				"aria-modal": "true",
 				"aria-label": t("studio.title"),
-				children: /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+				children: (0, react_jsx_runtime.jsxs)("div", {
 					className: ContentStudio_module_css_default.shell,
-					children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("aside", {
+					children: [(0, react_jsx_runtime.jsxs)("aside", {
 						className: ContentStudio_module_css_default.side,
 						children: [
-							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+							(0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.sideBrand,
-								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 16 }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("studio.title") })]
+								children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 16 }), (0, react_jsx_runtime.jsx)("span", { children: t("studio.title") })]
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(AccountSelect, {
+							(0, react_jsx_runtime.jsx)(AccountSelect, {
 								account,
 								accounts,
 								onSelect: selectAccount,
 								onAdd: addAccount,
 								t
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("nav", {
+							(0, react_jsx_runtime.jsx)("nav", {
 								className: ContentStudio_module_css_default.sideNav,
 								"aria-label": t("studio.title"),
-								children: [
-									"workbench",
-									"create",
-									"library",
-									"calendar"
-								].map((candidate) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+								children: NAV_ITEMS.map(({ view: candidate, key }) => (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: clsx(ContentStudio_module_css_default.navItem, view === candidate && ContentStudio_module_css_default.navItemActive),
 									"aria-current": view === candidate || void 0,
 									onClick: () => {
-										setView(candidate);
+										if (candidate === "chat") studio.close();
+										else setView(candidate);
 									},
-									children: t(NAV_KEY[candidate])
+									children: t(key)
 								}, candidate))
 							}),
-							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+							(0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.sideFoot,
-								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+								children: [(0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: ContentStudio_module_css_default.back,
 									onClick: () => {
 										studio.close();
 									},
 									children: t("studio.back")
-								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("a", {
+								}), (0, react_jsx_runtime.jsx)("a", {
 									className: ContentStudio_module_css_default.aboutLink,
 									href: "https://github.com/guilinleolee/dsh-content-studio/issues",
 									target: "_blank",
@@ -5725,20 +5974,20 @@ ${prompt}`;
 								})]
 							})
 						]
-					}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+					}), (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.main,
-						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+						children: [(0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: ContentStudio_module_css_default.close,
 							"aria-label": t("studio.close"),
 							onClick: () => {
 								studio.close();
 							},
-							children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCloseOutline16, { size: 16 })
-						}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+							children: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCloseOutline16, { size: 16 })
+						}), (0, react_jsx_runtime.jsxs)("div", {
 							className: ContentStudio_module_css_default.frame,
 							children: [
-								view === "workbench" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(ContentWorkbench, {
+								view === "workbench" && (0, react_jsx_runtime.jsx)(ContentWorkbench, {
 									listOutputs,
 									listSchedule: schedule.list,
 									onNavigate: setView,
@@ -5746,22 +5995,50 @@ ${prompt}`;
 										studio.close();
 									},
 									account,
+									persona,
 									t
 								}),
-								view === "library" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(ContentLibrary, {
+								view === "benchmark" && (0, react_jsx_runtime.jsx)(CapabilityPage, {
+									title: t("benchmark.title"),
+									ids: BENCHMARK_IDS,
+									copiedId,
+									pick: pickItem,
+									t
+								}),
+								view === "topics" && (0, react_jsx_runtime.jsx)(CapabilityPage, {
+									title: t("topics.title"),
+									ids: TOPICS_IDS,
+									copiedId,
+									pick: pickItem,
+									t
+								}),
+								view === "accounts" && (0, react_jsx_runtime.jsx)(AccountsView, {
+									account,
+									accounts,
+									onSelect: selectAccount,
+									onAdd: addAccount,
+									onRemove: removeAccount,
+									t
+								}),
+								view === "persona" && (0, react_jsx_runtime.jsx)(PersonaView, {
+									persona,
+									onSave: savePersona,
+									t
+								}),
+								view === "library" && (0, react_jsx_runtime.jsx)(ContentLibrary, {
 									listOutputs,
 									t
 								}),
-								view === "calendar" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(ContentCalendar, {
+								view === "calendar" && (0, react_jsx_runtime.jsx)(ContentCalendar, {
 									listSchedule: schedule.list,
 									putSchedule: schedule.put,
 									removeSchedule: schedule.remove,
 									t
 								}),
-								view === "create" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+								view === "create" && (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [(0, react_jsx_runtime.jsx)("div", {
 									className: ContentStudio_module_css_default.tabs,
 									role: "tablist",
-									children: STUDIO_TABS.map((candidate) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+									children: STUDIO_TABS.map((candidate) => (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										role: "tab",
 										"aria-selected": tab === candidate.id,
@@ -5772,39 +6049,39 @@ ${prompt}`;
 										},
 										children: t(candidate.id === "create" ? "tab.create" : "tab.operate")
 									}, candidate.id))
-								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+								}), (0, react_jsx_runtime.jsx)("div", {
 									className: ContentStudio_module_css_default.body,
-									children: groups.map((group) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
+									children: groups.map((group) => (0, react_jsx_runtime.jsxs)("section", {
 										className: ContentStudio_module_css_default.group,
-										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h2", {
+										children: [(0, react_jsx_runtime.jsx)("h2", {
 											className: ContentStudio_module_css_default.groupTitle,
 											children: t(`group.${group.id}`)
-										}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
+										}), (0, react_jsx_runtime.jsx)("div", {
 											className: ContentStudio_module_css_default.grid,
 											children: group.items.map((item) => {
 												const copied = copiedId === item.id;
-												return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+												return (0, react_jsx_runtime.jsxs)("button", {
 													type: "button",
 													className: clsx(ContentStudio_module_css_default.card, copied && ContentStudio_module_css_default.cardCopied),
 													onClick: () => {
 														pick(item.id, item.prompt);
 													},
 													children: [
-														/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+														(0, react_jsx_runtime.jsxs)("span", {
 															className: ContentStudio_module_css_default.cardHead,
-															children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+															children: [(0, react_jsx_runtime.jsx)("span", {
 																className: ContentStudio_module_css_default.cardTitle,
 																children: t(`cap.${item.id}.title`)
-															}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+															}), (0, react_jsx_runtime.jsx)("span", {
 																className: clsx(ContentStudio_module_css_default.badge, BADGE_CLASS[item.maturity]),
 																children: t(`badge.${item.maturity}`)
 															})]
 														}),
-														/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+														(0, react_jsx_runtime.jsx)("span", {
 															className: ContentStudio_module_css_default.cardDetail,
 															children: t(`cap.${item.id}.detail`)
 														}),
-														/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
+														(0, react_jsx_runtime.jsx)("span", {
 															className: clsx(ContentStudio_module_css_default.cardHint, copied && ContentStudio_module_css_default.cardHintCopied),
 															children: copied ? t("card.copied") : t("card.copyHint")
 														})
@@ -5821,7 +6098,7 @@ ${prompt}`;
 			});
 		}
 		//#endregion
-		//#region src/client/locales.ts
+		//#region lib/types/client/locales.js
 		/**
 		* `content-studio` namespace dictionaries: the sidebar entry, the workbench
 		* surface chrome, tab/group labels, maturity badges, and every capability
@@ -5842,9 +6119,26 @@ ${prompt}`;
 			"view.library": "内容库",
 			"view.calendar": "内容日历",
 			"nav.workbench": "工作台",
-			"nav.create": "开始创作",
+			"nav.create": "创作",
+			"nav.chat": "对话",
+			"nav.benchmark": "对标",
+			"nav.topics": "选题",
+			"nav.content": "内容",
+			"nav.accounts": "账号",
+			"nav.persona": "画像",
 			"nav.library": "内容库",
 			"nav.calendar": "内容日历",
+			"benchmark.title": "对标拆解",
+			"topics.title": "选题规划",
+			"accounts.title": "账号管理",
+			"accounts.hint": "选择当前创作账号；账号会注入到每条复制的创作指令中。",
+			"accounts.delete": "删除账号",
+			"account.active": "当前",
+			"persona.title": "画像设定",
+			"persona.hint": "描述该账号的定位、人设、语气与目标受众；保存后随创作指令一起注入。",
+			"persona.placeholder": "例：专注 AI 工具测评的科技博主，语气专业但亲切，受众为 25-40 岁职场人群……",
+			"persona.save": "保存画像",
+			"persona.saved": "已保存",
 			"greet.morning": "上午好",
 			"greet.afternoon": "下午好",
 			"greet.evening": "晚上好",
@@ -5986,6 +6280,23 @@ ${prompt}`;
 			"view.calendar": "Calendar",
 			"nav.workbench": "Workbench",
 			"nav.create": "Create",
+			"nav.chat": "Chat",
+			"nav.benchmark": "Benchmark",
+			"nav.topics": "Topics",
+			"nav.content": "Content",
+			"nav.accounts": "Accounts",
+			"nav.persona": "Persona",
+			"benchmark.title": "Benchmark teardown",
+			"topics.title": "Topic planning",
+			"accounts.title": "Accounts",
+			"accounts.hint": "Pick the active creation account; it is injected into every copied instruction.",
+			"accounts.delete": "Delete account",
+			"account.active": "active",
+			"persona.title": "Persona",
+			"persona.hint": "Describe the account positioning, voice, and audience; saved text is injected with every instruction.",
+			"persona.placeholder": "e.g. a tech reviewer focused on AI tools; professional but friendly; audience 25-40…",
+			"persona.save": "Save persona",
+			"persona.saved": "Saved",
 			"nav.library": "Library",
 			"nav.calendar": "Calendar",
 			"greet.morning": "Good morning",
@@ -6115,7 +6426,7 @@ ${prompt}`;
 			"cap.retro.detail": "Attribute wins and misses; actionable adjustments out"
 		};
 		//#endregion
-		//#region src/client/index.ts
+		//#region lib/types/client/index.js
 		/** Dictionary namespace owned by this plugin. */
 		const NS = "content-studio";
 		/**

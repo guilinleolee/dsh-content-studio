@@ -239,6 +239,61 @@
   gap: 24px;
 }
 
+.pageTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--dsw-alias-label-primary);
+}
+
+.accountsPane {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 420px;
+}
+
+.accountsList {
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 10px;
+  background: var(--dsw-alias-bg-layer-2);
+  padding: 4px 12px;
+}
+
+.accountActiveTag {
+  margin-left: 8px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--dsw-alias-state-business-primary) 14%, transparent);
+  color: var(--dsw-alias-state-business-primary);
+  font-size: 10px;
+}
+
+.personaInput {
+  width: 100%;
+  max-width: 640px;
+  padding: 12px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 10px;
+  background: var(--dsw-alias-bg-layer-2);
+  color: var(--dsw-alias-label-primary);
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.personaRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.personaSaved {
+  color: var(--dsw-alias-state-success-primary);
+  font-size: 12px;
+}
+
 .helloRow {
   padding-right: 56px;
 }

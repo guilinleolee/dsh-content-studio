@@ -12,11 +12,13 @@ export type ContentWorkbenchProps = ContentWorkbenchInjected & {
     onChat: () => void;
     /** Active creation account, prepended to copied instructions. */
     account: string;
+    /** Browser-local persona text, appended to the identity block. */
+    persona: string;
 } & PropsLocale<'content-studio'>;
 /**
  * Render the workbench home.
  * @param props - the Remote read wrappers, view navigation, and the locale seat.
  * @returns the dashboard element tree.
  */
-export declare function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat, account, t }: ContentWorkbenchProps): import("react").JSX.Element;
+export declare function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat, account, persona, t }: ContentWorkbenchProps): import("react").JSX.Element;
 //# sourceMappingURL=ContentWorkbench.d.ts.map

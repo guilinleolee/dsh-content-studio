@@ -31,6 +31,8 @@ export type ContentWorkbenchProps = ContentWorkbenchInjected & {
   onChat: () => void
   /** Active creation account, prepended to copied instructions. */
   account: string
+  /** Browser-local persona text, appended to the identity block. */
+  persona: string
 } & PropsLocale<'content-studio'>
 
 /** Quick-create panel rows: these capability ids, in this order. */
@@ -59,7 +61,7 @@ function cap(id: CapabilityItem['id']): CapabilityItem {
  * @param props - the Remote read wrappers, view navigation, and the locale seat.
  * @returns the dashboard element tree.
  */
-export function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat, account, t }: ContentWorkbenchProps) {
+export function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat, account, persona, t }: ContentWorkbenchProps) {
   const [outputs, setOutputs] = useState<Load<ContentOutputsSnapshot>>({ state: 'loading' })
   const [schedule, setSchedule] = useState<Load<ContentScheduleSnapshot>>({ state: 'loading' })
   const [copiedId, setCopiedId] = useState<string | undefined>(undefined)
@@ -97,9 +99,13 @@ export function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat
   )
 
   const pick = async (item: CapabilityItem): Promise<void> => {
-    const prompt = account === '通用模式' ? item.prompt : `我的账号/画像：${account}
+    const identity = account === '通用模式'
+      ? persona.length > 0 ? `账号画像：${persona}` : ''
+      : persona.length > 0 ? `我的账号/画像：${account}
+账号画像：${persona}` : `我的账号/画像：${account}`
+    const prompt = identity.length > 0 ? `${identity}
 
-${item.prompt}`
+${item.prompt}` : item.prompt
     if (await writeClipboard(prompt)) setCopiedId(item.id)
   }
 

@@ -1,12 +1,13 @@
 /**
  * The frame-wide workbench surface occupying the `shell.overlay` hole.
- * Easel-style two-column shell: a left inner nav (工作台 / 开始创作 / 内容库 /
- * 内容日历, with the back-to-chat verb and the feedback link at the foot) and
- * a main column rendering the active view — defaulting to the workbench home
- * dashboard. Picking a capability in 开始创作 copies its structured
- * instruction to the clipboard — the composer draft seam does not exist yet,
- * so the paste-into-session hop is the user's one action. Escape dismisses
- * the surface; closed state renders null while the slot entry stays mounted.
+ * Easel-style two-column shell: a left inner nav — 工作台 / 对话 / 对标 /
+ * 选题 / 内容 / 创作 / 账号 / 画像, with the back-to-chat verb and the
+ * feedback link at the foot — and a main column rendering the active view,
+ * defaulting to the workbench home dashboard. 对话 closes back to the chat;
+ * 对标 and 选题 are capability slices of the catalog; 账号 and 画像 manage the
+ * browser-local creation identity that is injected into every copied
+ * capability instruction. Escape dismisses the surface; closed state renders
+ * null while the slot entry stays mounted.
  */
 import { useEffect, useState, useSyncExternalStore } from 'react'
 import { clsx } from 'clsx'
@@ -14,12 +15,15 @@ import { IconCloseOutline16, IconSparkle16, writeClipboard } from '@deepseek-ai/
 import type { ContentOutputsSnapshot } from '@deepseek-ai/dsh-content-outputs/types'
 import type { ContentScheduleSnapshot, ScheduleItem, ScheduleItemInput } from '@deepseek-ai/dsh-content-schedule/types'
 import type { PropsLocale } from '@deepseek-ai/dsh-client-ui-slots'
-import type { CapabilityMaturity } from './capabilities.ts'
+import type { CapabilityItem, CapabilityMaturity } from './capabilities.ts'
 import { STUDIO_TABS, capabilityGroups, type StudioTab } from './capabilities.ts'
 import { ContentLibrary } from './ContentLibrary.tsx'
 import { ContentCalendar } from './ContentCalendar.tsx'
 import { ContentWorkbench } from './ContentWorkbench.tsx'
 import { AccountSelect } from './AccountSelect.tsx'
+import { CapabilityPage } from './CapabilityPage.tsx'
+import { AccountsView } from './AccountsView.tsx'
+import { PersonaView } from './PersonaView.tsx'
 import type { StudioKey } from './locales.ts'
 import type { ContentStudioController } from './studio-store.ts'
 import css from './ContentStudio.module.css'
@@ -27,16 +31,24 @@ import css from './ContentStudio.module.css'
 /** How long a card shows its copied state before reverting. */
 const COPIED_FEEDBACK_MS = 1600
 
-/** The four top-level views; the workbench home is the entry view. */
-type StudioView = 'workbench' | 'create' | 'library' | 'calendar'
+/** The top-level views; the workbench home is the entry view. 对话 is a verb, not a view. */
+type StudioView = 'workbench' | 'benchmark' | 'topics' | 'library' | 'create' | 'accounts' | 'persona' | 'calendar'
 
-/** Nav key per view. */
-const NAV_KEY: Record<StudioView, StudioKey> = {
-  workbench: 'nav.workbench',
-  create: 'nav.create',
-  library: 'nav.library',
-  calendar: 'nav.calendar',
-}
+/** The nav order exactly as specified: 对话 rides between 工作台 and 对标 as a verb. */
+const NAV_ITEMS: readonly { view: StudioView | 'chat'; key: StudioKey }[] = [
+  { view: 'workbench', key: 'nav.workbench' },
+  { view: 'chat', key: 'nav.chat' },
+  { view: 'benchmark', key: 'nav.benchmark' },
+  { view: 'topics', key: 'nav.topics' },
+  { view: 'library', key: 'nav.content' },
+  { view: 'create', key: 'nav.create' },
+  { view: 'accounts', key: 'nav.accounts' },
+  { view: 'persona', key: 'nav.persona' },
+]
+
+/** Capability slices behind the 对标 / 选题 nav views. */
+const BENCHMARK_IDS: readonly CapabilityItem['id'][] = ['breakdown']
+const TOPICS_IDS: readonly CapabilityItem['id'][] = ['hotspot', 'calendar-plan']
 
 /** Injected face of the workbench surface: the shared controller and the server reads. */
 export interface ContentStudioInjected {
@@ -71,13 +83,14 @@ export function ContentStudio({ studio, listOutputs, schedule, t }: ContentStudi
     () => studio.isOpen(),
   )
   const [view, setView] = useState<StudioView>('workbench')
-  // Browser-local creation accounts (Easel's persona selector): the selection
-  // is injected into every copied capability instruction.
+  // Browser-local creation accounts and persona (Easel's persona selector):
+  // both are injected into every copied capability instruction.
   const [accounts, setAccounts] = useState<readonly string[]>(() => {
     try { return JSON.parse(localStorage.getItem('dsh-content-studio.accounts') ?? '') as string[] }
     catch { return ['通用模式'] }
   })
   const [account, setAccount] = useState<string>(() => localStorage.getItem('dsh-content-studio.account') ?? '通用模式')
+  const [persona, setPersona] = useState<string>(() => localStorage.getItem('dsh-content-studio.persona') ?? '')
   const selectAccount = (name: string): void => {
     setAccount(name)
     localStorage.setItem('dsh-content-studio.account', name)
@@ -88,11 +101,24 @@ export function ContentStudio({ studio, listOutputs, schedule, t }: ContentStudi
     localStorage.setItem('dsh-content-studio.accounts', JSON.stringify(next))
     selectAccount(name)
   }
-  // Prepend the active account to a copied instruction (generic mode adds nothing).
-  const withAccount = (prompt: string): string =>
-    account === '通用模式' ? prompt : `我的账号/画像：${account}
-
-${prompt}`
+  const removeAccount = (name: string): void => {
+    const next = accounts.filter(candidate => candidate !== name)
+    setAccounts(next)
+    localStorage.setItem('dsh-content-studio.accounts', JSON.stringify(next))
+    if (account === name) selectAccount('通用模式')
+  }
+  const savePersona = (text: string): void => {
+    setPersona(text)
+    localStorage.setItem('dsh-content-studio.persona', text)
+  }
+  // Prepend the active account (and persona when set) to a copied instruction;
+  // generic mode with no persona adds nothing.
+  const withIdentity = (prompt: string): string => {
+    const identity = account === '通用模式'
+      ? persona.length > 0 ? `账号画像：${persona}` : ''
+      : persona.length > 0 ? `我的账号/画像：${account}\n账号画像：${persona}` : `我的账号/画像：${account}`
+    return identity.length > 0 ? `${identity}\n\n${prompt}` : prompt
+  }
   const [tab, setTab] = useState<StudioTab>('create')
   const [copiedId, setCopiedId] = useState<string | undefined>(undefined)
 
@@ -119,8 +145,13 @@ ${prompt}`
 
   const groups = capabilityGroups(tab)
 
+  const pickItem = (item: CapabilityItem): void => {
+    void (async () => {
+      if (await writeClipboard(withIdentity(item.prompt))) setCopiedId(item.id)
+    })()
+  }
   const pick = async (id: string, prompt: string): Promise<void> => {
-    if (await writeClipboard(withAccount(prompt))) setCopiedId(id)
+    if (await writeClipboard(withIdentity(prompt))) setCopiedId(id)
   }
 
   return (
@@ -139,15 +170,18 @@ ${prompt}`
             t={t}
           />
           <nav className={css.sideNav} aria-label={t('studio.title')}>
-            {(['workbench', 'create', 'library', 'calendar'] as const).map(candidate => (
+            {NAV_ITEMS.map(({ view: candidate, key }) => (
               <button
                 key={candidate}
                 type="button"
                 className={clsx(css.navItem, view === candidate && css.navItemActive)}
                 aria-current={view === candidate || undefined}
-                onClick={() => { setView(candidate) }}
+                onClick={() => {
+                  if (candidate === 'chat') studio.close()
+                  else setView(candidate)
+                }}
               >
-                {t(NAV_KEY[candidate])}
+                {t(key)}
               </button>
             ))}
           </nav>
@@ -184,8 +218,28 @@ ${prompt}`
                 onNavigate={setView}
                 onChat={() => { studio.close() }}
                 account={account}
+                persona={persona}
                 t={t}
               />
+            )}
+            {view === 'benchmark' && (
+              <CapabilityPage title={t('benchmark.title')} ids={BENCHMARK_IDS} copiedId={copiedId} pick={pickItem} t={t} />
+            )}
+            {view === 'topics' && (
+              <CapabilityPage title={t('topics.title')} ids={TOPICS_IDS} copiedId={copiedId} pick={pickItem} t={t} />
+            )}
+            {view === 'accounts' && (
+              <AccountsView
+                account={account}
+                accounts={accounts}
+                onSelect={selectAccount}
+                onAdd={addAccount}
+                onRemove={removeAccount}
+                t={t}
+              />
+            )}
+            {view === 'persona' && (
+              <PersonaView persona={persona} onSave={savePersona} t={t} />
             )}
             {view === 'library' && <ContentLibrary listOutputs={listOutputs} t={t} />}
             {view === 'calendar' && (
