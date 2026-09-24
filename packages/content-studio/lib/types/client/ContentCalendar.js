@@ -40,7 +40,8 @@ export function ContentCalendar({ listSchedule, putSchedule, removeSchedule, t }
         try {
             setSnapshot(await listSchedule());
         }
-        catch {
+        catch (error) {
+            console.error('[content-studio] contentSchedule failed:', error);
             setFailed(true);
         }
     }, [listSchedule]);
@@ -70,7 +71,8 @@ export function ContentCalendar({ listSchedule, putSchedule, removeSchedule, t }
             }));
             setForm(undefined);
         }
-        catch {
+        catch (error) {
+            console.error('[content-studio] contentSchedule failed:', error);
             setFailed(true);
         }
         finally {
@@ -81,7 +83,8 @@ export function ContentCalendar({ listSchedule, putSchedule, removeSchedule, t }
         try {
             setSnapshot(await putSchedule({ ...item, status: 'published', url: item.url }));
         }
-        catch {
+        catch (error) {
+            console.error('[content-studio] contentSchedule failed:', error);
             setFailed(true);
         }
     };
@@ -89,7 +92,8 @@ export function ContentCalendar({ listSchedule, putSchedule, removeSchedule, t }
         try {
             setSnapshot(await removeSchedule(id));
         }
-        catch {
+        catch (error) {
+            console.error('[content-studio] contentSchedule failed:', error);
             setFailed(true);
         }
     };

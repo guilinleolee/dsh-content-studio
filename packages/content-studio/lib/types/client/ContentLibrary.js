@@ -22,20 +22,21 @@ const STATUS_CLASS = {
  */
 export function ContentLibrary({ listOutputs, t }) {
     const [snapshot, setSnapshot] = useState(undefined);
-    const [failed, setFailed] = useState(false);
+    const [failed, setFailed] = useState(undefined);
     const load = useCallback(async () => {
-        setFailed(false);
+        setFailed(undefined);
         setSnapshot(undefined);
         try {
             setSnapshot(await listOutputs());
         }
-        catch {
-            setFailed(true);
+        catch (error) {
+            console.error('[content-studio] contentOutputs/list failed:', error);
+            setFailed(error instanceof Error ? error.message : String(error));
         }
     }, [listOutputs]);
     useEffect(() => { void load(); }, [load]);
     if (failed) {
-        return (_jsxs("div", { className: css.libraryState, children: [_jsx(IconWarningOutline16, { size: 16 }), _jsx("span", { children: t('library.error') }), _jsxs("button", { type: "button", className: css.retry, onClick: () => { void load(); }, children: [_jsx(IconRefreshOutline14, { size: 14 }), t('library.retry')] })] }));
+        return (_jsxs("div", { className: css.libraryState, children: [_jsx(IconWarningOutline16, { size: 16 }), _jsxs("span", { children: [t('library.error'), ": ", failed] }), _jsxs("button", { type: "button", className: css.retry, onClick: () => { void load(); }, children: [_jsx(IconRefreshOutline14, { size: 14 }), t('library.retry')] })] }));
     }
     if (snapshot === undefined) {
         return _jsx("div", { className: css.libraryState, children: t('library.loading') });

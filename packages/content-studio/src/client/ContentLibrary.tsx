@@ -33,14 +33,15 @@ const STATUS_CLASS: Record<OutputStatus, string> = {
  */
 export function ContentLibrary({ listOutputs, t }: ContentLibraryProps) {
   const [snapshot, setSnapshot] = useState<ContentOutputsSnapshot | undefined>(undefined)
-  const [failed, setFailed] = useState(false)
+  const [failed, setFailed] = useState<string | undefined>(undefined)
   const load = useCallback(async (): Promise<void> => {
-    setFailed(false)
+    setFailed(undefined)
     setSnapshot(undefined)
     try {
       setSnapshot(await listOutputs())
-    } catch {
-      setFailed(true)
+    } catch (error) {
+      console.error('[content-studio] contentOutputs/list failed:', error)
+      setFailed(error instanceof Error ? error.message : String(error))
     }
   }, [listOutputs])
   useEffect(() => { void load() }, [load])
@@ -49,7 +50,7 @@ export function ContentLibrary({ listOutputs, t }: ContentLibraryProps) {
     return (
       <div className={css.libraryState}>
         <IconWarningOutline16 size={16} />
-        <span>{t('library.error')}</span>
+        <span>{t('library.error')}: {failed}</span>
         <button type="button" className={css.retry} onClick={() => { void load() }}>
           <IconRefreshOutline14 size={14} />
           {t('library.retry')}

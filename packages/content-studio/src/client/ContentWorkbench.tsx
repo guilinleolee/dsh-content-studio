@@ -37,6 +37,9 @@ const QUICK_IDS: readonly CapabilityItem['id'][] = ['social-card', 'gzh-article'
 /** How long a row shows its copied state before reverting. */
 const COPIED_FEEDBACK_MS = 1600
 
+/** Per-source load state: one failing Remote never blanks the whole home. */
+type Load<T> = { state: 'loading' } | { state: 'ok'; value: T } | { state: 'failed'; detail: string }
+
 /** Greeting bucket by hour of day. */
 function greetKey(hour: number): 'morning' | 'afternoon' | 'evening' {
   return hour < 12 ? 'morning' : hour < 18 ? 'afternoon' : 'evening'
@@ -55,22 +58,30 @@ function cap(id: CapabilityItem['id']): CapabilityItem {
  * @returns the dashboard element tree.
  */
 export function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat, t }: ContentWorkbenchProps) {
-  const [outputs, setOutputs] = useState<ContentOutputsSnapshot | undefined>(undefined)
-  const [schedule, setSchedule] = useState<ContentScheduleSnapshot | undefined>(undefined)
-  const [failed, setFailed] = useState(false)
+  const [outputs, setOutputs] = useState<Load<ContentOutputsSnapshot>>({ state: 'loading' })
+  const [schedule, setSchedule] = useState<Load<ContentScheduleSnapshot>>({ state: 'loading' })
   const [copiedId, setCopiedId] = useState<string | undefined>(undefined)
 
-  const load = useCallback(async (): Promise<void> => {
-    setFailed(false)
+  const loadOutputs = useCallback(async (): Promise<void> => {
+    setOutputs({ state: 'loading' })
     try {
-      const [o, s] = await Promise.all([listOutputs(), listSchedule()])
-      setOutputs(o)
-      setSchedule(s)
-    } catch {
-      setFailed(true)
+      setOutputs({ state: 'ok', value: await listOutputs() })
+    } catch (error) {
+      console.error('[content-studio] contentOutputs/list failed:', error)
+      setOutputs({ state: 'failed', detail: error instanceof Error ? error.message : String(error) })
     }
-  }, [listOutputs, listSchedule])
-  useEffect(() => { void load() }, [load])
+  }, [listOutputs])
+  const loadSchedule = useCallback(async (): Promise<void> => {
+    setSchedule({ state: 'loading' })
+    try {
+      setSchedule({ state: 'ok', value: await listSchedule() })
+    } catch (error) {
+      console.error('[content-studio] contentSchedule/list failed:', error)
+      setSchedule({ state: 'failed', detail: error instanceof Error ? error.message : String(error) })
+    }
+  }, [listSchedule])
+  useEffect(() => { void loadOutputs() }, [loadOutputs])
+  useEffect(() => { void loadSchedule() }, [loadSchedule])
 
   useEffect(() => {
     if (copiedId === undefined) return
@@ -87,18 +98,34 @@ export function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat
     if (await writeClipboard(item.prompt)) setCopiedId(item.id)
   }
 
-  if (failed) return <div className={css.libraryState}>{t('library.error')}</div>
+  if (outputs.state === 'failed') console.warn('[content-studio] outputs panel degraded:', outputs.detail)
+  if (schedule.state === 'failed') console.warn('[content-studio] schedule panel degraded:', schedule.detail)
 
-  const projects = outputs?.projects ?? []
+  const projects = outputs.state === 'ok' ? outputs.value.projects : []
   const ready = projects.filter(project => project.status === 'ready').length
-  const pending = (schedule?.items ?? []).filter(item => item.status !== 'published').length
-  const published = (schedule?.items ?? []).filter(item => item.status === 'published').length
+  const items = schedule.state === 'ok' ? schedule.value.items : []
+  const pending = items.filter(item => item.status !== 'published').length
+  const published = items.filter(item => item.status === 'published').length
   const recent = [...projects].sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : -1)).slice(0, 5)
   const today = new Date().toISOString().slice(0, 10)
-  const upcoming = (schedule?.items ?? [])
+  const upcoming = items
     .filter(item => item.status !== 'published' && item.date >= today)
     .slice(0, 5)
-  const allSchedule = schedule?.items ?? []
+  const allSchedule = items
+
+  /** Loading / failed seat for a panel fed by one Remote. */
+  const panelState = (load: Load<unknown>, retry: () => void): React.ReactNode => {
+    if (load.state === 'loading') return <p className={css.panelEmpty}>{t('library.loading')}</p>
+    if (load.state === 'failed') {
+      return (
+        <div className={css.libraryState}>
+          <span>{t('library.error')}: {load.detail}</span>
+          <button type="button" className={css.retry} onClick={retry}>{t('library.retry')}</button>
+        </div>
+      )
+    }
+    return undefined
+  }
 
   return (
     <div className={css.workbench}>
@@ -139,10 +166,10 @@ export function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat
       </div>
 
       <div className={css.statRow}>
-        <StatCard icon={<IconFolderOpenOutline16 size={16} />} value={projects.length} label={t('stat.projects')} />
-        <StatCard icon={<IconChecklistOutline14 size={16} />} value={pending} label={t('stat.scheduled')} />
-        <StatCard icon={<IconCheckOutline16 size={16} />} value={ready} label={t('stat.ready')} />
-        <StatCard icon={<IconGoalOutline16 size={16} />} value={published} label={t('stat.published')} />
+        <StatCard icon={<IconFolderOpenOutline16 size={16} />} value={outputs.state === 'ok' ? projects.length : undefined} label={t('stat.projects')} />
+        <StatCard icon={<IconChecklistOutline14 size={16} />} value={schedule.state === 'ok' ? pending : undefined} label={t('stat.scheduled')} />
+        <StatCard icon={<IconCheckOutline16 size={16} />} value={outputs.state === 'ok' ? ready : undefined} label={t('stat.ready')} />
+        <StatCard icon={<IconGoalOutline16 size={16} />} value={schedule.state === 'ok' ? published : undefined} label={t('stat.published')} />
       </div>
 
       <div className={css.panelRowThree}>
@@ -172,14 +199,15 @@ export function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat
               {t('nav.library')} →
             </button>
           </header>
-          {recent.length === 0
-            ? <p className={css.panelEmpty}>{t('panel.emptyRecent')}</p>
-            : recent.map(project => (
-              <div key={project.topic} className={css.listRow}>
-                <span className={css.listTitle}>{project.title}</span>
-                <span className={css.listMeta}>{t(`status.${project.status}` as const)}</span>
-              </div>
-            ))}
+          {panelState(outputs, () => { void loadOutputs() })
+            ?? (recent.length === 0
+              ? <p className={css.panelEmpty}>{t('panel.emptyRecent')}</p>
+              : recent.map(project => (
+                <div key={project.topic} className={css.listRow}>
+                  <span className={css.listTitle}>{project.title}</span>
+                  <span className={css.listMeta}>{t(`status.${project.status}` )}</span>
+                </div>
+              )))}
         </section>
         <section className={css.panel}>
           <header className={css.panelHead}>
@@ -188,14 +216,15 @@ export function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat
               {t('nav.calendar')} →
             </button>
           </header>
-          {upcoming.length === 0
-            ? <p className={css.panelEmpty}>{t('panel.emptyUpcoming')}</p>
-            : upcoming.map(item => (
-              <div key={item.id} className={css.listRow}>
-                <span className={css.listTitle}>{item.title}</span>
-                <span className={css.listMeta}>{item.date}</span>
-              </div>
-            ))}
+          {panelState(schedule, () => { void loadSchedule() })
+            ?? (upcoming.length === 0
+              ? <p className={css.panelEmpty}>{t('panel.emptyUpcoming')}</p>
+              : upcoming.map(item => (
+                <div key={item.id} className={css.listRow}>
+                  <span className={css.listTitle}>{item.title}</span>
+                  <span className={css.listMeta}>{item.date}</span>
+                </div>
+              )))}
         </section>
       </div>
 
@@ -207,13 +236,19 @@ export function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat
               {t('nav.library')} →
             </button>
           </header>
-          <div className={css.dataPills}>
-            <span className={css.dataPill}>{t('stat.projects')} · {projects.length}</span>
-            <span className={css.dataPill}>{t('status.draft')} · {projects.filter(project => project.status === 'draft').length}</span>
-            <span className={css.dataPill}>{t('stat.ready')} · {ready}</span>
-            <span className={css.dataPill}>{t('stat.published')} · {published}</span>
-          </div>
-          <p className={css.panelEmpty}>{t('panel.dataHint')}</p>
+          {outputs.state === 'ok'
+            ? (
+              <>
+                <div className={css.dataPills}>
+                  <span className={css.dataPill}>{t('stat.projects')} · {projects.length}</span>
+                  <span className={css.dataPill}>{t('status.draft')} · {projects.filter(project => project.status === 'draft').length}</span>
+                  <span className={css.dataPill}>{t('stat.ready')} · {ready}</span>
+                  <span className={css.dataPill}>{t('stat.published')} · {published}</span>
+                </div>
+                <p className={css.panelEmpty}>{t('panel.dataHint')}</p>
+              </>
+            )
+            : panelState(outputs, () => { void loadOutputs() })}
         </section>
         <section className={css.panel}>
           <header className={css.panelHead}>
@@ -222,14 +257,18 @@ export function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat
               {t('nav.calendar')} →
             </button>
           </header>
-          {allSchedule.length === 0
-            ? <p className={css.panelEmpty}>{t('panel.emptyUpcoming')}</p>
-            : allSchedule.slice(-5).reverse().map(item => (
-              <div key={item.id} className={css.listRow}>
-                <span className={css.listTitle}>{item.title}</span>
-                <span className={css.listMeta}>{item.date} · {t(`status.${item.status}` as const)}</span>
-              </div>
-            ))}
+          {schedule.state === 'ok'
+            ? (
+              allSchedule.length === 0
+                ? <p className={css.panelEmpty}>{t('panel.emptyUpcoming')}</p>
+                : allSchedule.slice(-5).reverse().map(item => (
+                  <div key={item.id} className={css.listRow}>
+                    <span className={css.listTitle}>{item.title}</span>
+                    <span className={css.listMeta}>{item.date} · {t(`status.${item.status}` )}</span>
+                  </div>
+                ))
+            )
+            : panelState(schedule, () => { void loadSchedule() })}
         </section>
       </div>
     </div>

@@ -4603,14 +4603,15 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		*/
 		function ContentLibrary({ listOutputs, t }) {
 			const [snapshot, setSnapshot] = (0, react.useState)(void 0);
-			const [failed, setFailed] = (0, react.useState)(false);
+			const [failed, setFailed] = (0, react.useState)(void 0);
 			const load = (0, react.useCallback)(async () => {
-				setFailed(false);
+				setFailed(void 0);
 				setSnapshot(void 0);
 				try {
 					setSnapshot(await listOutputs());
-				} catch {
-					setFailed(true);
+				} catch (error) {
+					console.error("[content-studio] contentOutputs/list failed:", error);
+					setFailed(error instanceof Error ? error.message : String(error));
 				}
 			}, [listOutputs]);
 			(0, react.useEffect)(() => {
@@ -4620,7 +4621,11 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				className: ContentStudio_module_css_default.libraryState,
 				children: [
 					/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 16 }),
-					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("library.error") }),
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
+						t("library.error"),
+						": ",
+						failed
+					] }),
 					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 						type: "button",
 						className: ContentStudio_module_css_default.retry,
@@ -4810,7 +4815,8 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				setFailed(false);
 				try {
 					setSnapshot(await listSchedule());
-				} catch {
+				} catch (error) {
+					console.error("[content-studio] contentSchedule failed:", error);
 					setFailed(true);
 				}
 			}, [listSchedule]);
@@ -4843,7 +4849,8 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 						url: null
 					}));
 					setForm(void 0);
-				} catch {
+				} catch (error) {
+					console.error("[content-studio] contentSchedule failed:", error);
 					setFailed(true);
 				} finally {
 					setSubmitting(false);
@@ -4856,14 +4863,16 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 						status: "published",
 						url: item.url
 					}));
-				} catch {
+				} catch (error) {
+					console.error("[content-studio] contentSchedule failed:", error);
 					setFailed(true);
 				}
 			};
 			const remove = async (id) => {
 				try {
 					setSnapshot(await removeSchedule(id));
-				} catch {
+				} catch (error) {
+					console.error("[content-studio] contentSchedule failed:", error);
 					setFailed(true);
 				}
 			};
@@ -5091,23 +5100,45 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		* @returns the dashboard element tree.
 		*/
 		function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat, t }) {
-			const [outputs, setOutputs] = (0, react.useState)(void 0);
-			const [schedule, setSchedule] = (0, react.useState)(void 0);
-			const [failed, setFailed] = (0, react.useState)(false);
+			const [outputs, setOutputs] = (0, react.useState)({ state: "loading" });
+			const [schedule, setSchedule] = (0, react.useState)({ state: "loading" });
 			const [copiedId, setCopiedId] = (0, react.useState)(void 0);
-			const load = (0, react.useCallback)(async () => {
-				setFailed(false);
+			const loadOutputs = (0, react.useCallback)(async () => {
+				setOutputs({ state: "loading" });
 				try {
-					const [o, s] = await Promise.all([listOutputs(), listSchedule()]);
-					setOutputs(o);
-					setSchedule(s);
-				} catch {
-					setFailed(true);
+					setOutputs({
+						state: "ok",
+						value: await listOutputs()
+					});
+				} catch (error) {
+					console.error("[content-studio] contentOutputs/list failed:", error);
+					setOutputs({
+						state: "failed",
+						detail: error instanceof Error ? error.message : String(error)
+					});
 				}
-			}, [listOutputs, listSchedule]);
+			}, [listOutputs]);
+			const loadSchedule = (0, react.useCallback)(async () => {
+				setSchedule({ state: "loading" });
+				try {
+					setSchedule({
+						state: "ok",
+						value: await listSchedule()
+					});
+				} catch (error) {
+					console.error("[content-studio] contentSchedule/list failed:", error);
+					setSchedule({
+						state: "failed",
+						detail: error instanceof Error ? error.message : String(error)
+					});
+				}
+			}, [listSchedule]);
 			(0, react.useEffect)(() => {
-				load();
-			}, [load]);
+				loadOutputs();
+			}, [loadOutputs]);
+			(0, react.useEffect)(() => {
+				loadSchedule();
+			}, [loadSchedule]);
 			(0, react.useEffect)(() => {
 				if (copiedId === void 0) return;
 				const timer = window.setTimeout(() => {
@@ -5121,18 +5152,37 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			const pick = async (item) => {
 				if (await (0, _deepseek_ai_dsh_client_ui_primitives.writeClipboard)(item.prompt)) setCopiedId(item.id);
 			};
-			if (failed) return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
-				className: ContentStudio_module_css_default.libraryState,
-				children: t("library.error")
-			});
-			const projects = outputs?.projects ?? [];
+			if (outputs.state === "failed") console.warn("[content-studio] outputs panel degraded:", outputs.detail);
+			if (schedule.state === "failed") console.warn("[content-studio] schedule panel degraded:", schedule.detail);
+			const projects = outputs.state === "ok" ? outputs.value.projects : [];
 			const ready = projects.filter((project) => project.status === "ready").length;
-			const pending = (schedule?.items ?? []).filter((item) => item.status !== "published").length;
-			const published = (schedule?.items ?? []).filter((item) => item.status === "published").length;
+			const items = schedule.state === "ok" ? schedule.value.items : [];
+			const pending = items.filter((item) => item.status !== "published").length;
+			const published = items.filter((item) => item.status === "published").length;
 			const recent = [...projects].sort((a, b) => a.updatedAt < b.updatedAt ? 1 : -1).slice(0, 5);
 			const today = (/* @__PURE__ */ new Date()).toISOString().slice(0, 10);
-			const upcoming = (schedule?.items ?? []).filter((item) => item.status !== "published" && item.date >= today).slice(0, 5);
-			const allSchedule = schedule?.items ?? [];
+			const upcoming = items.filter((item) => item.status !== "published" && item.date >= today).slice(0, 5);
+			const allSchedule = items;
+			/** Loading / failed seat for a panel fed by one Remote. */
+			const panelState = (load, retry) => {
+				if (load.state === "loading") return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
+					className: ContentStudio_module_css_default.panelEmpty,
+					children: t("library.loading")
+				});
+				if (load.state === "failed") return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+					className: ContentStudio_module_css_default.libraryState,
+					children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
+						t("library.error"),
+						": ",
+						load.detail
+					] }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
+						type: "button",
+						className: ContentStudio_module_css_default.retry,
+						onClick: retry,
+						children: t("library.retry")
+					})]
+				});
+			};
 			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.workbench,
 				children: [
@@ -5194,22 +5244,22 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 						children: [
 							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
 								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconFolderOpenOutline16, { size: 16 }),
-								value: projects.length,
+								value: outputs.state === "ok" ? projects.length : void 0,
 								label: t("stat.projects")
 							}),
 							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
 								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 16 }),
-								value: pending,
+								value: schedule.state === "ok" ? pending : void 0,
 								label: t("stat.scheduled")
 							}),
 							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
 								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCheckOutline16, { size: 16 }),
-								value: ready,
+								value: outputs.state === "ok" ? ready : void 0,
 								label: t("stat.ready")
 							}),
 							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
 								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconGoalOutline16, { size: 16 }),
-								value: published,
+								value: schedule.state === "ok" ? published : void 0,
 								label: t("stat.published")
 							})
 						]
@@ -5262,7 +5312,9 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 										},
 										children: [t("nav.library"), " →"]
 									})]
-								}), recent.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
+								}), panelState(outputs, () => {
+									loadOutputs();
+								}) ?? (recent.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 									className: ContentStudio_module_css_default.panelEmpty,
 									children: t("panel.emptyRecent")
 								}) : recent.map((project) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
@@ -5274,7 +5326,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 										className: ContentStudio_module_css_default.listMeta,
 										children: t(`status.${project.status}`)
 									})]
-								}, project.topic))]
+								}, project.topic)))]
 							}),
 							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 								className: ContentStudio_module_css_default.panel,
@@ -5291,7 +5343,9 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 										},
 										children: [t("nav.calendar"), " →"]
 									})]
-								}), upcoming.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
+								}), panelState(schedule, () => {
+									loadSchedule();
+								}) ?? (upcoming.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 									className: ContentStudio_module_css_default.panelEmpty,
 									children: t("panel.emptyUpcoming")
 								}) : upcoming.map((item) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
@@ -5303,7 +5357,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 										className: ContentStudio_module_css_default.listMeta,
 										children: item.date
 									})]
-								}, item.id))]
+								}, item.id)))]
 							})
 						]
 					}),
@@ -5311,63 +5365,61 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 						className: ContentStudio_module_css_default.panelRowTwo,
 						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 							className: ContentStudio_module_css_default.panel,
-							children: [
-								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
-									className: ContentStudio_module_css_default.panelHead,
-									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h2", {
-										className: ContentStudio_module_css_default.panelTitle,
-										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconGoalOutline16, { size: 13 }), t("panel.data")]
-									}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
-										type: "button",
-										className: ContentStudio_module_css_default.panelMore,
-										onClick: () => {
-											onNavigate("library");
-										},
-										children: [t("nav.library"), " →"]
-									})]
-								}),
-								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
-									className: ContentStudio_module_css_default.dataPills,
-									children: [
-										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
-											className: ContentStudio_module_css_default.dataPill,
-											children: [
-												t("stat.projects"),
-												" · ",
-												projects.length
-											]
-										}),
-										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
-											className: ContentStudio_module_css_default.dataPill,
-											children: [
-												t("status.draft"),
-												" · ",
-												projects.filter((project) => project.status === "draft").length
-											]
-										}),
-										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
-											className: ContentStudio_module_css_default.dataPill,
-											children: [
-												t("stat.ready"),
-												" · ",
-												ready
-											]
-										}),
-										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
-											className: ContentStudio_module_css_default.dataPill,
-											children: [
-												t("stat.published"),
-												" · ",
-												published
-											]
-										})
-									]
-								}),
-								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
-									className: ContentStudio_module_css_default.panelEmpty,
-									children: t("panel.dataHint")
-								})
-							]
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
+								className: ContentStudio_module_css_default.panelHead,
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h2", {
+									className: ContentStudio_module_css_default.panelTitle,
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconGoalOutline16, { size: 13 }), t("panel.data")]
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
+									type: "button",
+									className: ContentStudio_module_css_default.panelMore,
+									onClick: () => {
+										onNavigate("library");
+									},
+									children: [t("nav.library"), " →"]
+								})]
+							}), outputs.state === "ok" ? /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
+								className: ContentStudio_module_css_default.dataPills,
+								children: [
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+										className: ContentStudio_module_css_default.dataPill,
+										children: [
+											t("stat.projects"),
+											" · ",
+											projects.length
+										]
+									}),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+										className: ContentStudio_module_css_default.dataPill,
+										children: [
+											t("status.draft"),
+											" · ",
+											projects.filter((project) => project.status === "draft").length
+										]
+									}),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+										className: ContentStudio_module_css_default.dataPill,
+										children: [
+											t("stat.ready"),
+											" · ",
+											ready
+										]
+									}),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
+										className: ContentStudio_module_css_default.dataPill,
+										children: [
+											t("stat.published"),
+											" · ",
+											published
+										]
+									})
+								]
+							}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
+								className: ContentStudio_module_css_default.panelEmpty,
+								children: t("panel.dataHint")
+							})] }) : panelState(outputs, () => {
+								loadOutputs();
+							})]
 						}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 							className: ContentStudio_module_css_default.panel,
 							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
@@ -5383,7 +5435,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 									},
 									children: [t("nav.calendar"), " →"]
 								})]
-							}), allSchedule.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
+							}), schedule.state === "ok" ? allSchedule.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 								className: ContentStudio_module_css_default.panelEmpty,
 								children: t("panel.emptyUpcoming")
 							}) : allSchedule.slice(-5).reverse().map((item) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
@@ -5399,7 +5451,9 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 										t(`status.${item.status}`)
 									]
 								})]
-							}, item.id))]
+							}, item.id)) : panelState(schedule, () => {
+								loadSchedule();
+							})]
 						})]
 					})
 				]

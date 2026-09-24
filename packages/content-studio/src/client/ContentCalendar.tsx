@@ -62,7 +62,8 @@ export function ContentCalendar({ listSchedule, putSchedule, removeSchedule, t }
     setFailed(false)
     try {
       setSnapshot(await listSchedule())
-    } catch {
+    } catch (error) {
+      console.error('[content-studio] contentSchedule failed:', error)
       setFailed(true)
     }
   }, [listSchedule])
@@ -93,7 +94,8 @@ export function ContentCalendar({ listSchedule, putSchedule, removeSchedule, t }
         url: null,
       }))
       setForm(undefined)
-    } catch {
+    } catch (error) {
+      console.error('[content-studio] contentSchedule failed:', error)
       setFailed(true)
     } finally {
       setSubmitting(false)
@@ -103,7 +105,8 @@ export function ContentCalendar({ listSchedule, putSchedule, removeSchedule, t }
   const markPublished = async (item: ScheduleItem): Promise<void> => {
     try {
       setSnapshot(await putSchedule({ ...item, status: 'published', url: item.url }))
-    } catch {
+    } catch (error) {
+      console.error('[content-studio] contentSchedule failed:', error)
       setFailed(true)
     }
   }
@@ -111,7 +114,8 @@ export function ContentCalendar({ listSchedule, putSchedule, removeSchedule, t }
   const remove = async (id: ScheduleItem['id']): Promise<void> => {
     try {
       setSnapshot(await removeSchedule(id))
-    } catch {
+    } catch (error) {
+      console.error('[content-studio] contentSchedule failed:', error)
       setFailed(true)
     }
   }
