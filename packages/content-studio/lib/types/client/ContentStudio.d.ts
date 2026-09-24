@@ -16,7 +16,7 @@ export interface ContentStudioInjected {
 export type ContentStudioProps = ContentStudioInjected & PropsLocale<'content-studio'>;
 /**
  * Render the Content Studio workbench surface.
- * @param props - the shared controller and the locale seat.
+ * @param props - the injected face and the locale seat.
  * @returns the surface element tree while open; null while closed.
  */
 export declare function ContentStudio({ studio, listOutputs, schedule, t }: ContentStudioProps): import("react").JSX.Element | null;
