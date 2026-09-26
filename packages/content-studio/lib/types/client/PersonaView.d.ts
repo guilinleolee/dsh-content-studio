@@ -1,13 +1,13 @@
 import type { PropsLocale } from '@deepseek-ai/dsh-client-ui-slots';
-/** Props: the controlled persona text and saver, plus the locale seat. */
+import type { PersonaController } from './persona/persona-store.ts';
+/** Props: the injected controller plus the locale seat. */
 export type PersonaViewProps = {
-    persona: string;
-    onSave: (persona: string) => void;
+    personas: PersonaController;
 } & PropsLocale<'content-studio'>;
 /**
- * Render the persona editor.
- * @param props - the controlled persona text, saver, and the locale seat.
+ * Render the persona page.
+ * @param props - the injected controller and the locale seat.
  * @returns the page element tree.
  */
-export declare function PersonaView({ persona, onSave, t }: PersonaViewProps): import("react").JSX.Element;
+export declare function PersonaView({ personas, t }: PersonaViewProps): import("react").JSX.Element;
 //# sourceMappingURL=PersonaView.d.ts.map

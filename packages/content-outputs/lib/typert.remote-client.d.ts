@@ -3,14 +3,76 @@ import type {
   RemoteResult,
   TypertRemoteContribution,
 } from '@deepseek-ai/dsh-typert-protocol'
-import type { ContentOutputsSnapshot } from '@deepseek-ai/dsh-content-outputs/types'
+import type { CompetitorAnalyzeWorkRequest, CompetitorAnalyzeWorkResult, CompetitorManifest, CompetitorManifestRead, CompetitorReportRequest, CompetitorReportResult, ContentOutputsSnapshot, CreateAiResult, CreateAssetList, CreateEvaluateRequest, CreateEvaluation, CreateGenerateRequest, CreateManifest, CreatePublishRequest, CreatePublishResult, CreateRegisterRequest, CreateRewriteRequest, CreateStateRead, CreateTemplateInput, CreateTemplateList, GatherAiRequest, GatherAiResult, GatherAssetMove, GatherAssetWrite, GatherFeedRequest, GatherFeedResult, GatherManifest, GatherManifestRead, OutputMetadata, PersonaAiRequest, PersonaAiResult, PersonaEntry, PersonaId, PersonaInput, PersonaReport, PersonasSnapshot } from '@deepseek-ai/dsh-content-outputs/types'
 
 declare module '@deepseek-ai/dsh-typert-protocol' {
   interface TypertRemoteNamespace$636f6e74656e744f757470757473 {
+    analyzeCompetitorWork: (request: CompetitorAnalyzeWorkRequest) => Promise<RemoteResult<CompetitorAnalyzeWorkResult>>
+    deleteAsset: (theme: string, file: string) => Promise<RemoteResult<void>>
+    deleteCreateTemplate: (id: string) => Promise<RemoteResult<CreateTemplateList>>
+    deletePersona: (id: PersonaId) => Promise<RemoteResult<void>>
+    evaluateCreateContent: (request: CreateEvaluateRequest) => Promise<RemoteResult<CreateEvaluation>>
+    fetchFeed: (request: GatherFeedRequest, signal?: AbortSignal) => Promise<RemoteResult<GatherFeedResult>>
+    generateCompetitorReport: (request: CompetitorReportRequest) => Promise<RemoteResult<CompetitorReportResult>>
+    generateCreateContent: (request: CreateGenerateRequest) => Promise<RemoteResult<CreateAiResult>>
+    getPersona: (id: PersonaId) => Promise<RemoteResult<{ persona?: PersonaEntry; }>>
     list: () => Promise<RemoteResult<ContentOutputsSnapshot>>
+    listCreateAssets: (theme: string) => Promise<RemoteResult<CreateAssetList>>
+    listCreateTemplates: () => Promise<RemoteResult<CreateTemplateList>>
+    listPersonas: () => Promise<RemoteResult<PersonasSnapshot>>
+    moveAsset: (move: GatherAssetMove) => Promise<RemoteResult<void>>
+    processMaterial: (request: GatherAiRequest) => Promise<RemoteResult<GatherAiResult>>
+    processPersonaAi: (request: PersonaAiRequest) => Promise<RemoteResult<PersonaAiResult>>
+    publishCreateFinal: (theme: string, request: CreatePublishRequest) => Promise<RemoteResult<CreatePublishResult>>
+    putCreateTemplate: (input: CreateTemplateInput) => Promise<RemoteResult<CreateTemplateList>>
+    putPersona: (input: PersonaInput) => Promise<RemoteResult<PersonaEntry>>
+    putPersonaReport: (id: PersonaId, report: PersonaReport) => Promise<RemoteResult<PersonaEntry>>
+    readAsset: (theme: string, file: string) => Promise<RemoteResult<{ content?: string; }>>
+    readCompetitorManifest: (theme: string) => Promise<RemoteResult<CompetitorManifestRead>>
+    readCreateMetadata: (theme: string) => Promise<RemoteResult<{ metadata: OutputMetadata | null; problem: string | null; }>>
+    readCreateState: (theme: string) => Promise<RemoteResult<CreateStateRead>>
+    readGatherManifest: (theme: string) => Promise<RemoteResult<GatherManifestRead>>
+    registerCreatePublish: (theme: string, request: CreateRegisterRequest) => Promise<RemoteResult<void>>
+    rewriteCreateSelection: (request: CreateRewriteRequest) => Promise<RemoteResult<CreateAiResult>>
+    writeAsset: (write: GatherAssetWrite) => Promise<RemoteResult<{ truncated: boolean; }>>
+    writeCompetitorManifest: (theme: string, manifest: CompetitorManifest) => Promise<RemoteResult<void>>
+    writeCreateMetadata: (theme: string, metadata: OutputMetadata) => Promise<RemoteResult<void>>
+    writeCreateState: (theme: string, manifest: CreateManifest) => Promise<RemoteResult<void>>
+    writeGatherManifest: (theme: string, manifest: GatherManifest) => Promise<RemoteResult<GatherManifest>>
   }
   interface TypertRemoteMap {
+    'contentOutputs/analyzeCompetitorWork': (request: CompetitorAnalyzeWorkRequest) => Promise<RemoteResult<CompetitorAnalyzeWorkResult>>
+    'contentOutputs/deleteAsset': (theme: string, file: string) => Promise<RemoteResult<void>>
+    'contentOutputs/deleteCreateTemplate': (id: string) => Promise<RemoteResult<CreateTemplateList>>
+    'contentOutputs/deletePersona': (id: PersonaId) => Promise<RemoteResult<void>>
+    'contentOutputs/evaluateCreateContent': (request: CreateEvaluateRequest) => Promise<RemoteResult<CreateEvaluation>>
+    'contentOutputs/fetchFeed': (request: GatherFeedRequest, signal?: AbortSignal) => Promise<RemoteResult<GatherFeedResult>>
+    'contentOutputs/generateCompetitorReport': (request: CompetitorReportRequest) => Promise<RemoteResult<CompetitorReportResult>>
+    'contentOutputs/generateCreateContent': (request: CreateGenerateRequest) => Promise<RemoteResult<CreateAiResult>>
+    'contentOutputs/getPersona': (id: PersonaId) => Promise<RemoteResult<{ persona?: PersonaEntry; }>>
     'contentOutputs/list': () => Promise<RemoteResult<ContentOutputsSnapshot>>
+    'contentOutputs/listCreateAssets': (theme: string) => Promise<RemoteResult<CreateAssetList>>
+    'contentOutputs/listCreateTemplates': () => Promise<RemoteResult<CreateTemplateList>>
+    'contentOutputs/listPersonas': () => Promise<RemoteResult<PersonasSnapshot>>
+    'contentOutputs/moveAsset': (move: GatherAssetMove) => Promise<RemoteResult<void>>
+    'contentOutputs/processMaterial': (request: GatherAiRequest) => Promise<RemoteResult<GatherAiResult>>
+    'contentOutputs/processPersonaAi': (request: PersonaAiRequest) => Promise<RemoteResult<PersonaAiResult>>
+    'contentOutputs/publishCreateFinal': (theme: string, request: CreatePublishRequest) => Promise<RemoteResult<CreatePublishResult>>
+    'contentOutputs/putCreateTemplate': (input: CreateTemplateInput) => Promise<RemoteResult<CreateTemplateList>>
+    'contentOutputs/putPersona': (input: PersonaInput) => Promise<RemoteResult<PersonaEntry>>
+    'contentOutputs/putPersonaReport': (id: PersonaId, report: PersonaReport) => Promise<RemoteResult<PersonaEntry>>
+    'contentOutputs/readAsset': (theme: string, file: string) => Promise<RemoteResult<{ content?: string; }>>
+    'contentOutputs/readCompetitorManifest': (theme: string) => Promise<RemoteResult<CompetitorManifestRead>>
+    'contentOutputs/readCreateMetadata': (theme: string) => Promise<RemoteResult<{ metadata: OutputMetadata | null; problem: string | null; }>>
+    'contentOutputs/readCreateState': (theme: string) => Promise<RemoteResult<CreateStateRead>>
+    'contentOutputs/readGatherManifest': (theme: string) => Promise<RemoteResult<GatherManifestRead>>
+    'contentOutputs/registerCreatePublish': (theme: string, request: CreateRegisterRequest) => Promise<RemoteResult<void>>
+    'contentOutputs/rewriteCreateSelection': (request: CreateRewriteRequest) => Promise<RemoteResult<CreateAiResult>>
+    'contentOutputs/writeAsset': (write: GatherAssetWrite) => Promise<RemoteResult<{ truncated: boolean; }>>
+    'contentOutputs/writeCompetitorManifest': (theme: string, manifest: CompetitorManifest) => Promise<RemoteResult<void>>
+    'contentOutputs/writeCreateMetadata': (theme: string, metadata: OutputMetadata) => Promise<RemoteResult<void>>
+    'contentOutputs/writeCreateState': (theme: string, manifest: CreateManifest) => Promise<RemoteResult<void>>
+    'contentOutputs/writeGatherManifest': (theme: string, manifest: GatherManifest) => Promise<RemoteResult<GatherManifest>>
   }
   interface TypertRemoteNamespaceMap {
     'contentOutputs': TypertRemoteNamespace$636f6e74656e744f757470757473

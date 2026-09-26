@@ -12,9 +12,11 @@ The workbench has three top-level views. **Create** is the dual-intent capabilit
 
 Escape or the header close button dismisses the surface; closed state renders null while the slot entry stays mounted. Both target slots are declared by other plugins, so `apply` installs both registrations atomically through one `slots.inject()` generator for the declaration lifetime, and the components share one open/close controller injected into each.
 
+The **Gather** view (信息收集) is the information-collection surface: RSS/Atom source management (add, edit, enable, test connection, keyword excludes, OPML import with a preview that marks duplicates and folders, and a token-warning OPML export), collection tasks (per-task source set, theme binding, keyword filters, per-run cap, optional interval, and a 20-entry run log), and a two-pane material library backed by the on-disk `_gather.json` manifest. Materials support read/favorite/picked markers, excerpt snippets, theme rebinding, an explicit AI-processing button (summary, points, score, tags — always manual), pushing a material into the create view as a reference line (never the body), and adding it to the publication calendar. Scheduling runs only while the workbench is open — a master tick, visibility-aware pause/resume, and a single overdue catch-up on open; closing the workbench stops every timer, and the copy states this plainly. Sources, tasks, and logs live in browser storage under `content-studio.gather.` through one storage module; clearing browser data loses only those, never the materials.
+
 ## Model Experience
 
-None, as the surface is browser chrome; nothing here reaches a model request.
+Explicit only: the gather view's AI-processing button sends one framed request per click through the `contentOutputs/processMaterial` Remote, which rides the shared `llm` service. A failed or rate-limited call leaves the material untouched and shows a retry affordance; nothing here reaches a model request otherwise.
 
 #### KV Cache effect
 

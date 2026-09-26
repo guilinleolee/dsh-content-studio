@@ -4,6 +4,9 @@
  * Node or filesystem imports.
  */
 import type { Branded } from '@deepseek-ai/dsh-brand';
+import type { OutputCreateState } from './create/types.ts';
+export type { CreateAiResult, CreateAssetList, CreateContext, CreateContentType, CreateEvaluateRequest, CreateEvaluation, CreateEvaluationDimension, CreateGenerateRequest, CreateGrade, CreateManifest, CreateProfileRef, CreatePublishRequest, CreatePublishResult, CreateRegisterRequest, CreateRewriteOperation, CreateRewriteRequest, CreateSourceRef, CreateStateRead, CreateStyleKey, CreateTemplate, CreateTemplateInput, CreateTemplateList, CreateTopicRef, CreateVersion, OutputCreateState, } from './create/types.ts';
+export { CREATE_CONTENT_TYPES, CREATE_GRADES, CREATE_REWRITE_OPERATIONS, CREATE_STYLES } from './create/types.ts';
 /** Directory name of one output project under the library root. */
 export type OutputTopic = Branded<'OutputTopic'>;
 /** Production state of one output project. */
@@ -22,6 +25,12 @@ export interface OutputMetadata {
     readonly tags: readonly string[];
     /** One-line summary, or null when the project carries none. */
     readonly summary: string | null;
+    /**
+     * Creation workbench bookkeeping (version counters and the publish
+     * registration), mirrored here for the library view; absent on projects
+     * the workbench never touched.
+     */
+    readonly create?: OutputCreateState;
 }
 /** One output project directory projected from the library. */
 export interface OutputProject {
@@ -55,4 +64,8 @@ export interface ContentOutputsSnapshot {
     readonly projects: readonly OutputProject[];
     readonly problems: readonly OutputProjectProblem[];
 }
+export type { GatherAiOperation, GatherAiRequest, GatherAiResult, GatherAssetMove, GatherAssetWrite, GatherFeedRequest, GatherFeedResult, GatherItemDraft, GatherManifest, GatherManifestRead, GatherMaterial, GatherMaterialId, GatherMaterialStatus, } from './gather/types.ts';
+export type { CompetitorAccountDigest, CompetitorAnalyzeWorkRequest, CompetitorAnalyzeWorkResult, CompetitorHeatLevel, CompetitorManifest, CompetitorManifestRead, CompetitorMetricSnapshot, CompetitorPlatform, CompetitorReport, CompetitorReportId, CompetitorReportRequest, CompetitorReportResult, CompetitorWork, CompetitorWorkAnalysis, CompetitorWorkAnalysisResult, CompetitorWorkId, } from './competitor/types.ts';
+export type { PersonaAccountStage, PersonaAiOperation, PersonaAiRequest, PersonaAiResult, PersonaEntry, PersonaField, PersonaFieldKey, PersonaFieldSource, PersonaId, PersonaInput, PersonaLink, PersonaPlatform, PersonaReport, PersonaStyle, PersonaStylePreset, PersonaStyleStrength, PersonasManifest, PersonasSnapshot, } from './persona/types.ts';
+export { PERSONA_FIELD_KEYS, PERSONA_FIELD_LABELS, PERSONA_FILL_PROHIBITED, PERSONA_PLATFORMS, PERSONA_PLATFORM_LABELS, PERSONA_STYLE_PRESETS, PERSONA_STYLE_PRESET_LABELS, } from './persona/types.ts';
 //# sourceMappingURL=types.d.ts.map

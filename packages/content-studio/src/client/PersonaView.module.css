@@ -1,0 +1,429 @@
+/* Persona view (画像): card list, four-step wizard, AI fill preview, and
+   the report panel. Own module per the view-style convention; only
+   --dsw-alias-* tokens. */
+
+.persona {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.personaHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.personaTitle {
+  margin: 0;
+  font-size: 18px;
+  color: var(--dsw-alias-label-primary);
+}
+
+.personaHint {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: var(--dsw-alias-label-secondary);
+}
+
+.personaPrimary {
+  padding: 6px 14px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 8px;
+  background: var(--dsw-alias-bg-layer-2);
+  color: var(--dsw-alias-label-primary);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.personaPrimary:hover {
+  background: var(--dsw-alias-interactive-bg-hover);
+}
+
+.personaPrimary:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.personaMini {
+  padding: 3px 10px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--dsw-alias-label-secondary);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.personaMini:hover {
+  background: var(--dsw-alias-interactive-bg-hover);
+  color: var(--dsw-alias-label-primary);
+}
+
+.personaMini:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.personaBanner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 10px;
+  background: var(--dsw-alias-bg-layer-2);
+  color: var(--dsw-alias-label-secondary);
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+
+.personaNotice {
+  padding: 8px 12px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 10px;
+  background: var(--dsw-alias-bg-layer-2);
+  color: var(--dsw-alias-label-primary);
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.personaEmpty {
+  margin: 24px 0;
+  font-size: 13px;
+  color: var(--dsw-alias-label-secondary);
+  text-align: center;
+}
+
+.personaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.personaCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 10px;
+  background: var(--dsw-alias-bg-layer-1);
+}
+
+.personaCardHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.personaCardName {
+  margin: 0;
+  font-size: 14px;
+  color: var(--dsw-alias-label-primary);
+}
+
+.personaBadge,
+.personaBadgeActive,
+.personaBadgeStale {
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+}
+
+.personaBadge {
+  border: 1px solid var(--dsw-alias-border-l1);
+  color: var(--dsw-alias-label-secondary);
+}
+
+.personaBadgeActive {
+  border: 1px solid var(--dsw-alias-border-l2);
+  background: var(--dsw-alias-bg-layer-3);
+  color: var(--dsw-alias-label-primary);
+}
+
+.personaBadgeStale {
+  border: 1px solid color-mix(in srgb, var(--dsw-alias-state-warning-primary, var(--dsw-alias-label-primary)) 40%, transparent);
+  color: var(--dsw-alias-state-warning-primary, var(--dsw-alias-label-primary));
+}
+
+.personaChips {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.personaChip {
+  padding: 2px 8px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--dsw-alias-label-secondary);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.personaChipOn {
+  border: 1px solid var(--dsw-alias-border-l2);
+  background: var(--dsw-alias-bg-layer-3);
+  color: var(--dsw-alias-label-primary);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.personaDigest {
+  margin: 0;
+  font-size: 12px;
+  color: var(--dsw-alias-label-secondary);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.personaActions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.personaPreview {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 10px;
+  background: var(--dsw-alias-bg-layer-1);
+}
+
+.personaPreviewHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.personaPreviewHead h3 {
+  margin: 0;
+  font-size: 13px;
+  color: var(--dsw-alias-label-primary);
+}
+
+.personaFacts {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.personaFact dt {
+  font-size: 11px;
+  color: var(--dsw-alias-label-secondary);
+}
+
+.personaFact dd {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--dsw-alias-label-primary);
+}
+
+.personaSource {
+  font-size: 10px;
+  color: var(--dsw-alias-label-secondary);
+}
+
+.personaFactLine {
+  margin: 0;
+  font-size: 12px;
+  color: var(--dsw-alias-label-secondary);
+}
+
+.personaModal {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: color-mix(in srgb, var(--dsw-alias-bg-layer-1) 70%, transparent);
+}
+
+.personaModalCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(680px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 16px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 12px;
+  background: var(--dsw-alias-bg-layer-1);
+}
+
+.personaModalHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.personaModalHead h3 {
+  margin: 0;
+  font-size: 15px;
+  color: var(--dsw-alias-label-primary);
+}
+
+.personaStepLabel {
+  font-size: 12px;
+  color: var(--dsw-alias-label-secondary);
+}
+
+.personaStepBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.personaField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.personaFieldLabel {
+  font-size: 12px;
+  color: var(--dsw-alias-label-secondary);
+}
+
+.personaField input,
+.personaField select,
+.personaField textarea,
+.personaLinkRow input,
+.personaLinkRow select,
+.personaFillRow textarea,
+.personaReportText {
+  padding: 6px 8px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 6px;
+  background: var(--dsw-alias-bg-layer-1);
+  color: var(--dsw-alias-label-primary);
+  font-size: 13px;
+}
+
+.personaResume {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  border: 1px dashed var(--dsw-alias-border-l1);
+  border-radius: 8px;
+}
+
+.personaResumeRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.personaConsent {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--dsw-alias-label-secondary);
+}
+
+.personaLinkRow {
+  display: grid;
+  grid-template-columns: 110px 1fr 1fr auto;
+  gap: 6px;
+  align-items: center;
+}
+
+.personaPromptBox {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid var(--dsw-alias-border-l1);
+  border-radius: 8px;
+  background: var(--dsw-alias-bg-layer-2);
+}
+
+.personaPromptHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.personaPromptHead strong {
+  font-size: 12px;
+  color: var(--dsw-alias-label-primary);
+}
+
+.personaPromptText {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--dsw-alias-label-secondary);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.personaFill {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid color-mix(in srgb, var(--dsw-alias-state-warning-primary, var(--dsw-alias-label-primary)) 40%, transparent);
+  border-radius: 8px;
+}
+
+.personaFillHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.personaFillHead strong {
+  font-size: 12px;
+  color: var(--dsw-alias-label-primary);
+}
+
+.personaFillRow {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  gap: 6px;
+  align-items: start;
+}
+
+.personaModalFoot {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.personaReportEdited {
+  margin: 0;
+  font-size: 12px;
+  color: var(--dsw-alias-label-secondary);
+}
+
+.personaReportText {
+  font-family: monospace;
+  line-height: 1.6;
+}

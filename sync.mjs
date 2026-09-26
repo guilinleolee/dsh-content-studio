@@ -4,7 +4,7 @@
  *
  *   node sync.mjs [path-to-deepseek-harness]
  *
- * The harness checkout must have the three source packages built
+ * The harness checkout must have the four source packages built
  * (`pnpm run build` there). This script copies each package's built `lib/`,
  * READMEs, license-facing metadata, and `cordis.patch.yml` into
  * `packages/<name>/`, rewriting the `@deepseek-ai/` scope to `@guilinleolee/`
@@ -27,12 +27,14 @@ const PACKAGES = [
   { src: 'packages/client/ui-content-studio', dist: 'content-studio' },
   { src: 'packages/creation/content-outputs', dist: 'content-outputs' },
   { src: 'packages/creation/content-schedule', dist: 'content-schedule' },
+  { src: 'packages/creation/content-topics', dist: 'content-topics' },
 ]
 
 const rescope = (text) => text
   .replaceAll('@deepseek-ai/dsh-client-ui-content-studio', `${SCOPE_TO}dsh-content-studio`)
   .replaceAll('@deepseek-ai/dsh-content-outputs', `${SCOPE_TO}dsh-content-outputs`)
   .replaceAll('@deepseek-ai/dsh-content-schedule', `${SCOPE_TO}dsh-content-schedule`)
+  .replaceAll('@deepseek-ai/dsh-content-topics', `${SCOPE_TO}dsh-content-topics`)
 
 for (const pkg of PACKAGES) {
   const from = join(harness, pkg.src)
@@ -52,7 +54,7 @@ for (const pkg of PACKAGES) {
 
   // Manifest: rescope names, keep host-provided peers (dropping the invalid
   // outside-workspace `workspace:` protocol — the host satisfies them), turn
-  // the two sibling gateways into relative file deps so one `dsh plugin add`
+  // the three sibling gateways into relative file deps so one `dsh plugin add`
   // on the studio materializes the whole feature into the profile.
   const manifest = JSON.parse(readFileSync(join(from, 'package.json'), 'utf8'))
   const name = rescope(manifest.name)
@@ -73,6 +75,7 @@ for (const pkg of PACKAGES) {
       ? {
           [`${SCOPE_TO}dsh-content-outputs`]: 'file:../content-outputs',
           [`${SCOPE_TO}dsh-content-schedule`]: 'file:../content-schedule',
+          [`${SCOPE_TO}dsh-content-topics`]: 'file:../content-topics',
         }
       : {},
     peerDependencies: peers,
@@ -81,6 +84,7 @@ for (const pkg of PACKAGES) {
   if (name.endsWith('content-studio')) {
     delete next.peerDependencies[`${SCOPE_TO}dsh-content-outputs`]
     delete next.peerDependencies[`${SCOPE_TO}dsh-content-schedule`]
+    delete next.peerDependencies[`${SCOPE_TO}dsh-content-topics`]
   }
   writeFileSync(join(to, 'package.json'), `${JSON.stringify(next, null, 2)}\n`)
   console.log(`synced ${name}`)

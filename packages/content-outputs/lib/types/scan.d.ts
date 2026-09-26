@@ -3,7 +3,9 @@
  * every call. The convention is one directory per creation under the library
  * root — finished files at the project root, intermediate material under
  * `assets/`, and `.dsh-output.json` as the only metadata. Names beginning
- * with `.` or `_` are system entries, not projects.
+ * with `.` or `_` are system entries, not projects and not deliverables;
+ * inside `assets/` they are system files (the gather manifest), not
+ * intermediate material.
  *
  * A malformed metadata file never kills the whole snapshot: the project is
  * projected with fallbacks and named through `hasMetadata`, because one bad

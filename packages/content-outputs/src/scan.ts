@@ -3,7 +3,9 @@
  * every call. The convention is one directory per creation under the library
  * root — finished files at the project root, intermediate material under
  * `assets/`, and `.dsh-output.json` as the only metadata. Names beginning
- * with `.` or `_` are system entries, not projects.
+ * with `.` or `_` are system entries, not projects and not deliverables;
+ * inside `assets/` they are system files (the gather manifest), not
+ * intermediate material.
  *
  * A malformed metadata file never kills the whole snapshot: the project is
  * projected with fallbacks and named through `hasMetadata`, because one bad
@@ -82,7 +84,9 @@ export async function scanProject(
     if (entry.isDirectory()) {
       if (entry.name === ASSETS_DIRNAME) {
         try {
-          assetCount = (await readdir(join(dir, ASSETS_DIRNAME))).length
+          // `_`-prefixed assets are system files (the gather manifest), not
+          // intermediate material; the count stays user-meaningful.
+          assetCount = (await readdir(join(dir, ASSETS_DIRNAME))).filter(name => !name.startsWith('.') && !name.startsWith('_')).length
         } catch {
           // An unreadable assets directory counts as empty; the deliverable
           // surface — the reason the library exists — stays intact.
@@ -90,7 +94,7 @@ export async function scanProject(
       }
       continue
     }
-    if (!entry.isFile() || entry.name.startsWith('.')) continue
+    if (!entry.isFile() || entry.name.startsWith('.') || entry.name.startsWith('_')) continue
     deliverables.push(entry.name)
   }
 

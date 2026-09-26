@@ -1,0 +1,20 @@
+/* SplitDetail: the reusable left-list + right-detail geometry shared by the
+   gather material library and (later) the topic bank. Only --dsw-alias-* tokens. */
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) minmax(280px, 1.1fr);
+  gap: 16px;
+  align-items: start;
+  min-width: 0;
+}
+
+.listPane {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.detailPane {
+  min-width: 0;
+}

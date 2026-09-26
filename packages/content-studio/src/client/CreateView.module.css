@@ -1,0 +1,202 @@
+/* Create workbench styles, split out of the main module per the
+   new-view convention. Layout reuses the workbench's shared panel
+   vocabulary; these classes cover only what the create view adds. */
+
+.entryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.entryCard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px;
+  border: 1px solid var(--dsw-alias-border-default, #ddd);
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+
+.entryCardActive {
+  border-color: var(--dsw-alias-border-strong, #999);
+  background: var(--dsw-alias-surface-selected, rgba(0, 0, 0, 0.04));
+}
+
+.entryCardTitle {
+  font-weight: 600;
+}
+
+.entryCardHint {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.editorGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 14px;
+  align-items: start;
+}
+
+.editorPane {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.editorToolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.editorTextarea {
+  width: 100%;
+  min-height: 380px;
+  resize: vertical;
+  font: inherit;
+  line-height: 1.7;
+  padding: 12px;
+  border: 1px solid var(--dsw-alias-border-default, #ddd);
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  box-sizing: border-box;
+}
+
+.statsLine {
+  display: flex;
+  gap: 14px;
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.sideStack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.contextField {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.contextInput {
+  width: 100%;
+  min-height: 44px;
+  resize: vertical;
+  font: inherit;
+  font-size: 12px;
+  padding: 6px 8px;
+  border: 1px solid var(--dsw-alias-border-default, #ddd);
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  box-sizing: border-box;
+}
+
+.versionRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid var(--dsw-alias-border-default, #ddd);
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.versionHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+}
+
+.versionActions {
+  display: flex;
+  gap: 6px;
+}
+
+.versionMeta {
+  opacity: 0.7;
+}
+
+.diffBlock {
+  max-height: 320px;
+  overflow: auto;
+  border: 1px solid var(--dsw-alias-border-default, #ddd);
+  border-radius: 8px;
+  font-size: 12px;
+  font-family: ui-monospace, monospace;
+}
+
+.diffRow {
+  padding: 1px 8px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.diffAdd {
+  background: var(--dsw-alias-surface-success, rgba(34, 160, 90, 0.16));
+}
+
+.diffDel {
+  background: var(--dsw-alias-surface-danger, rgba(214, 69, 69, 0.14));
+  text-decoration: line-through;
+  opacity: 0.85;
+}
+
+.diffLegend {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  opacity: 0.75;
+}
+
+.bannedRow {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  font-size: 12px;
+  padding: 3px 0;
+}
+
+.bannedWord {
+  font-weight: 600;
+}
+
+.bannedCat {
+  opacity: 0.7;
+}
+
+.bannedCount {
+  margin-left: auto;
+  opacity: 0.7;
+}
+
+.aiError {
+  font-size: 12px;
+  color: var(--dsw-alias-text-danger, #b3261e);
+  word-break: break-word;
+}
+
+.noticeLine {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.catalogToggle {
+  margin: 0 0 10px;
+}
