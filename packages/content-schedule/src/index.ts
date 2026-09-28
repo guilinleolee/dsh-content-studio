@@ -8,11 +8,13 @@ import { join } from 'node:path'
 import { TypertRemoteService, Remote } from '@deepseek-ai/dsh-typert-protocol'
 // Typert-generated ./typert and ./remote artifacts import Zod at runtime.
 import type {} from 'zod'
-import type { ContentScheduleSnapshot, ScheduleItem, ScheduleItemInput } from './types.ts'
+import type { CalendarNotesSnapshot, ContentScheduleSnapshot, ScheduleItem, ScheduleItemInput } from './types.ts'
 import { SCHEDULE_FILENAME, mutateSchedule, normalizeInput, readSchedule } from './store.ts'
+import { CALENDAR_FILENAME, readNotes, writeNote } from './calendar-notes.ts'
 
 export type * from './types.ts'
 export { SCHEDULE_FILENAME, normalizeInput, readSchedule, mutateSchedule } from './store.ts'
+export { CALENDAR_FILENAME, readNotes, writeNote } from './calendar-notes.ts'
 
 /** Content-schedule Remote configuration. */
 export interface Config {
@@ -25,9 +27,10 @@ export const Config: Schema<Config> = z.object({
 })
 
 /**
- * Remote calendar service over `_schedule.json` at the library root. Every
- * method reads or commits the file directly — the calendar is small, and the
- * file stays the single truth the agent can also read.
+ * Remote calendar service over `_schedule.json` at the library root, plus the
+ * `_calendar.json` day-note sidecar. Every method reads or commits its file
+ * directly — the calendar is small, and the files stay the single truth the
+ * agent can also read.
  */
 export class ContentScheduleGateway extends TypertRemoteService {
   static inject = []
@@ -37,9 +40,14 @@ export class ContentScheduleGateway extends TypertRemoteService {
   /** Absolute calendar file path. */
   private readonly file: string
 
+  /** Absolute notes sidecar path. */
+  private readonly notesFile: string
+
   constructor(ctx: Context, config: Config) {
     super(ctx, 'contentSchedule')
-    this.file = join(resolveDshHome(config.root), 'outputs', SCHEDULE_FILENAME)
+    const root = join(resolveDshHome(config.root), 'outputs')
+    this.file = join(root, SCHEDULE_FILENAME)
+    this.notesFile = join(root, CALENDAR_FILENAME)
   }
 
   /**
@@ -79,6 +87,30 @@ export class ContentScheduleGateway extends TypertRemoteService {
   @Remote('delete')
   async delete(id: ScheduleItem['id']): Promise<ContentScheduleSnapshot> {
     return mutateSchedule(this.file, items => items.filter(candidate => candidate.id !== id))
+  }
+
+  /**
+   * Read the day-note sidecar.
+   * @returns the notes keyed by schedule item id, with bad records named.
+   */
+  @Remote('getNotes')
+  async getNotes(): Promise<CalendarNotesSnapshot> {
+    return readNotes(this.notesFile)
+  }
+
+  /**
+   * Upsert one day note: a non-empty text annotates the item, an empty text
+   * clears the entry. The annotated item is not looked up — a note for a
+   * deleted item stays stored but inert until rewritten or cleared.
+   * @param id - the annotated schedule item's stable id.
+   * @param text - the note body; empty clears the entry.
+   * @returns the post-write notes snapshot.
+   */
+  @Remote('putNote')
+  async putNote(id: string, text: string): Promise<CalendarNotesSnapshot> {
+    const trimmedId = id.trim()
+    if (trimmedId.length === 0) throw new Error('invalid note: id must be a non-empty string')
+    return writeNote(this.notesFile, trimmedId, text)
   }
 }
 

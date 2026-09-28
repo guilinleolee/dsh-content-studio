@@ -23,7 +23,7 @@ import type {
 export const TOPICS_FILENAME = '_topics.json'
 
 const STATUSES: readonly TopicStatus[] = ['idea', 'todo', 'creating', 'done', 'shelved']
-const SOURCE_TYPES: readonly TopicSourceType[] = ['manual', 'gather', 'benchmark']
+const SOURCE_TYPES: readonly TopicSourceType[] = ['manual', 'gather', 'benchmark', 'interaction']
 const SCORE_SOURCES: readonly ('manual' | 'ai')[] = ['manual', 'ai']
 
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/

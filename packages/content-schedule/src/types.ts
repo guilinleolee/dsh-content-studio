@@ -48,3 +48,21 @@ export interface ContentScheduleSnapshot {
   /** Stored records that failed validation, named but not dropped silently. */
   readonly problems: readonly string[]
 }
+
+/** One day-note attached to a schedule item id. */
+export interface CalendarNoteEntry {
+  /** Note body, never empty (an empty write clears the entry). */
+  readonly text: string
+  /** Last-write time, ISO 8601. */
+  readonly updatedAt: string
+}
+
+/** Point-in-time day-notes returned by the content-schedule Remote. */
+export interface CalendarNotesSnapshot {
+  /** Absolute file the notes were read from. */
+  readonly file: string
+  /** Notes keyed by their schedule item id. */
+  readonly notes: Readonly<Record<string, CalendarNoteEntry>>
+  /** Stored records that failed validation, named but not dropped silently. */
+  readonly problems: readonly string[]
+}

@@ -2,16 +2,17 @@ import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-run
 /**
  * The frame-wide workbench surface occupying the `shell.overlay` hole.
  * Easel-style two-column shell: a left inner nav — 工作台 / 对话 / 对标 /
- * 对标账号 / 选题库 / 信息收集 / 内容 / 创作 / 账号 / 画像, with the back-to-chat verb
- * and the feedback link at the foot — and a main column rendering the active
- * view, defaulting to the workbench home dashboard. 对话 closes back to the
- * chat; 对标 is a capability slice of the catalog; 对标账号 is the
- * benchmark-account view over the competitor write face; 选题库 is the topic
- * bank over the contentTopics Remote; 画像 is the account-persona manager
- * over the `_personas.json` manifest. 账号 keeps the browser-local creation
- * identity injected into every copied capability instruction, and a selected
- * disk persona injects its packed prompt instead. Escape dismisses the
- * surface; closed state renders null while the slot entry stays mounted.
+ * 选题库 / 信息收集 / 内容 / 内容日历 / 创作 / 发布 / 账号 / 画像 / 模板, with the
+ * back-to-chat verb and the feedback link at the foot — and a main column
+ * rendering the active view, defaulting to the workbench home dashboard.
+ * 对话 closes back to the chat; 对标 is a capability slice of the catalog;
+ * 选题库 is the topic bank over the contentTopics Remote; 内容日历 is the
+ * scheduling workbench over the contentSchedule Remote; 画像 is the
+ * account-persona manager over the `_personas.json` manifest. 账号 keeps the
+ * browser-local creation identity injected into every copied capability
+ * instruction, and a selected disk persona injects its packed prompt
+ * instead. Escape dismisses the surface; closed state renders null while the
+ * slot entry stays mounted.
  */
 import { useEffect, useState, useSyncExternalStore } from 'react';
 import { clsx } from 'clsx';
@@ -28,6 +29,11 @@ import { CompetitorsView } from "./CompetitorsView.js";
 import { GatherView } from "./GatherView.js";
 import { CreateView } from "./CreateView.js";
 import { TopicBankView } from "./TopicBankView.js";
+import { PublishView } from "./PublishView.js";
+import { ReviewView } from "./ReviewView.js";
+import { InteractionView } from "./InteractionView.js";
+import { TemplateLibraryView } from "./template/TemplateLibraryView.js";
+import { TemplatePickerModal } from "./template/TemplatePickerModal.js";
 import { gatherMaterialToTopicInput } from "./topic-bank.js";
 import css from './ContentStudio.module.css';
 // The picked-material banner belongs to the gather feature surface, whose
@@ -43,9 +49,14 @@ const NAV_ITEMS = [
     { view: 'topicBank', key: 'nav.topicBank' },
     { view: 'gather', key: 'nav.gather' },
     { view: 'library', key: 'nav.content' },
+    { view: 'calendar', key: 'nav.calendar' },
     { view: 'create', key: 'nav.create' },
+    { view: 'publish', key: 'nav.publish' },
+    { view: 'review', key: 'nav.review' },
+    { view: 'interaction', key: 'nav.interaction' },
     { view: 'accounts', key: 'nav.accounts' },
     { view: 'persona', key: 'nav.persona' },
+    { view: 'templates', key: 'nav.templates' },
 ];
 /** Capability slice behind the 对标 nav view. */
 const BENCHMARK_IDS = ['breakdown'];
@@ -61,7 +72,7 @@ const BADGE_CLASS = {
  * @param props - the injected face and the locale seat.
  * @returns the surface element tree while open; null while closed.
  */
-export function ContentStudio({ studio, listOutputs, gather, schedule, competitors, create, personas, listThemes, topics, writeExport, t, }) {
+export function ContentStudio({ studio, listOutputs, gather, schedule, notes, competitors, create, personas, listThemes, topics, writeExport, publish, review, interaction, templates, t, }) {
     const open = useSyncExternalStore(fn => studio.subscribe(fn), () => studio.isOpen());
     const [view, setView] = useState('workbench');
     // Browser-local creation accounts and persona (Easel's persona selector):
@@ -143,6 +154,7 @@ export function ContentStudio({ studio, listOutputs, gather, schedule, competito
     }, [open, gather]);
     const picked = useSyncExternalStore(fn => studio.subscribe(fn), () => studio.pickedMaterial());
     const pickedTopic = useSyncExternalStore(fn => studio.subscribe(fn), () => studio.pickedTopic());
+    const pickedManuscript = useSyncExternalStore(fn => studio.subscribe(fn), () => studio.pickedManuscript());
     if (!open)
         return null;
     const groups = capabilityGroups(tab);
@@ -164,6 +176,12 @@ export function ContentStudio({ studio, listOutputs, gather, schedule, competito
     const startTopicCreate = (topic) => {
         studio.pickTopic(topic);
         setView('create');
+    };
+    // The create-view handoff: one registered deliverable becomes one publish
+    // form prefill — an id reference only, never the manuscript body.
+    const sendToPublish = (manuscript) => {
+        studio.pickManuscript(manuscript);
+        setView('publish');
     };
     // The reserved addToTopicBank contract, now wired: one gather material
     // becomes one `source.type:"gather"` topic carrying the material's stable
@@ -191,9 +209,9 @@ export function ContentStudio({ studio, listOutputs, gather, schedule, competito
                                         studio.close();
                                     else
                                         setView(candidate);
-                                }, children: t(key) }, candidate))) }), _jsxs("div", { className: css.sideFoot, children: [_jsx("button", { type: "button", className: css.back, onClick: () => { studio.close(); }, children: t('studio.back') }), _jsx("a", { className: css.aboutLink, href: "https://github.com/guilinleolee/dsh-content-studio/issues", target: "_blank", rel: "noreferrer", children: t('studio.feedback') })] })] }), _jsxs("div", { className: css.main, children: [_jsx("button", { type: "button", className: css.close, "aria-label": t('studio.close'), onClick: () => { studio.close(); }, children: _jsx(IconCloseOutline16, { size: 16 }) }), _jsxs("div", { className: css.frame, children: [view === 'workbench' && (_jsx(ContentWorkbench, { listOutputs: listOutputs, listSchedule: schedule.list, onNavigate: setView, onChat: () => { studio.close(); }, account: account, persona: personaText, t: t })), view === 'benchmark' && (_jsx(CapabilityPage, { title: t('benchmark.title'), ids: BENCHMARK_IDS, copiedId: copiedId, pick: pickItem, t: t })), view === 'competitors' && (_jsx(CompetitorsView, { listOutputs: listOutputs, ...competitors, t: t })), view === 'topicBank' && (_jsx(TopicBankView, { topics: topics, schedule: schedule, onStartCreate: startTopicCreate, writeExport: writeExport, listThemes: listThemes, copiedCapabilityId: copiedId, pickCapability: pickItem, t: t })), view === 'gather' && (_jsx(GatherView, { gather: gather, onPushToCreate: pushToCreate, addToTopicBank: joinTopicBank, t: t })), view === 'accounts' && (_jsx(AccountsView, { account: account, accounts: accounts, onSelect: selectAccount, onAdd: addAccount, onRemove: removeAccount, t: t })), view === 'persona' && (_jsx(PersonaView, { personas: personas, t: t })), view === 'library' && _jsx(ContentLibrary, { listOutputs: listOutputs, t: t }), view === 'calendar' && (_jsx(ContentCalendar, { listSchedule: schedule.list, putSchedule: schedule.put, removeSchedule: schedule.remove, t: t })), view === 'create' && (_jsxs(_Fragment, { children: [picked !== null && (_jsxs("div", { className: gatherCss.gatherPicked, role: "status", children: [_jsxs("span", { children: [t('gather.picked.chip'), picked.title] }), _jsx("button", { type: "button", className: gatherCss.gatherMini, onClick: () => { studio.clearPickedMaterial(); }, children: t('gather.picked.clear') })] })), _jsx(CreateView, { create: create, listThemes: listThemes, persona: personaText, picked: picked, onClearPicked: () => { studio.clearPickedMaterial(); }, pickedTopic: pickedTopic, onClearPickedTopic: () => { studio.clearPickedTopic(); }, topics: topics, schedule: schedule, catalog: (_jsxs(_Fragment, { children: [_jsx("div", { className: css.tabs, role: "tablist", children: STUDIO_TABS.map(candidate => (_jsx("button", { type: "button", role: "tab", "aria-selected": tab === candidate.id, "aria-label": t(candidate.id === 'create' ? 'tab.create.aria' : 'tab.operate.aria'), className: clsx(css.tab, tab === candidate.id && css.tabActive), onClick: () => { setTab(candidate.id); }, children: t(candidate.id === 'create' ? 'tab.create' : 'tab.operate') }, candidate.id))) }), _jsx("div", { className: css.body, children: groups.map(group => (_jsxs("section", { className: css.group, children: [_jsx("h2", { className: css.groupTitle, children: t(`group.${group.id}`) }), _jsx("div", { className: css.grid, children: group.items.map((item) => {
+                                }, children: t(key) }, candidate))) }), _jsxs("div", { className: css.sideFoot, children: [_jsx("button", { type: "button", className: css.back, onClick: () => { studio.close(); }, children: t('studio.back') }), _jsx("a", { className: css.aboutLink, href: "https://github.com/guilinleolee/dsh-content-studio/issues", target: "_blank", rel: "noreferrer", children: t('studio.feedback') })] })] }), _jsxs("div", { className: css.main, children: [_jsx("button", { type: "button", className: css.close, "aria-label": t('studio.close'), onClick: () => { studio.close(); }, children: _jsx(IconCloseOutline16, { size: 16 }) }), _jsxs("div", { className: css.frame, children: [view === 'workbench' && (_jsx(ContentWorkbench, { listOutputs: listOutputs, listSchedule: schedule.list, onNavigate: setView, onChat: () => { studio.close(); }, account: account, persona: personaText, t: t })), view === 'benchmark' && (_jsx(CapabilityPage, { title: t('benchmark.title'), ids: BENCHMARK_IDS, copiedId: copiedId, pick: pickItem, t: t })), view === 'competitors' && (_jsx(CompetitorsView, { listOutputs: listOutputs, ...competitors, t: t })), view === 'topicBank' && (_jsx(TopicBankView, { topics: topics, schedule: schedule, onStartCreate: startTopicCreate, writeExport: writeExport, listThemes: listThemes, copiedCapabilityId: copiedId, pickCapability: pickItem, templateLibrary: templates, t: t })), view === 'gather' && (_jsx(GatherView, { gather: gather, onPushToCreate: pushToCreate, addToTopicBank: joinTopicBank, t: t })), view === 'accounts' && (_jsx(AccountsView, { account: account, accounts: accounts, onSelect: selectAccount, onAdd: addAccount, onRemove: removeAccount, t: t })), view === 'persona' && (_jsx(PersonaView, { personas: personas, t: t })), view === 'library' && _jsx(ContentLibrary, { listOutputs: listOutputs, t: t }), view === 'publish' && (_jsx(PublishView, { publish: publish, persona: personaText, pickedManuscript: pickedManuscript, onClearPickedManuscript: () => { studio.clearPickedManuscript(); }, t: t })), view === 'review' && (_jsx(ReviewView, { review: review, listThemes: listThemes, t: t })), view === 'interaction' && (_jsx(InteractionView, { interaction: interaction, personas: personas, templates: templates, listThemes: listThemes, t: t })), view === 'calendar' && (_jsx(ContentCalendar, { listSchedule: schedule.list, putSchedule: schedule.put, removeSchedule: schedule.remove, notes: notes, topics: topics, writeExport: writeExport, listThemes: listThemes, onNavigate: setView, t: t })), view === 'templates' && _jsx(TemplateLibraryView, { templates: templates, t: t }), view === 'create' && (_jsxs(_Fragment, { children: [picked !== null && (_jsxs("div", { className: gatherCss.gatherPicked, role: "status", children: [_jsxs("span", { children: [t('gather.picked.chip'), picked.title] }), _jsx("button", { type: "button", className: gatherCss.gatherMini, onClick: () => { studio.clearPickedMaterial(); }, children: t('gather.picked.clear') })] })), _jsx(CreateView, { create: create, listThemes: listThemes, persona: personaText, picked: picked, onClearPicked: () => { studio.clearPickedMaterial(); }, pickedTopic: pickedTopic, templateLibrary: templates, onClearPickedTopic: () => { studio.clearPickedTopic(); }, topics: topics, schedule: schedule, onSendToPublish: sendToPublish, catalog: (_jsxs(_Fragment, { children: [_jsx("div", { className: css.tabs, role: "tablist", children: STUDIO_TABS.map(candidate => (_jsx("button", { type: "button", role: "tab", "aria-selected": tab === candidate.id, "aria-label": t(candidate.id === 'create' ? 'tab.create.aria' : 'tab.operate.aria'), className: clsx(css.tab, tab === candidate.id && css.tabActive), onClick: () => { setTab(candidate.id); }, children: t(candidate.id === 'create' ? 'tab.create' : 'tab.operate') }, candidate.id))) }), _jsx("div", { className: css.body, children: groups.map(group => (_jsxs("section", { className: css.group, children: [_jsx("h2", { className: css.groupTitle, children: t(`group.${group.id}`) }), _jsx("div", { className: css.grid, children: group.items.map((item) => {
                                                                         const copied = copiedId === item.id;
                                                                         return (_jsxs("button", { type: "button", className: clsx(css.card, copied && css.cardCopied), onClick: () => { void pick(item.id, item.prompt); }, children: [_jsxs("span", { className: css.cardHead, children: [_jsx("span", { className: css.cardTitle, children: t(`cap.${item.id}.title`) }), _jsx("span", { className: clsx(css.badge, BADGE_CLASS[item.maturity]), children: t(`badge.${item.maturity}`) })] }), _jsx("span", { className: css.cardDetail, children: t(`cap.${item.id}.detail`) }), _jsx("span", { className: clsx(css.cardHint, copied && css.cardHintCopied), children: copied ? t('card.copied') : t('card.copyHint') })] }, item.id));
-                                                                    }) })] }, group.id))) })] })), t: t })] }))] })] })] }) }));
+                                                                    }) })] }, group.id))) })] })), t: t })] }))] }), _jsx(TemplatePickerModal, { templates: templates, t: t })] })] }) }));
 }
 //# sourceMappingURL=ContentStudio.js.map

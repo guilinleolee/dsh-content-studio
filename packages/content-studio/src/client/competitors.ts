@@ -12,7 +12,10 @@ import type {
 } from '@deepseek-ai/dsh-content-outputs/types'
 
 /** localStorage namespace owned by the competitors view. */
-export const COMPETITORS_STORAGE_KEY = 'content-studio.competitors.accounts'
+export const COMPETITORS_STORAGE_KEY = 'dsh-content-studio.competitors.accounts'
+
+/** Pre-alignment namespace; still read on load so existing browsers migrate. */
+const COMPETITORS_LEGACY_STORAGE_KEY = 'content-studio.competitors.accounts'
 
 /** Browser-side benchmark account. Never written to disk by this phase. */
 export interface CompetitorAccount {
@@ -77,6 +80,7 @@ export function loadAccounts(): { accounts: readonly CompetitorAccount[]; degrad
   let raw: string | null = null
   try {
     raw = localStorage.getItem(COMPETITORS_STORAGE_KEY)
+    if (raw === null) raw = localStorage.getItem(COMPETITORS_LEGACY_STORAGE_KEY)
   } catch {
     return { accounts: [], degraded: true }
   }
@@ -92,6 +96,7 @@ export function loadAccounts(): { accounts: readonly CompetitorAccount[]; degrad
 export function saveAccounts(accounts: readonly CompetitorAccount[]): boolean {
   try {
     localStorage.setItem(COMPETITORS_STORAGE_KEY, JSON.stringify(accounts, null, 2))
+    localStorage.removeItem(COMPETITORS_LEGACY_STORAGE_KEY)
     return true
   } catch {
     return false

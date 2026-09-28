@@ -1,16 +1,17 @@
 /**
  * The frame-wide workbench surface occupying the `shell.overlay` hole.
  * Easel-style two-column shell: a left inner nav — 工作台 / 对话 / 对标 /
- * 对标账号 / 选题库 / 信息收集 / 内容 / 创作 / 账号 / 画像, with the back-to-chat verb
- * and the feedback link at the foot — and a main column rendering the active
- * view, defaulting to the workbench home dashboard. 对话 closes back to the
- * chat; 对标 is a capability slice of the catalog; 对标账号 is the
- * benchmark-account view over the competitor write face; 选题库 is the topic
- * bank over the contentTopics Remote; 画像 is the account-persona manager
- * over the `_personas.json` manifest. 账号 keeps the browser-local creation
- * identity injected into every copied capability instruction, and a selected
- * disk persona injects its packed prompt instead. Escape dismisses the
- * surface; closed state renders null while the slot entry stays mounted.
+ * 选题库 / 信息收集 / 内容 / 内容日历 / 创作 / 发布 / 账号 / 画像 / 模板, with the
+ * back-to-chat verb and the feedback link at the foot — and a main column
+ * rendering the active view, defaulting to the workbench home dashboard.
+ * 对话 closes back to the chat; 对标 is a capability slice of the catalog;
+ * 选题库 is the topic bank over the contentTopics Remote; 内容日历 is the
+ * scheduling workbench over the contentSchedule Remote; 画像 is the
+ * account-persona manager over the `_personas.json` manifest. 账号 keeps the
+ * browser-local creation identity injected into every copied capability
+ * instruction, and a selected disk persona injects its packed prompt
+ * instead. Escape dismisses the surface; closed state renders null while the
+ * slot entry stays mounted.
  */
 import { useEffect, useState, useSyncExternalStore } from 'react'
 import { clsx } from 'clsx'
@@ -22,7 +23,7 @@ import type { TopicItemInput } from '@deepseek-ai/dsh-content-topics/types'
 import type { CapabilityItem, CapabilityMaturity } from './capabilities.ts'
 import { STUDIO_TABS, capabilityGroups, type StudioTab } from './capabilities.ts'
 import { ContentLibrary } from './ContentLibrary.tsx'
-import { ContentCalendar } from './ContentCalendar.tsx'
+import { ContentCalendar, type ContentCalendarInjected } from './ContentCalendar.tsx'
 import { ContentWorkbench } from './ContentWorkbench.tsx'
 import { AccountSelect } from './AccountSelect.tsx'
 import { CapabilityPage } from './CapabilityPage.tsx'
@@ -32,11 +33,20 @@ import { CompetitorsView, type CompetitorsViewInjected } from './CompetitorsView
 import { GatherView } from './GatherView.tsx'
 import { CreateView, type CreateGateway } from './CreateView.tsx'
 import { TopicBankView, type TopicBankGateway } from './TopicBankView.tsx'
+import { PublishView } from './PublishView.tsx'
+import type { PublishController } from './publish/publish-store.ts'
+import { ReviewView } from './ReviewView.tsx'
+import type { ReviewController } from './review/review-store.ts'
+import { InteractionView } from './InteractionView.tsx'
+import type { InteractionController } from './interaction/interaction-store.ts'
+import { TemplateLibraryView } from './template/TemplateLibraryView.tsx'
+import { TemplatePickerModal } from './template/TemplatePickerModal.tsx'
+import type { TemplateController } from './template/template-store.ts'
 import { gatherMaterialToTopicInput } from './topic-bank.ts'
 import type { GatherController } from './gather/gather-store.ts'
 import type { PersonaController } from './persona/persona-store.ts'
 import type { StudioKey } from './locales.ts'
-import type { ContentStudioController, PickedTopic } from './studio-store.ts'
+import type { ContentStudioController, PickedManuscript, PickedTopic } from './studio-store.ts'
 import css from './ContentStudio.module.css'
 // The picked-material banner belongs to the gather feature surface, whose
 // styles live in the gather view's own module.
@@ -46,7 +56,7 @@ import gatherCss from './GatherView.module.css'
 const COPIED_FEEDBACK_MS = 1600
 
 /** The top-level views; the workbench home is the entry view. 对话 is a verb, not a view. */
-type StudioView = 'workbench' | 'benchmark' | 'competitors' | 'topicBank' | 'gather' | 'library' | 'create' | 'accounts' | 'persona' | 'calendar'
+type StudioView = 'workbench' | 'benchmark' | 'competitors' | 'topicBank' | 'gather' | 'library' | 'create' | 'publish' | 'review' | 'interaction' | 'accounts' | 'persona' | 'templates' | 'calendar'
 
 /** The nav order exactly as specified: 对话 rides between 工作台 and 对标 as a verb. */
 const NAV_ITEMS: readonly { view: StudioView | 'chat'; key: StudioKey }[] = [
@@ -56,9 +66,14 @@ const NAV_ITEMS: readonly { view: StudioView | 'chat'; key: StudioKey }[] = [
   { view: 'topicBank', key: 'nav.topicBank' },
   { view: 'gather', key: 'nav.gather' },
   { view: 'library', key: 'nav.content' },
+  { view: 'calendar', key: 'nav.calendar' },
   { view: 'create', key: 'nav.create' },
+  { view: 'publish', key: 'nav.publish' },
+  { view: 'review', key: 'nav.review' },
+  { view: 'interaction', key: 'nav.interaction' },
   { view: 'accounts', key: 'nav.accounts' },
   { view: 'persona', key: 'nav.persona' },
+  { view: 'templates', key: 'nav.templates' },
 ]
 
 /** Capability slice behind the 对标 nav view. */
@@ -75,6 +90,8 @@ export interface ContentStudioInjected {
     put: (input: ScheduleItemInput) => Promise<ContentScheduleSnapshot>
     remove: (id: ScheduleItem['id']) => Promise<ContentScheduleSnapshot>
   }
+  /** The calendar's day-note sidecar face, served by the contentSchedule Remote. */
+  notes: ContentCalendarInjected['notes']
   /** The competitor write face, served by the content-outputs Remote. */
   competitors: Omit<CompetitorsViewInjected, 'listOutputs'>
   /** The create workbench face, served by the content-outputs Remote. */
@@ -87,6 +104,14 @@ export interface ContentStudioInjected {
   topics: TopicBankGateway
   /** The authorized asset write backing the topic bank's Markdown export. */
   writeExport: (theme: string, file: string, content: string) => Promise<unknown>
+  /** The publish controller: tasks, profiles, history, and the AI adaptations. */
+  publish: PublishController
+  /** The review controller: imports, pools, diagnoses, reports, and the reflow. */
+  review: ReviewController
+  /** The interaction controller: the fan inbox, the CSV import, and the AI helpers. */
+  interaction: InteractionController
+  /** The global template library controller: the asset store plus the cross-column picker. */
+  templates: TemplateController
 }
 
 /** Full surface props: the injected face plus the locale seat. */
@@ -106,7 +131,7 @@ const BADGE_CLASS: Record<CapabilityMaturity, string> = {
  * @returns the surface element tree while open; null while closed.
  */
 export function ContentStudio({
-  studio, listOutputs, gather, schedule, competitors, create, personas, listThemes, topics, writeExport, t,
+  studio, listOutputs, gather, schedule, notes, competitors, create, personas, listThemes, topics, writeExport, publish, review, interaction, templates, t,
 }: ContentStudioProps) {
   const open = useSyncExternalStore(
     fn => studio.subscribe(fn),
@@ -195,6 +220,10 @@ export function ContentStudio({
     fn => studio.subscribe(fn),
     () => studio.pickedTopic(),
   )
+  const pickedManuscript = useSyncExternalStore(
+    fn => studio.subscribe(fn),
+    () => studio.pickedManuscript(),
+  )
 
   if (!open) return null
 
@@ -216,6 +245,12 @@ export function ContentStudio({
   const startTopicCreate = (topic: PickedTopic): void => {
     studio.pickTopic(topic)
     setView('create')
+  }
+  // The create-view handoff: one registered deliverable becomes one publish
+  // form prefill — an id reference only, never the manuscript body.
+  const sendToPublish = (manuscript: PickedManuscript): void => {
+    studio.pickManuscript(manuscript)
+    setView('publish')
   }
   // The reserved addToTopicBank contract, now wired: one gather material
   // becomes one `source.type:"gather"` topic carrying the material's stable
@@ -321,6 +356,7 @@ export function ContentStudio({
                 listThemes={listThemes}
                 copiedCapabilityId={copiedId}
                 pickCapability={pickItem}
+                templateLibrary={templates}
                 t={t}
               />
             )}
@@ -341,14 +377,41 @@ export function ContentStudio({
               <PersonaView personas={personas} t={t} />
             )}
             {view === 'library' && <ContentLibrary listOutputs={listOutputs} t={t} />}
+            {view === 'publish' && (
+              <PublishView
+                publish={publish}
+                persona={personaText}
+                pickedManuscript={pickedManuscript}
+                onClearPickedManuscript={() => { studio.clearPickedManuscript() }}
+                t={t}
+              />
+            )}
+            {view === 'review' && (
+              <ReviewView review={review} listThemes={listThemes} t={t} />
+            )}
+            {view === 'interaction' && (
+              <InteractionView
+                interaction={interaction}
+                personas={personas}
+                templates={templates}
+                listThemes={listThemes}
+                t={t}
+              />
+            )}
             {view === 'calendar' && (
               <ContentCalendar
                 listSchedule={schedule.list}
                 putSchedule={schedule.put}
                 removeSchedule={schedule.remove}
+                notes={notes}
+                topics={topics}
+                writeExport={writeExport}
+                listThemes={listThemes}
+                onNavigate={setView}
                 t={t}
               />
             )}
+            {view === 'templates' && <TemplateLibraryView templates={templates} t={t} />}
             {view === 'create' && (
               <>
                 {picked !== null && (
@@ -369,9 +432,11 @@ export function ContentStudio({
                   picked={picked}
                   onClearPicked={() => { studio.clearPickedMaterial() }}
                   pickedTopic={pickedTopic}
+                  templateLibrary={templates}
                   onClearPickedTopic={() => { studio.clearPickedTopic() }}
                   topics={topics}
                   schedule={schedule}
+                  onSendToPublish={sendToPublish}
                   catalog={(
                     <>
                       <div className={css.tabs} role="tablist">
@@ -431,6 +496,9 @@ export function ContentStudio({
               </>
             )}
           </div>
+          {/* The cross-column template picker overlays every view; its state
+              lives on the shared template controller. */}
+          <TemplatePickerModal templates={templates} t={t} />
         </div>
       </div>
     </div>

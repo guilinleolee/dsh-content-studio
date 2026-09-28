@@ -2,7 +2,7 @@ import z from "@deepseek-ai/schemastery";
 import { resolveDshHome } from "@deepseek-ai/dsh-home-paths";
 import { dirname, join } from "node:path";
 import { Remote, TypertRemoteService } from "@deepseek-ai/dsh-typert-protocol";
-import { lstat, mkdir, readFile, readdir, rename, rm, stat } from "node:fs/promises";
+import { lstat, mkdir, readFile, readdir, rename, rm, stat, unlink } from "node:fs/promises";
 import { createHash, randomUUID } from "node:crypto";
 import { DetectError, ParseError, parseFeed } from "feedsmith";
 import normalizeUrl from "normalize-url";
@@ -40,7 +40,7 @@ const KINDS = [
 	"audio",
 	"other"
 ];
-const STATUSES = [
+const STATUSES$1 = [
 	"draft",
 	"ready",
 	"published"
@@ -68,7 +68,7 @@ function parseMetadata(raw) {
 	if (typeof record.title !== "string" || record.title.length === 0) return void 0;
 	if (!KINDS.includes(record.kind)) return void 0;
 	if (record.platform !== null && typeof record.platform !== "string") return void 0;
-	if (!STATUSES.includes(record.status)) return void 0;
+	if (!STATUSES$1.includes(record.status)) return void 0;
 	if (!Array.isArray(record.tags) || !record.tags.every((tag) => typeof tag === "string")) return void 0;
 	if (record.summary !== null && typeof record.summary !== "string") return void 0;
 	return value;
@@ -1214,7 +1214,7 @@ const PLATFORMS$1 = [
 	"toutiao"
 ];
 /** Whether one value is a string array (every member a non-empty string after trim). */
-function isStringArray(value) {
+function isStringArray$1(value) {
 	return Array.isArray(value) && value.every((item) => typeof item === "string");
 }
 /** Whether one value is a metric snapshot with non-negative numbers. */
@@ -1234,19 +1234,19 @@ function isAnalysis(value) {
 	if (record.result === void 0) return record.status !== "done";
 	if (typeof record.result !== "object" || record.result === null) return false;
 	const result = record.result;
-	return typeof result.hookType === "string" && result.hookType.length > 0 && typeof result.structure === "string" && result.structure.length > 0 && isStringArray(result.painPoints) && isStringArray(result.topics) && isStringArray(result.risks) && isStringArray(result.reusable) && isStringArray(result.migrationTopics) && typeof result.commentInsight === "string" && result.commentInsight.length > 0;
+	return typeof result.hookType === "string" && result.hookType.length > 0 && typeof result.structure === "string" && result.structure.length > 0 && isStringArray$1(result.painPoints) && isStringArray$1(result.topics) && isStringArray$1(result.risks) && isStringArray$1(result.reusable) && isStringArray$1(result.migrationTopics) && typeof result.commentInsight === "string" && result.commentInsight.length > 0;
 }
 /** Structural validation for one work entry; unknown or mistyped fields reject the entry. */
 function isWork(value) {
 	if (typeof value !== "object" || value === null) return false;
 	const record = value;
-	return typeof record.id === "string" && record.id.length > 0 && typeof record.accountId === "string" && record.accountId.length > 0 && typeof record.accountName === "string" && record.accountName.length > 0 && PLATFORMS$1.includes(record.platform) && typeof record.platformWorkId === "string" && record.platformWorkId.length > 0 && typeof record.title === "string" && record.title.length > 0 && (record.url === void 0 || typeof record.url === "string") && (record.publishedAt === void 0 || typeof record.publishedAt === "string") && typeof record.importedAt === "string" && record.importedAt.length > 0 && (record.textFile === void 0 || typeof record.textFile === "string") && Array.isArray(record.metrics) && record.metrics.every(isMetricSnapshot) && typeof record.hot === "boolean" && typeof record.favorite === "boolean" && record.via === "manual" && (record.gatheredRef === void 0 || typeof record.gatheredRef === "string") && isAnalysis(record.analysis);
+	return typeof record.id === "string" && record.id.length > 0 && typeof record.accountId === "string" && record.accountId.length > 0 && typeof record.accountName === "string" && record.accountName.length > 0 && PLATFORMS$1.includes(record.platform) && typeof record.platformWorkId === "string" && record.platformWorkId.length > 0 && typeof record.title === "string" && record.title.length > 0 && (record.url === void 0 || typeof record.url === "string") && (record.publishedAt === void 0 || typeof record.publishedAt === "string") && typeof record.importedAt === "string" && record.importedAt.length > 0 && (record.textFile === void 0 || typeof record.textFile === "string") && Array.isArray(record.metrics) && record.metrics.every(isMetricSnapshot) && typeof record.hot === "boolean" && typeof record.favorite === "boolean" && record.via === "manual" && (record.collectedIdeaRef === void 0 || typeof record.collectedIdeaRef === "string") && isAnalysis(record.analysis);
 }
 /** Structural validation for one report entry. */
 function isReport$1(value) {
 	if (typeof value !== "object" || value === null) return false;
 	const record = value;
-	return typeof record.id === "string" && record.id.length > 0 && (record.kind === "account" || record.kind === "compare") && isStringArray(record.accountIds) && record.accountIds.length > 0 && isStringArray(record.accountNames) && record.accountNames.length > 0 && typeof record.ref === "string" && record.ref.length > 0 && typeof record.createdAt === "string" && record.createdAt.length > 0 && typeof record.workCount === "number" && Number.isFinite(record.workCount) && record.workCount >= 0;
+	return typeof record.id === "string" && record.id.length > 0 && (record.kind === "account" || record.kind === "compare") && isStringArray$1(record.accountIds) && record.accountIds.length > 0 && isStringArray$1(record.accountNames) && record.accountNames.length > 0 && typeof record.ref === "string" && record.ref.length > 0 && typeof record.createdAt === "string" && record.createdAt.length > 0 && typeof record.workCount === "number" && Number.isFinite(record.workCount) && record.workCount >= 0;
 }
 /**
 * Parse and validate one manifest document. One malformed entry never hides
@@ -1639,7 +1639,7 @@ const CREATE_MAX_STORED_VERSIONS = 60;
 /** Hard per-version size cap; generation and drafts stay far below it. */
 const CREATE_MAX_CONTENT_CHARS = 4e5;
 /** Whether the value is one well-typed content type. */
-function isContentType$1(value) {
+function isContentType$2(value) {
 	return typeof value === "string" && CREATE_CONTENT_TYPES.includes(value);
 }
 /** Whether the value carries the style provenance of one version. */
@@ -1688,7 +1688,7 @@ function isContext(value) {
 function assertCreateManifest(manifest) {
 	if (manifest.formatVersion !== 0) throw new Error(`unsupported create manifest formatVersion ${String(manifest.formatVersion)}`);
 	if (typeof manifest.contentId !== "string" || manifest.contentId.length === 0) throw new Error("create manifest has no contentId");
-	if (!isContentType$1(manifest.contentType)) throw new Error(`invalid create contentType: ${String(manifest.contentType)}`);
+	if (!isContentType$2(manifest.contentType)) throw new Error(`invalid create contentType: ${String(manifest.contentType)}`);
 	if (typeof manifest.currentVersion !== "number" || !Number.isInteger(manifest.currentVersion) || manifest.currentVersion < 0) throw new Error("create manifest currentVersion must be a non-negative integer");
 	if (!isContext(manifest.context)) throw new Error("create manifest context is malformed");
 	if (!Array.isArray(manifest.versions)) throw new Error("create manifest has no versions array");
@@ -1941,7 +1941,7 @@ async function listAssetFiles(root, theme) {
 function isTemplate(value) {
 	if (typeof value !== "object" || value === null) return false;
 	const record = value;
-	return typeof record.id === "string" && record.id.length > 0 && typeof record.title === "string" && record.title.length > 0 && isContentType$1(record.contentType) && typeof record.body === "string" && record.body.length > 0 && typeof record.revision === "number" && Number.isInteger(record.revision) && record.revision >= 1 && typeof record.updatedAt === "string" && record.updatedAt.length > 0;
+	return typeof record.id === "string" && record.id.length > 0 && typeof record.title === "string" && record.title.length > 0 && isContentType$2(record.contentType) && typeof record.body === "string" && record.body.length > 0 && typeof record.revision === "number" && Number.isInteger(record.revision) && record.revision >= 1 && typeof record.updatedAt === "string" && record.updatedAt.length > 0;
 }
 /**
 * Validate one custom template body: non-empty, and its `{{…}}` placeholders
@@ -2009,7 +2009,7 @@ async function readCreateTemplatesFile(root) {
 async function putCreateTemplateFile(root, input) {
 	if (input.title.trim().length === 0) throw new Error("create template needs a non-empty title");
 	if (input.title.length > 60) throw new Error("create template title exceeds 60 characters");
-	if (!isContentType$1(input.contentType)) throw new Error(`invalid create contentType: ${String(input.contentType)}`);
+	if (!isContentType$2(input.contentType)) throw new Error(`invalid create contentType: ${String(input.contentType)}`);
 	assertTemplateBody(input.body);
 	const { templates } = await readCreateTemplatesFile(root);
 	const now = (/* @__PURE__ */ new Date()).toISOString();
@@ -2158,7 +2158,7 @@ function rewriteSystemPrompt(request) {
 * @returns the framed user prompt.
 */
 function frameGenerateRequest(request, maxInputChars) {
-	if (!isContentType(request.contentType)) throw new Error(`invalid create contentType: ${String(request.contentType)}`);
+	if (!isContentType$1(request.contentType)) throw new Error(`invalid create contentType: ${String(request.contentType)}`);
 	const title = request.title.trim();
 	if (title.length === 0) throw new Error("create generation needs a non-empty title");
 	if (title.length > 200) throw new Error("create generation title exceeds 200 characters");
@@ -2179,7 +2179,7 @@ function validateRewriteRequest(request, maxInputChars) {
 	return text;
 }
 /** Whether the value is one well-typed content type. */
-function isContentType(value) {
+function isContentType$1(value) {
 	return typeof value === "string" && CREATE_CONTENT_TYPES.includes(value);
 }
 /** Whether the value is one advisory grade. */
@@ -2305,7 +2305,7 @@ function parseCreateEvaluation(text, model) {
 * @returns the validated text.
 */
 function validateEvaluateRequest(request, maxInputChars) {
-	if (!isContentType(request.contentType)) throw new Error(`invalid create contentType: ${String(request.contentType)}`);
+	if (!isContentType$1(request.contentType)) throw new Error(`invalid create contentType: ${String(request.contentType)}`);
 	if (request.title.trim().length === 0) throw new Error("create evaluation needs a non-empty title");
 	if (request.text.trim().length === 0) throw new Error("create evaluation text is empty");
 	if (request.text.length > maxInputChars) throw new Error(`create evaluation text exceeds the ${maxInputChars}-character cap`);
@@ -2671,45 +2671,45 @@ const SOURCES = [
 ];
 const STRENGTHS = ["light", "strict"];
 const STAGES = ["fresh", "existing"];
-function isRecord(value) {
+function isRecord$1(value) {
 	return typeof value === "object" && value !== null;
 }
 function isNullableText(value, max) {
 	return value === null || typeof value === "string" && value.length <= max;
 }
-function isTextField(value, max) {
+function isTextField$1(value, max) {
 	return typeof value === "string" && value.length > 0 && value.length <= max;
 }
 function isField(value) {
-	if (!isRecord(value)) return false;
+	if (!isRecord$1(value)) return false;
 	if (!SOURCES.includes(value.source)) return false;
 	if (!isNullableText(value.value, 5e3)) return false;
 	if (value.source !== "ai") return value.aiMeta === null;
-	if (!isRecord(value.aiMeta)) return false;
-	return isTextField(value.aiMeta.promptVersion, 100) && isTextField(value.aiMeta.at, 40);
+	if (!isRecord$1(value.aiMeta)) return false;
+	return isTextField$1(value.aiMeta.promptVersion, 100) && isTextField$1(value.aiMeta.at, 40);
 }
 function isFields(value) {
-	if (!isRecord(value)) return false;
+	if (!isRecord$1(value)) return false;
 	return FIELD_KEYS.every((key) => isField(value[key]));
 }
 function isLink(value) {
-	if (!isRecord(value)) return false;
-	return PLATFORMS.includes(value.platform) && isTextField(value.url, 2e3) && isNullableText(value.bio, 5e3) && isNullableText(value.sampleText, 5e3);
+	if (!isRecord$1(value)) return false;
+	return PLATFORMS.includes(value.platform) && isTextField$1(value.url, 2e3) && isNullableText(value.bio, 5e3) && isNullableText(value.sampleText, 5e3);
 }
 function isWordList(value) {
-	return Array.isArray(value) && value.length <= 50 && value.every((word) => isTextField(word, 100));
+	return Array.isArray(value) && value.length <= 50 && value.every((word) => isTextField$1(word, 100));
 }
-function isStyle(value) {
-	if (!isRecord(value)) return false;
+function isStyle$2(value) {
+	if (!isRecord$1(value)) return false;
 	return (value.preset === null || PRESETS.includes(value.preset)) && isNullableText(value.customText, 5e3) && STRENGTHS.includes(value.strength) && isWordList(value.bannedWords) && isWordList(value.redLines);
 }
 function isReport(value) {
-	if (!isRecord(value)) return false;
-	return isTextField(value.markdown, 1e5) && typeof value.sourceRevision === "number" && Number.isInteger(value.sourceRevision) && value.sourceRevision >= 1 && typeof value.editedByUser === "boolean" && isTextField(value.generatedAt, 40) && isTextField(value.promptVersion, 100);
+	if (!isRecord$1(value)) return false;
+	return isTextField$1(value.markdown, 1e5) && typeof value.sourceRevision === "number" && Number.isInteger(value.sourceRevision) && value.sourceRevision >= 1 && typeof value.editedByUser === "boolean" && isTextField$1(value.generatedAt, 40) && isTextField$1(value.promptVersion, 100);
 }
 function isEntry(value) {
-	if (!isRecord(value)) return false;
-	return isTextField(value.id, 64) && isTextField(value.name, 100) && Array.isArray(value.platforms) && value.platforms.length <= PLATFORMS.length && value.platforms.every((platform) => PLATFORMS.includes(platform)) && STAGES.includes(value.accountStage) && typeof value.revision === "number" && Number.isInteger(value.revision) && value.revision >= 1 && isTextField(value.digest, 200) && isFields(value.fields) && Array.isArray(value.links) && value.links.length <= 10 && value.links.every((link) => isLink(link)) && isRecord(value.site) && isNullableText(value.site.url, 2e3) && isNullableText(value.site.pastedText, 1e5) && isStyle(value.style) && isRecord(value.assets) && isNullableText(value.assets.resumeText, 1e5) && isNullableText(value.assets.resumeName, 2e3) && (value.report === null || isReport(value.report)) && (value.clonedFrom === null || isTextField(value.clonedFrom, 64)) && isTextField(value.createdAt, 40) && isTextField(value.updatedAt, 40);
+	if (!isRecord$1(value)) return false;
+	return isTextField$1(value.id, 64) && isTextField$1(value.name, 100) && Array.isArray(value.platforms) && value.platforms.length <= PLATFORMS.length && value.platforms.every((platform) => PLATFORMS.includes(platform)) && STAGES.includes(value.accountStage) && typeof value.revision === "number" && Number.isInteger(value.revision) && value.revision >= 1 && isTextField$1(value.digest, 200) && isFields(value.fields) && Array.isArray(value.links) && value.links.length <= 10 && value.links.every((link) => isLink(link)) && isRecord$1(value.site) && isNullableText(value.site.url, 2e3) && isNullableText(value.site.pastedText, 1e5) && isStyle$2(value.style) && isRecord$1(value.assets) && isNullableText(value.assets.resumeText, 1e5) && isNullableText(value.assets.resumeName, 2e3) && (value.report === null || isReport(value.report)) && (value.clonedFrom === null || isTextField$1(value.clonedFrom, 64)) && isTextField$1(value.createdAt, 40) && isTextField$1(value.updatedAt, 40);
 }
 /** Newest save first; the id breaks ties so the order is total and stable. */
 function compareEntries(a, b) {
@@ -2813,7 +2813,7 @@ function personaDigest(entry) {
 	return `${body.length > budget ? body.slice(0, budget) : body}${suffix}`;
 }
 function normalizeField(value) {
-	if (!isRecord(value)) return { detail: "field must be an object" };
+	if (!isRecord$1(value)) return { detail: "field must be an object" };
 	if (!SOURCES.includes(value.source)) return { detail: "unknown field source" };
 	const raw = value.value;
 	if (raw !== null && typeof raw !== "string") return { detail: "field value must be a string or null" };
@@ -2825,7 +2825,7 @@ function normalizeField(value) {
 		aiMeta: null
 	} };
 	const meta = value.aiMeta;
-	if (!isRecord(meta) || !isTextField(meta.promptVersion, 100) || !isTextField(meta.at, 40)) return { detail: "an ai-sourced field requires its promptVersion and time" };
+	if (!isRecord$1(meta) || !isTextField$1(meta.promptVersion, 100) || !isTextField$1(meta.at, 40)) return { detail: "an ai-sourced field requires its promptVersion and time" };
 	return { field: {
 		value: text,
 		source: "ai",
@@ -2836,7 +2836,7 @@ function normalizeField(value) {
 	} };
 }
 function normalizeFields(value) {
-	if (!isRecord(value)) return { detail: "fields must be an object" };
+	if (!isRecord$1(value)) return { detail: "fields must be an object" };
 	const fields = {};
 	for (const key of FIELD_KEYS) {
 		const normalized = normalizeField(value[key]);
@@ -2856,8 +2856,8 @@ function normalizeLinks(value) {
 	if (value.length > 10) return { detail: `links exceed ${String(10)}` };
 	const links = [];
 	for (const link of value) {
-		if (!isRecord(link) || !PLATFORMS.includes(link.platform)) return { detail: "link platform is unknown" };
-		if (!isTextField(link.url, 2e3)) return { detail: "link url must be a non-empty string within the cap" };
+		if (!isRecord$1(link) || !PLATFORMS.includes(link.platform)) return { detail: "link platform is unknown" };
+		if (!isTextField$1(link.url, 2e3)) return { detail: "link url must be a non-empty string within the cap" };
 		const bio = normalizeOptionalText(link.bio, PERSONA_MAX_LINK_TEXT);
 		if (bio.text === void 0) return { detail: `link bio: ${bio.detail}` };
 		const sample = normalizeOptionalText(link.sampleText, PERSONA_MAX_LINK_TEXT);
@@ -2883,7 +2883,7 @@ function normalizeWords(value) {
 	return { words };
 }
 function normalizeStyle(value) {
-	if (!isRecord(value)) return { detail: "style must be an object" };
+	if (!isRecord$1(value)) return { detail: "style must be an object" };
 	if (value.preset !== null && value.preset !== void 0 && !PRESETS.includes(value.preset)) return { detail: "unknown style preset" };
 	if (!STRENGTHS.includes(value.strength)) return { detail: "unknown style strength" };
 	const custom = normalizeOptionalText(value.customText, PERSONA_MAX_FIELD_VALUE);
@@ -2902,12 +2902,12 @@ function normalizeStyle(value) {
 }
 function normalizeReport(value) {
 	if (value === void 0 || value === null) return { report: null };
-	if (!isRecord(value)) return { detail: "report must be an object or null" };
-	if (!isTextField(value.markdown, 1e5)) return { detail: "report markdown must be non-empty within the cap" };
+	if (!isRecord$1(value)) return { detail: "report must be an object or null" };
+	if (!isTextField$1(value.markdown, 1e5)) return { detail: "report markdown must be non-empty within the cap" };
 	if (typeof value.sourceRevision !== "number" || !Number.isInteger(value.sourceRevision) || value.sourceRevision < 1) return { detail: "report sourceRevision must be a positive integer" };
 	if (typeof value.editedByUser !== "boolean") return { detail: "report editedByUser must be a boolean" };
-	if (!isTextField(value.generatedAt, 40)) return { detail: "report generatedAt is missing" };
-	if (!isTextField(value.promptVersion, 100)) return { detail: "report promptVersion is missing" };
+	if (!isTextField$1(value.generatedAt, 40)) return { detail: "report generatedAt is missing" };
+	if (!isTextField$1(value.promptVersion, 100)) return { detail: "report promptVersion is missing" };
 	return { report: {
 		markdown: value.markdown,
 		sourceRevision: value.sourceRevision,
@@ -2926,7 +2926,7 @@ function normalizeReport(value) {
 * @returns the stored entry, or the reason the input is invalid.
 */
 function normalizePersonaInput(input, existing, now) {
-	if (existing === void 0 && input.id !== void 0 && !isTextField(input.id, 64)) return { detail: "id must be a non-empty string within the cap" };
+	if (existing === void 0 && input.id !== void 0 && !isTextField$1(input.id, 64)) return { detail: "id must be a non-empty string within the cap" };
 	if (typeof input.name !== "string" || input.name.trim().length === 0) return { detail: "name must be a non-empty string" };
 	if (input.name.length > 100) return { detail: "name exceeds the length cap" };
 	if (!Array.isArray(input.platforms)) return { detail: "platforms must be an array" };
@@ -2991,7 +2991,7 @@ function normalizePersonaInput(input, existing, now) {
 *   created when missing.
 * @returns the valid stored entries.
 */
-async function readForWrite(file) {
+async function readForWrite$1(file) {
 	await mkdir(dirname(file), {
 		recursive: true,
 		mode: 448
@@ -3027,7 +3027,7 @@ async function writePersonas(file, personas) {
 */
 async function putPersonaFile(file, input, now = (/* @__PURE__ */ new Date()).toISOString()) {
 	return withFileLock(file, async () => {
-		const stored = await readForWrite(file);
+		const stored = await readForWrite$1(file);
 		const existing = input.id === void 0 ? void 0 : stored.find((entry) => entry.id === input.id);
 		if (input.id !== void 0 && existing === void 0) throw new Error(`unknown persona: ${input.id}`);
 		const normalized = normalizePersonaInput(input, existing, now);
@@ -3050,7 +3050,7 @@ async function putPersonaFile(file, input, now = (/* @__PURE__ */ new Date()).to
 */
 async function putPersonaReportFile(file, id, report, now = (/* @__PURE__ */ new Date()).toISOString()) {
 	return withFileLock(file, async () => {
-		const stored = await readForWrite(file);
+		const stored = await readForWrite$1(file);
 		const existing = stored.find((entry) => entry.id === id);
 		if (existing === void 0) throw new Error(`unknown persona: ${id}`);
 		const normalized = normalizeReport(report);
@@ -3072,12 +3072,165 @@ async function putPersonaReportFile(file, id, report, now = (/* @__PURE__ */ new
 */
 async function deletePersonaFile(file, id) {
 	await withFileLock(file, async () => {
-		const stored = await readForWrite(file);
+		const stored = await readForWrite$1(file);
 		const next = stored.filter((entry) => entry.id !== id);
 		if (next.length === stored.length) return;
 		await writePersonas(file, next);
 	});
 }
+//#endregion
+//#region lib/types/template/types.js
+/**
+* Wire vocabulary of the global template library on the content-outputs
+* Remote: the reusable skeleton assets every Content Studio column can
+* initialize a form or prompt from, their shared tag taxonomy, the per-save
+* history snapshots, and the template AI operations (skeleton generation,
+* body optimization, variable extraction). Client-safe by construction — no
+* Node or filesystem imports. Templates live outside the outputs library on
+* purpose: they are global assets, never theme business data.
+*/
+/** Every template category, one per studio column plus the dashboard placeholder. */
+const TEMPLATE_CATEGORIES = [
+	"topic",
+	"creation",
+	"publish",
+	"calendar",
+	"retro",
+	"interaction",
+	"persona",
+	"benchmark",
+	"intel",
+	"dashboard"
+];
+//#endregion
+//#region lib/types/publish/types.js
+/**
+* Wire vocabulary of the content-outputs publish face: the distribution-task
+* state stored as `assets/_publish.json`, the derived per-platform drafts
+* under `assets/publish/<taskId>/`, the global `_publish-index.json`
+* aggregation aid, the `_publish-profiles.json` platform-account cards, and
+* the one-shot per-platform AI adaptation call. Client-safe by construction —
+* no Node or filesystem imports.
+*/
+/** All statuses, in lifecycle order; the store validates against this list.
+* The phase-2 execution states (`executing` `partialSuccess` `success`
+* `failed`) are deliberately absent: they arrive with the MCP channel and
+* every consumer switch ends in a documented default until then. */
+const PUBLISH_STATUSES = [
+	"draft",
+	"pendingReview",
+	"scheduled",
+	"recorded"
+];
+/** All platform statuses, in lifecycle order; the store validates against this list. */
+const PLATFORM_STATUSES = [
+	"pending",
+	"adapted",
+	"edited",
+	"recorded"
+];
+/** All modes; the store validates against this list. */
+const PUBLISH_MODES = ["immediate", "scheduled"];
+/** All attempt actions; the store validates against this list. */
+const PLATFORM_ATTEMPT_ACTIONS = [
+	"adapt",
+	"edit",
+	"record"
+];
+//#endregion
+//#region lib/types/review/types.js
+/**
+* Wire vocabulary of the content-outputs review face: metric snapshots
+* imported from platform exports, the work bindings that admit snapshots
+* into the analysis pool, review tasks and their reports, and the one-shot
+* AI calls (single-work diagnosis, period report). Client-safe by
+* construction — no Node or filesystem imports.
+*/
+/** All platforms, in picker order; importers and stores validate against this list. */
+const REVIEW_PLATFORMS = [
+	"xhs",
+	"douyin",
+	"gzh",
+	"bilibili"
+];
+/** The built-in baselines used until the user sets their own. */
+const DEFAULT_BASELINES = {
+	engagementRate: .05,
+	collectRate: .02,
+	source: "default",
+	updatedAt: ""
+};
+/** All statuses; editing a report never moves the status. */
+const REVIEW_STATUSES = [
+	"generating",
+	"ready",
+	"failed"
+];
+//#endregion
+//#region lib/types/interactions/types.js
+/**
+* Wire vocabulary of the content-outputs interactions face: the
+* multi-platform fan-interaction inbox (conversations with embedded
+* messages), the derived summary cache, the AI-extracted audience insights,
+* the two-step CSV import, and the one-shot AI calls (reply drafts,
+* sentiment/intent classification, insight extraction). Client-safe by
+* construction — no Node or filesystem imports.
+*/
+/** All platforms, in picker order; import and stores validate against this list. */
+const INTERACTION_PLATFORMS = [
+	"xhs",
+	"douyin",
+	"weixin",
+	"bilibili"
+];
+/** All message kinds, in picker order. */
+const INTERACTION_MESSAGE_TYPES = [
+	"comment",
+	"dm",
+	"mention"
+];
+/** All statuses, in pipeline order. */
+const INTERACTION_STATUSES = [
+	"unread",
+	"pendingReply",
+	"replied",
+	"archived",
+	"spam"
+];
+/** All reply tones, in picker order. */
+const INTERACTION_STYLES = [
+	"formal",
+	"friendly",
+	"humorous",
+	"brief"
+];
+/** The unclassified sentiment placeholder every imported message starts with. */
+const UNTAGGED_SENTIMENT = {
+	value: "unknown",
+	source: "user",
+	aiMeta: null
+};
+/** The unclassified intent placeholder every imported message starts with. */
+const UNTAGGED_INTENT = {
+	value: "unknown",
+	source: "user",
+	aiMeta: null
+};
+/** The empty insights value a fresh manifest starts with. */
+const EMPTY_INTERACTION_INSIGHTS = {
+	generatedAt: null,
+	topQuestions: [],
+	painPoints: [],
+	interests: []
+};
+/** The empty summary a fresh manifest starts with. */
+const EMPTY_INTERACTION_SUMMARY = {
+	unread: 0,
+	pendingReply: 0,
+	replied: 0,
+	archived: 0,
+	spam: 0
+};
 //#endregion
 //#region lib/types/persona/ai.js
 /**
@@ -3129,7 +3282,7 @@ const REPORT_SYSTEM_PROMPT = [
 * @param text - exact model text output.
 * @returns the parsed object.
 */
-function extractJsonObject(text) {
+function extractJsonObject$1(text) {
 	const stripped = text.trim().replace(/^```(?:json)?\s*/u, "").replace(/\s*```$/u, "");
 	let parsed;
 	try {
@@ -3157,7 +3310,7 @@ function extractJsonObject(text) {
 * @returns the candidate values keyed by field.
 */
 function parsePersonaFieldsOutput(text, allowed) {
-	const record = extractJsonObject(text);
+	const record = extractJsonObject$1(text);
 	const fields = {};
 	for (const key of PERSONA_FIELD_KEYS) {
 		if (!allowed.includes(key)) continue;
@@ -3301,6 +3454,3303 @@ var PersonaAiProcessor = class {
 	}
 };
 //#endregion
+//#region lib/types/publish/store.js
+/**
+* File storage for the publish face: the theme-side `assets/_publish.json`
+* manifest, the derived per-platform drafts under
+* `assets/publish/<taskId>/<platformId>.md`, the global
+* `_publish-index.json` aggregation aid, and the `_publish-profiles.json`
+* account cards. Every write is an atomic, writer-locked commit; every path
+* is guarded against leaving its directory.
+*/
+/** Theme-side publish manifest file name (`_` keeps it out of the scanner). */
+const PUBLISH_MANIFEST_FILENAME = "_publish.json";
+/** Derived-draft directory under the theme's `assets/`. */
+const PUBLISH_DIRNAME = "publish";
+/** Global aggregation aid at the library root. */
+const PUBLISH_INDEX_FILENAME = "_publish-index.json";
+/** Global account cards at the library root. */
+const PUBLISH_PROFILES_FILENAME = "_publish-profiles.json";
+/** Task ids are UUIDs: the store generates them and the derived path embeds them. */
+const TASK_ID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/iu;
+/** Platform ids are registry keys: lowercase letters, digits, dashes. */
+const PLATFORM_ID_PATTERN = /^[a-z0-9][a-z0-9-]{0,31}$/u;
+/** Whether the value is one well-formed task id. */
+function isTaskId(value) {
+	return TASK_ID_PATTERN.test(value);
+}
+/** Whether the value is one well-formed platform id. */
+function isPlatformId(value) {
+	return PLATFORM_ID_PATTERN.test(value);
+}
+/** Whether the value is one plain theme-root manuscript file name (never the
+* metadata file, never a system entry). */
+function isManuscriptFileName(file) {
+	return file.length > 0 && !file.includes("/") && !file.includes("\\") && file !== "." && file !== ".." && !file.startsWith(".") && !file.startsWith("_") && file !== ".dsh-output.json" && !/[\u0000-\u001f]/.test(file);
+}
+/** Whether one attempt log entry carries the full structural shape. */
+function isAttempt(value) {
+	if (typeof value !== "object" || value === null) return false;
+	const record = value;
+	return typeof record.at === "string" && record.at.length > 0 && PLATFORM_ATTEMPT_ACTIONS.includes(record.action) && typeof record.ok === "boolean" && typeof record.detail === "string";
+}
+/** Whether one platform leg carries the full structural shape. */
+function isPlatformTask(value) {
+	if (typeof value !== "object" || value === null) return false;
+	const record = value;
+	return typeof record.platformId === "string" && isPlatformId(record.platformId) && typeof record.accountAlias === "string" && record.accountAlias.trim().length > 0 && typeof record.contentFile === "string" && record.contentFile.length > 0 && (record.coverPrompt === null || typeof record.coverPrompt === "string") && Array.isArray(record.tags) && record.tags.every((tag) => typeof tag === "string") && PLATFORM_STATUSES.includes(record.status) && Array.isArray(record.attempts) && record.attempts.every(isAttempt);
+}
+/** Whether one task carries the full structural shape. */
+function isTask$1(value) {
+	if (typeof value !== "object" || value === null) return false;
+	const record = value;
+	return typeof record.taskId === "string" && isTaskId(record.taskId) && typeof record.title === "string" && record.title.trim().length > 0 && typeof record.manuscriptFile === "string" && isManuscriptFileName(record.manuscriptFile) && (record.manuscriptId === null || typeof record.manuscriptId === "string") && (record.topicId === null || typeof record.topicId === "string") && (record.personaDigest === null || typeof record.personaDigest === "string") && PUBLISH_MODES.includes(record.mode) && (record.scheduledAt === null || typeof record.scheduledAt === "string") && (record.scheduleItemId === null || typeof record.scheduleItemId === "string") && PUBLISH_STATUSES.includes(record.status) && (record.note === null || typeof record.note === "string") && Array.isArray(record.platforms) && record.platforms.length > 0 && record.platforms.every(isPlatformTask) && typeof record.createdAt === "string" && record.createdAt.length > 0 && typeof record.updatedAt === "string" && record.updatedAt.length > 0;
+}
+/**
+* Parse and validate one publish manifest. One malformed task never hides
+* the rest: it is named in `problems` and dropped.
+* @param raw - exact file contents.
+* @returns the manifest with only valid tasks, plus every dropped one named.
+*/
+function parsePublishManifest(raw) {
+	let parsed;
+	try {
+		parsed = JSON.parse(raw);
+	} catch (error) {
+		return {
+			manifest: {
+				formatVersion: 0,
+				tasks: []
+			},
+			problems: [`manifest is not valid JSON: ${error instanceof Error ? error.message : String(error)}`]
+		};
+	}
+	const record = parsed;
+	if (record.formatVersion !== 0) return {
+		manifest: {
+			formatVersion: 0,
+			tasks: []
+		},
+		problems: [`unknown publish manifest formatVersion ${String(record.formatVersion)}`]
+	};
+	if (!Array.isArray(record.tasks)) return {
+		manifest: {
+			formatVersion: 0,
+			tasks: []
+		},
+		problems: ["publish manifest tasks is not an array"]
+	};
+	const problems = [];
+	return {
+		manifest: {
+			formatVersion: 0,
+			tasks: record.tasks.filter((task, index) => {
+				if (isTask$1(task)) return true;
+				problems.push(`publish task #${index} is malformed and was dropped`);
+				return false;
+			})
+		},
+		problems
+	};
+}
+/**
+* Structural validation for one write. The whole manifest rejects together —
+* the caller holds the complete next state, so a partial acceptance would
+* only invite silent loss.
+* @param manifest - the complete next manifest.
+* @throws when any task is malformed.
+*/
+function assertPublishManifest(manifest) {
+	if (manifest.formatVersion !== 0) throw new Error(`unknown publish manifest formatVersion ${String(manifest.formatVersion)}`);
+	if (!Array.isArray(manifest.tasks)) throw new Error("publish manifest tasks is not an array");
+	for (const task of manifest.tasks) if (!isTask$1(task)) throw new Error(`publish task ${task.taskId ?? "<unnamed>"} is malformed`);
+}
+/**
+* Read the theme's `_publish.json` manifest.
+* @param root - absolute outputs library root.
+* @param theme - outputs-project directory name.
+* @returns the manifest (null when absent) plus every dropped task named.
+*/
+async function readPublishManifestFile(root, theme) {
+	const file = join(resolveAssetsDir(root, theme), PUBLISH_MANIFEST_FILENAME);
+	let raw;
+	try {
+		raw = await readFile(file, "utf8");
+	} catch {
+		return {
+			manifest: null,
+			problems: []
+		};
+	}
+	const { manifest, problems } = parsePublishManifest(raw);
+	return {
+		manifest,
+		problems
+	};
+}
+/**
+* Recompute one theme's aggregation rows from its validated tasks.
+* @param theme - outputs-project directory name.
+* @param tasks - the theme's stored tasks.
+* @returns one index entry per task.
+*/
+function indexEntriesOf(theme, tasks) {
+	return tasks.map((task) => ({
+		taskId: task.taskId,
+		theme,
+		title: task.title,
+		status: task.status,
+		platformIds: task.platforms.map((platform) => platform.platformId),
+		updatedAt: task.updatedAt
+	}));
+}
+/**
+* Read the global `_publish-index.json`. A malformed file reads as empty
+* with the rejection named — the next manifest write rebuilds the rows.
+* @param root - absolute outputs library root.
+* @returns the index plus the parse problems.
+*/
+async function readPublishIndexFile(root) {
+	const file = join(root, PUBLISH_INDEX_FILENAME);
+	let raw;
+	try {
+		raw = await readFile(file, "utf8");
+	} catch {
+		return {
+			index: {
+				formatVersion: 0,
+				entries: []
+			},
+			problems: []
+		};
+	}
+	let parsed;
+	try {
+		parsed = JSON.parse(raw);
+	} catch (error) {
+		return {
+			index: {
+				formatVersion: 0,
+				entries: []
+			},
+			problems: [`publish index is not valid JSON: ${error instanceof Error ? error.message : String(error)}`]
+		};
+	}
+	const record = parsed;
+	if (record.formatVersion !== 0 || !Array.isArray(record.entries)) return {
+		index: {
+			formatVersion: 0,
+			entries: []
+		},
+		problems: ["unknown publish index format; rows rebuild on the next write"]
+	};
+	const entries = [];
+	const problems = [];
+	record.entries.forEach((entry, position) => {
+		const candidate = entry;
+		if (typeof candidate.taskId === "string" && typeof candidate.theme === "string" && typeof candidate.title === "string" && PUBLISH_STATUSES.includes(candidate.status) && Array.isArray(candidate.platformIds) && candidate.platformIds.every((id) => typeof id === "string") && typeof candidate.updatedAt === "string") entries.push({
+			taskId: candidate.taskId,
+			theme: candidate.theme,
+			title: candidate.title,
+			status: candidate.status,
+			platformIds: candidate.platformIds,
+			updatedAt: candidate.updatedAt
+		});
+		else problems.push(`publish index entry #${position} is malformed and was dropped`);
+	});
+	return {
+		index: {
+			formatVersion: 0,
+			entries
+		},
+		problems
+	};
+}
+/**
+* Replace the theme's `_publish.json` with an atomic, locked commit and
+* refresh the theme's rows in the global index under the same lock.
+* @param root - absolute outputs library root.
+* @param theme - outputs-project directory name.
+* @param manifest - the complete next manifest.
+*/
+async function writePublishManifestFile(root, theme, manifest) {
+	assertPublishManifest(manifest);
+	await writeAtomicallyLocked(join(resolveAssetsDir(root, theme), PUBLISH_MANIFEST_FILENAME), `${JSON.stringify(manifest, null, 2)}\n`);
+	const indexPath = join(root, PUBLISH_INDEX_FILENAME);
+	const { index } = await readPublishIndexFile(root);
+	const fresh = indexEntriesOf(theme, manifest.tasks);
+	const entries = [...index.entries.filter((entry) => entry.theme !== theme), ...fresh];
+	await writeAtomicallyLocked(indexPath, `${JSON.stringify({
+		formatVersion: 0,
+		entries
+	}, null, 2)}\n`);
+}
+/** Absolute path of one derived draft. */
+function resolvePublishDerivedPath(root, theme, taskId, platformId) {
+	if (!isTaskId(taskId)) throw new Error(`invalid publish task id: ${JSON.stringify(taskId)}`);
+	if (!isPlatformId(platformId)) throw new Error(`invalid publish platform id: ${JSON.stringify(platformId)}`);
+	return join(resolveAssetsDir(root, theme), PUBLISH_DIRNAME, taskId, `${platformId}.md`);
+}
+/**
+* Write one derived draft under `assets/publish/<taskId>/<platformId>.md`.
+* The replacement is atomic and serialized per file; the directory is
+* created on demand.
+* @param root - absolute outputs library root.
+* @param theme - outputs-project directory name.
+* @param taskId - the owning task's UUID.
+* @param platformId - the platform registry key.
+* @param content - the complete draft text.
+* @returns the stored path relative to the theme's `assets/`.
+*/
+async function writePublishDerivedFile(root, theme, taskId, platformId, content) {
+	const path = resolvePublishDerivedPath(root, theme, taskId, platformId);
+	await mkdir(join(path, ".."), { recursive: true });
+	await writeAtomicallyLocked(path, content);
+	return { file: join(PUBLISH_DIRNAME, taskId, `${platformId}.md`) };
+}
+/**
+* Read one derived draft back.
+* @returns the text, or undefined when the draft does not exist yet.
+*/
+async function readPublishDerivedFile(root, theme, taskId, platformId) {
+	const path = resolvePublishDerivedPath(root, theme, taskId, platformId);
+	try {
+		return await readFile(path, "utf8");
+	} catch {
+		return;
+	}
+}
+/**
+* Read one theme-root deliverable as the adaptation source. Guarded like
+* every asset read: one plain file name at the theme root, never the
+* metadata file, never a system entry.
+* @param root - absolute outputs library root.
+* @param theme - outputs-project directory name.
+* @param file - the deliverable file name.
+* @returns the text, or undefined when absent.
+*/
+async function readPublishSourceFile(root, theme, file) {
+	if (!isManuscriptFileName(file)) throw new Error(`invalid publish manuscript file name: ${JSON.stringify(file)}`);
+	resolveAssetsDir(root, theme);
+	const path = join(root, theme, file);
+	try {
+		return await readFile(path, "utf8");
+	} catch {
+		return;
+	}
+}
+/**
+* Read the global `_publish-profiles.json` account cards.
+* @param root - absolute outputs library root.
+* @returns the profiles plus every dropped stored card named.
+*/
+async function readPublishProfilesFile(root) {
+	const file = join(root, PUBLISH_PROFILES_FILENAME);
+	let raw;
+	try {
+		raw = await readFile(file, "utf8");
+	} catch {
+		return {
+			profiles: [],
+			problems: []
+		};
+	}
+	let parsed;
+	try {
+		parsed = JSON.parse(raw);
+	} catch (error) {
+		return {
+			profiles: [],
+			problems: [`publish profiles is not valid JSON: ${error instanceof Error ? error.message : String(error)}`]
+		};
+	}
+	const record = parsed;
+	if (record.formatVersion !== 0 || !Array.isArray(record.profiles)) return {
+		profiles: [],
+		problems: ["unknown publish profiles format"]
+	};
+	const profiles = [];
+	const problems = [];
+	record.profiles.forEach((profile, position) => {
+		const candidate = profile;
+		if (typeof candidate.platformId === "string" && isPlatformId(candidate.platformId) && typeof candidate.alias === "string" && candidate.alias.trim().length > 0 && typeof candidate.enabled === "boolean" && (candidate.adaptationOverrides === null || typeof candidate.adaptationOverrides === "string")) profiles.push({
+			platformId: candidate.platformId,
+			alias: candidate.alias,
+			enabled: candidate.enabled,
+			adaptationOverrides: candidate.adaptationOverrides
+		});
+		else problems.push(`publish profile #${position} is malformed and was dropped`);
+	});
+	return {
+		profiles,
+		problems
+	};
+}
+/**
+* Replace the global `_publish-profiles.json` with an atomic, locked commit.
+* @param root - absolute outputs library root.
+* @param profiles - the complete next card list.
+*/
+async function writePublishProfilesFile(root, profiles) {
+	for (const profile of profiles) {
+		if (!isPlatformId(profile.platformId)) throw new Error(`invalid publish profile platform id: ${JSON.stringify(profile.platformId)}`);
+		if (profile.alias.trim().length === 0) throw new Error(`publish profile ${profile.platformId} carries an empty alias`);
+	}
+	const doc = {
+		formatVersion: 0,
+		profiles
+	};
+	await writeAtomicallyLocked(join(root, PUBLISH_PROFILES_FILENAME), `${JSON.stringify(doc, null, 2)}\n`);
+}
+/**
+* Assemble the frozen phase-2 MCP handoff for one task: every platform leg's
+* derived draft is read fresh from disk, and a leg without its draft yet
+* rejects — the package must be complete or not exist.
+* @param root - absolute outputs library root.
+* @param theme - outputs-project directory name.
+* @param taskId - the task's UUID.
+* @returns the complete package.
+*/
+async function buildPublishPackageFile(root, theme, taskId) {
+	if (!isTaskId(taskId)) throw new Error(`invalid publish task id: ${JSON.stringify(taskId)}`);
+	const { manifest, problems } = await readPublishManifestFile(root, theme);
+	if (problems.length > 0) throw new Error(`publish manifest for ${theme} is rejected: ${problems.join("; ")}`);
+	const task = manifest?.tasks.find((candidate) => candidate.taskId === taskId);
+	if (task === void 0) throw new Error(`publish task ${taskId} does not exist in theme ${theme}`);
+	const platforms = await Promise.all(task.platforms.map(async (platform) => {
+		if (await readPublishDerivedFile(root, theme, taskId, platform.platformId) === void 0) throw new Error(`publish task ${taskId} has no derived draft for ${platform.platformId} yet`);
+		return {
+			platformId: platform.platformId,
+			accountAlias: platform.accountAlias,
+			contentFile: platform.contentFile,
+			tags: platform.tags,
+			coverPrompt: platform.coverPrompt,
+			scheduledAt: task.scheduledAt
+		};
+	}));
+	return {
+		taskId: task.taskId,
+		theme,
+		title: task.title,
+		manuscriptFile: task.manuscriptFile,
+		topicId: task.topicId,
+		personaDigest: task.personaDigest,
+		mode: task.mode,
+		scheduledAt: task.scheduledAt,
+		platforms,
+		generatedAt: (/* @__PURE__ */ new Date()).toISOString()
+	};
+}
+//#endregion
+//#region lib/types/publish/ai.js
+/**
+* AI processing for the publish face: one explicit, controlled model call
+* per platform adaptation behind the view's adapt buttons. Calls ride the
+* same shared `llm` Service Definition, one-shot pattern, queue, and
+* rate-limit retry policy as the other AI faces; nothing is persisted here —
+* the caller writes each result back as a derived draft through the store.
+*/
+/** Timeout reason code carried by aborted publish AI calls. */
+const PUBLISH_AI_TIMEOUT_CODE = "PUBLISH_AI_TIMEOUT";
+/** Prompt vocabulary version pinned into every result for provenance. */
+const PUBLISH_PROMPT_VERSION = 1;
+/**
+* Build the system prompt for one platform adaptation: the registry's style
+* rules, the persona digest as the style reference, and the fixed JSON
+* output contract.
+* @param request - the adaptation request.
+* @returns the complete system prompt.
+*/
+function adaptSystemPrompt(request) {
+	const lines = [
+		"你是内容发布工作台的多平台适配助手。把一篇定稿改写成指定平台的独立版本。遵守：",
+		`目标平台：${request.platformName}。`,
+		`平台规则：${request.styleHints}`,
+		request.charLimit === null ? "该平台没有硬性字数上限，按平台习惯控制篇幅。" : `全文正文字数不得超过 ${request.charLimit} 字（不含话题标签），必要时做信息取舍，保留核心观点。`
+	];
+	if (request.personaDigest !== null) lines.push(`写作人设（必须贯穿改写版本的语气、用词与句式）：${request.personaDigest}`);
+	lines.push([
+		"只输出一个 JSON 对象，不要输出其他任何文字：",
+		"{\"content\":\"改写后的全文（Markdown）\",\"coverPrompt\":\"一张封面图的画面描述，60字内；无封面建议则填空字符串\",\"tags\":[\"话题标签数组\"]}",
+		"content 只含正文本身；tags 按平台习惯生成 3-8 个，不含 # 前缀。"
+	].join("\n"));
+	return lines.join("\n");
+}
+/**
+* Frame the user prompt: title first, then the full source manuscript.
+* @param request - the adaptation request.
+* @param maxInputChars - the combined prompt character cap.
+* @returns the complete user prompt.
+*/
+function adaptFramedPrompt(request, maxInputChars) {
+	return [`标题：${request.title}`, `定稿原文：\n${request.sourceText}`].join("\n\n").slice(0, maxInputChars);
+}
+/**
+* Validate one adaptation request.
+* @param request - the raw request.
+* @param maxInputChars - the source text character cap.
+* @returns the validated request.
+*/
+function validateAdaptRequest(request, maxInputChars) {
+	if (typeof request.platformId !== "string" || request.platformId.length === 0) throw new Error("publish adaptation needs a platformId");
+	if (request.platformName.trim().length === 0) throw new Error("publish adaptation needs a platform name");
+	if (request.styleHints.trim().length === 0) throw new Error("publish adaptation needs style hints");
+	if (request.title.trim().length === 0) throw new Error("publish adaptation needs a non-empty title");
+	if (request.sourceText.trim().length === 0) throw new Error("publish adaptation source text is empty");
+	if (request.sourceText.length > maxInputChars) throw new Error(`publish adaptation source exceeds the ${maxInputChars}-character cap`);
+	return request;
+}
+/**
+* Parse an adaptation answer into the structured result. The model output is
+* a JSON boundary: missing content, or non-string tags, rejects here.
+* @param text - exact model text output.
+* @param model - the model identity recorded into the result.
+* @returns the validated adaptation with its provenance.
+*/
+function parsePublishAdaptOutput(text, model) {
+	const fenced = text.trim().replace(/^```(?:json)?\s*/u, "").replace(/\s*```$/u, "");
+	const start = fenced.indexOf("{");
+	const end = fenced.lastIndexOf("}");
+	if (start === -1 || end <= start) throw new Error("publish adaptation output contains no JSON object");
+	let parsed;
+	try {
+		parsed = JSON.parse(fenced.slice(start, end + 1));
+	} catch {
+		throw new Error("publish adaptation output is not valid JSON");
+	}
+	const record = parsed;
+	if (typeof record.content !== "string" || record.content.trim().length === 0) throw new Error("publish adaptation output has no content");
+	const tags = Array.isArray(record.tags) && record.tags.every((tag) => typeof tag === "string") ? record.tags.map((tag) => tag.trim()).filter((tag) => tag.length > 0).slice(0, 8) : [];
+	const coverPrompt = typeof record.coverPrompt === "string" && record.coverPrompt.trim().length > 0 ? record.coverPrompt.trim().slice(0, 200) : null;
+	return {
+		content: record.content.trim(),
+		coverPrompt,
+		tags,
+		model,
+		promptVersion: 1
+	};
+}
+/**
+* The queued AI processor behind the publish view; not itself a cordis
+* service — the gateway carries the `llm` injection and passes the resolved
+* policy in.
+*/
+var PublishAiProcessor = class {
+	ctx;
+	policy;
+	/** Single-slot call queue: one model call at a time, shared policy with the other faces. */
+	queue = new PQueue({ concurrency: 1 });
+	/**
+	* @param ctx - context exposing the registered LLM service.
+	* @param policy - the gateway's already-resolved AI policy.
+	*/
+	constructor(ctx, policy) {
+		this.ctx = ctx;
+		this.policy = policy;
+	}
+	/**
+	* Adapt one manuscript into one platform version. Rate limits retry with
+	* backoff; every other failure surfaces immediately so the platform card
+	* can show its 未生成 state and retry button.
+	* @param request - the adaptation request.
+	* @returns the structured result for the caller to write back.
+	*/
+	async adapt(request) {
+		const validated = validateAdaptRequest(request, this.policy.maxInputChars);
+		return this.queue.add(() => pRetry(async () => {
+			return parsePublishAdaptOutput(await streamLlmText(this.ctx, this.policy, adaptSystemPrompt(validated), adaptFramedPrompt(validated, this.policy.maxInputChars), PUBLISH_AI_TIMEOUT_CODE), this.policy.model);
+		}, {
+			retries: 4,
+			minTimeout: 1e3,
+			maxTimeout: 3e4,
+			factor: 2,
+			shouldRetry: isRateLimitError,
+			onFailedAttempt: (error) => honorRetryAfter(error)
+		}));
+	}
+};
+//#endregion
+//#region lib/types/template/store.js
+/**
+* Template library file store: reads and writes the global template assets
+* under `<templatesRoot>` — `templates.json` for the records, `taxonomy.json`
+* for the shared tag list, and one full-record snapshot per manual save under
+* `history/<template-id>/<version>.json`. The library sits outside the
+* outputs library on purpose: templates are global skeleton assets, never
+* theme business data, so no outputs scan can mistake them for a project and
+* no theme teardown can sweep them away.
+*
+* Validation follows the persona store's rules: one malformed record never
+* hides the rest on read — it is named in `problems` and skipped — while
+* every write refuses to touch a file whose current state dropped entries,
+* so a save can never be the step that silently deletes user templates.
+*/
+/** Library file names under `<templatesRoot>`. */
+const TEMPLATES_FILENAME = "templates.json";
+const TAXONOMY_FILENAME = "taxonomy.json";
+const HISTORY_DIRNAME = "history";
+const TEMPLATE_MAX_BODY = 1e5;
+const TEMPLATE_HISTORY_LIMIT = 20;
+/** Placeholder identifier shape inside a template body. */
+const TEMPLATE_VARIABLE_NAME_PATTERN = /^[a-zA-Z][a-zA-Z0-9_]{0,63}$/;
+const CATEGORIES = TEMPLATE_CATEGORIES;
+const STATUSES = ["active", "archived"];
+function isRecord(value) {
+	return typeof value === "object" && value !== null;
+}
+function isTextField(value, max) {
+	return typeof value === "string" && value.length > 0 && value.length <= max;
+}
+function isText(value, max) {
+	return typeof value === "string" && value.length <= max;
+}
+function isTimestamp(value) {
+	return isTextField(value, 40);
+}
+function isVariable(value) {
+	if (!isRecord(value)) return false;
+	return typeof value.name === "string" && value.name.length <= 64 && TEMPLATE_VARIABLE_NAME_PATTERN.test(value.name) && isText(value.label, 200) && isText(value.description, 500) && isText(value.defaultValue, 2e3) && typeof value.required === "boolean";
+}
+function isVariables(value) {
+	return Array.isArray(value) && value.length <= 50 && value.every((variable) => isVariable(variable)) && value.every((variable, index) => value.findIndex((candidate) => candidate.name === variable.name) === index);
+}
+function isTagId(value) {
+	return typeof value === "string" && value.length > 0 && value.length <= 64;
+}
+function isTemplateRecord(value) {
+	if (!isRecord(value)) return false;
+	return isTextField(value.id, 64) && isTextField(value.name, 100) && CATEGORIES.includes(value.category) && isText(value.description, 500) && Array.isArray(value.tagIds) && value.tagIds.length <= 50 && value.tagIds.every((tagId) => isTagId(tagId)) && isTextField(value.body, 1e5) && isVariables(value.variables) && STATUSES.includes(value.status) && typeof value.version === "number" && Number.isInteger(value.version) && value.version >= 1 && isTimestamp(value.createdAt) && isTimestamp(value.updatedAt);
+}
+function isTag(value) {
+	return isRecord(value) && isTagId(value.id) && isTextField(value.name, 50);
+}
+/**
+* Parse one stored templates manifest body. The version gate mirrors every
+* other store: future on-disk formats never load as current records.
+* @param raw - exact file contents; empty string means the file does not exist yet.
+* @returns the parse outcome with every dropped record named.
+*/
+function parseTemplatesManifest(raw) {
+	if (raw.length === 0) return { kind: "empty" };
+	let parsed;
+	try {
+		parsed = JSON.parse(raw);
+	} catch {
+		return {
+			kind: "invalid",
+			problem: "templates file is not valid JSON"
+		};
+	}
+	const root = parsed;
+	if (root.formatVersion !== 0) return {
+		kind: "invalid",
+		problem: `unsupported templates formatVersion ${String(root.formatVersion)}`
+	};
+	if (!Array.isArray(root.templates)) return {
+		kind: "invalid",
+		problem: "templates file has no templates array"
+	};
+	const templates = [];
+	const problems = [];
+	for (const entry of root.templates) if (isTemplateRecord(entry)) templates.push(entry);
+	else problems.push(`dropped one invalid template record: ${JSON.stringify(entry).slice(0, 120)}`);
+	templates.sort(compareRecords);
+	return {
+		kind: "ok",
+		manifest: {
+			formatVersion: 0,
+			templates
+		},
+		problems
+	};
+}
+/**
+* Parse one stored taxonomy body, same rules as the manifest parse.
+* @param raw - exact file contents; empty string means the file does not exist yet.
+* @returns the parse outcome with every dropped tag named.
+*/
+function parseTemplateTaxonomy(raw) {
+	if (raw.length === 0) return { kind: "empty" };
+	let parsed;
+	try {
+		parsed = JSON.parse(raw);
+	} catch {
+		return {
+			kind: "invalid",
+			problem: "taxonomy file is not valid JSON"
+		};
+	}
+	const root = parsed;
+	if (root.formatVersion !== 0) return {
+		kind: "invalid",
+		problem: `unsupported taxonomy formatVersion ${String(root.formatVersion)}`
+	};
+	if (!Array.isArray(root.tags)) return {
+		kind: "invalid",
+		problem: "taxonomy file has no tags array"
+	};
+	const tags = [];
+	const problems = [];
+	for (const tag of root.tags) if (isTag(tag)) tags.push(tag);
+	else problems.push(`dropped one invalid tag record: ${JSON.stringify(tag).slice(0, 120)}`);
+	return {
+		kind: "ok",
+		taxonomy: {
+			formatVersion: 0,
+			tags
+		},
+		problems
+	};
+}
+/** Newest save first; the id breaks ties so the order is total and stable. */
+function compareRecords(a, b) {
+	if (a.updatedAt !== b.updatedAt) return a.updatedAt > b.updatedAt ? -1 : 1;
+	return a.id < b.id ? -1 : 1;
+}
+async function readFileText(file) {
+	try {
+		return await readFile(file, "utf8");
+	} catch {
+		return "";
+	}
+}
+/**
+* Read both library files leniently for the list and export projections.
+* @param root - absolute templates root directory.
+* @returns the valid records and tags, with every dropped stored record named.
+*/
+async function readTemplateLibrary(root) {
+	const templatesParse = parseTemplatesManifest(await readFileText(join(root, TEMPLATES_FILENAME)));
+	const taxonomyParse = parseTemplateTaxonomy(await readFileText(join(root, TAXONOMY_FILENAME)));
+	const problems = [...templatesParse.kind === "invalid" ? [templatesParse.problem] : templatesParse.kind === "ok" ? templatesParse.problems : [], ...taxonomyParse.kind === "invalid" ? [taxonomyParse.problem] : taxonomyParse.kind === "ok" ? taxonomyParse.problems : []];
+	return {
+		templates: templatesParse.kind === "ok" ? templatesParse.manifest.templates : [],
+		tags: taxonomyParse.kind === "ok" ? taxonomyParse.taxonomy.tags : [],
+		problems
+	};
+}
+/**
+* Read both files strictly for a write: every parse must be clean, so a save
+* never resolves a corrupted store by overwriting it.
+* @param root - absolute templates root directory; created when missing.
+* @returns the mutable stored state.
+*/
+async function readForWrite(root) {
+	await mkdir(root, {
+		recursive: true,
+		mode: 448
+	});
+	const templatesParse = parseTemplatesManifest(await readFileText(join(root, TEMPLATES_FILENAME)));
+	if (templatesParse.kind === "invalid") throw new Error(`refusing to write ${TEMPLATES_FILENAME}: ${templatesParse.problem}`);
+	if (templatesParse.kind === "ok" && templatesParse.problems.length > 0) throw new Error(`refusing to write ${TEMPLATES_FILENAME}: resolve the stored invalid entries first (${String(templatesParse.problems.length)} dropped)`);
+	const taxonomyParse = parseTemplateTaxonomy(await readFileText(join(root, TAXONOMY_FILENAME)));
+	if (taxonomyParse.kind === "invalid") throw new Error(`refusing to write ${TAXONOMY_FILENAME}: ${taxonomyParse.problem}`);
+	if (taxonomyParse.kind === "ok" && taxonomyParse.problems.length > 0) throw new Error(`refusing to write ${TAXONOMY_FILENAME}: resolve the stored invalid entries first (${String(taxonomyParse.problems.length)} dropped)`);
+	return {
+		templates: templatesParse.kind === "ok" ? [...templatesParse.manifest.templates] : [],
+		tags: taxonomyParse.kind === "ok" ? [...taxonomyParse.taxonomy.tags] : []
+	};
+}
+async function writeTemplates(root, templates) {
+	const body = `${JSON.stringify({
+		formatVersion: 0,
+		templates
+	}, null, 2)}\n`;
+	await writeFileAtomic(join(root, TEMPLATES_FILENAME), body, {
+		mode: 384,
+		dirMode: 448
+	});
+}
+async function writeTaxonomy(root, tags) {
+	const body = `${JSON.stringify({
+		formatVersion: 0,
+		tags
+	}, null, 2)}\n`;
+	await writeFileAtomic(join(root, TAXONOMY_FILENAME), body, {
+		mode: 384,
+		dirMode: 448
+	});
+}
+/**
+* Validate one variable definition; every text field is trimmed at the cap.
+* @param value - the raw variable from the client.
+* @returns the stored variable, or the reason it is invalid.
+*/
+function normalizeVariable(value) {
+	if (!isRecord(value)) return { detail: "variable must be an object" };
+	if (typeof value.name !== "string" || !TEMPLATE_VARIABLE_NAME_PATTERN.test(value.name)) return { detail: "variable name must match ^[a-zA-Z][a-zA-Z0-9_]{0,63}$" };
+	if (!isText(value.label, 200)) return { detail: `variable ${value.name}: label exceeds the cap` };
+	if (!isText(value.description, 500)) return { detail: `variable ${value.name}: description exceeds the cap` };
+	if (!isText(value.defaultValue, 2e3)) return { detail: `variable ${value.name}: defaultValue exceeds the cap` };
+	if (typeof value.required !== "boolean") return { detail: `variable ${value.name}: required must be a boolean` };
+	return { variable: {
+		name: value.name,
+		label: value.label.trim(),
+		description: value.description.trim(),
+		defaultValue: value.defaultValue,
+		required: value.required
+	} };
+}
+/**
+* Validate one upsert input into its stored shape: the version increments
+* from the stored record, the status carries over (the archive face owns
+* transitions), and gateway-owned fields cannot be injected.
+* @param input - the upsert payload from the browser.
+* @param existing - the stored record when `input.id` addresses one.
+* @param storedNames - display names of every other stored record.
+* @param now - the save instant (ISO 8601).
+* @returns the stored record, or the reason the input is invalid.
+*/
+function normalizeTemplateInput(input, existing, storedNames, now) {
+	if (existing === void 0 && input.id !== void 0 && !isTextField(input.id, 64)) return { detail: "id must be a non-empty string within the cap" };
+	if (typeof input.name !== "string" || input.name.trim().length === 0) return { detail: "name must be a non-empty string" };
+	const name = input.name.trim();
+	if (name.length > 100) return { detail: "name exceeds the length cap" };
+	if (storedNames.includes(name)) return { detail: `duplicate template name: ${name}` };
+	if (!CATEGORIES.includes(input.category)) return { detail: "unknown template category" };
+	if (!isText(input.description, 500)) return { detail: "description exceeds the length cap" };
+	if (!Array.isArray(input.tagIds) || input.tagIds.length > 50) return { detail: `tagIds must be an array within ${String(50)}` };
+	if (!input.tagIds.every((tagId) => isTagId(tagId))) return { detail: "tagIds entries must be non-empty strings" };
+	if (new Set(input.tagIds).size !== input.tagIds.length) return { detail: "tagIds must not repeat" };
+	if (typeof input.body !== "string" || input.body.trim().length === 0) return { detail: "body must be a non-empty string" };
+	if (input.body.length > 1e5) return { detail: "body exceeds the length cap" };
+	if (!Array.isArray(input.variables) || input.variables.length > 50) return { detail: `variables must be an array within ${String(50)}` };
+	const variables = [];
+	for (const raw of input.variables) {
+		const normalized = normalizeVariable(raw);
+		if (normalized.variable === void 0) return { detail: normalized.detail ?? "invalid variable" };
+		variables.push(normalized.variable);
+	}
+	const names = variables.map((variable) => variable.name);
+	if (new Set(names).size !== names.length) return { detail: "variable names must not repeat" };
+	if (!isText(input.changeNote === void 0 ? "" : input.changeNote, 200)) return { detail: "changeNote exceeds the length cap" };
+	return { record: {
+		id: existing?.id ?? input.id ?? randomUUID(),
+		name,
+		category: input.category,
+		description: input.description.trim(),
+		tagIds: [...input.tagIds],
+		body: input.body,
+		variables,
+		status: existing?.status ?? "active",
+		version: existing === void 0 ? 1 : existing.version + 1,
+		createdAt: existing?.createdAt ?? now,
+		updatedAt: now
+	} };
+}
+/** Absolute path of one version's snapshot file. */
+function historyFile(root, id, version) {
+	return join(root, HISTORY_DIRNAME, id, `${String(version)}.json`);
+}
+/**
+* Write one version's full-record snapshot and trim the history to the cap:
+* when the directory holds more than the newest {@link TEMPLATE_HISTORY_LIMIT}
+* versions, the oldest snapshot files are removed. Snapshot files are inert
+* on their own, so a trim failure never fails the save that already stored
+* the record.
+* @param root - absolute templates root directory.
+* @param entry - the snapshot to store.
+*/
+async function writeHistoryEntry(root, entry) {
+	const file = historyFile(root, entry.record.id, entry.version);
+	await mkdir(dirname(file), {
+		recursive: true,
+		mode: 448
+	});
+	await writeFileAtomic(file, `${JSON.stringify(entry, null, 2)}\n`, {
+		mode: 384,
+		dirMode: 448
+	});
+	const dir = dirname(file);
+	let names = [];
+	try {
+		names = await readdir(dir);
+	} catch {
+		return;
+	}
+	const versions = names.map((name) => /^(\d+)\.json$/u.exec(name)).filter((match) => match !== null).map((match) => Number(match[1])).sort((a, b) => b - a);
+	for (const version of versions.slice(20)) await rm(historyFile(root, entry.record.id, version), { force: true }).catch(() => void 0);
+}
+/**
+* Upsert one template under a file lock, atomically: the version increments
+* and one full-record snapshot lands in `history/` before the manifest
+* commits. Creating with an id that is absent from the manifest rejects — a
+* stale client must reload, not resurrect a deleted template.
+* @param root - absolute templates root directory.
+* @param input - the upsert payload from the browser.
+* @param now - the save instant (ISO 8601); defaults to the current time.
+* @returns the stored record.
+*/
+async function putTemplateFile(root, input, now = (/* @__PURE__ */ new Date()).toISOString()) {
+	return withFileLock(join(root, TEMPLATES_FILENAME), async () => {
+		const state = await readForWrite(root);
+		const existing = input.id === void 0 ? void 0 : state.templates.find((candidate) => candidate.id === input.id);
+		if (input.id !== void 0 && existing === void 0) throw new Error(`unknown template: ${input.id}`);
+		const normalized = normalizeTemplateInput(input, existing, state.templates.filter((candidate) => candidate.id !== existing?.id).map((candidate) => candidate.name), now);
+		if (normalized.record === void 0) throw new Error(`invalid template input: ${normalized.detail}`);
+		const record = normalized.record;
+		await writeHistoryEntry(root, {
+			version: record.version,
+			changeNote: input.changeNote?.trim() ?? "",
+			createdAt: now,
+			record
+		});
+		await writeTemplates(root, [record, ...state.templates.filter((candidate) => candidate.id !== record.id)].sort(compareRecords));
+		return record;
+	});
+}
+/**
+* Flip one template's lifecycle state without a content save: archiving and
+* restoring are bookkeeping, not edits, so no snapshot is written.
+* @param root - absolute templates root directory.
+* @param id - the template to update; unknown ids reject.
+* @param status - the next lifecycle state.
+* @param now - the transition instant (ISO 8601); defaults to the current time.
+* @returns the stored record.
+*/
+async function setTemplateStatusFile(root, id, status, now = (/* @__PURE__ */ new Date()).toISOString()) {
+	return withFileLock(join(root, TEMPLATES_FILENAME), async () => {
+		const state = await readForWrite(root);
+		const existing = state.templates.find((candidate) => candidate.id === id);
+		if (existing === void 0) throw new Error(`unknown template: ${id}`);
+		const record = {
+			...existing,
+			status,
+			updatedAt: now
+		};
+		await writeTemplates(root, [record, ...state.templates.filter((candidate) => candidate.id !== id)].sort(compareRecords));
+		return record;
+	});
+}
+/**
+* Remove one template and its whole history directory under a file lock;
+* there is no file left to dangle. Removing an unknown id is a no-op.
+* @param root - absolute templates root directory.
+* @param id - the template to remove.
+*/
+async function deleteTemplateFile(root, id) {
+	await withFileLock(join(root, TEMPLATES_FILENAME), async () => {
+		const state = await readForWrite(root);
+		const next = state.templates.filter((candidate) => candidate.id !== id);
+		if (next.length === state.templates.length) return;
+		await writeTemplates(root, next);
+		await rm(join(root, HISTORY_DIRNAME, id), {
+			recursive: true,
+			force: true
+		}).catch(() => void 0);
+	});
+}
+/**
+* Replace the shared tag list wholesale under a file lock, stripping every
+* reference to a removed tag from the stored records in the same commit —
+* a template never carries a dangling `tagIds` entry.
+* @param root - absolute templates root directory.
+* @param tags - the complete next tag list; names must be unique.
+* @returns the stored tag list.
+*/
+async function putTemplateTagsFile(root, tags) {
+	return withFileLock(join(root, TEMPLATES_FILENAME), async () => {
+		const state = await readForWrite(root);
+		if (tags.length > 50) throw new Error(`tags exceed ${String(50)}`);
+		for (const tag of tags) if (!isTag(tag)) throw new Error("invalid tag record");
+		const names = tags.map((tag) => tag.name);
+		if (new Set(names).size !== names.length) throw new Error("duplicate tag name");
+		const kept = new Set(tags.map((tag) => tag.id));
+		await writeTemplates(root, state.templates.map((record) => ({
+			...record,
+			tagIds: record.tagIds.filter((tagId) => kept.has(tagId))
+		})).sort(compareRecords));
+		await writeTaxonomy(root, tags);
+		return tags;
+	});
+}
+/**
+* Read one template's history snapshots, newest version first.
+* @param root - absolute templates root directory.
+* @param id - the template whose history to read.
+* @returns the valid snapshots; unreadable or malformed files are skipped.
+*/
+async function readTemplateHistory(root, id) {
+	const dir = join(root, HISTORY_DIRNAME, id);
+	let names = [];
+	try {
+		names = await readdir(dir);
+	} catch {
+		return [];
+	}
+	const entries = [];
+	for (const name of names) {
+		if (/^(\d+)\.json$/u.exec(name) === null) continue;
+		let entry;
+		try {
+			entry = JSON.parse(await readFile(join(dir, name), "utf8"));
+		} catch {
+			continue;
+		}
+		if (!isRecord(entry) || !isTemplateRecord(entry.record)) continue;
+		if (entry.record.id !== id) continue;
+		if (typeof entry.version !== "number" || !Number.isInteger(entry.version) || entry.version < 1) continue;
+		if (!isTimestamp(entry.createdAt)) continue;
+		entries.push({
+			version: entry.version,
+			changeNote: isText(entry.changeNote, 200) ? entry.changeNote : "",
+			createdAt: entry.createdAt,
+			record: entry.record
+		});
+	}
+	return entries.sort((a, b) => b.version - a.version);
+}
+/**
+* Build the portable pack document for the given ids (every template when
+* `ids` is empty), reading leniently like the list projection.
+* @param root - absolute templates root directory.
+* @param ids - the template ids to export; empty exports the whole library.
+* @param exportedAt - the export instant (ISO 8601).
+* @returns the pack document for the caller to hand the browser.
+*/
+async function exportTemplatePack(root, ids, exportedAt) {
+	const library = await readTemplateLibrary(root);
+	return {
+		format: "dsh-template-pack",
+		formatVersion: 1,
+		exportedAt,
+		templates: ids.length === 0 ? library.templates : library.templates.filter((record) => ids.includes(record.id)),
+		tags: library.tags
+	};
+}
+/** Suffix a display name until it differs from every taken name. */
+function uniqueName(name, taken) {
+	let candidate = name;
+	let counter = 2;
+	while (taken.includes(candidate)) {
+		candidate = `${name}-${String(counter)}`;
+		counter += 1;
+	}
+	return candidate;
+}
+/**
+* Import one pack document under a file lock. Entries are independent: one
+* rejected entry is named in the summary's `failed` list while the rest land.
+* A conflicting id resolves per the strategy — `skip` keeps the local record,
+* `overwrite` replaces it (new version, new snapshot), `rename` stores the
+* incoming entry under a fresh id and a suffixed unique name. Every stored
+* entry also writes its snapshot so the history directory starts populated.
+* @param root - absolute templates root directory.
+* @param pack - the parsed pack document from the browser.
+* @param strategy - the conflict resolution for ids that already exist.
+* @param now - the import instant (ISO 8601); defaults to the current time.
+* @returns the per-bucket summary.
+*/
+async function importTemplatePack(root, pack, strategy, now = (/* @__PURE__ */ new Date()).toISOString()) {
+	if (pack.format !== "dsh-template-pack") throw new Error(`unsupported pack format: ${String(pack.format)}`);
+	if (pack.formatVersion !== 1) throw new Error(`unsupported pack formatVersion: ${String(pack.formatVersion)}`);
+	return withFileLock(join(root, TEMPLATES_FILENAME), async () => {
+		const state = await readForWrite(root);
+		const failed = [];
+		let added = 0;
+		let skipped = 0;
+		let overwritten = 0;
+		let renamed = 0;
+		const tagById = new Map(state.tags.map((tag) => [tag.id, tag]));
+		let taxonomyDirty = false;
+		for (const raw of pack.tags ?? []) {
+			if (!isTag(raw)) {
+				failed.push(`invalid tag record: ${JSON.stringify(raw).slice(0, 120)}`);
+				continue;
+			}
+			if (tagById.has(raw.id)) continue;
+			if (state.tags.some((tag) => tag.name === raw.name)) {
+				failed.push(`duplicate tag name: ${raw.name}`);
+				continue;
+			}
+			state.tags.push(raw);
+			tagById.set(raw.id, raw);
+			taxonomyDirty = true;
+		}
+		const templates = [...state.templates];
+		for (const raw of pack.templates ?? []) {
+			if (!isTemplateRecord(raw)) {
+				failed.push(`invalid template record: ${JSON.stringify(raw).slice(0, 120)}`);
+				continue;
+			}
+			const incoming = raw;
+			const existingIndex = templates.findIndex((candidate) => candidate.id === incoming.id);
+			if (existingIndex === -1) {
+				const record = {
+					...incoming,
+					name: uniqueName(incoming.name, templates.map((candidate) => candidate.name))
+				};
+				templates.push(record);
+				await writeHistoryEntry(root, {
+					version: record.version,
+					changeNote: "imported",
+					createdAt: now,
+					record
+				});
+				added += 1;
+				continue;
+			}
+			if (strategy === "skip") {
+				skipped += 1;
+				continue;
+			}
+			if (strategy === "overwrite") {
+				const existing = templates[existingIndex];
+				if (existing === void 0) continue;
+				const record = {
+					...incoming,
+					version: Math.max(existing.version, incoming.version) + 1,
+					createdAt: existing.createdAt,
+					updatedAt: now
+				};
+				templates[existingIndex] = record;
+				await writeHistoryEntry(root, {
+					version: record.version,
+					changeNote: "imported (overwritten)",
+					createdAt: now,
+					record
+				});
+				overwritten += 1;
+				continue;
+			}
+			const record = {
+				...incoming,
+				id: randomUUID(),
+				name: uniqueName(incoming.name, templates.map((candidate) => candidate.name)),
+				version: 1,
+				createdAt: now,
+				updatedAt: now
+			};
+			templates.push(record);
+			await writeHistoryEntry(root, {
+				version: 1,
+				changeNote: "imported (renamed)",
+				createdAt: now,
+				record
+			});
+			renamed += 1;
+		}
+		await writeTemplates(root, templates.sort(compareRecords));
+		if (taxonomyDirty) await writeTaxonomy(root, state.tags);
+		return {
+			added,
+			skipped,
+			overwritten,
+			renamed,
+			failed
+		};
+	});
+}
+//#endregion
+//#region lib/types/template/ai.js
+/**
+* AI processing for the global template library: one explicit, controlled
+* model call per request behind the 模板库 view's explicit buttons (skeleton
+* generation, body optimization, variable extraction from a business
+* instance). Calls ride the shared `llm` Service Definition through the same
+* one-shot helper as the gather, competitor, create, and persona faces; the
+* processor runs one call at a time and retries only upstream rate limits.
+* Nothing is persisted here: the caller previews the draft and stores it
+* only through an explicit save.
+*/
+/** Timeout reason code carried by aborted template AI calls. */
+const TEMPLATE_AI_TIMEOUT_CODE = "TEMPLATE_AI_TIMEOUT";
+/** Prompt version of the skeleton generation face. */
+const TEMPLATE_GENERATE_PROMPT_VERSION = "template-generate@1";
+/** Prompt version of the body optimization face. */
+const TEMPLATE_OPTIMIZE_PROMPT_VERSION = "template-optimize@1";
+/** Prompt version of the variable extraction face. */
+const TEMPLATE_EXTRACT_PROMPT_VERSION = "template-extract@1";
+/** Longest single variable text field accepted from the model. */
+const TEMPLATE_AI_VARIABLE_TEXT_CAP = 500;
+/** Longest single default value accepted from the model. */
+const TEMPLATE_AI_VARIABLE_DEFAULT_CAP = 2e3;
+const CATEGORY_HINTS = {
+	topic: "选题模板：一条选题的结构化骨架（选题名、切入点、受众、预期形式等）",
+	creation: "创作提示词模板：喂给 AI 的创作指令骨架",
+	publish: "发布平台适配模板：某平台的字数、标签、排版规则骨架",
+	calendar: "日历排期模板：排期计划骨架",
+	retro: "复盘报告模板：复盘报告的结构框架",
+	interaction: "互动回复话术模板：多风格回复话术骨架",
+	persona: "画像表单模板：账号人设的预设表单骨架",
+	benchmark: "对标分析提示词模板：拆解对标账号的指令骨架",
+	intel: "信息素材采集模板：采集任务的配置或整理骨架",
+	dashboard: "仪表盘看板模板：预留分类，仅占位"
+};
+const GENERATE_SYSTEM_PROMPT = [
+	"你是内容创作工作台的模板库助手。根据用户描述，起草一个可复用的业务模板骨架。",
+	"要求：",
+	"- 正文用 Markdown，把可变部分写成 {{变量名}} 占位符，变量名只用英文字母、数字和下划线且以字母开头；",
+	"- 每个占位符在 variables 中给出一条元数据（name 与正文占位符完全一致、label 展示名、description 用途说明、defaultValue 默认值、required 是否必填）；",
+	"- 正文与占位符是唯一事实：variables 里不要出现正文没有的变量；",
+	"- 只输出一个 JSON 对象：{\"name\":\"模板名\",\"description\":\"一句话说明\",\"body\":\"Markdown 正文\",\"variables\":[…]}，不要输出其他任何文字。"
+].join("\n");
+const OPTIMIZE_SYSTEM_PROMPT = [
+	"你是内容创作工作台的模板库助手。按照用户要求优化给定的模板正文。",
+	"要求：",
+	"- 保留原有 {{变量名}} 占位符的名称与语义，除非用户明确要求改写；",
+	"- 直接在正文中落实用户的优化要求（精简、改写、调整结构等）；",
+	"- 只输出一个 JSON 对象：{\"body\":\"优化后的 Markdown 正文\"}，不要输出其他任何文字。"
+].join("\n");
+const EXTRACT_SYSTEM_PROMPT = [
+	"你是内容创作工作台的模板库助手。把给定的一份业务内容实例提炼成可复用的模板骨架。",
+	"要求：",
+	"- 把实例中每处会因次而异的内容改写为 {{变量名}} 占位符，变量名只用英文字母、数字和下划线且以字母开头；",
+	"- 固定结构、连接语、格式骨架保持原样；",
+	"- 每个占位符在 variables 中给出一条元数据（name 与正文占位符完全一致、label 展示名、description 原内容概括、defaultValue 用原实例的对应内容、required 一般为 true）；",
+	"- 只输出一个 JSON 对象：{\"body\":\"骨架 Markdown\",\"variables\":[…]}，不要输出其他任何文字。"
+].join("\n");
+/**
+* Extract the JSON object from a model answer: bare JSON parses directly,
+* prose-wrapped JSON is cut between the outermost braces. Model output is a
+* JSON boundary: anything that is not one object rejects here.
+* @param text - exact model text output.
+* @returns the parsed object.
+*/
+function extractJsonObject(text) {
+	const stripped = text.trim().replace(/^```(?:json)?\s*/u, "").replace(/\s*```$/u, "");
+	let parsed;
+	try {
+		parsed = JSON.parse(stripped);
+	} catch {
+		const start = stripped.indexOf("{");
+		const end = stripped.lastIndexOf("}");
+		if (start === -1 || end <= start) throw new Error("template AI output contains no JSON object");
+		try {
+			parsed = JSON.parse(stripped.slice(start, end + 1));
+		} catch {
+			throw new Error("template AI output is not valid JSON");
+		}
+	}
+	if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) throw new Error("template AI output is not a JSON object");
+	return parsed;
+}
+/**
+* Parse the model's variable list: entries with an unusable name drop into
+* `problems`, duplicate names keep their first occurrence, text fields are
+* trimmed and capped. The body stays the source of truth — a caller
+* reconciles these entries against the placeholders actually present.
+* @param value - the raw `variables` value from the model answer.
+* @returns the surviving variables plus every rejection.
+*/
+function parseTemplateVariablesOutput(value) {
+	const variables = [];
+	const problems = [];
+	if (!Array.isArray(value)) {
+		problems.push("variables is not an array");
+		return {
+			variables,
+			problems
+		};
+	}
+	const seen = /* @__PURE__ */ new Set();
+	for (const raw of value) {
+		if (typeof raw !== "object" || raw === null) {
+			problems.push("dropped one invalid variable entry");
+			continue;
+		}
+		const record = raw;
+		const name = typeof record.name === "string" ? record.name.trim() : "";
+		if (!TEMPLATE_VARIABLE_NAME_PATTERN.test(name)) {
+			problems.push(`dropped variable with unusable name: ${JSON.stringify(record.name).slice(0, 60)}`);
+			continue;
+		}
+		if (seen.has(name)) continue;
+		seen.add(name);
+		const text = (field, cap) => {
+			const raw = record[field];
+			return typeof raw === "string" ? raw.trim().slice(0, cap) : "";
+		};
+		variables.push({
+			name,
+			label: text("label", TEMPLATE_AI_VARIABLE_TEXT_CAP) || name,
+			description: text("description", TEMPLATE_AI_VARIABLE_TEXT_CAP),
+			defaultValue: text("defaultValue", TEMPLATE_AI_VARIABLE_DEFAULT_CAP),
+			required: record.required !== false
+		});
+	}
+	if (variables.length > 50) {
+		problems.push(`variables exceed ${String(50)}; kept the first ${String(50)}`);
+		variables.length = 50;
+	}
+	return {
+		variables,
+		problems
+	};
+}
+function draftText(record, field) {
+	const raw = record[field];
+	return typeof raw === "string" ? raw.trim() : "";
+}
+/**
+* Parse a generation answer into its full draft. A missing or oversized body
+* rejects; the suggested name and description are advisory and may be empty.
+* @param text - exact model text output.
+* @returns the draft plus every field-level rejection.
+*/
+function parseTemplateGenerateOutput(text) {
+	const record = extractJsonObject(text);
+	const body = draftText(record, "body").slice(0, TEMPLATE_MAX_BODY);
+	if (body.length === 0) throw new Error("template AI generate output has no body");
+	const parsed = parseTemplateVariablesOutput(record.variables);
+	return {
+		draft: {
+			name: draftText(record, "name").slice(0, 100),
+			description: draftText(record, "description").slice(0, 500),
+			body,
+			variables: parsed.variables
+		},
+		problems: parsed.problems
+	};
+}
+/**
+* Parse an optimization answer into its body-only draft. The caller merges
+* the body into its editor; name, description, and variables stay untouched.
+* @param text - exact model text output.
+* @returns the draft plus an empty problem list (kept for shape parity).
+*/
+function parseTemplateOptimizeOutput(text) {
+	const body = draftText(extractJsonObject(text), "body").slice(0, TEMPLATE_MAX_BODY);
+	if (body.length === 0) throw new Error("template AI optimize output has no body");
+	return {
+		draft: {
+			name: "",
+			description: "",
+			body,
+			variables: []
+		},
+		problems: []
+	};
+}
+/**
+* Parse an extraction answer into its skeleton draft: body plus the
+* proposed variable metadata.
+* @param text - exact model text output.
+* @returns the draft plus every field-level rejection.
+*/
+function parseTemplateExtractOutput(text) {
+	const record = extractJsonObject(text);
+	const body = draftText(record, "body").slice(0, TEMPLATE_MAX_BODY);
+	if (body.length === 0) throw new Error("template AI extract output has no body");
+	const parsed = parseTemplateVariablesOutput(record.variables);
+	return {
+		draft: {
+			name: "",
+			description: "",
+			body,
+			variables: parsed.variables
+		},
+		problems: parsed.problems
+	};
+}
+/**
+* The queued AI processor owned by the content-outputs gateway; not itself a
+* cordis service — the gateway carries the `llm` injection and the config.
+*/
+var TemplateAiProcessor = class {
+	ctx;
+	/** Validated policy, defaults resolved once at construction. */
+	resolved;
+	/** Single-slot call queue: one model call at a time, per the plugin AI policy. */
+	queue = new PQueue({ concurrency: 1 });
+	/**
+	* @param ctx - context exposing the registered LLM service.
+	* @param config - declared AI policy; defaults resolve here, fail loud.
+	*/
+	constructor(ctx, config) {
+		this.ctx = ctx;
+		this.resolved = resolveAiConfig(config);
+	}
+	/**
+	* Run one template AI operation. Rate limits retry with backoff; every
+	* other failure surfaces immediately so the UI can offer its own retry.
+	* @param request - the operation and its input.
+	* @returns the draft with its prompt version.
+	*/
+	async process(request) {
+		switch (request.operation) {
+			case "generate": return this.enqueue(() => this.generate(request));
+			case "optimize": return this.enqueue(() => this.optimize(request));
+			case "extract": return this.enqueue(() => this.extract(request));
+			default: throw new Error(`unsupported template AI operation: ${String(request.operation)}`);
+		}
+	}
+	/** One queued call with the rate-limit retry policy wrapped around it. */
+	enqueue(call) {
+		return this.queue.add(() => pRetry(call, {
+			retries: 4,
+			minTimeout: 1e3,
+			maxTimeout: 3e4,
+			factor: 2,
+			shouldRetry: isRateLimitError,
+			onFailedAttempt: (error) => honorRetryAfter(error)
+		}));
+	}
+	/** Draft a whole skeleton from a natural-language description. */
+	async generate(request) {
+		if (!TEMPLATE_CATEGORIES.includes(request.category)) throw new Error(`unknown template category: ${request.category}`);
+		const description = request.description.trim();
+		if (description.length === 0) throw new Error("template generation has no description");
+		const framed = [`模板分类：${CATEGORY_HINTS[request.category]}`, `用户描述：${description.slice(0, this.resolved.maxInputChars)}`].join("\n");
+		const parsed = parseTemplateGenerateOutput(await this.call(GENERATE_SYSTEM_PROMPT, framed));
+		return {
+			operation: "generate",
+			promptVersion: TEMPLATE_GENERATE_PROMPT_VERSION,
+			draft: parsed.draft,
+			problems: parsed.problems
+		};
+	}
+	/** Rewrite one existing body per the user's instruction. */
+	async optimize(request) {
+		const body = request.body.trim();
+		const instruction = request.instruction.trim();
+		if (body.length === 0) throw new Error("template optimization has no body");
+		if (instruction.length === 0) throw new Error("template optimization has no instruction");
+		const framed = [`优化要求：${instruction.slice(0, 2e3)}`, `模板正文：\n${body.slice(0, this.resolved.maxInputChars)}`].join("\n");
+		const parsed = parseTemplateOptimizeOutput(await this.call(OPTIMIZE_SYSTEM_PROMPT, framed));
+		return {
+			operation: "optimize",
+			promptVersion: TEMPLATE_OPTIMIZE_PROMPT_VERSION,
+			draft: parsed.draft,
+			problems: parsed.problems
+		};
+	}
+	/** Distill one business instance into a skeleton with placeholders. */
+	async extract(request) {
+		const content = request.content.trim();
+		if (content.length === 0) throw new Error("template extraction has no content");
+		const framed = content.slice(0, this.resolved.maxInputChars);
+		const parsed = parseTemplateExtractOutput(await this.call(EXTRACT_SYSTEM_PROMPT, framed));
+		return {
+			operation: "extract",
+			promptVersion: TEMPLATE_EXTRACT_PROMPT_VERSION,
+			draft: parsed.draft,
+			problems: parsed.problems
+		};
+	}
+	/** One framed one-shot call under the resolved policy. */
+	async call(system, framed) {
+		const policy = {
+			provider: this.resolved.provider,
+			model: this.resolved.model,
+			timeoutMs: this.resolved.timeoutMs,
+			maxOutputTokens: this.resolved.maxOutputTokens
+		};
+		return streamLlmText(this.ctx, policy, system, framed, TEMPLATE_AI_TIMEOUT_CODE);
+	}
+};
+//#endregion
+//#region lib/types/review/store.js
+/**
+* On-disk store for the review face: the `_review.json` sidecar manifest and
+* the report/template files under `outputs/<theme>/assets/review/`, plus the
+* global `_review-index.json` aggregation aid. `.dsh-output.json` is never
+* touched. Paths enter through the same plain-name guards as the other faces;
+* manifest and index writes commit through the shared atomic-rename lock. A
+* malformed manifest reads back with its bad entries dropped and named;
+* writes reject wholesale — the caller fixes its list, the store never
+* repairs it.
+*/
+/** Sidecar manifest file name inside the theme's `assets/` directory. */
+const REVIEW_MANIFEST_FILENAME = "_review.json";
+/** Global index file name at the outputs library root (underscore = invisible to the scanner). */
+const REVIEW_INDEX_FILENAME = "_review-index.json";
+/** Directory under `assets/` holding the reports and saved templates. */
+const REVIEW_DIRNAME = "review";
+/** Directory under `assets/review/` holding the generated and edited reports. */
+const REVIEW_REPORTS_DIRNAME = "reports";
+/** Directory under `assets/review/` holding saved viral-work templates. */
+const REVIEW_TEMPLATES_DIRNAME = "templates";
+/** Hard snapshot count per theme; the oldest same-work snapshots evict first past it. */
+const REVIEW_MAX_SNAPSHOTS = 2e4;
+/** Hard report size cap. */
+const REVIEW_MAX_REPORT_CHARS = 4e5;
+/** Whether the value is one well-typed platform id. */
+function isPlatformId$2(value) {
+	return typeof value === "string" && REVIEW_PLATFORMS.includes(value);
+}
+/** Whether the value is one well-typed review status. */
+function isStatus$1(value) {
+	return typeof value === "string" && REVIEW_STATUSES.includes(value);
+}
+/** Whether the value is one number or null — the missing-metric reading. */
+function isMetricValue(value) {
+	return value === null || typeof value === "number" && Number.isFinite(value);
+}
+/** Whether the value carries one well-typed metrics record. */
+function isMetrics(value) {
+	if (typeof value !== "object" || value === null) return false;
+	return Object.values(value).every(isMetricValue);
+}
+/** Whether the value is one content form or null. */
+function isContentType(value) {
+	return value === null || value === "image-text" || value === "video";
+}
+/** Whether the value is one binding method or null. */
+function isMatchMethod(value) {
+	return value === null || value === "url" || value === "title" || value === "manual";
+}
+/** Whether one stored snapshot has every field present and well-typed. */
+function isSnapshot(value) {
+	if (typeof value !== "object" || value === null) return false;
+	const record = value;
+	return typeof record.snapshotId === "string" && record.snapshotId.length > 0 && isPlatformId$2(record.platformId) && typeof record.platformWorkId === "string" && record.platformWorkId.length > 0 && typeof record.title === "string" && record.title.length > 0 && (record.publishedAt === null || typeof record.publishedAt === "string") && typeof record.capturedAt === "string" && record.capturedAt.length > 0 && (record.contentId === null || typeof record.contentId === "string") && isMatchMethod(record.matchMethod) && isContentType(record.contentType) && isMetrics(record.metrics);
+}
+/** Whether one stored task has every field present and well-typed. */
+function isTask(value) {
+	if (typeof value !== "object" || value === null) return false;
+	const record = value;
+	const period = record.period;
+	const filters = record.filters;
+	return typeof record.taskId === "string" && record.taskId.length > 0 && typeof record.name === "string" && record.name.length > 0 && typeof period === "object" && period !== null && typeof period.from === "string" && typeof period.to === "string" && typeof filters === "object" && filters !== null && Array.isArray(filters.platforms) && filters.platforms.every(isPlatformId$2) && Array.isArray(filters.contentTypes) && filters.contentTypes.every(isContentType) && (filters.workFilter === "all" || filters.workFilter === "viral" || filters.workFilter === "weak" || filters.workFilter === "longtail") && isStatus$1(record.status) && (record.reportFile === null || typeof record.reportFile === "string" && record.reportFile.length > 0) && typeof record.degraded === "boolean" && typeof record.createdAt === "string" && record.createdAt.length > 0;
+}
+/** Whether one stored baselines record is well-typed with finite ratios. */
+function isBaselines(value) {
+	if (typeof value !== "object" || value === null) return false;
+	const record = value;
+	return (record.source === "user" || record.source === "default") && typeof record.engagementRate === "number" && Number.isFinite(record.engagementRate) && record.engagementRate >= 0 && typeof record.collectRate === "number" && Number.isFinite(record.collectRate) && record.collectRate >= 0 && typeof record.updatedAt === "string";
+}
+/**
+* Parse and validate one review manifest. One malformed snapshot or task
+* never hides the rest: it is named in `problems` and dropped; an unreadable
+* envelope reads as an empty manifest with the rejection named.
+* @param raw - exact file contents.
+* @returns the manifest with only valid entries, plus every dropped one named.
+*/
+function parseReviewManifest(raw) {
+	const empty = {
+		formatVersion: 0,
+		baselines: {
+			...DEFAULT_BASELINES,
+			updatedAt: ""
+		},
+		snapshots: [],
+		tasks: []
+	};
+	let parsed;
+	try {
+		parsed = JSON.parse(raw);
+	} catch {
+		return {
+			manifest: empty,
+			problems: ["review manifest is not valid JSON"]
+		};
+	}
+	const record = parsed;
+	if (record.formatVersion !== 0) return {
+		manifest: empty,
+		problems: [`unsupported review manifest formatVersion ${String(record.formatVersion)}`]
+	};
+	const problems = [];
+	const snapshots = [];
+	if (Array.isArray(record.snapshots)) for (const entry of record.snapshots) if (isSnapshot(entry)) snapshots.push(entry);
+	else problems.push(`dropped one invalid review snapshot: ${JSON.stringify(entry).slice(0, 120)}`);
+	else problems.push("review manifest has no snapshots array");
+	const tasks = [];
+	if (Array.isArray(record.tasks)) for (const entry of record.tasks) if (isTask(entry)) tasks.push(entry);
+	else problems.push(`dropped one invalid review task: ${JSON.stringify(entry).slice(0, 120)}`);
+	else problems.push("review manifest has no tasks array");
+	return {
+		manifest: {
+			formatVersion: 0,
+			baselines: isBaselines(record.baselines) ? record.baselines : {
+				...DEFAULT_BASELINES,
+				updatedAt: ""
+			},
+			snapshots,
+			tasks
+		},
+		problems
+	};
+}
+/**
+* Validate one incoming manifest wholesale; used by the write path to reject
+* rather than repair caller mistakes.
+* @param manifest - the manifest the caller wants stored.
+* @throws when the envelope, baselines, or any entry violates the format.
+*/
+function assertReviewManifest(manifest) {
+	if (manifest.formatVersion !== 0) throw new Error(`unsupported review manifest formatVersion ${String(manifest.formatVersion)}`);
+	if (!isBaselines(manifest.baselines)) throw new Error("review manifest baselines are malformed");
+	for (const snapshot of manifest.snapshots) if (!isSnapshot(snapshot)) throw new Error(`invalid review snapshot: ${JSON.stringify(snapshot).slice(0, 120)}`);
+	for (const task of manifest.tasks) if (!isTask(task)) throw new Error(`invalid review task: ${JSON.stringify(task).slice(0, 120)}`);
+}
+/** Absolute path of the theme's `_review.json`. */
+function manifestPath(root, theme) {
+	return join(resolveAssetsDir(root, theme), REVIEW_MANIFEST_FILENAME);
+}
+/**
+* Read the theme's `_review.json`.
+* @param root - absolute outputs library root.
+* @param theme - outputs-project directory name.
+* @returns the manifest (null when absent) with only valid entries, every
+*   dropped one named in `problems`; callers must not write back while
+*   `problems` is non-empty.
+*/
+async function readReviewManifestFile(root, theme) {
+	let raw;
+	try {
+		raw = await readFile(manifestPath(root, theme), "utf8");
+	} catch {
+		return {
+			manifest: null,
+			problems: []
+		};
+	}
+	const { manifest, problems } = parseReviewManifest(raw);
+	return {
+		manifest,
+		problems
+	};
+}
+/**
+* Replace the theme's `_review.json` with an atomic, locked commit, and
+* refresh the theme's rows in the global `_review-index.json` under the same
+* commit sequence. Snapshot appends and task retries ride full-manifest
+* writes: the caller sends the complete next manifest.
+* @param root - absolute outputs library root.
+* @param theme - outputs-project directory name.
+* @param manifest - the complete next manifest.
+*/
+async function writeReviewManifestFile(root, theme, manifest) {
+	assertReviewManifest(manifest);
+	if (manifest.snapshots.length > 2e4) throw new Error(`review manifest exceeds the ${REVIEW_MAX_SNAPSHOTS}-snapshot cap`);
+	await writeAtomicallyLocked(manifestPath(root, theme), `${JSON.stringify(manifest, null, 2)}\n`);
+	const { doc } = await readReviewIndexFile(root);
+	await writeReviewIndexFile(root, {
+		formatVersion: 0,
+		rows: [...(doc?.rows ?? []).filter((row) => row.theme !== theme), ...manifest.tasks.map((task) => ({
+			taskId: task.taskId,
+			theme,
+			name: task.name,
+			period: task.period,
+			platforms: task.filters.platforms,
+			status: task.status,
+			updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+		}))]
+	});
+}
+/**
+* Read the global `_review-index.json`. A malformed file reads as empty with
+* the rejection named — the next manifest write rebuilds the theme's rows,
+* and the history list falls back to scanning.
+* @param root - absolute outputs library root.
+* @returns the index plus the parse problems.
+*/
+async function readReviewIndexFile(root) {
+	const file = join(root, REVIEW_INDEX_FILENAME);
+	let raw;
+	try {
+		raw = await readFile(file, "utf8");
+	} catch {
+		return {
+			doc: null,
+			problems: []
+		};
+	}
+	let parsed;
+	try {
+		parsed = JSON.parse(raw);
+	} catch (error) {
+		return {
+			doc: null,
+			problems: [`review index is not valid JSON: ${error instanceof Error ? error.message : String(error)}`]
+		};
+	}
+	const record = parsed;
+	if (record.formatVersion !== 0 || !Array.isArray(record.rows)) return {
+		doc: null,
+		problems: ["unknown review index format; rows rebuild on the next write"]
+	};
+	const rows = [];
+	const problems = [];
+	record.rows.forEach((entry, position) => {
+		const candidate = entry;
+		const period = candidate.period;
+		if (typeof candidate.taskId === "string" && typeof candidate.theme === "string" && typeof candidate.name === "string" && typeof period === "object" && period !== null && typeof period.from === "string" && typeof period.to === "string" && Array.isArray(candidate.platforms) && candidate.platforms.every(isPlatformId$2) && isStatus$1(candidate.status) && typeof candidate.updatedAt === "string") rows.push({
+			taskId: candidate.taskId,
+			theme: candidate.theme,
+			name: candidate.name,
+			period: {
+				from: period.from,
+				to: period.to
+			},
+			platforms: candidate.platforms,
+			status: candidate.status,
+			updatedAt: candidate.updatedAt
+		});
+		else problems.push(`review index row #${position} is malformed and was dropped`);
+	});
+	return {
+		doc: {
+			formatVersion: 0,
+			rows
+		},
+		problems
+	};
+}
+/** Write the global index document (projection only — no validation round-trip). */
+async function writeReviewIndexFile(root, doc) {
+	await writeAtomicallyLocked(join(root, REVIEW_INDEX_FILENAME), `${JSON.stringify(doc, null, 2)}\n`);
+}
+/** The UTC day bucket of one instant: the same-day overwrite key of the commit face. */
+function utcDayKey(iso) {
+	return iso.slice(0, 10);
+}
+/**
+* Commit confirmed import rows as snapshots: append new works, overwrite the
+* same UTC day's snapshot of a known work (idempotent re-import), and keep
+* every historical day (long-tail detection depends on the history).
+* @param root - absolute outputs library root.
+* @param request - the theme, platform, and the confirmed rows.
+* @returns the append and overwrite accounting.
+*/
+async function commitReviewImportFile(root, request) {
+	const { manifest, problems } = await readReviewManifestFile(root, request.theme);
+	if (problems.length > 0) throw new Error(`review manifest unreadable: ${problems[0]}`);
+	const today = (/* @__PURE__ */ new Date()).toISOString();
+	const current = manifest ?? {
+		formatVersion: 0,
+		baselines: {
+			...DEFAULT_BASELINES,
+			updatedAt: ""
+		},
+		snapshots: [],
+		tasks: []
+	};
+	let added = 0;
+	let overwritten = 0;
+	const snapshots = [...current.snapshots];
+	for (const row of request.rows) {
+		const capturedAt = today;
+		const existingIndex = snapshots.findIndex((snapshot) => snapshot.platformId === request.platformId && snapshot.platformWorkId === row.platformWorkId && utcDayKey(snapshot.capturedAt) === utcDayKey(capturedAt));
+		const snapshot = {
+			snapshotId: crypto.randomUUID(),
+			platformId: request.platformId,
+			platformWorkId: row.platformWorkId,
+			title: row.title,
+			publishedAt: row.publishedAt,
+			capturedAt,
+			contentId: null,
+			matchMethod: null,
+			contentType: row.contentType,
+			metrics: row.metrics
+		};
+		if (existingIndex === -1) {
+			snapshots.push(snapshot);
+			added += 1;
+		} else {
+			snapshots[existingIndex] = snapshot;
+			overwritten += 1;
+		}
+	}
+	await writeReviewManifestFile(root, request.theme, {
+		...current,
+		snapshots
+	});
+	return {
+		added,
+		overwritten
+	};
+}
+/**
+* Remove one review task and delete its report file. Snapshots and bindings
+* survive: other tasks and the dashboard reuse them.
+* @param root - absolute outputs library root.
+* @param theme - outputs-project directory name.
+* @param taskId - the task to remove; an unknown id rejects so a stale UI
+*   cannot silently no-op.
+*/
+async function deleteReviewTaskFile(root, theme, taskId) {
+	const { manifest, problems } = await readReviewManifestFile(root, theme);
+	if (manifest === null) throw new Error(`review manifest unreadable: ${problems[0] ?? "absent"}`);
+	const task = manifest.tasks.find((candidate) => candidate.taskId === taskId);
+	if (task === void 0) throw new Error(`unknown review task: ${taskId}`);
+	const tasks = manifest.tasks.filter((candidate) => candidate.taskId !== taskId);
+	await writeReviewManifestFile(root, theme, {
+		...manifest,
+		tasks
+	});
+	if (task.reportFile !== null) await unlink(resolveStoredReportPath(root, theme, task.reportFile)).catch(() => void 0);
+}
+/** Whether one plain file name is safe to place under `assets/review/`. */
+function isPlainFileName(file) {
+	return file.length > 0 && !file.includes("/") && !file.includes("\\") && file !== "." && file !== ".." && !file.startsWith(".") && !/[\u0000-\u001f]/.test(file);
+}
+/** Guarded absolute path of one file under `assets/review/<subdir>/`. */
+function resolveReviewFilePath(root, theme, subdir, file) {
+	if (!isPlainFileName(file)) throw new Error(`invalid review file name: ${JSON.stringify(file)}`);
+	return join(resolveAssetsDir(root, theme), REVIEW_DIRNAME, subdir, file);
+}
+/** Guarded absolute path of one stored report reference (`reports/<name>.md`). */
+function resolveStoredReportPath(root, theme, reference) {
+	const prefix = `${REVIEW_REPORTS_DIRNAME}/`;
+	if (!reference.startsWith(prefix)) throw new Error(`invalid review report reference: ${JSON.stringify(reference)}`);
+	return resolveReviewFilePath(root, theme, REVIEW_REPORTS_DIRNAME, reference.slice(prefix.length));
+}
+/**
+* Write one report file under `assets/review/reports/`. The caller owns the
+* name (`report-<taskId>-<ts>.md`) so every save is a new file — the
+* generated original is never overwritten.
+* @param root - absolute outputs library root.
+* @param theme - outputs-project directory name.
+* @param file - plain report file name.
+* @param content - the complete report markdown.
+* @returns the stored reference, relative to `assets/review/`.
+*/
+async function writeReviewReportFile(root, theme, file, content) {
+	if (content.length > 4e5) throw new Error(`review report exceeds the ${REVIEW_MAX_REPORT_CHARS}-character cap`);
+	await mkdir(join(resolveAssetsDir(root, theme), REVIEW_DIRNAME, REVIEW_REPORTS_DIRNAME), { recursive: true });
+	await writeAtomicallyLocked(resolveReviewFilePath(root, theme, REVIEW_REPORTS_DIRNAME, file), content);
+	return { file: `${REVIEW_REPORTS_DIRNAME}/${file}` };
+}
+/**
+* Read one report file back from its stored reference.
+* @returns the markdown, or an empty record when the file does not exist.
+*/
+async function readReviewReportFile(root, theme, reference) {
+	const path = resolveStoredReportPath(root, theme, reference);
+	try {
+		return { content: await readFile(path, "utf8") };
+	} catch {
+		return {};
+	}
+}
+/**
+* Save one viral-work template under `assets/review/templates/`.
+* @param root - absolute outputs library root.
+* @param theme - outputs-project directory name.
+* @param file - plain template file name.
+* @param content - the template markdown.
+* @returns the stored reference, relative to `assets/review/`.
+*/
+async function writeReviewTemplateFile(root, theme, file, content) {
+	if (content.length > 4e5) throw new Error(`review template exceeds the ${REVIEW_MAX_REPORT_CHARS}-character cap`);
+	await mkdir(join(resolveAssetsDir(root, theme), REVIEW_DIRNAME, REVIEW_TEMPLATES_DIRNAME), { recursive: true });
+	await writeAtomicallyLocked(resolveReviewFilePath(root, theme, REVIEW_TEMPLATES_DIRNAME, file), content);
+	return { file: `${REVIEW_TEMPLATES_DIRNAME}/${file}` };
+}
+/**
+* List saved template file names under `assets/review/templates/`.
+* @returns the sorted plain file names.
+*/
+async function listReviewTemplatesFile(root, theme) {
+	const dir = join(resolveAssetsDir(root, theme), REVIEW_DIRNAME, REVIEW_TEMPLATES_DIRNAME);
+	let names;
+	try {
+		names = await readdir(dir);
+	} catch {
+		return [];
+	}
+	return names.filter((name) => isTemplateFileName(name)).sort();
+}
+/** Whether one templates-directory entry is a plain markdown file name. */
+function isTemplateFileName(name) {
+	return name.endsWith(".md") && !name.startsWith(".") && !name.includes("/") && !name.includes("\\");
+}
+/**
+* Read one saved template's content.
+* @returns the markdown, or an empty record when the file does not exist.
+*/
+async function readReviewTemplateFile(root, theme, file) {
+	try {
+		return { content: await readFile(resolveReviewFilePath(root, theme, REVIEW_TEMPLATES_DIRNAME, file), "utf8") };
+	} catch {
+		return {};
+	}
+}
+//#endregion
+//#region lib/types/review/importers.js
+/**
+* Import parsing for the review face: RFC 4180 CSV text in, validated and
+* normalized work rows out. Nothing touches disk here — the preview returns
+* parsed rows plus every rejection, and only the confirmed rows land as
+* snapshots through the commit face. Column mapping is data-driven per
+* platform (aliased header names, since export templates differ per platform
+* and per release); unmapped columns are surfaced, never silently dropped.
+*/
+/** Hard input cap: the largest CSV text one parse accepts. */
+const REVIEW_MAX_IMPORT_CHARS = 2e6;
+/** Hard row cap: the most data rows one file may carry. */
+const REVIEW_MAX_IMPORT_ROWS = 5e3;
+/**
+* Parse one CSV document into physical rows: RFC 4180 quoted fields with
+* doubled-quote escapes, CR / LF / CRLF line endings, and a stripped UTF-8
+* BOM. A quote inside an unquoted field is literal; a newline inside quotes
+* keeps the physical-row count aligned with the caller's rejection numbering.
+* @param text - the raw file text.
+* @returns the rows, each a list of field strings.
+*/
+function parseCsvRows(text) {
+	const body = text.charCodeAt(0) === 65279 ? text.slice(1) : text;
+	const rows = [];
+	let row = [];
+	let field = "";
+	let inQuotes = false;
+	let index = 0;
+	while (index < body.length) {
+		const char = body[index];
+		if (inQuotes) {
+			if (char === "\"") {
+				if (body[index + 1] === "\"") {
+					field += "\"";
+					index += 2;
+					continue;
+				}
+				inQuotes = false;
+				index += 1;
+				continue;
+			}
+			field += char;
+			index += 1;
+			continue;
+		}
+		if (char === "\"") {
+			inQuotes = true;
+			index += 1;
+			continue;
+		}
+		if (char === ",") {
+			row.push(field);
+			field = "";
+			index += 1;
+			continue;
+		}
+		if (char === "\r" || char === "\n") {
+			row.push(field);
+			field = "";
+			rows.push(row);
+			row = [];
+			index += char === "\r" && body[index + 1] === "\n" ? 2 : 1;
+			continue;
+		}
+		field += char;
+		index += 1;
+	}
+	if (field.length > 0 || row.length > 0) {
+		row.push(field);
+		rows.push(row);
+	}
+	return rows;
+}
+/** One header alias list per metric field; first match wins. Matching normalizes case, spaces, and full-width parens. */
+const METRIC_COLUMN_ALIASES = {
+	impressions: [
+		"曝光量",
+		"曝光",
+		"展现量",
+		"展现",
+		"impressions"
+	],
+	reads: [
+		"观看量",
+		"阅读数",
+		"阅读",
+		"播放量",
+		"播放",
+		"阅读量",
+		"views",
+		"reads"
+	],
+	likes: [
+		"点赞量",
+		"点赞数",
+		"点赞",
+		"likes"
+	],
+	collects: [
+		"收藏量",
+		"收藏数",
+		"收藏",
+		"collects"
+	],
+	comments: [
+		"评论量",
+		"评论数",
+		"评论",
+		"弹幕量",
+		"comments"
+	],
+	shares: [
+		"分享量",
+		"分享数",
+		"分享",
+		"转发量",
+		"转发数",
+		"转发",
+		"shares"
+	],
+	followersGained: [
+		"涨粉量",
+		"涨粉数",
+		"涨粉",
+		"新增粉丝",
+		"followers"
+	],
+	coverCtr: [
+		"封面点击率",
+		"点击率",
+		"ctr"
+	]
+};
+/** Identity column aliases per platform: work id, title, publish time, content form. */
+const IDENTITY_COLUMN_ALIASES = {
+	workId: [
+		"笔记id",
+		"作品id",
+		"视频id",
+		"文章id",
+		"bv号",
+		"工作id",
+		"id"
+	],
+	title: [
+		"笔记标题",
+		"作品标题",
+		"标题",
+		"图文标题",
+		"title"
+	],
+	publishedAt: [
+		"发布时间",
+		"发表时间",
+		"刊登时间",
+		"发布日期",
+		"publishedat",
+		"时间"
+	],
+	contentType: [
+		"笔记类型",
+		"作品类型",
+		"内容类型",
+		"类型",
+		"contenttype"
+	]
+};
+/** Content-form value aliases: anything else reads as null (unknown form). */
+const CONTENT_TYPE_ALIASES = {
+	"image-text": [
+		"图文",
+		"图片",
+		"笔记",
+		"文章",
+		"image-text"
+	],
+	video: [
+		"视频",
+		"短视频",
+		"video"
+	]
+};
+/** Normalize one header cell for alias matching: case, spaces, and bracketed qualifier suffixes go away. */
+function normalizeHeader$1(cell) {
+	return cell.trim().toLowerCase().replace(/\s+/gu, "").replace(/[(（][^)）]*[)）]/gu, "");
+}
+/**
+* Map one CSV header row onto the internal fields by alias.
+* @param header - the raw header cells.
+* @returns each field's column index (-1 when no header matched), plus the
+*   unmatched header names.
+*/
+function mapImportColumns(header) {
+	const columns = {};
+	for (const key of Object.keys(METRIC_COLUMN_ALIASES)) columns[key] = -1;
+	for (const key of Object.keys(IDENTITY_COLUMN_ALIASES)) columns[key] = -1;
+	const unknownColumns = [];
+	for (let index = 0; index < header.length; index += 1) {
+		const cell = normalizeHeader$1(header[index] ?? "");
+		if (cell.length === 0) continue;
+		let matched = false;
+		for (const [field, aliases] of [...Object.entries(METRIC_COLUMN_ALIASES), ...Object.entries(IDENTITY_COLUMN_ALIASES)]) {
+			if (columns[field] !== -1) continue;
+			if (aliases.some((alias) => normalizeHeader$1(alias) === cell)) {
+				columns[field] = index;
+				matched = true;
+				break;
+			}
+		}
+		if (!matched) unknownColumns.push(header[index].trim());
+	}
+	return {
+		columns,
+		unknownColumns
+	};
+}
+/**
+* Normalize one metric cell: numbers pass through, `万`/`w` suffixed values
+* scale to units, blanks and dashes read as null. Any other text rejects.
+* @param cell - the raw cell, or undefined when the column is absent.
+* @returns the number, or null when blank.
+*/
+function parseMetricCell(cell) {
+	if (cell === void 0) return null;
+	const trimmed = cell.trim();
+	if (trimmed.length === 0 || trimmed === "-" || trimmed === "—" || trimmed === "--") return null;
+	const scaled = trimmed.match(/^(-?[\d.,]+)\s*[万wW]$/u);
+	if (scaled !== null) {
+		const base = Number(scaled[1].replace(/,/gu, ""));
+		if (Number.isFinite(base)) return Math.round(base * 1e4);
+	}
+	const value = Number(trimmed.replace(/,/gu, "").replace(/%/gu, ""));
+	if (!Number.isFinite(value)) throw new Error(`non-numeric metric value "${trimmed}"`);
+	return Math.round(value);
+}
+/**
+* Normalize one date cell to an ISO 8601 instant. Accepts ISO strings and the
+* `YYYY/M/D H:m[:s]` / `YYYY-M-D` forms the platform exports use; blank reads
+* as null; anything else rejects.
+* @param cell - the raw cell, or undefined when the column is absent.
+* @returns the ISO instant, or null when blank.
+*/
+function parseDateCell(cell) {
+	if (cell === void 0) return null;
+	const trimmed = cell.trim();
+	if (trimmed.length === 0 || trimmed === "-") return null;
+	const slash = trimmed.match(/^(\d{4})[/-](\d{1,2})[/-](\d{1,2})(?:[ T](\d{1,2}):(\d{1,2})(?::(\d{1,2}))?)?$/u);
+	if (slash !== null) {
+		const [, year, month, day, hour = "0", minute = "0", second = "0"] = slash;
+		const date = new Date(Date.UTC(Number(year), Number(month) - 1, Number(day), Number(hour), Number(minute), Number(second)));
+		if (!Number.isNaN(date.getTime())) return date.toISOString();
+	}
+	const parsed = new Date(trimmed);
+	if (!Number.isNaN(parsed.getTime())) return parsed.toISOString();
+	throw new Error(`unparseable date "${trimmed}"`);
+}
+/** Resolve one content-form cell to its union value; unknown text reads as null. */
+function parseContentTypeCell(cell) {
+	if (cell === void 0) return null;
+	const normalized = normalizeHeader$1(cell);
+	if (normalized.length === 0) return null;
+	for (const key of ["image-text", "video"]) if (CONTENT_TYPE_ALIASES[key].some((alias) => normalizeHeader$1(alias) === normalized)) return key;
+	return null;
+}
+/**
+* Parse one import file into the preview: mapped rows, per-row rejections
+* with 1-based physical row numbers, and the unmatched header names. The
+* work-id column must resolve or the whole file rejects — rows without an
+* identity cannot dedupe.
+* @param request - the platform, the file name, and the raw CSV text.
+* @returns the preview; nothing is stored.
+*/
+function parseImportFile(request) {
+	if (!REVIEW_PLATFORMS.includes(request.platformId)) throw new Error(`invalid review platformId: ${String(request.platformId)}`);
+	if (request.text.length > 2e6) throw new Error(`review import exceeds the ${REVIEW_MAX_IMPORT_CHARS}-character cap`);
+	const physicalRows = parseCsvRows(request.text).filter((row) => row.some((cell) => cell.trim().length > 0));
+	if (physicalRows.length === 0) throw new Error("review import file is empty");
+	const header = physicalRows[0];
+	const { columns, unknownColumns } = mapImportColumns(header);
+	if (columns.workId === -1 || columns.title === -1) throw new Error("review import needs resolvable work-id and title columns");
+	const rows = [];
+	const rejected = [];
+	const seenWorkIds = /* @__PURE__ */ new Set();
+	for (let rowIndex = 1; rowIndex < physicalRows.length; rowIndex += 1) {
+		const rowNumber = rowIndex + 1;
+		if (rows.length + rejected.length >= 5e3) {
+			rejected.push({
+				row: rowNumber,
+				reason: `exceeds the ${REVIEW_MAX_IMPORT_ROWS}-row cap`
+			});
+			break;
+		}
+		const cells = physicalRows[rowIndex];
+		try {
+			const workId = (cells[columns.workId] ?? "").trim();
+			const title = (cells[columns.title] ?? "").trim().slice(0, 300);
+			if (workId.length === 0) throw new Error("missing work id");
+			if (title.length === 0) throw new Error("missing title");
+			if (seenWorkIds.has(workId)) throw new Error(`duplicate work id "${workId}" in file`);
+			seenWorkIds.add(workId);
+			const metrics = {};
+			for (const field of Object.keys(METRIC_COLUMN_ALIASES)) metrics[field] = parseMetricCell(columns[field] === -1 ? void 0 : cells[columns[field]]);
+			const row = {
+				platformWorkId: workId,
+				title,
+				publishedAt: parseDateCell(columns.publishedAt === -1 ? void 0 : cells[columns.publishedAt]),
+				contentType: parseContentTypeCell(columns.contentType === -1 ? void 0 : cells[columns.contentType]),
+				metrics
+			};
+			rows.push(row);
+		} catch (error) {
+			rejected.push({
+				row: rowNumber,
+				reason: error instanceof Error ? error.message : String(error)
+			});
+		}
+	}
+	return {
+		fileName: request.fileName,
+		platformId: request.platformId,
+		rows,
+		rejected,
+		unknownColumns,
+		totalRows: rows.length + rejected.length
+	};
+}
+/**
+* The platform export shapes the importers document as their baseline
+* (verified against each platform's center export naming as of 2026-09;
+* aliases absorb the drift). UI copy may surface this list verbatim.
+*/
+const PLATFORM_IMPORT_HINTS = {
+	xhs: "小红书专业号数据中心「笔记列表明细表」导出（CSV）",
+	douyin: "抖音创作者中心作品数据导出（CSV）",
+	gzh: "公众号内容分析已发表内容导出（CSV）",
+	bilibili: "B站创作中心播放效果导出（CSV）"
+};
+//#endregion
+//#region lib/types/review/ai.js
+/**
+* AI processing for the review face: one explicit, controlled model call per
+* request behind the single-work diagnosis button and the period-report
+* button. Calls ride the same shared `llm` Service Definition, one-shot
+* pattern, queue, and rate-limit retry policy as every other AI face; nothing
+* is persisted here — the caller stores the markdown through the report
+* faces. Inputs are aggregate digests and front-truncated excerpts only;
+* full bodies never ride a report call.
+*/
+/** Timeout reason code carried by aborted review AI calls. */
+const REVIEW_AI_TIMEOUT_CODE = "REVIEW_AI_TIMEOUT";
+/** Prompt vocabulary version pinned into every result for provenance. */
+const REVIEW_PROMPT_VERSION = 1;
+/** The fixed six report sections; the template is frozen so outputs stay snapshot-testable. */
+const REVIEW_REPORT_SECTIONS = [
+	"周期数据概览",
+	"爆款内容分析",
+	"低效内容诊断",
+	"受众反馈总结",
+	"可落地优化建议",
+	"下期行动清单"
+];
+/** Chinese labels of the platforms, as the prompts phrase them. */
+const PLATFORM_LABELS = {
+	xhs: "小红书",
+	douyin: "抖音",
+	gzh: "公众号",
+	bilibili: "B站"
+};
+/** Verdict labels the diagnosis prompt argues from — the same classes the UI thresholds produced. */
+const VERDICT_LABELS = {
+	viral: "爆款",
+	weak: "低表现",
+	neutral: "表现中性"
+};
+/** Whether the value is one well-typed platform id. */
+function isPlatformId$1(value) {
+	return typeof value === "string" && REVIEW_PLATFORMS.includes(value);
+}
+/**
+* Render one metrics record as a compact Chinese facts line, skipping null
+* metrics entirely so the model never sees faked zeros.
+* @param metrics - the metrics with nulls for missing platform fields.
+* @returns the facts line.
+*/
+function metricsLine(metrics) {
+	const parts = [];
+	if (metrics.impressions !== null) parts.push(`曝光 ${metrics.impressions}`);
+	if (metrics.reads !== null) parts.push(`阅读/播放 ${metrics.reads}`);
+	if (metrics.likes !== null) parts.push(`点赞 ${metrics.likes}`);
+	if (metrics.collects !== null) parts.push(`收藏 ${metrics.collects}`);
+	if (metrics.comments !== null) parts.push(`评论 ${metrics.comments}`);
+	if (metrics.shares !== null) parts.push(`转发/分享 ${metrics.shares}`);
+	if (metrics.followersGained !== null) parts.push(`涨粉 ${metrics.followersGained}`);
+	if (metrics.coverCtr !== null) parts.push(`封面点击率 ${(metrics.coverCtr * 100).toFixed(1)}%`);
+	return parts.length > 0 ? parts.join("，") : "（该平台未提供指标数据）";
+}
+/** Render one engagement rate as a percent label, or the missing-metric dash. */
+function rateLabel(rate) {
+	return rate === null ? "—" : `${(rate * 100).toFixed(1)}%`;
+}
+/**
+* Render one work digest as the numbered block the report prompt embeds.
+* @param digest - the digest.
+* @param index - the 1-based position in its list.
+* @returns the block text.
+*/
+function digestBlock(digest, index) {
+	return [
+		`${index}. 《${digest.title}》（${PLATFORM_LABELS[digest.platformId]}，${digest.contentType ?? "形式未知"}，发布于 ${digest.publishedAt ?? "未知时间"}）`,
+		`   互动率 ${rateLabel(digest.engagementRate)}，收藏率 ${rateLabel(digest.collectRate)}，阅读/播放 ${digest.reads ?? "—"}`,
+		`   正文摘录：${digest.excerpt.length > 0 ? digest.excerpt : "（无）"}`
+	].join("\n");
+}
+/**
+* Validate one diagnosis request and frame its user prompt. The draft text
+* must already be front-truncated by the caller; an absent body is legal —
+* the diagnosis then argues from metrics and tags alone.
+* @param request - the raw diagnosis request.
+* @param maxInputChars - the combined prompt character cap.
+* @returns the framed user prompt.
+*/
+function frameAnalyzeRequest(request, maxInputChars) {
+	if (!isPlatformId$1(request.platformId)) throw new Error(`invalid review platformId: ${String(request.platformId)}`);
+	if (request.title.trim().length === 0) throw new Error("review diagnosis needs a non-empty title");
+	const lines = [
+		`作品：《${request.title}》`,
+		`平台：${PLATFORM_LABELS[request.platformId]}`,
+		`内容形式：${request.contentType ?? "未知"}`,
+		`发布时间：${request.publishedAt ?? "未知"}`,
+		`数据表现：${metricsLine(request.metrics)}`,
+		`初判类别：${VERDICT_LABELS[request.verdict]}`
+	];
+	if (request.tags.length > 0) lines.push(`标签：${request.tags.join("、")}`);
+	lines.push(`正文（可能截断）：\n${request.draftText ?? "（无正文引用）"}`);
+	return lines.join("\n").slice(0, maxInputChars);
+}
+/**
+* Build the system prompt for one single-work diagnosis.
+* @param request - the diagnosis request.
+* @returns the complete system prompt.
+*/
+function analyzeSystemPrompt(request) {
+	return [
+		"你是内容创作工作台的复盘诊断助手。基于给定的作品信息、数据表现与正文，做一次内容诊断。",
+		request.verdict === "viral" ? "这件作品是爆款。分析：标题、开头钩子、选题、结构哪部分效果好；提炼 2-4 个可复用元素，每个说明为什么可复用。" : "这件作品数据低。诊断：选题与受众匹配度、开头、标签、发布时段可能存在的问题；每个问题给出一句可操作的改进方向。",
+		"用 Markdown 输出：一个二级标题（含作品名），下面 3-5 个要点，每点一行到两行。",
+		"只依据给定事实，不要编造未提供的数据；不要输出解释或前言。"
+	].join("\n");
+}
+/**
+* Validate one report request and frame its user prompt: aggregate summary
+* plus the top/bottom digest blocks, nothing else.
+* @param request - the raw report request.
+* @param maxInputChars - the combined prompt character cap.
+* @returns the framed user prompt.
+*/
+function frameReportRequest(request, maxInputChars) {
+	if (request.name.trim().length === 0) throw new Error("review report needs a non-empty name");
+	if (!request.platforms.every(isPlatformId$1)) throw new Error("review report carries an invalid platform id");
+	return [
+		`复盘名称：${request.name}`,
+		`周期：${request.period.from} 至 ${request.period.to}`,
+		`覆盖平台：${request.platforms.map((platform) => PLATFORM_LABELS[platform]).join("、")}`,
+		`基准：互动率 ${(request.baselines.engagementRate * 100).toFixed(1)}%，收藏率 ${(request.baselines.collectRate * 100).toFixed(1)}%（${request.baselines.source === "default" ? "内置默认" : "用户设置"}）`,
+		"",
+		"## 周期汇总",
+		`作品总数 ${request.summary.totalWorks}；爆款 ${request.summary.viralCount}；低表现 ${request.summary.weakCount}；长尾 ${request.summary.longtailCount}`,
+		`平均互动率 ${rateLabel(request.summary.avgEngagementRate)}；总涨粉 ${request.summary.totalFollowersGained ?? "—"}`,
+		"分平台（曝光不跨平台求和）：",
+		...Object.entries(request.summary.perPlatform).filter(([, value]) => value.works > 0).map(([platform, value]) => `  ${PLATFORM_LABELS[platform]}：${value.works} 件，曝光 ${value.impressions ?? "—"}，互动 ${value.engagement ?? "—"}`),
+		"",
+		`## 表现最好的 ${request.topWorks.length} 件`,
+		...request.topWorks.map((digest, index) => digestBlock(digest, index + 1)),
+		"",
+		`## 表现最差的 ${request.bottomWorks.length} 件`,
+		...request.bottomWorks.map((digest, index) => digestBlock(digest, index + 1))
+	].join("\n").slice(0, maxInputChars);
+}
+/**
+* Build the system prompt for one period report: the frozen six-section
+* template, with the audience section pinned to its placeholder while the
+* interaction view is absent.
+* @returns the complete system prompt.
+*/
+function reportSystemPrompt() {
+	return [
+		"你是内容创作工作台的复盘报告助手。基于给定的周期汇总与作品摘录，输出一份结构化复盘报告（Markdown）。",
+		"报告必须严格按以下六个二级标题组织，标题原文照抄：",
+		...REVIEW_REPORT_SECTIONS.map((section, index) => `${index + 1}. ## ${section}`),
+		"其中「受众反馈总结」本期没有评论数据来源，正文固定写一句话说明该数据暂缺、待互动栏目上线后补充。",
+		"「爆款内容分析」从表现最好的作品提炼共性特征与可复用策略；「低效内容诊断」从表现最差的作品归纳共性问题与规避要点；",
+		"「可落地优化建议」覆盖选题方向、标题风格、发布时段、内容形式、标签策略五方面，每条建议必须能直接执行；",
+		"「下期行动清单」输出 3-5 条带动词开头的具体行动。",
+		"只依据给定事实与数字，不要编造数据；只输出报告本身，不要解释或前言。"
+	].join("\n");
+}
+/**
+* The queued AI processor behind the review view; not itself a cordis
+* service — the gateway carries the `llm` injection and passes the resolved
+* policy in.
+*/
+var ReviewAiProcessor = class {
+	ctx;
+	policy;
+	/** Single-slot call queue: one model call at a time, shared policy with the other faces. */
+	queue = new PQueue({ concurrency: 1 });
+	/**
+	* @param ctx - context exposing the registered LLM service.
+	* @param policy - the gateway's already-resolved AI policy.
+	*/
+	constructor(ctx, policy) {
+		this.ctx = ctx;
+		this.policy = policy;
+	}
+	/**
+	* Diagnose one work through the model. Rate limits retry with backoff;
+	* every other failure surfaces immediately so the UI can offer its retry
+	* button.
+	* @param request - the diagnosis request.
+	* @returns the markdown diagnosis with its provenance.
+	*/
+	async analyzeWork(request) {
+		const framed = frameAnalyzeRequest(request, this.policy.maxInputChars);
+		return this.queued(analyzeSystemPrompt(request), framed);
+	}
+	/**
+	* Generate one period report through the model. The caller stores the
+	* markdown; on failure it renders the data-only fallback itself.
+	* @param request - the report request.
+	* @returns the markdown report with its provenance.
+	*/
+	async generateReport(request) {
+		const framed = frameReportRequest(request, this.policy.maxInputChars);
+		return this.queued(reportSystemPrompt(), framed);
+	}
+	/** One queued call with the shared rate-limit retry policy wrapped around it. */
+	queued(system, framed) {
+		return this.queue.add(() => pRetry(async () => {
+			return {
+				markdown: await streamLlmText(this.ctx, this.policy, system, framed, REVIEW_AI_TIMEOUT_CODE),
+				model: this.policy.model,
+				promptVersion: 1
+			};
+		}, {
+			retries: 4,
+			minTimeout: 1e3,
+			maxTimeout: 3e4,
+			factor: 2,
+			shouldRetry: isRateLimitError,
+			onFailedAttempt: (error) => honorRetryAfter(error)
+		}));
+	}
+};
+//#endregion
+//#region lib/types/interactions/store.js
+/**
+* On-disk store for the interactions face: the library-root
+* `_interactions.json` system file (underscore = invisible to the outputs
+* scanner). `.dsh-output.json`, theme directories, and every other face's
+* file are never touched. One malformed conversation never hides the rest —
+* it is named in `problems` and dropped; a malformed envelope reads as an
+* empty manifest with the rejection named. Writes reject wholesale (the
+* caller fixes its list, the store never repairs it) and recompute the
+* derived summary under the same commit, so the cache can never drift from
+* the conversations it summarizes.
+*/
+/** System file name of the interactions manifest at the library root. */
+const INTERACTIONS_FILENAME = "_interactions.json";
+/** Hard conversation count; the write path rejects past it. */
+const INTERACTIONS_MAX_CONVERSATIONS = 2e4;
+/** Hard messages-per-conversation cap; the write path rejects past it. */
+const INTERACTIONS_MAX_MESSAGES = 5e3;
+const ISO_PATTERN = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/;
+function isIsoTimestamp(value) {
+	return typeof value === "string" && ISO_PATTERN.test(value) && !Number.isNaN(Date.parse(value));
+}
+function isTrimmedNonEmpty(value) {
+	return typeof value === "string" && value.trim().length > 0;
+}
+function isNullableString(value) {
+	return value === null || typeof value === "string";
+}
+function isStringArray(value) {
+	return Array.isArray(value) && value.every((entry) => typeof entry === "string");
+}
+/** Whether the value is one well-typed platform id. */
+function isPlatform$1(value) {
+	return typeof value === "string" && INTERACTION_PLATFORMS.includes(value);
+}
+/** Whether the value is one well-typed conversation status. */
+function isStatus(value) {
+	return typeof value === "string" && INTERACTION_STATUSES.includes(value);
+}
+/** Whether the value is one well-typed message kind. */
+function isMessageType$1(value) {
+	return typeof value === "string" && INTERACTION_MESSAGE_TYPES.includes(value);
+}
+/** Whether the value is one well-typed reply style. */
+function isStyle$1(value) {
+	return typeof value === "string" && INTERACTION_STYLES.includes(value);
+}
+/** Whether the value is one well-formed provenance tagging. */
+function isTagging(value, values) {
+	if (typeof value !== "object" || value === null) return false;
+	const record = value;
+	return typeof record.value === "string" && values.includes(record.value) && (record.source === "user" || record.source === "ai") && (record.aiMeta === null || typeof record.aiMeta === "object" && record.aiMeta !== null && isTrimmedNonEmpty(record.aiMeta.promptVersion) && isIsoTimestamp(record.aiMeta.at));
+}
+const SENTIMENTS = [
+	"positive",
+	"negative",
+	"question",
+	"unknown"
+];
+const INTENTS = [
+	"consult",
+	"praise",
+	"complain",
+	"demand",
+	"spam",
+	"unknown"
+];
+/** Whether one stored message has every field present and well-typed. */
+function isMessage(value) {
+	if (typeof value !== "object" || value === null) return false;
+	const record = value;
+	return isTrimmedNonEmpty(record.id) && isTrimmedNonEmpty(record.externalMessageId) && (record.direction === "in" || record.direction === "out") && isMessageType$1(record.type) && typeof record.content === "string" && record.content.length > 0 && isNullableString(record.inReplyTo) && isIsoTimestamp(record.sentAt) && isTagging(record.sentiment, SENTIMENTS) && isTagging(record.intent, INTENTS) && Array.isArray(record.replyDrafts) && record.replyDrafts.every((draft) => {
+		if (typeof draft !== "object" || draft === null) return false;
+		const entry = draft;
+		return isTrimmedNonEmpty(entry.id) && isStyle$1(entry.style) && typeof entry.content === "string" && entry.content.length > 0 && isNullableString(entry.personaId) && isIsoTimestamp(entry.createdAt);
+	});
+}
+/** Whether one stored conversation has every field present and well-typed. */
+function isConversation(value) {
+	if (typeof value !== "object" || value === null) return false;
+	const record = value;
+	const participant = record.participant;
+	return isTrimmedNonEmpty(record.id) && isPlatform$1(record.platform) && typeof participant === "object" && participant !== null && isTrimmedNonEmpty(participant.externalUserId) && typeof participant.nickname === "string" && isNullableString(record.topicRef) && isNullableString(record.outputRef) && isNullableString(record.personaId) && isStatus(record.status) && isStringArray(record.tags) && record.tags.every((tag) => tag.length > 0) && typeof record.note === "string" && typeof record.starred === "boolean" && isIsoTimestamp(record.createdAt) && isIsoTimestamp(record.updatedAt) && Array.isArray(record.messages) && record.messages.every(isMessage);
+}
+/** Whether one stored insight entry is well-typed. */
+function isInsightEntry(value) {
+	if (typeof value !== "object" || value === null) return false;
+	const record = value;
+	return isTrimmedNonEmpty(record.label) && typeof record.count === "number" && Number.isInteger(record.count) && record.count >= 1 && isNullableString(record.exampleMessageId) && isNullableString(record.topicHint);
+}
+/** Whether one stored insights record is well-typed. */
+function isInsights(value) {
+	if (typeof value !== "object" || value === null) return false;
+	const record = value;
+	const lists = [
+		record.topQuestions,
+		record.painPoints,
+		record.interests
+	];
+	return (record.generatedAt === null || isIsoTimestamp(record.generatedAt)) && lists.every((list) => Array.isArray(list) && list.every(isInsightEntry));
+}
+/**
+* Recompute the derived summary from the conversations: the cache the
+* workbench badge reads, always rebuilt — never trusted from the file.
+* @param conversations - the validated conversations.
+* @returns the per-status counts.
+*/
+function summarizeInteractions(conversations) {
+	const counts = { ...EMPTY_INTERACTION_SUMMARY };
+	for (const conversation of conversations) counts[conversation.status] += 1;
+	return counts;
+}
+/** Sort key: `updatedAt` descending (newest first), then id for stability. */
+function compareConversations(a, b) {
+	if (a.updatedAt !== b.updatedAt) return a.updatedAt > b.updatedAt ? -1 : 1;
+	return a.id < b.id ? -1 : 1;
+}
+/** Sort key within one thread: `sentAt` ascending, then id for stability. */
+function compareMessages(a, b) {
+	if (a.sentAt !== b.sentAt) return a.sentAt < b.sentAt ? -1 : 1;
+	return a.id < b.id ? -1 : 1;
+}
+/**
+* Parse and validate one interactions manifest. One malformed conversation
+* never hides the rest: it is named in `problems` and dropped. The summary
+* cache is always recomputed from the surviving conversations, and the
+* message/conversation orderings are normalized on read.
+* @param raw - exact file contents.
+* @returns the manifest with only valid entries, plus every dropped one named.
+*/
+function parseInteractionsManifest(raw) {
+	let parsed;
+	try {
+		parsed = JSON.parse(raw);
+	} catch {
+		return {
+			manifest: {
+				formatVersion: 0,
+				conversations: [],
+				insights: EMPTY_INTERACTION_INSIGHTS,
+				summary: EMPTY_INTERACTION_SUMMARY
+			},
+			problems: ["interactions manifest is not valid JSON"]
+		};
+	}
+	const record = parsed;
+	if (record.formatVersion !== 0) return {
+		manifest: {
+			formatVersion: 0,
+			conversations: [],
+			insights: EMPTY_INTERACTION_INSIGHTS,
+			summary: EMPTY_INTERACTION_SUMMARY
+		},
+		problems: [`unsupported interactions manifest formatVersion ${String(record.formatVersion)}`]
+	};
+	const problems = [];
+	const conversations = [];
+	if (Array.isArray(record.conversations)) for (const entry of record.conversations) if (isConversation(entry)) conversations.push(entry);
+	else problems.push(`dropped one invalid interaction conversation: ${JSON.stringify(entry).slice(0, 120)}`);
+	else problems.push("interactions manifest has no conversations array");
+	const insights = isInsights(record.insights) ? record.insights : EMPTY_INTERACTION_INSIGHTS;
+	const normalized = conversations.map((conversation) => ({
+		...conversation,
+		messages: [...conversation.messages].sort(compareMessages)
+	})).sort(compareConversations);
+	return {
+		manifest: {
+			formatVersion: 0,
+			conversations: normalized,
+			insights,
+			summary: summarizeInteractions(normalized)
+		},
+		problems
+	};
+}
+/**
+* Validate one incoming manifest wholesale; used by the write path to reject
+* rather than repair caller mistakes.
+* @param manifest - the manifest the caller wants stored.
+* @throws when the envelope, insights, or any conversation violates the format.
+*/
+function assertInteractionsManifest(manifest) {
+	if (manifest.formatVersion !== 0) throw new Error(`unsupported interactions manifest formatVersion ${String(manifest.formatVersion)}`);
+	if (!isInsights(manifest.insights)) throw new Error("interactions manifest insights are malformed");
+	if (manifest.conversations.length > 2e4) throw new Error(`interactions manifest exceeds the ${INTERACTIONS_MAX_CONVERSATIONS}-conversation cap`);
+	for (const conversation of manifest.conversations) {
+		if (!isConversation(conversation)) throw new Error(`invalid interaction conversation: ${JSON.stringify(conversation).slice(0, 120)}`);
+		if (conversation.messages.length > 5e3) throw new Error(`interaction conversation ${conversation.id} exceeds the ${INTERACTIONS_MAX_MESSAGES}-message cap`);
+	}
+}
+/** Absolute path of the library-root `_interactions.json`. */
+function interactionsPath(root) {
+	return join(root, INTERACTIONS_FILENAME);
+}
+/**
+* Read the interactions manifest.
+* @param root - absolute outputs library root.
+* @returns the manifest (null when absent) with only valid entries, every
+*   dropped one named in `problems`; callers must not write back while
+*   `problems` is non-empty.
+*/
+async function readInteractionsFile(root) {
+	let raw;
+	try {
+		raw = await readFile(interactionsPath(root), "utf8");
+	} catch {
+		return {
+			manifest: null,
+			problems: []
+		};
+	}
+	const { manifest, problems } = parseInteractionsManifest(raw);
+	return {
+		manifest,
+		problems
+	};
+}
+/**
+* Replace the interactions manifest with an atomic, locked commit. The
+* summary cache is recomputed here and the canonical orderings applied, so
+* the stored file is always normalized regardless of what the caller sent.
+* @param root - absolute outputs library root.
+* @param manifest - the complete next manifest.
+* @returns the stored manifest (recomputed summary, canonical order).
+*/
+async function writeInteractionsFile(root, manifest) {
+	assertInteractionsManifest(manifest);
+	const conversations = manifest.conversations.map((conversation) => ({
+		...conversation,
+		messages: [...conversation.messages].sort(compareMessages)
+	})).sort(compareConversations);
+	const stored = {
+		formatVersion: 0,
+		conversations,
+		insights: manifest.insights,
+		summary: summarizeInteractions(conversations)
+	};
+	await mkdir(root, {
+		recursive: true,
+		mode: 448
+	});
+	await withFileLock(interactionsPath(root), async () => {
+		await writeFileAtomic(interactionsPath(root), `${JSON.stringify(stored, null, 2)}\n`, {
+			mode: 384,
+			dirMode: 448
+		});
+	});
+	return stored;
+}
+/**
+* Commit confirmed import rows: group messages into conversations by
+* `platform + external_user_id`, dedupe against stored and batch messages by
+* `platform + external_message_id` (an existing id updates content and time
+* in place), and resolve threading against the library plus the batch —
+* unresolved parents keep the message with a null link and a named warning.
+* Runs under the file lock so two importers cannot interleave.
+* @param root - absolute outputs library root.
+* @param request - the confirmed parsed rows.
+* @returns the append/update accounting and the thread warnings.
+*/
+async function commitInteractionImportFile(root, request) {
+	await mkdir(root, {
+		recursive: true,
+		mode: 448
+	});
+	return withFileLock(interactionsPath(root), async () => {
+		const raw = await readFile(interactionsPath(root), "utf8").catch(() => null);
+		let current;
+		if (raw === null) current = {
+			formatVersion: 0,
+			conversations: [],
+			insights: EMPTY_INTERACTION_INSIGHTS,
+			summary: EMPTY_INTERACTION_SUMMARY
+		};
+		else {
+			const parsed = parseInteractionsManifest(raw);
+			if (parsed.problems.length > 0) throw new Error(`interactions manifest unreadable: ${parsed.problems[0]}`);
+			current = parsed.manifest;
+		}
+		const conversations = current.conversations.map((conversation) => ({
+			...conversation,
+			messages: [...conversation.messages]
+		}));
+		const byExternal = /* @__PURE__ */ new Map();
+		for (const conversation of conversations) conversation.messages.forEach((message, index) => {
+			byExternal.set(`${conversation.platform}:${message.externalMessageId}`, {
+				conversation,
+				index
+			});
+		});
+		const conversationKey = (platform, externalUserId) => `${platform}:${externalUserId}`;
+		const conversationByKey = /* @__PURE__ */ new Map();
+		for (const conversation of conversations) conversationByKey.set(conversationKey(conversation.platform, conversation.participant.externalUserId), conversation);
+		let added = 0;
+		let updated = 0;
+		let conversationsCreated = 0;
+		const threadWarnings = [];
+		const now = (/* @__PURE__ */ new Date()).toISOString();
+		for (const row of request.messages) {
+			const dedupKey = `${row.platform}:${row.externalMessageId}`;
+			const existing = byExternal.get(dedupKey);
+			if (existing !== void 0) {
+				const previous = existing.conversation.messages[existing.index];
+				if (previous !== void 0) {
+					existing.conversation.messages[existing.index] = {
+						...previous,
+						content: row.content,
+						sentAt: row.sentAt
+					};
+					existing.conversation.updatedAt = now;
+				}
+				updated += 1;
+				continue;
+			}
+			let inReplyTo = null;
+			if (row.inReplyToExternal !== null) {
+				const parent = byExternal.get(`${row.platform}:${row.inReplyToExternal}`);
+				if (parent === void 0) {
+					if (threadWarnings.length < 100) threadWarnings.push(`parent message "${row.inReplyToExternal}" not found for "${row.externalMessageId}"`);
+				} else inReplyTo = parent.conversation.messages[parent.index]?.id ?? null;
+			}
+			const key = conversationKey(row.platform, row.externalUserId);
+			let conversation = conversationByKey.get(key);
+			if (conversation === void 0) {
+				conversation = {
+					id: randomUUID(),
+					platform: row.platform,
+					participant: {
+						externalUserId: row.externalUserId,
+						nickname: row.nickname ?? ""
+					},
+					topicRef: row.topicRef,
+					outputRef: row.outputRef,
+					personaId: row.personaId,
+					status: "unread",
+					tags: [],
+					note: "",
+					starred: false,
+					createdAt: now,
+					updatedAt: now,
+					messages: []
+				};
+				conversations.push(conversation);
+				conversationByKey.set(key, conversation);
+				conversationsCreated += 1;
+			} else {
+				if (conversation.participant.nickname.length === 0 && row.nickname !== null) conversation.participant = {
+					...conversation.participant,
+					nickname: row.nickname
+				};
+				if (conversation.topicRef === null && row.topicRef !== null) conversation.topicRef = row.topicRef;
+				if (conversation.outputRef === null && row.outputRef !== null) conversation.outputRef = row.outputRef;
+				if (conversation.personaId === null && row.personaId !== null) conversation.personaId = row.personaId;
+			}
+			const message = {
+				id: randomUUID(),
+				externalMessageId: row.externalMessageId,
+				direction: "in",
+				type: row.type,
+				content: row.content,
+				inReplyTo,
+				sentAt: row.sentAt,
+				sentiment: { ...UNTAGGED_SENTIMENT },
+				intent: { ...UNTAGGED_INTENT },
+				replyDrafts: []
+			};
+			conversation.messages.push(message);
+			conversation.updatedAt = now;
+			byExternal.set(dedupKey, {
+				conversation,
+				index: conversation.messages.length - 1
+			});
+			added += 1;
+		}
+		const sorted = conversations.map((conversation) => {
+			conversation.messages.sort(compareMessages);
+			return conversation;
+		}).sort(compareConversations);
+		const stored = {
+			formatVersion: 0,
+			conversations: sorted,
+			insights: current.insights,
+			summary: summarizeInteractions(sorted)
+		};
+		await writeFileAtomic(interactionsPath(root), `${JSON.stringify(stored, null, 2)}\n`, {
+			mode: 384,
+			dirMode: 448
+		});
+		return {
+			added,
+			updated,
+			conversationsCreated,
+			threadWarnings
+		};
+	});
+}
+//#endregion
+//#region lib/types/interactions/csv.js
+/**
+* CSV parsing for the interactions face: the frozen import contract in, and
+* the round-trip export builder out. Nothing touches disk here — the
+* preview returns parsed rows plus every rejection, and only the confirmed
+* rows land through the commit face. Unlike the review importers, the
+* columns are this plugin's own contract (exact header names), not a
+* platform's export template, so no alias table exists.
+*/
+/** Hard input cap: the largest CSV text one parse accepts. */
+const INTERACTION_MAX_IMPORT_CHARS = 2e6;
+/** Hard row cap: the most data rows one file may carry. */
+const INTERACTION_MAX_IMPORT_ROWS = 5e3;
+/** Hard content cap; longer messages truncate rather than reject. */
+const INTERACTION_MAX_MESSAGE_CHARS = 2e4;
+/**
+* The export column order: exactly the import columns plus
+* `conversation_id`, `status`, and `tags` — an export re-imports unchanged.
+*/
+const INTERACTION_CSV_COLUMNS = [
+	"platform",
+	"external_message_id",
+	"external_user_id",
+	"nickname",
+	"type",
+	"content",
+	"in_reply_to",
+	"sent_at",
+	"topic_ref",
+	"output_ref",
+	"persona_id",
+	"conversation_id",
+	"status",
+	"tags"
+];
+/** Import columns that must resolve from the header or the whole file rejects. */
+const REQUIRED_COLUMNS = [
+	"platform",
+	"external_message_id",
+	"external_user_id",
+	"type",
+	"content",
+	"sent_at"
+];
+/** Whether the value is one well-typed platform id. */
+function isPlatform(value) {
+	return typeof value === "string" && INTERACTION_PLATFORMS.includes(value);
+}
+/** Whether the value is one well-typed message kind. */
+function isMessageType(value) {
+	return typeof value === "string" && INTERACTION_MESSAGE_TYPES.includes(value);
+}
+/** Normalize one header cell: trim and lowercase, nothing else — the columns are ours. */
+function normalizeHeader(cell) {
+	return cell.trim().toLowerCase();
+}
+/** Escape one CSV field per RFC 4180: quotes double, delimiters force quoting. */
+function escapeCsvField(value) {
+	return /[",\r\n]/u.test(value) ? `"${value.replaceAll("\"", "\"\"")}"` : value;
+}
+/**
+* Parse one import file into the preview: validated message rows plus
+* per-row rejections with 1-based physical row numbers. Text that decodes
+* with replacement characters reads as a non-UTF-8 (typically GBK) export
+* and rejects wholesale — no silent mojibake, no auto-transcode guessing.
+* @param request - the file name and the raw CSV text (browser-decoded).
+* @returns the preview; nothing is stored.
+*/
+function parseInteractionImport(request) {
+	if (request.text.includes("�")) throw new Error("import file is not valid UTF-8 (GBK export?); re-export it as UTF-8 and retry");
+	if (request.text.length > 2e6) throw new Error(`interaction import exceeds the ${INTERACTION_MAX_IMPORT_CHARS}-character cap`);
+	const physicalRows = parseCsvRows(request.text).filter((row) => row.some((cell) => cell.trim().length > 0));
+	if (physicalRows.length === 0) throw new Error("interaction import file is empty");
+	const header = physicalRows[0].map(normalizeHeader);
+	const columns = /* @__PURE__ */ new Map();
+	header.forEach((cell, index) => {
+		if (!columns.has(cell)) columns.set(cell, index);
+	});
+	const missing = REQUIRED_COLUMNS.filter((column) => !columns.has(column));
+	if (missing.length > 0) throw new Error(`interaction import is missing required columns: ${missing.join(", ")}`);
+	const indexOf = (name) => columns.get(name) ?? -1;
+	const rows = [];
+	const rejected = [];
+	const batchIndex = /* @__PURE__ */ new Map();
+	for (let rowIndex = 1; rowIndex < physicalRows.length; rowIndex += 1) {
+		const rowNumber = rowIndex + 1;
+		if (rows.length + rejected.length >= 5e3) {
+			rejected.push({
+				row: rowNumber,
+				reason: `exceeds the ${INTERACTION_MAX_IMPORT_ROWS}-row cap`
+			});
+			break;
+		}
+		const cells = physicalRows[rowIndex];
+		const cell = (name) => (indexOf(name) === -1 ? "" : cells[indexOf(name)] ?? "").trim();
+		try {
+			const platform = cell("platform");
+			if (!isPlatform(platform)) throw new Error(`invalid platform "${platform}"`);
+			const externalMessageId = cell("external_message_id");
+			if (externalMessageId.length === 0) throw new Error("missing external_message_id");
+			const externalUserId = cell("external_user_id");
+			if (externalUserId.length === 0) throw new Error("missing external_user_id");
+			const type = cell("type");
+			if (!isMessageType(type)) throw new Error(`invalid type "${type}"`);
+			const content = cell("content");
+			if (content.length === 0) throw new Error("missing content");
+			const sentAtRaw = cell("sent_at");
+			if (sentAtRaw.length === 0) throw new Error("missing sent_at");
+			const sentAt = parseDateCell(sentAtRaw);
+			if (sentAt === null) throw new Error("missing sent_at");
+			const message = {
+				platform,
+				externalMessageId,
+				externalUserId,
+				nickname: cell("nickname") || null,
+				type,
+				content: content.slice(0, INTERACTION_MAX_MESSAGE_CHARS),
+				inReplyToExternal: cell("in_reply_to") || null,
+				sentAt,
+				topicRef: cell("topic_ref") || null,
+				outputRef: cell("output_ref") || null,
+				personaId: cell("persona_id") || null
+			};
+			const dedupKey = `${message.platform}:${message.externalMessageId}`;
+			const existing = batchIndex.get(dedupKey);
+			if (existing === void 0) batchIndex.set(dedupKey, rows.push(message) - 1);
+			else rows[existing] = message;
+		} catch (error) {
+			rejected.push({
+				row: rowNumber,
+				reason: error instanceof Error ? error.message : String(error)
+			});
+		}
+	}
+	return {
+		fileName: request.fileName,
+		messages: rows,
+		rejected,
+		totalRows: rows.length + rejected.length
+	};
+}
+/**
+* Build one export CSV from whole conversations: the import columns plus
+* `conversation_id`, `status`, and `tags`, UTF-8 BOM first and CRLF lines,
+* so Excel opens it cleanly and the file re-imports unchanged. Threads
+* export the parent's external message id in `in_reply_to`, resolved
+* through the internal-id map; unresolved parents export empty.
+* @param conversations - the conversations to export.
+* @returns the complete CSV text with BOM.
+*/
+function buildInteractionExportCsv(conversations) {
+	const externalById = /* @__PURE__ */ new Map();
+	for (const conversation of conversations) for (const message of conversation.messages) externalById.set(message.id, message.externalMessageId);
+	const lines = [INTERACTION_CSV_COLUMNS.join(",")];
+	for (const conversation of conversations) for (const message of conversation.messages) {
+		const fields = [
+			conversation.platform,
+			message.externalMessageId,
+			conversation.participant.externalUserId,
+			conversation.participant.nickname,
+			message.type,
+			message.content,
+			message.inReplyTo === null ? "" : externalById.get(message.inReplyTo) ?? "",
+			message.sentAt,
+			"",
+			"",
+			"",
+			conversation.id,
+			conversation.status,
+			conversation.tags.join("|")
+		];
+		lines.push(fields.map((field) => escapeCsvField(field)).join(","));
+	}
+	return `\uFEFF${lines.join("\r\n")}\r\n`;
+}
+//#endregion
+//#region lib/types/interactions/ai.js
+/**
+* AI processing for the interactions face: three explicit, controlled model
+* calls behind the reply-drafts button, the batch classifier button, and the
+* insight-extraction button. Calls ride the same shared `llm` Service
+* Definition, one-shot pattern, queue, and rate-limit retry policy as every
+* other AI face; nothing is persisted here — the caller stores drafts and
+* taggings through the manifest write face. Inputs are thread excerpts and
+* message texts only; outputs are strict JSON contracts, and one unparseable
+* reply batch fails the call rather than storing half a draft set.
+*/
+/** Timeout reason code carried by aborted interaction AI calls. */
+const INTERACTION_AI_TIMEOUT_CODE = "INTERACTION_AI_TIMEOUT";
+/** Prompt vocabulary versions pinned into every result for provenance. */
+const INTERACTION_REPLY_PROMPT_VERSION = "interaction-reply@1";
+const INTERACTION_SENTIMENT_PROMPT_VERSION = "interaction-sentiment@1";
+const INTERACTION_INSIGHT_PROMPT_VERSION = "interaction-insight@1";
+/** The reply face's fixed candidate count; the contract freezes it at three. */
+const INTERACTION_REPLY_CANDIDATES = 3;
+/** Whether the value is one well-typed reply style. */
+function isStyle(value) {
+	return typeof value === "string" && INTERACTION_STYLES.includes(value);
+}
+/**
+* Render the persona block the reply prompt embeds: digest, phrases, and
+* tone samples, each section present only when the caller has the facts.
+* @param digest - the persona's ≤200-char style summary, or null.
+* @param phrases - recommended phrasings, possibly empty.
+* @param samples - tone sample texts, possibly empty.
+* @returns the persona block lines, empty when no persona is bound.
+*/
+function personaBlock(digest, phrases, samples) {
+	if (digest === null && phrases.length === 0 && samples.length === 0) return [];
+	const lines = ["绑定画像（语气必须遵循）："];
+	if (digest !== null) lines.push(`风格摘要：${digest}`);
+	if (phrases.length > 0) lines.push(`推荐句式：${phrases.join("；")}`);
+	if (samples.length > 0) lines.push(`语气样本：${samples.join("／")}`);
+	return lines;
+}
+/**
+* Build the system prompt for one reply-draft generation. The persona is the
+* tone base; the style parameter layers on top and loses to the persona on
+* conflict, exactly as the plan freezes.
+* @param request - the reply request.
+* @returns the complete system prompt.
+*/
+function replySystemPrompt(request) {
+	return [
+		"你是内容创作工作台的粉丝互动回复助手。基于给定的会话上下文，为最后一条粉丝留言生成回复草稿。",
+		`固定输出 3 条候选，语气均为「${request.style}」。`,
+		...personaBlock(request.personaDigest, request.personaPhrases, request.personaSamples),
+		"粉丝消息按时间排列；只回复最后一条粉丝留言，但可引用上文。",
+		"回复要具体、可发送：不编造订单/物流/承诺等未提供的事实；不过度承诺；一条 1-4 句。",
+		request.template !== null ? "以下模板是初稿骨架，在其结构上填充本会话的具体内容：\n<模板>\n" + request.template + "\n</模板>" : "",
+		"只输出 JSON，不要解释或前言，格式：",
+		`{"drafts":[{"style":"${request.style}","content":"…"},…]}，drafts 恰好 3 条。`
+	].filter((line) => line.length > 0).join("\n");
+}
+/**
+* Validate one reply request and frame its user prompt: the thread lines
+* plus a clear pointer at the message to answer.
+* @param request - the raw reply request.
+* @param maxInputChars - the combined prompt character cap.
+* @returns the framed user prompt.
+*/
+function frameReplyRequest(request, maxInputChars) {
+	if (!isStyle(request.style)) throw new Error(`invalid interaction reply style: ${String(request.style)}`);
+	if (request.thread.length === 0) throw new Error("interaction reply needs a non-empty thread");
+	const lines = request.thread.slice(-20).map((line) => `${line.direction === "in" ? "粉丝" : "我方"}：${line.content}`);
+	lines.push("", "请为最后一条「粉丝」消息生成回复草稿。");
+	return lines.join("\n").slice(0, maxInputChars);
+}
+/**
+* Parse one reply-draft output: extract the JSON object, require exactly the
+* frozen candidate count, and coerce unknown styles to the requested one.
+* @param text - the raw model output.
+* @param style - the style the caller requested (fallback for unknown values).
+* @returns the validated drafts.
+*/
+function parseReplyOutput(text, style) {
+	const start = text.indexOf("{");
+	const end = text.lastIndexOf("}");
+	if (start === -1 || end <= start) throw new Error("reply output carries no JSON object");
+	let parsed;
+	try {
+		parsed = JSON.parse(text.slice(start, end + 1));
+	} catch {
+		throw new Error("reply output is not valid JSON");
+	}
+	const drafts = parsed.drafts;
+	if (!Array.isArray(drafts) || drafts.length !== 3) throw new Error(`reply output must carry exactly 3 drafts`);
+	return drafts.map((candidate) => {
+		const entry = candidate;
+		if (typeof entry.content !== "string" || entry.content.trim().length === 0) throw new Error("reply draft has empty content");
+		return {
+			style: isStyle(entry.style) ? entry.style : style,
+			content: entry.content.trim()
+		};
+	});
+}
+/**
+* Build the system prompt for one classification batch: the two orthogonal
+* taggings, their closed unions, and the unknown fallback.
+* @returns the complete system prompt.
+*/
+function classifySystemPrompt() {
+	return [
+		"你是内容创作工作台的粉丝留言分类助手。对给定的每条粉丝消息，输出两个正交标签。",
+		"sentiment（语气）：positive / negative / question / unknown。",
+		"intent（诉求）：consult（咨询）/ praise（夸奖）/ complain（吐槽）/ demand（需求建议）/ spam（广告垃圾）/ unknown。",
+		"拿不准一律 unknown，不要猜测。",
+		"只输出 JSON，不要解释或前言，格式：",
+		"{\"entries\":[{\"messageId\":\"…\",\"sentiment\":\"…\",\"intent\":\"…\"},…]}，entries 覆盖全部输入消息。"
+	].join("\n");
+}
+/**
+* Frame one classification batch: numbered messages so the model can echo
+* the ids back.
+* @param request - the batch request (at most fifty messages).
+* @param maxInputChars - the combined prompt character cap.
+* @returns the framed user prompt.
+*/
+function frameClassifyRequest(request, maxInputChars) {
+	if (request.messages.length === 0) throw new Error("interaction classify needs at least one message");
+	return request.messages.map((message) => `- ${message.messageId}：${message.content}`).join("\n").slice(0, maxInputChars);
+}
+/**
+* Parse one classification output: keep only entries whose id was sent and
+* coerce unknown tag values to `unknown` — one bad batch degrades to
+* unknowns, never to a failure.
+* @param text - the raw model output.
+* @param validIds - the message ids the batch sent.
+* @returns the sanitized entries.
+*/
+function parseClassifyOutput(text, validIds) {
+	const start = text.indexOf("{");
+	const end = text.lastIndexOf("}");
+	if (start === -1 || end <= start) return [];
+	let parsed;
+	try {
+		parsed = JSON.parse(text.slice(start, end + 1));
+	} catch {
+		return [];
+	}
+	const entries = parsed.entries;
+	if (!Array.isArray(entries)) return [];
+	const results = [];
+	for (const candidate of entries) {
+		const entry = candidate;
+		if (typeof entry.messageId !== "string" || !validIds.has(entry.messageId)) continue;
+		const sentiment = SENTIMENT_VALUES.includes(entry.sentiment) ? entry.sentiment : "unknown";
+		const intent = INTENT_VALUES.includes(entry.intent) ? entry.intent : "unknown";
+		results.push({
+			messageId: entry.messageId,
+			sentiment,
+			intent
+		});
+	}
+	return results;
+}
+const SENTIMENT_VALUES = [
+	"positive",
+	"negative",
+	"question",
+	"unknown"
+];
+const INTENT_VALUES = [
+	"consult",
+	"praise",
+	"complain",
+	"demand",
+	"spam",
+	"unknown"
+];
+/**
+* Build the system prompt for one insight batch: the three lists and their
+* count-grounding rule.
+* @returns the complete system prompt.
+*/
+function insightSystemPrompt() {
+	return [
+		"你是内容创作工作台的粉丝洞察助手。分析给定的粉丝消息（已按时间排列），提炼三类洞察。",
+		"questions：高频问题，label 为问题概括，count 为出现次数，exampleMessageId 任取一条示例消息的 id。",
+		"painPoints：痛点，字段同上，topicHint 为 null。",
+		"interests：感兴趣的内容方向，label 为方向，count 为消息数，topicHint 为一句选题建议草稿。",
+		"每类最多 5 条，按代表性排序；count 只依据给定消息，不要编造；没有的类输出空数组。",
+		"只输出 JSON，不要解释或前言，格式：",
+		"{\"questions\":[{\"label\":\"…\",\"count\":1,\"exampleMessageId\":\"…\",\"topicHint\":null}],\"painPoints\":[…],\"interests\":[…]}"
+	].join("\n");
+}
+/**
+* Frame one insight batch.
+* @param request - the batch request (at most two hundred messages).
+* @param maxInputChars - the combined prompt character cap.
+* @returns the framed user prompt.
+*/
+function frameInsightRequest(request, maxInputChars) {
+	if (request.messages.length === 0) throw new Error("interaction insight needs at least one message");
+	return request.messages.map((message) => `- ${message.messageId}：${message.content}`).join("\n").slice(0, maxInputChars);
+}
+/** Whether one parsed insight entry has the minimum viable shape. */
+function isInsightLine(value) {
+	if (typeof value !== "object" || value === null) return false;
+	const record = value;
+	return typeof record.label === "string" && record.label.trim().length > 0 && typeof record.count === "number" && Number.isFinite(record.count) && record.count >= 1;
+}
+/**
+* Sanitize one insight entry: trim the label, clamp the count, drop junk.
+* @param entry - the raw parsed entry.
+* @returns the clean entry, or null when unusable.
+*/
+function cleanInsightEntry(entry) {
+	if (!isInsightLine(entry)) return null;
+	return {
+		label: entry.label.trim().slice(0, 120),
+		count: Math.min(Math.floor(entry.count), 1e5),
+		exampleMessageId: entry.exampleMessageId !== null && entry.exampleMessageId.trim().length > 0 ? entry.exampleMessageId.trim() : null,
+		topicHint: entry.topicHint !== null && entry.topicHint.trim().length > 0 ? entry.topicHint.trim().slice(0, 300) : null
+	};
+}
+/** Sanitize one parsed insight list. */
+function cleanInsightList(value) {
+	if (!Array.isArray(value)) return [];
+	return value.map(cleanInsightEntry).filter((entry) => entry !== null).slice(0, 5);
+}
+/**
+* Parse one insight batch output; a batch the model garbled reads as an
+* empty batch (the caller records the failure and continues).
+* @param text - the raw model output.
+* @returns the sanitized batch.
+*/
+function parseInsightOutput(text) {
+	const start = text.indexOf("{");
+	const end = text.lastIndexOf("}");
+	if (start === -1 || end <= start) return {
+		questions: [],
+		painPoints: [],
+		interests: []
+	};
+	let parsed;
+	try {
+		parsed = JSON.parse(text.slice(start, end + 1));
+	} catch {
+		return {
+			questions: [],
+			painPoints: [],
+			interests: []
+		};
+	}
+	const record = parsed;
+	return {
+		questions: cleanInsightList(record.questions),
+		painPoints: cleanInsightList(record.painPoints),
+		interests: cleanInsightList(record.interests)
+	};
+}
+/**
+* The queued AI processor behind the interaction view; not itself a cordis
+* service — the gateway carries the `llm` injection and passes the resolved
+* policy in.
+*/
+var InteractionAiProcessor = class {
+	ctx;
+	policy;
+	/** Single-slot call queue: one model call at a time, shared policy with the other faces. */
+	queue = new PQueue({ concurrency: 1 });
+	/**
+	* @param ctx - context exposing the registered LLM service.
+	* @param policy - the gateway's already-resolved AI policy.
+	*/
+	constructor(ctx, policy) {
+		this.ctx = ctx;
+		this.policy = policy;
+	}
+	/**
+	* Generate the fixed candidate set of reply drafts. Rate limits retry with
+	* backoff; an unparseable output surfaces immediately so the UI can offer
+	* its retry button.
+	* @param request - the reply request.
+	* @returns the drafts with their provenance.
+	*/
+	async replyDrafts(request) {
+		const framed = frameReplyRequest(request, this.policy.maxInputChars);
+		return {
+			drafts: await this.queued(replySystemPrompt(request), framed, (text) => parseReplyOutput(text, request.style)),
+			model: this.policy.model,
+			promptVersion: INTERACTION_REPLY_PROMPT_VERSION
+		};
+	}
+	/**
+	* Classify one batch of messages. A garbled batch degrades to an empty
+	* entry list (the caller leaves those messages unknown) instead of
+	* failing — classification never blocks the local workflow.
+	* @param request - the batch request.
+	* @returns the sanitized entries with their provenance.
+	*/
+	async classify(request) {
+		const framed = frameClassifyRequest(request, this.policy.maxInputChars);
+		const validIds = new Set(request.messages.map((message) => message.messageId));
+		return {
+			entries: await this.queued(classifySystemPrompt(), framed, (text) => parseClassifyOutput(text, validIds)),
+			model: this.policy.model,
+			promptVersion: INTERACTION_SENTIMENT_PROMPT_VERSION
+		};
+	}
+	/**
+	* Extract one insight batch. A garbled batch reads as an empty batch; the
+	* caller records it and keeps going.
+	* @param request - the batch request.
+	* @returns the sanitized batch with its provenance.
+	*/
+	async insights(request) {
+		const framed = frameInsightRequest(request, this.policy.maxInputChars);
+		return {
+			batch: await this.queued(insightSystemPrompt(), framed, parseInsightOutput),
+			model: this.policy.model,
+			promptVersion: INTERACTION_INSIGHT_PROMPT_VERSION
+		};
+	}
+	/** One queued call with the shared rate-limit retry policy wrapped around it. */
+	queued(system, framed, parse) {
+		return this.queue.add(() => pRetry(async () => {
+			return parse(await streamLlmText(this.ctx, this.policy, system, framed, INTERACTION_AI_TIMEOUT_CODE));
+		}, {
+			retries: 4,
+			minTimeout: 1e3,
+			maxTimeout: 3e4,
+			factor: 2,
+			shouldRetry: isRateLimitError,
+			onFailedAttempt: (error) => honorRetryAfter(error)
+		}));
+	}
+};
+//#endregion
+//#region lib/types/interactions/channel.js
+/**
+* The reserved interaction channel for a future MCP provider. This phase
+* ships the interface (in `./types.ts`) plus this always-failing stub only:
+* `fetchMessages` backs the inbox's disabled pull entry, `sendReply` backs
+* the send button — whose local archive never depends on the call's result.
+* No second abstraction is permitted by the plan; when a real MCP provider
+* lands, it implements this interface and replaces the stub wiring.
+*/
+/**
+* The always-failing channel: both methods return `MCP_NOT_CONFIGURED`,
+* forever, until a real provider replaces this object. `satisfies` keeps the
+* narrowed failure-only return types on the literal while checking it
+* against the interface, whose wider union exists for that future provider.
+*/
+const stubInteractionChannel = {
+	fetchMessages: () => {
+		return Promise.resolve({
+			ok: false,
+			reason: "MCP_NOT_CONFIGURED"
+		});
+	},
+	sendReply: (_request) => {
+		return Promise.resolve({
+			ok: false,
+			reason: "MCP_NOT_CONFIGURED"
+		});
+	}
+};
+//#endregion
 //#region lib/types/index.js
 /**
 * Content-outputs Remote: the read-only projection of the outputs library
@@ -3350,6 +6800,7 @@ var __esDecorate = function(ctor, descriptorIn, decorators, contextIn, initializ
 };
 const Config = z.object({
 	root: z.string(),
+	templatesRoot: z.string(),
 	provider: z.string(),
 	model: z.string(),
 	timeoutMs: z.number(),
@@ -3363,9 +6814,11 @@ const Config = z.object({
 * Remote gateway over the outputs library: the read-only `list` projection,
 * the gather write face (`fetchFeed`, asset and manifest storage, AI
 * processing), the competitor write face (manifest storage, asset reads,
-* teardown and report AI), the create workbench face, and the persona face
-* (the `_personas.json` account-persona manifest and persona AI). AI calls
-* inject the shared `llm` service; everything else is filesystem-local.
+* teardown and report AI), the create workbench face, the persona face (the
+* `_personas.json` account-persona manifest and persona AI), and the
+* interaction face (the `_interactions.json` inbox manifest, the CSV import,
+* and the reply/classify/insight AI). AI calls inject the shared `llm`
+* service; everything else is filesystem-local.
 */
 let ContentOutputsGateway = (() => {
 	let _classSuper = TypertRemoteService;
@@ -3402,6 +6855,47 @@ let ContentOutputsGateway = (() => {
 	let _putPersonaReport_decorators;
 	let _deletePersona_decorators;
 	let _processPersonaAi_decorators;
+	let _readPublishManifest_decorators;
+	let _writePublishManifest_decorators;
+	let _listPublishIndex_decorators;
+	let _readPublishProfiles_decorators;
+	let _writePublishProfiles_decorators;
+	let _writePublishDerived_decorators;
+	let _readPublishDerived_decorators;
+	let _readPublishSource_decorators;
+	let _buildPublishPackage_decorators;
+	let _adaptPublishContent_decorators;
+	let _listTemplates_decorators;
+	let _putTemplate_decorators;
+	let _setTemplateStatus_decorators;
+	let _deleteTemplate_decorators;
+	let _getTemplateHistory_decorators;
+	let _putTemplateTags_decorators;
+	let _exportTemplates_decorators;
+	let _importTemplates_decorators;
+	let _processTemplateAi_decorators;
+	let _readReviewManifest_decorators;
+	let _writeReviewManifest_decorators;
+	let _listReviewIndex_decorators;
+	let _parseReviewImport_decorators;
+	let _commitReviewImport_decorators;
+	let _deleteReviewTask_decorators;
+	let _writeReviewReport_decorators;
+	let _readReviewReport_decorators;
+	let _writeReviewTemplate_decorators;
+	let _listReviewTemplates_decorators;
+	let _readReviewTemplate_decorators;
+	let _analyzeReviewWork_decorators;
+	let _generateReviewReport_decorators;
+	let _readInteractions_decorators;
+	let _writeInteractions_decorators;
+	let _parseInteractionImport_decorators;
+	let _commitInteractionImport_decorators;
+	let _generateInteractionReply_decorators;
+	let _classifyInteractions_decorators;
+	let _extractInteractionInsights_decorators;
+	let _sendInteractionReply_decorators;
+	let _exportInteractionCsv_decorators;
 	return class ContentOutputsGateway extends _classSuper {
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
@@ -3437,6 +6931,47 @@ let ContentOutputsGateway = (() => {
 			_putPersonaReport_decorators = [Remote("putPersonaReport")];
 			_deletePersona_decorators = [Remote("deletePersona")];
 			_processPersonaAi_decorators = [Remote("processPersonaAi")];
+			_readPublishManifest_decorators = [Remote("readPublishManifest")];
+			_writePublishManifest_decorators = [Remote("writePublishManifest")];
+			_listPublishIndex_decorators = [Remote("listPublishIndex")];
+			_readPublishProfiles_decorators = [Remote("readPublishProfiles")];
+			_writePublishProfiles_decorators = [Remote("writePublishProfiles")];
+			_writePublishDerived_decorators = [Remote("writePublishDerived")];
+			_readPublishDerived_decorators = [Remote("readPublishDerived")];
+			_readPublishSource_decorators = [Remote("readPublishSource")];
+			_buildPublishPackage_decorators = [Remote("buildPublishPackage")];
+			_adaptPublishContent_decorators = [Remote("adaptPublishContent")];
+			_listTemplates_decorators = [Remote("listTemplates")];
+			_putTemplate_decorators = [Remote("putTemplate")];
+			_setTemplateStatus_decorators = [Remote("setTemplateStatus")];
+			_deleteTemplate_decorators = [Remote("deleteTemplate")];
+			_getTemplateHistory_decorators = [Remote("getTemplateHistory")];
+			_putTemplateTags_decorators = [Remote("putTemplateTags")];
+			_exportTemplates_decorators = [Remote("exportTemplates")];
+			_importTemplates_decorators = [Remote("importTemplates")];
+			_processTemplateAi_decorators = [Remote("processTemplateAi")];
+			_readReviewManifest_decorators = [Remote("readReviewManifest")];
+			_writeReviewManifest_decorators = [Remote("writeReviewManifest")];
+			_listReviewIndex_decorators = [Remote("listReviewIndex")];
+			_parseReviewImport_decorators = [Remote("parseReviewImport")];
+			_commitReviewImport_decorators = [Remote("commitReviewImport")];
+			_deleteReviewTask_decorators = [Remote("deleteReviewTask")];
+			_writeReviewReport_decorators = [Remote("writeReviewReport")];
+			_readReviewReport_decorators = [Remote("readReviewReport")];
+			_writeReviewTemplate_decorators = [Remote("writeReviewTemplate")];
+			_listReviewTemplates_decorators = [Remote("listReviewTemplates")];
+			_readReviewTemplate_decorators = [Remote("readReviewTemplate")];
+			_analyzeReviewWork_decorators = [Remote("analyzeReviewWork")];
+			_generateReviewReport_decorators = [Remote("generateReviewReport")];
+			_readInteractions_decorators = [Remote("readInteractions")];
+			_writeInteractions_decorators = [Remote("writeInteractions")];
+			_parseInteractionImport_decorators = [Remote("parseInteractionImport")];
+			_commitInteractionImport_decorators = [Remote("commitInteractionImport")];
+			_generateInteractionReply_decorators = [Remote("generateInteractionReply")];
+			_classifyInteractions_decorators = [Remote("classifyInteractions")];
+			_extractInteractionInsights_decorators = [Remote("extractInteractionInsights")];
+			_sendInteractionReply_decorators = [Remote("sendInteractionReply")];
+			_exportInteractionCsv_decorators = [Remote("exportInteractionCsv")];
 			__esDecorate(this, null, _list_decorators, {
 				kind: "method",
 				name: "list",
@@ -3789,6 +7324,457 @@ let ContentOutputsGateway = (() => {
 				},
 				metadata: _metadata
 			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _readPublishManifest_decorators, {
+				kind: "method",
+				name: "readPublishManifest",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "readPublishManifest" in obj,
+					get: (obj) => obj.readPublishManifest
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _writePublishManifest_decorators, {
+				kind: "method",
+				name: "writePublishManifest",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "writePublishManifest" in obj,
+					get: (obj) => obj.writePublishManifest
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _listPublishIndex_decorators, {
+				kind: "method",
+				name: "listPublishIndex",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "listPublishIndex" in obj,
+					get: (obj) => obj.listPublishIndex
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _readPublishProfiles_decorators, {
+				kind: "method",
+				name: "readPublishProfiles",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "readPublishProfiles" in obj,
+					get: (obj) => obj.readPublishProfiles
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _writePublishProfiles_decorators, {
+				kind: "method",
+				name: "writePublishProfiles",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "writePublishProfiles" in obj,
+					get: (obj) => obj.writePublishProfiles
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _writePublishDerived_decorators, {
+				kind: "method",
+				name: "writePublishDerived",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "writePublishDerived" in obj,
+					get: (obj) => obj.writePublishDerived
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _readPublishDerived_decorators, {
+				kind: "method",
+				name: "readPublishDerived",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "readPublishDerived" in obj,
+					get: (obj) => obj.readPublishDerived
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _readPublishSource_decorators, {
+				kind: "method",
+				name: "readPublishSource",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "readPublishSource" in obj,
+					get: (obj) => obj.readPublishSource
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _buildPublishPackage_decorators, {
+				kind: "method",
+				name: "buildPublishPackage",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "buildPublishPackage" in obj,
+					get: (obj) => obj.buildPublishPackage
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _adaptPublishContent_decorators, {
+				kind: "method",
+				name: "adaptPublishContent",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "adaptPublishContent" in obj,
+					get: (obj) => obj.adaptPublishContent
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _listTemplates_decorators, {
+				kind: "method",
+				name: "listTemplates",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "listTemplates" in obj,
+					get: (obj) => obj.listTemplates
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _putTemplate_decorators, {
+				kind: "method",
+				name: "putTemplate",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "putTemplate" in obj,
+					get: (obj) => obj.putTemplate
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _setTemplateStatus_decorators, {
+				kind: "method",
+				name: "setTemplateStatus",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "setTemplateStatus" in obj,
+					get: (obj) => obj.setTemplateStatus
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _deleteTemplate_decorators, {
+				kind: "method",
+				name: "deleteTemplate",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "deleteTemplate" in obj,
+					get: (obj) => obj.deleteTemplate
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _getTemplateHistory_decorators, {
+				kind: "method",
+				name: "getTemplateHistory",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "getTemplateHistory" in obj,
+					get: (obj) => obj.getTemplateHistory
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _putTemplateTags_decorators, {
+				kind: "method",
+				name: "putTemplateTags",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "putTemplateTags" in obj,
+					get: (obj) => obj.putTemplateTags
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _exportTemplates_decorators, {
+				kind: "method",
+				name: "exportTemplates",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "exportTemplates" in obj,
+					get: (obj) => obj.exportTemplates
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _importTemplates_decorators, {
+				kind: "method",
+				name: "importTemplates",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "importTemplates" in obj,
+					get: (obj) => obj.importTemplates
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _processTemplateAi_decorators, {
+				kind: "method",
+				name: "processTemplateAi",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "processTemplateAi" in obj,
+					get: (obj) => obj.processTemplateAi
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _readReviewManifest_decorators, {
+				kind: "method",
+				name: "readReviewManifest",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "readReviewManifest" in obj,
+					get: (obj) => obj.readReviewManifest
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _writeReviewManifest_decorators, {
+				kind: "method",
+				name: "writeReviewManifest",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "writeReviewManifest" in obj,
+					get: (obj) => obj.writeReviewManifest
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _listReviewIndex_decorators, {
+				kind: "method",
+				name: "listReviewIndex",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "listReviewIndex" in obj,
+					get: (obj) => obj.listReviewIndex
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _parseReviewImport_decorators, {
+				kind: "method",
+				name: "parseReviewImport",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "parseReviewImport" in obj,
+					get: (obj) => obj.parseReviewImport
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _commitReviewImport_decorators, {
+				kind: "method",
+				name: "commitReviewImport",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "commitReviewImport" in obj,
+					get: (obj) => obj.commitReviewImport
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _deleteReviewTask_decorators, {
+				kind: "method",
+				name: "deleteReviewTask",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "deleteReviewTask" in obj,
+					get: (obj) => obj.deleteReviewTask
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _writeReviewReport_decorators, {
+				kind: "method",
+				name: "writeReviewReport",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "writeReviewReport" in obj,
+					get: (obj) => obj.writeReviewReport
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _readReviewReport_decorators, {
+				kind: "method",
+				name: "readReviewReport",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "readReviewReport" in obj,
+					get: (obj) => obj.readReviewReport
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _writeReviewTemplate_decorators, {
+				kind: "method",
+				name: "writeReviewTemplate",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "writeReviewTemplate" in obj,
+					get: (obj) => obj.writeReviewTemplate
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _listReviewTemplates_decorators, {
+				kind: "method",
+				name: "listReviewTemplates",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "listReviewTemplates" in obj,
+					get: (obj) => obj.listReviewTemplates
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _readReviewTemplate_decorators, {
+				kind: "method",
+				name: "readReviewTemplate",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "readReviewTemplate" in obj,
+					get: (obj) => obj.readReviewTemplate
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _analyzeReviewWork_decorators, {
+				kind: "method",
+				name: "analyzeReviewWork",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "analyzeReviewWork" in obj,
+					get: (obj) => obj.analyzeReviewWork
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _generateReviewReport_decorators, {
+				kind: "method",
+				name: "generateReviewReport",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "generateReviewReport" in obj,
+					get: (obj) => obj.generateReviewReport
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _readInteractions_decorators, {
+				kind: "method",
+				name: "readInteractions",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "readInteractions" in obj,
+					get: (obj) => obj.readInteractions
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _writeInteractions_decorators, {
+				kind: "method",
+				name: "writeInteractions",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "writeInteractions" in obj,
+					get: (obj) => obj.writeInteractions
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _parseInteractionImport_decorators, {
+				kind: "method",
+				name: "parseInteractionImport",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "parseInteractionImport" in obj,
+					get: (obj) => obj.parseInteractionImport
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _commitInteractionImport_decorators, {
+				kind: "method",
+				name: "commitInteractionImport",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "commitInteractionImport" in obj,
+					get: (obj) => obj.commitInteractionImport
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _generateInteractionReply_decorators, {
+				kind: "method",
+				name: "generateInteractionReply",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "generateInteractionReply" in obj,
+					get: (obj) => obj.generateInteractionReply
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _classifyInteractions_decorators, {
+				kind: "method",
+				name: "classifyInteractions",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "classifyInteractions" in obj,
+					get: (obj) => obj.classifyInteractions
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _extractInteractionInsights_decorators, {
+				kind: "method",
+				name: "extractInteractionInsights",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "extractInteractionInsights" in obj,
+					get: (obj) => obj.extractInteractionInsights
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _sendInteractionReply_decorators, {
+				kind: "method",
+				name: "sendInteractionReply",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "sendInteractionReply" in obj,
+					get: (obj) => obj.sendInteractionReply
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _exportInteractionCsv_decorators, {
+				kind: "method",
+				name: "exportInteractionCsv",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "exportInteractionCsv" in obj,
+					get: (obj) => obj.exportInteractionCsv
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
 			if (_metadata) Object.defineProperty(this, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -3800,6 +7786,8 @@ let ContentOutputsGateway = (() => {
 		static Config = Config;
 		/** Absolute library root; a missing directory scans as an empty library. */
 		root = __runInitializers(this, _instanceExtraInitializers);
+		/** Absolute global template library root; a missing directory reads as an empty library. */
+		templatesRoot;
 		/** Queued AI processor behind the gather view's explicit processing button. */
 		ai;
 		/** Queued AI processor behind the competitors view's explicit buttons. */
@@ -3808,6 +7796,14 @@ let ContentOutputsGateway = (() => {
 		createAi;
 		/** Queued AI processor behind the persona view's explicit buttons. */
 		personaAi;
+		/** Queued AI processor behind the publish view's per-platform adapt buttons. */
+		publishAi;
+		/** Queued AI processor behind the template library's explicit buttons. */
+		templateAi;
+		/** Queued AI processor behind the review view's diagnosis and report buttons. */
+		reviewAi;
+		/** Queued AI processor behind the interaction view's draft, classify, and insight buttons. */
+		interactionAi;
 		/** Freemium gate over the create AI faces. */
 		createQuota;
 		constructor(ctx, config) {
@@ -3817,7 +7813,12 @@ let ContentOutputsGateway = (() => {
 			this.competitorAi = new CompetitorAiProcessor(ctx, config);
 			this.createAi = new CreateAiProcessor(ctx, resolveAiConfig(config));
 			this.personaAi = new PersonaAiProcessor(ctx, config);
+			this.publishAi = new PublishAiProcessor(ctx, resolveAiConfig(config));
+			this.templateAi = new TemplateAiProcessor(ctx, resolveAiConfig(config));
+			this.reviewAi = new ReviewAiProcessor(ctx, resolveAiConfig(config));
+			this.interactionAi = new InteractionAiProcessor(ctx, resolveAiConfig(config));
 			this.createQuota = new CreateQuotaGate(this.root, config);
+			this.templatesRoot = join(resolveDshHome(config.templatesRoot), "templates");
 			sweepOrphanTempFiles(this.root).catch(() => void 0);
 		}
 		/**
@@ -4157,7 +8158,422 @@ let ContentOutputsGateway = (() => {
 		async processPersonaAi(request) {
 			return this.personaAi.process(request);
 		}
+		/**
+		* Read the theme's `_publish.json` manifest.
+		* @param theme - outputs-project directory name.
+		* @returns the manifest (null when absent) with only valid tasks, every
+		*   dropped one named in `problems`; callers must not write back while
+		*   `problems` is non-empty.
+		*/
+		async readPublishManifest(theme) {
+			return readPublishManifestFile(this.root, theme);
+		}
+		/**
+		* Replace the theme's `_publish.json` manifest with an atomic, locked
+		* commit, refreshing the theme's rows in the global `_publish-index.json`
+		* under the same lock. Task retries ride full-manifest writes: the caller
+		* appends a new attempt entry, never rewriting the logged history.
+		* @param theme - outputs-project directory name.
+		* @param manifest - the complete next manifest.
+		*/
+		async writePublishManifest(theme, manifest) {
+			await writePublishManifestFile(this.root, theme, manifest);
+		}
+		/**
+		* Read the global `_publish-index.json` aggregation aid for the history
+		* list. A malformed file reads as empty with the rejection named — the
+		* next manifest write rebuilds the theme's rows.
+		* @returns the index plus the parse problems.
+		*/
+		async listPublishIndex() {
+			return readPublishIndexFile(this.root);
+		}
+		/**
+		* Read the global `_publish-profiles.json` account cards. The cards carry
+		* aliases and switches only — never credentials.
+		* @returns the profiles plus every dropped stored card named.
+		*/
+		async readPublishProfiles() {
+			return readPublishProfilesFile(this.root);
+		}
+		/**
+		* Replace the global `_publish-profiles.json` account cards with an
+		* atomic, locked commit.
+		* @param profiles - the complete next card list.
+		*/
+		async writePublishProfiles(profiles) {
+			await writePublishProfilesFile(this.root, profiles);
+		}
+		/**
+		* Write one derived platform draft under
+		* `assets/publish/<taskId>/<platformId>.md`. The replacement is atomic;
+		* the path is guarded against leaving the task directory.
+		* @param theme - outputs-project directory name.
+		* @param taskId - the owning task's UUID.
+		* @param platformId - the platform registry key.
+		* @param content - the complete draft text.
+		* @returns the stored path relative to the theme's `assets/`.
+		*/
+		async writePublishDerived(theme, taskId, platformId, content) {
+			return writePublishDerivedFile(this.root, theme, taskId, platformId, content);
+		}
+		/**
+		* Read one derived platform draft back for the preview pane.
+		* @returns the text, or an empty record when the draft does not exist yet.
+		*/
+		async readPublishDerived(theme, taskId, platformId) {
+			const content = await readPublishDerivedFile(this.root, theme, taskId, platformId);
+			return content === void 0 ? {} : { content };
+		}
+		/**
+		* Read one theme-root deliverable as an adaptation source. Guarded like
+		* every asset read; the `.dsh-output.json` metadata file is never readable
+		* through this face.
+		* @param theme - outputs-project directory name.
+		* @param file - the deliverable file name at the theme root.
+		* @returns the text, or an empty record when absent.
+		*/
+		async readPublishSource(theme, file) {
+			const content = await readPublishSourceFile(this.root, theme, file);
+			return content === void 0 ? {} : { content };
+		}
+		/**
+		* Assemble the frozen phase-2 MCP handoff package for one task: every
+		* platform leg's derived draft must already exist, or the build rejects —
+		* the package is complete or not generated. Nothing is persisted here; the
+		* caller records the attempt through the manifest face.
+		* @param theme - outputs-project directory name.
+		* @param taskId - the task's UUID.
+		* @returns the complete package.
+		*/
+		async buildPublishPackage(theme, taskId) {
+			return buildPublishPackageFile(this.root, theme, taskId);
+		}
+		/**
+		* Adapt one manuscript into one platform version through the model.
+		* Explicit per call, queued one at a time, rate limits retried with
+		* backoff; nothing is persisted here — the caller writes the result back
+		* as a derived draft. Charges the daily generation budget.
+		* @param request - the adaptation request.
+		* @returns the structured result with its provenance.
+		*/
+		async adaptPublishContent(request) {
+			await this.createQuota.consumeGenerate(1);
+			return this.publishAi.adapt(request);
+		}
+		/**
+		* List the whole global template library: records and the shared tag list.
+		* Both files read leniently — valid records surface, every dropped stored
+		* record is named in `problems`.
+		* @returns the library snapshot.
+		*/
+		async listTemplates() {
+			return readTemplateLibrary(this.templatesRoot);
+		}
+		/**
+		* Upsert one template: the version increments and one full-record snapshot
+		* lands in the history directory per save. Duplicate display names reject.
+		* @param input - the template facts; version, status, and timestamps are store-managed.
+		* @returns the stored record.
+		*/
+		async putTemplate(input) {
+			return putTemplateFile(this.templatesRoot, input);
+		}
+		/**
+		* Flip one template's lifecycle state. Archiving and restoring are
+		* bookkeeping, not edits: no snapshot is written.
+		* @param id - the template to update; unknown ids reject.
+		* @param status - the next lifecycle state.
+		* @returns the stored record.
+		*/
+		async setTemplateStatus(id, status) {
+			return setTemplateStatusFile(this.templatesRoot, id, status);
+		}
+		/**
+		* Remove one template; the whole history directory goes with it and no
+		* file is left to dangle. Removing an unknown id is a no-op.
+		* @param id - the template id.
+		*/
+		async deleteTemplate(id) {
+			await deleteTemplateFile(this.templatesRoot, id);
+		}
+		/**
+		* Read one template's history snapshots, newest version first. Malformed
+		* snapshot files are skipped, never surfaced as records.
+		* @param id - the template whose history to read.
+		* @returns the snapshots.
+		*/
+		async getTemplateHistory(id) {
+			return { entries: await readTemplateHistory(this.templatesRoot, id) };
+		}
+		/**
+		* Replace the shared tag list wholesale, stripping every reference to a
+		* removed tag from the stored records in the same commit.
+		* @param tags - the complete next tag list; names must be unique.
+		* @returns the stored tag list.
+		*/
+		async putTemplateTags(tags) {
+			return putTemplateTagsFile(this.templatesRoot, tags);
+		}
+		/**
+		* Build the portable pack document for the given ids. Read-only; the
+		* caller downloads it as the import/export file.
+		* @param ids - the template ids to export; empty exports the whole library.
+		* @returns the pack document.
+		*/
+		async exportTemplates(ids) {
+			return exportTemplatePack(this.templatesRoot, ids, (/* @__PURE__ */ new Date()).toISOString());
+		}
+		/**
+		* Import one pack document. Entries are independent: a rejected entry is
+		* named in the summary while the rest land. A conflicting id resolves per
+		* the strategy.
+		* @param pack - the parsed pack document from the browser.
+		* @param strategy - the conflict resolution for ids that already exist.
+		* @returns the per-bucket summary.
+		*/
+		async importTemplates(pack, strategy) {
+			return importTemplatePack(this.templatesRoot, pack, strategy);
+		}
+		/**
+		* Run one template AI operation (skeleton generation, body optimization,
+		* or variable extraction). Explicit per call, queued one at a time, rate
+		* limits retried with backoff; nothing is persisted here — the caller
+		* previews the draft and stores it only through an explicit save.
+		* @param request - the operation and its input.
+		* @returns the draft with its prompt version.
+		*/
+		async processTemplateAi(request) {
+			return this.templateAi.process(request);
+		}
+		/**
+		* Read the theme's `_review.json` manifest.
+		* @param theme - outputs-project directory name.
+		* @returns the manifest (null when absent) with only valid snapshots and
+		*   tasks, every dropped one named in `problems`; callers must not write
+		*   back while `problems` is non-empty.
+		*/
+		async readReviewManifest(theme) {
+			return readReviewManifestFile(this.root, theme);
+		}
+		/**
+		* Replace the theme's `_review.json` manifest with an atomic, locked
+		* commit, refreshing the theme's rows in the global `_review-index.json`.
+		* Snapshot appends, bindings, baseline edits, and task retries all ride
+		* full-manifest writes; the store rejects wholesale rather than repairing.
+		* @param theme - outputs-project directory name.
+		* @param manifest - the complete next manifest.
+		*/
+		async writeReviewManifest(theme, manifest) {
+			await writeReviewManifestFile(this.root, theme, manifest);
+		}
+		/**
+		* Read the global `_review-index.json` aggregation aid for the history
+		* list. A malformed file reads as empty with the rejection named — the
+		* next manifest write rebuilds the theme's rows.
+		* @returns the index plus the parse problems.
+		*/
+		async listReviewIndex() {
+			return readReviewIndexFile(this.root);
+		}
+		/**
+		* Parse one platform export file into an import preview: mapped rows,
+		* per-row rejections, and the unmatched columns. Nothing is stored — the
+		* caller confirms with the user before the commit face lands rows.
+		* @param request - the platform, file name, and raw CSV text.
+		* @returns the preview.
+		*/
+		async parseReviewImport(request) {
+			return parseImportFile(request);
+		}
+		/**
+		* Commit confirmed import rows as snapshots: new works append, a known
+		* work re-imported on the same UTC day overwrites that day's snapshot
+		* (idempotent), historical days are never rewritten.
+		* @param request - the theme, platform, and confirmed rows.
+		* @returns the append and overwrite accounting.
+		*/
+		async commitReviewImport(request) {
+			return commitReviewImportFile(this.root, request);
+		}
+		/**
+		* Remove one review task and delete its report file. Snapshots and
+		* bindings survive — other tasks and the dashboard reuse them. An unknown
+		* id rejects so a stale UI cannot silently no-op.
+		* @param request - the theme and the task id.
+		*/
+		async deleteReviewTask(request) {
+			await deleteReviewTaskFile(this.root, request.theme, request.taskId);
+		}
+		/**
+		* Write one report file under `assets/review/reports/`. Every save lands a
+		* new file — the generated original is never overwritten.
+		* @param theme - outputs-project directory name.
+		* @param file - plain report file name (`report-<taskId>-<ts>.md`).
+		* @param content - the complete report markdown.
+		* @returns the stored file name, relative to `assets/review/`.
+		*/
+		async writeReviewReport(theme, file, content) {
+			return writeReviewReportFile(this.root, theme, file, content);
+		}
+		/**
+		* Read one report file back for the viewer and editor.
+		* @returns the markdown, or an empty record when the file does not exist.
+		*/
+		async readReviewReport(theme, file) {
+			return readReviewReportFile(this.root, theme, file);
+		}
+		/**
+		* Save one viral-work template under `assets/review/templates/`.
+		* @param theme - outputs-project directory name.
+		* @param file - plain template file name.
+		* @param content - the template markdown.
+		* @returns the stored file name, relative to `assets/review/`.
+		*/
+		async writeReviewTemplate(theme, file, content) {
+			return writeReviewTemplateFile(this.root, theme, file, content);
+		}
+		/**
+		* List saved template file names under `assets/review/templates/`.
+		* @param theme - outputs-project directory name.
+		* @returns the sorted plain file names.
+		*/
+		async listReviewTemplates(theme) {
+			return { files: await listReviewTemplatesFile(this.root, theme) };
+		}
+		/**
+		* Read one saved template's content.
+		* @returns the markdown, or an empty record when the file does not exist.
+		*/
+		async readReviewTemplate(theme, file) {
+			return readReviewTemplateFile(this.root, theme, file);
+		}
+		/**
+		* Diagnose one work through the model: what worked (viral) or what likely
+		* failed (weak), with reusable elements or fix directions. Explicit per
+		* call, queued one at a time, rate limits retried with backoff; nothing is
+		* persisted here.
+		* @param request - the diagnosis request; the caller assembles the draft
+		*   excerpt and its truncation.
+		* @returns the markdown diagnosis with its provenance.
+		*/
+		async analyzeReviewWork(request) {
+			return this.reviewAi.analyzeWork(request);
+		}
+		/**
+		* Generate one period report through the model under the frozen six-section
+		* template. Aggregate digests only — full bodies never ride this call.
+		* Explicit per call, queued one at a time, rate limits retried with
+		* backoff; nothing is persisted here — the caller stores the markdown and
+		* renders its own data-only fallback on failure.
+		* @param request - the report request.
+		* @returns the markdown report with its provenance.
+		*/
+		async generateReviewReport(request) {
+			return this.reviewAi.generateReport(request);
+		}
+		/**
+		* Read the library-root `_interactions.json` manifest: the conversation
+		* inbox, the AI insights, and the derived summary cache.
+		* @returns the manifest (null when absent) with only valid conversations,
+		*   every dropped one named in `problems`; callers must not write back
+		*   while `problems` is non-empty.
+		*/
+		async readInteractions() {
+			return readInteractionsFile(this.root);
+		}
+		/**
+		* Replace the library-root `_interactions.json` manifest with an atomic,
+		* locked commit. Status marks, tags, notes, drafts, sent replies, and the
+		* insight merge all ride full-manifest writes; the store rejects wholesale
+		* rather than repairing, and recomputes the summary cache in the same
+		* commit so it can never drift.
+		* @param manifest - the complete next manifest.
+		* @returns the stored manifest (recomputed summary, canonical order).
+		*/
+		async writeInteractions(manifest) {
+			return writeInteractionsFile(this.root, manifest);
+		}
+		/**
+		* Parse one fan-interaction export file into an import preview: validated
+		* message rows plus per-row rejections. Nothing is stored — the caller
+		* confirms with the user before the commit face lands rows.
+		* @param request - the file name and raw CSV text (browser-decoded).
+		* @returns the preview.
+		*/
+		async parseInteractionImport(request) {
+			return parseInteractionImport(request);
+		}
+		/**
+		* Commit confirmed import rows: messages group into conversations by
+		* `platform + external_user_id`, dedupe by `platform + external_message_id`
+		* (a known id updates in place), and threading resolves against the
+		* library plus the batch — unresolved parents stay with a named warning.
+		* @param request - the confirmed rows.
+		* @returns the append/update accounting and thread warnings.
+		*/
+		async commitInteractionImport(request) {
+			return commitInteractionImportFile(this.root, request);
+		}
+		/**
+		* Generate the fixed three-candidate reply draft set for one fan message.
+		* The persona digest and samples layer the tone base; the style parameter
+		* loses to the persona on conflict. Explicit per call, queued one at a
+		* time, rate limits retried with backoff; charges one daily generation.
+		* @param request - the thread, tone, persona facts, and template skeleton.
+		* @returns the drafts with their provenance.
+		*/
+		async generateInteractionReply(request) {
+			await this.createQuota.consumeGenerate(1);
+			return this.interactionAi.replyDrafts(request);
+		}
+		/**
+		* Classify one batch of fan messages along the two orthogonal taggings
+		* (sentiment, intent). Explicit per call, queued one at a time; charges
+		* one daily generation per fifty messages. A garbled batch degrades to
+		* unknowns rather than failing the caller's loop.
+		* @param request - at most fifty messages.
+		* @returns the sanitized entries with their provenance.
+		*/
+		async classifyInteractions(request) {
+			await this.createQuota.consumeGenerate(Math.max(1, Math.ceil(request.messages.length / 50)));
+			return this.interactionAi.classify(request);
+		}
+		/**
+		* Extract one insight batch (questions, pain points, interests) from fan
+		* messages. Explicit per call, queued one at a time; charges one daily
+		* generation per batch. A garbled batch reads as empty — the caller's
+		* merge records it and keeps going.
+		* @param request - at most two hundred messages.
+		* @returns the sanitized batch with its provenance.
+		*/
+		async extractInteractionInsights(request) {
+			await this.createQuota.consumeGenerate(1);
+			return this.interactionAi.insights(request);
+		}
+		/**
+		* Push one archived reply outward through the reserved MCP channel. No
+		* provider exists this phase, so the call always refuses with
+		* `MCP_NOT_CONFIGURED` — the caller's local archive already happened and
+		* never depended on this result.
+		* @param request - the conversation, threading, reply text, and persona.
+		* @returns the refusal the toast renders.
+		*/
+		async sendInteractionReply(request) {
+			return stubInteractionChannel.sendReply(request);
+		}
+		/**
+		* Build the whole-inbox export CSV: the import columns plus
+		* `conversation_id`, `status`, and `tags`, BOM first and CRLF lines, so
+		* the file round-trips through the import face unchanged. Nothing is
+		* stored — the caller writes the text where the user aimed it.
+		* @returns the complete CSV text with BOM.
+		*/
+		async exportInteractionCsv() {
+			const { manifest } = await readInteractionsFile(this.root);
+			return { text: buildInteractionExportCsv(manifest?.conversations ?? []) };
+		}
 	};
 })();
 //#endregion
-export { ASSETS_DIRNAME, COMPETITOR_AI_TIMEOUT_CODE, COMPETITOR_MANIFEST_FILENAME, CREATE_AI_TIMEOUT_CODE, CREATE_MANIFEST_FILENAME, CREATE_MAX_STORED_VERSIONS, CREATE_PROMPT_VERSION, CREATE_QUOTA_FILENAME, CREATE_TEMPLATES_FILENAME, CREATE_TEMPLATE_PLACEHOLDERS, Config, ContentOutputsGateway, ContentOutputsGateway as default, CreateQuotaError, GATHER_AI_TIMEOUT_CODE, GATHER_MANIFEST_FILENAME, GATHER_MAX_BODY_CHARS, GATHER_QUOTA_PER_SOURCE, METADATA_FILENAME, PERSONAS_FILENAME, PERSONA_AI_TIMEOUT_CODE, PERSONA_FILL_PROMPT_VERSION, PERSONA_REPORT_PROMPT_VERSION, PERSONA_RESUME_PROMPT_VERSION, assertCreateManifest, assertTemplateBody, buildFactsText, collectCreateReferencedFiles, localDayKey, normalizeQuotaState, parseCompetitorAnalysisOutput, parseCompetitorReportOutput, parseCreateManifest, parseGatherAiOutput, parsePersonaFieldsOutput, parsePersonaReportOutput, parsePersonasManifest, personaDigest, resolveQuotaConfig, scanOutputs, scanProject };
+export { ASSETS_DIRNAME, COMPETITOR_AI_TIMEOUT_CODE, COMPETITOR_MANIFEST_FILENAME, CREATE_AI_TIMEOUT_CODE, CREATE_MANIFEST_FILENAME, CREATE_MAX_STORED_VERSIONS, CREATE_PROMPT_VERSION, CREATE_QUOTA_FILENAME, CREATE_TEMPLATES_FILENAME, CREATE_TEMPLATE_PLACEHOLDERS, Config, ContentOutputsGateway, ContentOutputsGateway as default, CreateQuotaError, GATHER_AI_TIMEOUT_CODE, GATHER_MANIFEST_FILENAME, GATHER_MAX_BODY_CHARS, GATHER_QUOTA_PER_SOURCE, HISTORY_DIRNAME, INTERACTIONS_FILENAME, INTERACTIONS_MAX_CONVERSATIONS, INTERACTIONS_MAX_MESSAGES, INTERACTION_AI_TIMEOUT_CODE, INTERACTION_CSV_COLUMNS, INTERACTION_INSIGHT_PROMPT_VERSION, INTERACTION_MAX_IMPORT_CHARS, INTERACTION_MAX_IMPORT_ROWS, INTERACTION_MAX_MESSAGE_CHARS, INTERACTION_REPLY_CANDIDATES, INTERACTION_REPLY_PROMPT_VERSION, INTERACTION_SENTIMENT_PROMPT_VERSION, METADATA_FILENAME, PERSONAS_FILENAME, PERSONA_AI_TIMEOUT_CODE, PERSONA_FILL_PROMPT_VERSION, PERSONA_REPORT_PROMPT_VERSION, PERSONA_RESUME_PROMPT_VERSION, PLATFORM_IMPORT_HINTS, PUBLISH_AI_TIMEOUT_CODE, PUBLISH_DIRNAME, PUBLISH_INDEX_FILENAME, PUBLISH_MANIFEST_FILENAME, PUBLISH_PROFILES_FILENAME, PUBLISH_PROMPT_VERSION, REVIEW_AI_TIMEOUT_CODE, REVIEW_DIRNAME, REVIEW_INDEX_FILENAME, REVIEW_MANIFEST_FILENAME, REVIEW_PROMPT_VERSION, REVIEW_REPORT_SECTIONS, TAXONOMY_FILENAME, TEMPLATES_FILENAME, TEMPLATE_AI_TIMEOUT_CODE, TEMPLATE_EXTRACT_PROMPT_VERSION, TEMPLATE_GENERATE_PROMPT_VERSION, TEMPLATE_HISTORY_LIMIT, TEMPLATE_OPTIMIZE_PROMPT_VERSION, TEMPLATE_VARIABLE_NAME_PATTERN, analyzeSystemPrompt, assertCreateManifest, assertInteractionsManifest, assertPublishManifest, assertTemplateBody, buildFactsText, buildInteractionExportCsv, buildPublishPackageFile, classifySystemPrompt, collectCreateReferencedFiles, escapeCsvField, frameAnalyzeRequest, frameClassifyRequest, frameInsightRequest, frameReplyRequest, frameReportRequest, insightSystemPrompt, isPlatformId, isTaskId, localDayKey, mapImportColumns, metricsLine, normalizeQuotaState, normalizeTemplateInput, parseClassifyOutput, parseCompetitorAnalysisOutput, parseCompetitorReportOutput, parseCreateManifest, parseCsvRows, parseDateCell, parseGatherAiOutput, parseImportFile, parseInsightOutput, parseInteractionImport, parseInteractionsManifest, parseMetricCell, parsePersonaFieldsOutput, parsePersonaReportOutput, parsePersonasManifest, parsePublishAdaptOutput, parsePublishManifest, parseReplyOutput, parseReviewManifest, parseTemplateExtractOutput, parseTemplateGenerateOutput, parseTemplateOptimizeOutput, parseTemplateTaxonomy, parseTemplateVariablesOutput, parseTemplatesManifest, personaDigest, replySystemPrompt, reportSystemPrompt, resolveQuotaConfig, scanOutputs, scanProject, stubInteractionChannel, summarizeInteractions };

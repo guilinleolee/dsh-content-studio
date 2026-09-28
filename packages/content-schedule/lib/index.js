@@ -148,6 +148,102 @@ async function mutateSchedule(file, mutate) {
 	});
 }
 //#endregion
+//#region lib/types/calendar-notes.js
+/**
+* Calendar-notes store: reads and writes the day-note sidecar
+* `_calendar.json` at the library root, next to `_schedule.json`. Notes are
+* the calendar view's only owned data — every schedule fact lives on the
+* `_schedule.json` item itself, and a note merely annotates one item by its
+* stable id. A note whose item is gone is inert: readers ignore unknown ids
+* and the next write to that id replaces or clears the entry.
+*/
+/** System file name of the notes sidecar at the library root. */
+const CALENDAR_FILENAME = "_calendar.json";
+function isEntry(value) {
+	if (typeof value !== "object" || value === null) return false;
+	const record = value;
+	return typeof record.text === "string" && record.text.length > 0 && typeof record.updatedAt === "string" && record.updatedAt.length > 0;
+}
+/**
+* Read the notes file.
+* @param file - absolute `_calendar.json` path; a missing file is empty.
+* @returns the snapshot with valid entries and every bad record named.
+*/
+async function readNotes(file) {
+	let raw;
+	try {
+		raw = await readFile(file, "utf8");
+	} catch {
+		return {
+			file,
+			notes: {},
+			problems: []
+		};
+	}
+	let parsed;
+	try {
+		parsed = JSON.parse(raw);
+	} catch {
+		return {
+			file,
+			notes: {},
+			problems: ["calendar notes file is not valid JSON"]
+		};
+	}
+	const root = parsed;
+	if (root.formatVersion !== 0) return {
+		file,
+		notes: {},
+		problems: [`unsupported calendar-notes formatVersion ${String(root.formatVersion)}`]
+	};
+	if (typeof root.notes !== "object" || root.notes === null || Array.isArray(root.notes)) return {
+		file,
+		notes: {},
+		problems: ["calendar notes file has no notes object"]
+	};
+	const entries = {};
+	const problems = [];
+	for (const [id, entry] of Object.entries(root.notes)) if (isEntry(entry)) entries[id] = entry;
+	else problems.push(`dropped one invalid calendar note for ${JSON.stringify(id.slice(0, 40))}`);
+	return {
+		file,
+		notes: entries,
+		problems
+	};
+}
+/**
+* Write one note under a file lock, atomically: a non-empty text upserts the
+* entry, an empty (or whitespace) text clears it.
+* @param file - absolute `_calendar.json` path; parent directories are
+* created when missing (the lock file requires its parent to exist).
+* @param id - the annotated schedule item's stable id.
+* @param text - the note body; empty clears the entry.
+* @returns the post-write notes snapshot.
+*/
+async function writeNote(file, id, text) {
+	return withFileLock(file, async () => {
+		await mkdir(dirname(file), {
+			recursive: true,
+			mode: 448
+		});
+		const notes = { ...(await readNotes(file)).notes };
+		const body = text.trim();
+		if (body.length === 0) delete notes[id];
+		else notes[id] = {
+			text: body,
+			updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+		};
+		await writeFileAtomic(file, `${JSON.stringify({
+			formatVersion: 0,
+			notes
+		}, null, 2)}\n`, {
+			mode: 384,
+			dirMode: 448
+		});
+		return readNotes(file);
+	});
+}
+//#endregion
 //#region lib/types/index.js
 /** Publication calendar Remote for the content-creation library. */
 var __runInitializers = function(thisArg, initializers, value) {
@@ -190,9 +286,10 @@ var __esDecorate = function(ctor, descriptorIn, decorators, contextIn, initializ
 };
 const Config = z.object({ root: z.string() });
 /**
-* Remote calendar service over `_schedule.json` at the library root. Every
-* method reads or commits the file directly — the calendar is small, and the
-* file stays the single truth the agent can also read.
+* Remote calendar service over `_schedule.json` at the library root, plus the
+* `_calendar.json` day-note sidecar. Every method reads or commits its file
+* directly — the calendar is small, and the files stay the single truth the
+* agent can also read.
 */
 let ContentScheduleGateway = (() => {
 	let _classSuper = TypertRemoteService;
@@ -200,12 +297,16 @@ let ContentScheduleGateway = (() => {
 	let _list_decorators;
 	let _put_decorators;
 	let _delete_decorators;
+	let _getNotes_decorators;
+	let _putNote_decorators;
 	return class ContentScheduleGateway extends _classSuper {
 		static {
 			const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
 			_list_decorators = [Remote("list")];
 			_put_decorators = [Remote("put")];
 			_delete_decorators = [Remote("delete")];
+			_getNotes_decorators = [Remote("getNotes")];
+			_putNote_decorators = [Remote("putNote")];
 			__esDecorate(this, null, _list_decorators, {
 				kind: "method",
 				name: "list",
@@ -239,6 +340,28 @@ let ContentScheduleGateway = (() => {
 				},
 				metadata: _metadata
 			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _getNotes_decorators, {
+				kind: "method",
+				name: "getNotes",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "getNotes" in obj,
+					get: (obj) => obj.getNotes
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
+			__esDecorate(this, null, _putNote_decorators, {
+				kind: "method",
+				name: "putNote",
+				static: false,
+				private: false,
+				access: {
+					has: (obj) => "putNote" in obj,
+					get: (obj) => obj.putNote
+				},
+				metadata: _metadata
+			}, null, _instanceExtraInitializers);
 			if (_metadata) Object.defineProperty(this, Symbol.metadata, {
 				enumerable: true,
 				configurable: true,
@@ -250,9 +373,13 @@ let ContentScheduleGateway = (() => {
 		static Config = Config;
 		/** Absolute calendar file path. */
 		file = __runInitializers(this, _instanceExtraInitializers);
+		/** Absolute notes sidecar path. */
+		notesFile;
 		constructor(ctx, config) {
 			super(ctx, "contentSchedule");
-			this.file = join(resolveDshHome(config.root), "outputs", SCHEDULE_FILENAME);
+			const root = join(resolveDshHome(config.root), "outputs");
+			this.file = join(root, SCHEDULE_FILENAME);
+			this.notesFile = join(root, CALENDAR_FILENAME);
 		}
 		/**
 		* Read the whole calendar.
@@ -287,7 +414,27 @@ let ContentScheduleGateway = (() => {
 		async delete(id) {
 			return mutateSchedule(this.file, (items) => items.filter((candidate) => candidate.id !== id));
 		}
+		/**
+		* Read the day-note sidecar.
+		* @returns the notes keyed by schedule item id, with bad records named.
+		*/
+		async getNotes() {
+			return readNotes(this.notesFile);
+		}
+		/**
+		* Upsert one day note: a non-empty text annotates the item, an empty text
+		* clears the entry. The annotated item is not looked up — a note for a
+		* deleted item stays stored but inert until rewritten or cleared.
+		* @param id - the annotated schedule item's stable id.
+		* @param text - the note body; empty clears the entry.
+		* @returns the post-write notes snapshot.
+		*/
+		async putNote(id, text) {
+			const trimmedId = id.trim();
+			if (trimmedId.length === 0) throw new Error("invalid note: id must be a non-empty string");
+			return writeNote(this.notesFile, trimmedId, text);
+		}
 	};
 })();
 //#endregion
-export { Config, ContentScheduleGateway, ContentScheduleGateway as default, SCHEDULE_FILENAME, mutateSchedule, normalizeInput, readSchedule };
+export { CALENDAR_FILENAME, Config, ContentScheduleGateway, ContentScheduleGateway as default, SCHEDULE_FILENAME, mutateSchedule, normalizeInput, readNotes, readSchedule, writeNote };

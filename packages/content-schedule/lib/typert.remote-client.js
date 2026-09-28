@@ -10,11 +10,19 @@ const _deepseek_ai_dsh_content_schedule_contentSchedule_delete_result$schema = z
   'date': z.string().readonly(),
   'time': z.union([z.literal(null), z.string()]).readonly(),
   'platform': z.union([z.literal(null), z.string()]).readonly(),
-  'status': z.union([z.literal("draft"), z.literal("published"), z.literal("idea"), z.literal("scheduled")]).readonly(),
+  'status': z.union([z.literal("draft"), z.literal("published"), z.literal("scheduled"), z.literal("idea")]).readonly(),
   'kind': z.union([z.literal("content"), z.literal("event")]).readonly(),
   'topic': z.union([z.literal(null), z.string()]).readonly(),
   'url': z.union([z.literal(null), z.string()]).readonly(),
 })).readonly(),
+  'problems': z.array(z.string()).readonly(),
+})
+const _deepseek_ai_dsh_content_schedule_contentSchedule_getNotes_result$schema = z.object({
+  'file': z.string().readonly(),
+  'notes': z.record(z.string(), z.object({
+  'text': z.string().readonly(),
+  'updatedAt': z.string().readonly(),
+})).readonly().readonly(),
   'problems': z.array(z.string()).readonly(),
 })
 const _deepseek_ai_dsh_content_schedule_contentSchedule_list_result$schema = z.object({
@@ -25,7 +33,7 @@ const _deepseek_ai_dsh_content_schedule_contentSchedule_list_result$schema = z.o
   'date': z.string().readonly(),
   'time': z.union([z.literal(null), z.string()]).readonly(),
   'platform': z.union([z.literal(null), z.string()]).readonly(),
-  'status': z.union([z.literal("draft"), z.literal("published"), z.literal("idea"), z.literal("scheduled")]).readonly(),
+  'status': z.union([z.literal("draft"), z.literal("published"), z.literal("scheduled"), z.literal("idea")]).readonly(),
   'kind': z.union([z.literal("content"), z.literal("event")]).readonly(),
   'topic': z.union([z.literal(null), z.string()]).readonly(),
   'url': z.union([z.literal(null), z.string()]).readonly(),
@@ -38,7 +46,7 @@ const _deepseek_ai_dsh_content_schedule_contentSchedule_put_parameter_0$schema =
   'date': z.string().readonly(),
   'time': z.union([z.literal(null), z.string()]).readonly(),
   'platform': z.union([z.literal(null), z.string()]).readonly(),
-  'status': z.union([z.literal("draft"), z.literal("published"), z.literal("idea"), z.literal("scheduled")]).readonly(),
+  'status': z.union([z.literal("draft"), z.literal("published"), z.literal("scheduled"), z.literal("idea")]).readonly(),
   'kind': z.union([z.literal("content"), z.literal("event")]).readonly(),
   'topic': z.union([z.literal(null), z.string()]).readonly(),
   'url': z.union([z.literal(null), z.string()]).readonly(),
@@ -51,11 +59,21 @@ const _deepseek_ai_dsh_content_schedule_contentSchedule_put_result$schema = z.ob
   'date': z.string().readonly(),
   'time': z.union([z.literal(null), z.string()]).readonly(),
   'platform': z.union([z.literal(null), z.string()]).readonly(),
-  'status': z.union([z.literal("draft"), z.literal("published"), z.literal("idea"), z.literal("scheduled")]).readonly(),
+  'status': z.union([z.literal("draft"), z.literal("published"), z.literal("scheduled"), z.literal("idea")]).readonly(),
   'kind': z.union([z.literal("content"), z.literal("event")]).readonly(),
   'topic': z.union([z.literal(null), z.string()]).readonly(),
   'url': z.union([z.literal(null), z.string()]).readonly(),
 })).readonly(),
+  'problems': z.array(z.string()).readonly(),
+})
+const _deepseek_ai_dsh_content_schedule_contentSchedule_putNote_parameter_0$schema = z.string()
+const _deepseek_ai_dsh_content_schedule_contentSchedule_putNote_parameter_1$schema = z.string()
+const _deepseek_ai_dsh_content_schedule_contentSchedule_putNote_result$schema = z.object({
+  'file': z.string().readonly(),
+  'notes': z.record(z.string(), z.object({
+  'text': z.string().readonly(),
+  'updatedAt': z.string().readonly(),
+})).readonly().readonly(),
   'problems': z.array(z.string()).readonly(),
 })
 
@@ -85,7 +103,22 @@ export const TYPERT_REMOTE = {
         typeSymbol: '@deepseek-ai/dsh-content-schedule/types#ContentScheduleSnapshot',
         schema: _deepseek_ai_dsh_content_schedule_contentSchedule_delete_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-schedule/src/index.ts","line":80,"column":9},
+      sourceLocation: {"file":"packages/creation/content-schedule/src/index.ts","line":88,"column":9},
+    },
+    {
+      id: '@deepseek-ai/dsh-content-schedule#contentSchedule/getNotes',
+      service: 'contentSchedule',
+      namespace: 'contentSchedule',
+      method: 'getNotes',
+      invocation: { kind: 'direct' },
+      parameters: [
+      ],
+      result: {
+        mode: 'strict',
+        typeSymbol: '@deepseek-ai/dsh-content-schedule/types#CalendarNotesSnapshot',
+        schema: _deepseek_ai_dsh_content_schedule_contentSchedule_getNotes_result$schema,
+      },
+      sourceLocation: {"file":"packages/creation/content-schedule/src/index.ts","line":97,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-schedule#contentSchedule/list',
@@ -100,7 +133,7 @@ export const TYPERT_REMOTE = {
         typeSymbol: '@deepseek-ai/dsh-content-schedule/types#ContentScheduleSnapshot',
         schema: _deepseek_ai_dsh_content_schedule_contentSchedule_list_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-schedule/src/index.ts","line":50,"column":9},
+      sourceLocation: {"file":"packages/creation/content-schedule/src/index.ts","line":58,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-schedule#contentSchedule/put',
@@ -125,7 +158,42 @@ export const TYPERT_REMOTE = {
         typeSymbol: '@deepseek-ai/dsh-content-schedule/types#ContentScheduleSnapshot',
         schema: _deepseek_ai_dsh_content_schedule_contentSchedule_put_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-schedule/src/index.ts","line":62,"column":9},
+      sourceLocation: {"file":"packages/creation/content-schedule/src/index.ts","line":70,"column":9},
+    },
+    {
+      id: '@deepseek-ai/dsh-content-schedule#contentSchedule/putNote',
+      service: 'contentSchedule',
+      namespace: 'contentSchedule',
+      method: 'putNote',
+      invocation: { kind: 'direct' },
+      parameters: [
+        {
+          name: 'id',
+          wire: 'id',
+          source: 'json',
+          codec: {
+            mode: 'strict',
+            typeSymbol: '@deepseek-ai/dsh-content-schedule#contentSchedule/putNote:id',
+            schema: _deepseek_ai_dsh_content_schedule_contentSchedule_putNote_parameter_0$schema,
+          },
+        },
+        {
+          name: 'text',
+          wire: 'text',
+          source: 'json',
+          codec: {
+            mode: 'strict',
+            typeSymbol: '@deepseek-ai/dsh-content-schedule#contentSchedule/putNote:text',
+            schema: _deepseek_ai_dsh_content_schedule_contentSchedule_putNote_parameter_1$schema,
+          },
+        },
+      ],
+      result: {
+        mode: 'strict',
+        typeSymbol: '@deepseek-ai/dsh-content-schedule/types#CalendarNotesSnapshot',
+        schema: _deepseek_ai_dsh_content_schedule_contentSchedule_putNote_result$schema,
+      },
+      sourceLocation: {"file":"packages/creation/content-schedule/src/index.ts","line":110,"column":9},
     },
   ],
 }

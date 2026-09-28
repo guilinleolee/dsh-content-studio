@@ -25,6 +25,7 @@ import {
   isBatchable, REWRITE_STYLES,
 } from './create.ts'
 import { scanBannedWords, type BannedHit } from './banned-words.ts'
+import type { TemplateController } from './template/template-store.ts'
 import type { PickedMaterial, PickedTopic } from './studio-store.ts'
 import type { StudioKey } from './locales.ts'
 import workbenchCss from './ContentStudio.module.css'
@@ -93,8 +94,12 @@ export interface CreateViewProps {
     list(): Promise<ContentScheduleSnapshot>
     put(input: ScheduleItemInput): Promise<ContentScheduleSnapshot>
   }
+  /** The publish-view handoff for a registered deliverable; absent when the publish view is not mounted. */
+  readonly onSendToPublish?: (manuscript: { readonly theme: string; readonly file: string; readonly title: string }) => void
   /** The capability card catalog, reachable behind the 指令库 toggle. */
   readonly catalog: ReactNode
+  /** The global template library controller; absent hides the 模板 picker entry. */
+  readonly templateLibrary?: TemplateController | null
   readonly t: PropsLocale<'content-studio'>['t']
 }
 
@@ -137,7 +142,7 @@ function parseBrief(pasted: string): { title: string; rest: string } {
  * @returns the view element tree.
  */
 export function CreateView({
-  create, listThemes, persona, picked, onClearPicked, pickedTopic, onClearPickedTopic, topics, schedule, catalog, t,
+  create, listThemes, persona, picked, onClearPicked, pickedTopic, onClearPickedTopic, topics, schedule, onSendToPublish, catalog, templateLibrary, t,
 }: CreateViewProps) {
   const [showCatalog, setShowCatalog] = useState(false)
   const [entryMode, setEntryMode] = useState<EntryMode>('blank')
@@ -690,6 +695,7 @@ export function CreateView({
   }
 
   const removeTemplate = async (id: string): Promise<void> => {
+    if (!window.confirm(t('create.template.deleteConfirm'))) return
     try {
       const list = await create.deleteCreateTemplate(id)
       setTemplates(list.templates)
@@ -881,6 +887,14 @@ export function CreateView({
         </label>
         <button type="button" disabled={aiPending !== null} onClick={() => { void save() }}>{t('create.save')}</button>
         <button type="button" disabled={aiPending !== null} onClick={() => { void publish(false) }}>{t('create.publish')}</button>
+        {onSendToPublish !== undefined && editor.publishedFile !== null && (
+          <button
+            type="button" className={workbenchCss.retry}
+            onClick={() => { onSendToPublish({ theme: editor.theme, file: editor.publishedFile as string, title: editor.title.trim().length > 0 ? editor.title.trim() : editor.publishedFile as string }) }}
+          >
+            {t('create.sendToPublish')}
+          </button>
+        )}
         <button type="button" onClick={() => { void runExport() }}>{t('create.export')}</button>
         {dirty && <span className={css.noticeLine}>{t('create.dirty')}</span>}
       </div>
@@ -962,6 +976,24 @@ export function CreateView({
             </select>
             <button type="button" disabled={aiPending !== null} onClick={() => { void runTitles() }}>{t('create.op.titles')}</button>
             <button type="button" disabled={aiPending !== null} onClick={() => { void runEvaluate() }}>{t('create.evaluate')}</button>
+            {templateLibrary != null && (
+              <button
+                type="button"
+                onClick={() => {
+                  templateLibrary.openPicker({
+                    category: 'creation',
+                    targetLabel: t('create.pickTemplate.target'),
+                    hasContent: () => editor.text.trim().length > 0,
+                    apply: (draft) => {
+                      setEditor(prev => prev === null ? prev : { ...prev, text: draft.body })
+                      setDirty(true)
+                    },
+                  })
+                }}
+              >
+                {t('create.pickTemplate')}
+              </button>
+            )}
             {aiPending === 'rewrite' && <span className={css.noticeLine}>{t('create.rewriting')}</span>}
           </div>
           <textarea

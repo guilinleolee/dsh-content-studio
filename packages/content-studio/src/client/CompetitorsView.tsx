@@ -25,7 +25,10 @@ import type { StudioKey } from './locales.ts'
 import css from './ContentStudio.module.css'
 
 /** localStorage key of the last opened theme. */
-const THEME_STORAGE_KEY = 'content-studio.competitors.theme'
+const THEME_STORAGE_KEY = 'dsh-content-studio.competitors.theme'
+
+/** Pre-alignment theme key; read when the aligned key is absent. */
+const THEME_LEGACY_STORAGE_KEY = 'content-studio.competitors.theme'
 
 /** Injected face of the competitors view: the Remote wrappers it needs. */
 export interface CompetitorsViewInjected {
@@ -158,7 +161,7 @@ export function CompetitorsView(props: CompetitorsViewProps) {
   const [accounts, setAccounts] = useState<readonly CompetitorAccount[]>(() => loadAccounts().accounts)
   const [storageDegraded, setStorageDegraded] = useState(false)
   const [section, setSection] = useState<CompetitorSection>('works')
-  const [theme, setTheme] = useState(() => localStorage.getItem(THEME_STORAGE_KEY) ?? '')
+  const [theme, setTheme] = useState(() => localStorage.getItem(THEME_STORAGE_KEY) ?? localStorage.getItem(THEME_LEGACY_STORAGE_KEY) ?? '')
   const [projects, setProjects] = useState<readonly OutputProject[]>([])
   const [manifest, setManifest] = useState<CompetitorManifest | undefined>(undefined)
   const [manifestProblems, setManifestProblems] = useState<readonly string[]>([])
@@ -295,6 +298,7 @@ export function CompetitorsView(props: CompetitorsViewProps) {
   }
 
   const removeAccount = (account: CompetitorAccount): void => {
+    if (!window.confirm(t('comp.removeAccountConfirm'))) return
     persistAccounts(accounts.filter(candidate => candidate.id !== account.id))
     if (accountForm?.id === account.id) setAccountForm(undefined)
   }
@@ -358,6 +362,9 @@ export function CompetitorsView(props: CompetitorsViewProps) {
   }
 
   const removeWork = (work: CompetitorWork): void => {
+    // Removal deletes the work's asset snapshots from disk, so it is guarded
+    // like the other destructive actions instead of firing on a single click.
+    if (!window.confirm(t('comp.removeWorkConfirm'))) return
     void act(async () => {
       const files = [work.textFile, work.analysis.ref].filter((file): file is string => file !== undefined)
       for (const file of files) await deleteAsset(theme, file)
@@ -434,7 +441,7 @@ export function CompetitorsView(props: CompetitorsViewProps) {
       await writeAsset({ theme, file, content: buildIdeaMarkdown(work, work.analysis.result?.migrationTopics[0]) })
       await commitManifest({
         ...current,
-        works: current.works.map(candidate => candidate.id === work.id ? { ...candidate, gatheredRef: file } : candidate),
+        works: current.works.map(candidate => candidate.id === work.id ? { ...candidate, collectedIdeaRef: file } : candidate),
       })
     })
   }
@@ -767,7 +774,7 @@ function WorkDetail({
         <button type="button" className={css.retry} disabled={!themeReady || pending} onClick={onAnalyze}>{pending ? t('comp.analysisRunning') : work.analysis.status === 'done' ? t('comp.reanalyze') : t('comp.analyze')}</button>
         <button type="button" className={css.retry} onClick={onToggleHot}>{work.hot ? t('comp.unmarkHot') : t('comp.markHot')}</button>
         <button type="button" className={css.retry} onClick={onToggleFavorite}>{work.favorite ? t('comp.unmarkFavorite') : t('comp.markFavorite')}</button>
-        <button type="button" className={css.retry} disabled={!themeReady || work.gatheredRef !== undefined} onClick={onIdea} title={work.gatheredRef}>{t('comp.addIdea')}</button>
+        <button type="button" className={css.retry} disabled={!themeReady || work.collectedIdeaRef !== undefined} onClick={onIdea} title={work.collectedIdeaRef}>{t('comp.addIdea')}</button>
         <button type="button" className={css.retry} onClick={onRemove} aria-label={t('comp.removeWork')}><IconTrashOutline16 size={12} /></button>
       </div>
       {work.analysis.status === 'failed' && (

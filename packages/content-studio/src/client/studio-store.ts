@@ -25,6 +25,16 @@ export interface PickedTopic {
   readonly description: string | null
 }
 
+/** The finished manuscript currently handed to the publish view, if any. */
+export interface PickedManuscript {
+  /** Theme directory the deliverable lives under. */
+  readonly theme: string
+  /** Root deliverable file name. */
+  readonly file: string
+  /** Working title; becomes the publish task's title. */
+  readonly title: string
+}
+
 /** Observable open state, the two verbs, and the two create-view handoffs. */
 export interface ContentStudioController {
   /** Current open state (the useSyncExternalStore snapshot). */
@@ -47,6 +57,12 @@ export interface ContentStudioController {
   pickedTopic(): PickedTopic | null
   /** Clear the topic handoff once the create view has consumed it. */
   clearPickedTopic(): void
+  /** Hand one finished manuscript to the publish view (id reference only). */
+  pickManuscript(manuscript: PickedManuscript): void
+  /** The current manuscript handoff, or null. */
+  pickedManuscript(): PickedManuscript | null
+  /** Clear the manuscript handoff once the publish view has consumed it. */
+  clearPickedManuscript(): void
 }
 
 /**
@@ -57,6 +73,7 @@ export function createContentStudioController(): ContentStudioController {
   let open = false
   let picked: PickedMaterial | null = null
   let pickedTopic: PickedTopic | null = null
+  let pickedManuscript: PickedManuscript | null = null
   const listeners = new Set<() => void>()
   const emit = (): void => {
     for (const listener of listeners) listener()
@@ -95,6 +112,16 @@ export function createContentStudioController(): ContentStudioController {
     clearPickedTopic: () => {
       if (pickedTopic === null) return
       pickedTopic = null
+      emit()
+    },
+    pickManuscript: (manuscript) => {
+      pickedManuscript = manuscript
+      emit()
+    },
+    pickedManuscript: () => pickedManuscript,
+    clearPickedManuscript: () => {
+      if (pickedManuscript === null) return
+      pickedManuscript = null
       emit()
     },
   }

@@ -14,7 +14,7 @@ import type { TopicItem, TopicItemInput, TopicSourceType, TopicStatus } from '@d
 export const TOPIC_STATUSES: readonly TopicStatus[] = ['idea', 'todo', 'creating', 'done', 'shelved']
 
 /** Source families of one topic, in filter order. */
-export const TOPIC_SOURCE_TYPES: readonly TopicSourceType[] = ['manual', 'gather', 'benchmark']
+export const TOPIC_SOURCE_TYPES: readonly TopicSourceType[] = ['manual', 'gather', 'benchmark', 'interaction']
 
 /** The persisted view: the topic bank's two faces. */
 export type TopicBankViewKind = 'table' | 'kanban'

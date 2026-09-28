@@ -38,14 +38,17 @@ import { resolveDshHome } from '@deepseek-ai/dsh-home-paths';
 import { join } from 'node:path';
 import { TypertRemoteService, Remote } from '@deepseek-ai/dsh-typert-protocol';
 import { SCHEDULE_FILENAME, mutateSchedule, normalizeInput, readSchedule } from "./store.js";
+import { CALENDAR_FILENAME, readNotes, writeNote } from "./calendar-notes.js";
 export { SCHEDULE_FILENAME, normalizeInput, readSchedule, mutateSchedule } from "./store.js";
+export { CALENDAR_FILENAME, readNotes, writeNote } from "./calendar-notes.js";
 export const Config = z.object({
     root: z.string(),
 });
 /**
- * Remote calendar service over `_schedule.json` at the library root. Every
- * method reads or commits the file directly — the calendar is small, and the
- * file stays the single truth the agent can also read.
+ * Remote calendar service over `_schedule.json` at the library root, plus the
+ * `_calendar.json` day-note sidecar. Every method reads or commits its file
+ * directly — the calendar is small, and the files stay the single truth the
+ * agent can also read.
  */
 let ContentScheduleGateway = (() => {
     let _classSuper = TypertRemoteService;
@@ -53,24 +56,34 @@ let ContentScheduleGateway = (() => {
     let _list_decorators;
     let _put_decorators;
     let _delete_decorators;
+    let _getNotes_decorators;
+    let _putNote_decorators;
     return class ContentScheduleGateway extends _classSuper {
         static {
             const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
             _list_decorators = [Remote('list')];
             _put_decorators = [Remote('put')];
             _delete_decorators = [Remote('delete')];
+            _getNotes_decorators = [Remote('getNotes')];
+            _putNote_decorators = [Remote('putNote')];
             __esDecorate(this, null, _list_decorators, { kind: "method", name: "list", static: false, private: false, access: { has: obj => "list" in obj, get: obj => obj.list }, metadata: _metadata }, null, _instanceExtraInitializers);
             __esDecorate(this, null, _put_decorators, { kind: "method", name: "put", static: false, private: false, access: { has: obj => "put" in obj, get: obj => obj.put }, metadata: _metadata }, null, _instanceExtraInitializers);
             __esDecorate(this, null, _delete_decorators, { kind: "method", name: "delete", static: false, private: false, access: { has: obj => "delete" in obj, get: obj => obj.delete }, metadata: _metadata }, null, _instanceExtraInitializers);
+            __esDecorate(this, null, _getNotes_decorators, { kind: "method", name: "getNotes", static: false, private: false, access: { has: obj => "getNotes" in obj, get: obj => obj.getNotes }, metadata: _metadata }, null, _instanceExtraInitializers);
+            __esDecorate(this, null, _putNote_decorators, { kind: "method", name: "putNote", static: false, private: false, access: { has: obj => "putNote" in obj, get: obj => obj.putNote }, metadata: _metadata }, null, _instanceExtraInitializers);
             if (_metadata) Object.defineProperty(this, Symbol.metadata, { enumerable: true, configurable: true, writable: true, value: _metadata });
         }
         static inject = [];
         static Config = Config;
         /** Absolute calendar file path. */
         file = __runInitializers(this, _instanceExtraInitializers);
+        /** Absolute notes sidecar path. */
+        notesFile;
         constructor(ctx, config) {
             super(ctx, 'contentSchedule');
-            this.file = join(resolveDshHome(config.root), 'outputs', SCHEDULE_FILENAME);
+            const root = join(resolveDshHome(config.root), 'outputs');
+            this.file = join(root, SCHEDULE_FILENAME);
+            this.notesFile = join(root, CALENDAR_FILENAME);
         }
         /**
          * Read the whole calendar.
@@ -106,6 +119,27 @@ let ContentScheduleGateway = (() => {
          */
         async delete(id) {
             return mutateSchedule(this.file, items => items.filter(candidate => candidate.id !== id));
+        }
+        /**
+         * Read the day-note sidecar.
+         * @returns the notes keyed by schedule item id, with bad records named.
+         */
+        async getNotes() {
+            return readNotes(this.notesFile);
+        }
+        /**
+         * Upsert one day note: a non-empty text annotates the item, an empty text
+         * clears the entry. The annotated item is not looked up — a note for a
+         * deleted item stays stored but inert until rewritten or cleared.
+         * @param id - the annotated schedule item's stable id.
+         * @param text - the note body; empty clears the entry.
+         * @returns the post-write notes snapshot.
+         */
+        async putNote(id, text) {
+            const trimmedId = id.trim();
+            if (trimmedId.length === 0)
+                throw new Error('invalid note: id must be a non-empty string');
+            return writeNote(this.notesFile, trimmedId, text);
         }
     };
 })();

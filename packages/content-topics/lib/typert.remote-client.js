@@ -10,7 +10,7 @@ const _deepseek_ai_dsh_content_topics_contentTopics_delete_result$schema = z.obj
   'oneLiner': z.union([z.literal(null), z.string()]).readonly(),
   'status': z.union([z.literal("done"), z.literal("idea"), z.literal("todo"), z.literal("creating"), z.literal("shelved")]).readonly(),
   'source': z.object({
-  'type': z.union([z.literal("manual"), z.literal("gather"), z.literal("benchmark")]).readonly(),
+  'type': z.union([z.literal("manual"), z.literal("gather"), z.literal("benchmark"), z.literal("interaction")]).readonly(),
   'refId': z.union([z.literal(null), z.string()]).readonly(),
   'url': z.union([z.literal(null), z.string()]).readonly(),
   'snapshot': z.union([z.literal(null), z.object({
@@ -49,7 +49,7 @@ const _deepseek_ai_dsh_content_topics_contentTopics_list_result$schema = z.objec
   'oneLiner': z.union([z.literal(null), z.string()]).readonly(),
   'status': z.union([z.literal("done"), z.literal("idea"), z.literal("todo"), z.literal("creating"), z.literal("shelved")]).readonly(),
   'source': z.object({
-  'type': z.union([z.literal("manual"), z.literal("gather"), z.literal("benchmark")]).readonly(),
+  'type': z.union([z.literal("manual"), z.literal("gather"), z.literal("benchmark"), z.literal("interaction")]).readonly(),
   'refId': z.union([z.literal(null), z.string()]).readonly(),
   'url': z.union([z.literal(null), z.string()]).readonly(),
   'snapshot': z.union([z.literal(null), z.object({
@@ -86,7 +86,7 @@ const _deepseek_ai_dsh_content_topics_contentTopics_put_parameter_0$schema = z.o
   'oneLiner': z.union([z.literal(null), z.string()]).readonly(),
   'status': z.union([z.literal("done"), z.literal("idea"), z.literal("todo"), z.literal("creating"), z.literal("shelved")]).readonly(),
   'source': z.object({
-  'type': z.union([z.literal("manual"), z.literal("gather"), z.literal("benchmark")]).readonly(),
+  'type': z.union([z.literal("manual"), z.literal("gather"), z.literal("benchmark"), z.literal("interaction")]).readonly(),
   'refId': z.union([z.literal(null), z.string()]).readonly(),
   'url': z.union([z.literal(null), z.string()]).readonly(),
   'snapshot': z.union([z.literal(null), z.object({
@@ -121,7 +121,7 @@ const _deepseek_ai_dsh_content_topics_contentTopics_put_result$schema = z.object
   'oneLiner': z.union([z.literal(null), z.string()]).readonly(),
   'status': z.union([z.literal("done"), z.literal("idea"), z.literal("todo"), z.literal("creating"), z.literal("shelved")]).readonly(),
   'source': z.object({
-  'type': z.union([z.literal("manual"), z.literal("gather"), z.literal("benchmark")]).readonly(),
+  'type': z.union([z.literal("manual"), z.literal("gather"), z.literal("benchmark"), z.literal("interaction")]).readonly(),
   'refId': z.union([z.literal(null), z.string()]).readonly(),
   'url': z.union([z.literal(null), z.string()]).readonly(),
   'snapshot': z.union([z.literal(null), z.object({

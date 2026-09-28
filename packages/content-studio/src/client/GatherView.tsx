@@ -177,7 +177,14 @@ function SourcesSection({ state, gather, t }: { state: GatherState; gather: Gath
               >
                 {testing === source.id ? t('gather.sources.testing') : t('gather.sources.test')}
               </button>
-              <button type="button" className={gatherCss.gatherMini} onClick={() => { gather.removeSource(source.id) }}>
+              <button
+                type="button"
+                className={gatherCss.gatherMini}
+                onClick={() => {
+                  if (!window.confirm(t('gather.sources.removeConfirm'))) return
+                  gather.removeSource(source.id)
+                }}
+              >
                 {t('gather.sources.remove')}
               </button>
             </div>
@@ -346,7 +353,14 @@ function TaskRow({ task, gather, expanded, toggle, t }: {
           {task.intervalMinutes === null ? t('gather.task.resume') : t('gather.task.pause')}
         </button>
         <button type="button" className={gatherCss.gatherMini} onClick={toggle}>{t('gather.task.log')}</button>
-        <button type="button" className={gatherCss.gatherMini} onClick={() => { gather.removeTask(task.id) }}>{t('gather.sources.remove')}</button>
+        <button
+          type="button"
+          className={gatherCss.gatherMini}
+          onClick={() => {
+            if (!window.confirm(t('gather.task.removeConfirm'))) return
+            gather.removeTask(task.id)
+          }}
+        >{t('gather.sources.remove')}</button>
       </div>
       {expanded && (
         <ul className={gatherCss.gatherLog}>

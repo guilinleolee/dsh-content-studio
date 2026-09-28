@@ -10,7 +10,7 @@
 /** Kanban column order and the canonical status sequence, oldest stage first. */
 export const TOPIC_STATUSES = ['idea', 'todo', 'creating', 'done', 'shelved'];
 /** Source families of one topic, in filter order. */
-export const TOPIC_SOURCE_TYPES = ['manual', 'gather', 'benchmark'];
+export const TOPIC_SOURCE_TYPES = ['manual', 'gather', 'benchmark', 'interaction'];
 /** The shipped configuration; every load migration falls back here whole. */
 export const DEFAULT_TOPIC_BANK_CONFIG = {
     version: 1,

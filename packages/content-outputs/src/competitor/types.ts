@@ -91,8 +91,8 @@ export interface CompetitorWork {
   readonly favorite: boolean
   /** How the work entered the library; phase one only supports manual import. */
   readonly via: 'manual'
-  /** Reference to the linked information-gathering material, when linked. */
-  readonly gatheredRef?: string
+  /** Exported idea file name (`idea-<work id>.md`) once collected as a topic idea; presence marks the work as collected. */
+  readonly collectedIdeaRef?: string
   readonly analysis: CompetitorWorkAnalysis
 }
 

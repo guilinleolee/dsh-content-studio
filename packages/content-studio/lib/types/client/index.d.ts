@@ -18,6 +18,12 @@ export { CAPABILITY_ITEMS, STUDIO_TABS, capabilityGroups } from './capabilities.
 export type { CapabilityGroup, CapabilityItem, CapabilityMaturity, StudioTab } from './capabilities.ts';
 export { createGatherController, type GatherController, type GatherState } from './gather/gather-store.ts';
 export { createPersonaController, type PersonaController, type PersonaGateway, type PersonaState } from './persona/persona-store.ts';
+export { createTemplateController, type TemplateController, type TemplateGateway, type TemplatePickTarget, type TemplateState } from './template/template-store.ts';
+export { createPublishController, type PublishController, type PublishGateway, type PublishState } from './publish/publish-store.ts';
+export { createReviewController, type ReviewController, type ReviewGateway, type ReviewState, type WorkCard } from './review/review-store.ts';
+export { createInteractionController, type InteractionController, type InteractionGateway, type InteractionState } from './interaction/interaction-store.ts';
+export { PLATFORM_PROFILES, manuscriptCards, platformProfileOf, formatTags, dueScheduledTasks } from './publish/model.ts';
+export type { PlatformProfile, ManuscriptCard } from './publish/model.ts';
 export type { ContentStudioInjected } from './ContentStudio.tsx';
 export type { CreateGateway } from './CreateView.tsx';
 export type { TopicBankGateway, TopicBankScheduleFace } from './TopicBankView.tsx';
@@ -43,10 +49,15 @@ declare module '@deepseek-ai/dsh-client-ui-slots' {
  */
 export declare const inject: string[];
 /**
- * Mount the plugin's own Remote contributions, then register the sidebar
- * entry and the workbench surface once their slot declarations are on the
- * ledger; both registrations install and roll back atomically through one
- * generator. The mounts unwound in reverse order after every registration.
+ * Mount the plugin's own Remote contributions, then run the workbench body on
+ * a fiber that declares every mounted namespace by its exact service name.
+ * Cordis snapshots a namespace service only into fibers whose inject lists
+ * that name (`remote.contentOutputs`), so a consumer that merely injects
+ * `remote` — including this plugin's own apply fiber, a sibling of each
+ * namespace fiber — never resolves it and every gateway call dies with
+ * "cannot get property ... without inject". The mount runs first so the
+ * namespace services exist before the workbench fiber waits on them; Cordis
+ * unloads and re-runs the workbench body if a namespace unmounts.
  * @param ctx - client root context.
  */
 export declare function apply(ctx: Context): Promise<() => Promise<void>>;

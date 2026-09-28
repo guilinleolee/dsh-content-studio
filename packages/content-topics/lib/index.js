@@ -29,7 +29,8 @@ const STATUSES = [
 const SOURCE_TYPES = [
 	"manual",
 	"gather",
-	"benchmark"
+	"benchmark",
+	"interaction"
 ];
 const SCORE_SOURCES = ["manual", "ai"];
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;

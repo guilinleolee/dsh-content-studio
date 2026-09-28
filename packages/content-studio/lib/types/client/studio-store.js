@@ -14,6 +14,7 @@ export function createContentStudioController() {
     let open = false;
     let picked = null;
     let pickedTopic = null;
+    let pickedManuscript = null;
     const listeners = new Set();
     const emit = () => {
         for (const listener of listeners)
@@ -57,6 +58,17 @@ export function createContentStudioController() {
             if (pickedTopic === null)
                 return;
             pickedTopic = null;
+            emit();
+        },
+        pickManuscript: (manuscript) => {
+            pickedManuscript = manuscript;
+            emit();
+        },
+        pickedManuscript: () => pickedManuscript,
+        clearPickedManuscript: () => {
+            if (pickedManuscript === null)
+                return;
+            pickedManuscript = null;
             emit();
         },
     };

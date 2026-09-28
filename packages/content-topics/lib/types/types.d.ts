@@ -9,7 +9,7 @@ export type TopicItemId = Branded<'TopicItemId'>;
 /** Lifecycle of one topic in the creation pipeline. */
 export type TopicStatus = 'idea' | 'todo' | 'creating' | 'done' | 'shelved';
 /** Where one topic came from. */
-export type TopicSourceType = 'manual' | 'gather' | 'benchmark';
+export type TopicSourceType = 'manual' | 'gather' | 'benchmark' | 'interaction';
 /** Who produced a topic score. */
 export type TopicScoreSource = 'manual' | 'ai';
 /** Read-only capture of the source material at topic-creation time. */

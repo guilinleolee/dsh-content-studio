@@ -1,0 +1,1 @@
+{"version":3,"file":"channel.d.ts","sourceRoot":"","sources":["../../../src/interactions/channel.ts"],"names":[],"mappings":"AAAA;;;;;;;GAOG;AAEH,OAAO,KAAK,EAAsB,yBAAyB,EAAE,2BAA2B,EAAE,MAAM,YAAY,CAAA;AAE5G;;;;;GAKG;AACH,eAAO,MAAM,sBAAsB;yBACd,OAAO,CAAC,yBAAyB,CAAC;0BAG/B,2BAA2B,KAAG,OAAO,CAAC,yBAAyB,CAAC;CAG1D,CAAA"}

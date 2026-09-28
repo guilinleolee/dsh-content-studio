@@ -3,6 +3,7 @@ import type { ScheduleItemId, ScheduleItemInput } from '@deepseek-ai/dsh-content
 import type { ContentTopicsSnapshot, TopicItem, TopicItemInput } from '@deepseek-ai/dsh-content-topics/types';
 import type { CapabilityItem } from './capabilities.ts';
 import type { PickedTopic } from './studio-store.ts';
+import type { TemplateController } from './template/template-store.ts';
 /** The narrow schedule write face the view drives (create/update/remove). */
 export interface TopicBankScheduleFace {
     put: (input: ScheduleItemInput) => Promise<unknown>;
@@ -30,11 +31,14 @@ export interface TopicBankViewInjected {
     pickCapability: (item: CapabilityItem) => void;
 }
 /** Full view props: the injected face plus the locale seat. */
-export type TopicBankViewProps = TopicBankViewInjected & PropsLocale<'content-studio'>;
+export type TopicBankViewProps = TopicBankViewInjected & PropsLocale<'content-studio'> & {
+    /** The global template library controller; absent hides the 模板 picker entry. */
+    readonly templateLibrary?: TemplateController | null;
+};
 /**
  * Render the topic-bank view.
  * @param props - the injected face and the locale seat.
  * @returns the view element tree.
  */
-export declare function TopicBankView({ topics, schedule, onStartCreate, writeExport, listThemes, copiedCapabilityId, pickCapability, t, }: TopicBankViewProps): import("react").JSX.Element;
+export declare function TopicBankView({ topics, schedule, onStartCreate, writeExport, listThemes, copiedCapabilityId, pickCapability, templateLibrary, t, }: TopicBankViewProps): import("react").JSX.Element;
 //# sourceMappingURL=TopicBankView.d.ts.map

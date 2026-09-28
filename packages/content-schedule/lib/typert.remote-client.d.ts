@@ -3,18 +3,22 @@ import type {
   RemoteResult,
   TypertRemoteContribution,
 } from '@deepseek-ai/dsh-typert-protocol'
-import type { ContentScheduleSnapshot, ScheduleItem, ScheduleItemInput } from '@deepseek-ai/dsh-content-schedule/types'
+import type { CalendarNotesSnapshot, ContentScheduleSnapshot, ScheduleItem, ScheduleItemInput } from '@deepseek-ai/dsh-content-schedule/types'
 
 declare module '@deepseek-ai/dsh-typert-protocol' {
   interface TypertRemoteNamespace$636f6e74656e745363686564756c65 {
     delete: (id: ScheduleItem['id']) => Promise<RemoteResult<ContentScheduleSnapshot>>
+    getNotes: () => Promise<RemoteResult<CalendarNotesSnapshot>>
     list: () => Promise<RemoteResult<ContentScheduleSnapshot>>
     put: (input: ScheduleItemInput) => Promise<RemoteResult<ContentScheduleSnapshot>>
+    putNote: (id: string, text: string) => Promise<RemoteResult<CalendarNotesSnapshot>>
   }
   interface TypertRemoteMap {
     'contentSchedule/delete': (id: ScheduleItem['id']) => Promise<RemoteResult<ContentScheduleSnapshot>>
+    'contentSchedule/getNotes': () => Promise<RemoteResult<CalendarNotesSnapshot>>
     'contentSchedule/list': () => Promise<RemoteResult<ContentScheduleSnapshot>>
     'contentSchedule/put': (input: ScheduleItemInput) => Promise<RemoteResult<ContentScheduleSnapshot>>
+    'contentSchedule/putNote': (id: string, text: string) => Promise<RemoteResult<CalendarNotesSnapshot>>
   }
   interface TypertRemoteNamespaceMap {
     'contentSchedule': TypertRemoteNamespace$636f6e74656e745363686564756c65

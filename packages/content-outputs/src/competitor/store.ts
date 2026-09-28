@@ -73,7 +73,7 @@ function isWork(value: unknown): value is CompetitorWork {
     && Array.isArray(record.metrics) && record.metrics.every(isMetricSnapshot)
     && typeof record.hot === 'boolean' && typeof record.favorite === 'boolean'
     && record.via === 'manual'
-    && (record.gatheredRef === undefined || typeof record.gatheredRef === 'string')
+    && (record.collectedIdeaRef === undefined || typeof record.collectedIdeaRef === 'string')
     && isAnalysis(record.analysis)
 }
 

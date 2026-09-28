@@ -7,7 +7,7 @@
  */
 import type { CompetitorHeatLevel, CompetitorManifest, CompetitorMetricSnapshot, CompetitorPlatform, CompetitorWork } from '@deepseek-ai/dsh-content-outputs/types';
 /** localStorage namespace owned by the competitors view. */
-export declare const COMPETITORS_STORAGE_KEY = "content-studio.competitors.accounts";
+export declare const COMPETITORS_STORAGE_KEY = "dsh-content-studio.competitors.accounts";
 /** Browser-side benchmark account. Never written to disk by this phase. */
 export interface CompetitorAccount {
     /** Stable id (`acc-` prefixed). */

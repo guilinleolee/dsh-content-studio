@@ -6,7 +6,9 @@
  * unit-testable, and the manifest itself lives on disk behind the gateway.
  */
 /** localStorage namespace owned by the competitors view. */
-export const COMPETITORS_STORAGE_KEY = 'content-studio.competitors.accounts';
+export const COMPETITORS_STORAGE_KEY = 'dsh-content-studio.competitors.accounts';
+/** Pre-alignment namespace; still read on load so existing browsers migrate. */
+const COMPETITORS_LEGACY_STORAGE_KEY = 'content-studio.competitors.accounts';
 /** Platforms the phase-one manual import supports. */
 export const COMPETITOR_PLATFORMS = ['xhs', 'douyin', 'wechat', 'bili', 'zhihu', 'toutiao'];
 /** Works ranked per heat computation window (the account's most recent ones). */
@@ -34,6 +36,8 @@ export function loadAccounts() {
     let raw = null;
     try {
         raw = localStorage.getItem(COMPETITORS_STORAGE_KEY);
+        if (raw === null)
+            raw = localStorage.getItem(COMPETITORS_LEGACY_STORAGE_KEY);
     }
     catch {
         return { accounts: [], degraded: true };
@@ -50,6 +54,7 @@ export function loadAccounts() {
 export function saveAccounts(accounts) {
     try {
         localStorage.setItem(COMPETITORS_STORAGE_KEY, JSON.stringify(accounts, null, 2));
+        localStorage.removeItem(COMPETITORS_LEGACY_STORAGE_KEY);
         return true;
     }
     catch {

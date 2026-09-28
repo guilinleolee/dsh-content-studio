@@ -12,6 +12,7 @@ import type { CreateContentType, CreateEvaluation, CreateManifest, CreatePublish
 import type { ContentScheduleSnapshot, ScheduleItemInput } from '@deepseek-ai/dsh-content-schedule/types';
 import type { ContentTopicsSnapshot, TopicItemInput } from '@deepseek-ai/dsh-content-topics/types';
 import type { PropsLocale } from '@deepseek-ai/dsh-client-ui-slots';
+import type { TemplateController } from './template/template-store.ts';
 import type { PickedMaterial, PickedTopic } from './studio-store.ts';
 /** Server face of the create workbench, served by the content-outputs Remote. */
 export interface CreateGateway {
@@ -96,8 +97,16 @@ export interface CreateViewProps {
         list(): Promise<ContentScheduleSnapshot>;
         put(input: ScheduleItemInput): Promise<ContentScheduleSnapshot>;
     };
+    /** The publish-view handoff for a registered deliverable; absent when the publish view is not mounted. */
+    readonly onSendToPublish?: (manuscript: {
+        readonly theme: string;
+        readonly file: string;
+        readonly title: string;
+    }) => void;
     /** The capability card catalog, reachable behind the 指令库 toggle. */
     readonly catalog: ReactNode;
+    /** The global template library controller; absent hides the 模板 picker entry. */
+    readonly templateLibrary?: TemplateController | null;
     readonly t: PropsLocale<'content-studio'>['t'];
 }
 /**
@@ -105,5 +114,5 @@ export interface CreateViewProps {
  * @param props - the injected face and the locale seat.
  * @returns the view element tree.
  */
-export declare function CreateView({ create, listThemes, persona, picked, onClearPicked, pickedTopic, onClearPickedTopic, topics, schedule, catalog, t, }: CreateViewProps): import("react").JSX.Element;
+export declare function CreateView({ create, listThemes, persona, picked, onClearPicked, pickedTopic, onClearPickedTopic, topics, schedule, onSendToPublish, catalog, templateLibrary, t, }: CreateViewProps): import("react").JSX.Element;
 //# sourceMappingURL=CreateView.d.ts.map

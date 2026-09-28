@@ -1,9 +1,14 @@
 import type { ContentOutputsSnapshot } from '@deepseek-ai/dsh-content-outputs/types';
 import type { ContentScheduleSnapshot, ScheduleItem, ScheduleItemInput } from '@deepseek-ai/dsh-content-schedule/types';
 import type { PropsLocale } from '@deepseek-ai/dsh-client-ui-slots';
+import { type ContentCalendarInjected } from './ContentCalendar.tsx';
 import { type CompetitorsViewInjected } from './CompetitorsView.tsx';
 import { type CreateGateway } from './CreateView.tsx';
 import { type TopicBankGateway } from './TopicBankView.tsx';
+import type { PublishController } from './publish/publish-store.ts';
+import type { ReviewController } from './review/review-store.ts';
+import type { InteractionController } from './interaction/interaction-store.ts';
+import type { TemplateController } from './template/template-store.ts';
 import type { GatherController } from './gather/gather-store.ts';
 import type { PersonaController } from './persona/persona-store.ts';
 import type { ContentStudioController } from './studio-store.ts';
@@ -18,6 +23,8 @@ export interface ContentStudioInjected {
         put: (input: ScheduleItemInput) => Promise<ContentScheduleSnapshot>;
         remove: (id: ScheduleItem['id']) => Promise<ContentScheduleSnapshot>;
     };
+    /** The calendar's day-note sidecar face, served by the contentSchedule Remote. */
+    notes: ContentCalendarInjected['notes'];
     /** The competitor write face, served by the content-outputs Remote. */
     competitors: Omit<CompetitorsViewInjected, 'listOutputs'>;
     /** The create workbench face, served by the content-outputs Remote. */
@@ -30,6 +37,14 @@ export interface ContentStudioInjected {
     topics: TopicBankGateway;
     /** The authorized asset write backing the topic bank's Markdown export. */
     writeExport: (theme: string, file: string, content: string) => Promise<unknown>;
+    /** The publish controller: tasks, profiles, history, and the AI adaptations. */
+    publish: PublishController;
+    /** The review controller: imports, pools, diagnoses, reports, and the reflow. */
+    review: ReviewController;
+    /** The interaction controller: the fan inbox, the CSV import, and the AI helpers. */
+    interaction: InteractionController;
+    /** The global template library controller: the asset store plus the cross-column picker. */
+    templates: TemplateController;
 }
 /** Full surface props: the injected face plus the locale seat. */
 export type ContentStudioProps = ContentStudioInjected & PropsLocale<'content-studio'>;
@@ -38,5 +53,5 @@ export type ContentStudioProps = ContentStudioInjected & PropsLocale<'content-st
  * @param props - the injected face and the locale seat.
  * @returns the surface element tree while open; null while closed.
  */
-export declare function ContentStudio({ studio, listOutputs, gather, schedule, competitors, create, personas, listThemes, topics, writeExport, t, }: ContentStudioProps): import("react").JSX.Element | null;
+export declare function ContentStudio({ studio, listOutputs, gather, schedule, notes, competitors, create, personas, listThemes, topics, writeExport, publish, review, interaction, templates, t, }: ContentStudioProps): import("react").JSX.Element | null;
 //# sourceMappingURL=ContentStudio.d.ts.map

@@ -21,6 +21,7 @@ import { CapabilityPage } from './CapabilityPage.tsx'
 import type { PickedTopic } from './studio-store.ts'
 import { SplitDetail } from './SplitDetail.tsx'
 import { todayDate } from './calendar.ts'
+import type { TemplateController } from './template/template-store.ts'
 import {
   TOPIC_SOURCE_TYPES,
   TOPIC_STATUSES,
@@ -82,7 +83,10 @@ export interface TopicBankViewInjected {
 }
 
 /** Full view props: the injected face plus the locale seat. */
-export type TopicBankViewProps = TopicBankViewInjected & PropsLocale<'content-studio'>
+export type TopicBankViewProps = TopicBankViewInjected & PropsLocale<'content-studio'> & {
+  /** The global template library controller; absent hides the 模板 picker entry. */
+  readonly templateLibrary?: TemplateController | null
+}
 
 /** The create/edit form's draft state; create reads only the title. */
 interface TopicFormState {
@@ -131,7 +135,7 @@ function parseTagsText(value: string): readonly string[] {
  * @returns the view element tree.
  */
 export function TopicBankView({
-  topics, schedule, onStartCreate, writeExport, listThemes, copiedCapabilityId, pickCapability, t,
+  topics, schedule, onStartCreate, writeExport, listThemes, copiedCapabilityId, pickCapability, templateLibrary, t,
 }: TopicBankViewProps) {
   const [snapshot, setSnapshot] = useState<ContentTopicsSnapshot | undefined>(undefined)
   const [failed, setFailed] = useState<string | undefined>(undefined)
@@ -203,16 +207,52 @@ export function TopicBankView({
     setForm(current => current === null ? current : { ...current, ...patch })
   }
 
-  const openCreate = (): void => {
+  const openCreate = (prefill?: {
+    readonly title: string
+    readonly oneLiner: string
+    readonly tagsText: string
+    readonly description: string
+  }): void => {
     setFormError(null)
-    setForm({ mode: 'create', id: null, title: '', oneLiner: '', status: 'idea', tagsText: '', description: '', sourceUrl: '', planDate: '', scoreText: '' })
+    setForm({
+      mode: 'create',
+      id: null,
+      title: prefill?.title ?? '',
+      oneLiner: prefill?.oneLiner ?? '',
+      status: 'idea',
+      tagsText: prefill?.tagsText ?? '',
+      description: prefill?.description ?? '',
+      sourceUrl: '',
+      planDate: '',
+      scoreText: '',
+    })
+  }
+  /** The template-library handoff: the structured pick prefills the create
+      form — never a direct put, the draft stays user-editable before save. */
+  const openTemplatePicker = (): void => {
+    if (templateLibrary == null) return
+    templateLibrary.openPicker({
+      category: 'topic',
+      targetLabel: t('template.target.topic'),
+      hasContent: () => false,
+      apply: (draft) => {
+        openCreate({ title: draft.title, oneLiner: '', tagsText: draft.tags.join(', '), description: draft.body })
+      },
+    })
   }
   const submitCreate = async (): Promise<void> => {
     if (form === null) return
     const title = form.title.trim()
     if (title.length === 0) { setFormError(t('topicBank.error.titleRequired')); return }
     try {
-      const next = await topics.put(manualTopicInput(title))
+      // The optional fields only carry content when a template prefilled the
+      // form; the plain quick-add path sends the same shape it always did.
+      const next = await topics.put({
+        ...manualTopicInput(title),
+        oneLiner: orNull(form.oneLiner),
+        tags: parseTagsText(form.tagsText),
+        description: orNull(form.description),
+      })
       setSnapshot(next)
       setForm(null)
       toast(t('topicBank.notice.created'))
@@ -372,6 +412,16 @@ export function TopicBankView({
           onChange={(event) => { patchForm({ title: event.target.value }) }}
         />
         {formError !== null && <p className={tb.formError}>{formError}</p>}
+        {(form.oneLiner.length > 0 || form.tagsText.length > 0 || form.description.length > 0) && (
+          <>
+            <label className={tb.fieldLabel} htmlFor="topic-bank-create-oneliner">{t('topicBank.field.oneLiner')}</label>
+            <input id="topic-bank-create-oneliner" className={tb.formInput} value={form.oneLiner} onChange={(event) => { patchForm({ oneLiner: event.target.value }) }} />
+            <label className={tb.fieldLabel} htmlFor="topic-bank-create-tags">{t('topicBank.field.tags')}</label>
+            <input id="topic-bank-create-tags" className={tb.formInput} value={form.tagsText} placeholder={t('topicBank.field.tagsPlaceholder')} onChange={(event) => { patchForm({ tagsText: event.target.value }) }} />
+            <label className={tb.fieldLabel} htmlFor="topic-bank-create-description">{t('topicBank.field.description')}</label>
+            <textarea id="topic-bank-create-description" className={clsx(tb.formInput, tb.formTextarea)} value={form.description} onChange={(event) => { patchForm({ description: event.target.value }) }} />
+          </>
+        )}
         <div className={tb.formRow}>
           <button type="button" className={tb.primary} onClick={() => { void submitCreate() }}>{t('topicBank.save')}</button>
           <button type="button" className={tb.btn} onClick={() => { setForm(null) }}>{t('topicBank.cancel')}</button>
@@ -401,7 +451,10 @@ export function TopicBankView({
         {createForm}
         <div className={css.libraryState}>{t('topicBank.guide.hint')}</div>
         <div className={tb.guideActions}>
-          <button type="button" className={tb.primary} onClick={openCreate}>{t('topicBank.new')}</button>
+          <button type="button" className={tb.primary} onClick={() => { openCreate() }}>{t('topicBank.new')}</button>
+          {templateLibrary != null && (
+            <button type="button" className={tb.btn} onClick={openTemplatePicker}>{t('topicBank.useTemplate')}</button>
+          )}
         </div>
         <CapabilityPage title={t('topicBank.title')} ids={['hotspot', 'calendar-plan']} copiedId={copiedCapabilityId} pick={pickCapability} t={t} />
       </div>
@@ -445,7 +498,10 @@ export function TopicBankView({
           <h2 className={css.pageTitle}>{t('topicBank.title')}</h2>
           <span className={css.subtitle}>{t('topicBank.subtitle')}</span>
         </div>
-        <button type="button" className={tb.primary} onClick={openCreate}>{t('topicBank.new')}</button>
+        <button type="button" className={tb.primary} onClick={() => { openCreate() }}>{t('topicBank.new')}</button>
+        {templateLibrary != null && (
+          <button type="button" className={tb.btn} onClick={openTemplatePicker}>{t('topicBank.useTemplate')}</button>
+        )}
       </header>
 
       <div className={tb.toolbar}>

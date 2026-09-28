@@ -13,7 +13,9 @@ import { IconRefreshOutline14, IconTrashOutline16, IconWarningOutline16 } from '
 import { aggregateAccountDigest, buildIdeaMarkdown, COMPETITOR_PLATFORMS, exportAccounts, heatByWork, importAccounts, interactionScore, isAccountStale, loadAccounts, newId, saveAccounts, upsertWork, } from "./competitors.js";
 import css from './ContentStudio.module.css';
 /** localStorage key of the last opened theme. */
-const THEME_STORAGE_KEY = 'content-studio.competitors.theme';
+const THEME_STORAGE_KEY = 'dsh-content-studio.competitors.theme';
+/** Pre-alignment theme key; read when the aligned key is absent. */
+const THEME_LEGACY_STORAGE_KEY = 'content-studio.competitors.theme';
 /** Section tab order. */
 const SECTIONS = ['accounts', 'works', 'reports'];
 /** Locale key per section tab. */
@@ -86,7 +88,7 @@ export function CompetitorsView(props) {
     const [accounts, setAccounts] = useState(() => loadAccounts().accounts);
     const [storageDegraded, setStorageDegraded] = useState(false);
     const [section, setSection] = useState('works');
-    const [theme, setTheme] = useState(() => localStorage.getItem(THEME_STORAGE_KEY) ?? '');
+    const [theme, setTheme] = useState(() => localStorage.getItem(THEME_STORAGE_KEY) ?? localStorage.getItem(THEME_LEGACY_STORAGE_KEY) ?? '');
     const [projects, setProjects] = useState([]);
     const [manifest, setManifest] = useState(undefined);
     const [manifestProblems, setManifestProblems] = useState([]);
@@ -226,6 +228,8 @@ export function CompetitorsView(props) {
         setAccountForm(undefined);
     };
     const removeAccount = (account) => {
+        if (!window.confirm(t('comp.removeAccountConfirm')))
+            return;
         persistAccounts(accounts.filter(candidate => candidate.id !== account.id));
         if (accountForm?.id === account.id)
             setAccountForm(undefined);
@@ -286,6 +290,10 @@ export function CompetitorsView(props) {
         });
     };
     const removeWork = (work) => {
+        // Removal deletes the work's asset snapshots from disk, so it is guarded
+        // like the other destructive actions instead of firing on a single click.
+        if (!window.confirm(t('comp.removeWorkConfirm')))
+            return;
         void act(async () => {
             const files = [work.textFile, work.analysis.ref].filter((file) => file !== undefined);
             for (const file of files)
@@ -366,7 +374,7 @@ export function CompetitorsView(props) {
             await writeAsset({ theme, file, content: buildIdeaMarkdown(work, work.analysis.result?.migrationTopics[0]) });
             await commitManifest({
                 ...current,
-                works: current.works.map(candidate => candidate.id === work.id ? { ...candidate, gatheredRef: file } : candidate),
+                works: current.works.map(candidate => candidate.id === work.id ? { ...candidate, collectedIdeaRef: file } : candidate),
             });
         });
     };
@@ -435,7 +443,7 @@ function WorkRow({ work, heat, pending, active, onOpen, t }) {
 /** The work detail pane: facts, markers, actions, teardown result, and preview. */
 function WorkDetail({ work, themeReady, pending, previewText, commentsDraft, onCommentsDraft, onAnalyze, onToggleHot, onToggleFavorite, onIdea, onRemove, t, }) {
     const result = work.analysis.result;
-    return (_jsxs("div", { className: css.compDetail, children: [_jsxs("div", { className: css.compDetailHead, children: [_jsx("strong", { className: css.compDetailTitle, children: work.title }), _jsxs("span", { className: css.listMeta, children: [work.accountName, " \u00B7 ", t(PLATFORM_KEYS[work.platform]), work.publishedAt !== undefined && ` · ${work.publishedAt.slice(0, 10)}`, work.url !== undefined && _jsxs(_Fragment, { children: [" \u00B7 ", _jsx("a", { href: work.url, target: "_blank", rel: "noreferrer", children: t('comp.openOriginal') })] })] })] }), _jsxs("div", { className: css.compActions, children: [_jsx("button", { type: "button", className: css.retry, disabled: !themeReady || pending, onClick: onAnalyze, children: pending ? t('comp.analysisRunning') : work.analysis.status === 'done' ? t('comp.reanalyze') : t('comp.analyze') }), _jsx("button", { type: "button", className: css.retry, onClick: onToggleHot, children: work.hot ? t('comp.unmarkHot') : t('comp.markHot') }), _jsx("button", { type: "button", className: css.retry, onClick: onToggleFavorite, children: work.favorite ? t('comp.unmarkFavorite') : t('comp.markFavorite') }), _jsx("button", { type: "button", className: css.retry, disabled: !themeReady || work.gatheredRef !== undefined, onClick: onIdea, title: work.gatheredRef, children: t('comp.addIdea') }), _jsx("button", { type: "button", className: css.retry, onClick: onRemove, "aria-label": t('comp.removeWork'), children: _jsx(IconTrashOutline16, { size: 12 }) })] }), work.analysis.status === 'failed' && (_jsxs("div", { className: css.compBanner, role: "alert", children: [_jsx(IconWarningOutline16, { size: 14 }), _jsxs("span", { children: [t('comp.analysisFailed'), ": ", work.analysis.error] })] })), result !== undefined && (_jsxs("div", { className: css.compResult, children: [_jsxs("p", { className: css.compResultLine, children: [_jsx("strong", { children: t('comp.hookType') }), result.hookType] }), _jsxs("p", { className: css.compResultLine, children: [_jsx("strong", { children: t('comp.structure') }), result.structure] }), _jsx(ListBlock, { label: t('comp.painPoints'), values: result.painPoints }), _jsx(ListBlock, { label: t('comp.topics'), values: result.topics }), _jsx(ListBlock, { label: t('comp.risks'), values: result.risks }), _jsx(ListBlock, { label: t('comp.reusable'), values: result.reusable }), _jsx(ListBlock, { label: t('comp.migrationTopics'), values: result.migrationTopics }), _jsxs("p", { className: css.compResultLine, children: [_jsx("strong", { children: t('comp.commentInsight') }), result.commentInsight === 'unavailable' ? t('comp.commentUnavailable') : result.commentInsight] })] })), _jsxs("label", { className: css.compFieldLabel, children: [t('comp.commentsInput'), _jsx("textarea", { className: css.compTextarea, rows: 3, value: commentsDraft, onChange: (event) => { onCommentsDraft(event.currentTarget.value); }, placeholder: t('comp.commentsPlaceholder') })] }), _jsxs("details", { className: css.compPreview, children: [_jsx("summary", { children: t('comp.previewBody') }), work.textFile === undefined
+    return (_jsxs("div", { className: css.compDetail, children: [_jsxs("div", { className: css.compDetailHead, children: [_jsx("strong", { className: css.compDetailTitle, children: work.title }), _jsxs("span", { className: css.listMeta, children: [work.accountName, " \u00B7 ", t(PLATFORM_KEYS[work.platform]), work.publishedAt !== undefined && ` · ${work.publishedAt.slice(0, 10)}`, work.url !== undefined && _jsxs(_Fragment, { children: [" \u00B7 ", _jsx("a", { href: work.url, target: "_blank", rel: "noreferrer", children: t('comp.openOriginal') })] })] })] }), _jsxs("div", { className: css.compActions, children: [_jsx("button", { type: "button", className: css.retry, disabled: !themeReady || pending, onClick: onAnalyze, children: pending ? t('comp.analysisRunning') : work.analysis.status === 'done' ? t('comp.reanalyze') : t('comp.analyze') }), _jsx("button", { type: "button", className: css.retry, onClick: onToggleHot, children: work.hot ? t('comp.unmarkHot') : t('comp.markHot') }), _jsx("button", { type: "button", className: css.retry, onClick: onToggleFavorite, children: work.favorite ? t('comp.unmarkFavorite') : t('comp.markFavorite') }), _jsx("button", { type: "button", className: css.retry, disabled: !themeReady || work.collectedIdeaRef !== undefined, onClick: onIdea, title: work.collectedIdeaRef, children: t('comp.addIdea') }), _jsx("button", { type: "button", className: css.retry, onClick: onRemove, "aria-label": t('comp.removeWork'), children: _jsx(IconTrashOutline16, { size: 12 }) })] }), work.analysis.status === 'failed' && (_jsxs("div", { className: css.compBanner, role: "alert", children: [_jsx(IconWarningOutline16, { size: 14 }), _jsxs("span", { children: [t('comp.analysisFailed'), ": ", work.analysis.error] })] })), result !== undefined && (_jsxs("div", { className: css.compResult, children: [_jsxs("p", { className: css.compResultLine, children: [_jsx("strong", { children: t('comp.hookType') }), result.hookType] }), _jsxs("p", { className: css.compResultLine, children: [_jsx("strong", { children: t('comp.structure') }), result.structure] }), _jsx(ListBlock, { label: t('comp.painPoints'), values: result.painPoints }), _jsx(ListBlock, { label: t('comp.topics'), values: result.topics }), _jsx(ListBlock, { label: t('comp.risks'), values: result.risks }), _jsx(ListBlock, { label: t('comp.reusable'), values: result.reusable }), _jsx(ListBlock, { label: t('comp.migrationTopics'), values: result.migrationTopics }), _jsxs("p", { className: css.compResultLine, children: [_jsx("strong", { children: t('comp.commentInsight') }), result.commentInsight === 'unavailable' ? t('comp.commentUnavailable') : result.commentInsight] })] })), _jsxs("label", { className: css.compFieldLabel, children: [t('comp.commentsInput'), _jsx("textarea", { className: css.compTextarea, rows: 3, value: commentsDraft, onChange: (event) => { onCommentsDraft(event.currentTarget.value); }, placeholder: t('comp.commentsPlaceholder') })] }), _jsxs("details", { className: css.compPreview, children: [_jsx("summary", { children: t('comp.previewBody') }), work.textFile === undefined
                         ? _jsx("p", { className: css.panelEmpty, children: t('comp.noBody') })
                         : _jsx("pre", { className: css.compReport, children: previewText === undefined ? t('comp.reportLoading') : previewText })] })] }));
 }

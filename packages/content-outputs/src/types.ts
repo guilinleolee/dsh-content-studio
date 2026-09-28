@@ -164,3 +164,67 @@ export {
   PERSONA_FIELD_KEYS, PERSONA_FIELD_LABELS, PERSONA_FILL_PROHIBITED, PERSONA_PLATFORMS,
   PERSONA_PLATFORM_LABELS, PERSONA_STYLE_PRESETS, PERSONA_STYLE_PRESET_LABELS,
 } from './persona/types.ts'
+export type {
+  TemplateAiDraft,
+  TemplateAiOperation,
+  TemplateAiRequest,
+  TemplateAiResult,
+  TemplateCategory,
+  TemplateHistoryEntry,
+  TemplateHistoryRead,
+  TemplateId,
+  TemplateImportStrategy,
+  TemplateImportSummary,
+  TemplateInput,
+  TemplatePack,
+  TemplateRecord,
+  TemplatesManifest,
+  TemplatesSnapshot,
+  TemplateStatus,
+  TemplateTag,
+  TemplateTagId,
+  TemplateTaxonomy,
+  TemplateVariable,
+} from './template/types.ts'
+export { TEMPLATE_CATEGORIES } from './template/types.ts'
+export type {
+  PlatformAttemptAction, PlatformStatus, PlatformTask, PublishAdaptRequest, PublishAdaptResult,
+  PublishIndex, PublishIndexEntry, PublishIndexRead, PublishManifest, PublishManifestRead,
+  PublishMode, PublishPackage, PublishPackagePlatform, PublishProfile, PublishProfilesDoc,
+  PublishProfilesRead, PublishStatus, PublishTask,
+} from './publish/types.ts'
+export {
+  PLATFORM_ATTEMPT_ACTIONS, PLATFORM_STATUSES, PUBLISH_MODES, PUBLISH_STATUSES,
+} from './publish/types.ts'
+export type {
+  MetricSnapshot, ReviewAggregateSummary, ReviewAiResult, ReviewAnalyzeWorkRequest,
+  ReviewBaselines, ReviewContentType, ReviewFilters, ReviewGenerateReportRequest,
+  ReviewImportCommitRequest, ReviewImportCommitResult, ReviewImportPreview,
+  ReviewImportPreviewRequest, ReviewIndexDoc, ReviewIndexRead, ReviewIndexRow,
+  ReviewManifest, ReviewManifestRead, ReviewMetrics, ReviewParsedRow, ReviewPeriod,
+  ReviewPlatformId, ReviewRejectedRow, ReviewReportRead, ReviewReportSaveRequest, ReviewStatus,
+  ReviewTask, ReviewTaskDeleteRequest, ReviewWorkDigest, ReviewWorkFilter,
+} from './review/types.ts'
+export {
+  DEFAULT_BASELINES, NULL_REVIEW_METRICS, REVIEW_CONTENT_TYPES, REVIEW_PLATFORMS,
+  REVIEW_STATUSES, REVIEW_WORK_FILTERS,
+} from './review/types.ts'
+export type {
+  InteractionChannel, InteractionChannelFailure, InteractionClassifyEntry,
+  InteractionConversationStatus,
+  InteractionClassifyMessage, InteractionClassifyRequest, InteractionClassifyResult,
+  InteractionConversation, InteractionImportCommitRequest, InteractionImportCommitResult,
+  InteractionImportPreview, InteractionImportPreviewRequest, InteractionInsightBatch,
+  InteractionInsightEntry, InteractionInsightRequest, InteractionInsightResult, InteractionInsights,
+  InteractionIntent,
+  InteractionMessage, InteractionMessageType, InteractionParticipant, InteractionParsedMessage,
+  InteractionPlatformId, InteractionRawMessage, InteractionRejectedRow, InteractionReplyDraft,
+  InteractionReplyDraftResult, InteractionReplyRequest, InteractionReplyResult,
+  InteractionSendReplyRequest, InteractionSentiment, InteractionStyle, InteractionSummary, InteractionTagging,
+  InteractionThreadLine, InteractionsManifest, InteractionsManifestRead,
+} from './interactions/types.ts'
+export {
+  EMPTY_INTERACTION_INSIGHTS, EMPTY_INTERACTION_SUMMARY, INTERACTION_MESSAGE_TYPES,
+  INTERACTION_PLATFORMS, INTERACTION_STATUSES, INTERACTION_STYLES, UNTAGGED_INTENT,
+  UNTAGGED_SENTIMENT,
+} from './interactions/types.ts'

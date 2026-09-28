@@ -4006,7 +4006,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			inst.keyType = def.keyType;
 			inst.valueType = def.valueType;
 		});
-		function record(keyType, valueType, params) {
+		function record$1(keyType, valueType, params) {
 			if (!valueType || !valueType._zod) return new ZodRecord({
 				type: "record",
 				keyType: string(),
@@ -4241,6 +4241,22 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		}
 		//#endregion
 		//#region ../../creation/content-outputs/lib/typert.remote-client.js
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_adaptPublishContent_parameter_0$schema = object({
+			"platformId": string().readonly(),
+			"platformName": string().readonly(),
+			"styleHints": string().readonly(),
+			"charLimit": union([literal(null), number()]).readonly(),
+			"title": string().readonly(),
+			"sourceText": string().readonly(),
+			"personaDigest": union([literal(null), string()]).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_adaptPublishContent_result$schema = object({
+			"content": string().readonly(),
+			"coverPrompt": union([literal(null), string()]).readonly(),
+			"tags": array(string()).readonly(),
+			"model": string().readonly(),
+			"promptVersion": number().readonly()
+		});
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_analyzeCompetitorWork_parameter_0$schema = object({
 			"theme": string().readonly().optional(),
 			"textFile": string().readonly().optional(),
@@ -4259,6 +4275,155 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"reusable": array(string()).readonly(),
 			"migrationTopics": array(string()).readonly(),
 			"commentInsight": string().readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_analyzeReviewWork_parameter_0$schema = object({
+			"title": string().readonly(),
+			"platformId": union([
+				literal("xhs"),
+				literal("douyin"),
+				literal("gzh"),
+				literal("bilibili")
+			]).readonly(),
+			"contentType": union([
+				literal(null),
+				literal("video"),
+				literal("image-text")
+			]).readonly(),
+			"publishedAt": union([literal(null), string()]).readonly(),
+			"period": object({
+				"from": string().readonly(),
+				"to": string().readonly()
+			}).readonly(),
+			"metrics": object({
+				"impressions": union([literal(null), number()]).readonly(),
+				"reads": union([literal(null), number()]).readonly(),
+				"likes": union([literal(null), number()]).readonly(),
+				"collects": union([literal(null), number()]).readonly(),
+				"comments": union([literal(null), number()]).readonly(),
+				"shares": union([literal(null), number()]).readonly(),
+				"followersGained": union([literal(null), number()]).readonly(),
+				"coverCtr": union([literal(null), number()]).readonly()
+			}).readonly(),
+			"verdict": union([
+				literal("viral"),
+				literal("weak"),
+				literal("neutral")
+			]).readonly(),
+			"draftText": union([literal(null), string()]).readonly(),
+			"tags": array(string()).readonly(),
+			"personaDigest": union([literal(null), string()]).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_analyzeReviewWork_result$schema = object({
+			"markdown": string().readonly(),
+			"model": string().readonly(),
+			"promptVersion": number().readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_buildPublishPackage_parameter_0$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_buildPublishPackage_parameter_1$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_buildPublishPackage_result$schema = object({
+			"taskId": string().readonly(),
+			"theme": string().readonly(),
+			"title": string().readonly(),
+			"manuscriptFile": string().readonly(),
+			"topicId": union([literal(null), string()]).readonly(),
+			"personaDigest": union([literal(null), string()]).readonly(),
+			"mode": union([literal("immediate"), literal("scheduled")]).readonly(),
+			"scheduledAt": union([literal(null), string()]).readonly(),
+			"platforms": array(object({
+				"platformId": string().readonly(),
+				"accountAlias": string().readonly(),
+				"contentFile": string().readonly(),
+				"tags": array(string()).readonly(),
+				"coverPrompt": union([literal(null), string()]).readonly(),
+				"scheduledAt": union([literal(null), string()]).readonly()
+			})).readonly(),
+			"generatedAt": string().readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_classifyInteractions_parameter_0$schema = object({ "messages": array(object({
+			"messageId": string().readonly(),
+			"content": string().readonly()
+		})).readonly() });
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_classifyInteractions_result$schema = object({
+			"entries": array(object({
+				"messageId": string().readonly(),
+				"sentiment": union([
+					literal("positive"),
+					literal("negative"),
+					literal("question"),
+					literal("unknown")
+				]).readonly(),
+				"intent": union([
+					literal("spam"),
+					literal("unknown"),
+					literal("consult"),
+					literal("praise"),
+					literal("complain"),
+					literal("demand")
+				]).readonly()
+			})).readonly(),
+			"model": string().readonly(),
+			"promptVersion": string().readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_commitInteractionImport_parameter_0$schema = object({ "messages": array(object({
+			"platform": union([
+				literal("xhs"),
+				literal("douyin"),
+				literal("bilibili"),
+				literal("weixin")
+			]).readonly(),
+			"externalMessageId": string().readonly(),
+			"externalUserId": string().readonly(),
+			"nickname": union([literal(null), string()]).readonly(),
+			"type": union([
+				literal("comment"),
+				literal("dm"),
+				literal("mention")
+			]).readonly(),
+			"content": string().readonly(),
+			"inReplyToExternal": union([literal(null), string()]).readonly(),
+			"sentAt": string().readonly(),
+			"topicRef": union([literal(null), string()]).readonly(),
+			"outputRef": union([literal(null), string()]).readonly(),
+			"personaId": union([literal(null), string()]).readonly()
+		})).readonly() });
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_commitInteractionImport_result$schema = object({
+			"added": number().readonly(),
+			"updated": number().readonly(),
+			"conversationsCreated": number().readonly(),
+			"threadWarnings": array(string()).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_commitReviewImport_parameter_0$schema = object({
+			"theme": string().readonly(),
+			"platformId": union([
+				literal("xhs"),
+				literal("douyin"),
+				literal("gzh"),
+				literal("bilibili")
+			]).readonly(),
+			"rows": array(object({
+				"platformWorkId": string().readonly(),
+				"title": string().readonly(),
+				"publishedAt": union([literal(null), string()]).readonly(),
+				"contentType": union([
+					literal(null),
+					literal("video"),
+					literal("image-text")
+				]).readonly(),
+				"metrics": object({
+					"impressions": union([literal(null), number()]).readonly(),
+					"reads": union([literal(null), number()]).readonly(),
+					"likes": union([literal(null), number()]).readonly(),
+					"collects": union([literal(null), number()]).readonly(),
+					"comments": union([literal(null), number()]).readonly(),
+					"shares": union([literal(null), number()]).readonly(),
+					"followersGained": union([literal(null), number()]).readonly(),
+					"coverCtr": union([literal(null), number()]).readonly()
+				}).readonly()
+			})).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_commitReviewImport_result$schema = object({
+			"added": number().readonly(),
+			"overwritten": number().readonly()
 		});
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_deleteAsset_parameter_0$schema = string();
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_deleteAsset_parameter_1$schema = string();
@@ -4284,6 +4449,13 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		});
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_deletePersona_parameter_0$schema = intersection(string(), unknown());
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_deletePersona_result$schema = _void();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_deleteReviewTask_parameter_0$schema = object({
+			"theme": string().readonly(),
+			"taskId": string().readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_deleteReviewTask_result$schema = _void();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_deleteTemplate_parameter_0$schema = intersection(string(), unknown());
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_deleteTemplate_result$schema = _void();
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_evaluateCreateContent_parameter_0$schema = object({
 			"contentType": union([
 				literal("xhs-note"),
@@ -4343,6 +4515,75 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				"reason": string().readonly()
 			}).readonly()
 		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_exportInteractionCsv_result$schema = object({ "text": string() });
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_exportTemplates_parameter_0$schema = array(string());
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_exportTemplates_result$schema = object({
+			"format": literal("dsh-template-pack").readonly(),
+			"formatVersion": literal(1).readonly(),
+			"exportedAt": string().readonly(),
+			"templates": array(object({
+				"id": intersection(string(), unknown()).readonly(),
+				"name": string().readonly(),
+				"category": union([
+					literal("benchmark"),
+					literal("topic"),
+					literal("creation"),
+					literal("publish"),
+					literal("calendar"),
+					literal("retro"),
+					literal("interaction"),
+					literal("persona"),
+					literal("intel"),
+					literal("dashboard")
+				]).readonly(),
+				"description": string().readonly(),
+				"tagIds": array(intersection(string(), unknown())).readonly(),
+				"body": string().readonly(),
+				"variables": array(object({
+					"name": string().readonly(),
+					"label": string().readonly(),
+					"description": string().readonly(),
+					"defaultValue": string().readonly(),
+					"required": boolean().readonly()
+				})).readonly(),
+				"status": union([literal("active"), literal("archived")]).readonly(),
+				"version": number().readonly(),
+				"createdAt": string().readonly(),
+				"updatedAt": string().readonly()
+			})).readonly(),
+			"tags": array(object({
+				"id": intersection(string(), unknown()).readonly(),
+				"name": string().readonly()
+			})).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_extractInteractionInsights_parameter_0$schema = object({ "messages": array(object({
+			"messageId": string().readonly(),
+			"content": string().readonly()
+		})).readonly() });
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_extractInteractionInsights_result$schema = object({
+			"batch": object({
+				"questions": array(object({
+					"label": string().readonly(),
+					"count": number().readonly(),
+					"exampleMessageId": union([literal(null), string()]).readonly(),
+					"topicHint": union([literal(null), string()]).readonly()
+				})).readonly(),
+				"painPoints": array(object({
+					"label": string().readonly(),
+					"count": number().readonly(),
+					"exampleMessageId": union([literal(null), string()]).readonly(),
+					"topicHint": union([literal(null), string()]).readonly()
+				})).readonly(),
+				"interests": array(object({
+					"label": string().readonly(),
+					"count": number().readonly(),
+					"exampleMessageId": union([literal(null), string()]).readonly(),
+					"topicHint": union([literal(null), string()]).readonly()
+				})).readonly()
+			}).readonly(),
+			"model": string().readonly(),
+			"promptVersion": string().readonly()
+		});
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_fetchFeed_parameter_0$schema = object({
 			"url": string().readonly(),
 			"etag": string().readonly().optional(),
@@ -4395,6 +4636,128 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_generateCreateContent_result$schema = object({
 			"text": string().readonly(),
 			"variants": union([literal(null), array(string())]).readonly(),
+			"model": string().readonly(),
+			"promptVersion": number().readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_generateInteractionReply_parameter_0$schema = object({
+			"style": union([
+				literal("friendly"),
+				literal("formal"),
+				literal("humorous"),
+				literal("brief")
+			]).readonly(),
+			"personaDigest": union([literal(null), string()]).readonly(),
+			"personaPhrases": array(string()).readonly(),
+			"personaSamples": array(string()).readonly(),
+			"template": union([literal(null), string()]).readonly(),
+			"thread": array(object({
+				"direction": union([literal("in"), literal("out")]).readonly(),
+				"content": string().readonly()
+			})).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_generateInteractionReply_result$schema = object({
+			"drafts": array(object({
+				"style": union([
+					literal("friendly"),
+					literal("formal"),
+					literal("humorous"),
+					literal("brief")
+				]).readonly(),
+				"content": string().readonly()
+			})).readonly(),
+			"model": string().readonly(),
+			"promptVersion": string().readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_generateReviewReport_parameter_0$schema = object({
+			"name": string().readonly(),
+			"period": object({
+				"from": string().readonly(),
+				"to": string().readonly()
+			}).readonly(),
+			"platforms": array(union([
+				literal("xhs"),
+				literal("douyin"),
+				literal("gzh"),
+				literal("bilibili")
+			])).readonly(),
+			"baselines": object({
+				"engagementRate": number().readonly(),
+				"collectRate": number().readonly(),
+				"source": union([literal("user"), literal("default")]).readonly(),
+				"updatedAt": string().readonly()
+			}).readonly(),
+			"summary": object({
+				"totalWorks": number().readonly(),
+				"viralCount": number().readonly(),
+				"weakCount": number().readonly(),
+				"longtailCount": number().readonly(),
+				"perPlatform": object({
+					"xhs": object({
+						"works": number(),
+						"impressions": union([literal(null), number()]),
+						"engagement": union([literal(null), number()])
+					}),
+					"douyin": object({
+						"works": number(),
+						"impressions": union([literal(null), number()]),
+						"engagement": union([literal(null), number()])
+					}),
+					"gzh": object({
+						"works": number(),
+						"impressions": union([literal(null), number()]),
+						"engagement": union([literal(null), number()])
+					}),
+					"bilibili": object({
+						"works": number(),
+						"impressions": union([literal(null), number()]),
+						"engagement": union([literal(null), number()])
+					})
+				}).readonly(),
+				"totalEngagement": union([literal(null), number()]).readonly(),
+				"avgEngagementRate": union([literal(null), number()]).readonly(),
+				"totalFollowersGained": union([literal(null), number()]).readonly()
+			}).readonly(),
+			"topWorks": array(object({
+				"title": string().readonly(),
+				"platformId": union([
+					literal("xhs"),
+					literal("douyin"),
+					literal("gzh"),
+					literal("bilibili")
+				]).readonly(),
+				"contentType": union([
+					literal(null),
+					literal("video"),
+					literal("image-text")
+				]).readonly(),
+				"publishedAt": union([literal(null), string()]).readonly(),
+				"engagementRate": union([literal(null), number()]).readonly(),
+				"collectRate": union([literal(null), number()]).readonly(),
+				"reads": union([literal(null), number()]).readonly(),
+				"excerpt": string().readonly()
+			})).readonly(),
+			"bottomWorks": array(object({
+				"title": string().readonly(),
+				"platformId": union([
+					literal("xhs"),
+					literal("douyin"),
+					literal("gzh"),
+					literal("bilibili")
+				]).readonly(),
+				"contentType": union([
+					literal(null),
+					literal("video"),
+					literal("image-text")
+				]).readonly(),
+				"publishedAt": union([literal(null), string()]).readonly(),
+				"engagementRate": union([literal(null), number()]).readonly(),
+				"collectRate": union([literal(null), number()]).readonly(),
+				"reads": union([literal(null), number()]).readonly(),
+				"excerpt": string().readonly()
+			})).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_generateReviewReport_result$schema = object({
+			"markdown": string().readonly(),
 			"model": string().readonly(),
 			"promptVersion": number().readonly()
 		});
@@ -4575,6 +4938,93 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"createdAt": string().readonly(),
 			"updatedAt": string().readonly()
 		}).optional() });
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_getTemplateHistory_parameter_0$schema = intersection(string(), unknown());
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_getTemplateHistory_result$schema = object({ "entries": array(object({
+			"version": number().readonly(),
+			"changeNote": string().readonly(),
+			"createdAt": string().readonly(),
+			"record": object({
+				"id": intersection(string(), unknown()).readonly(),
+				"name": string().readonly(),
+				"category": union([
+					literal("benchmark"),
+					literal("topic"),
+					literal("creation"),
+					literal("publish"),
+					literal("calendar"),
+					literal("retro"),
+					literal("interaction"),
+					literal("persona"),
+					literal("intel"),
+					literal("dashboard")
+				]).readonly(),
+				"description": string().readonly(),
+				"tagIds": array(intersection(string(), unknown())).readonly(),
+				"body": string().readonly(),
+				"variables": array(object({
+					"name": string().readonly(),
+					"label": string().readonly(),
+					"description": string().readonly(),
+					"defaultValue": string().readonly(),
+					"required": boolean().readonly()
+				})).readonly(),
+				"status": union([literal("active"), literal("archived")]).readonly(),
+				"version": number().readonly(),
+				"createdAt": string().readonly(),
+				"updatedAt": string().readonly()
+			}).readonly()
+		})).readonly() });
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_importTemplates_parameter_0$schema = object({
+			"format": literal("dsh-template-pack").readonly(),
+			"formatVersion": literal(1).readonly(),
+			"exportedAt": string().readonly(),
+			"templates": array(object({
+				"id": intersection(string(), unknown()).readonly(),
+				"name": string().readonly(),
+				"category": union([
+					literal("benchmark"),
+					literal("topic"),
+					literal("creation"),
+					literal("publish"),
+					literal("calendar"),
+					literal("retro"),
+					literal("interaction"),
+					literal("persona"),
+					literal("intel"),
+					literal("dashboard")
+				]).readonly(),
+				"description": string().readonly(),
+				"tagIds": array(intersection(string(), unknown())).readonly(),
+				"body": string().readonly(),
+				"variables": array(object({
+					"name": string().readonly(),
+					"label": string().readonly(),
+					"description": string().readonly(),
+					"defaultValue": string().readonly(),
+					"required": boolean().readonly()
+				})).readonly(),
+				"status": union([literal("active"), literal("archived")]).readonly(),
+				"version": number().readonly(),
+				"createdAt": string().readonly(),
+				"updatedAt": string().readonly()
+			})).readonly(),
+			"tags": array(object({
+				"id": intersection(string(), unknown()).readonly(),
+				"name": string().readonly()
+			})).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_importTemplates_parameter_1$schema = union([
+			literal("skip"),
+			literal("overwrite"),
+			literal("rename")
+		]);
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_importTemplates_result$schema = object({
+			"added": number().readonly(),
+			"skipped": number().readonly(),
+			"overwritten": number().readonly(),
+			"renamed": number().readonly(),
+			"failed": array(string()).readonly()
+		});
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_list_result$schema = object({
 			"root": string().readonly(),
 			"projects": array(object({
@@ -4806,6 +5256,91 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			})).readonly(),
 			"problems": array(string()).readonly()
 		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_listPublishIndex_result$schema = object({
+			"index": object({
+				"formatVersion": literal(0).readonly(),
+				"entries": array(object({
+					"taskId": string().readonly(),
+					"theme": string().readonly(),
+					"title": string().readonly(),
+					"status": union([
+						literal("draft"),
+						literal("scheduled"),
+						literal("pendingReview"),
+						literal("recorded")
+					]).readonly(),
+					"platformIds": array(string()).readonly(),
+					"updatedAt": string().readonly()
+				})).readonly()
+			}).readonly(),
+			"problems": array(string()).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_listReviewIndex_result$schema = object({
+			"doc": union([literal(null), object({
+				"formatVersion": literal(0).readonly(),
+				"rows": array(object({
+					"taskId": string().readonly(),
+					"theme": string().readonly(),
+					"name": string().readonly(),
+					"period": object({
+						"from": string().readonly(),
+						"to": string().readonly()
+					}).readonly(),
+					"platforms": array(union([
+						literal("xhs"),
+						literal("douyin"),
+						literal("gzh"),
+						literal("bilibili")
+					])).readonly(),
+					"status": union([
+						literal("ready"),
+						literal("failed"),
+						literal("generating")
+					]).readonly(),
+					"updatedAt": string().readonly()
+				})).readonly()
+			})]).readonly(),
+			"problems": array(string()).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_listReviewTemplates_parameter_0$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_listReviewTemplates_result$schema = object({ "files": array(string()) });
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_listTemplates_result$schema = object({
+			"templates": array(object({
+				"id": intersection(string(), unknown()).readonly(),
+				"name": string().readonly(),
+				"category": union([
+					literal("benchmark"),
+					literal("topic"),
+					literal("creation"),
+					literal("publish"),
+					literal("calendar"),
+					literal("retro"),
+					literal("interaction"),
+					literal("persona"),
+					literal("intel"),
+					literal("dashboard")
+				]).readonly(),
+				"description": string().readonly(),
+				"tagIds": array(intersection(string(), unknown())).readonly(),
+				"body": string().readonly(),
+				"variables": array(object({
+					"name": string().readonly(),
+					"label": string().readonly(),
+					"description": string().readonly(),
+					"defaultValue": string().readonly(),
+					"required": boolean().readonly()
+				})).readonly(),
+				"status": union([literal("active"), literal("archived")]).readonly(),
+				"version": number().readonly(),
+				"createdAt": string().readonly(),
+				"updatedAt": string().readonly()
+			})).readonly(),
+			"tags": array(object({
+				"id": intersection(string(), unknown()).readonly(),
+				"name": string().readonly()
+			})).readonly(),
+			"problems": array(string()).readonly()
+		});
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_moveAsset_parameter_0$schema = object({
 			"fromTheme": string().readonly(),
 			"from": string().readonly(),
@@ -4813,6 +5348,85 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"to": string().readonly()
 		});
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_moveAsset_result$schema = _void();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_parseInteractionImport_parameter_0$schema = object({
+			"fileName": string().readonly(),
+			"text": string().readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_parseInteractionImport_result$schema = object({
+			"fileName": string().readonly(),
+			"messages": array(object({
+				"platform": union([
+					literal("xhs"),
+					literal("douyin"),
+					literal("bilibili"),
+					literal("weixin")
+				]).readonly(),
+				"externalMessageId": string().readonly(),
+				"externalUserId": string().readonly(),
+				"nickname": union([literal(null), string()]).readonly(),
+				"type": union([
+					literal("comment"),
+					literal("dm"),
+					literal("mention")
+				]).readonly(),
+				"content": string().readonly(),
+				"inReplyToExternal": union([literal(null), string()]).readonly(),
+				"sentAt": string().readonly(),
+				"topicRef": union([literal(null), string()]).readonly(),
+				"outputRef": union([literal(null), string()]).readonly(),
+				"personaId": union([literal(null), string()]).readonly()
+			})).readonly(),
+			"rejected": array(object({
+				"row": number().readonly(),
+				"reason": string().readonly()
+			})).readonly(),
+			"totalRows": number().readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_parseReviewImport_parameter_0$schema = object({
+			"platformId": union([
+				literal("xhs"),
+				literal("douyin"),
+				literal("gzh"),
+				literal("bilibili")
+			]).readonly(),
+			"text": string().readonly(),
+			"fileName": string().readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_parseReviewImport_result$schema = object({
+			"fileName": string().readonly(),
+			"platformId": union([
+				literal("xhs"),
+				literal("douyin"),
+				literal("gzh"),
+				literal("bilibili")
+			]).readonly(),
+			"rows": array(object({
+				"platformWorkId": string().readonly(),
+				"title": string().readonly(),
+				"publishedAt": union([literal(null), string()]).readonly(),
+				"contentType": union([
+					literal(null),
+					literal("video"),
+					literal("image-text")
+				]).readonly(),
+				"metrics": object({
+					"impressions": union([literal(null), number()]).readonly(),
+					"reads": union([literal(null), number()]).readonly(),
+					"likes": union([literal(null), number()]).readonly(),
+					"collects": union([literal(null), number()]).readonly(),
+					"comments": union([literal(null), number()]).readonly(),
+					"shares": union([literal(null), number()]).readonly(),
+					"followersGained": union([literal(null), number()]).readonly(),
+					"coverCtr": union([literal(null), number()]).readonly()
+				}).readonly()
+			})).readonly(),
+			"rejected": array(object({
+				"row": number().readonly(),
+				"reason": string().readonly()
+			})).readonly(),
+			"unknownColumns": array(string()).readonly(),
+			"totalRows": number().readonly()
+		});
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_processMaterial_parameter_0$schema = object({
 			"operation": literal("process").readonly(),
 			"theme": string().readonly().optional(),
@@ -5074,6 +5688,54 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				"markdown": string().readonly()
 			})
 		]);
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_processTemplateAi_parameter_0$schema = union([
+			object({
+				"operation": literal("generate").readonly(),
+				"category": union([
+					literal("benchmark"),
+					literal("topic"),
+					literal("creation"),
+					literal("publish"),
+					literal("calendar"),
+					literal("retro"),
+					literal("interaction"),
+					literal("persona"),
+					literal("intel"),
+					literal("dashboard")
+				]).readonly(),
+				"description": string().readonly()
+			}),
+			object({
+				"operation": literal("optimize").readonly(),
+				"body": string().readonly(),
+				"instruction": string().readonly()
+			}),
+			object({
+				"operation": literal("extract").readonly(),
+				"content": string().readonly()
+			})
+		]);
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_processTemplateAi_result$schema = object({
+			"operation": union([
+				literal("extract"),
+				literal("generate"),
+				literal("optimize")
+			]).readonly(),
+			"promptVersion": string().readonly(),
+			"draft": object({
+				"name": string().readonly(),
+				"description": string().readonly(),
+				"body": string().readonly(),
+				"variables": array(object({
+					"name": string().readonly(),
+					"label": string().readonly(),
+					"description": string().readonly(),
+					"defaultValue": string().readonly(),
+					"required": boolean().readonly()
+				})).readonly()
+			}).readonly(),
+			"problems": array(string()).readonly()
+		});
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_publishCreateFinal_parameter_0$schema = string();
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_publishCreateFinal_parameter_1$schema = object({
 			"file": string().readonly(),
@@ -5644,6 +6306,71 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"createdAt": string().readonly(),
 			"updatedAt": string().readonly()
 		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_putTemplate_parameter_0$schema = object({
+			"id": intersection(string(), unknown()).readonly().optional(),
+			"name": string().readonly(),
+			"category": union([
+				literal("benchmark"),
+				literal("topic"),
+				literal("creation"),
+				literal("publish"),
+				literal("calendar"),
+				literal("retro"),
+				literal("interaction"),
+				literal("persona"),
+				literal("intel"),
+				literal("dashboard")
+			]).readonly(),
+			"description": string().readonly(),
+			"tagIds": array(intersection(string(), unknown())).readonly(),
+			"body": string().readonly(),
+			"variables": array(object({
+				"name": string().readonly(),
+				"label": string().readonly(),
+				"description": string().readonly(),
+				"defaultValue": string().readonly(),
+				"required": boolean().readonly()
+			})).readonly(),
+			"changeNote": string().readonly().optional()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_putTemplate_result$schema = object({
+			"id": intersection(string(), unknown()).readonly(),
+			"name": string().readonly(),
+			"category": union([
+				literal("benchmark"),
+				literal("topic"),
+				literal("creation"),
+				literal("publish"),
+				literal("calendar"),
+				literal("retro"),
+				literal("interaction"),
+				literal("persona"),
+				literal("intel"),
+				literal("dashboard")
+			]).readonly(),
+			"description": string().readonly(),
+			"tagIds": array(intersection(string(), unknown())).readonly(),
+			"body": string().readonly(),
+			"variables": array(object({
+				"name": string().readonly(),
+				"label": string().readonly(),
+				"description": string().readonly(),
+				"defaultValue": string().readonly(),
+				"required": boolean().readonly()
+			})).readonly(),
+			"status": union([literal("active"), literal("archived")]).readonly(),
+			"version": number().readonly(),
+			"createdAt": string().readonly(),
+			"updatedAt": string().readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_putTemplateTags_parameter_0$schema = array(object({
+			"id": intersection(string(), unknown()).readonly(),
+			"name": string().readonly()
+		}));
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_putTemplateTags_result$schema = array(object({
+			"id": intersection(string(), unknown()).readonly(),
+			"name": string().readonly()
+		}));
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_readAsset_parameter_0$schema = string();
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_readAsset_parameter_1$schema = string();
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_readAsset_result$schema = object({ "content": string().optional() });
@@ -5651,7 +6378,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_readCompetitorManifest_result$schema = object({
 			"manifest": object({
 				"formatVersion": literal(0).readonly(),
-				"syncedAt": record(string(), string()).readonly().readonly(),
+				"syncedAt": record$1(string(), string()).readonly().readonly(),
 				"works": array(object({
 					"id": intersection(string(), unknown()).readonly(),
 					"accountId": string().readonly(),
@@ -5680,7 +6407,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					"hot": boolean().readonly(),
 					"favorite": boolean().readonly(),
 					"via": literal("manual").readonly(),
-					"gatheredRef": string().readonly().optional(),
+					"collectedIdeaRef": string().readonly().optional(),
 					"analysis": object({
 						"status": union([
 							literal("none"),
@@ -5878,6 +6605,272 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			}).readonly(),
 			"problems": array(string()).readonly()
 		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readInteractions_result$schema = object({
+			"manifest": union([literal(null), object({
+				"formatVersion": literal(0).readonly(),
+				"conversations": array(object({
+					"id": string().readonly(),
+					"platform": union([
+						literal("xhs"),
+						literal("douyin"),
+						literal("bilibili"),
+						literal("weixin")
+					]).readonly(),
+					"participant": object({
+						"externalUserId": string().readonly(),
+						"nickname": string().readonly()
+					}).readonly(),
+					"topicRef": union([literal(null), string()]).readonly(),
+					"outputRef": union([literal(null), string()]).readonly(),
+					"personaId": union([literal(null), string()]).readonly(),
+					"status": union([
+						literal("unread"),
+						literal("archived"),
+						literal("pendingReply"),
+						literal("replied"),
+						literal("spam")
+					]).readonly(),
+					"tags": array(string()).readonly(),
+					"note": string().readonly(),
+					"starred": boolean().readonly(),
+					"createdAt": string().readonly(),
+					"updatedAt": string().readonly(),
+					"messages": array(object({
+						"id": string().readonly(),
+						"externalMessageId": string().readonly(),
+						"direction": union([literal("in"), literal("out")]).readonly(),
+						"type": union([
+							literal("comment"),
+							literal("dm"),
+							literal("mention")
+						]).readonly(),
+						"content": string().readonly(),
+						"inReplyTo": union([literal(null), string()]).readonly(),
+						"sentAt": string().readonly(),
+						"sentiment": object({
+							"value": union([
+								literal("positive"),
+								literal("negative"),
+								literal("question"),
+								literal("unknown")
+							]).readonly(),
+							"source": union([literal("user"), literal("ai")]).readonly(),
+							"aiMeta": union([literal(null), object({
+								"promptVersion": string().readonly(),
+								"at": string().readonly()
+							})]).readonly()
+						}).readonly(),
+						"intent": object({
+							"value": union([
+								literal("spam"),
+								literal("unknown"),
+								literal("consult"),
+								literal("praise"),
+								literal("complain"),
+								literal("demand")
+							]).readonly(),
+							"source": union([literal("user"), literal("ai")]).readonly(),
+							"aiMeta": union([literal(null), object({
+								"promptVersion": string().readonly(),
+								"at": string().readonly()
+							})]).readonly()
+						}).readonly(),
+						"replyDrafts": array(object({
+							"id": string().readonly(),
+							"style": union([
+								literal("friendly"),
+								literal("formal"),
+								literal("humorous"),
+								literal("brief")
+							]).readonly(),
+							"content": string().readonly(),
+							"personaId": union([literal(null), string()]).readonly(),
+							"createdAt": string().readonly()
+						})).readonly()
+					})).readonly()
+				})).readonly(),
+				"insights": object({
+					"generatedAt": union([literal(null), string()]).readonly(),
+					"topQuestions": array(object({
+						"label": string().readonly(),
+						"count": number().readonly(),
+						"exampleMessageId": union([literal(null), string()]).readonly(),
+						"topicHint": union([literal(null), string()]).readonly()
+					})).readonly(),
+					"painPoints": array(object({
+						"label": string().readonly(),
+						"count": number().readonly(),
+						"exampleMessageId": union([literal(null), string()]).readonly(),
+						"topicHint": union([literal(null), string()]).readonly()
+					})).readonly(),
+					"interests": array(object({
+						"label": string().readonly(),
+						"count": number().readonly(),
+						"exampleMessageId": union([literal(null), string()]).readonly(),
+						"topicHint": union([literal(null), string()]).readonly()
+					})).readonly()
+				}).readonly(),
+				"summary": object({
+					"unread": number().readonly(),
+					"pendingReply": number().readonly(),
+					"replied": number().readonly(),
+					"archived": number().readonly(),
+					"spam": number().readonly()
+				}).readonly()
+			})]).readonly(),
+			"problems": array(string()).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishDerived_parameter_0$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishDerived_parameter_1$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishDerived_parameter_2$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishDerived_result$schema = object({ "content": string().optional() });
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishManifest_parameter_0$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishManifest_result$schema = object({
+			"manifest": union([literal(null), object({
+				"formatVersion": literal(0).readonly(),
+				"tasks": array(object({
+					"taskId": string().readonly(),
+					"title": string().readonly(),
+					"manuscriptFile": string().readonly(),
+					"manuscriptId": union([literal(null), string()]).readonly(),
+					"topicId": union([literal(null), string()]).readonly(),
+					"personaDigest": union([literal(null), string()]).readonly(),
+					"mode": union([literal("immediate"), literal("scheduled")]).readonly(),
+					"scheduledAt": union([literal(null), string()]).readonly(),
+					"scheduleItemId": union([literal(null), string()]).readonly(),
+					"status": union([
+						literal("draft"),
+						literal("scheduled"),
+						literal("pendingReview"),
+						literal("recorded")
+					]).readonly(),
+					"note": union([literal(null), string()]).readonly(),
+					"platforms": array(object({
+						"platformId": string().readonly(),
+						"accountAlias": string().readonly(),
+						"contentFile": string().readonly(),
+						"coverPrompt": union([literal(null), string()]).readonly(),
+						"tags": array(string()).readonly(),
+						"status": union([
+							literal("recorded"),
+							literal("pending"),
+							literal("adapted"),
+							literal("edited")
+						]).readonly(),
+						"attempts": array(object({
+							"at": string().readonly(),
+							"action": union([
+								literal("adapt"),
+								literal("edit"),
+								literal("record")
+							]).readonly(),
+							"ok": boolean().readonly(),
+							"detail": string().readonly()
+						})).readonly()
+					})).readonly(),
+					"createdAt": string().readonly(),
+					"updatedAt": string().readonly()
+				})).readonly()
+			})]).readonly(),
+			"problems": array(string()).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishProfiles_result$schema = object({
+			"profiles": array(object({
+				"platformId": string().readonly(),
+				"alias": string().readonly(),
+				"enabled": boolean().readonly(),
+				"adaptationOverrides": union([literal(null), string()]).readonly()
+			})).readonly(),
+			"problems": array(string()).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishSource_parameter_0$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishSource_parameter_1$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishSource_result$schema = object({ "content": string().optional() });
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewManifest_parameter_0$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewManifest_result$schema = object({
+			"manifest": union([literal(null), object({
+				"formatVersion": literal(0).readonly(),
+				"baselines": object({
+					"engagementRate": number().readonly(),
+					"collectRate": number().readonly(),
+					"source": union([literal("user"), literal("default")]).readonly(),
+					"updatedAt": string().readonly()
+				}).readonly(),
+				"snapshots": array(object({
+					"snapshotId": string().readonly(),
+					"platformId": union([
+						literal("xhs"),
+						literal("douyin"),
+						literal("gzh"),
+						literal("bilibili")
+					]).readonly(),
+					"platformWorkId": string().readonly(),
+					"title": string().readonly(),
+					"publishedAt": union([literal(null), string()]).readonly(),
+					"capturedAt": string().readonly(),
+					"contentId": union([literal(null), string()]).readonly(),
+					"matchMethod": union([
+						literal(null),
+						literal("manual"),
+						literal("url"),
+						literal("title")
+					]).readonly(),
+					"contentType": union([
+						literal(null),
+						literal("video"),
+						literal("image-text")
+					]).readonly(),
+					"metrics": object({
+						"impressions": union([literal(null), number()]).readonly(),
+						"reads": union([literal(null), number()]).readonly(),
+						"likes": union([literal(null), number()]).readonly(),
+						"collects": union([literal(null), number()]).readonly(),
+						"comments": union([literal(null), number()]).readonly(),
+						"shares": union([literal(null), number()]).readonly(),
+						"followersGained": union([literal(null), number()]).readonly(),
+						"coverCtr": union([literal(null), number()]).readonly()
+					}).readonly()
+				})).readonly(),
+				"tasks": array(object({
+					"taskId": string().readonly(),
+					"name": string().readonly(),
+					"period": object({
+						"from": string().readonly(),
+						"to": string().readonly()
+					}).readonly(),
+					"filters": object({
+						"platforms": array(union([
+							literal("xhs"),
+							literal("douyin"),
+							literal("gzh"),
+							literal("bilibili")
+						])).readonly(),
+						"contentTypes": array(union([literal("video"), literal("image-text")])).readonly(),
+						"workFilter": union([
+							literal("all"),
+							literal("viral"),
+							literal("weak"),
+							literal("longtail")
+						]).readonly()
+					}).readonly(),
+					"status": union([
+						literal("ready"),
+						literal("failed"),
+						literal("generating")
+					]).readonly(),
+					"reportFile": union([literal(null), string()]).readonly(),
+					"degraded": boolean().readonly(),
+					"createdAt": string().readonly()
+				})).readonly()
+			})]).readonly(),
+			"problems": array(string()).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewReport_parameter_0$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewReport_parameter_1$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewReport_result$schema = object({ "content": string().readonly().optional() });
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewTemplate_parameter_0$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewTemplate_parameter_1$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewTemplate_result$schema = object({ "content": string().readonly().optional() });
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_registerCreatePublish_parameter_0$schema = string();
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_registerCreatePublish_parameter_1$schema = object({
 			"file": string().readonly(),
@@ -5911,6 +6904,48 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"model": string().readonly(),
 			"promptVersion": number().readonly()
 		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_sendInteractionReply_parameter_0$schema = object({
+			"conversationId": string().readonly(),
+			"inReplyTo": union([literal(null), string()]).readonly(),
+			"content": string().readonly(),
+			"personaId": union([literal(null), string()]).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_sendInteractionReply_result$schema = object({
+			"ok": literal(false),
+			"reason": literal("MCP_NOT_CONFIGURED")
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_setTemplateStatus_parameter_0$schema = intersection(string(), unknown());
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_setTemplateStatus_parameter_1$schema = union([literal("active"), literal("archived")]);
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_setTemplateStatus_result$schema = object({
+			"id": intersection(string(), unknown()).readonly(),
+			"name": string().readonly(),
+			"category": union([
+				literal("benchmark"),
+				literal("topic"),
+				literal("creation"),
+				literal("publish"),
+				literal("calendar"),
+				literal("retro"),
+				literal("interaction"),
+				literal("persona"),
+				literal("intel"),
+				literal("dashboard")
+			]).readonly(),
+			"description": string().readonly(),
+			"tagIds": array(intersection(string(), unknown())).readonly(),
+			"body": string().readonly(),
+			"variables": array(object({
+				"name": string().readonly(),
+				"label": string().readonly(),
+				"description": string().readonly(),
+				"defaultValue": string().readonly(),
+				"required": boolean().readonly()
+			})).readonly(),
+			"status": union([literal("active"), literal("archived")]).readonly(),
+			"version": number().readonly(),
+			"createdAt": string().readonly(),
+			"updatedAt": string().readonly()
+		});
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_writeAsset_parameter_0$schema = object({
 			"theme": string().readonly(),
 			"file": string().readonly(),
@@ -5920,7 +6955,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_writeCompetitorManifest_parameter_0$schema = string();
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_writeCompetitorManifest_parameter_1$schema = object({
 			"formatVersion": literal(0).readonly(),
-			"syncedAt": record(string(), string()).readonly().readonly(),
+			"syncedAt": record$1(string(), string()).readonly().readonly(),
 			"works": array(object({
 				"id": intersection(string(), unknown()).readonly(),
 				"accountId": string().readonly(),
@@ -5949,7 +6984,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				"hot": boolean().readonly(),
 				"favorite": boolean().readonly(),
 				"via": literal("manual").readonly(),
-				"gatheredRef": string().readonly().optional(),
+				"collectedIdeaRef": string().readonly().optional(),
 				"analysis": object({
 					"status": union([
 						literal("none"),
@@ -6163,9 +7198,405 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				"rawGuid": string().readonly().optional()
 			})).readonly()
 		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writeInteractions_parameter_0$schema = object({
+			"formatVersion": literal(0).readonly(),
+			"conversations": array(object({
+				"id": string().readonly(),
+				"platform": union([
+					literal("xhs"),
+					literal("douyin"),
+					literal("bilibili"),
+					literal("weixin")
+				]).readonly(),
+				"participant": object({
+					"externalUserId": string().readonly(),
+					"nickname": string().readonly()
+				}).readonly(),
+				"topicRef": union([literal(null), string()]).readonly(),
+				"outputRef": union([literal(null), string()]).readonly(),
+				"personaId": union([literal(null), string()]).readonly(),
+				"status": union([
+					literal("unread"),
+					literal("archived"),
+					literal("pendingReply"),
+					literal("replied"),
+					literal("spam")
+				]).readonly(),
+				"tags": array(string()).readonly(),
+				"note": string().readonly(),
+				"starred": boolean().readonly(),
+				"createdAt": string().readonly(),
+				"updatedAt": string().readonly(),
+				"messages": array(object({
+					"id": string().readonly(),
+					"externalMessageId": string().readonly(),
+					"direction": union([literal("in"), literal("out")]).readonly(),
+					"type": union([
+						literal("comment"),
+						literal("dm"),
+						literal("mention")
+					]).readonly(),
+					"content": string().readonly(),
+					"inReplyTo": union([literal(null), string()]).readonly(),
+					"sentAt": string().readonly(),
+					"sentiment": object({
+						"value": union([
+							literal("positive"),
+							literal("negative"),
+							literal("question"),
+							literal("unknown")
+						]).readonly(),
+						"source": union([literal("user"), literal("ai")]).readonly(),
+						"aiMeta": union([literal(null), object({
+							"promptVersion": string().readonly(),
+							"at": string().readonly()
+						})]).readonly()
+					}).readonly(),
+					"intent": object({
+						"value": union([
+							literal("spam"),
+							literal("unknown"),
+							literal("consult"),
+							literal("praise"),
+							literal("complain"),
+							literal("demand")
+						]).readonly(),
+						"source": union([literal("user"), literal("ai")]).readonly(),
+						"aiMeta": union([literal(null), object({
+							"promptVersion": string().readonly(),
+							"at": string().readonly()
+						})]).readonly()
+					}).readonly(),
+					"replyDrafts": array(object({
+						"id": string().readonly(),
+						"style": union([
+							literal("friendly"),
+							literal("formal"),
+							literal("humorous"),
+							literal("brief")
+						]).readonly(),
+						"content": string().readonly(),
+						"personaId": union([literal(null), string()]).readonly(),
+						"createdAt": string().readonly()
+					})).readonly()
+				})).readonly()
+			})).readonly(),
+			"insights": object({
+				"generatedAt": union([literal(null), string()]).readonly(),
+				"topQuestions": array(object({
+					"label": string().readonly(),
+					"count": number().readonly(),
+					"exampleMessageId": union([literal(null), string()]).readonly(),
+					"topicHint": union([literal(null), string()]).readonly()
+				})).readonly(),
+				"painPoints": array(object({
+					"label": string().readonly(),
+					"count": number().readonly(),
+					"exampleMessageId": union([literal(null), string()]).readonly(),
+					"topicHint": union([literal(null), string()]).readonly()
+				})).readonly(),
+				"interests": array(object({
+					"label": string().readonly(),
+					"count": number().readonly(),
+					"exampleMessageId": union([literal(null), string()]).readonly(),
+					"topicHint": union([literal(null), string()]).readonly()
+				})).readonly()
+			}).readonly(),
+			"summary": object({
+				"unread": number().readonly(),
+				"pendingReply": number().readonly(),
+				"replied": number().readonly(),
+				"archived": number().readonly(),
+				"spam": number().readonly()
+			}).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writeInteractions_result$schema = object({
+			"formatVersion": literal(0).readonly(),
+			"conversations": array(object({
+				"id": string().readonly(),
+				"platform": union([
+					literal("xhs"),
+					literal("douyin"),
+					literal("bilibili"),
+					literal("weixin")
+				]).readonly(),
+				"participant": object({
+					"externalUserId": string().readonly(),
+					"nickname": string().readonly()
+				}).readonly(),
+				"topicRef": union([literal(null), string()]).readonly(),
+				"outputRef": union([literal(null), string()]).readonly(),
+				"personaId": union([literal(null), string()]).readonly(),
+				"status": union([
+					literal("unread"),
+					literal("archived"),
+					literal("pendingReply"),
+					literal("replied"),
+					literal("spam")
+				]).readonly(),
+				"tags": array(string()).readonly(),
+				"note": string().readonly(),
+				"starred": boolean().readonly(),
+				"createdAt": string().readonly(),
+				"updatedAt": string().readonly(),
+				"messages": array(object({
+					"id": string().readonly(),
+					"externalMessageId": string().readonly(),
+					"direction": union([literal("in"), literal("out")]).readonly(),
+					"type": union([
+						literal("comment"),
+						literal("dm"),
+						literal("mention")
+					]).readonly(),
+					"content": string().readonly(),
+					"inReplyTo": union([literal(null), string()]).readonly(),
+					"sentAt": string().readonly(),
+					"sentiment": object({
+						"value": union([
+							literal("positive"),
+							literal("negative"),
+							literal("question"),
+							literal("unknown")
+						]).readonly(),
+						"source": union([literal("user"), literal("ai")]).readonly(),
+						"aiMeta": union([literal(null), object({
+							"promptVersion": string().readonly(),
+							"at": string().readonly()
+						})]).readonly()
+					}).readonly(),
+					"intent": object({
+						"value": union([
+							literal("spam"),
+							literal("unknown"),
+							literal("consult"),
+							literal("praise"),
+							literal("complain"),
+							literal("demand")
+						]).readonly(),
+						"source": union([literal("user"), literal("ai")]).readonly(),
+						"aiMeta": union([literal(null), object({
+							"promptVersion": string().readonly(),
+							"at": string().readonly()
+						})]).readonly()
+					}).readonly(),
+					"replyDrafts": array(object({
+						"id": string().readonly(),
+						"style": union([
+							literal("friendly"),
+							literal("formal"),
+							literal("humorous"),
+							literal("brief")
+						]).readonly(),
+						"content": string().readonly(),
+						"personaId": union([literal(null), string()]).readonly(),
+						"createdAt": string().readonly()
+					})).readonly()
+				})).readonly()
+			})).readonly(),
+			"insights": object({
+				"generatedAt": union([literal(null), string()]).readonly(),
+				"topQuestions": array(object({
+					"label": string().readonly(),
+					"count": number().readonly(),
+					"exampleMessageId": union([literal(null), string()]).readonly(),
+					"topicHint": union([literal(null), string()]).readonly()
+				})).readonly(),
+				"painPoints": array(object({
+					"label": string().readonly(),
+					"count": number().readonly(),
+					"exampleMessageId": union([literal(null), string()]).readonly(),
+					"topicHint": union([literal(null), string()]).readonly()
+				})).readonly(),
+				"interests": array(object({
+					"label": string().readonly(),
+					"count": number().readonly(),
+					"exampleMessageId": union([literal(null), string()]).readonly(),
+					"topicHint": union([literal(null), string()]).readonly()
+				})).readonly()
+			}).readonly(),
+			"summary": object({
+				"unread": number().readonly(),
+				"pendingReply": number().readonly(),
+				"replied": number().readonly(),
+				"archived": number().readonly(),
+				"spam": number().readonly()
+			}).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishDerived_parameter_0$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishDerived_parameter_1$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishDerived_parameter_2$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishDerived_parameter_3$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishDerived_result$schema = object({ "file": string() });
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishManifest_parameter_0$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishManifest_parameter_1$schema = object({
+			"formatVersion": literal(0).readonly(),
+			"tasks": array(object({
+				"taskId": string().readonly(),
+				"title": string().readonly(),
+				"manuscriptFile": string().readonly(),
+				"manuscriptId": union([literal(null), string()]).readonly(),
+				"topicId": union([literal(null), string()]).readonly(),
+				"personaDigest": union([literal(null), string()]).readonly(),
+				"mode": union([literal("immediate"), literal("scheduled")]).readonly(),
+				"scheduledAt": union([literal(null), string()]).readonly(),
+				"scheduleItemId": union([literal(null), string()]).readonly(),
+				"status": union([
+					literal("draft"),
+					literal("scheduled"),
+					literal("pendingReview"),
+					literal("recorded")
+				]).readonly(),
+				"note": union([literal(null), string()]).readonly(),
+				"platforms": array(object({
+					"platformId": string().readonly(),
+					"accountAlias": string().readonly(),
+					"contentFile": string().readonly(),
+					"coverPrompt": union([literal(null), string()]).readonly(),
+					"tags": array(string()).readonly(),
+					"status": union([
+						literal("recorded"),
+						literal("pending"),
+						literal("adapted"),
+						literal("edited")
+					]).readonly(),
+					"attempts": array(object({
+						"at": string().readonly(),
+						"action": union([
+							literal("adapt"),
+							literal("edit"),
+							literal("record")
+						]).readonly(),
+						"ok": boolean().readonly(),
+						"detail": string().readonly()
+					})).readonly()
+				})).readonly(),
+				"createdAt": string().readonly(),
+				"updatedAt": string().readonly()
+			})).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishManifest_result$schema = _void();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishProfiles_parameter_0$schema = array(object({
+			"platformId": string().readonly(),
+			"alias": string().readonly(),
+			"enabled": boolean().readonly(),
+			"adaptationOverrides": union([literal(null), string()]).readonly()
+		}));
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishProfiles_result$schema = _void();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewManifest_parameter_0$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewManifest_parameter_1$schema = object({
+			"formatVersion": literal(0).readonly(),
+			"baselines": object({
+				"engagementRate": number().readonly(),
+				"collectRate": number().readonly(),
+				"source": union([literal("user"), literal("default")]).readonly(),
+				"updatedAt": string().readonly()
+			}).readonly(),
+			"snapshots": array(object({
+				"snapshotId": string().readonly(),
+				"platformId": union([
+					literal("xhs"),
+					literal("douyin"),
+					literal("gzh"),
+					literal("bilibili")
+				]).readonly(),
+				"platformWorkId": string().readonly(),
+				"title": string().readonly(),
+				"publishedAt": union([literal(null), string()]).readonly(),
+				"capturedAt": string().readonly(),
+				"contentId": union([literal(null), string()]).readonly(),
+				"matchMethod": union([
+					literal(null),
+					literal("manual"),
+					literal("url"),
+					literal("title")
+				]).readonly(),
+				"contentType": union([
+					literal(null),
+					literal("video"),
+					literal("image-text")
+				]).readonly(),
+				"metrics": object({
+					"impressions": union([literal(null), number()]).readonly(),
+					"reads": union([literal(null), number()]).readonly(),
+					"likes": union([literal(null), number()]).readonly(),
+					"collects": union([literal(null), number()]).readonly(),
+					"comments": union([literal(null), number()]).readonly(),
+					"shares": union([literal(null), number()]).readonly(),
+					"followersGained": union([literal(null), number()]).readonly(),
+					"coverCtr": union([literal(null), number()]).readonly()
+				}).readonly()
+			})).readonly(),
+			"tasks": array(object({
+				"taskId": string().readonly(),
+				"name": string().readonly(),
+				"period": object({
+					"from": string().readonly(),
+					"to": string().readonly()
+				}).readonly(),
+				"filters": object({
+					"platforms": array(union([
+						literal("xhs"),
+						literal("douyin"),
+						literal("gzh"),
+						literal("bilibili")
+					])).readonly(),
+					"contentTypes": array(union([literal("video"), literal("image-text")])).readonly(),
+					"workFilter": union([
+						literal("all"),
+						literal("viral"),
+						literal("weak"),
+						literal("longtail")
+					]).readonly()
+				}).readonly(),
+				"status": union([
+					literal("ready"),
+					literal("failed"),
+					literal("generating")
+				]).readonly(),
+				"reportFile": union([literal(null), string()]).readonly(),
+				"degraded": boolean().readonly(),
+				"createdAt": string().readonly()
+			})).readonly()
+		});
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewManifest_result$schema = _void();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewReport_parameter_0$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewReport_parameter_1$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewReport_parameter_2$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewReport_result$schema = object({ "file": string() });
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewTemplate_parameter_0$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewTemplate_parameter_1$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewTemplate_parameter_2$schema = string();
+		const _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewTemplate_result$schema = object({ "file": string() });
 		const TYPERT_REMOTE$2 = {
 			package: "@deepseek-ai/dsh-content-outputs",
 			descriptors: [
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/adaptPublishContent",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "adaptPublishContent",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#PublishAdaptRequest",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_adaptPublishContent_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#PublishAdaptResult",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_adaptPublishContent_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 753,
+						"column": 9
+					}
+				},
 				{
 					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/analyzeCompetitorWork",
 					service: "contentOutputs",
@@ -6189,7 +7620,151 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 283,
+						"line": 385,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/analyzeReviewWork",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "analyzeReviewWork",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#ReviewAnalyzeWorkRequest",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_analyzeReviewWork_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#ReviewAiResult",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_analyzeReviewWork_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 995,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/buildPublishPackage",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "buildPublishPackage",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "theme",
+						wire: "theme",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/buildPublishPackage:theme",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_buildPublishPackage_parameter_0$schema
+						}
+					}, {
+						name: "taskId",
+						wire: "taskId",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/buildPublishPackage:taskId",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_buildPublishPackage_parameter_1$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#PublishPackage",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_buildPublishPackage_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 740,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/classifyInteractions",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "classifyInteractions",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#InteractionClassifyRequest",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_classifyInteractions_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#InteractionClassifyResult",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_classifyInteractions_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 1087,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/commitInteractionImport",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "commitInteractionImport",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#InteractionImportCommitRequest",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_commitInteractionImport_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#InteractionImportCommitResult",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_commitInteractionImport_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 1060,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/commitReviewImport",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "commitReviewImport",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#ReviewImportCommitRequest",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_commitReviewImport_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#ReviewImportCommitResult",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_commitReviewImport_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 917,
 						"column": 9
 					}
 				},
@@ -6225,7 +7800,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 220,
+						"line": 322,
 						"column": 9
 					}
 				},
@@ -6252,7 +7827,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 452,
+						"line": 554,
 						"column": 9
 					}
 				},
@@ -6279,7 +7854,61 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 515,
+						"line": 617,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/deleteReviewTask",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "deleteReviewTask",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#ReviewTaskDeleteRequest",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_deleteReviewTask_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/deleteReviewTask:result",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_deleteReviewTask_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 928,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/deleteTemplate",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "deleteTemplate",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "id",
+						wire: "id",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#TemplateId",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_deleteTemplate_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/deleteTemplate:result",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_deleteTemplate_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 798,
 						"column": 9
 					}
 				},
@@ -6306,7 +7935,79 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 457,
+						"line": 559,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/exportInteractionCsv",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "exportInteractionCsv",
+					invocation: { kind: "direct" },
+					parameters: [],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/exportInteractionCsv:result",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_exportInteractionCsv_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 1127,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/exportTemplates",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "exportTemplates",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "ids",
+						wire: "ids",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/exportTemplates:ids",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_exportTemplates_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#TemplatePack",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_exportTemplates_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 831,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/extractInteractionInsights",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "extractInteractionInsights",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#InteractionInsightRequest",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_extractInteractionInsights_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#InteractionInsightResult",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_extractInteractionInsights_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 1101,
 						"column": 9
 					}
 				},
@@ -6334,7 +8035,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 158,
+						"line": 260,
 						"column": 9
 					}
 				},
@@ -6361,7 +8062,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 296,
+						"line": 398,
 						"column": 9
 					}
 				},
@@ -6388,7 +8089,61 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 394,
+						"line": 496,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/generateInteractionReply",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "generateInteractionReply",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#InteractionReplyRequest",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_generateInteractionReply_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#InteractionReplyResult",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_generateInteractionReply_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 1073,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/generateReviewReport",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "generateReviewReport",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#ReviewGenerateReportRequest",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_generateReviewReport_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#ReviewAiResult",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_generateReviewReport_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 1009,
 						"column": 9
 					}
 				},
@@ -6415,7 +8170,70 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 478,
+						"line": 580,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/getTemplateHistory",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "getTemplateHistory",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "id",
+						wire: "id",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#TemplateId",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_getTemplateHistory_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#TemplateHistoryRead",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_getTemplateHistory_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 809,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/importTemplates",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "importTemplates",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "pack",
+						wire: "pack",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#TemplatePack",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_importTemplates_parameter_0$schema
+						}
+					}, {
+						name: "strategy",
+						wire: "strategy",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#TemplateImportStrategy",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_importTemplates_parameter_1$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#TemplateImportSummary",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_importTemplates_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 844,
 						"column": 9
 					}
 				},
@@ -6433,7 +8251,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 144,
+						"line": 246,
 						"column": 9
 					}
 				},
@@ -6460,7 +8278,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 381,
+						"line": 483,
 						"column": 9
 					}
 				},
@@ -6478,7 +8296,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 429,
+						"line": 531,
 						"column": 9
 					}
 				},
@@ -6496,7 +8314,88 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 468,
+						"line": 570,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/listPublishIndex",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "listPublishIndex",
+					invocation: { kind: "direct" },
+					parameters: [],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#PublishIndexRead",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_listPublishIndex_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 667,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/listReviewIndex",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "listReviewIndex",
+					invocation: { kind: "direct" },
+					parameters: [],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#ReviewIndexRead",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_listReviewIndex_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 893,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/listReviewTemplates",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "listReviewTemplates",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "theme",
+						wire: "theme",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/listReviewTemplates:theme",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_listReviewTemplates_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/listReviewTemplates:result",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_listReviewTemplates_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 972,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/listTemplates",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "listTemplates",
+					invocation: { kind: "direct" },
+					parameters: [],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#TemplatesSnapshot",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_listTemplates_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 765,
 						"column": 9
 					}
 				},
@@ -6523,7 +8422,61 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 209,
+						"line": 311,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/parseInteractionImport",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "parseInteractionImport",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#InteractionImportPreviewRequest",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_parseInteractionImport_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#InteractionImportPreview",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_parseInteractionImport_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 1047,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/parseReviewImport",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "parseReviewImport",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#ReviewImportPreviewRequest",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_parseReviewImport_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#ReviewImportPreview",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_parseReviewImport_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 905,
 						"column": 9
 					}
 				},
@@ -6550,7 +8503,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 232,
+						"line": 334,
 						"column": 9
 					}
 				},
@@ -6577,7 +8530,34 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 529,
+						"line": 631,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/processTemplateAi",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "processTemplateAi",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#TemplateAiRequest",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_processTemplateAi_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#TemplateAiResult",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_processTemplateAi_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 857,
 						"column": 9
 					}
 				},
@@ -6613,7 +8593,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 334,
+						"line": 436,
 						"column": 9
 					}
 				},
@@ -6640,7 +8620,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 442,
+						"line": 544,
 						"column": 9
 					}
 				},
@@ -6667,7 +8647,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 493,
+						"line": 595,
 						"column": 9
 					}
 				},
@@ -6703,7 +8683,61 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 505,
+						"line": 607,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/putTemplate",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "putTemplate",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "input",
+						wire: "input",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#TemplateInput",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_putTemplate_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#TemplateRecord",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_putTemplate_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 776,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/putTemplateTags",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "putTemplateTags",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "tags",
+						wire: "tags",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/putTemplateTags:tags",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_putTemplateTags_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/putTemplateTags:result",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_putTemplateTags_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 820,
 						"column": 9
 					}
 				},
@@ -6739,7 +8773,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 268,
+						"line": 370,
 						"column": 9
 					}
 				},
@@ -6766,7 +8800,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 244,
+						"line": 346,
 						"column": 9
 					}
 				},
@@ -6793,7 +8827,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 358,
+						"line": 460,
 						"column": 9
 					}
 				},
@@ -6820,7 +8854,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 308,
+						"line": 410,
 						"column": 9
 					}
 				},
@@ -6847,7 +8881,254 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 181,
+						"line": 283,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/readInteractions",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "readInteractions",
+					invocation: { kind: "direct" },
+					parameters: [],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#InteractionsManifestRead",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readInteractions_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 1021,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/readPublishDerived",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "readPublishDerived",
+					invocation: { kind: "direct" },
+					parameters: [
+						{
+							name: "theme",
+							wire: "theme",
+							source: "json",
+							codec: {
+								mode: "strict",
+								typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/readPublishDerived:theme",
+								schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishDerived_parameter_0$schema
+							}
+						},
+						{
+							name: "taskId",
+							wire: "taskId",
+							source: "json",
+							codec: {
+								mode: "strict",
+								typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/readPublishDerived:taskId",
+								schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishDerived_parameter_1$schema
+							}
+						},
+						{
+							name: "platformId",
+							wire: "platformId",
+							source: "json",
+							codec: {
+								mode: "strict",
+								typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/readPublishDerived:platformId",
+								schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishDerived_parameter_2$schema
+							}
+						}
+					],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/readPublishDerived:result",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishDerived_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 711,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/readPublishManifest",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "readPublishManifest",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "theme",
+						wire: "theme",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/readPublishManifest:theme",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishManifest_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#PublishManifestRead",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishManifest_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 643,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/readPublishProfiles",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "readPublishProfiles",
+					invocation: { kind: "direct" },
+					parameters: [],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#PublishProfilesRead",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishProfiles_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 677,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/readPublishSource",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "readPublishSource",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "theme",
+						wire: "theme",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/readPublishSource:theme",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishSource_parameter_0$schema
+						}
+					}, {
+						name: "file",
+						wire: "file",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/readPublishSource:file",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishSource_parameter_1$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/readPublishSource:result",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishSource_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 725,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/readReviewManifest",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "readReviewManifest",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "theme",
+						wire: "theme",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/readReviewManifest:theme",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewManifest_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#ReviewManifestRead",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewManifest_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 869,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/readReviewReport",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "readReviewReport",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "theme",
+						wire: "theme",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/readReviewReport:theme",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewReport_parameter_0$schema
+						}
+					}, {
+						name: "file",
+						wire: "file",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/readReviewReport:file",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewReport_parameter_1$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#ReviewReportRead",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewReport_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 950,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/readReviewTemplate",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "readReviewTemplate",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "theme",
+						wire: "theme",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/readReviewTemplate:theme",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewTemplate_parameter_0$schema
+						}
+					}, {
+						name: "file",
+						wire: "file",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/readReviewTemplate:file",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewTemplate_parameter_1$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#ReviewReportRead",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewTemplate_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 981,
 						"column": 9
 					}
 				},
@@ -6883,7 +9164,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 346,
+						"line": 448,
 						"column": 9
 					}
 				},
@@ -6910,7 +9191,70 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 410,
+						"line": 512,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/sendInteractionReply",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "sendInteractionReply",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "request",
+						wire: "request",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#InteractionSendReplyRequest",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_sendInteractionReply_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/sendInteractionReply:result",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_sendInteractionReply_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 1115,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/setTemplateStatus",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "setTemplateStatus",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "id",
+						wire: "id",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#TemplateId",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_setTemplateStatus_parameter_0$schema
+						}
+					}, {
+						name: "status",
+						wire: "status",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#TemplateStatus",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_setTemplateStatus_parameter_1$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#TemplateRecord",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_setTemplateStatus_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 788,
 						"column": 9
 					}
 				},
@@ -6937,7 +9281,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 170,
+						"line": 272,
 						"column": 9
 					}
 				},
@@ -6973,7 +9317,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 256,
+						"line": 358,
 						"column": 9
 					}
 				},
@@ -7009,7 +9353,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 370,
+						"line": 472,
 						"column": 9
 					}
 				},
@@ -7045,7 +9389,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 320,
+						"line": 422,
 						"column": 9
 					}
 				},
@@ -7081,7 +9425,290 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 195,
+						"line": 297,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/writeInteractions",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "writeInteractions",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "manifest",
+						wire: "manifest",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#InteractionsManifest",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writeInteractions_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs/types#InteractionsManifest",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writeInteractions_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 1035,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/writePublishDerived",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "writePublishDerived",
+					invocation: { kind: "direct" },
+					parameters: [
+						{
+							name: "theme",
+							wire: "theme",
+							source: "json",
+							codec: {
+								mode: "strict",
+								typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writePublishDerived:theme",
+								schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishDerived_parameter_0$schema
+							}
+						},
+						{
+							name: "taskId",
+							wire: "taskId",
+							source: "json",
+							codec: {
+								mode: "strict",
+								typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writePublishDerived:taskId",
+								schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishDerived_parameter_1$schema
+							}
+						},
+						{
+							name: "platformId",
+							wire: "platformId",
+							source: "json",
+							codec: {
+								mode: "strict",
+								typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writePublishDerived:platformId",
+								schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishDerived_parameter_2$schema
+							}
+						},
+						{
+							name: "content",
+							wire: "content",
+							source: "json",
+							codec: {
+								mode: "strict",
+								typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writePublishDerived:content",
+								schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishDerived_parameter_3$schema
+							}
+						}
+					],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writePublishDerived:result",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishDerived_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 702,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/writePublishManifest",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "writePublishManifest",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "theme",
+						wire: "theme",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writePublishManifest:theme",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishManifest_parameter_0$schema
+						}
+					}, {
+						name: "manifest",
+						wire: "manifest",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#PublishManifest",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishManifest_parameter_1$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writePublishManifest:result",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishManifest_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 656,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/writePublishProfiles",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "writePublishProfiles",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "profiles",
+						wire: "profiles",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writePublishProfiles:profiles",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishProfiles_parameter_0$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writePublishProfiles:result",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writePublishProfiles_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 687,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewManifest",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "writeReviewManifest",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "theme",
+						wire: "theme",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewManifest:theme",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewManifest_parameter_0$schema
+						}
+					}, {
+						name: "manifest",
+						wire: "manifest",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-outputs/types#ReviewManifest",
+							schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewManifest_parameter_1$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewManifest:result",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewManifest_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 882,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewReport",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "writeReviewReport",
+					invocation: { kind: "direct" },
+					parameters: [
+						{
+							name: "theme",
+							wire: "theme",
+							source: "json",
+							codec: {
+								mode: "strict",
+								typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewReport:theme",
+								schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewReport_parameter_0$schema
+							}
+						},
+						{
+							name: "file",
+							wire: "file",
+							source: "json",
+							codec: {
+								mode: "strict",
+								typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewReport:file",
+								schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewReport_parameter_1$schema
+							}
+						},
+						{
+							name: "content",
+							wire: "content",
+							source: "json",
+							codec: {
+								mode: "strict",
+								typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewReport:content",
+								schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewReport_parameter_2$schema
+							}
+						}
+					],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewReport:result",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewReport_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 941,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewTemplate",
+					service: "contentOutputs",
+					namespace: "contentOutputs",
+					method: "writeReviewTemplate",
+					invocation: { kind: "direct" },
+					parameters: [
+						{
+							name: "theme",
+							wire: "theme",
+							source: "json",
+							codec: {
+								mode: "strict",
+								typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewTemplate:theme",
+								schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewTemplate_parameter_0$schema
+							}
+						},
+						{
+							name: "file",
+							wire: "file",
+							source: "json",
+							codec: {
+								mode: "strict",
+								typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewTemplate:file",
+								schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewTemplate_parameter_1$schema
+							}
+						},
+						{
+							name: "content",
+							wire: "content",
+							source: "json",
+							codec: {
+								mode: "strict",
+								typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewTemplate:content",
+								schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewTemplate_parameter_2$schema
+							}
+						}
+					],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewTemplate:result",
+						schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewTemplate_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-outputs/src/index.ts",
+						"line": 962,
 						"column": 9
 					}
 				}
@@ -7101,13 +9728,22 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				"status": union([
 					literal("draft"),
 					literal("published"),
-					literal("idea"),
-					literal("scheduled")
+					literal("scheduled"),
+					literal("idea")
 				]).readonly(),
 				"kind": union([literal("content"), literal("event")]).readonly(),
 				"topic": union([literal(null), string()]).readonly(),
-				"url": union([literal(null), string()]).readonly()
+				"url": union([literal(null), string()]).readonly(),
+				"publishTaskId": string().readonly().optional()
 			})).readonly(),
+			"problems": array(string()).readonly()
+		});
+		const _deepseek_ai_dsh_content_schedule_contentSchedule_getNotes_result$schema = object({
+			"file": string().readonly(),
+			"notes": record$1(string(), object({
+				"text": string().readonly(),
+				"updatedAt": string().readonly()
+			})).readonly().readonly(),
 			"problems": array(string()).readonly()
 		});
 		const _deepseek_ai_dsh_content_schedule_contentSchedule_list_result$schema = object({
@@ -7121,12 +9757,13 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				"status": union([
 					literal("draft"),
 					literal("published"),
-					literal("idea"),
-					literal("scheduled")
+					literal("scheduled"),
+					literal("idea")
 				]).readonly(),
 				"kind": union([literal("content"), literal("event")]).readonly(),
 				"topic": union([literal(null), string()]).readonly(),
-				"url": union([literal(null), string()]).readonly()
+				"url": union([literal(null), string()]).readonly(),
+				"publishTaskId": string().readonly().optional()
 			})).readonly(),
 			"problems": array(string()).readonly()
 		});
@@ -7139,12 +9776,13 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"status": union([
 				literal("draft"),
 				literal("published"),
-				literal("idea"),
-				literal("scheduled")
+				literal("scheduled"),
+				literal("idea")
 			]).readonly(),
 			"kind": union([literal("content"), literal("event")]).readonly(),
 			"topic": union([literal(null), string()]).readonly(),
-			"url": union([literal(null), string()]).readonly()
+			"url": union([literal(null), string()]).readonly(),
+			"publishTaskId": string().readonly().optional()
 		});
 		const _deepseek_ai_dsh_content_schedule_contentSchedule_put_result$schema = object({
 			"file": string().readonly(),
@@ -7157,13 +9795,24 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				"status": union([
 					literal("draft"),
 					literal("published"),
-					literal("idea"),
-					literal("scheduled")
+					literal("scheduled"),
+					literal("idea")
 				]).readonly(),
 				"kind": union([literal("content"), literal("event")]).readonly(),
 				"topic": union([literal(null), string()]).readonly(),
-				"url": union([literal(null), string()]).readonly()
+				"url": union([literal(null), string()]).readonly(),
+				"publishTaskId": string().readonly().optional()
 			})).readonly(),
+			"problems": array(string()).readonly()
+		});
+		const _deepseek_ai_dsh_content_schedule_contentSchedule_putNote_parameter_0$schema = string();
+		const _deepseek_ai_dsh_content_schedule_contentSchedule_putNote_parameter_1$schema = string();
+		const _deepseek_ai_dsh_content_schedule_contentSchedule_putNote_result$schema = object({
+			"file": string().readonly(),
+			"notes": record$1(string(), object({
+				"text": string().readonly(),
+				"updatedAt": string().readonly()
+			})).readonly().readonly(),
 			"problems": array(string()).readonly()
 		});
 		const TYPERT_REMOTE$1 = {
@@ -7192,7 +9841,25 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-schedule/src/index.ts",
-						"line": 80,
+						"line": 88,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-schedule#contentSchedule/getNotes",
+					service: "contentSchedule",
+					namespace: "contentSchedule",
+					method: "getNotes",
+					invocation: { kind: "direct" },
+					parameters: [],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-schedule/types#CalendarNotesSnapshot",
+						schema: _deepseek_ai_dsh_content_schedule_contentSchedule_getNotes_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-schedule/src/index.ts",
+						"line": 97,
 						"column": 9
 					}
 				},
@@ -7210,7 +9877,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-schedule/src/index.ts",
-						"line": 50,
+						"line": 58,
 						"column": 9
 					}
 				},
@@ -7237,7 +9904,43 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-schedule/src/index.ts",
-						"line": 62,
+						"line": 70,
+						"column": 9
+					}
+				},
+				{
+					id: "@deepseek-ai/dsh-content-schedule#contentSchedule/putNote",
+					service: "contentSchedule",
+					namespace: "contentSchedule",
+					method: "putNote",
+					invocation: { kind: "direct" },
+					parameters: [{
+						name: "id",
+						wire: "id",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-schedule#contentSchedule/putNote:id",
+							schema: _deepseek_ai_dsh_content_schedule_contentSchedule_putNote_parameter_0$schema
+						}
+					}, {
+						name: "text",
+						wire: "text",
+						source: "json",
+						codec: {
+							mode: "strict",
+							typeSymbol: "@deepseek-ai/dsh-content-schedule#contentSchedule/putNote:text",
+							schema: _deepseek_ai_dsh_content_schedule_contentSchedule_putNote_parameter_1$schema
+						}
+					}],
+					result: {
+						mode: "strict",
+						typeSymbol: "@deepseek-ai/dsh-content-schedule/types#CalendarNotesSnapshot",
+						schema: _deepseek_ai_dsh_content_schedule_contentSchedule_putNote_result$schema
+					},
+					sourceLocation: {
+						"file": "packages/creation/content-schedule/src/index.ts",
+						"line": 110,
 						"column": 9
 					}
 				}
@@ -7263,7 +9966,8 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					"type": union([
 						literal("manual"),
 						literal("gather"),
-						literal("benchmark")
+						literal("benchmark"),
+						literal("interaction")
 					]).readonly(),
 					"refId": union([literal(null), string()]).readonly(),
 					"url": union([literal(null), string()]).readonly(),
@@ -7312,7 +10016,8 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					"type": union([
 						literal("manual"),
 						literal("gather"),
-						literal("benchmark")
+						literal("benchmark"),
+						literal("interaction")
 					]).readonly(),
 					"refId": union([literal(null), string()]).readonly(),
 					"url": union([literal(null), string()]).readonly(),
@@ -7359,7 +10064,8 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				"type": union([
 					literal("manual"),
 					literal("gather"),
-					literal("benchmark")
+					literal("benchmark"),
+					literal("interaction")
 				]).readonly(),
 				"refId": union([literal(null), string()]).readonly(),
 				"url": union([literal(null), string()]).readonly(),
@@ -7404,7 +10110,8 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					"type": union([
 						literal("manual"),
 						literal("gather"),
-						literal("benchmark")
+						literal("benchmark"),
+						literal("interaction")
 					]).readonly(),
 					"refId": union([literal(null), string()]).readonly(),
 					"url": union([literal(null), string()]).readonly(),
@@ -7531,6 +10238,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			let open = false;
 			let picked = null;
 			let pickedTopic = null;
+			let pickedManuscript = null;
 			const listeners = /* @__PURE__ */ new Set();
 			const emit = () => {
 				for (const listener of listeners) listener();
@@ -7572,18 +10280,28 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					if (pickedTopic === null) return;
 					pickedTopic = null;
 					emit();
+				},
+				pickManuscript: (manuscript) => {
+					pickedManuscript = manuscript;
+					emit();
+				},
+				pickedManuscript: () => pickedManuscript,
+				clearPickedManuscript: () => {
+					if (pickedManuscript === null) return;
+					pickedManuscript = null;
+					emit();
 				}
 			};
 		}
 		//#endregion
 		//#region \0dsh-css:D:\deepseek-harness\packages\client\ui-content-studio\src\client\ContentStudio.module.css.mjs
-		const css$5 = ".jTHpnG_entryWide{width:100%;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:8px;align-items:center;gap:8px;padding:8px 10px;font-size:13px;transition:background .14s,color .14s;display:flex}.jTHpnG_entryWide:hover,.jTHpnG_entryRail:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_entryRail{width:36px;height:36px;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:8px;justify-content:center;align-items:center;margin:0 auto;padding:0;transition:background .14s,color .14s;display:flex}.jTHpnG_entryLabel{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.jTHpnG_surface{background:var(--dsw-alias-bg-layer-1);position:fixed;inset:0;overflow:hidden}.jTHpnG_shell{height:100%;display:flex}.jTHpnG_side{border-right:1px solid var(--dsw-alias-border-l1);flex-direction:column;flex:none;width:208px;padding:20px 12px 16px;display:flex}.jTHpnG_sideBrand{color:var(--dsw-alias-label-primary);align-items:center;gap:8px;margin-bottom:14px;padding:6px 10px;font-size:15px;font-weight:600;display:flex}.jTHpnG_accountBox{margin:0 4px 14px;position:relative}.jTHpnG_accountButton{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);width:100%;color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:8px;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;font-size:13px;display:flex}.jTHpnG_accountButton:hover{border-color:var(--dsw-alias-border-l4)}.jTHpnG_accountName{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.jTHpnG_accountList{z-index:5;border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-1);box-shadow:0 8px 24px color-mix(in srgb, var(--dsw-alias-bg-mask-1) 20%, transparent);border-radius:8px;padding:4px;position:absolute;top:calc(100% + 4px);left:0;right:0}.jTHpnG_accountOption{width:100%;color:var(--dsw-alias-label-primary);text-align:left;cursor:pointer;background:0 0;border:none;border-radius:6px;align-items:center;gap:6px;padding:8px 10px;font-size:12px;display:flex}.jTHpnG_accountOption:hover{background:var(--dsw-alias-interactive-bg-hover)}.jTHpnG_accountOptionActive,.jTHpnG_accountOptionActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_accountCreateRow{align-items:center;gap:6px;padding:4px;display:flex}.jTHpnG_accountInput{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);min-width:0;color:var(--dsw-alias-label-primary);border-radius:6px;flex:1;padding:5px 8px;font-size:12px}.jTHpnG_accountCreateAdd{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:6px;flex:none;padding:5px 10px;font-size:11px}.jTHpnG_sideNav{flex-direction:column;gap:2px;display:flex}.jTHpnG_navItem{color:var(--dsw-alias-label-secondary);text-align:left;cursor:pointer;background:0 0;border:none;border-radius:8px;align-items:center;padding:9px 12px;font-size:13px;transition:background .14s,color .14s;display:flex}.jTHpnG_navItem:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_navItemActive,.jTHpnG_navItemActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_sideFoot{flex-direction:column;gap:10px;margin-top:auto;padding:10px 6px 0;display:flex}.jTHpnG_main{flex:1;position:relative;overflow-y:auto}.jTHpnG_main .jTHpnG_close{z-index:1;position:absolute;top:24px;right:28px}.jTHpnG_workbench{flex-direction:column;gap:24px;display:flex}.jTHpnG_pageTitle{color:var(--dsw-alias-label-primary);margin:0;font-size:20px;font-weight:600}.jTHpnG_accountsPane{flex-direction:column;gap:14px;max-width:420px;display:flex}.jTHpnG_accountsList{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;padding:4px 12px}.jTHpnG_accountActiveTag{background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 14%, transparent);color:var(--dsw-alias-state-business-primary);border-radius:999px;margin-left:8px;padding:1px 8px;font-size:10px}.jTHpnG_personaInput{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);width:100%;max-width:640px;color:var(--dsw-alias-label-primary);font:inherit;resize:vertical;border-radius:10px;padding:12px;font-size:13px;line-height:1.6}.jTHpnG_personaRow{align-items:center;gap:12px;display:flex}.jTHpnG_personaSaved{color:var(--dsw-alias-state-success-primary);font-size:12px}.jTHpnG_helloRow{padding-right:56px}.jTHpnG_hello{color:var(--dsw-alias-label-primary);margin:0;font-size:26px;font-weight:600}.jTHpnG_helloSub{color:var(--dsw-alias-label-tertiary);margin:8px 0 0;font-size:13px}.jTHpnG_quickRow{flex-wrap:wrap;gap:10px;display:flex}.jTHpnG_chip{align-items:center;gap:6px;display:inline-flex}.jTHpnG_panelTitle{color:var(--dsw-alias-state-business-primary);align-items:center;gap:6px;display:inline-flex}.jTHpnG_panelRowThree{grid-template-columns:repeat(3,1fr);gap:12px;display:grid}.jTHpnG_panelRowTwo{grid-template-columns:1fr 1fr;gap:12px;display:grid}.jTHpnG_statIcon{background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 14%, transparent);width:30px;height:30px;color:var(--dsw-alias-state-business-primary);border-radius:8px;justify-content:center;align-items:center;margin-bottom:8px;display:flex}.jTHpnG_listRowButton{border:none;border-top:1px solid var(--dsw-alias-border-l1);width:100%;font:inherit;text-align:left;cursor:pointer;background:0 0;justify-content:space-between;align-items:center;gap:8px;padding:7px 0;display:flex}.jTHpnG_listRowButton:first-of-type{border-top:none}.jTHpnG_listRowCopied .jTHpnG_listTitle,.jTHpnG_listRowCopied .jTHpnG_listMeta{color:var(--dsw-alias-state-success-primary)}.jTHpnG_dataPills{flex-wrap:wrap;gap:6px;margin-bottom:8px;display:flex}.jTHpnG_dataPill{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);border-radius:999px;padding:3px 10px;font-size:11px}.jTHpnG_chip{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:999px;padding:8px 16px;font-size:13px;transition:border-color .14s}.jTHpnG_chip:hover{border-color:var(--dsw-alias-state-business-primary)}.jTHpnG_chipCopied,.jTHpnG_chipCopied:hover{border-color:var(--dsw-alias-state-success-primary);color:var(--dsw-alias-state-success-primary)}.jTHpnG_statRow{grid-template-columns:repeat(4,1fr);gap:12px;display:grid}.jTHpnG_statCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:4px;padding:18px;display:flex}.jTHpnG_statValue{color:var(--dsw-alias-label-primary);font-size:26px;font-weight:600}.jTHpnG_statLabel{color:var(--dsw-alias-label-tertiary);font-size:12px}.jTHpnG_panelRow{grid-template-columns:1fr 1fr;gap:12px;display:grid}.jTHpnG_panel{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;padding:16px}.jTHpnG_panelHead{justify-content:space-between;align-items:center;margin-bottom:10px;display:flex}.jTHpnG_panelTitle{color:var(--dsw-alias-label-primary);margin:0;font-size:13px;font-weight:600}.jTHpnG_panelMore{color:var(--dsw-alias-label-tertiary);cursor:pointer;background:0 0;border:none;font-size:12px}.jTHpnG_panelMore:hover{color:var(--dsw-alias-state-business-primary)}.jTHpnG_panelEmpty{color:var(--dsw-alias-label-dimmed);margin:8px 0;font-size:12px}.jTHpnG_listRow{border-top:1px solid var(--dsw-alias-border-l1);justify-content:space-between;align-items:center;gap:8px;padding:7px 0;font-size:12px;display:flex}.jTHpnG_listRow:first-of-type{border-top:none}.jTHpnG_listTitle{text-overflow:ellipsis;white-space:nowrap;color:var(--dsw-alias-label-primary);overflow:hidden}.jTHpnG_listMeta{color:var(--dsw-alias-label-tertiary);flex:none}.jTHpnG_frame{max-width:960px;margin:0 auto;padding:40px 32px 64px}.jTHpnG_header{justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:24px;display:flex}.jTHpnG_headerControls{align-items:center;gap:12px;display:flex}.jTHpnG_views{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;gap:4px;padding:4px;display:inline-flex}.jTHpnG_title{color:var(--dsw-alias-label-primary);margin:0;font-size:22px;font-weight:600}.jTHpnG_subtitle{color:var(--dsw-alias-label-tertiary);margin:6px 0 0;font-size:13px}.jTHpnG_close{border:1px solid var(--dsw-alias-border-l1);width:32px;height:32px;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:8px;flex:none;justify-content:center;align-items:center;transition:background .14s,color .14s;display:flex}.jTHpnG_back{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:8px;flex:none;padding:6px 14px;font-size:13px;transition:background .14s}.jTHpnG_back:hover{background:var(--dsw-alias-button-primary-hover)}.jTHpnG_close:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_tabs{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;gap:4px;margin-bottom:28px;padding:4px;display:inline-flex}.jTHpnG_tab{color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:7px;padding:6px 14px;font-size:13px;transition:background .14s,color .14s}.jTHpnG_tab:hover{color:var(--dsw-alias-label-primary)}.jTHpnG_tabActive,.jTHpnG_tabActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_group{margin-bottom:28px}.jTHpnG_groupTitle{color:var(--dsw-alias-label-secondary);margin:0 0 10px;font-size:13px;font-weight:600}.jTHpnG_grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;display:grid}.jTHpnG_card{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:inherit;text-align:left;font:inherit;cursor:pointer;border-radius:10px;flex-direction:column;gap:8px;padding:14px;transition:transform .14s,border-color .14s;display:flex}.jTHpnG_card:hover{border-color:var(--dsw-alias-border-l2);transform:translateY(-2px)}.jTHpnG_cardCopied,.jTHpnG_cardCopied:hover{border-color:var(--dsw-alias-state-success-primary)}.jTHpnG_cardHead{justify-content:space-between;align-items:center;gap:8px;display:flex}.jTHpnG_cardTitle{color:var(--dsw-alias-label-primary);font-size:14px;font-weight:600}.jTHpnG_cardDetail{color:var(--dsw-alias-label-tertiary);font-size:12px;line-height:1.5}.jTHpnG_cardHint{color:var(--dsw-alias-label-dimmed);font-size:11px}.jTHpnG_cardHintCopied{color:var(--dsw-alias-state-success-primary)}.jTHpnG_library{flex-direction:column;gap:12px;display:flex}.jTHpnG_libraryState{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-tertiary);border-radius:10px;justify-content:center;align-items:center;gap:8px;padding:48px 16px;font-size:13px;display:flex}.jTHpnG_libraryProblems{color:var(--dsw-alias-state-warn-primary);border-radius:8px;align-items:center;gap:6px;padding:8px 12px;font-size:12px;display:flex}.jTHpnG_libraryCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:8px;padding:14px;display:flex}.jTHpnG_libraryTags{flex-wrap:wrap;gap:4px;display:flex}.jTHpnG_libraryTag{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);border-radius:999px;padding:1px 8px;font-size:11px}.jTHpnG_statusDraft{color:var(--dsw-alias-label-tertiary);background:color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent)}.jTHpnG_statusReady{color:var(--dsw-alias-state-business-primary);background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent)}.jTHpnG_statusPublished{color:var(--dsw-alias-state-success-primary);background:color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent)}.jTHpnG_retry{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:7px;align-items:center;gap:4px;padding:4px 10px;font-size:12px;display:inline-flex}.jTHpnG_retry:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_calendar{flex-direction:column;gap:10px;display:flex}.jTHpnG_calendarBar{align-items:center;gap:8px;display:flex}.jTHpnG_calendarMonth{color:var(--dsw-alias-label-primary);text-align:center;min-width:88px;font-size:14px;font-weight:600}.jTHpnG_calendarNav,.jTHpnG_calendarToday{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:7px;font-size:12px}.jTHpnG_calendarNav{width:26px;height:26px}.jTHpnG_calendarToday{padding:4px 12px}.jTHpnG_calendarNav:hover,.jTHpnG_calendarToday:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_calendarHead,.jTHpnG_calendarGrid{grid-template-columns:repeat(7,1fr);gap:4px;display:grid}.jTHpnG_calendarWeekday{text-align:center;color:var(--dsw-alias-label-tertiary);padding:2px 0;font-size:11px}.jTHpnG_calendarCell{border:1px solid var(--dsw-alias-border-l1);cursor:pointer;border-radius:8px;flex-direction:column;gap:3px;min-height:76px;padding:4px;transition:border-color .14s;display:flex}.jTHpnG_calendarCell:hover{border-color:var(--dsw-alias-border-l2)}.jTHpnG_calendarCellOutside{opacity:.45}.jTHpnG_calendarCellToday{border-color:var(--dsw-alias-state-business-primary)}.jTHpnG_calendarDayNum{color:var(--dsw-alias-label-secondary);font-size:11px}.jTHpnG_calendarChip{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary);cursor:default;border-radius:5px;align-items:center;gap:4px;min-width:0;padding:1px 4px;font-size:10px;display:flex}.jTHpnG_calendarChipTitle{text-overflow:ellipsis;white-space:nowrap;flex:1;overflow:hidden}.jTHpnG_calendarChipAction{color:var(--dsw-alias-label-tertiary);cursor:pointer;background:0 0;border:none;align-items:center;padding:0 2px;font-size:10px;display:inline-flex}.jTHpnG_calendarChipAction:hover{color:var(--dsw-alias-label-primary)}.jTHpnG_calendarDot{border-radius:999px;flex:none;width:6px;height:6px}.jTHpnG_dotIdea{background:var(--dsw-alias-label-tertiary)}.jTHpnG_dotDraft{background:var(--dsw-alias-state-warn-primary)}.jTHpnG_dotScheduled{background:var(--dsw-alias-state-business-primary)}.jTHpnG_dotPublished{background:var(--dsw-alias-state-success-primary)}.jTHpnG_calendarForm{flex-direction:column;gap:4px;margin-top:2px;display:flex}.jTHpnG_calendarInput{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);width:100%;color:var(--dsw-alias-label-primary);border-radius:5px;padding:3px 6px;font-size:10px}.jTHpnG_calendarFormRow{align-items:center;gap:6px;display:flex}.jTHpnG_calendarSubmit{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:5px;align-items:center;gap:3px;padding:2px 8px;font-size:10px;display:inline-flex}.jTHpnG_calendarHint{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-tertiary);text-align:center;border-radius:8px;padding:12px;font-size:12px}.jTHpnG_about{border-top:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-dimmed);justify-content:center;align-items:center;gap:12px;margin-top:32px;padding-top:16px;font-size:11px;display:flex}.jTHpnG_aboutLink{color:var(--dsw-alias-label-tertiary);text-decoration:none}.jTHpnG_aboutLink:hover{color:var(--dsw-alias-state-business-primary)}.jTHpnG_badge{white-space:nowrap;border-radius:999px;flex:none;padding:2px 8px;font-size:11px}.jTHpnG_badgeDone{color:var(--dsw-alias-state-success-primary);background:color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent)}.jTHpnG_badgeReady{color:var(--dsw-alias-state-business-primary);background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent)}.jTHpnG_badgeNeed{color:var(--dsw-alias-state-warn-primary);background:color-mix(in srgb, var(--dsw-alias-state-warn-primary) 12%, transparent)}.jTHpnG_badgeIncoming{color:var(--dsw-alias-label-tertiary);background:color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent)}.jTHpnG_comp{flex-direction:column;gap:12px;height:100%;display:flex;overflow-y:auto}.jTHpnG_compToolbar{flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;display:flex}.jTHpnG_compThemeRow{min-width:220px;max-width:420px;color:var(--dsw-alias-label-secondary);flex:1;align-items:center;gap:8px;font-size:12px;display:flex}.jTHpnG_compSections{gap:6px;display:flex}.jTHpnG_compBanner{border:1px dashed var(--dsw-alias-border-l2);color:var(--dsw-alias-label-secondary);border-radius:8px;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 12px;font-size:12px;display:flex}.jTHpnG_compSplit{grid-template-columns:minmax(260px,5fr) minmax(300px,7fr);align-items:start;gap:12px;display:grid}.jTHpnG_compListPane,.jTHpnG_compDetailPane,.jTHpnG_compAccounts,.jTHpnG_compReportPicker{flex-direction:column;gap:8px;min-width:0;display:flex}.jTHpnG_compDetailPane{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;padding:12px}.jTHpnG_compFilterRow,.jTHpnG_compImportRow,.jTHpnG_compActions,.jTHpnG_compFormRow{flex-wrap:wrap;align-items:center;gap:6px;display:flex}.jTHpnG_compFilterRow .jTHpnG_compInput{flex:1;min-width:0}.jTHpnG_compInput{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);border-radius:6px;padding:5px 8px;font-size:12px}.jTHpnG_compTextarea{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);width:100%;color:var(--dsw-alias-label-primary);resize:vertical;border-radius:6px;padding:6px 8px;font-size:12px}.jTHpnG_compForm{border:1px dashed var(--dsw-alias-border-l1);border-radius:8px;flex-direction:column;gap:6px;padding:10px;display:flex}.jTHpnG_compFieldLabel{color:var(--dsw-alias-label-secondary);flex-direction:column;gap:4px;font-size:12px;display:flex}.jTHpnG_compFileInput{clip-path:inset(50%);width:1px;height:1px;position:absolute;overflow:hidden}.jTHpnG_compWorkList{flex-direction:column;max-height:420px;display:flex;overflow-y:auto}.jTHpnG_compWorkList .jTHpnG_listRowButton{flex-direction:column;align-items:flex-start;gap:2px}.jTHpnG_compAccountCard{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;flex-direction:column;gap:6px;padding:10px;display:flex}.jTHpnG_compDetail{flex-direction:column;gap:10px;display:flex}.jTHpnG_compDetailHead{flex-wrap:wrap;align-items:baseline;gap:8px;display:flex}.jTHpnG_compDetailTitle{font-size:14px}.jTHpnG_compResult{border:1px solid var(--dsw-alias-border-l1);border-radius:8px;flex-direction:column;gap:6px;padding:10px;font-size:12px;display:flex}.jTHpnG_compResultLine{color:var(--dsw-alias-label-primary);margin:0}.jTHpnG_compResultLine strong{color:var(--dsw-alias-label-secondary);margin-right:4px;font-weight:500}.jTHpnG_compResultList{color:var(--dsw-alias-label-secondary);margin:2px 0 0;padding-left:18px}.jTHpnG_compReport{border:1px solid var(--dsw-alias-border-l1);white-space:pre-wrap;word-break:break-word;border-radius:8px;max-height:60vh;margin:0;padding:10px;font-size:12px;line-height:1.6;overflow-y:auto}.jTHpnG_compPreview summary{cursor:pointer;color:var(--dsw-alias-label-secondary);font-size:12px}.jTHpnG_compCompliance{color:var(--dsw-alias-label-dimmed);margin:0;font-size:11px}.jTHpnG_compBadgeHot{color:var(--dsw-alias-state-warning-primary,var(--dsw-alias-label-primary));background:color-mix(in srgb, var(--dsw-alias-state-warning-primary,var(--dsw-alias-label-primary)) 14%, transparent)}.jTHpnG_compBadgeFailed{color:var(--dsw-alias-state-danger-primary,var(--dsw-alias-label-primary));background:color-mix(in srgb, var(--dsw-alias-state-danger-primary,var(--dsw-alias-label-primary)) 12%, transparent)}";
-		const tagId$5 = "@deepseek-ai/dsh-client-ui-content-studio/ContentStudio.module.css";
-		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId$5) + "]") === null) {
+		const css$11 = ".jTHpnG_entryWide{width:100%;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:8px;align-items:center;gap:8px;padding:8px 10px;font-size:13px;transition:background .14s,color .14s;display:flex}.jTHpnG_entryWide:hover,.jTHpnG_entryRail:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_entryRail{width:36px;height:36px;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:8px;justify-content:center;align-items:center;margin:0 auto;padding:0;transition:background .14s,color .14s;display:flex}.jTHpnG_entryLabel{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.jTHpnG_surface{background:var(--dsw-alias-bg-layer-1);position:fixed;inset:0;overflow:hidden}.jTHpnG_shell{height:100%;display:flex}.jTHpnG_side{border-right:1px solid var(--dsw-alias-border-l1);flex-direction:column;flex:none;width:208px;padding:20px 12px 16px;display:flex}.jTHpnG_sideBrand{color:var(--dsw-alias-label-primary);align-items:center;gap:8px;margin-bottom:14px;padding:6px 10px;font-size:15px;font-weight:600;display:flex}.jTHpnG_accountBox{margin:0 4px 14px;position:relative}.jTHpnG_accountButton{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);width:100%;color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:8px;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;font-size:13px;display:flex}.jTHpnG_accountButton:hover{border-color:var(--dsw-alias-border-l4)}.jTHpnG_accountName{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.jTHpnG_accountList{z-index:5;border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-1);box-shadow:0 8px 24px color-mix(in srgb, var(--dsw-alias-bg-mask-1) 20%, transparent);border-radius:8px;padding:4px;position:absolute;top:calc(100% + 4px);left:0;right:0}.jTHpnG_accountOption{width:100%;color:var(--dsw-alias-label-primary);text-align:left;cursor:pointer;background:0 0;border:none;border-radius:6px;align-items:center;gap:6px;padding:8px 10px;font-size:12px;display:flex}.jTHpnG_accountOption:hover{background:var(--dsw-alias-interactive-bg-hover)}.jTHpnG_accountOptionActive,.jTHpnG_accountOptionActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_accountCreateRow{align-items:center;gap:6px;padding:4px;display:flex}.jTHpnG_accountInput{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);min-width:0;color:var(--dsw-alias-label-primary);border-radius:6px;flex:1;padding:5px 8px;font-size:12px}.jTHpnG_accountCreateAdd{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:6px;flex:none;padding:5px 10px;font-size:11px}.jTHpnG_sideNav{flex-direction:column;gap:2px;display:flex}.jTHpnG_navItem{color:var(--dsw-alias-label-secondary);text-align:left;cursor:pointer;background:0 0;border:none;border-radius:8px;align-items:center;padding:9px 12px;font-size:13px;transition:background .14s,color .14s;display:flex}.jTHpnG_navItem:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_navItemActive,.jTHpnG_navItemActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_sideFoot{flex-direction:column;gap:10px;margin-top:auto;padding:10px 6px 0;display:flex}.jTHpnG_main{flex:1;position:relative;overflow-y:auto}.jTHpnG_main .jTHpnG_close{z-index:1;position:absolute;top:24px;right:28px}.jTHpnG_workbench{flex-direction:column;gap:24px;display:flex}.jTHpnG_pageTitle{color:var(--dsw-alias-label-primary);margin:0;font-size:20px;font-weight:600}.jTHpnG_accountsPane{flex-direction:column;gap:14px;max-width:420px;display:flex}.jTHpnG_accountsList{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;padding:4px 12px}.jTHpnG_accountActiveTag{background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 14%, transparent);color:var(--dsw-alias-state-business-primary);border-radius:999px;margin-left:8px;padding:1px 8px;font-size:10px}.jTHpnG_personaInput{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);width:100%;max-width:640px;color:var(--dsw-alias-label-primary);font:inherit;resize:vertical;border-radius:10px;padding:12px;font-size:13px;line-height:1.6}.jTHpnG_personaRow{align-items:center;gap:12px;display:flex}.jTHpnG_personaSaved{color:var(--dsw-alias-state-success-primary);font-size:12px}.jTHpnG_helloRow{padding-right:56px}.jTHpnG_hello{color:var(--dsw-alias-label-primary);margin:0;font-size:26px;font-weight:600}.jTHpnG_helloSub{color:var(--dsw-alias-label-tertiary);margin:8px 0 0;font-size:13px}.jTHpnG_quickRow{flex-wrap:wrap;gap:10px;display:flex}.jTHpnG_chip{align-items:center;gap:6px;display:inline-flex}.jTHpnG_panelTitle{color:var(--dsw-alias-state-business-primary);align-items:center;gap:6px;display:inline-flex}.jTHpnG_panelRowThree{grid-template-columns:repeat(3,1fr);gap:12px;display:grid}.jTHpnG_panelRowTwo{grid-template-columns:1fr 1fr;gap:12px;display:grid}.jTHpnG_statIcon{background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 14%, transparent);width:30px;height:30px;color:var(--dsw-alias-state-business-primary);border-radius:8px;justify-content:center;align-items:center;margin-bottom:8px;display:flex}.jTHpnG_listRowButton{border:none;border-top:1px solid var(--dsw-alias-border-l1);width:100%;font:inherit;text-align:left;cursor:pointer;background:0 0;justify-content:space-between;align-items:center;gap:8px;padding:7px 0;display:flex}.jTHpnG_listRowButton:first-of-type{border-top:none}.jTHpnG_listRowCopied .jTHpnG_listTitle,.jTHpnG_listRowCopied .jTHpnG_listMeta{color:var(--dsw-alias-state-success-primary)}.jTHpnG_dataPills{flex-wrap:wrap;gap:6px;margin-bottom:8px;display:flex}.jTHpnG_dataPill{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);border-radius:999px;padding:3px 10px;font-size:11px}.jTHpnG_chip{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:999px;padding:8px 16px;font-size:13px;transition:border-color .14s}.jTHpnG_chip:hover{border-color:var(--dsw-alias-state-business-primary)}.jTHpnG_chipCopied,.jTHpnG_chipCopied:hover{border-color:var(--dsw-alias-state-success-primary);color:var(--dsw-alias-state-success-primary)}.jTHpnG_statRow{grid-template-columns:repeat(4,1fr);gap:12px;display:grid}.jTHpnG_statCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:4px;padding:18px;display:flex}.jTHpnG_statValue{color:var(--dsw-alias-label-primary);font-size:26px;font-weight:600}.jTHpnG_statLabel{color:var(--dsw-alias-label-tertiary);font-size:12px}.jTHpnG_panelRow{grid-template-columns:1fr 1fr;gap:12px;display:grid}.jTHpnG_panel{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;padding:16px}.jTHpnG_panelHead{justify-content:space-between;align-items:center;margin-bottom:10px;display:flex}.jTHpnG_panelTitle{color:var(--dsw-alias-label-primary);margin:0;font-size:13px;font-weight:600}.jTHpnG_panelMore{color:var(--dsw-alias-label-tertiary);cursor:pointer;background:0 0;border:none;font-size:12px}.jTHpnG_panelMore:hover{color:var(--dsw-alias-state-business-primary)}.jTHpnG_panelEmpty{color:var(--dsw-alias-label-dimmed);margin:8px 0;font-size:12px}.jTHpnG_listRow{border-top:1px solid var(--dsw-alias-border-l1);justify-content:space-between;align-items:center;gap:8px;padding:7px 0;font-size:12px;display:flex}.jTHpnG_listRow:first-of-type{border-top:none}.jTHpnG_listTitle{text-overflow:ellipsis;white-space:nowrap;color:var(--dsw-alias-label-primary);overflow:hidden}.jTHpnG_listMeta{color:var(--dsw-alias-label-tertiary);flex:none}.jTHpnG_frame{max-width:960px;margin:0 auto;padding:40px 32px 64px}.jTHpnG_header{justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:24px;display:flex}.jTHpnG_headerControls{align-items:center;gap:12px;display:flex}.jTHpnG_views{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;gap:4px;padding:4px;display:inline-flex}.jTHpnG_title{color:var(--dsw-alias-label-primary);margin:0;font-size:22px;font-weight:600}.jTHpnG_subtitle{color:var(--dsw-alias-label-tertiary);margin:6px 0 0;font-size:13px}.jTHpnG_close{border:1px solid var(--dsw-alias-border-l1);width:32px;height:32px;color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:8px;flex:none;justify-content:center;align-items:center;transition:background .14s,color .14s;display:flex}.jTHpnG_back{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:8px;flex:none;padding:6px 14px;font-size:13px;transition:background .14s}.jTHpnG_back:hover{background:var(--dsw-alias-button-primary-hover)}.jTHpnG_close:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_tabs{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;gap:4px;margin-bottom:28px;padding:4px;display:inline-flex}.jTHpnG_tab{color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border:none;border-radius:7px;padding:6px 14px;font-size:13px;transition:background .14s,color .14s}.jTHpnG_tab:hover{color:var(--dsw-alias-label-primary)}.jTHpnG_tabActive,.jTHpnG_tabActive:hover{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground)}.jTHpnG_group{margin-bottom:28px}.jTHpnG_groupTitle{color:var(--dsw-alias-label-secondary);margin:0 0 10px;font-size:13px;font-weight:600}.jTHpnG_grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;display:grid}.jTHpnG_card{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:inherit;text-align:left;font:inherit;cursor:pointer;border-radius:10px;flex-direction:column;gap:8px;padding:14px;transition:transform .14s,border-color .14s;display:flex}.jTHpnG_card:hover{border-color:var(--dsw-alias-border-l2);transform:translateY(-2px)}.jTHpnG_cardCopied,.jTHpnG_cardCopied:hover{border-color:var(--dsw-alias-state-success-primary)}.jTHpnG_cardHead{justify-content:space-between;align-items:center;gap:8px;display:flex}.jTHpnG_cardTitle{color:var(--dsw-alias-label-primary);font-size:14px;font-weight:600}.jTHpnG_cardDetail{color:var(--dsw-alias-label-tertiary);font-size:12px;line-height:1.5}.jTHpnG_cardHint{color:var(--dsw-alias-label-dimmed);font-size:11px}.jTHpnG_cardHintCopied{color:var(--dsw-alias-state-success-primary)}.jTHpnG_library{flex-direction:column;gap:12px;display:flex}.jTHpnG_libraryState{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-tertiary);border-radius:10px;justify-content:center;align-items:center;gap:8px;padding:48px 16px;font-size:13px;display:flex}.jTHpnG_libraryProblems{color:var(--dsw-alias-state-warn-primary);border-radius:8px;align-items:center;gap:6px;padding:8px 12px;font-size:12px;display:flex}.jTHpnG_libraryCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:8px;padding:14px;display:flex}.jTHpnG_libraryTags{flex-wrap:wrap;gap:4px;display:flex}.jTHpnG_libraryTag{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);border-radius:999px;padding:1px 8px;font-size:11px}.jTHpnG_statusDraft{color:var(--dsw-alias-label-tertiary);background:color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent)}.jTHpnG_statusReady{color:var(--dsw-alias-state-business-primary);background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent)}.jTHpnG_statusPublished{color:var(--dsw-alias-state-success-primary);background:color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent)}.jTHpnG_retry{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:7px;align-items:center;gap:4px;padding:4px 10px;font-size:12px;display:inline-flex}.jTHpnG_retry:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_calendar{flex-direction:column;gap:10px;display:flex}.jTHpnG_calendarBar{align-items:center;gap:8px;display:flex}.jTHpnG_calendarMonth{color:var(--dsw-alias-label-primary);text-align:center;min-width:88px;font-size:14px;font-weight:600}.jTHpnG_calendarNav,.jTHpnG_calendarToday{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:7px;font-size:12px}.jTHpnG_calendarNav{width:26px;height:26px}.jTHpnG_calendarToday{padding:4px 12px}.jTHpnG_calendarNav:hover,.jTHpnG_calendarToday:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.jTHpnG_calendarHead,.jTHpnG_calendarGrid{grid-template-columns:repeat(7,1fr);gap:4px;display:grid}.jTHpnG_calendarWeekday{text-align:center;color:var(--dsw-alias-label-tertiary);padding:2px 0;font-size:11px}.jTHpnG_calendarCell{border:1px solid var(--dsw-alias-border-l1);cursor:pointer;border-radius:8px;flex-direction:column;gap:3px;min-height:76px;padding:4px;transition:border-color .14s;display:flex}.jTHpnG_calendarCell:hover{border-color:var(--dsw-alias-border-l2)}.jTHpnG_calendarCellOutside{opacity:.45}.jTHpnG_calendarCellToday{border-color:var(--dsw-alias-state-business-primary)}.jTHpnG_calendarDayNum{color:var(--dsw-alias-label-secondary);font-size:11px}.jTHpnG_calendarChip{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary);cursor:default;border-radius:5px;align-items:center;gap:4px;min-width:0;padding:1px 4px;font-size:10px;display:flex}.jTHpnG_calendarChipTitle{text-overflow:ellipsis;white-space:nowrap;flex:1;overflow:hidden}.jTHpnG_calendarChipAction{color:var(--dsw-alias-label-tertiary);cursor:pointer;background:0 0;border:none;align-items:center;padding:0 2px;font-size:10px;display:inline-flex}.jTHpnG_calendarChipAction:hover{color:var(--dsw-alias-label-primary)}.jTHpnG_calendarDot{border-radius:999px;flex:none;width:6px;height:6px}.jTHpnG_dotIdea{background:var(--dsw-alias-label-tertiary)}.jTHpnG_dotDraft{background:var(--dsw-alias-state-warn-primary)}.jTHpnG_dotScheduled{background:var(--dsw-alias-state-business-primary)}.jTHpnG_dotPublished{background:var(--dsw-alias-state-success-primary)}.jTHpnG_calendarForm{flex-direction:column;gap:4px;margin-top:2px;display:flex}.jTHpnG_calendarInput{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);width:100%;color:var(--dsw-alias-label-primary);border-radius:5px;padding:3px 6px;font-size:10px}.jTHpnG_calendarFormRow{align-items:center;gap:6px;display:flex}.jTHpnG_calendarSubmit{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:5px;align-items:center;gap:3px;padding:2px 8px;font-size:10px;display:inline-flex}.jTHpnG_calendarHint{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-tertiary);text-align:center;border-radius:8px;padding:12px;font-size:12px}.jTHpnG_about{border-top:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-dimmed);justify-content:center;align-items:center;gap:12px;margin-top:32px;padding-top:16px;font-size:11px;display:flex}.jTHpnG_aboutLink{color:var(--dsw-alias-label-tertiary);text-decoration:none}.jTHpnG_aboutLink:hover{color:var(--dsw-alias-state-business-primary)}.jTHpnG_badge{white-space:nowrap;border-radius:999px;flex:none;padding:2px 8px;font-size:11px}.jTHpnG_badgeDone{color:var(--dsw-alias-state-success-primary);background:color-mix(in srgb, var(--dsw-alias-state-success-primary) 12%, transparent)}.jTHpnG_badgeReady{color:var(--dsw-alias-state-business-primary);background:color-mix(in srgb, var(--dsw-alias-state-business-primary) 12%, transparent)}.jTHpnG_badgeNeed{color:var(--dsw-alias-state-warn-primary);background:color-mix(in srgb, var(--dsw-alias-state-warn-primary) 12%, transparent)}.jTHpnG_badgeIncoming{color:var(--dsw-alias-label-tertiary);background:color-mix(in srgb, var(--dsw-alias-label-tertiary) 12%, transparent)}.jTHpnG_comp{flex-direction:column;gap:12px;height:100%;display:flex;overflow-y:auto}.jTHpnG_compToolbar{flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;display:flex}.jTHpnG_compThemeRow{min-width:220px;max-width:420px;color:var(--dsw-alias-label-secondary);flex:1;align-items:center;gap:8px;font-size:12px;display:flex}.jTHpnG_compSections{gap:6px;display:flex}.jTHpnG_compBanner{border:1px dashed var(--dsw-alias-border-l2);color:var(--dsw-alias-label-secondary);border-radius:8px;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 12px;font-size:12px;display:flex}.jTHpnG_compSplit{grid-template-columns:minmax(260px,5fr) minmax(300px,7fr);align-items:start;gap:12px;display:grid}.jTHpnG_compListPane,.jTHpnG_compDetailPane,.jTHpnG_compAccounts,.jTHpnG_compReportPicker{flex-direction:column;gap:8px;min-width:0;display:flex}.jTHpnG_compDetailPane{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;padding:12px}.jTHpnG_compFilterRow,.jTHpnG_compImportRow,.jTHpnG_compActions,.jTHpnG_compFormRow{flex-wrap:wrap;align-items:center;gap:6px;display:flex}.jTHpnG_compFilterRow .jTHpnG_compInput{flex:1;min-width:0}.jTHpnG_compInput{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);border-radius:6px;padding:5px 8px;font-size:12px}.jTHpnG_compTextarea{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);width:100%;color:var(--dsw-alias-label-primary);resize:vertical;border-radius:6px;padding:6px 8px;font-size:12px}.jTHpnG_compForm{border:1px dashed var(--dsw-alias-border-l1);border-radius:8px;flex-direction:column;gap:6px;padding:10px;display:flex}.jTHpnG_compFieldLabel{color:var(--dsw-alias-label-secondary);flex-direction:column;gap:4px;font-size:12px;display:flex}.jTHpnG_compFileInput{clip-path:inset(50%);width:1px;height:1px;position:absolute;overflow:hidden}.jTHpnG_compWorkList{flex-direction:column;max-height:420px;display:flex;overflow-y:auto}.jTHpnG_compWorkList .jTHpnG_listRowButton{flex-direction:column;align-items:flex-start;gap:2px}.jTHpnG_compAccountCard{border:1px solid var(--dsw-alias-border-l1);border-radius:10px;flex-direction:column;gap:6px;padding:10px;display:flex}.jTHpnG_compDetail{flex-direction:column;gap:10px;display:flex}.jTHpnG_compDetailHead{flex-wrap:wrap;align-items:baseline;gap:8px;display:flex}.jTHpnG_compDetailTitle{font-size:14px}.jTHpnG_compResult{border:1px solid var(--dsw-alias-border-l1);border-radius:8px;flex-direction:column;gap:6px;padding:10px;font-size:12px;display:flex}.jTHpnG_compResultLine{color:var(--dsw-alias-label-primary);margin:0}.jTHpnG_compResultLine strong{color:var(--dsw-alias-label-secondary);margin-right:4px;font-weight:500}.jTHpnG_compResultList{color:var(--dsw-alias-label-secondary);margin:2px 0 0;padding-left:18px}.jTHpnG_compReport{border:1px solid var(--dsw-alias-border-l1);white-space:pre-wrap;word-break:break-word;border-radius:8px;max-height:60vh;margin:0;padding:10px;font-size:12px;line-height:1.6;overflow-y:auto}.jTHpnG_compPreview summary{cursor:pointer;color:var(--dsw-alias-label-secondary);font-size:12px}.jTHpnG_compCompliance{color:var(--dsw-alias-label-dimmed);margin:0;font-size:11px}.jTHpnG_compBadgeHot{color:var(--dsw-alias-state-warning-primary,var(--dsw-alias-label-primary));background:color-mix(in srgb, var(--dsw-alias-state-warning-primary,var(--dsw-alias-label-primary)) 14%, transparent)}.jTHpnG_compBadgeFailed{color:var(--dsw-alias-state-danger-primary,var(--dsw-alias-label-primary));background:color-mix(in srgb, var(--dsw-alias-state-danger-primary,var(--dsw-alias-label-primary)) 12%, transparent)}";
+		const tagId$11 = "@deepseek-ai/dsh-client-ui-content-studio/ContentStudio.module.css";
+		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId$11) + "]") === null) {
 			const tag = document.createElement("style");
 			tag.dataset.plugin = "@deepseek-ai/dsh-client-ui-content-studio";
-			tag.dataset.pluginCss = tagId$5;
-			tag.textContent = css$5;
+			tag.dataset.pluginCss = tagId$11;
+			tag.textContent = css$11;
 			document.head.appendChild(tag);
 		}
 		var ContentStudio_module_css_default = {
@@ -7936,7 +10654,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		* visible with a repair hint instead of disappearing.
 		*/
 		/** Status → its badge modifier class. */
-		const STATUS_CLASS = {
+		const STATUS_CLASS$1 = {
 			draft: ContentStudio_module_css_default.statusDraft ?? "",
 			ready: ContentStudio_module_css_default.statusReady ?? "",
 			published: ContentStudio_module_css_default.statusPublished ?? ""
@@ -8015,7 +10733,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 							className: ContentStudio_module_css_default.cardTitle,
 							children: project.title
 						}), (0, react_jsx_runtime.jsx)("span", {
-							className: clsx(ContentStudio_module_css_default.badge, STATUS_CLASS[project.status]),
+							className: clsx(ContentStudio_module_css_default.badge, STATUS_CLASS$1[project.status]),
 							children: t(`status.${project.status}`)
 						})]
 					}),
@@ -8050,9 +10768,12 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		//#endregion
 		//#region lib/types/client/calendar.js
 		/**
-		* Pure month-grid math for the calendar view: no React, no IO — weeks start
-		* Monday, and every day carries its `YYYY-MM-DD` wire date plus an
-		* in-month flag so leading/trailing padding renders dimmed.
+		* Pure calendar math for the calendar view: no React, no IO. Month and week
+		* grids (weeks start Monday), view/filter configuration with a versioned
+		* whole-fallback migration, the render-time overdue and conflict
+		* derivations, list filtering, and CSV export. Every grid day carries its
+		* `YYYY-MM-DD` wire date plus an in-month flag so leading/trailing padding
+		* renders dimmed.
 		*/
 		/**
 		* Local-time today as `YYYY-MM-DD`.
@@ -8119,14 +10840,705 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			}
 			return byDate;
 		}
+		/** Filters with every constraint disabled. */
+		const DEFAULT_CALENDAR_FILTERS = {
+			kind: "all",
+			platforms: [],
+			statuses: [],
+			start: null,
+			end: null,
+			query: "",
+			overdueOnly: false
+		};
+		const DEFAULT_CALENDAR_CONFIG = {
+			version: 1,
+			view: "month",
+			filters: DEFAULT_CALENDAR_FILTERS
+		};
+		const VIEW_KINDS = [
+			"month",
+			"week",
+			"list"
+		];
+		const STATUSES = [
+			"idea",
+			"draft",
+			"scheduled",
+			"published"
+		];
+		function isFilters(value) {
+			if (typeof value !== "object" || value === null) return false;
+			const record = value;
+			return (record.kind === "all" || record.kind === "content" || record.kind === "event") && Array.isArray(record.platforms) && record.platforms.every((entry) => typeof entry === "string") && Array.isArray(record.statuses) && record.statuses.every((entry) => STATUSES.includes(entry)) && (record.start === null || typeof record.start === "string") && (record.end === null || typeof record.end === "string") && typeof record.query === "string" && typeof record.overdueOnly === "boolean";
+		}
+		/**
+		* Parse the persisted view configuration; anything unrecognizable — wrong
+		* version, truncated JSON, one bad field — falls back to the default whole,
+		* so a stale shape never half-renders.
+		* @param raw - the stored string, or null before the first save.
+		* @returns the configuration to render with.
+		*/
+		function loadCalendarConfig(raw) {
+			if (raw === null) return DEFAULT_CALENDAR_CONFIG;
+			let parsed;
+			try {
+				parsed = JSON.parse(raw);
+			} catch {
+				return DEFAULT_CALENDAR_CONFIG;
+			}
+			if (typeof parsed !== "object" || parsed === null) return DEFAULT_CALENDAR_CONFIG;
+			const record = parsed;
+			if (record.version !== 1) return DEFAULT_CALENDAR_CONFIG;
+			if (!VIEW_KINDS.includes(record.view)) return DEFAULT_CALENDAR_CONFIG;
+			if (!isFilters(record.filters)) return DEFAULT_CALENDAR_CONFIG;
+			return {
+				version: 1,
+				view: record.view,
+				filters: record.filters
+			};
+		}
+		/**
+		* Serialize the view configuration for storage.
+		* @param config - the configuration to persist.
+		* @returns the stored string.
+		*/
+		function saveCalendarConfig(config) {
+			return JSON.stringify(config);
+		}
+		/**
+		* Build the one-week row containing the anchor date, Monday first. A week is
+		* never padded, so every cell renders at full opacity.
+		* @param anchor - the wire date the rendered week must contain.
+		* @returns exactly 7 cells.
+		*/
+		function weekGrid(anchor) {
+			const today = todayDate();
+			const base = new Date(Number(anchor.slice(0, 4)), Number(anchor.slice(5, 7)) - 1, Number(anchor.slice(8, 10)));
+			const lead = (base.getDay() + 6) % 7;
+			return Array.from({ length: 7 }, (_, index) => {
+				const day = new Date(base.getFullYear(), base.getMonth(), base.getDate() - lead + index);
+				const date = formatDate$1(day.getFullYear(), day.getMonth() + 1, day.getDate());
+				return {
+					date,
+					inMonth: true,
+					isToday: date === today
+				};
+			});
+		}
+		/**
+		* Derive the overdue state at render time: the plan day passed entirely and
+		* the item never published. Never stored — recomputed on every render.
+		* @param item - the schedule item.
+		* @param today - today's wire date in the host time zone.
+		* @returns true when the item is overdue.
+		*/
+		function overdueOf(item, today) {
+			return item.status !== "published" && item.date < today;
+		}
+		/** Minutes since midnight of one `HH:mm` time, or null without a time. */
+		function minutesOf(time) {
+			if (time === null) return null;
+			return Number(time.slice(0, 2)) * 60 + Number(time.slice(3, 5));
+		}
+		/**
+		* Detect scheduling conflicts at render time: two `scheduled` items on the
+		* same platform and day whose times sit closer than the conflict window,
+		* plus a same-platform day carrying three or more `scheduled` items (all-day
+		* items without a time only count toward that crowding rule). Never stored.
+		* @param items - schedule items in any order.
+		* @returns the conflicting items' ids.
+		*/
+		function detectConflicts(items) {
+			const conflicted = /* @__PURE__ */ new Set();
+			const byDay = /* @__PURE__ */ new Map();
+			for (const item of items) {
+				if (item.status !== "scheduled" || item.platform === null) continue;
+				const key = `${item.platform}\n${item.date}`;
+				const bucket = byDay.get(key);
+				if (bucket === void 0) byDay.set(key, [item]);
+				else bucket.push(item);
+			}
+			for (const bucket of byDay.values()) {
+				if (bucket.length >= 3) {
+					for (const item of bucket) conflicted.add(item.id);
+					continue;
+				}
+				for (let left = 0; left < bucket.length; left++) {
+					const leftMinutes = minutesOf(bucket[left].time);
+					if (leftMinutes === null) continue;
+					for (let right = left + 1; right < bucket.length; right++) {
+						const rightMinutes = minutesOf(bucket[right].time);
+						if (rightMinutes === null) continue;
+						if (Math.abs(leftMinutes - rightMinutes) < 120) {
+							conflicted.add(bucket[left].id);
+							conflicted.add(bucket[right].id);
+						}
+					}
+				}
+			}
+			return conflicted;
+		}
+		/**
+		* Apply the active filters to the snapshot items in store order.
+		* @param items - schedule items sorted by the store.
+		* @param filters - the active filters.
+		* @param today - today's wire date, for the overdue-only filter.
+		* @returns the items matching every active constraint.
+		*/
+		function filterCalendarItems(items, filters, today) {
+			const query = filters.query.trim().toLowerCase();
+			return items.filter((item) => {
+				if (filters.kind !== "all" && item.kind !== filters.kind) return false;
+				if (filters.platforms.length > 0 && (item.platform === null || !filters.platforms.includes(item.platform))) return false;
+				if (filters.statuses.length > 0 && !filters.statuses.includes(item.status)) return false;
+				if (filters.start !== null && item.date < filters.start) return false;
+				if (filters.end !== null && item.date > filters.end) return false;
+				if (filters.overdueOnly && !overdueOf(item, today)) return false;
+				if (query.length > 0 && !item.title.toLowerCase().includes(query)) return false;
+				return true;
+			});
+		}
+		/** Fixed Chinese labels of the CSV artifact (the offline archival form). */
+		const CSV_STATUS_LABELS = {
+			idea: "构思",
+			draft: "草稿",
+			scheduled: "已排期",
+			published: "已发布"
+		};
+		/** Wrap one CSV field when it carries a comma, quote, or newline. */
+		function csvCell(value) {
+			return /[",\r\n]/.test(value) ? `"${value.replace(/"/g, "\"\"")}"` : value;
+		}
+		/**
+		* Render the filtered schedule as the archival CSV: UTF-8 with BOM (Excel
+		* reads the Chinese headers correctly), CRLF rows, and the fixed column
+		* order 日期/时间/类型/状态/标题/平台/关联选题/备注.
+		* @param items - the filtered items in render order.
+		* @param notes - the note bodies keyed by item id.
+		* @returns the complete file content including the BOM and final CRLF.
+		*/
+		function calendarEventsToCsv(items, notes) {
+			const header = [
+				"日期",
+				"时间",
+				"类型",
+				"状态",
+				"标题",
+				"平台",
+				"关联选题",
+				"备注"
+			];
+			const rows = items.map((item) => [
+				item.date,
+				item.time ?? "",
+				item.kind === "content" ? "选题排期" : "独立日程",
+				CSV_STATUS_LABELS[item.status],
+				item.title,
+				item.platform ?? "",
+				item.topic ?? "",
+				notes[item.id]?.text ?? ""
+			].map(csvCell).join(","));
+			return `\uFEFF${[header.join(","), ...rows].join("\r\n")}\r\n`;
+		}
+		//#endregion
+		//#region lib/types/client/topic-bank.js
+		/**
+		* Pure logic of the topic-bank view: the five-status single-source config,
+		* the persisted view/filter configuration with versioned load migration,
+		* filtering (source, score range, tag, status, keyword, plan window), the
+		* kanban grouping, and the Markdown export whose frontmatter is emitted and
+		* parsed by one strict schema so export → import round-trips losslessly.
+		* No React, no I/O — the view and the tests share this module, like
+		* `calendar.ts`, `create.ts`, and `competitors.ts`.
+		*/
+		/** Kanban column order and the canonical status sequence, oldest stage first. */
+		const TOPIC_STATUSES = [
+			"idea",
+			"todo",
+			"creating",
+			"done",
+			"shelved"
+		];
+		/** Source families of one topic, in filter order. */
+		const TOPIC_SOURCE_TYPES = [
+			"manual",
+			"gather",
+			"benchmark",
+			"interaction"
+		];
+		/** The shipped configuration; every load migration falls back here whole. */
+		const DEFAULT_TOPIC_BANK_CONFIG = {
+			version: 1,
+			view: "table",
+			filters: {
+				source: "all",
+				status: "all",
+				scoreMin: 0,
+				scoreMax: 10,
+				tag: null,
+				planWindow: "all",
+				search: ""
+			}
+		};
+		/** The recognized configuration version. */
+		const TOPIC_BANK_CONFIG_VERSION = 1;
+		function isSourceFilter(value) {
+			return value === "all" || typeof value === "string" && TOPIC_SOURCE_TYPES.includes(value);
+		}
+		function isStatusFilter(value) {
+			return value === "all" || typeof value === "string" && TOPIC_STATUSES.includes(value);
+		}
+		function isScoreBound(value) {
+			return typeof value === "number" && Number.isFinite(value) && value >= 0 && value <= 10;
+		}
+		function isPlanWindow(value) {
+			return value === "all" || value === "week" || value === "month";
+		}
+		function normalizeConfig(value) {
+			if (typeof value !== "object" || value === null) return null;
+			const record = value;
+			if (record.version !== 1) return null;
+			if (record.view !== "table" && record.view !== "kanban") return null;
+			const filters = record.filters;
+			if (typeof filters !== "object" || filters === null) return null;
+			const f = filters;
+			if (!isSourceFilter(f.source) || !isStatusFilter(f.status)) return null;
+			if (!isScoreBound(f.scoreMin) || !isScoreBound(f.scoreMax) || f.scoreMin > f.scoreMax) return null;
+			if (f.tag !== null && typeof f.tag !== "string") return null;
+			if (!isPlanWindow(f.planWindow)) return null;
+			if (typeof f.search !== "string") return null;
+			return {
+				version: 1,
+				view: record.view,
+				filters: {
+					source: f.source,
+					status: f.status,
+					scoreMin: f.scoreMin,
+					scoreMax: f.scoreMax,
+					tag: f.tag,
+					planWindow: f.planWindow,
+					search: f.search
+				}
+			};
+		}
+		/**
+		* Load and migrate one persisted configuration. Anything the current schema
+		* does not recognize — wrong version, truncated JSON, unexpected shapes —
+		* resolves to the defaults whole, so no dirty state ever reaches the view.
+		* @param raw - the stored JSON text, or null when nothing was saved.
+		* @returns the recognized configuration, or the defaults.
+		*/
+		function loadTopicBankConfig(raw) {
+			if (raw === null) return DEFAULT_TOPIC_BANK_CONFIG;
+			let parsed;
+			try {
+				parsed = JSON.parse(raw);
+			} catch {
+				return DEFAULT_TOPIC_BANK_CONFIG;
+			}
+			return normalizeConfig(parsed) ?? DEFAULT_TOPIC_BANK_CONFIG;
+		}
+		/**
+		* Serialize one configuration for localStorage.
+		* @param config - the configuration to persist.
+		* @returns the JSON text.
+		*/
+		function saveTopicBankConfig(config) {
+			return JSON.stringify(config);
+		}
+		/**
+		* Local-time Monday of the week containing `today`, as a wire date.
+		* @param today - the anchor date, `YYYY-MM-DD`.
+		* @returns the week's Monday wire date.
+		*/
+		function weekStart(today) {
+			const [year, month, day] = today.split("-").map(Number);
+			const weekday = (new Date(year, month - 1, day).getDay() + 6) % 7;
+			const monday = new Date(year, month - 1, day - weekday);
+			return formatDate(monday.getFullYear(), monday.getMonth() + 1, monday.getDate());
+		}
+		/**
+		* Compose a wire date from local year/month(1-12)/day.
+		* @param year - calendar year.
+		* @param month - calendar month, 1-12.
+		* @param day - calendar day.
+		* @returns the zero-padded `YYYY-MM-DD` date.
+		*/
+		function formatDate(year, month, day) {
+			return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+		}
+		/**
+		* The inclusive wire-date range one plan window covers.
+		* @param window - the selected window (`week` or `month`; `all` never
+		* range-checks and never reaches this function).
+		* @param today - the anchor date, `YYYY-MM-DD`.
+		* @returns `[start, end]` wire dates; `week` covers Monday–Sunday, `month`
+		* the calendar month.
+		*/
+		function planWindowRange(window, today) {
+			const start = window === "week" ? weekStart(today) : `${today.slice(0, 7)}-01`;
+			const [year, month, day] = start.split("-").map(Number);
+			if (window === "week") {
+				const end = new Date(year, month - 1, day + 6);
+				return [start, formatDate(end.getFullYear(), end.getMonth() + 1, end.getDate())];
+			}
+			return [start, formatDate(year, month, new Date(year, month, 0).getDate())];
+		}
+		/**
+		* Client-side filter of the visible topics: source, status, score range,
+		* tag, plan window, and keyword. Unscored topics pass the score filter only
+		* when the range's lower bound is 0, so tightening the range hides them;
+		* unplanned topics always show unless a week/month window is active.
+		* @param items - the bank's topics (any order).
+		* @param filters - the active filter state.
+		* @param today - the anchor date for plan windows, `YYYY-MM-DD`.
+		* @returns the topics passing every filter, in input order.
+		*/
+		function filterTopics(items, filters, today) {
+			const query = filters.search.trim().toLowerCase();
+			return items.filter((item) => {
+				if (filters.source !== "all" && item.source.type !== filters.source) return false;
+				if (filters.status !== "all" && item.status !== filters.status) return false;
+				if (filters.scoreMin > 0 && (item.score === null || item.score.total < filters.scoreMin)) return false;
+				if (filters.scoreMax < 10 && (item.score === null || item.score.total > filters.scoreMax)) return false;
+				if (filters.tag !== null && !item.tags.includes(filters.tag)) return false;
+				if (filters.planWindow !== "all") {
+					const [start, end] = planWindowRange(filters.planWindow, today);
+					if (item.planDate === null || item.planDate < start || item.planDate > end) return false;
+				}
+				if (query.length > 0) {
+					if (![
+						item.title,
+						item.oneLiner ?? "",
+						item.description ?? "",
+						...item.tags
+					].join("\n").toLowerCase().includes(query)) return false;
+				}
+				return true;
+			});
+		}
+		/**
+		* Group topics by status for the kanban's five columns.
+		* @param items - the topics to place.
+		* @returns one entry per canonical status, in column order, preserving each
+		* bucket's input order.
+		*/
+		function groupByStatus(items) {
+			return TOPIC_STATUSES.map((status) => ({
+				status,
+				items: items.filter((item) => item.status === status)
+			}));
+		}
+		/**
+		* Collect every distinct tag across the bank, alphabetically.
+		* @param items - the bank's topics.
+		* @returns the sorted distinct tag list.
+		*/
+		function collectTags(items) {
+			return [...new Set(items.flatMap((item) => [...item.tags]))].sort((a, b) => a < b ? -1 : 1);
+		}
+		/**
+		* Render one topic score for the table and kanban: integral scores stay
+		* bare, fractional ones keep one decimal.
+		* @param total - the score, 0–10.
+		* @returns the display text.
+		*/
+		function formatScore(total) {
+			return Number.isInteger(total) ? String(total) : total.toFixed(1);
+		}
+		/** Quote a frontmatter string: the schema quotes every string, escaping `\` and `"`. */
+		function quote(value) {
+			return `"${value.replaceAll("\\", "\\\\").replaceAll("\"", "\\\"")}"`;
+		}
+		/** Read back one quoted frontmatter string, reversing the emitter's escapes. */
+		function unquote(value) {
+			return value.slice(1, -1).replaceAll("\\\"", "\"").replaceAll("\\\\", "\\");
+		}
+		function isQuoted(value) {
+			return value.length >= 2 && value.startsWith("\"") && value.endsWith("\"");
+		}
+		/**
+		* Emit one topic's frontmatter-plus-body Markdown. The schema is strict:
+		* dates stay unquoted `YYYY-MM-DD`, scores stay bare numbers, every other
+		* scalar is double-quoted, and tags are a quoted inline array — the exact
+		* inverse of {@link parseTopicsMarkdown}, so a round-trip loses nothing.
+		* @param item - the topic to render.
+		* @returns the Markdown document text.
+		*/
+		function topicToMarkdown(item) {
+			const lines = [
+				"---",
+				`title: ${quote(item.title)}`,
+				`oneLiner: ${item.oneLiner === null ? "null" : quote(item.oneLiner)}`,
+				`status: ${item.status}`,
+				`sourceType: ${item.source.type}`,
+				`sourceUrl: ${item.source.url === null ? "null" : quote(item.source.url)}`,
+				`tags: [${item.tags.map(quote).join(", ")}]`,
+				`score: ${item.score === null ? "null" : String(item.score.total)}`,
+				`planDate: ${item.planDate ?? "null"}`,
+				`updatedAt: ${quote(item.updatedAt)}`,
+				"---"
+			];
+			const body = item.description ?? "";
+			return `${lines.join("\n")}\n\n${body}${body.endsWith("\n") || body.length === 0 ? "" : "\n"}`;
+		}
+		/**
+		* Emit the batch-export document: every topic under the next, separated by
+		* a blank line — one file carries the whole selection.
+		* @param items - the topics to export, in document order.
+		* @returns the Markdown document text.
+		*/
+		function topicsToMarkdown(items) {
+			return items.map(topicToMarkdown).join("\n");
+		}
+		function parseFrontmatterValue(raw) {
+			if (raw === "null") return null;
+			if (isQuoted(raw)) return unquote(raw);
+			return raw;
+		}
+		function parseTags(raw) {
+			if (!raw.startsWith("[") || !raw.endsWith("]")) return null;
+			const inner = raw.slice(1, -1).trim();
+			if (inner.length === 0) return [];
+			const parts = [];
+			let current = "";
+			let inQuotes = false;
+			for (let index = 0; index < inner.length; index += 1) {
+				const char = inner[index] ?? "";
+				if (inQuotes && char === "\"" && inner[index - 1] !== "\\") inQuotes = false;
+				else if (char === "\"") inQuotes = true;
+				if (char === "," && !inQuotes) {
+					parts.push(current.trim());
+					current = "";
+				} else current += char;
+			}
+			parts.push(current.trim());
+			return parts.every((part) => isQuoted(part)) ? parts.map((part) => parseFrontmatterValue(part) ?? "") : null;
+		}
+		/**
+		* Parse one document produced by {@link topicToMarkdown}. The parser accepts
+		* only the schema's own shape and answers null for anything else — it exists
+		* to keep the export schema honest (round-trip), not to import foreign files.
+		* @param markdown - the document text.
+		* @returns the parsed fields, or null when the document is not schema output.
+		*/
+		function parseTopicsMarkdown(markdown) {
+			if (!markdown.startsWith("---\n")) return null;
+			const close = markdown.indexOf("\n---\n", 4);
+			if (close < 0) return null;
+			const frontmatter = markdown.slice(4, close);
+			const body = markdown.slice(close + 5).replace(/^\n+/, "").replace(/\n?$/, "\n");
+			const fields = /* @__PURE__ */ new Map();
+			for (const line of frontmatter.split("\n")) {
+				const sep = line.indexOf(": ");
+				if (sep <= 0) return null;
+				fields.set(line.slice(0, sep), line.slice(sep + 2));
+			}
+			const title = fields.has("title") ? parseFrontmatterValue(fields.get("title") ?? "") : null;
+			if (title === null || title.length === 0) return null;
+			const status = fields.get("status") ?? "";
+			if (!TOPIC_STATUSES.includes(status)) return null;
+			const sourceType = fields.get("sourceType") ?? "";
+			if (!TOPIC_SOURCE_TYPES.includes(sourceType)) return null;
+			const tags = parseTags(fields.get("tags") ?? "");
+			if (tags === null) return null;
+			const scoreRaw = fields.get("score") ?? "";
+			const score = scoreRaw === "null" ? null : Number(scoreRaw);
+			if (score !== null && (!Number.isFinite(score) || score < 0 || score > 10)) return null;
+			const planDate = parseFrontmatterValue(fields.get("planDate") ?? "");
+			if (planDate !== null && !/^\d{4}-\d{2}-\d{2}$/.test(planDate)) return null;
+			const updatedAt = parseFrontmatterValue(fields.get("updatedAt") ?? "");
+			if (updatedAt === null) return null;
+			return {
+				title,
+				oneLiner: parseFrontmatterValue(fields.get("oneLiner") ?? ""),
+				status,
+				sourceType,
+				sourceUrl: parseFrontmatterValue(fields.get("sourceUrl") ?? ""),
+				tags,
+				score,
+				planDate,
+				updatedAt,
+				description: body.trim().length === 0 ? null : body.trim()
+			};
+		}
+		/**
+		* Build a create-topic input from one gather material join: the material's
+		* stable id rides along as `source.refId`, its link and create-time capture
+		* as `source.url` / `source.snapshot`, and the record starts in `idea`.
+		* @param material - the joined gather material.
+		* @param capturedAt - the capture instant, ISO 8601.
+		* @returns the upsert input for the contentTopics Remote.
+		*/
+		function gatherMaterialToTopicInput(material, capturedAt) {
+			return {
+				title: material.title,
+				oneLiner: material.summary ?? null,
+				status: "idea",
+				source: {
+					type: "gather",
+					refId: material.id,
+					url: material.url,
+					snapshot: {
+						title: material.title,
+						summary: material.summary ?? null,
+						capturedAt
+					}
+				},
+				tags: [],
+				description: null,
+				score: null,
+				planDate: null,
+				scheduleItemId: null,
+				topicDir: null
+			};
+		}
+		/**
+		* Build a manual topic input: only the title is required, and the record
+		* starts in `idea` — everything else is back-filled later in the detail
+		* panel.
+		* @param title - the working title.
+		* @returns the upsert input for the contentTopics Remote.
+		*/
+		function manualTopicInput(title) {
+			return {
+				title,
+				oneLiner: null,
+				status: "idea",
+				source: {
+					type: "manual",
+					refId: null,
+					url: null,
+					snapshot: null
+				},
+				tags: [],
+				description: null,
+				score: null,
+				planDate: null,
+				scheduleItemId: null,
+				topicDir: null
+			};
+		}
+		/**
+		* Project one stored topic back to its upsert input, with patches applied —
+		* the shape every status move, batch edit, and detail-panel save sends to
+		* the contentTopics Remote.
+		* @param item - the stored topic.
+		* @param patch - the fields overriding the stored ones.
+		* @returns the upsert input carrying the topic's `id`.
+		*/
+		function topicInputOf(item, patch = {}) {
+			return {
+				id: item.id,
+				title: item.title,
+				oneLiner: item.oneLiner,
+				status: item.status,
+				source: item.source,
+				tags: [...item.tags],
+				description: item.description,
+				score: item.score,
+				planDate: item.planDate,
+				scheduleItemId: item.scheduleItemId,
+				topicDir: item.topicDir,
+				...patch
+			};
+		}
+		/**
+		* The input for a batch tag edit: the stored tags plus every appended one,
+		* deduplicated, order preserved.
+		* @param item - the stored topic.
+		* @param appended - tags to add; duplicates of existing tags are ignored.
+		* @returns the upsert input with the union tags.
+		*/
+		function withAppendedTags(item, appended) {
+			const tags = [...item.tags];
+			for (const tag of appended) if (tag.length > 0 && !tags.includes(tag)) tags.push(tag);
+			return topicInputOf(item, { tags });
+		}
+		//#endregion
+		//#region \0dsh-css:D:\deepseek-harness\packages\client\ui-content-studio\src\client\ContentCalendar.module.css.mjs
+		const css$10 = ".U-sEEq_toolbar{flex-wrap:wrap;align-items:center;gap:12px;display:flex}.U-sEEq_tabs{border:1px solid var(--dsw-alias-line-control);border-radius:6px;display:inline-flex;overflow:hidden}.U-sEEq_tab{background:var(--dsw-alias-bg-control);color:var(--dsw-alias-text-secondary);cursor:pointer;border:none;padding:4px 10px;font-size:12px}.U-sEEq_tabActive{background:var(--dsw-alias-bg-active);color:var(--dsw-alias-text-primary);font-weight:600}.U-sEEq_toolbarActions{gap:6px;margin-left:auto;display:inline-flex}.U-sEEq_toolButton{border:1px solid var(--dsw-alias-line-control);background:var(--dsw-alias-bg-control);color:var(--dsw-alias-text-primary);cursor:pointer;border-radius:6px;align-items:center;gap:4px;padding:4px 10px;font-size:12px;display:inline-flex}.U-sEEq_toolButton:hover:not(:disabled){background:var(--dsw-alias-bg-hover)}.U-sEEq_toolButton:disabled{opacity:.5;cursor:not-allowed}.U-sEEq_toolButtonDanger{border:1px solid var(--dsw-alias-text-danger);color:var(--dsw-alias-text-danger);cursor:pointer;background:0 0;border-radius:6px;align-items:center;gap:4px;padding:4px 10px;font-size:12px;display:inline-flex}.U-sEEq_filters{flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0;display:flex}.U-sEEq_chip{border:1px solid var(--dsw-alias-line-control);background:var(--dsw-alias-bg-control);color:var(--dsw-alias-text-secondary);cursor:pointer;border-radius:999px;align-items:center;gap:4px;padding:2px 9px;font-size:12px;display:inline-flex}.U-sEEq_chipActive{border-color:var(--dsw-alias-line-accent);background:var(--dsw-alias-bg-active);color:var(--dsw-alias-text-primary)}.U-sEEq_chipOverdueActive{border-color:var(--dsw-alias-text-danger);color:var(--dsw-alias-text-danger)}.U-sEEq_formRow{gap:4px;display:flex}.U-sEEq_formSelect{border:1px solid var(--dsw-alias-line-control);background:var(--dsw-alias-bg-control);color:var(--dsw-alias-text-primary);border-radius:6px;min-width:0;padding:4px 6px;font-size:12px}.U-sEEq_conflicts{border:1px solid var(--dsw-alias-text-danger);color:var(--dsw-alias-text-danger);border-radius:6px;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:8px;padding:5px 8px;font-size:12px;display:flex}.U-sEEq_weekGrid{grid-template-rows:none;grid-auto-rows:minmax(180px,1fr)}.U-sEEq_chipDragging{opacity:.5}.U-sEEq_chipConflict{outline:2px solid var(--dsw-alias-text-danger);outline-offset:-1px}.U-sEEq_chipOverdue{outline:2px dashed var(--dsw-alias-text-danger);outline-offset:-1px}.U-sEEq_chipKind{font-size:10px;line-height:1}.U-sEEq_listWrap{flex-direction:column;gap:2px;display:flex}.U-sEEq_listHead,.U-sEEq_listRow{grid-template-columns:28px 92px 52px 84px 96px minmax(160px,1fr) 96px minmax(96px,.6fr);align-items:center;gap:8px;padding:5px 8px;font-size:12px;display:grid}.U-sEEq_listHead{color:var(--dsw-alias-text-secondary);border-bottom:1px solid var(--dsw-alias-line-control)}.U-sEEq_listRow{color:var(--dsw-alias-text-primary);cursor:pointer;border-radius:6px}.U-sEEq_listRow:hover{background:var(--dsw-alias-bg-hover)}.U-sEEq_listRowActive{background:var(--dsw-alias-bg-active)}.U-sEEq_listCheck{align-items:center;display:inline-flex}.U-sEEq_listStatus{white-space:nowrap;align-items:center;gap:5px;display:inline-flex}.U-sEEq_listTitle{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.U-sEEq_batchBar{background:var(--dsw-alias-bg-surface);gap:8px;padding:8px 0;display:flex;position:sticky;bottom:0}.U-sEEq_detail{border:1px solid var(--dsw-alias-line-control);border-radius:8px;flex-direction:column;gap:8px;margin-top:10px;padding:10px 12px;display:flex}.U-sEEq_detailHead{justify-content:space-between;align-items:center;gap:8px;font-size:13px;display:flex}.U-sEEq_detailGrid{grid-template-columns:auto 1fr auto 1fr;gap:4px 12px;margin:0;font-size:12px;display:grid}.U-sEEq_detailGrid dt{color:var(--dsw-alias-text-secondary)}.U-sEEq_detailGrid dd{color:var(--dsw-alias-text-primary);margin:0}.U-sEEq_noteArea{align-items:flex-start;gap:6px;display:flex}.U-sEEq_noteInput{border:1px solid var(--dsw-alias-line-control);background:var(--dsw-alias-bg-control);color:var(--dsw-alias-text-primary);resize:vertical;border-radius:6px;flex:1;padding:5px 7px;font-size:12px}.U-sEEq_detailActions{flex-wrap:wrap;gap:6px;display:flex}.U-sEEq_toast{background:var(--dsw-alias-bg-brand,var(--dsw-alias-bg-accent));color:var(--dsw-alias-text-brand,var(--dsw-alias-text-accent));z-index:20;border-radius:8px;padding:7px 14px;font-size:12px;position:fixed;bottom:18px;left:50%;transform:translate(-50%)}.U-sEEq_toastWarn{background:var(--dsw-alias-bg-surface);color:var(--dsw-alias-text-danger);border:1px solid var(--dsw-alias-text-danger)}";
+		const tagId$10 = "@deepseek-ai/dsh-client-ui-content-studio/ContentCalendar.module.css";
+		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId$10) + "]") === null) {
+			const tag = document.createElement("style");
+			tag.dataset.plugin = "@deepseek-ai/dsh-client-ui-content-studio";
+			tag.dataset.pluginCss = tagId$10;
+			tag.textContent = css$10;
+			document.head.appendChild(tag);
+		}
+		var ContentCalendar_module_css_default = {
+			"batchBar": "U-sEEq_batchBar",
+			"chip": "U-sEEq_chip",
+			"chipActive": "U-sEEq_chipActive",
+			"chipConflict": "U-sEEq_chipConflict",
+			"chipDragging": "U-sEEq_chipDragging",
+			"chipKind": "U-sEEq_chipKind",
+			"chipOverdue": "U-sEEq_chipOverdue",
+			"chipOverdueActive": "U-sEEq_chipOverdueActive",
+			"conflicts": "U-sEEq_conflicts",
+			"detail": "U-sEEq_detail",
+			"detailActions": "U-sEEq_detailActions",
+			"detailGrid": "U-sEEq_detailGrid",
+			"detailHead": "U-sEEq_detailHead",
+			"filters": "U-sEEq_filters",
+			"formRow": "U-sEEq_formRow",
+			"formSelect": "U-sEEq_formSelect",
+			"listCheck": "U-sEEq_listCheck",
+			"listHead": "U-sEEq_listHead",
+			"listRow": "U-sEEq_listRow",
+			"listRowActive": "U-sEEq_listRowActive",
+			"listStatus": "U-sEEq_listStatus",
+			"listTitle": "U-sEEq_listTitle",
+			"listWrap": "U-sEEq_listWrap",
+			"noteArea": "U-sEEq_noteArea",
+			"noteInput": "U-sEEq_noteInput",
+			"tab": "U-sEEq_tab",
+			"tabActive": "U-sEEq_tabActive",
+			"tabs": "U-sEEq_tabs",
+			"toast": "U-sEEq_toast",
+			"toastWarn": "U-sEEq_toastWarn",
+			"toolButton": "U-sEEq_toolButton",
+			"toolButtonDanger": "U-sEEq_toolButtonDanger",
+			"toolbar": "U-sEEq_toolbar",
+			"toolbarActions": "U-sEEq_toolbarActions",
+			"weekGrid": "U-sEEq_weekGrid"
+		};
 		//#endregion
 		//#region lib/types/client/ContentCalendar.js
 		/**
-		* The calendar view: one month grid over the publication calendar, read and
-		* mutated through the injected `contentSchedule` wrappers. Clicking a day
-		* opens an inline add form; each item chip offers mark-published and remove.
-		* All state is view-local — the file on disk is the only truth.
+		* The calendar view: the scheduling workbench over `_schedule.json` — the
+		* month, week, and list faces render the same filtered items, native
+		* drag-and-drop rescheduling confirms before writing (a linked topic's plan
+		* date rides along), day notes live in the `_calendar.json` sidecar, and the
+		* overdue and conflict badges are derived at render time by `calendar.ts`.
+		* All state is view-local; the files on disk are the only truth.
 		*/
+		/** localStorage key of the view/filter configuration (feature-prefixed). */
+		const CONFIG_KEY$1 = "dsh-content-studio.calendar.config";
+		/** How long a toast stays visible before clearing itself. */
+		const NOTICE_MS$1 = 3e3;
+		/** Wire shape of one optional local time. */
+		const TIME_PATTERN = /^\d{2}:\d{2}$/;
+		/** Status → its dot modifier class. */
+		const DOT_CLASS = {
+			idea: ContentStudio_module_css_default.dotIdea ?? "",
+			draft: ContentStudio_module_css_default.dotDraft ?? "",
+			scheduled: ContentStudio_module_css_default.dotScheduled ?? "",
+			published: ContentStudio_module_css_default.dotPublished ?? ""
+		};
+		/** Every stored status, in filter-chip order. */
+		const STATUS_KEYS = [
+			"idea",
+			"draft",
+			"scheduled",
+			"published"
+		];
+		/** View face → its tab label. */
+		const VIEW_KEYS = {
+			month: "calendar.view.month",
+			week: "calendar.view.week",
+			list: "calendar.view.list"
+		};
 		/** Weekday headers, Monday first; rendered through the locale seat. */
 		const WEEKDAY_KEYS = [
 			"weekday.mon",
@@ -8137,20 +11549,26 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"weekday.sat",
 			"weekday.sun"
 		];
-		/** Status → its dot modifier class. */
-		const DOT_CLASS = {
-			idea: ContentStudio_module_css_default.dotIdea ?? "",
-			draft: ContentStudio_module_css_default.dotDraft ?? "",
-			scheduled: ContentStudio_module_css_default.dotScheduled ?? "",
-			published: ContentStudio_module_css_default.dotPublished ?? ""
-		};
+		/** Open a fresh add form for one day. */
+		function newForm(date) {
+			return {
+				date,
+				title: "",
+				platform: "",
+				time: "",
+				kind: "event",
+				topicDir: ""
+			};
+		}
 		/**
-		* Render the publication calendar.
+		* Render the scheduling calendar.
 		* @param props - the Remote wrappers and the locale seat.
 		* @returns the calendar element tree.
 		*/
-		function ContentCalendar({ listSchedule, putSchedule, removeSchedule, t }) {
+		function ContentCalendar({ listSchedule, putSchedule, removeSchedule, notes, topics, writeExport, listThemes, onNavigate, t }) {
 			const [snapshot, setSnapshot] = (0, react.useState)(void 0);
+			const [notesSnapshot, setNotesSnapshot] = (0, react.useState)(void 0);
+			const [topicsSnapshot, setTopicsSnapshot] = (0, react.useState)(void 0);
 			const [failed, setFailed] = (0, react.useState)(false);
 			const [month, setMonth] = (0, react.useState)(() => {
 				const now = /* @__PURE__ */ new Date();
@@ -8159,23 +11577,112 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					month: now.getMonth() + 1
 				};
 			});
+			const [weekAnchor, setWeekAnchor] = (0, react.useState)(() => todayDate());
+			const [config, setConfig] = (0, react.useState)(() => {
+				try {
+					return loadCalendarConfig(localStorage.getItem(CONFIG_KEY$1));
+				} catch {
+					return loadCalendarConfig(null);
+				}
+			});
 			const [form, setForm] = (0, react.useState)(void 0);
+			const [detailId, setDetailId] = (0, react.useState)(void 0);
+			const [dragId, setDragId] = (0, react.useState)(void 0);
+			const [checked, setChecked] = (0, react.useState)(/* @__PURE__ */ new Set());
 			const [submitting, setSubmitting] = (0, react.useState)(false);
+			const [notice, setNotice] = (0, react.useState)(void 0);
+			const [exportTheme, setExportTheme] = (0, react.useState)(null);
+			const showNotice = (text, tone) => {
+				setNotice({
+					text,
+					tone
+				});
+			};
+			(0, react.useEffect)(() => {
+				if (notice === void 0) return;
+				const timer = window.setTimeout(() => {
+					setNotice(void 0);
+				}, NOTICE_MS$1);
+				return () => {
+					window.clearTimeout(timer);
+				};
+			}, [notice]);
 			const load = (0, react.useCallback)(async () => {
 				setFailed(false);
 				try {
-					setSnapshot(await listSchedule());
+					const [schedule, dayNotes, bank] = await Promise.all([
+						listSchedule(),
+						notes.list(),
+						topics.list()
+					]);
+					setSnapshot(schedule);
+					setNotesSnapshot(dayNotes);
+					setTopicsSnapshot(bank);
 				} catch (error) {
-					console.error("[content-studio] contentSchedule failed:", error);
+					console.error("[content-studio] calendar load failed:", error);
 					setFailed(true);
 				}
-			}, [listSchedule]);
+			}, [
+				listSchedule,
+				notes,
+				topics
+			]);
 			(0, react.useEffect)(() => {
 				load();
 			}, [load]);
-			const grid = (0, react.useMemo)(() => monthGrid(month.year, month.month), [month]);
-			const byDate = (0, react.useMemo)(() => groupByDate(snapshot?.items ?? []), [snapshot]);
-			const shiftMonth = (delta) => {
+			(0, react.useEffect)(() => {
+				let alive = true;
+				listThemes().then((names) => {
+					if (alive) setExportTheme(names[0] ?? null);
+				}).catch(() => {});
+				return () => {
+					alive = false;
+				};
+			}, [listThemes]);
+			const patchConfig = (patch) => {
+				setConfig((current) => {
+					const next = {
+						...current,
+						...patch
+					};
+					try {
+						localStorage.setItem(CONFIG_KEY$1, saveCalendarConfig(next));
+					} catch {}
+					return next;
+				});
+			};
+			const patchFilters = (patch) => {
+				patchConfig({ filters: {
+					...config.filters,
+					...patch
+				} });
+			};
+			const today = todayDate();
+			const items = snapshot?.items ?? [];
+			const filtered = (0, react.useMemo)(() => filterCalendarItems(items, config.filters, today), [
+				items,
+				config.filters,
+				today
+			]);
+			const conflicts = (0, react.useMemo)(() => detectConflicts(items), [items]);
+			const conflictItems = (0, react.useMemo)(() => items.filter((item) => conflicts.has(item.id)), [items, conflicts]);
+			const byDate = (0, react.useMemo)(() => groupByDate(filtered), [filtered]);
+			const platforms = (0, react.useMemo)(() => [...new Set(items.map((item) => item.platform).filter((platform) => platform !== null))].sort(), [items]);
+			const detail = detailId === void 0 ? void 0 : items.find((item) => item.id === detailId);
+			/** Resolve the display title of an item's linked topic, or null. */
+			const topicTitleOf = (item) => {
+				const bank = topicsSnapshot?.items ?? [];
+				return ((item.topic !== null ? bank.find((candidate) => candidate.topicDir === item.topic) : void 0) ?? bank.find((candidate) => candidate.scheduleItemId === item.id))?.title ?? null;
+			};
+			const shift = (delta) => {
+				if (config.view === "week") {
+					setWeekAnchor((current) => {
+						const base = new Date(Number(current.slice(0, 4)), Number(current.slice(5, 7)) - 1, Number(current.slice(8, 10)));
+						const day = new Date(base.getFullYear(), base.getMonth(), base.getDate() + delta * 7);
+						return formatDate$1(day.getFullYear(), day.getMonth() + 1, day.getDate());
+					});
+					return;
+				}
 				setMonth((current) => {
 					const zero = current.year * 12 + current.month - 1 + delta;
 					return {
@@ -8184,6 +11691,14 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					};
 				});
 			};
+			const goToday = () => {
+				const now = /* @__PURE__ */ new Date();
+				setMonth({
+					year: now.getFullYear(),
+					month: now.getMonth() + 1
+				});
+				setWeekAnchor(todayDate());
+			};
 			const submit = async () => {
 				if (form === void 0 || form.title.trim().length === 0) return;
 				setSubmitting(true);
@@ -8191,17 +11706,17 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					setSnapshot(await putSchedule({
 						title: form.title,
 						date: form.date,
-						time: null,
+						time: TIME_PATTERN.test(form.time) ? form.time : null,
 						platform: form.platform.trim().length > 0 ? form.platform.trim() : null,
 						status: "scheduled",
-						kind: "content",
-						topic: null,
+						kind: form.kind,
+						topic: form.topicDir.length > 0 ? form.topicDir : null,
 						url: null
 					}));
 					setForm(void 0);
 				} catch (error) {
 					console.error("[content-studio] contentSchedule failed:", error);
-					setFailed(true);
+					showNotice(t("calendar.action.failed"), "warn");
 				} finally {
 					setSubmitting(false);
 				}
@@ -8215,204 +11730,743 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					}));
 				} catch (error) {
 					console.error("[content-studio] contentSchedule failed:", error);
-					setFailed(true);
+					showNotice(t("calendar.action.failed"), "warn");
 				}
 			};
-			const remove = async (id) => {
+			/** Confirm, then move one item; the linked topic's plan date rides along. */
+			const reschedule = async (item, date) => {
+				if (date === item.date) return;
+				if (!window.confirm(t("calendar.drag.confirm").replace("{from}", item.date).replace("{to}", date))) return;
 				try {
-					setSnapshot(await removeSchedule(id));
+					setSnapshot(await putSchedule({
+						...item,
+						date
+					}));
 				} catch (error) {
 					console.error("[content-studio] contentSchedule failed:", error);
-					setFailed(true);
+					showNotice(t("calendar.drag.failed"), "warn");
+					return;
 				}
+				const topic = topicsSnapshot?.items.find((candidate) => candidate.scheduleItemId === item.id);
+				if (topic === void 0 || topic.planDate === date) return;
+				try {
+					setTopicsSnapshot(await topics.put(topicInputOf(topic, { planDate: date })));
+				} catch (error) {
+					console.error("[content-studio] contentTopics failed:", error);
+					showNotice(t("calendar.drag.topicSyncFailed"), "warn");
+				}
+			};
+			/** Delete one schedule item; `content` items optionally clear the linked topic's plan date. */
+			const removeItem = async (item, clearPlan) => {
+				if (!window.confirm(t("calendar.delete.confirm"))) return;
+				try {
+					setSnapshot(await removeSchedule(item.id));
+					setDetailId(void 0);
+					if (!clearPlan) return;
+					const topic = topicsSnapshot?.items.find((candidate) => candidate.scheduleItemId === item.id);
+					if (topic !== void 0 && topic.planDate !== null) setTopicsSnapshot(await topics.put(topicInputOf(topic, { planDate: null })));
+				} catch (error) {
+					console.error("[content-studio] contentSchedule failed:", error);
+					showNotice(t("calendar.action.failed"), "warn");
+				}
+			};
+			const saveNote = async (id, text) => {
+				try {
+					setNotesSnapshot(await notes.put(id, text));
+					showNotice(t("calendar.note.saved"), "ok");
+				} catch (error) {
+					console.error("[content-studio] contentSchedule.putNote failed:", error);
+					showNotice(t("calendar.action.failed"), "warn");
+				}
+			};
+			const batchPublish = async () => {
+				const targets = filtered.filter((item) => checked.has(item.id) && item.status !== "published");
+				try {
+					let current = snapshot;
+					for (const item of targets) current = await putSchedule({
+						...item,
+						status: "published",
+						url: item.url
+					});
+					if (current !== void 0) setSnapshot(current);
+					setChecked(/* @__PURE__ */ new Set());
+					showNotice(t("calendar.batch.done"), "ok");
+				} catch (error) {
+					console.error("[content-studio] contentSchedule failed:", error);
+					showNotice(t("calendar.action.failed"), "warn");
+					load();
+				}
+			};
+			const batchRemove = async () => {
+				if (!window.confirm(t("calendar.batchDelete.confirm"))) return;
+				try {
+					let current = snapshot;
+					for (const id of checked) current = await removeSchedule(id);
+					if (current !== void 0) setSnapshot(current);
+					setChecked(/* @__PURE__ */ new Set());
+					setDetailId(void 0);
+					showNotice(t("calendar.batch.done"), "ok");
+				} catch (error) {
+					console.error("[content-studio] contentSchedule failed:", error);
+					showNotice(t("calendar.action.failed"), "warn");
+					load();
+				}
+			};
+			const exportCsv = async () => {
+				if (exportTheme === null) {
+					showNotice(t("calendar.export.none"), "warn");
+					return;
+				}
+				try {
+					await writeExport(exportTheme, `calendar-export-${today.replaceAll("-", "")}.csv`, calendarEventsToCsv(filtered, notesSnapshot?.notes ?? {}));
+					showNotice(t("calendar.export.done").replace("{theme}", exportTheme), "ok");
+				} catch (error) {
+					console.error("[content-studio] calendar export failed:", error);
+					showNotice(t("calendar.export.failed"), "warn");
+				}
+			};
+			const toggleInList = (list, value) => list.includes(value) ? list.filter((entry) => entry !== value) : [...list, value];
+			/** One day cell: the drop target plus its chips and the inline add form. */
+			const renderCell = (day) => {
+				const cellItems = byDate.get(day.date) ?? [];
+				return (0, react_jsx_runtime.jsxs)("div", {
+					className: clsx(ContentStudio_module_css_default.calendarCell, !day.inMonth && ContentStudio_module_css_default.calendarCellOutside, day.isToday && ContentStudio_module_css_default.calendarCellToday),
+					role: "button",
+					tabIndex: 0,
+					"aria-label": day.date,
+					onDragOver: (event) => {
+						if (dragId !== void 0) event.preventDefault();
+					},
+					onDrop: (event) => {
+						event.preventDefault();
+						const dropped = dragId;
+						setDragId(void 0);
+						const item = dropped === void 0 ? void 0 : items.find((candidate) => candidate.id === dropped);
+						if (item !== void 0) reschedule(item, day.date);
+					},
+					onClick: () => {
+						setForm(form?.date === day.date ? void 0 : newForm(day.date));
+					},
+					onKeyDown: (event) => {
+						if (event.key === "Enter") setForm(form?.date === day.date ? void 0 : newForm(day.date));
+					},
+					children: [
+						(0, react_jsx_runtime.jsx)("span", {
+							className: ContentStudio_module_css_default.calendarDayNum,
+							children: Number(day.date.slice(8, 10))
+						}),
+						cellItems.map((item) => (0, react_jsx_runtime.jsxs)("span", {
+							draggable: true,
+							onDragStart: () => {
+								setDragId(item.id);
+							},
+							onDragEnd: () => {
+								setDragId(void 0);
+							},
+							className: clsx(ContentStudio_module_css_default.calendarChip, dragId === item.id && ContentCalendar_module_css_default.chipDragging, conflicts.has(item.id) && ContentCalendar_module_css_default.chipConflict, overdueOf(item, today) && ContentCalendar_module_css_default.chipOverdue),
+							role: "button",
+							tabIndex: 0,
+							title: conflicts.has(item.id) ? t("calendar.conflict.hint") : void 0,
+							onClick: (event) => {
+								event.stopPropagation();
+								setDetailId(item.id);
+							},
+							onKeyDown: (event) => {
+								if (event.key === "Enter") {
+									event.stopPropagation();
+									setDetailId(item.id);
+								}
+							},
+							children: [
+								(0, react_jsx_runtime.jsx)("span", {
+									className: clsx(ContentStudio_module_css_default.calendarDot, DOT_CLASS[item.status]),
+									"aria-hidden": "true"
+								}),
+								(0, react_jsx_runtime.jsx)("span", {
+									className: ContentCalendar_module_css_default.chipKind,
+									"aria-hidden": "true",
+									children: item.kind === "content" ? "📄" : "📌"
+								}),
+								(0, react_jsx_runtime.jsxs)("span", {
+									className: ContentStudio_module_css_default.calendarChipTitle,
+									children: [item.time !== null && `${item.time} `, item.title]
+								}),
+								item.status !== "published" && (0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: ContentStudio_module_css_default.calendarChipAction,
+									"aria-label": t("calendar.publish.aria"),
+									title: t("calendar.publish"),
+									onClick: (event) => {
+										event.stopPropagation();
+										markPublished(item);
+									},
+									children: "✓"
+								}),
+								(0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: ContentStudio_module_css_default.calendarChipAction,
+									"aria-label": t("calendar.remove.aria"),
+									onClick: (event) => {
+										event.stopPropagation();
+										removeItem(item, false);
+									},
+									children: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 11 })
+								})
+							]
+						}, item.id)),
+						form?.date === day.date && (0, react_jsx_runtime.jsxs)("div", {
+							className: ContentStudio_module_css_default.calendarForm,
+							onClick: (event) => {
+								event.stopPropagation();
+							},
+							children: [
+								(0, react_jsx_runtime.jsx)("input", {
+									className: ContentStudio_module_css_default.calendarInput,
+									autoFocus: true,
+									placeholder: t("calendar.titlePlaceholder"),
+									value: form.title,
+									onChange: (event) => {
+										setForm({
+											...form,
+											title: event.currentTarget.value
+										});
+									},
+									onKeyDown: (event) => {
+										if (event.key === "Enter") submit();
+									}
+								}),
+								(0, react_jsx_runtime.jsxs)("div", {
+									className: ContentCalendar_module_css_default.formRow,
+									children: [(0, react_jsx_runtime.jsxs)("select", {
+										className: ContentCalendar_module_css_default.formSelect,
+										"aria-label": t("calendar.filter.kind"),
+										value: form.kind,
+										onChange: (event) => {
+											setForm({
+												...form,
+												kind: event.currentTarget.value
+											});
+										},
+										children: [(0, react_jsx_runtime.jsx)("option", {
+											value: "event",
+											children: t("calendar.kind.event")
+										}), (0, react_jsx_runtime.jsx)("option", {
+											value: "content",
+											children: t("calendar.kind.content")
+										})]
+									}), (0, react_jsx_runtime.jsx)("input", {
+										className: ContentStudio_module_css_default.calendarInput,
+										placeholder: t("calendar.timePlaceholder"),
+										value: form.time,
+										onChange: (event) => {
+											setForm({
+												...form,
+												time: event.currentTarget.value
+											});
+										}
+									})]
+								}),
+								(0, react_jsx_runtime.jsxs)("div", {
+									className: ContentCalendar_module_css_default.formRow,
+									children: [(0, react_jsx_runtime.jsx)("input", {
+										className: ContentStudio_module_css_default.calendarInput,
+										placeholder: t("calendar.platformPlaceholder"),
+										value: form.platform,
+										onChange: (event) => {
+											setForm({
+												...form,
+												platform: event.currentTarget.value
+											});
+										}
+									}), (0, react_jsx_runtime.jsxs)("select", {
+										className: ContentCalendar_module_css_default.formSelect,
+										"aria-label": t("calendar.detail.topic"),
+										value: form.topicDir,
+										onChange: (event) => {
+											setForm({
+												...form,
+												topicDir: event.currentTarget.value
+											});
+										},
+										children: [(0, react_jsx_runtime.jsx)("option", {
+											value: "",
+											children: t("calendar.topicPlaceholder")
+										}), (topicsSnapshot?.items ?? []).filter((candidate) => candidate.topicDir !== null).map((candidate) => (0, react_jsx_runtime.jsx)("option", {
+											value: candidate.topicDir ?? "",
+											children: candidate.title
+										}, candidate.id))]
+									})]
+								}),
+								(0, react_jsx_runtime.jsxs)("div", {
+									className: ContentStudio_module_css_default.calendarFormRow,
+									children: [(0, react_jsx_runtime.jsxs)("button", {
+										type: "button",
+										className: ContentStudio_module_css_default.calendarSubmit,
+										disabled: submitting,
+										onClick: () => {
+											submit();
+										},
+										children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconPlusOutline16, { size: 12 }), t("calendar.add")]
+									}), (0, react_jsx_runtime.jsx)("button", {
+										type: "button",
+										className: ContentStudio_module_css_default.calendarChipAction,
+										"aria-label": t("calendar.cancel"),
+										onClick: () => {
+											setForm(void 0);
+										},
+										children: t("calendar.cancel")
+									})]
+								})
+							]
+						})
+					]
+				}, day.date);
 			};
 			if (failed) return (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.libraryState,
 				children: t("library.error")
 			});
-			if (snapshot === void 0) return (0, react_jsx_runtime.jsx)("div", {
+			if (snapshot === void 0 || notesSnapshot === void 0) return (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.libraryState,
 				children: t("calendar.loading")
 			});
+			const grid = config.view === "week" ? [weekGrid(weekAnchor)] : monthGrid(month.year, month.month);
+			const periodLabel = config.view === "week" ? `${grid[0][0].date} ~ ${grid[0].at(-1).date}` : `${month.year} · ${t(`calendar.month.${month.month}`)}`;
+			const filters = config.filters;
 			return (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.calendar,
 				children: [
 					(0, react_jsx_runtime.jsxs)("div", {
-						className: ContentStudio_module_css_default.calendarBar,
+						className: ContentCalendar_module_css_default.toolbar,
 						children: [
-							(0, react_jsx_runtime.jsx)("button", {
-								type: "button",
-								className: ContentStudio_module_css_default.calendarNav,
-								"aria-label": t("calendar.prev"),
-								onClick: () => {
-									shiftMonth(-1);
-								},
-								children: "‹"
+							(0, react_jsx_runtime.jsxs)("div", {
+								className: ContentStudio_module_css_default.calendarBar,
+								children: [config.view !== "list" && (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
+									(0, react_jsx_runtime.jsx)("button", {
+										type: "button",
+										className: ContentStudio_module_css_default.calendarNav,
+										"aria-label": config.view === "week" ? t("calendar.prevWeek") : t("calendar.prev"),
+										onClick: () => {
+											shift(-1);
+										},
+										children: "‹"
+									}),
+									(0, react_jsx_runtime.jsx)("span", {
+										className: ContentStudio_module_css_default.calendarMonth,
+										children: periodLabel
+									}),
+									(0, react_jsx_runtime.jsx)("button", {
+										type: "button",
+										className: ContentStudio_module_css_default.calendarNav,
+										"aria-label": config.view === "week" ? t("calendar.nextWeek") : t("calendar.next"),
+										onClick: () => {
+											shift(1);
+										},
+										children: "›"
+									})
+								] }), (0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: ContentStudio_module_css_default.calendarToday,
+									onClick: () => {
+										goToday();
+									},
+									children: t("calendar.today")
+								})]
 							}),
-							(0, react_jsx_runtime.jsxs)("span", {
-								className: ContentStudio_module_css_default.calendarMonth,
+							(0, react_jsx_runtime.jsx)("div", {
+								className: ContentCalendar_module_css_default.tabs,
+								role: "tablist",
 								children: [
-									month.year,
-									" · ",
-									t(`calendar.month.${month.month}`)
-								]
+									"month",
+									"week",
+									"list"
+								].map((kind) => (0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									role: "tab",
+									"aria-selected": config.view === kind,
+									className: clsx(ContentCalendar_module_css_default.tab, config.view === kind && ContentCalendar_module_css_default.tabActive),
+									onClick: () => {
+										patchConfig({ view: kind });
+									},
+									children: t(VIEW_KEYS[kind])
+								}, kind))
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
-								type: "button",
-								className: ContentStudio_module_css_default.calendarNav,
-								"aria-label": t("calendar.next"),
-								onClick: () => {
-									shiftMonth(1);
-								},
-								children: "›"
-							}),
-							(0, react_jsx_runtime.jsx)("button", {
-								type: "button",
-								className: ContentStudio_module_css_default.calendarToday,
-								onClick: () => {
-									const now = /* @__PURE__ */ new Date();
-									setMonth({
-										year: now.getFullYear(),
-										month: now.getMonth() + 1
-									});
-								},
-								children: t("calendar.today")
+							(0, react_jsx_runtime.jsxs)("div", {
+								className: ContentCalendar_module_css_default.toolbarActions,
+								children: [(0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: ContentCalendar_module_css_default.toolButton,
+									disabled: exportTheme === null,
+									title: exportTheme === null ? t("calendar.export.none") : void 0,
+									onClick: () => {
+										exportCsv();
+									},
+									children: t("calendar.export")
+								}), (0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: ContentCalendar_module_css_default.toolButton,
+									disabled: true,
+									title: t("calendar.ai.hint"),
+									children: t("calendar.ai")
+								})]
 							})
 						]
 					}),
-					(0, react_jsx_runtime.jsx)("div", {
-						className: ContentStudio_module_css_default.calendarHead,
-						children: WEEKDAY_KEYS.map((key) => (0, react_jsx_runtime.jsx)("span", {
-							className: ContentStudio_module_css_default.calendarWeekday,
-							children: t(key)
-						}, key))
-					}),
-					(0, react_jsx_runtime.jsx)("div", {
-						className: ContentStudio_module_css_default.calendarGrid,
-						children: grid.flat().map((day) => {
-							const items = byDate.get(day.date) ?? [];
-							return (0, react_jsx_runtime.jsxs)("div", {
-								className: clsx(ContentStudio_module_css_default.calendarCell, !day.inMonth && ContentStudio_module_css_default.calendarCellOutside, day.isToday && ContentStudio_module_css_default.calendarCellToday),
-								role: "button",
-								tabIndex: 0,
-								"aria-label": day.date,
-								onClick: () => {
-									setForm(form?.date === day.date ? void 0 : {
-										date: day.date,
-										title: "",
-										platform: ""
-									});
-								},
-								onKeyDown: (event) => {
-									if (event.key === "Enter") setForm(form?.date === day.date ? void 0 : {
-										date: day.date,
-										title: "",
-										platform: ""
-									});
+					(0, react_jsx_runtime.jsxs)("div", {
+						className: ContentCalendar_module_css_default.filters,
+						children: [
+							(0, react_jsx_runtime.jsxs)("select", {
+								className: ContentCalendar_module_css_default.formSelect,
+								"aria-label": t("calendar.filter.kind"),
+								value: filters.kind,
+								onChange: (event) => {
+									patchFilters({ kind: event.currentTarget.value });
 								},
 								children: [
-									(0, react_jsx_runtime.jsx)("span", {
-										className: ContentStudio_module_css_default.calendarDayNum,
-										children: Number(day.date.slice(8, 10))
+									(0, react_jsx_runtime.jsx)("option", {
+										value: "all",
+										children: t("calendar.kind.all")
 									}),
-									items.map((item) => (0, react_jsx_runtime.jsxs)("span", {
-										className: ContentStudio_module_css_default.calendarChip,
-										onClick: (event) => {
-											event.stopPropagation();
-										},
-										children: [
-											(0, react_jsx_runtime.jsx)("span", {
-												className: clsx(ContentStudio_module_css_default.calendarDot, DOT_CLASS[item.status]),
-												"aria-hidden": "true"
-											}),
-											(0, react_jsx_runtime.jsxs)("span", {
-												className: ContentStudio_module_css_default.calendarChipTitle,
-												children: [item.time !== null && `${item.time} `, item.title]
-											}),
-											item.status !== "published" && (0, react_jsx_runtime.jsx)("button", {
-												type: "button",
-												className: ContentStudio_module_css_default.calendarChipAction,
-												"aria-label": t("calendar.publish.aria"),
-												title: t("calendar.publish"),
-												onClick: () => {
-													markPublished(item);
-												},
-												children: "✓"
-											}),
-											(0, react_jsx_runtime.jsx)("button", {
-												type: "button",
-												className: ContentStudio_module_css_default.calendarChipAction,
-												"aria-label": t("calendar.remove.aria"),
-												onClick: () => {
-													remove(item.id);
-												},
-												children: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 11 })
-											})
-										]
-									}, item.id)),
-									form?.date === day.date && (0, react_jsx_runtime.jsxs)("div", {
-										className: ContentStudio_module_css_default.calendarForm,
-										onClick: (event) => {
-											event.stopPropagation();
-										},
-										children: [
-											(0, react_jsx_runtime.jsx)("input", {
-												className: ContentStudio_module_css_default.calendarInput,
-												autoFocus: true,
-												placeholder: t("calendar.titlePlaceholder"),
-												value: form.title,
-												onChange: (event) => {
-													setForm({
-														...form,
-														title: event.currentTarget.value
-													});
-												},
-												onKeyDown: (event) => {
-													if (event.key === "Enter") submit();
-												}
-											}),
-											(0, react_jsx_runtime.jsx)("input", {
-												className: ContentStudio_module_css_default.calendarInput,
-												placeholder: t("calendar.platformPlaceholder"),
-												value: form.platform,
-												onChange: (event) => {
-													setForm({
-														...form,
-														platform: event.currentTarget.value
-													});
-												}
-											}),
-											(0, react_jsx_runtime.jsxs)("div", {
-												className: ContentStudio_module_css_default.calendarFormRow,
-												children: [(0, react_jsx_runtime.jsxs)("button", {
-													type: "button",
-													className: ContentStudio_module_css_default.calendarSubmit,
-													disabled: submitting,
-													onClick: () => {
-														submit();
-													},
-													children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconPlusOutline16, { size: 12 }), t("calendar.add")]
-												}), (0, react_jsx_runtime.jsx)("button", {
-													type: "button",
-													className: ContentStudio_module_css_default.calendarChipAction,
-													"aria-label": t("calendar.cancel"),
-													onClick: () => {
-														setForm(void 0);
-													},
-													children: t("calendar.cancel")
-												})]
-											})
-										]
+									(0, react_jsx_runtime.jsx)("option", {
+										value: "content",
+										children: t("calendar.kind.content")
+									}),
+									(0, react_jsx_runtime.jsx)("option", {
+										value: "event",
+										children: t("calendar.kind.event")
 									})
 								]
-							}, day.date);
-						})
+							}),
+							platforms.map((platform) => (0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: clsx(ContentCalendar_module_css_default.chip, filters.platforms.includes(platform) && ContentCalendar_module_css_default.chipActive),
+								onClick: () => {
+									patchFilters({ platforms: toggleInList(filters.platforms, platform) });
+								},
+								children: platform
+							}, platform)),
+							STATUS_KEYS.map((status) => (0, react_jsx_runtime.jsxs)("button", {
+								type: "button",
+								className: clsx(ContentCalendar_module_css_default.chip, filters.statuses.includes(status) && ContentCalendar_module_css_default.chipActive),
+								onClick: () => {
+									patchFilters({ statuses: toggleInList(filters.statuses, status) });
+								},
+								children: [(0, react_jsx_runtime.jsx)("span", {
+									className: clsx(ContentStudio_module_css_default.calendarDot, DOT_CLASS[status]),
+									"aria-hidden": "true"
+								}), t(`calendar.status.${status}`)]
+							}, status)),
+							(0, react_jsx_runtime.jsx)("input", {
+								type: "date",
+								className: ContentCalendar_module_css_default.formSelect,
+								"aria-label": t("calendar.filter.range"),
+								value: filters.start ?? "",
+								onChange: (event) => {
+									patchFilters({ start: event.currentTarget.value === "" ? null : event.currentTarget.value });
+								}
+							}),
+							(0, react_jsx_runtime.jsx)("input", {
+								type: "date",
+								className: ContentCalendar_module_css_default.formSelect,
+								"aria-label": t("calendar.filter.range"),
+								value: filters.end ?? "",
+								onChange: (event) => {
+									patchFilters({ end: event.currentTarget.value === "" ? null : event.currentTarget.value });
+								}
+							}),
+							(0, react_jsx_runtime.jsx)("input", {
+								type: "search",
+								className: ContentCalendar_module_css_default.formSelect,
+								"aria-label": t("calendar.filter.query.aria"),
+								placeholder: t("calendar.filter.query.aria"),
+								value: filters.query,
+								onChange: (event) => {
+									patchFilters({ query: event.currentTarget.value });
+								}
+							}),
+							(0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: clsx(ContentCalendar_module_css_default.chip, filters.overdueOnly && ContentCalendar_module_css_default.chipOverdueActive),
+								onClick: () => {
+									patchFilters({ overdueOnly: !filters.overdueOnly });
+								},
+								children: t("calendar.filter.overdue")
+							}),
+							(filters.kind !== "all" || filters.platforms.length > 0 || filters.statuses.length > 0 || filters.start !== null || filters.end !== null || filters.query !== "" || filters.overdueOnly) && (0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: ContentCalendar_module_css_default.chip,
+								onClick: () => {
+									patchFilters({ ...DEFAULT_CALENDAR_FILTERS });
+								},
+								children: t("calendar.filters.clear")
+							})
+						]
 					}),
-					form === void 0 && snapshot.items.length === 0 && (0, react_jsx_runtime.jsx)("div", {
-						className: ContentStudio_module_css_default.calendarHint,
-						children: t("calendar.empty")
+					conflictItems.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
+						className: ContentCalendar_module_css_default.conflicts,
+						role: "status",
+						children: [
+							(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }),
+							(0, react_jsx_runtime.jsxs)("span", { children: [
+								t("calendar.conflicts"),
+								"（",
+								conflictItems.length,
+								"）"
+							] }),
+							conflictItems.map((item) => (0, react_jsx_runtime.jsxs)("button", {
+								type: "button",
+								className: ContentCalendar_module_css_default.chip,
+								onClick: () => {
+									setDetailId(item.id);
+								},
+								children: [
+									item.date,
+									" ",
+									item.time !== null && `${item.time} `,
+									item.title
+								]
+							}, item.id))
+						]
+					}),
+					config.view === "list" ? (0, react_jsx_runtime.jsxs)("div", {
+						className: ContentCalendar_module_css_default.listWrap,
+						children: [
+							(0, react_jsx_runtime.jsxs)("div", {
+								className: ContentCalendar_module_css_default.listHead,
+								children: [
+									(0, react_jsx_runtime.jsx)("label", {
+										className: ContentCalendar_module_css_default.listCheck,
+										children: (0, react_jsx_runtime.jsx)("input", {
+											type: "checkbox",
+											"aria-label": t("calendar.list.all"),
+											checked: filtered.length > 0 && filtered.every((item) => checked.has(item.id)),
+											onChange: (event) => {
+												setChecked(event.currentTarget.checked ? new Set(filtered.map((item) => item.id)) : /* @__PURE__ */ new Set());
+											}
+										})
+									}),
+									(0, react_jsx_runtime.jsx)("span", { children: t("calendar.detail.date") }),
+									(0, react_jsx_runtime.jsx)("span", { children: t("calendar.detail.time") }),
+									(0, react_jsx_runtime.jsx)("span", { children: t("calendar.filter.kind") }),
+									(0, react_jsx_runtime.jsx)("span", { children: t("calendar.filter.status") }),
+									(0, react_jsx_runtime.jsx)("span", { children: t("calendar.list.title") }),
+									(0, react_jsx_runtime.jsx)("span", { children: t("calendar.detail.platform") }),
+									(0, react_jsx_runtime.jsx)("span", { children: t("calendar.detail.topic") })
+								]
+							}),
+							filtered.map((item) => {
+								const topicTitle = topicTitleOf(item);
+								return (0, react_jsx_runtime.jsxs)("div", {
+									className: clsx(ContentCalendar_module_css_default.listRow, detailId === item.id && ContentCalendar_module_css_default.listRowActive),
+									role: "button",
+									tabIndex: 0,
+									onClick: () => {
+										setDetailId(item.id);
+									},
+									onKeyDown: (event) => {
+										if (event.key === "Enter") setDetailId(item.id);
+									},
+									children: [
+										(0, react_jsx_runtime.jsx)("label", {
+											className: ContentCalendar_module_css_default.listCheck,
+											onClick: (event) => {
+												event.stopPropagation();
+											},
+											children: (0, react_jsx_runtime.jsx)("input", {
+												type: "checkbox",
+												checked: checked.has(item.id),
+												onChange: (event) => {
+													const next = new Set(checked);
+													if (event.currentTarget.checked) next.add(item.id);
+													else next.delete(item.id);
+													setChecked(next);
+												}
+											})
+										}),
+										(0, react_jsx_runtime.jsx)("span", { children: overdueOf(item, today) ? `${item.date} · ${t("calendar.overdue")}` : item.date }),
+										(0, react_jsx_runtime.jsx)("span", { children: item.time ?? "" }),
+										(0, react_jsx_runtime.jsx)("span", { children: item.kind === "content" ? t("calendar.kind.content") : t("calendar.kind.event") }),
+										(0, react_jsx_runtime.jsxs)("span", {
+											className: ContentCalendar_module_css_default.listStatus,
+											children: [(0, react_jsx_runtime.jsx)("span", {
+												className: clsx(ContentStudio_module_css_default.calendarDot, DOT_CLASS[item.status]),
+												"aria-hidden": "true"
+											}), t(`calendar.status.${item.status}`)]
+										}),
+										(0, react_jsx_runtime.jsx)("span", {
+											className: ContentCalendar_module_css_default.listTitle,
+											children: item.title
+										}),
+										(0, react_jsx_runtime.jsx)("span", { children: item.platform ?? "" }),
+										(0, react_jsx_runtime.jsx)("span", { children: topicTitle ?? item.topic ?? "" })
+									]
+								}, item.id);
+							}),
+							filtered.length === 0 && (0, react_jsx_runtime.jsx)("div", {
+								className: ContentStudio_module_css_default.calendarHint,
+								children: t("calendar.empty")
+							}),
+							checked.size > 0 && (0, react_jsx_runtime.jsxs)("div", {
+								className: ContentCalendar_module_css_default.batchBar,
+								children: [(0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: ContentCalendar_module_css_default.toolButton,
+									onClick: () => {
+										batchPublish();
+									},
+									children: t("calendar.batch.publish")
+								}), (0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: ContentCalendar_module_css_default.toolButtonDanger,
+									onClick: () => {
+										batchRemove();
+									},
+									children: t("calendar.batch.remove")
+								})]
+							})
+						]
+					}) : (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
+						(0, react_jsx_runtime.jsx)("div", {
+							className: ContentStudio_module_css_default.calendarHead,
+							children: WEEKDAY_KEYS.map((key) => (0, react_jsx_runtime.jsx)("span", {
+								className: ContentStudio_module_css_default.calendarWeekday,
+								children: t(key)
+							}, key))
+						}),
+						(0, react_jsx_runtime.jsx)("div", {
+							className: clsx(ContentStudio_module_css_default.calendarGrid, config.view === "week" && ContentCalendar_module_css_default.weekGrid),
+							children: grid.flat().map(renderCell)
+						}),
+						form === void 0 && items.length === 0 && (0, react_jsx_runtime.jsx)("div", {
+							className: ContentStudio_module_css_default.calendarHint,
+							children: t("calendar.empty")
+						})
+					] }),
+					detail !== void 0 && (0, react_jsx_runtime.jsxs)("section", {
+						className: ContentCalendar_module_css_default.detail,
+						"aria-label": t("calendar.detail.title"),
+						children: [
+							(0, react_jsx_runtime.jsxs)("div", {
+								className: ContentCalendar_module_css_default.detailHead,
+								children: [(0, react_jsx_runtime.jsx)("strong", { children: detail.title }), (0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: ContentStudio_module_css_default.calendarChipAction,
+									"aria-label": t("calendar.cancel"),
+									onClick: () => {
+										setDetailId(void 0);
+									},
+									children: "×"
+								})]
+							}),
+							(0, react_jsx_runtime.jsxs)("dl", {
+								className: ContentCalendar_module_css_default.detailGrid,
+								children: [
+									(0, react_jsx_runtime.jsx)("dt", { children: t("calendar.detail.date") }),
+									(0, react_jsx_runtime.jsxs)("dd", { children: [detail.date, overdueOf(detail, today) ? ` · ${t("calendar.overdue")}` : ""] }),
+									(0, react_jsx_runtime.jsx)("dt", { children: t("calendar.detail.time") }),
+									(0, react_jsx_runtime.jsx)("dd", { children: detail.time ?? "—" }),
+									(0, react_jsx_runtime.jsx)("dt", { children: t("calendar.filter.kind") }),
+									(0, react_jsx_runtime.jsx)("dd", { children: detail.kind === "content" ? t("calendar.kind.content") : t("calendar.kind.event") }),
+									(0, react_jsx_runtime.jsx)("dt", { children: t("calendar.filter.status") }),
+									(0, react_jsx_runtime.jsxs)("dd", {
+										className: ContentCalendar_module_css_default.listStatus,
+										children: [(0, react_jsx_runtime.jsx)("span", {
+											className: clsx(ContentStudio_module_css_default.calendarDot, DOT_CLASS[detail.status]),
+											"aria-hidden": "true"
+										}), t(`calendar.status.${detail.status}`)]
+									}),
+									(0, react_jsx_runtime.jsx)("dt", { children: t("calendar.detail.platform") }),
+									(0, react_jsx_runtime.jsx)("dd", { children: detail.platform ?? "—" }),
+									(0, react_jsx_runtime.jsx)("dt", { children: t("calendar.detail.topic") }),
+									(0, react_jsx_runtime.jsx)("dd", { children: topicTitleOf(detail) ?? detail.topic ?? "—" })
+								]
+							}),
+							(0, react_jsx_runtime.jsx)(NoteEditor, {
+								initial: notesSnapshot.notes[detail.id]?.text ?? "",
+								onSave: (text) => saveNote(detail.id, text),
+								t
+							}, detail.id),
+							(0, react_jsx_runtime.jsxs)("div", {
+								className: ContentCalendar_module_css_default.detailActions,
+								children: [
+									detail.status !== "published" && (0, react_jsx_runtime.jsx)("button", {
+										type: "button",
+										className: ContentCalendar_module_css_default.toolButton,
+										onClick: () => {
+											markPublished(detail);
+										},
+										children: t("calendar.publish")
+									}),
+									(0, react_jsx_runtime.jsx)("button", {
+										type: "button",
+										className: ContentCalendar_module_css_default.toolButton,
+										onClick: () => {
+											onNavigate("topicBank");
+										},
+										children: t("calendar.jump.topicBank")
+									}),
+									(0, react_jsx_runtime.jsxs)("button", {
+										type: "button",
+										className: ContentCalendar_module_css_default.toolButtonDanger,
+										onClick: () => {
+											removeItem(detail, false);
+										},
+										children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 12 }), t("calendar.delete")]
+									}),
+									detail.kind === "content" && (0, react_jsx_runtime.jsx)("button", {
+										type: "button",
+										className: ContentCalendar_module_css_default.toolButtonDanger,
+										onClick: () => {
+											removeItem(detail, true);
+										},
+										children: t("calendar.delete.clearPlan")
+									})
+								]
+							})
+						]
+					}),
+					notice !== void 0 && (0, react_jsx_runtime.jsx)("div", {
+						className: clsx(ContentCalendar_module_css_default.toast, notice.tone === "warn" && ContentCalendar_module_css_default.toastWarn),
+						role: "status",
+						children: notice.text
 					})
 				]
+			});
+		}
+		/**
+		* Render the note draft editor; the draft resets per item through the key.
+		* @param props - the stored text, the save callback, and the locale seat.
+		* @returns the note editor element tree.
+		*/
+		function NoteEditor({ initial, onSave, t }) {
+			const [draft, setDraft] = (0, react.useState)(initial);
+			const [saving, setSaving] = (0, react.useState)(false);
+			return (0, react_jsx_runtime.jsxs)("div", {
+				className: ContentCalendar_module_css_default.noteArea,
+				children: [(0, react_jsx_runtime.jsx)("textarea", {
+					className: ContentCalendar_module_css_default.noteInput,
+					rows: 3,
+					placeholder: t("calendar.note.placeholder"),
+					value: draft,
+					onChange: (event) => {
+						setDraft(event.currentTarget.value);
+					}
+				}), (0, react_jsx_runtime.jsx)("button", {
+					type: "button",
+					className: ContentCalendar_module_css_default.toolButton,
+					disabled: saving || draft.trim() === initial.trim(),
+					onClick: () => {
+						(async () => {
+							setSaving(true);
+							try {
+								await onSave(draft);
+							} finally {
+								setSaving(false);
+							}
+						})();
+					},
+					children: t("calendar.note.save")
+				})]
 			});
 		}
 		//#endregion
@@ -9124,7 +13178,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			empathy: "温柔共情"
 		};
 		/** The empty form of a brand-new persona. */
-		function emptyForm() {
+		function emptyForm$1() {
 			const fields = {};
 			for (const key of PERSONA_FIELD_KEYS) fields[key] = {
 				value: "",
@@ -9170,7 +13224,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		*/
 		function formFromEntry(entry, options = {}) {
 			return {
-				...emptyForm(),
+				...emptyForm$1(),
 				editingId: options.clone === true ? null : entry.id,
 				clonedFrom: options.clone === true ? entry.id : null,
 				name: entry.name,
@@ -9347,13 +13401,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		}
 		//#endregion
 		//#region \0dsh-css:D:\deepseek-harness\packages\client\ui-content-studio\src\client\PersonaView.module.css.mjs
-		const css$4 = ".SWa2cq_persona{flex-direction:column;gap:16px;display:flex}.SWa2cq_personaHead{justify-content:space-between;align-items:flex-start;gap:16px;display:flex}.SWa2cq_personaTitle{color:var(--dsw-alias-label-primary);margin:0;font-size:18px}.SWa2cq_personaHint{color:var(--dsw-alias-label-secondary);margin:4px 0 0;font-size:12px}.SWa2cq_personaPrimary{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:8px;padding:6px 14px;font-size:13px}.SWa2cq_personaPrimary:hover{background:var(--dsw-alias-interactive-bg-hover)}.SWa2cq_personaPrimary:disabled{opacity:.6;cursor:default}.SWa2cq_personaMini{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:6px;padding:3px 10px;font-size:12px}.SWa2cq_personaMini:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.SWa2cq_personaMini:disabled{opacity:.5;cursor:default}.SWa2cq_personaBanner{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-secondary);border-radius:10px;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 12px;font-size:12px;display:flex}.SWa2cq_personaNotice{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);text-align:left;cursor:pointer;border-radius:10px;padding:8px 12px;font-size:12px}.SWa2cq_personaEmpty{color:var(--dsw-alias-label-secondary);text-align:center;margin:24px 0;font-size:13px}.SWa2cq_personaGrid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;display:grid}.SWa2cq_personaCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);border-radius:10px;flex-direction:column;gap:8px;padding:12px;display:flex}.SWa2cq_personaCardHead{flex-wrap:wrap;align-items:center;gap:8px;display:flex}.SWa2cq_personaCardName{color:var(--dsw-alias-label-primary);margin:0;font-size:14px}.SWa2cq_personaBadge,.SWa2cq_personaBadgeActive,.SWa2cq_personaBadgeStale{border-radius:999px;padding:1px 8px;font-size:11px}.SWa2cq_personaBadge{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary)}.SWa2cq_personaBadgeActive{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-3);color:var(--dsw-alias-label-primary)}.SWa2cq_personaBadgeStale{border:1px solid color-mix(in srgb, var(--dsw-alias-state-warning-primary,var(--dsw-alias-label-primary)) 40%, transparent);color:var(--dsw-alias-state-warning-primary,var(--dsw-alias-label-primary))}.SWa2cq_personaChips{flex-wrap:wrap;align-items:center;gap:6px;display:flex}.SWa2cq_personaChip{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:999px;padding:2px 8px;font-size:11px}.SWa2cq_personaChipOn{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-3);color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:999px;padding:2px 8px;font-size:11px}.SWa2cq_personaDigest{color:var(--dsw-alias-label-secondary);-webkit-line-clamp:2;-webkit-box-orient:vertical;margin:0;font-size:12px;display:-webkit-box;overflow:hidden}.SWa2cq_personaActions{flex-wrap:wrap;align-items:center;gap:6px;display:flex}.SWa2cq_personaPreview{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);border-radius:10px;flex-direction:column;gap:8px;padding:12px;display:flex}.SWa2cq_personaPreviewHead{justify-content:space-between;align-items:center;gap:8px;display:flex}.SWa2cq_personaPreviewHead h3{color:var(--dsw-alias-label-primary);margin:0;font-size:13px}.SWa2cq_personaFacts{flex-direction:column;gap:6px;margin:0;display:flex}.SWa2cq_personaFact dt{color:var(--dsw-alias-label-secondary);font-size:11px}.SWa2cq_personaFact dd{color:var(--dsw-alias-label-primary);margin:2px 0 0;font-size:12px}.SWa2cq_personaSource{color:var(--dsw-alias-label-secondary);font-size:10px}.SWa2cq_personaFactLine{color:var(--dsw-alias-label-secondary);margin:0;font-size:12px}.SWa2cq_personaModal{z-index:30;background:color-mix(in srgb, var(--dsw-alias-bg-layer-1) 70%, transparent);justify-content:center;align-items:center;padding:24px;display:flex;position:fixed;inset:0}.SWa2cq_personaModalCard{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-1);border-radius:12px;flex-direction:column;gap:12px;width:min(680px,100%);max-height:90vh;padding:16px;display:flex;overflow:auto}.SWa2cq_personaModalHead{justify-content:space-between;align-items:center;gap:8px;display:flex}.SWa2cq_personaModalHead h3{color:var(--dsw-alias-label-primary);margin:0;font-size:15px}.SWa2cq_personaStepLabel{color:var(--dsw-alias-label-secondary);font-size:12px}.SWa2cq_personaStepBody{flex-direction:column;gap:10px;display:flex}.SWa2cq_personaField{flex-direction:column;gap:4px;display:flex}.SWa2cq_personaFieldLabel{color:var(--dsw-alias-label-secondary);font-size:12px}.SWa2cq_personaField input,.SWa2cq_personaField select,.SWa2cq_personaField textarea,.SWa2cq_personaLinkRow input,.SWa2cq_personaLinkRow select,.SWa2cq_personaFillRow textarea,.SWa2cq_personaReportText{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);color:var(--dsw-alias-label-primary);border-radius:6px;padding:6px 8px;font-size:13px}.SWa2cq_personaResume{border:1px dashed var(--dsw-alias-border-l1);border-radius:8px;flex-direction:column;gap:8px;padding:10px;display:flex}.SWa2cq_personaResumeRow{flex-wrap:wrap;align-items:center;gap:10px;display:flex}.SWa2cq_personaConsent{color:var(--dsw-alias-label-secondary);align-items:center;gap:6px;font-size:12px;display:flex}.SWa2cq_personaLinkRow{grid-template-columns:110px 1fr 1fr auto;align-items:center;gap:6px;display:grid}.SWa2cq_personaPromptBox{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:8px;flex-direction:column;gap:6px;padding:10px;display:flex}.SWa2cq_personaPromptHead{justify-content:space-between;align-items:center;gap:8px;display:flex}.SWa2cq_personaPromptHead strong{color:var(--dsw-alias-label-primary);font-size:12px}.SWa2cq_personaPromptText{color:var(--dsw-alias-label-secondary);white-space:pre-wrap;word-break:break-word;margin:0;font-size:12px;line-height:1.6}.SWa2cq_personaFill{border:1px solid color-mix(in srgb, var(--dsw-alias-state-warning-primary,var(--dsw-alias-label-primary)) 40%, transparent);border-radius:8px;flex-direction:column;gap:8px;padding:10px;display:flex}.SWa2cq_personaFillHead{flex-wrap:wrap;align-items:center;gap:8px;display:flex}.SWa2cq_personaFillHead strong{color:var(--dsw-alias-label-primary);font-size:12px}.SWa2cq_personaFillRow{grid-template-columns:140px 1fr auto;align-items:start;gap:6px;display:grid}.SWa2cq_personaModalFoot{justify-content:flex-end;align-items:center;gap:8px;display:flex}.SWa2cq_personaReportEdited{color:var(--dsw-alias-label-secondary);margin:0;font-size:12px}.SWa2cq_personaReportText{font-family:monospace;line-height:1.6}";
-		const tagId$4 = "@deepseek-ai/dsh-client-ui-content-studio/PersonaView.module.css";
-		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId$4) + "]") === null) {
+		const css$9 = ".SWa2cq_persona{flex-direction:column;gap:16px;display:flex}.SWa2cq_personaHead{justify-content:space-between;align-items:flex-start;gap:16px;display:flex}.SWa2cq_personaTitle{color:var(--dsw-alias-label-primary);margin:0;font-size:18px}.SWa2cq_personaHint{color:var(--dsw-alias-label-secondary);margin:4px 0 0;font-size:12px}.SWa2cq_personaPrimary{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:8px;padding:6px 14px;font-size:13px}.SWa2cq_personaPrimary:hover{background:var(--dsw-alias-interactive-bg-hover)}.SWa2cq_personaPrimary:disabled{opacity:.6;cursor:default}.SWa2cq_personaMini{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:6px;padding:3px 10px;font-size:12px}.SWa2cq_personaMini:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.SWa2cq_personaMini:disabled{opacity:.5;cursor:default}.SWa2cq_personaBanner{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-secondary);border-radius:10px;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 12px;font-size:12px;display:flex}.SWa2cq_personaNotice{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);text-align:left;cursor:pointer;border-radius:10px;padding:8px 12px;font-size:12px}.SWa2cq_personaEmpty{color:var(--dsw-alias-label-secondary);text-align:center;margin:24px 0;font-size:13px}.SWa2cq_personaGrid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;display:grid}.SWa2cq_personaCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);border-radius:10px;flex-direction:column;gap:8px;padding:12px;display:flex}.SWa2cq_personaCardHead{flex-wrap:wrap;align-items:center;gap:8px;display:flex}.SWa2cq_personaCardName{color:var(--dsw-alias-label-primary);margin:0;font-size:14px}.SWa2cq_personaBadge,.SWa2cq_personaBadgeActive,.SWa2cq_personaBadgeStale{border-radius:999px;padding:1px 8px;font-size:11px}.SWa2cq_personaBadge{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary)}.SWa2cq_personaBadgeActive{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-3);color:var(--dsw-alias-label-primary)}.SWa2cq_personaBadgeStale{border:1px solid color-mix(in srgb, var(--dsw-alias-state-warning-primary,var(--dsw-alias-label-primary)) 40%, transparent);color:var(--dsw-alias-state-warning-primary,var(--dsw-alias-label-primary))}.SWa2cq_personaChips{flex-wrap:wrap;align-items:center;gap:6px;display:flex}.SWa2cq_personaChip{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:999px;padding:2px 8px;font-size:11px}.SWa2cq_personaChipOn{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-3);color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:999px;padding:2px 8px;font-size:11px}.SWa2cq_personaDigest{color:var(--dsw-alias-label-secondary);-webkit-line-clamp:2;-webkit-box-orient:vertical;margin:0;font-size:12px;display:-webkit-box;overflow:hidden}.SWa2cq_personaActions{flex-wrap:wrap;align-items:center;gap:6px;display:flex}.SWa2cq_personaPreview{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);border-radius:10px;flex-direction:column;gap:8px;padding:12px;display:flex}.SWa2cq_personaPreviewHead{justify-content:space-between;align-items:center;gap:8px;display:flex}.SWa2cq_personaPreviewHead h3{color:var(--dsw-alias-label-primary);margin:0;font-size:13px}.SWa2cq_personaFacts{flex-direction:column;gap:6px;margin:0;display:flex}.SWa2cq_personaFact dt{color:var(--dsw-alias-label-secondary);font-size:11px}.SWa2cq_personaFact dd{color:var(--dsw-alias-label-primary);margin:2px 0 0;font-size:12px}.SWa2cq_personaSource{color:var(--dsw-alias-label-secondary);font-size:10px}.SWa2cq_personaFactLine{color:var(--dsw-alias-label-secondary);margin:0;font-size:12px}.SWa2cq_personaModal{z-index:30;background:color-mix(in srgb, var(--dsw-alias-bg-layer-1) 70%, transparent);justify-content:center;align-items:center;padding:24px;display:flex;position:fixed;inset:0}.SWa2cq_personaModalCard{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-1);border-radius:12px;flex-direction:column;gap:12px;width:min(680px,100%);max-height:90vh;padding:16px;display:flex;overflow:auto}.SWa2cq_personaModalHead{justify-content:space-between;align-items:center;gap:8px;display:flex}.SWa2cq_personaModalHead h3{color:var(--dsw-alias-label-primary);margin:0;font-size:15px}.SWa2cq_personaStepLabel{color:var(--dsw-alias-label-secondary);font-size:12px}.SWa2cq_personaStepBody{flex-direction:column;gap:10px;display:flex}.SWa2cq_personaField{flex-direction:column;gap:4px;display:flex}.SWa2cq_personaFieldLabel{color:var(--dsw-alias-label-secondary);font-size:12px}.SWa2cq_personaField input,.SWa2cq_personaField select,.SWa2cq_personaField textarea,.SWa2cq_personaLinkRow input,.SWa2cq_personaLinkRow select,.SWa2cq_personaFillRow textarea,.SWa2cq_personaReportText{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);color:var(--dsw-alias-label-primary);border-radius:6px;padding:6px 8px;font-size:13px}.SWa2cq_personaResume{border:1px dashed var(--dsw-alias-border-l1);border-radius:8px;flex-direction:column;gap:8px;padding:10px;display:flex}.SWa2cq_personaResumeRow{flex-wrap:wrap;align-items:center;gap:10px;display:flex}.SWa2cq_personaConsent{color:var(--dsw-alias-label-secondary);align-items:center;gap:6px;font-size:12px;display:flex}.SWa2cq_personaLinkRow{grid-template-columns:110px 1fr 1fr auto;align-items:center;gap:6px;display:grid}.SWa2cq_personaPromptBox{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:8px;flex-direction:column;gap:6px;padding:10px;display:flex}.SWa2cq_personaPromptHead{justify-content:space-between;align-items:center;gap:8px;display:flex}.SWa2cq_personaPromptHead strong{color:var(--dsw-alias-label-primary);font-size:12px}.SWa2cq_personaPromptText{color:var(--dsw-alias-label-secondary);white-space:pre-wrap;word-break:break-word;margin:0;font-size:12px;line-height:1.6}.SWa2cq_personaFill{border:1px solid color-mix(in srgb, var(--dsw-alias-state-warning-primary,var(--dsw-alias-label-primary)) 40%, transparent);border-radius:8px;flex-direction:column;gap:8px;padding:10px;display:flex}.SWa2cq_personaFillHead{flex-wrap:wrap;align-items:center;gap:8px;display:flex}.SWa2cq_personaFillHead strong{color:var(--dsw-alias-label-primary);font-size:12px}.SWa2cq_personaFillRow{grid-template-columns:140px 1fr auto;align-items:start;gap:6px;display:grid}.SWa2cq_personaModalFoot{justify-content:flex-end;align-items:center;gap:8px;display:flex}.SWa2cq_personaReportEdited{color:var(--dsw-alias-label-secondary);margin:0;font-size:12px}.SWa2cq_personaReportText{font-family:monospace;line-height:1.6}";
+		const tagId$9 = "@deepseek-ai/dsh-client-ui-content-studio/PersonaView.module.css";
+		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId$9) + "]") === null) {
 			const tag = document.createElement("style");
 			tag.dataset.plugin = "@deepseek-ai/dsh-client-ui-content-studio";
-			tag.dataset.pluginCss = tagId$4;
-			tag.textContent = css$4;
+			tag.dataset.pluginCss = tagId$9;
+			tag.textContent = css$9;
 			document.head.appendChild(tag);
 		}
 		var PersonaView_module_css_default = {
@@ -10284,7 +14338,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		* unit-testable, and the manifest itself lives on disk behind the gateway.
 		*/
 		/** localStorage namespace owned by the competitors view. */
-		const COMPETITORS_STORAGE_KEY = "content-studio.competitors.accounts";
+		const COMPETITORS_STORAGE_KEY = "dsh-content-studio.competitors.accounts";
+		/** Pre-alignment namespace; still read on load so existing browsers migrate. */
+		const COMPETITORS_LEGACY_STORAGE_KEY = "content-studio.competitors.accounts";
 		/** Platforms the phase-one manual import supports. */
 		const COMPETITOR_PLATFORMS = [
 			"xhs",
@@ -10316,6 +14372,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			let raw = null;
 			try {
 				raw = localStorage.getItem(COMPETITORS_STORAGE_KEY);
+				if (raw === null) raw = localStorage.getItem(COMPETITORS_LEGACY_STORAGE_KEY);
 			} catch {
 				return {
 					accounts: [],
@@ -10339,6 +14396,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		function saveAccounts(accounts) {
 			try {
 				localStorage.setItem(COMPETITORS_STORAGE_KEY, JSON.stringify(accounts, null, 2));
+				localStorage.removeItem(COMPETITORS_LEGACY_STORAGE_KEY);
 				return true;
 			} catch {
 				return false;
@@ -10664,7 +14722,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		* works, snapshots, analysis state, and reports live in the theme manifest.
 		*/
 		/** localStorage key of the last opened theme. */
-		const THEME_STORAGE_KEY = "content-studio.competitors.theme";
+		const THEME_STORAGE_KEY = "dsh-content-studio.competitors.theme";
+		/** Pre-alignment theme key; read when the aligned key is absent. */
+		const THEME_LEGACY_STORAGE_KEY = "content-studio.competitors.theme";
 		/** Section tab order. */
 		const SECTIONS = [
 			"accounts",
@@ -10678,7 +14738,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			reports: "comp.section.reports"
 		};
 		/** Locale key per platform. */
-		const PLATFORM_KEYS = {
+		const PLATFORM_KEYS$1 = {
 			xhs: "comp.platform.xhs",
 			douyin: "comp.platform.douyin",
 			wechat: "comp.platform.wechat",
@@ -10746,7 +14806,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			const [accounts, setAccounts] = (0, react.useState)(() => loadAccounts().accounts);
 			const [storageDegraded, setStorageDegraded] = (0, react.useState)(false);
 			const [section, setSection] = (0, react.useState)("works");
-			const [theme, setTheme] = (0, react.useState)(() => localStorage.getItem(THEME_STORAGE_KEY) ?? "");
+			const [theme, setTheme] = (0, react.useState)(() => localStorage.getItem(THEME_STORAGE_KEY) ?? localStorage.getItem(THEME_LEGACY_STORAGE_KEY) ?? "");
 			const [projects, setProjects] = (0, react.useState)([]);
 			const [manifest, setManifest] = (0, react.useState)(void 0);
 			const [manifestProblems, setManifestProblems] = (0, react.useState)([]);
@@ -10900,6 +14960,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				setAccountForm(void 0);
 			};
 			const removeAccount = (account) => {
+				if (!window.confirm(t("comp.removeAccountConfirm"))) return;
 				persistAccounts(accounts.filter((candidate) => candidate.id !== account.id));
 				if (accountForm?.id === account.id) setAccountForm(void 0);
 			};
@@ -10965,6 +15026,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				});
 			};
 			const removeWork = (work) => {
+				if (!window.confirm(t("comp.removeWorkConfirm"))) return;
 				act(async () => {
 					const files = [work.textFile, work.analysis.ref].filter((file) => file !== void 0);
 					for (const file of files) await deleteAsset(theme, file);
@@ -11058,7 +15120,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						...current,
 						works: current.works.map((candidate) => candidate.id === work.id ? {
 							...candidate,
-							gatheredRef: file
+							collectedIdeaRef: file
 						} : candidate)
 					});
 				});
@@ -11468,7 +15530,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						children: [
 							work.accountName,
 							" · ",
-							t(PLATFORM_KEYS[work.platform])
+							t(PLATFORM_KEYS$1[work.platform])
 						]
 					}),
 					(0, react_jsx_runtime.jsxs)("span", {
@@ -11504,7 +15566,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							children: [
 								work.accountName,
 								" · ",
-								t(PLATFORM_KEYS[work.platform]),
+								t(PLATFORM_KEYS$1[work.platform]),
 								work.publishedAt !== void 0 && ` · ${work.publishedAt.slice(0, 10)}`,
 								work.url !== void 0 && (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [" · ", (0, react_jsx_runtime.jsx)("a", {
 									href: work.url,
@@ -11540,9 +15602,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							(0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.retry,
-								disabled: !themeReady || work.gatheredRef !== void 0,
+								disabled: !themeReady || work.collectedIdeaRef !== void 0,
 								onClick: onIdea,
-								title: work.gatheredRef,
+								title: work.collectedIdeaRef,
 								children: t("comp.addIdea")
 							}),
 							(0, react_jsx_runtime.jsx)("button", {
@@ -11672,7 +15734,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							"aria-label": t("comp.fieldPlatform"),
 							children: COMPETITOR_PLATFORMS.map((platform) => (0, react_jsx_runtime.jsx)("option", {
 								value: platform,
-								children: t(PLATFORM_KEYS[platform])
+								children: t(PLATFORM_KEYS$1[platform])
 							}, platform))
 						})]
 					}),
@@ -11837,7 +15899,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										"aria-label": t("comp.fieldPlatform"),
 										children: COMPETITOR_PLATFORMS.map((platform) => (0, react_jsx_runtime.jsx)("option", {
 											value: platform,
-											children: t(PLATFORM_KEYS[platform])
+											children: t(PLATFORM_KEYS$1[platform])
 										}, platform))
 									}),
 									(0, react_jsx_runtime.jsxs)("select", {
@@ -11996,7 +16058,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											}),
 											(0, react_jsx_runtime.jsxs)("span", {
 												className: ContentStudio_module_css_default.listMeta,
-												children: [t(PLATFORM_KEYS[account.platform]), account.topics.length > 0 && ` · ${account.topics.join(" / ")}`]
+												children: [t(PLATFORM_KEYS$1[account.platform]), account.topics.length > 0 && ` · ${account.topics.join(" / ")}`]
 											})
 										]
 									}),
@@ -21017,13 +25079,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		}
 		//#endregion
 		//#region \0dsh-css:D:\deepseek-harness\packages\client\ui-content-studio\src\client\SplitDetail.module.css.mjs
-		const css$3 = ".ECWxzq_split{grid-template-columns:minmax(240px,1fr) minmax(280px,1.1fr);align-items:start;gap:16px;min-width:0;display:grid}.ECWxzq_listPane{flex-direction:column;min-width:0;display:flex}.ECWxzq_detailPane{min-width:0}";
-		const tagId$3 = "@deepseek-ai/dsh-client-ui-content-studio/SplitDetail.module.css";
-		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId$3) + "]") === null) {
+		const css$8 = ".ECWxzq_split{grid-template-columns:minmax(240px,1fr) minmax(280px,1.1fr);align-items:start;gap:16px;min-width:0;display:grid}.ECWxzq_listPane{flex-direction:column;min-width:0;display:flex}.ECWxzq_detailPane{min-width:0}";
+		const tagId$8 = "@deepseek-ai/dsh-client-ui-content-studio/SplitDetail.module.css";
+		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId$8) + "]") === null) {
 			const tag = document.createElement("style");
 			tag.dataset.plugin = "@deepseek-ai/dsh-client-ui-content-studio";
-			tag.dataset.pluginCss = tagId$3;
-			tag.textContent = css$3;
+			tag.dataset.pluginCss = tagId$8;
+			tag.textContent = css$8;
 			document.head.appendChild(tag);
 		}
 		var SplitDetail_module_css_default = {
@@ -21053,13 +25115,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		}
 		//#endregion
 		//#region \0dsh-css:D:\deepseek-harness\packages\client\ui-content-studio\src\client\GatherView.module.css.mjs
-		const css$2 = ".mTheea_gather{flex-direction:column;gap:16px;display:flex}.mTheea_gatherHead{justify-content:space-between;align-items:flex-start;gap:16px;display:flex}.mTheea_gatherNotice{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-secondary);cursor:pointer;border-radius:8px;align-items:center;gap:6px;padding:6px 10px;font-size:12px;display:flex}.mTheea_gatherWarn{border:1px solid color-mix(in srgb, var(--dsw-alias-state-warning-primary,var(--dsw-alias-label-primary)) 40%, transparent);color:var(--dsw-alias-state-warning-primary,var(--dsw-alias-label-primary));border-radius:10px;align-items:center;gap:8px;padding:8px 12px;font-size:12px;display:flex}.mTheea_gatherColumns{grid-template-columns:300px minmax(0,1fr);align-items:start;gap:16px;display:grid}.mTheea_gatherConfig{flex-direction:column;gap:16px;display:flex}.mTheea_gatherPanel{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:10px;padding:14px;display:flex}.mTheea_gatherPanelHead{justify-content:space-between;align-items:center;display:flex}.mTheea_gatherPanel .mTheea_groupTitle{margin:0}.mTheea_gatherList{flex-direction:column;gap:8px;margin:0;padding:0;list-style:none;display:flex}.mTheea_gatherItem{border:1px solid var(--dsw-alias-border-l1);border-radius:8px;flex-direction:column;gap:4px;padding:8px;display:flex}.mTheea_gatherItemHead{flex-wrap:wrap;align-items:center;gap:6px;display:flex}.mTheea_gatherItemTitle{color:var(--dsw-alias-label-primary);text-overflow:ellipsis;white-space:nowrap;flex:auto;font-size:13px;font-weight:600;overflow:hidden}.mTheea_gatherItemMeta{color:var(--dsw-alias-label-tertiary);overflow-wrap:anywhere;font-size:11px}.mTheea_gatherBadge{background:var(--dsw-alias-label-dimmed);border-radius:50%;flex:none;width:8px;height:8px}.mTheea_gatherBadgeOk{color:var(--dsw-alias-state-success-primary,var(--dsw-alias-label-primary));background:0 0}.mTheea_gatherBadgeOk.mTheea_gatherBadge{background:var(--dsw-alias-state-success-primary,var(--dsw-alias-label-primary))}.mTheea_gatherBadgeFailed{color:var(--dsw-alias-state-danger-primary,var(--dsw-alias-label-primary));background:0 0}.mTheea_gatherBadgeFailed.mTheea_gatherBadge{background:var(--dsw-alias-state-danger-primary,var(--dsw-alias-label-primary))}.mTheea_gatherMini{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:6px;flex:none;padding:2px 8px;font-size:11px;transition:background .14s,color .14s}.mTheea_gatherMini:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.mTheea_gatherAction{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:8px;padding:6px 12px;font-size:12px}.mTheea_gatherForm{flex-direction:column;gap:8px;display:flex}.mTheea_gatherFormRow{flex-wrap:wrap;align-items:center;gap:8px;display:flex}.mTheea_gatherInput{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);min-width:0;color:var(--dsw-alias-label-primary);border-radius:8px;flex:120px;padding:6px 8px;font-size:12px}.mTheea_gatherCheckList{flex-direction:column;gap:4px;max-height:140px;display:flex;overflow-y:auto}.mTheea_gatherHint{color:var(--dsw-alias-label-dimmed);margin:0;font-size:11px}.mTheea_gatherLog{flex-direction:column;gap:4px;margin:0;padding:0 0 0 8px;list-style:none;display:flex}.mTheea_gatherMaterials{flex-direction:column;gap:10px;min-width:0;display:flex}.mTheea_gatherFilters{flex-direction:column;gap:8px;display:flex}.mTheea_gatherMaterialList{flex-direction:column;gap:8px;max-height:60vh;margin:0;padding:0;list-style:none;display:flex;overflow-y:auto}.mTheea_gatherCardRow{align-items:stretch;gap:6px;display:flex}.mTheea_gatherMaterialCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);min-width:0;color:inherit;text-align:left;font:inherit;cursor:pointer;border-radius:10px;flex-direction:column;flex:auto;gap:4px;padding:10px;transition:border-color .14s;display:flex}.mTheea_gatherMaterialCard:hover{border-color:var(--dsw-alias-border-l2)}.mTheea_gatherMaterialActive,.mTheea_gatherMaterialActive:hover{border-color:var(--dsw-alias-button-primary-fill)}.mTheea_gatherTopicBank{flex:none;align-self:center}.mTheea_gatherDetail{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:12px;min-width:0;padding:14px;display:flex}.mTheea_gatherDetailHead{flex-direction:column;gap:6px;display:flex}.mTheea_gatherDetailTitle{color:var(--dsw-alias-label-primary);margin:0;font-size:16px;font-weight:600}.mTheea_gatherLink{color:var(--dsw-alias-label-secondary);font-size:12px}.mTheea_gatherAi{flex-direction:column;gap:8px;display:flex}.mTheea_gatherAiResult{border:1px solid var(--dsw-alias-border-l1);border-radius:8px;flex-direction:column;gap:6px;padding:10px;display:flex}.mTheea_gatherBody{border:1px solid var(--dsw-alias-border-l1);max-height:45vh;color:var(--dsw-alias-label-primary);overflow-wrap:anywhere;border-radius:8px;padding:12px;font-size:13px;line-height:1.7;overflow-y:auto}.mTheea_gatherBody img,.mTheea_gatherBody video{max-width:100%;height:auto}.mTheea_gatherBodyText{color:var(--dsw-alias-label-secondary);overflow-wrap:anywhere;margin:0;font-size:12px;line-height:1.6}.mTheea_gatherExcerpts{flex-direction:column;gap:8px;display:flex}.mTheea_gatherPicked{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);border-radius:10px;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;padding:10px 14px;font-size:13px;display:flex}";
-		const tagId$2 = "@deepseek-ai/dsh-client-ui-content-studio/GatherView.module.css";
-		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId$2) + "]") === null) {
+		const css$7 = ".mTheea_gather{flex-direction:column;gap:16px;display:flex}.mTheea_gatherHead{justify-content:space-between;align-items:flex-start;gap:16px;display:flex}.mTheea_gatherNotice{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-secondary);cursor:pointer;border-radius:8px;align-items:center;gap:6px;padding:6px 10px;font-size:12px;display:flex}.mTheea_gatherWarn{border:1px solid color-mix(in srgb, var(--dsw-alias-state-warning-primary,var(--dsw-alias-label-primary)) 40%, transparent);color:var(--dsw-alias-state-warning-primary,var(--dsw-alias-label-primary));border-radius:10px;align-items:center;gap:8px;padding:8px 12px;font-size:12px;display:flex}.mTheea_gatherColumns{grid-template-columns:300px minmax(0,1fr);align-items:start;gap:16px;display:grid}.mTheea_gatherConfig{flex-direction:column;gap:16px;display:flex}.mTheea_gatherPanel{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:10px;padding:14px;display:flex}.mTheea_gatherPanelHead{justify-content:space-between;align-items:center;display:flex}.mTheea_gatherPanel .mTheea_groupTitle{margin:0}.mTheea_gatherList{flex-direction:column;gap:8px;margin:0;padding:0;list-style:none;display:flex}.mTheea_gatherItem{border:1px solid var(--dsw-alias-border-l1);border-radius:8px;flex-direction:column;gap:4px;padding:8px;display:flex}.mTheea_gatherItemHead{flex-wrap:wrap;align-items:center;gap:6px;display:flex}.mTheea_gatherItemTitle{color:var(--dsw-alias-label-primary);text-overflow:ellipsis;white-space:nowrap;flex:auto;font-size:13px;font-weight:600;overflow:hidden}.mTheea_gatherItemMeta{color:var(--dsw-alias-label-tertiary);overflow-wrap:anywhere;font-size:11px}.mTheea_gatherBadge{background:var(--dsw-alias-label-dimmed);border-radius:50%;flex:none;width:8px;height:8px}.mTheea_gatherBadgeOk{color:var(--dsw-alias-state-success-primary,var(--dsw-alias-label-primary));background:0 0}.mTheea_gatherBadgeOk.mTheea_gatherBadge{background:var(--dsw-alias-state-success-primary,var(--dsw-alias-label-primary))}.mTheea_gatherBadgeFailed{color:var(--dsw-alias-state-danger-primary,var(--dsw-alias-label-primary));background:0 0}.mTheea_gatherBadgeFailed.mTheea_gatherBadge{background:var(--dsw-alias-state-danger-primary,var(--dsw-alias-label-primary))}.mTheea_gatherMini{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:6px;flex:none;padding:2px 8px;font-size:11px;transition:background .14s,color .14s}.mTheea_gatherMini:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.mTheea_gatherAction{background:var(--dsw-alias-button-primary-fill);color:var(--dsw-alias-label-primary-foreground);cursor:pointer;border:none;border-radius:8px;padding:6px 12px;font-size:12px}.mTheea_gatherForm{flex-direction:column;gap:8px;display:flex}.mTheea_gatherFormRow{flex-wrap:wrap;align-items:center;gap:8px;display:flex}.mTheea_gatherInput{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);min-width:0;color:var(--dsw-alias-label-primary);border-radius:8px;flex:120px;padding:6px 8px;font-size:12px}.mTheea_gatherCheckList{flex-direction:column;gap:4px;max-height:140px;display:flex;overflow-y:auto}.mTheea_gatherHint{color:var(--dsw-alias-label-dimmed);margin:0;font-size:11px}.mTheea_gatherLog{flex-direction:column;gap:4px;margin:0;padding:0 0 0 8px;list-style:none;display:flex}.mTheea_gatherMaterials{flex-direction:column;gap:10px;min-width:0;display:flex}.mTheea_gatherFilters{flex-direction:column;gap:8px;display:flex}.mTheea_gatherMaterialList{flex-direction:column;gap:8px;max-height:60vh;margin:0;padding:0;list-style:none;display:flex;overflow-y:auto}.mTheea_gatherCardRow{align-items:stretch;gap:6px;display:flex}.mTheea_gatherMaterialCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);min-width:0;color:inherit;text-align:left;font:inherit;cursor:pointer;border-radius:10px;flex-direction:column;flex:auto;gap:4px;padding:10px;transition:border-color .14s;display:flex}.mTheea_gatherMaterialCard:hover{border-color:var(--dsw-alias-border-l2)}.mTheea_gatherMaterialActive,.mTheea_gatherMaterialActive:hover{border-color:var(--dsw-alias-button-primary-fill)}.mTheea_gatherTopicBank{flex:none;align-self:center}.mTheea_gatherDetail{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:12px;min-width:0;padding:14px;display:flex}.mTheea_gatherDetailHead{flex-direction:column;gap:6px;display:flex}.mTheea_gatherDetailTitle{color:var(--dsw-alias-label-primary);margin:0;font-size:16px;font-weight:600}.mTheea_gatherLink{color:var(--dsw-alias-label-secondary);font-size:12px}.mTheea_gatherAi{flex-direction:column;gap:8px;display:flex}.mTheea_gatherAiResult{border:1px solid var(--dsw-alias-border-l1);border-radius:8px;flex-direction:column;gap:6px;padding:10px;display:flex}.mTheea_gatherBody{border:1px solid var(--dsw-alias-border-l1);max-height:45vh;color:var(--dsw-alias-label-primary);overflow-wrap:anywhere;border-radius:8px;padding:12px;font-size:13px;line-height:1.7;overflow-y:auto}.mTheea_gatherBody img,.mTheea_gatherBody video{max-width:100%;height:auto}.mTheea_gatherBodyText{color:var(--dsw-alias-label-secondary);overflow-wrap:anywhere;margin:0;font-size:12px;line-height:1.6}.mTheea_gatherExcerpts{flex-direction:column;gap:8px;display:flex}.mTheea_gatherPicked{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);border-radius:10px;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;padding:10px 14px;font-size:13px;display:flex}";
+		const tagId$7 = "@deepseek-ai/dsh-client-ui-content-studio/GatherView.module.css";
+		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId$7) + "]") === null) {
 			const tag = document.createElement("style");
 			tag.dataset.plugin = "@deepseek-ai/dsh-client-ui-content-studio";
-			tag.dataset.pluginCss = tagId$2;
-			tag.textContent = css$2;
+			tag.dataset.pluginCss = tagId$7;
+			tag.textContent = css$7;
 			document.head.appendChild(tag);
 		}
 		var GatherView_module_css_default = {
@@ -21295,6 +25357,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											type: "button",
 											className: GatherView_module_css_default.gatherMini,
 											onClick: () => {
+												if (!window.confirm(t("gather.sources.removeConfirm"))) return;
 												gather.removeSource(source.id);
 											},
 											children: t("gather.sources.remove")
@@ -21468,7 +25531,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					}),
 					(0, react_jsx_runtime.jsx)("ul", {
 						className: GatherView_module_css_default.gatherList,
-						children: state.tasks.map((task) => (0, react_jsx_runtime.jsx)(TaskRow, {
+						children: state.tasks.map((task) => (0, react_jsx_runtime.jsx)(TaskRow$1, {
 							task,
 							gather,
 							expanded: expanded === task.id,
@@ -21492,7 +25555,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			done: "gather.task.done",
 			failed: "gather.task.failed"
 		};
-		function TaskRow({ task, gather, expanded, toggle, t }) {
+		function TaskRow$1({ task, gather, expanded, toggle, t }) {
 			return (0, react_jsx_runtime.jsxs)("li", {
 				className: GatherView_module_css_default.gatherItem,
 				children: [
@@ -21545,6 +25608,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								type: "button",
 								className: GatherView_module_css_default.gatherMini,
 								onClick: () => {
+									if (!window.confirm(t("gather.task.removeConfirm"))) return;
 									gather.removeTask(task.id);
 								},
 								children: t("gather.sources.remove")
@@ -22805,13 +26869,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		}
 		//#endregion
 		//#region \0dsh-css:D:\deepseek-harness\packages\client\ui-content-studio\src\client\CreateView.module.css.mjs
-		const css$1 = ".cIVj2a_entryGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:16px;display:grid}.cIVj2a_entryCard{border:1px solid var(--dsw-alias-border-default,#ddd);cursor:pointer;text-align:left;font:inherit;color:inherit;background:0 0;border-radius:10px;flex-direction:column;gap:6px;padding:14px;display:flex}.cIVj2a_entryCardActive{border-color:var(--dsw-alias-border-strong,#999);background:var(--dsw-alias-surface-selected,#0000000a)}.cIVj2a_entryCardTitle{font-weight:600}.cIVj2a_entryCardHint{opacity:.7;font-size:12px}.cIVj2a_editorGrid{grid-template-columns:minmax(0,1fr) 260px;align-items:start;gap:14px;display:grid}.cIVj2a_editorPane{flex-direction:column;gap:10px;min-width:0;display:flex}.cIVj2a_editorToolbar{flex-wrap:wrap;align-items:center;gap:6px;display:flex}.cIVj2a_editorTextarea{resize:vertical;width:100%;min-height:380px;font:inherit;border:1px solid var(--dsw-alias-border-default,#ddd);color:inherit;box-sizing:border-box;background:0 0;border-radius:8px;padding:12px;line-height:1.7}.cIVj2a_statsLine{opacity:.75;gap:14px;font-size:12px;display:flex}.cIVj2a_sideStack{flex-direction:column;gap:12px;min-width:0;display:flex}.cIVj2a_contextField{flex-direction:column;gap:4px;font-size:12px;display:flex}.cIVj2a_contextInput{resize:vertical;width:100%;min-height:44px;font:inherit;border:1px solid var(--dsw-alias-border-default,#ddd);color:inherit;box-sizing:border-box;background:0 0;border-radius:6px;padding:6px 8px;font-size:12px}.cIVj2a_versionRow{border:1px solid var(--dsw-alias-border-default,#ddd);border-radius:8px;flex-direction:column;gap:4px;padding:8px;font-size:12px;display:flex}.cIVj2a_versionHead{justify-content:space-between;align-items:center;gap:6px;display:flex}.cIVj2a_versionActions{gap:6px;display:flex}.cIVj2a_versionMeta{opacity:.7}.cIVj2a_diffBlock{border:1px solid var(--dsw-alias-border-default,#ddd);border-radius:8px;max-height:320px;font-family:ui-monospace,monospace;font-size:12px;overflow:auto}.cIVj2a_diffRow{white-space:pre-wrap;word-break:break-word;padding:1px 8px}.cIVj2a_diffAdd{background:var(--dsw-alias-surface-success,#22a05a29)}.cIVj2a_diffDel{background:var(--dsw-alias-surface-danger,#d6454524);opacity:.85;text-decoration:line-through}.cIVj2a_diffLegend{opacity:.75;gap:12px;font-size:12px;display:flex}.cIVj2a_bannedRow{align-items:baseline;gap:8px;padding:3px 0;font-size:12px;display:flex}.cIVj2a_bannedWord{font-weight:600}.cIVj2a_bannedCat{opacity:.7}.cIVj2a_bannedCount{opacity:.7;margin-left:auto}.cIVj2a_aiError{color:var(--dsw-alias-text-danger,#b3261e);word-break:break-word;font-size:12px}.cIVj2a_noticeLine{opacity:.85;font-size:12px}.cIVj2a_catalogToggle{margin:0 0 10px}";
-		const tagId$1 = "@deepseek-ai/dsh-client-ui-content-studio/CreateView.module.css";
-		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId$1) + "]") === null) {
+		const css$6 = ".cIVj2a_entryGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:16px;display:grid}.cIVj2a_entryCard{border:1px solid var(--dsw-alias-border-default,#ddd);cursor:pointer;text-align:left;font:inherit;color:inherit;background:0 0;border-radius:10px;flex-direction:column;gap:6px;padding:14px;display:flex}.cIVj2a_entryCardActive{border-color:var(--dsw-alias-border-strong,#999);background:var(--dsw-alias-surface-selected,#0000000a)}.cIVj2a_entryCardTitle{font-weight:600}.cIVj2a_entryCardHint{opacity:.7;font-size:12px}.cIVj2a_editorGrid{grid-template-columns:minmax(0,1fr) 260px;align-items:start;gap:14px;display:grid}.cIVj2a_editorPane{flex-direction:column;gap:10px;min-width:0;display:flex}.cIVj2a_editorToolbar{flex-wrap:wrap;align-items:center;gap:6px;display:flex}.cIVj2a_editorTextarea{resize:vertical;width:100%;min-height:380px;font:inherit;border:1px solid var(--dsw-alias-border-default,#ddd);color:inherit;box-sizing:border-box;background:0 0;border-radius:8px;padding:12px;line-height:1.7}.cIVj2a_statsLine{opacity:.75;gap:14px;font-size:12px;display:flex}.cIVj2a_sideStack{flex-direction:column;gap:12px;min-width:0;display:flex}.cIVj2a_contextField{flex-direction:column;gap:4px;font-size:12px;display:flex}.cIVj2a_contextInput{resize:vertical;width:100%;min-height:44px;font:inherit;border:1px solid var(--dsw-alias-border-default,#ddd);color:inherit;box-sizing:border-box;background:0 0;border-radius:6px;padding:6px 8px;font-size:12px}.cIVj2a_versionRow{border:1px solid var(--dsw-alias-border-default,#ddd);border-radius:8px;flex-direction:column;gap:4px;padding:8px;font-size:12px;display:flex}.cIVj2a_versionHead{justify-content:space-between;align-items:center;gap:6px;display:flex}.cIVj2a_versionActions{gap:6px;display:flex}.cIVj2a_versionMeta{opacity:.7}.cIVj2a_diffBlock{border:1px solid var(--dsw-alias-border-default,#ddd);border-radius:8px;max-height:320px;font-family:ui-monospace,monospace;font-size:12px;overflow:auto}.cIVj2a_diffRow{white-space:pre-wrap;word-break:break-word;padding:1px 8px}.cIVj2a_diffAdd{background:var(--dsw-alias-surface-success,#22a05a29)}.cIVj2a_diffDel{background:var(--dsw-alias-surface-danger,#d6454524);opacity:.85;text-decoration:line-through}.cIVj2a_diffLegend{opacity:.75;gap:12px;font-size:12px;display:flex}.cIVj2a_bannedRow{align-items:baseline;gap:8px;padding:3px 0;font-size:12px;display:flex}.cIVj2a_bannedWord{font-weight:600}.cIVj2a_bannedCat{opacity:.7}.cIVj2a_bannedCount{opacity:.7;margin-left:auto}.cIVj2a_aiError{color:var(--dsw-alias-text-danger,#b3261e);word-break:break-word;font-size:12px}.cIVj2a_noticeLine{opacity:.85;font-size:12px}.cIVj2a_catalogToggle{margin:0 0 10px}";
+		const tagId$6 = "@deepseek-ai/dsh-client-ui-content-studio/CreateView.module.css";
+		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId$6) + "]") === null) {
 			const tag = document.createElement("style");
 			tag.dataset.plugin = "@deepseek-ai/dsh-client-ui-content-studio";
-			tag.dataset.pluginCss = tagId$1;
-			tag.textContent = css$1;
+			tag.dataset.pluginCss = tagId$6;
+			tag.textContent = css$6;
 			document.head.appendChild(tag);
 		}
 		var CreateView_module_css_default = {
@@ -22903,7 +26967,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		* @param props - the injected face and the locale seat.
 		* @returns the view element tree.
 		*/
-		function CreateView({ create, listThemes, persona, picked, onClearPicked, pickedTopic, onClearPickedTopic, topics, schedule, catalog, t }) {
+		function CreateView({ create, listThemes, persona, picked, onClearPicked, pickedTopic, onClearPickedTopic, topics, schedule, onSendToPublish, catalog, templateLibrary, t }) {
 			const [showCatalog, setShowCatalog] = (0, react.useState)(false);
 			const [entryMode, setEntryMode] = (0, react.useState)("blank");
 			const [themeChoice, setThemeChoice] = (0, react.useState)("new");
@@ -23536,6 +27600,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				}
 			};
 			const removeTemplate = async (id) => {
+				if (!window.confirm(t("create.template.deleteConfirm"))) return;
 				try {
 					setTemplates((await create.deleteCreateTemplate(id)).templates);
 					if (activeTemplateId === id) setActiveTemplateId(null);
@@ -23867,6 +27932,18 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							},
 							children: t("create.publish")
 						}),
+						onSendToPublish !== void 0 && editor.publishedFile !== null && (0, react_jsx_runtime.jsx)("button", {
+							type: "button",
+							className: ContentStudio_module_css_default.retry,
+							onClick: () => {
+								onSendToPublish({
+									theme: editor.theme,
+									file: editor.publishedFile,
+									title: editor.title.trim().length > 0 ? editor.title.trim() : editor.publishedFile
+								});
+							},
+							children: t("create.sendToPublish")
+						}),
 						(0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							onClick: () => {
@@ -24044,6 +28121,24 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											runEvaluate();
 										},
 										children: t("create.evaluate")
+									}),
+									templateLibrary != null && (0, react_jsx_runtime.jsx)("button", {
+										type: "button",
+										onClick: () => {
+											templateLibrary.openPicker({
+												category: "creation",
+												targetLabel: t("create.pickTemplate.target"),
+												hasContent: () => editor.text.trim().length > 0,
+												apply: (draft) => {
+													setEditor((prev) => prev === null ? prev : {
+														...prev,
+														text: draft.body
+													});
+													setDirty(true);
+												}
+											});
+										},
+										children: t("create.pickTemplate")
 									}),
 									aiPending === "rewrite" && (0, react_jsx_runtime.jsx)("span", {
 										className: CreateView_module_css_default.noticeLine,
@@ -24582,428 +28677,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			] });
 		}
 		//#endregion
-		//#region lib/types/client/topic-bank.js
-		/**
-		* Pure logic of the topic-bank view: the five-status single-source config,
-		* the persisted view/filter configuration with versioned load migration,
-		* filtering (source, score range, tag, status, keyword, plan window), the
-		* kanban grouping, and the Markdown export whose frontmatter is emitted and
-		* parsed by one strict schema so export → import round-trips losslessly.
-		* No React, no I/O — the view and the tests share this module, like
-		* `calendar.ts`, `create.ts`, and `competitors.ts`.
-		*/
-		/** Kanban column order and the canonical status sequence, oldest stage first. */
-		const TOPIC_STATUSES = [
-			"idea",
-			"todo",
-			"creating",
-			"done",
-			"shelved"
-		];
-		/** Source families of one topic, in filter order. */
-		const TOPIC_SOURCE_TYPES = [
-			"manual",
-			"gather",
-			"benchmark"
-		];
-		/** The shipped configuration; every load migration falls back here whole. */
-		const DEFAULT_TOPIC_BANK_CONFIG = {
-			version: 1,
-			view: "table",
-			filters: {
-				source: "all",
-				status: "all",
-				scoreMin: 0,
-				scoreMax: 10,
-				tag: null,
-				planWindow: "all",
-				search: ""
-			}
-		};
-		/** The recognized configuration version. */
-		const TOPIC_BANK_CONFIG_VERSION = 1;
-		function isSourceFilter(value) {
-			return value === "all" || typeof value === "string" && TOPIC_SOURCE_TYPES.includes(value);
-		}
-		function isStatusFilter(value) {
-			return value === "all" || typeof value === "string" && TOPIC_STATUSES.includes(value);
-		}
-		function isScoreBound(value) {
-			return typeof value === "number" && Number.isFinite(value) && value >= 0 && value <= 10;
-		}
-		function isPlanWindow(value) {
-			return value === "all" || value === "week" || value === "month";
-		}
-		function normalizeConfig(value) {
-			if (typeof value !== "object" || value === null) return null;
-			const record = value;
-			if (record.version !== 1) return null;
-			if (record.view !== "table" && record.view !== "kanban") return null;
-			const filters = record.filters;
-			if (typeof filters !== "object" || filters === null) return null;
-			const f = filters;
-			if (!isSourceFilter(f.source) || !isStatusFilter(f.status)) return null;
-			if (!isScoreBound(f.scoreMin) || !isScoreBound(f.scoreMax) || f.scoreMin > f.scoreMax) return null;
-			if (f.tag !== null && typeof f.tag !== "string") return null;
-			if (!isPlanWindow(f.planWindow)) return null;
-			if (typeof f.search !== "string") return null;
-			return {
-				version: 1,
-				view: record.view,
-				filters: {
-					source: f.source,
-					status: f.status,
-					scoreMin: f.scoreMin,
-					scoreMax: f.scoreMax,
-					tag: f.tag,
-					planWindow: f.planWindow,
-					search: f.search
-				}
-			};
-		}
-		/**
-		* Load and migrate one persisted configuration. Anything the current schema
-		* does not recognize — wrong version, truncated JSON, unexpected shapes —
-		* resolves to the defaults whole, so no dirty state ever reaches the view.
-		* @param raw - the stored JSON text, or null when nothing was saved.
-		* @returns the recognized configuration, or the defaults.
-		*/
-		function loadTopicBankConfig(raw) {
-			if (raw === null) return DEFAULT_TOPIC_BANK_CONFIG;
-			let parsed;
-			try {
-				parsed = JSON.parse(raw);
-			} catch {
-				return DEFAULT_TOPIC_BANK_CONFIG;
-			}
-			return normalizeConfig(parsed) ?? DEFAULT_TOPIC_BANK_CONFIG;
-		}
-		/**
-		* Serialize one configuration for localStorage.
-		* @param config - the configuration to persist.
-		* @returns the JSON text.
-		*/
-		function saveTopicBankConfig(config) {
-			return JSON.stringify(config);
-		}
-		/**
-		* Local-time Monday of the week containing `today`, as a wire date.
-		* @param today - the anchor date, `YYYY-MM-DD`.
-		* @returns the week's Monday wire date.
-		*/
-		function weekStart(today) {
-			const [year, month, day] = today.split("-").map(Number);
-			const weekday = (new Date(year, month - 1, day).getDay() + 6) % 7;
-			const monday = new Date(year, month - 1, day - weekday);
-			return formatDate(monday.getFullYear(), monday.getMonth() + 1, monday.getDate());
-		}
-		/**
-		* Compose a wire date from local year/month(1-12)/day.
-		* @param year - calendar year.
-		* @param month - calendar month, 1-12.
-		* @param day - calendar day.
-		* @returns the zero-padded `YYYY-MM-DD` date.
-		*/
-		function formatDate(year, month, day) {
-			return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-		}
-		/**
-		* The inclusive wire-date range one plan window covers.
-		* @param window - the selected window (`week` or `month`; `all` never
-		* range-checks and never reaches this function).
-		* @param today - the anchor date, `YYYY-MM-DD`.
-		* @returns `[start, end]` wire dates; `week` covers Monday–Sunday, `month`
-		* the calendar month.
-		*/
-		function planWindowRange(window, today) {
-			const start = window === "week" ? weekStart(today) : `${today.slice(0, 7)}-01`;
-			const [year, month, day] = start.split("-").map(Number);
-			if (window === "week") {
-				const end = new Date(year, month - 1, day + 6);
-				return [start, formatDate(end.getFullYear(), end.getMonth() + 1, end.getDate())];
-			}
-			return [start, formatDate(year, month, new Date(year, month, 0).getDate())];
-		}
-		/**
-		* Client-side filter of the visible topics: source, status, score range,
-		* tag, plan window, and keyword. Unscored topics pass the score filter only
-		* when the range's lower bound is 0, so tightening the range hides them;
-		* unplanned topics always show unless a week/month window is active.
-		* @param items - the bank's topics (any order).
-		* @param filters - the active filter state.
-		* @param today - the anchor date for plan windows, `YYYY-MM-DD`.
-		* @returns the topics passing every filter, in input order.
-		*/
-		function filterTopics(items, filters, today) {
-			const query = filters.search.trim().toLowerCase();
-			return items.filter((item) => {
-				if (filters.source !== "all" && item.source.type !== filters.source) return false;
-				if (filters.status !== "all" && item.status !== filters.status) return false;
-				if (filters.scoreMin > 0 && (item.score === null || item.score.total < filters.scoreMin)) return false;
-				if (filters.scoreMax < 10 && (item.score === null || item.score.total > filters.scoreMax)) return false;
-				if (filters.tag !== null && !item.tags.includes(filters.tag)) return false;
-				if (filters.planWindow !== "all") {
-					const [start, end] = planWindowRange(filters.planWindow, today);
-					if (item.planDate === null || item.planDate < start || item.planDate > end) return false;
-				}
-				if (query.length > 0) {
-					if (![
-						item.title,
-						item.oneLiner ?? "",
-						item.description ?? "",
-						...item.tags
-					].join("\n").toLowerCase().includes(query)) return false;
-				}
-				return true;
-			});
-		}
-		/**
-		* Group topics by status for the kanban's five columns.
-		* @param items - the topics to place.
-		* @returns one entry per canonical status, in column order, preserving each
-		* bucket's input order.
-		*/
-		function groupByStatus(items) {
-			return TOPIC_STATUSES.map((status) => ({
-				status,
-				items: items.filter((item) => item.status === status)
-			}));
-		}
-		/**
-		* Collect every distinct tag across the bank, alphabetically.
-		* @param items - the bank's topics.
-		* @returns the sorted distinct tag list.
-		*/
-		function collectTags(items) {
-			return [...new Set(items.flatMap((item) => [...item.tags]))].sort((a, b) => a < b ? -1 : 1);
-		}
-		/**
-		* Render one topic score for the table and kanban: integral scores stay
-		* bare, fractional ones keep one decimal.
-		* @param total - the score, 0–10.
-		* @returns the display text.
-		*/
-		function formatScore(total) {
-			return Number.isInteger(total) ? String(total) : total.toFixed(1);
-		}
-		/** Quote a frontmatter string: the schema quotes every string, escaping `\` and `"`. */
-		function quote(value) {
-			return `"${value.replaceAll("\\", "\\\\").replaceAll("\"", "\\\"")}"`;
-		}
-		/** Read back one quoted frontmatter string, reversing the emitter's escapes. */
-		function unquote(value) {
-			return value.slice(1, -1).replaceAll("\\\"", "\"").replaceAll("\\\\", "\\");
-		}
-		function isQuoted(value) {
-			return value.length >= 2 && value.startsWith("\"") && value.endsWith("\"");
-		}
-		/**
-		* Emit one topic's frontmatter-plus-body Markdown. The schema is strict:
-		* dates stay unquoted `YYYY-MM-DD`, scores stay bare numbers, every other
-		* scalar is double-quoted, and tags are a quoted inline array — the exact
-		* inverse of {@link parseTopicsMarkdown}, so a round-trip loses nothing.
-		* @param item - the topic to render.
-		* @returns the Markdown document text.
-		*/
-		function topicToMarkdown(item) {
-			const lines = [
-				"---",
-				`title: ${quote(item.title)}`,
-				`oneLiner: ${item.oneLiner === null ? "null" : quote(item.oneLiner)}`,
-				`status: ${item.status}`,
-				`sourceType: ${item.source.type}`,
-				`sourceUrl: ${item.source.url === null ? "null" : quote(item.source.url)}`,
-				`tags: [${item.tags.map(quote).join(", ")}]`,
-				`score: ${item.score === null ? "null" : String(item.score.total)}`,
-				`planDate: ${item.planDate ?? "null"}`,
-				`updatedAt: ${quote(item.updatedAt)}`,
-				"---"
-			];
-			const body = item.description ?? "";
-			return `${lines.join("\n")}\n\n${body}${body.endsWith("\n") || body.length === 0 ? "" : "\n"}`;
-		}
-		/**
-		* Emit the batch-export document: every topic under the next, separated by
-		* a blank line — one file carries the whole selection.
-		* @param items - the topics to export, in document order.
-		* @returns the Markdown document text.
-		*/
-		function topicsToMarkdown(items) {
-			return items.map(topicToMarkdown).join("\n");
-		}
-		function parseFrontmatterValue(raw) {
-			if (raw === "null") return null;
-			if (isQuoted(raw)) return unquote(raw);
-			return raw;
-		}
-		function parseTags(raw) {
-			if (!raw.startsWith("[") || !raw.endsWith("]")) return null;
-			const inner = raw.slice(1, -1).trim();
-			if (inner.length === 0) return [];
-			const parts = [];
-			let current = "";
-			let inQuotes = false;
-			for (let index = 0; index < inner.length; index += 1) {
-				const char = inner[index] ?? "";
-				if (inQuotes && char === "\"" && inner[index - 1] !== "\\") inQuotes = false;
-				else if (char === "\"") inQuotes = true;
-				if (char === "," && !inQuotes) {
-					parts.push(current.trim());
-					current = "";
-				} else current += char;
-			}
-			parts.push(current.trim());
-			return parts.every((part) => isQuoted(part)) ? parts.map((part) => parseFrontmatterValue(part) ?? "") : null;
-		}
-		/**
-		* Parse one document produced by {@link topicToMarkdown}. The parser accepts
-		* only the schema's own shape and answers null for anything else — it exists
-		* to keep the export schema honest (round-trip), not to import foreign files.
-		* @param markdown - the document text.
-		* @returns the parsed fields, or null when the document is not schema output.
-		*/
-		function parseTopicsMarkdown(markdown) {
-			if (!markdown.startsWith("---\n")) return null;
-			const close = markdown.indexOf("\n---\n", 4);
-			if (close < 0) return null;
-			const frontmatter = markdown.slice(4, close);
-			const body = markdown.slice(close + 5).replace(/^\n+/, "").replace(/\n?$/, "\n");
-			const fields = /* @__PURE__ */ new Map();
-			for (const line of frontmatter.split("\n")) {
-				const sep = line.indexOf(": ");
-				if (sep <= 0) return null;
-				fields.set(line.slice(0, sep), line.slice(sep + 2));
-			}
-			const title = fields.has("title") ? parseFrontmatterValue(fields.get("title") ?? "") : null;
-			if (title === null || title.length === 0) return null;
-			const status = fields.get("status") ?? "";
-			if (!TOPIC_STATUSES.includes(status)) return null;
-			const sourceType = fields.get("sourceType") ?? "";
-			if (!TOPIC_SOURCE_TYPES.includes(sourceType)) return null;
-			const tags = parseTags(fields.get("tags") ?? "");
-			if (tags === null) return null;
-			const scoreRaw = fields.get("score") ?? "";
-			const score = scoreRaw === "null" ? null : Number(scoreRaw);
-			if (score !== null && (!Number.isFinite(score) || score < 0 || score > 10)) return null;
-			const planDate = parseFrontmatterValue(fields.get("planDate") ?? "");
-			if (planDate !== null && !/^\d{4}-\d{2}-\d{2}$/.test(planDate)) return null;
-			const updatedAt = parseFrontmatterValue(fields.get("updatedAt") ?? "");
-			if (updatedAt === null) return null;
-			return {
-				title,
-				oneLiner: parseFrontmatterValue(fields.get("oneLiner") ?? ""),
-				status,
-				sourceType,
-				sourceUrl: parseFrontmatterValue(fields.get("sourceUrl") ?? ""),
-				tags,
-				score,
-				planDate,
-				updatedAt,
-				description: body.trim().length === 0 ? null : body.trim()
-			};
-		}
-		/**
-		* Build a create-topic input from one gather material join: the material's
-		* stable id rides along as `source.refId`, its link and create-time capture
-		* as `source.url` / `source.snapshot`, and the record starts in `idea`.
-		* @param material - the joined gather material.
-		* @param capturedAt - the capture instant, ISO 8601.
-		* @returns the upsert input for the contentTopics Remote.
-		*/
-		function gatherMaterialToTopicInput(material, capturedAt) {
-			return {
-				title: material.title,
-				oneLiner: material.summary ?? null,
-				status: "idea",
-				source: {
-					type: "gather",
-					refId: material.id,
-					url: material.url,
-					snapshot: {
-						title: material.title,
-						summary: material.summary ?? null,
-						capturedAt
-					}
-				},
-				tags: [],
-				description: null,
-				score: null,
-				planDate: null,
-				scheduleItemId: null,
-				topicDir: null
-			};
-		}
-		/**
-		* Build a manual topic input: only the title is required, and the record
-		* starts in `idea` — everything else is back-filled later in the detail
-		* panel.
-		* @param title - the working title.
-		* @returns the upsert input for the contentTopics Remote.
-		*/
-		function manualTopicInput(title) {
-			return {
-				title,
-				oneLiner: null,
-				status: "idea",
-				source: {
-					type: "manual",
-					refId: null,
-					url: null,
-					snapshot: null
-				},
-				tags: [],
-				description: null,
-				score: null,
-				planDate: null,
-				scheduleItemId: null,
-				topicDir: null
-			};
-		}
-		/**
-		* Project one stored topic back to its upsert input, with patches applied —
-		* the shape every status move, batch edit, and detail-panel save sends to
-		* the contentTopics Remote.
-		* @param item - the stored topic.
-		* @param patch - the fields overriding the stored ones.
-		* @returns the upsert input carrying the topic's `id`.
-		*/
-		function topicInputOf(item, patch = {}) {
-			return {
-				id: item.id,
-				title: item.title,
-				oneLiner: item.oneLiner,
-				status: item.status,
-				source: item.source,
-				tags: [...item.tags],
-				description: item.description,
-				score: item.score,
-				planDate: item.planDate,
-				scheduleItemId: item.scheduleItemId,
-				topicDir: item.topicDir,
-				...patch
-			};
-		}
-		/**
-		* The input for a batch tag edit: the stored tags plus every appended one,
-		* deduplicated, order preserved.
-		* @param item - the stored topic.
-		* @param appended - tags to add; duplicates of existing tags are ignored.
-		* @returns the upsert input with the union tags.
-		*/
-		function withAppendedTags(item, appended) {
-			const tags = [...item.tags];
-			for (const tag of appended) if (tag.length > 0 && !tags.includes(tag)) tags.push(tag);
-			return topicInputOf(item, { tags });
-		}
-		//#endregion
 		//#region \0dsh-css:D:\deepseek-harness\packages\client\ui-content-studio\src\client\TopicBankView.module.css.mjs
-		const css = ".N5vr6a_head{flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:12px;display:flex}.N5vr6a_primary{cursor:pointer;background:var(--dsw-alias-bg-brand,var(--dsw-alias-bg-accent));color:var(--dsw-alias-text-brand,var(--dsw-alias-text-accent));border:none;border-radius:8px;padding:7px 14px;font-size:13px;font-weight:600}.N5vr6a_primary:hover{filter:brightness(1.06)}.N5vr6a_toolbar{flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px;display:flex}.N5vr6a_toolbarGroup{align-items:center;gap:4px;min-width:0;display:flex}.N5vr6a_control{border:1px solid var(--dsw-alias-line-control);background:var(--dsw-alias-bg-control);color:var(--dsw-alias-text-primary);border-radius:6px;min-width:0;padding:5px 8px;font-size:12px}.N5vr6a_scoreInput{width:52px}.N5vr6a_pill{border:1px solid var(--dsw-alias-line-control);color:var(--dsw-alias-text-secondary);white-space:nowrap;border-radius:999px;padding:1px 8px;font-size:11px;display:inline-block}.N5vr6a_search{flex:160px}.N5vr6a_controlLabel,.N5vr6a_count{color:var(--dsw-alias-text-secondary);white-space:nowrap;font-size:12px}.N5vr6a_notice{border:1px solid var(--dsw-alias-line-control);color:var(--dsw-alias-text-primary);background:var(--dsw-alias-bg-control);cursor:pointer;text-align:left;border-radius:8px;align-items:center;gap:8px;margin-bottom:10px;padding:6px 10px;font-size:12px;display:flex}.N5vr6a_tableWrap{border:1px solid var(--dsw-alias-line-control);border-radius:10px;max-height:60vh;overflow:auto}.N5vr6a_table{border-collapse:collapse;width:100%;font-size:13px}.N5vr6a_table th{text-align:left;color:var(--dsw-alias-text-secondary);background:var(--dsw-alias-bg-control);white-space:nowrap;padding:8px 10px;font-size:12px;font-weight:600;position:sticky;top:0}.N5vr6a_table td{border-top:1px solid var(--dsw-alias-line-control);vertical-align:top;padding:8px 10px}.N5vr6a_row{cursor:pointer}.N5vr6a_row:hover td{background:var(--dsw-alias-bg-hover)}.N5vr6a_rowActive td{background:var(--dsw-alias-bg-active)}.N5vr6a_cellTitle{color:var(--dsw-alias-text-primary);min-width:160px;font-weight:600}.N5vr6a_cellTitleText{display:block}.N5vr6a_cellMeta{color:var(--dsw-alias-text-secondary);margin-top:2px;font-size:12px;font-weight:400;display:block}.N5vr6a_cellMuted{color:var(--dsw-alias-text-secondary);white-space:nowrap;font-size:12px}.N5vr6a_tag{border:1px solid var(--dsw-alias-line-control);color:var(--dsw-alias-text-secondary);border-radius:999px;margin:1px 4px 1px 0;padding:1px 8px;font-size:11px;display:inline-block}.N5vr6a_link{color:var(--dsw-alias-text-brand,var(--dsw-alias-text-accent));text-decoration:none}.N5vr6a_link:hover{text-decoration:underline}.N5vr6a_kanban{grid-template-columns:repeat(5,minmax(150px,1fr));align-items:start;gap:10px;display:grid;overflow-x:auto}.N5vr6a_column{border:1px solid var(--dsw-alias-line-control);background:var(--dsw-alias-bg-control);border-radius:10px;min-height:120px;padding:8px}.N5vr6a_columnOver{border-color:var(--dsw-alias-line-brand,var(--dsw-alias-line-accent))}.N5vr6a_columnHead{color:var(--dsw-alias-text-secondary);justify-content:space-between;align-items:center;margin-bottom:8px;font-size:12px;font-weight:600;display:flex}.N5vr6a_card{text-align:left;border:1px solid var(--dsw-alias-line-control);background:var(--dsw-alias-bg-surface);cursor:grab;width:100%;font:inherit;color:inherit;border-radius:8px;margin-bottom:8px;padding:8px;display:block}.N5vr6a_card:active{cursor:grabbing}.N5vr6a_cardActive{border-color:var(--dsw-alias-line-brand,var(--dsw-alias-line-accent))}.N5vr6a_cardTitle{color:var(--dsw-alias-text-primary);overflow-wrap:anywhere;font-size:13px;font-weight:600;display:block}.N5vr6a_cardMeta{color:var(--dsw-alias-text-secondary);margin-top:4px;font-size:11px;display:block}.N5vr6a_kanbanHint{color:var(--dsw-alias-text-secondary);margin:0 0 8px;font-size:12px}.N5vr6a_batchBar{border:1px dashed var(--dsw-alias-line-control);border-radius:8px;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:10px;padding:6px 10px;font-size:12px;display:flex}.N5vr6a_detail{border:1px solid var(--dsw-alias-line-control);border-radius:10px;padding:12px;font-size:13px}.N5vr6a_detailHead{justify-content:space-between;align-items:baseline;gap:8px;display:flex}.N5vr6a_detailTitle{color:var(--dsw-alias-text-primary);overflow-wrap:anywhere;margin:0;font-size:15px;font-weight:600}.N5vr6a_detailMeta{color:var(--dsw-alias-text-secondary);margin:4px 0 10px;font-size:12px}.N5vr6a_actions{flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px;display:flex}.N5vr6a_btn{border:1px solid var(--dsw-alias-line-control);background:var(--dsw-alias-bg-control);color:var(--dsw-alias-text-primary);cursor:pointer;border-radius:6px;padding:5px 10px;font-size:12px}.N5vr6a_btn:hover{background:var(--dsw-alias-bg-hover)}.N5vr6a_btnDanger{color:var(--dsw-alias-text-danger)}.N5vr6a_btnDanger:hover{background:var(--dsw-alias-bg-hover)}.N5vr6a_btnDisabled{opacity:.5;cursor:not-allowed}.N5vr6a_btnDisabled:hover{background:var(--dsw-alias-bg-control)}.N5vr6a_fieldBlock{margin-bottom:10px}.N5vr6a_fieldLabel{color:var(--dsw-alias-text-secondary);margin-bottom:2px;font-size:12px;font-weight:600;display:block}.N5vr6a_fieldValue{white-space:pre-wrap;overflow-wrap:anywhere;color:var(--dsw-alias-text-primary);margin:0}.N5vr6a_snapshot{border-left:3px solid var(--dsw-alias-line-control);margin-bottom:10px;padding:4px 0 4px 10px}.N5vr6a_formPanel{margin-bottom:12px}.N5vr6a_form{flex-direction:column;gap:8px;display:flex}.N5vr6a_formInput{border:1px solid var(--dsw-alias-line-control);background:var(--dsw-alias-bg-control);width:100%;color:var(--dsw-alias-text-primary);border-radius:6px;min-width:0;padding:6px 8px;font-size:13px}.N5vr6a_formTextarea{resize:vertical;min-height:72px;font-family:inherit}.N5vr6a_formRow{flex-wrap:wrap;align-items:center;gap:8px;display:flex}.N5vr6a_formError{color:var(--dsw-alias-text-danger);margin:0;font-size:12px}.N5vr6a_checkboxLabel{color:var(--dsw-alias-text-primary);align-items:center;gap:6px;font-size:12px;display:flex}.N5vr6a_confirmBox{border:1px solid var(--dsw-alias-line-control);border-radius:8px;flex-direction:column;gap:6px;margin-bottom:12px;padding:8px 10px;display:flex}.N5vr6a_guideHint{color:var(--dsw-alias-text-secondary);margin:0 0 12px;font-size:13px}.N5vr6a_guideActions{margin-bottom:16px}.N5vr6a_noMatch{color:var(--dsw-alias-text-secondary);font-size:13px}";
-		const tagId = "@deepseek-ai/dsh-client-ui-content-studio/TopicBankView.module.css";
-		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId) + "]") === null) {
+		const css$5 = ".N5vr6a_head{flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:12px;display:flex}.N5vr6a_primary{cursor:pointer;background:var(--dsw-alias-bg-brand,var(--dsw-alias-bg-accent));color:var(--dsw-alias-text-brand,var(--dsw-alias-text-accent));border:none;border-radius:8px;padding:7px 14px;font-size:13px;font-weight:600}.N5vr6a_primary:hover{filter:brightness(1.06)}.N5vr6a_toolbar{flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px;display:flex}.N5vr6a_toolbarGroup{align-items:center;gap:4px;min-width:0;display:flex}.N5vr6a_control{border:1px solid var(--dsw-alias-line-control);background:var(--dsw-alias-bg-control);color:var(--dsw-alias-text-primary);border-radius:6px;min-width:0;padding:5px 8px;font-size:12px}.N5vr6a_scoreInput{width:52px}.N5vr6a_pill{border:1px solid var(--dsw-alias-line-control);color:var(--dsw-alias-text-secondary);white-space:nowrap;border-radius:999px;padding:1px 8px;font-size:11px;display:inline-block}.N5vr6a_search{flex:160px}.N5vr6a_controlLabel,.N5vr6a_count{color:var(--dsw-alias-text-secondary);white-space:nowrap;font-size:12px}.N5vr6a_notice{border:1px solid var(--dsw-alias-line-control);color:var(--dsw-alias-text-primary);background:var(--dsw-alias-bg-control);cursor:pointer;text-align:left;border-radius:8px;align-items:center;gap:8px;margin-bottom:10px;padding:6px 10px;font-size:12px;display:flex}.N5vr6a_tableWrap{border:1px solid var(--dsw-alias-line-control);border-radius:10px;max-height:60vh;overflow:auto}.N5vr6a_table{border-collapse:collapse;width:100%;font-size:13px}.N5vr6a_table th{text-align:left;color:var(--dsw-alias-text-secondary);background:var(--dsw-alias-bg-control);white-space:nowrap;padding:8px 10px;font-size:12px;font-weight:600;position:sticky;top:0}.N5vr6a_table td{border-top:1px solid var(--dsw-alias-line-control);vertical-align:top;padding:8px 10px}.N5vr6a_row{cursor:pointer}.N5vr6a_row:hover td{background:var(--dsw-alias-bg-hover)}.N5vr6a_rowActive td{background:var(--dsw-alias-bg-active)}.N5vr6a_cellTitle{color:var(--dsw-alias-text-primary);min-width:160px;font-weight:600}.N5vr6a_cellTitleText{display:block}.N5vr6a_cellMeta{color:var(--dsw-alias-text-secondary);margin-top:2px;font-size:12px;font-weight:400;display:block}.N5vr6a_cellMuted{color:var(--dsw-alias-text-secondary);white-space:nowrap;font-size:12px}.N5vr6a_tag{border:1px solid var(--dsw-alias-line-control);color:var(--dsw-alias-text-secondary);border-radius:999px;margin:1px 4px 1px 0;padding:1px 8px;font-size:11px;display:inline-block}.N5vr6a_link{color:var(--dsw-alias-text-brand,var(--dsw-alias-text-accent));text-decoration:none}.N5vr6a_link:hover{text-decoration:underline}.N5vr6a_kanban{grid-template-columns:repeat(5,minmax(150px,1fr));align-items:start;gap:10px;display:grid;overflow-x:auto}.N5vr6a_column{border:1px solid var(--dsw-alias-line-control);background:var(--dsw-alias-bg-control);border-radius:10px;min-height:120px;padding:8px}.N5vr6a_columnOver{border-color:var(--dsw-alias-line-brand,var(--dsw-alias-line-accent))}.N5vr6a_columnHead{color:var(--dsw-alias-text-secondary);justify-content:space-between;align-items:center;margin-bottom:8px;font-size:12px;font-weight:600;display:flex}.N5vr6a_card{text-align:left;border:1px solid var(--dsw-alias-line-control);background:var(--dsw-alias-bg-surface);cursor:grab;width:100%;font:inherit;color:inherit;border-radius:8px;margin-bottom:8px;padding:8px;display:block}.N5vr6a_card:active{cursor:grabbing}.N5vr6a_cardActive{border-color:var(--dsw-alias-line-brand,var(--dsw-alias-line-accent))}.N5vr6a_cardTitle{color:var(--dsw-alias-text-primary);overflow-wrap:anywhere;font-size:13px;font-weight:600;display:block}.N5vr6a_cardMeta{color:var(--dsw-alias-text-secondary);margin-top:4px;font-size:11px;display:block}.N5vr6a_kanbanHint{color:var(--dsw-alias-text-secondary);margin:0 0 8px;font-size:12px}.N5vr6a_batchBar{border:1px dashed var(--dsw-alias-line-control);border-radius:8px;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:10px;padding:6px 10px;font-size:12px;display:flex}.N5vr6a_detail{border:1px solid var(--dsw-alias-line-control);border-radius:10px;padding:12px;font-size:13px}.N5vr6a_detailHead{justify-content:space-between;align-items:baseline;gap:8px;display:flex}.N5vr6a_detailTitle{color:var(--dsw-alias-text-primary);overflow-wrap:anywhere;margin:0;font-size:15px;font-weight:600}.N5vr6a_detailMeta{color:var(--dsw-alias-text-secondary);margin:4px 0 10px;font-size:12px}.N5vr6a_actions{flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px;display:flex}.N5vr6a_btn{border:1px solid var(--dsw-alias-line-control);background:var(--dsw-alias-bg-control);color:var(--dsw-alias-text-primary);cursor:pointer;border-radius:6px;padding:5px 10px;font-size:12px}.N5vr6a_btn:hover{background:var(--dsw-alias-bg-hover)}.N5vr6a_btnDanger{color:var(--dsw-alias-text-danger)}.N5vr6a_btnDanger:hover{background:var(--dsw-alias-bg-hover)}.N5vr6a_btnDisabled{opacity:.5;cursor:not-allowed}.N5vr6a_btnDisabled:hover{background:var(--dsw-alias-bg-control)}.N5vr6a_fieldBlock{margin-bottom:10px}.N5vr6a_fieldLabel{color:var(--dsw-alias-text-secondary);margin-bottom:2px;font-size:12px;font-weight:600;display:block}.N5vr6a_fieldValue{white-space:pre-wrap;overflow-wrap:anywhere;color:var(--dsw-alias-text-primary);margin:0}.N5vr6a_snapshot{border-left:3px solid var(--dsw-alias-line-control);margin-bottom:10px;padding:4px 0 4px 10px}.N5vr6a_formPanel{margin-bottom:12px}.N5vr6a_form{flex-direction:column;gap:8px;display:flex}.N5vr6a_formInput{border:1px solid var(--dsw-alias-line-control);background:var(--dsw-alias-bg-control);width:100%;color:var(--dsw-alias-text-primary);border-radius:6px;min-width:0;padding:6px 8px;font-size:13px}.N5vr6a_formTextarea{resize:vertical;min-height:72px;font-family:inherit}.N5vr6a_formRow{flex-wrap:wrap;align-items:center;gap:8px;display:flex}.N5vr6a_formError{color:var(--dsw-alias-text-danger);margin:0;font-size:12px}.N5vr6a_checkboxLabel{color:var(--dsw-alias-text-primary);align-items:center;gap:6px;font-size:12px;display:flex}.N5vr6a_confirmBox{border:1px solid var(--dsw-alias-line-control);border-radius:8px;flex-direction:column;gap:6px;margin-bottom:12px;padding:8px 10px;display:flex}.N5vr6a_guideHint{color:var(--dsw-alias-text-secondary);margin:0 0 12px;font-size:13px}.N5vr6a_guideActions{margin-bottom:16px}.N5vr6a_noMatch{color:var(--dsw-alias-text-secondary);font-size:13px}";
+		const tagId$5 = "@deepseek-ai/dsh-client-ui-content-studio/TopicBankView.module.css";
+		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId$5) + "]") === null) {
 			const tag = document.createElement("style");
 			tag.dataset.plugin = "@deepseek-ai/dsh-client-ui-content-studio";
-			tag.dataset.pluginCss = tagId;
-			tag.textContent = css;
+			tag.dataset.pluginCss = tagId$5;
+			tag.textContent = css$5;
 			document.head.appendChild(tag);
 		}
 		var TopicBankView_module_css_default = {
@@ -25115,7 +28796,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		* @param props - the injected face and the locale seat.
 		* @returns the view element tree.
 		*/
-		function TopicBankView({ topics, schedule, onStartCreate, writeExport, listThemes, copiedCapabilityId, pickCapability, t }) {
+		function TopicBankView({ topics, schedule, onStartCreate, writeExport, listThemes, copiedCapabilityId, pickCapability, templateLibrary, t }) {
 			const [snapshot, setSnapshot] = (0, react.useState)(void 0);
 			const [failed, setFailed] = (0, react.useState)(void 0);
 			const [config, setConfig] = (0, react.useState)(() => loadTopicBankConfig(localStorage.getItem(CONFIG_KEY)));
@@ -25197,19 +28878,37 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					...patch
 				});
 			};
-			const openCreate = () => {
+			const openCreate = (prefill) => {
 				setFormError(null);
 				setForm({
 					mode: "create",
 					id: null,
-					title: "",
-					oneLiner: "",
+					title: prefill?.title ?? "",
+					oneLiner: prefill?.oneLiner ?? "",
 					status: "idea",
-					tagsText: "",
-					description: "",
+					tagsText: prefill?.tagsText ?? "",
+					description: prefill?.description ?? "",
 					sourceUrl: "",
 					planDate: "",
 					scoreText: ""
+				});
+			};
+			/** The template-library handoff: the structured pick prefills the create
+			form — never a direct put, the draft stays user-editable before save. */
+			const openTemplatePicker = () => {
+				if (templateLibrary == null) return;
+				templateLibrary.openPicker({
+					category: "topic",
+					targetLabel: t("template.target.topic"),
+					hasContent: () => false,
+					apply: (draft) => {
+						openCreate({
+							title: draft.title,
+							oneLiner: "",
+							tagsText: draft.tags.join(", "),
+							description: draft.body
+						});
+					}
 				});
 			};
 			const submitCreate = async () => {
@@ -25220,7 +28919,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					return;
 				}
 				try {
-					setSnapshot(await topics.put(manualTopicInput(title)));
+					setSnapshot(await topics.put({
+						...manualTopicInput(title),
+						oneLiner: orNull(form.oneLiner),
+						tags: parseTagsText(form.tagsText),
+						description: orNull(form.description)
+					}));
 					setForm(null);
 					toast(t("topicBank.notice.created"));
 				} catch (error) {
@@ -25394,6 +29098,48 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							className: TopicBankView_module_css_default.formError,
 							children: formError
 						}),
+						(form.oneLiner.length > 0 || form.tagsText.length > 0 || form.description.length > 0) && (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
+							(0, react_jsx_runtime.jsx)("label", {
+								className: TopicBankView_module_css_default.fieldLabel,
+								htmlFor: "topic-bank-create-oneliner",
+								children: t("topicBank.field.oneLiner")
+							}),
+							(0, react_jsx_runtime.jsx)("input", {
+								id: "topic-bank-create-oneliner",
+								className: TopicBankView_module_css_default.formInput,
+								value: form.oneLiner,
+								onChange: (event) => {
+									patchForm({ oneLiner: event.target.value });
+								}
+							}),
+							(0, react_jsx_runtime.jsx)("label", {
+								className: TopicBankView_module_css_default.fieldLabel,
+								htmlFor: "topic-bank-create-tags",
+								children: t("topicBank.field.tags")
+							}),
+							(0, react_jsx_runtime.jsx)("input", {
+								id: "topic-bank-create-tags",
+								className: TopicBankView_module_css_default.formInput,
+								value: form.tagsText,
+								placeholder: t("topicBank.field.tagsPlaceholder"),
+								onChange: (event) => {
+									patchForm({ tagsText: event.target.value });
+								}
+							}),
+							(0, react_jsx_runtime.jsx)("label", {
+								className: TopicBankView_module_css_default.fieldLabel,
+								htmlFor: "topic-bank-create-description",
+								children: t("topicBank.field.description")
+							}),
+							(0, react_jsx_runtime.jsx)("textarea", {
+								id: "topic-bank-create-description",
+								className: clsx(TopicBankView_module_css_default.formInput, TopicBankView_module_css_default.formTextarea),
+								value: form.description,
+								onChange: (event) => {
+									patchForm({ description: event.target.value });
+								}
+							})
+						] }),
 						(0, react_jsx_runtime.jsxs)("div", {
 							className: TopicBankView_module_css_default.formRow,
 							children: [(0, react_jsx_runtime.jsx)("button", {
@@ -25444,14 +29190,21 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					className: ContentStudio_module_css_default.libraryState,
 					children: t("topicBank.guide.hint")
 				}),
-				(0, react_jsx_runtime.jsx)("div", {
+				(0, react_jsx_runtime.jsxs)("div", {
 					className: TopicBankView_module_css_default.guideActions,
-					children: (0, react_jsx_runtime.jsx)("button", {
+					children: [(0, react_jsx_runtime.jsx)("button", {
 						type: "button",
 						className: TopicBankView_module_css_default.primary,
-						onClick: openCreate,
+						onClick: () => {
+							openCreate();
+						},
 						children: t("topicBank.new")
-					})
+					}), templateLibrary != null && (0, react_jsx_runtime.jsx)("button", {
+						type: "button",
+						className: TopicBankView_module_css_default.btn,
+						onClick: openTemplatePicker,
+						children: t("topicBank.useTemplate")
+					})]
 				}),
 				(0, react_jsx_runtime.jsx)(CapabilityPage, {
 					title: t("topicBank.title"),
@@ -25614,18 +29367,29 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			return (0, react_jsx_runtime.jsxs)("div", { children: [
 				(0, react_jsx_runtime.jsxs)("header", {
 					className: TopicBankView_module_css_default.head,
-					children: [(0, react_jsx_runtime.jsxs)("div", { children: [(0, react_jsx_runtime.jsx)("h2", {
-						className: ContentStudio_module_css_default.pageTitle,
-						children: t("topicBank.title")
-					}), (0, react_jsx_runtime.jsx)("span", {
-						className: ContentStudio_module_css_default.subtitle,
-						children: t("topicBank.subtitle")
-					})] }), (0, react_jsx_runtime.jsx)("button", {
-						type: "button",
-						className: TopicBankView_module_css_default.primary,
-						onClick: openCreate,
-						children: t("topicBank.new")
-					})]
+					children: [
+						(0, react_jsx_runtime.jsxs)("div", { children: [(0, react_jsx_runtime.jsx)("h2", {
+							className: ContentStudio_module_css_default.pageTitle,
+							children: t("topicBank.title")
+						}), (0, react_jsx_runtime.jsx)("span", {
+							className: ContentStudio_module_css_default.subtitle,
+							children: t("topicBank.subtitle")
+						})] }),
+						(0, react_jsx_runtime.jsx)("button", {
+							type: "button",
+							className: TopicBankView_module_css_default.primary,
+							onClick: () => {
+								openCreate();
+							},
+							children: t("topicBank.new")
+						}),
+						templateLibrary != null && (0, react_jsx_runtime.jsx)("button", {
+							type: "button",
+							className: TopicBankView_module_css_default.btn,
+							onClick: openTemplatePicker,
+							children: t("topicBank.useTemplate")
+						})
+					]
 				}),
 				(0, react_jsx_runtime.jsxs)("div", {
 					className: TopicBankView_module_css_default.toolbar,
@@ -26183,20 +29947,4636 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			] });
 		}
 		//#endregion
+		//#region lib/types/client/publish/model.js
+		/**
+		* Pure model of the publish view: the built-in platform registry (the single
+		* source of platform rules — the AI prompt, the char counter, and the tag
+		* formatting all read it), the task-level helpers behind the state machine,
+		* the due-task scan for the open-time prompt, and the manuscript-pool
+		* projection from the outputs library snapshot.
+		*/
+		/** The built-in registry, one row per platform, domestic first. */
+		const PLATFORM_PROFILES = [
+			{
+				platformId: "xhs",
+				name: "小红书",
+				charLimit: 1e3,
+				tagStyle: "space",
+				coverRatio: "3:4",
+				longForm: false,
+				newlineRule: "段间空行，每段不超过 3 行",
+				styleHints: "短句为主，口语化，多用 emoji 点缀；开头两行是钩子；正文分段紧凑，结尾引导互动。"
+			},
+			{
+				platformId: "gzh",
+				name: "公众号",
+				charLimit: null,
+				tagStyle: "none",
+				coverRatio: "2.35:1",
+				longForm: true,
+				newlineRule: "正常段落排版，小标题分层",
+				styleHints: "长文结构：导语建立钩子、小标题分节、结尾引导在看/转发；书面语与口语平衡，信息密度高。"
+			},
+			{
+				platformId: "zhihu",
+				name: "知乎",
+				charLimit: null,
+				tagStyle: "closed",
+				coverRatio: null,
+				longForm: true,
+				newlineRule: "正常段落排版，可用引用块",
+				styleHints: "问答/科普风格：先给结论再展开论证，讲逻辑讲依据，适度专业术语，结尾可补个人观点。"
+			},
+			{
+				platformId: "douyin",
+				name: "抖音",
+				charLimit: 300,
+				tagStyle: "space",
+				coverRatio: "9:16",
+				longForm: false,
+				newlineRule: "短行，每行一个信息点",
+				styleHints: "短视频文案：前三秒钩子、口语化短句、节奏快；文案是口播脚本底稿，画面提示用方括号标注。"
+			},
+			{
+				platformId: "channels",
+				name: "视频号",
+				charLimit: 600,
+				tagStyle: "space",
+				coverRatio: "9:16",
+				longForm: false,
+				newlineRule: "短行，每行一个信息点",
+				styleHints: "短视频文案：钩子开场、口语短句；受众偏成熟，表达稳一些，少用夸张网感词。"
+			},
+			{
+				platformId: "bilibili",
+				name: "B站",
+				charLimit: null,
+				tagStyle: "space",
+				coverRatio: "16:9",
+				longForm: true,
+				newlineRule: "正常段落排版，分节清晰",
+				styleHints: "社区向表达：可以玩梗但不过度，正文像和观众聊天；视频简介版精炼列点，专栏版可长文。"
+			},
+			{
+				platformId: "weibo",
+				name: "微博",
+				charLimit: 2e3,
+				tagStyle: "space",
+				coverRatio: null,
+				longForm: false,
+				newlineRule: "短行，可带转发语",
+				styleHints: "快节奏短内容：一条主帖讲清一件事，可带话题词；首句抓眼球，结尾可引导讨论。"
+			}
+		];
+		/** Registry lookup by platform id. */
+		function platformProfileOf(platformId) {
+			return PLATFORM_PROFILES.find((profile) => profile.platformId === platformId);
+		}
+		PLATFORM_PROFILES.map((profile) => profile.platformId);
+		/**
+		* Project the outputs library snapshot into the manuscript pool: every
+		* project with at least one root deliverable contributes its deliverables.
+		* @param projects - the library snapshot's projects.
+		* @returns the pool cards, newest project first.
+		*/
+		function manuscriptCards(projects) {
+			const cards = [];
+			for (const project of projects) for (const file of project.deliverables) cards.push({
+				theme: project.topic,
+				file,
+				title: project.title,
+				status: project.status
+			});
+			return cards.reverse();
+		}
+		/**
+		* Format one task's tags for its platform: `#标签 ` per tag for the space
+		* style, `#标签#` pairs for the closed style, nothing for `none`.
+		* @param tags - the bare tag words.
+		* @param tagStyle - the platform's tag style.
+		* @returns the formatted tag block, or an empty string.
+		*/
+		function formatTags(tags, tagStyle) {
+			if (tagStyle === "none" || tags.length === 0) return "";
+			if (tagStyle === "closed") return tags.map((tag) => `#${tag}#`).join("");
+			return tags.map((tag) => `#${tag}`).join(" ");
+		}
+		/**
+		* Append one attempt entry to a platform leg's log. Appending is the
+		* idempotency basis: a retry adds a new entry and never rewrites history.
+		* @param platform - the platform leg.
+		* @param action - what was attempted.
+		* @param ok - whether it succeeded.
+		* @param detail - one-line outcome.
+		* @param at - when it happened, ISO 8601.
+		* @returns the platform leg with the entry appended.
+		*/
+		function withAttempt(platform, action, ok, detail, at) {
+			return {
+				...platform,
+				attempts: [...platform.attempts, {
+					at,
+					action,
+					ok,
+					detail
+				}]
+			};
+		}
+		/**
+		* Replace one platform leg inside a task, bumping the task's timestamp.
+		* @param task - the owning task.
+		* @param platformId - the leg to replace.
+		* @param next - the new leg state.
+		* @param at - the bump time, ISO 8601.
+		* @returns the task with the leg replaced.
+		*/
+		function withPlatform(task, platformId, next, at) {
+			return {
+				...task,
+				platforms: task.platforms.map((platform) => platform.platformId === platformId ? next : platform),
+				updatedAt: at
+			};
+		}
+		/**
+		* Map a task onto a new task-level status with a fresh timestamp.
+		* @param task - the task.
+		* @param status - the next status.
+		* @param at - the bump time, ISO 8601.
+		* @returns the task with the status applied.
+		*/
+		function withStatus(task, status, at) {
+			return {
+				...task,
+				status,
+				updatedAt: at
+			};
+		}
+		/**
+		* Scan one theme's tasks for scheduled ones whose time has passed — the
+		* open-view prompt. This phase never auto-executes: the scan only surfaces
+		* candidates for the manual run.
+		* @param tasks - the theme's stored tasks.
+		* @param now - the current instant.
+		* @returns the scheduled, overdue, not-yet-recorded tasks, oldest first.
+		*/
+		function dueScheduledTasks(tasks, now) {
+			return tasks.filter((task) => task.mode === "scheduled" && task.status === "scheduled" && task.scheduledAt !== null && new Date(task.scheduledAt).getTime() <= now.getTime()).sort((a, b) => (a.scheduledAt ?? "").localeCompare(b.scheduledAt ?? ""));
+		}
+		/**
+		* Whether a draft's body exceeds its platform's char cap (tags excluded).
+		* @param content - the draft body text.
+		* @param charLimit - the platform cap, or null when unlimited.
+		* @returns true when the draft is over the cap.
+		*/
+		function exceedsCharLimit(content, charLimit) {
+			return charLimit !== null && content.length > charLimit;
+		}
+		//#endregion
+		//#region \0dsh-css:D:\deepseek-harness\packages\client\ui-content-studio\src\client\PublishView.module.css.mjs
+		const css$4 = ".yIomAW_view{flex-direction:column;gap:16px;height:100%;padding:4px 4px 24px;display:flex;overflow-y:auto}.yIomAW_head{justify-content:space-between;align-items:flex-start;gap:12px;display:flex}.yIomAW_title{margin:0;font-size:20px;font-weight:600}.yIomAW_hint{opacity:.65;margin:4px 0 0;font-size:12px}.yIomAW_headActions{flex-shrink:0;gap:8px;display:flex}.yIomAW_primary,.yIomAW_ghost,.yIomAW_danger,.yIomAW_mini{cursor:pointer;font:inherit;border:none;border-radius:8px}.yIomAW_primary{background:var(--dsh-accent,#4f46e5);color:#fff;padding:7px 14px}.yIomAW_primary:disabled{opacity:.45;cursor:not-allowed}.yIomAW_ghost{border:1px solid var(--dsh-border,#80808059);color:inherit;background:0 0;padding:6px 12px}.yIomAW_danger{color:#dc2626;background:0 0;border:1px solid #dc262680;padding:6px 12px}.yIomAW_mini{border:1px solid var(--dsh-border,#80808059);color:inherit;background:0 0;padding:3px 8px;font-size:12px}.yIomAW_mini:disabled{opacity:.45;cursor:not-allowed}.yIomAW_notice{border-radius:8px;align-items:center;gap:10px;padding:8px 12px;font-size:13px;display:flex}.yIomAW_noticeOk{background:#22c55e1f}.yIomAW_noticeWarn{background:#eab30824}.yIomAW_noticeDetail{opacity:.7;overflow-wrap:anywhere}.yIomAW_profiles{border:1px solid var(--dsh-border,#80808040);border-radius:10px;padding:14px}.yIomAW_sectionTitle{margin:0 0 6px;font-size:15px;font-weight:600}.yIomAW_profileGrid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:10px;display:grid}.yIomAW_profileCard{border:1px solid var(--dsh-border,#80808040);border-radius:8px;flex-direction:column;gap:6px;padding:10px;display:flex}.yIomAW_profileHead{align-items:center;gap:6px;font-weight:600;display:flex}.yIomAW_aliasInput,.yIomAW_input{border:1px solid var(--dsh-border,#80808059);color:inherit;font:inherit;border-radius:6px;padding:5px 8px}.yIomAW_overrideInput{border:1px solid var(--dsh-border,#80808059);color:inherit;font:inherit;resize:vertical;border-radius:6px;min-height:48px;padding:5px 8px}.yIomAW_profilesActions{gap:8px;margin-top:10px;display:flex}.yIomAW_tabs{border-bottom:1px solid var(--dsh-border,#80808033);gap:4px;display:flex}.yIomAW_tab{color:inherit;cursor:pointer;font:inherit;background:0 0;border:none;border-bottom:2px solid #0000;padding:8px 12px}.yIomAW_tabActive{border-bottom-color:var(--dsh-accent,#4f46e5);font-weight:600}.yIomAW_columns{grid-template-columns:220px 1fr;align-items:start;gap:14px;display:grid}.yIomAW_taskList{flex-direction:column;gap:6px;display:flex}.yIomAW_taskItem{border:1px solid var(--dsh-border,#80808040);color:inherit;cursor:pointer;font:inherit;text-align:left;background:0 0;border-radius:8px;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;display:flex}.yIomAW_taskItemActive{border-color:var(--dsh-accent,#4f46e5)}.yIomAW_taskItemTitle{text-overflow:ellipsis;white-space:nowrap;font-size:13px;overflow:hidden}.yIomAW_main{flex-direction:column;gap:12px;min-width:0;display:flex}.yIomAW_badge{border-radius:999px;flex-shrink:0;padding:2px 8px;font-size:11px}.yIomAW_badgeDraft{background:#8080802e}.yIomAW_badgeReview{background:#3b82f629}.yIomAW_badgeScheduled{background:#eab30833}.yIomAW_badgeRecorded{background:#22c55e2e}.yIomAW_problem{color:#b91c1c;overflow-wrap:anywhere;background:#dc26261a;border-radius:8px;margin:0;padding:8px 10px;font-size:12px}.yIomAW_empty{opacity:.6;font-size:13px}.yIomAW_pool,.yIomAW_form,.yIomAW_detail{border:1px solid var(--dsh-border,#80808040);border-radius:10px;padding:14px}.yIomAW_poolGrid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:10px;display:grid}.yIomAW_poolCard{border:1px solid var(--dsh-border,#80808040);color:inherit;cursor:pointer;font:inherit;text-align:left;background:0 0;border-radius:8px;flex-direction:column;gap:4px;padding:10px;display:flex}.yIomAW_poolCard:hover{border-color:var(--dsh-accent,#4f46e5)}.yIomAW_poolTitle{text-overflow:ellipsis;white-space:nowrap;font-size:13px;font-weight:600;overflow:hidden}.yIomAW_poolMeta{opacity:.55;text-overflow:ellipsis;white-space:nowrap;font-size:11px;overflow:hidden}.yIomAW_formManuscript{margin:0 0 10px;font-weight:600}.yIomAW_formMeta{opacity:.55;margin-left:8px;font-size:11px;font-weight:400}.yIomAW_platformGrid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-bottom:10px;display:grid}.yIomAW_platformCard{border:1px solid var(--dsh-border,#80808040);cursor:pointer;border-radius:8px;align-items:center;gap:6px;padding:8px;display:flex}.yIomAW_platformCardActive{border-color:var(--dsh-accent,#4f46e5)}.yIomAW_platformCardOff{opacity:.55}.yIomAW_platformName{font-size:13px;font-weight:600}.yIomAW_platformMeta{opacity:.55;font-size:11px}.yIomAW_formRow{flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:8px;display:flex}.yIomAW_formLabel{align-items:center;gap:4px;font-size:13px;display:flex}.yIomAW_noteInput{border:1px solid var(--dsh-border,#80808059);color:inherit;font:inherit;resize:vertical;border-radius:6px;min-height:40px;margin-bottom:6px;padding:6px 8px}.yIomAW_formActions{gap:8px;margin-top:8px;display:flex}.yIomAW_detailHead{align-items:center;gap:10px;display:flex}.yIomAW_facts{color:inherit;opacity:.7;flex-wrap:wrap;gap:14px;margin:4px 0 10px;font-size:12px;display:flex}.yIomAW_detailActions{flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px;display:flex}.yIomAW_scheduleRow{align-items:center;gap:6px;display:inline-flex}.yIomAW_recordedNote{background:#22c55e1a;border-radius:6px;margin:0;padding:6px 10px;font-size:12px}.yIomAW_legGrid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;display:grid}.yIomAW_legCard{border:1px solid var(--dsh-border,#80808040);border-radius:8px;flex-direction:column;gap:8px;padding:10px;display:flex}.yIomAW_legHead{align-items:center;gap:8px;display:flex}.yIomAW_legCover,.yIomAW_legTags{opacity:.75;overflow-wrap:anywhere;margin:0;font-size:12px}.yIomAW_legActions{gap:6px;display:flex}.yIomAW_editBlock{flex-direction:column;gap:6px;display:flex}.yIomAW_editArea{border:1px solid var(--dsh-border,#80808059);color:inherit;font:inherit;resize:vertical;border-radius:6px;min-height:120px;padding:6px 8px}.yIomAW_editActions{gap:6px;display:flex}.yIomAW_logBox{font-size:12px}.yIomAW_logBox summary{cursor:pointer;opacity:.7}.yIomAW_logList{max-height:140px;margin:6px 0 0;padding:0;list-style:none;overflow-y:auto}.yIomAW_logList li{overflow-wrap:anywhere;padding:2px 0}.yIomAW_logOk{opacity:.8}.yIomAW_logFail{color:#dc2626}.yIomAW_history{border:1px solid var(--dsh-border,#80808040);border-radius:10px;padding:14px;overflow-x:auto}.yIomAW_historyTable{border-collapse:collapse;width:100%;margin-top:10px;font-size:13px}.yIomAW_historyTable th,.yIomAW_historyTable td{border-bottom:1px solid var(--dsh-border,#80808026);text-align:left;white-space:nowrap;padding:7px 10px}";
+		const tagId$4 = "@deepseek-ai/dsh-client-ui-content-studio/PublishView.module.css";
+		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId$4) + "]") === null) {
+			const tag = document.createElement("style");
+			tag.dataset.plugin = "@deepseek-ai/dsh-client-ui-content-studio";
+			tag.dataset.pluginCss = tagId$4;
+			tag.textContent = css$4;
+			document.head.appendChild(tag);
+		}
+		var PublishView_module_css_default = {
+			"aliasInput": "yIomAW_aliasInput",
+			"badge": "yIomAW_badge",
+			"badgeDraft": "yIomAW_badgeDraft",
+			"badgeRecorded": "yIomAW_badgeRecorded",
+			"badgeReview": "yIomAW_badgeReview",
+			"badgeScheduled": "yIomAW_badgeScheduled",
+			"columns": "yIomAW_columns",
+			"danger": "yIomAW_danger",
+			"detail": "yIomAW_detail",
+			"detailActions": "yIomAW_detailActions",
+			"detailHead": "yIomAW_detailHead",
+			"editActions": "yIomAW_editActions",
+			"editArea": "yIomAW_editArea",
+			"editBlock": "yIomAW_editBlock",
+			"empty": "yIomAW_empty",
+			"facts": "yIomAW_facts",
+			"form": "yIomAW_form",
+			"formActions": "yIomAW_formActions",
+			"formLabel": "yIomAW_formLabel",
+			"formManuscript": "yIomAW_formManuscript",
+			"formMeta": "yIomAW_formMeta",
+			"formRow": "yIomAW_formRow",
+			"ghost": "yIomAW_ghost",
+			"head": "yIomAW_head",
+			"headActions": "yIomAW_headActions",
+			"hint": "yIomAW_hint",
+			"history": "yIomAW_history",
+			"historyTable": "yIomAW_historyTable",
+			"input": "yIomAW_input",
+			"legActions": "yIomAW_legActions",
+			"legCard": "yIomAW_legCard",
+			"legCover": "yIomAW_legCover",
+			"legGrid": "yIomAW_legGrid",
+			"legHead": "yIomAW_legHead",
+			"legTags": "yIomAW_legTags",
+			"logBox": "yIomAW_logBox",
+			"logFail": "yIomAW_logFail",
+			"logList": "yIomAW_logList",
+			"logOk": "yIomAW_logOk",
+			"main": "yIomAW_main",
+			"mini": "yIomAW_mini",
+			"noteInput": "yIomAW_noteInput",
+			"notice": "yIomAW_notice",
+			"noticeDetail": "yIomAW_noticeDetail",
+			"noticeOk": "yIomAW_noticeOk",
+			"noticeWarn": "yIomAW_noticeWarn",
+			"overrideInput": "yIomAW_overrideInput",
+			"platformCard": "yIomAW_platformCard",
+			"platformCardActive": "yIomAW_platformCardActive",
+			"platformCardOff": "yIomAW_platformCardOff",
+			"platformGrid": "yIomAW_platformGrid",
+			"platformMeta": "yIomAW_platformMeta",
+			"platformName": "yIomAW_platformName",
+			"pool": "yIomAW_pool",
+			"poolCard": "yIomAW_poolCard",
+			"poolGrid": "yIomAW_poolGrid",
+			"poolMeta": "yIomAW_poolMeta",
+			"poolTitle": "yIomAW_poolTitle",
+			"primary": "yIomAW_primary",
+			"problem": "yIomAW_problem",
+			"profileCard": "yIomAW_profileCard",
+			"profileGrid": "yIomAW_profileGrid",
+			"profileHead": "yIomAW_profileHead",
+			"profiles": "yIomAW_profiles",
+			"profilesActions": "yIomAW_profilesActions",
+			"recordedNote": "yIomAW_recordedNote",
+			"scheduleRow": "yIomAW_scheduleRow",
+			"sectionTitle": "yIomAW_sectionTitle",
+			"tab": "yIomAW_tab",
+			"tabActive": "yIomAW_tabActive",
+			"tabs": "yIomAW_tabs",
+			"taskItem": "yIomAW_taskItem",
+			"taskItemActive": "yIomAW_taskItemActive",
+			"taskItemTitle": "yIomAW_taskItemTitle",
+			"taskList": "yIomAW_taskList",
+			"title": "yIomAW_title",
+			"view": "yIomAW_view"
+		};
+		//#endregion
+		//#region lib/types/client/PublishView.js
+		/**
+		* The publish view: the manuscript pool on the left of the create flow, the
+		* platform-matrix task builder, the per-platform AI adaptation board with
+		* append-only attempt logs, the record handoff that freezes the phase-2 MCP
+		* package, the global history list, and the topic reflow. Orchestration
+		* only — task logic lives in the pure `model.ts` and the controller.
+		*/
+		/** Status → its badge modifier class. */
+		const STATUS_CLASS = {
+			draft: PublishView_module_css_default.badgeDraft ?? "",
+			pendingReview: PublishView_module_css_default.badgeReview ?? "",
+			scheduled: PublishView_module_css_default.badgeScheduled ?? "",
+			recorded: PublishView_module_css_default.badgeRecorded ?? ""
+		};
+		/** Platform-leg status → its badge modifier class. */
+		const LEG_STATUS_CLASS = {
+			pending: PublishView_module_css_default.badgeDraft ?? "",
+			adapted: PublishView_module_css_default.badgeReview ?? "",
+			edited: PublishView_module_css_default.badgeScheduled ?? "",
+			recorded: PublishView_module_css_default.badgeRecorded ?? ""
+		};
+		/** Whether the locale key exists in the publish notice family. */
+		const NOTICE_KEYS = [
+			"profiles-saved",
+			"profiles-failed",
+			"task-created",
+			"task-create-failed",
+			"adapt-done",
+			"adapt-failed",
+			"draft-saved",
+			"draft-save-failed",
+			"recorded",
+			"record-failed",
+			"scheduled",
+			"schedule-failed",
+			"task-deleted",
+			"task-deleted-schedule-stale",
+			"delete-failed",
+			"copied",
+			"reflowed",
+			"reflow-orphan",
+			"reflow-failed",
+			"due-tasks",
+			"load-failed"
+		];
+		/**
+		* Render the publish view.
+		* @param props - the injected face and the locale seat.
+		* @returns the view element tree.
+		*/
+		function PublishView({ publish, persona, pickedManuscript, onClearPickedManuscript, t }) {
+			const state = (0, react.useSyncExternalStore)((listener) => publish.subscribe(listener), () => publish.getState());
+			const [tab, setTab] = (0, react.useState)("tasks");
+			const [showProfiles, setShowProfiles] = (0, react.useState)(false);
+			const [form, setForm] = (0, react.useState)(null);
+			const [draftEdit, setDraftEdit] = (0, react.useState)(null);
+			const [profileDraft, setProfileDraft] = (0, react.useState)(state.profiles);
+			const [scheduleInputs, setScheduleInputs] = (0, react.useState)({
+				date: "",
+				time: "09:00"
+			});
+			(0, react.useEffect)(() => {
+				publish.init();
+			}, [publish]);
+			(0, react.useEffect)(() => {
+				if (pickedManuscript === null) return;
+				setTab("tasks");
+				setForm({
+					theme: pickedManuscript.theme,
+					file: pickedManuscript.file,
+					title: pickedManuscript.title,
+					platformIds: [],
+					mode: "immediate",
+					scheduledLocal: "",
+					note: ""
+				});
+				onClearPickedManuscript();
+			}, [pickedManuscript, onClearPickedManuscript]);
+			(0, react.useEffect)(() => {
+				setProfileDraft(state.profiles);
+			}, [state.profiles]);
+			const openTask = state.tasks.find((task) => task.taskId === state.openTaskId) ?? null;
+			const startFormFrom = (card) => {
+				setForm({
+					theme: card.theme,
+					file: card.file,
+					title: card.title,
+					platformIds: [],
+					mode: "immediate",
+					scheduledLocal: "",
+					note: ""
+				});
+			};
+			const submitForm = async () => {
+				if (form === null) return;
+				const scheduledAt = form.mode === "scheduled" && form.scheduledLocal.length > 0 ? new Date(form.scheduledLocal).toISOString() : null;
+				await publish.createTask({
+					manuscript: {
+						theme: form.theme,
+						file: form.file,
+						title: form.title
+					},
+					platformIds: form.platformIds,
+					mode: form.mode,
+					scheduledAt,
+					note: form.note.trim().length > 0 ? form.note.trim() : null,
+					topicId: null,
+					personaDigest: persona.trim().length > 0 ? persona.trim().slice(0, 500) : null,
+					manuscriptId: null
+				});
+				setTab("tasks");
+				setForm(null);
+			};
+			const togglePlatform = (platformId) => {
+				setForm((current) => current === null ? current : {
+					...current,
+					platformIds: current.platformIds.includes(platformId) ? current.platformIds.filter((candidate) => candidate !== platformId) : [...current.platformIds, platformId]
+				});
+			};
+			const openHistoryRow = async (theme, taskId) => {
+				await publish.openTheme(theme);
+				publish.selectTask(taskId);
+				setTab("tasks");
+			};
+			return (0, react_jsx_runtime.jsxs)("div", {
+				className: PublishView_module_css_default.view,
+				children: [
+					(0, react_jsx_runtime.jsxs)("header", {
+						className: PublishView_module_css_default.head,
+						children: [(0, react_jsx_runtime.jsxs)("div", { children: [(0, react_jsx_runtime.jsx)("h2", {
+							className: PublishView_module_css_default.title,
+							children: t("publish.title")
+						}), (0, react_jsx_runtime.jsx)("p", {
+							className: PublishView_module_css_default.hint,
+							children: t("publish.hint")
+						})] }), (0, react_jsx_runtime.jsx)("div", {
+							className: PublishView_module_css_default.headActions,
+							children: (0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: PublishView_module_css_default.ghost,
+								onClick: () => {
+									setShowProfiles((current) => !current);
+								},
+								children: t("publish.profiles.toggle")
+							})
+						})]
+					}),
+					state.notice !== null && NOTICE_KEYS.includes(state.notice) && (0, react_jsx_runtime.jsxs)("div", {
+						className: clsx(PublishView_module_css_default.notice, state.notice.endsWith("failed") || state.notice === "load-failed" ? PublishView_module_css_default.noticeWarn : PublishView_module_css_default.noticeOk),
+						role: "status",
+						children: [
+							(0, react_jsx_runtime.jsx)("span", { children: t(`publish.notice.${state.notice}`) }),
+							state.error !== null && (0, react_jsx_runtime.jsx)("span", {
+								className: PublishView_module_css_default.noticeDetail,
+								children: state.error
+							}),
+							(0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: PublishView_module_css_default.mini,
+								onClick: () => {
+									publish.clearNotice();
+								},
+								children: t("publish.notice.dismiss")
+							})
+						]
+					}),
+					showProfiles && (0, react_jsx_runtime.jsxs)("section", {
+						className: PublishView_module_css_default.profiles,
+						"aria-label": t("publish.profiles.title"),
+						children: [
+							(0, react_jsx_runtime.jsx)("h3", {
+								className: PublishView_module_css_default.sectionTitle,
+								children: t("publish.profiles.title")
+							}),
+							(0, react_jsx_runtime.jsx)("p", {
+								className: PublishView_module_css_default.hint,
+								children: t("publish.profiles.hint")
+							}),
+							(0, react_jsx_runtime.jsx)("div", {
+								className: PublishView_module_css_default.profileGrid,
+								children: PLATFORM_PROFILES.map((profile) => {
+									const stored = profileDraft.find((candidate) => candidate.platformId === profile.platformId);
+									return (0, react_jsx_runtime.jsxs)("div", {
+										className: PublishView_module_css_default.profileCard,
+										children: [
+											(0, react_jsx_runtime.jsxs)("label", {
+												className: PublishView_module_css_default.profileHead,
+												children: [(0, react_jsx_runtime.jsx)("input", {
+													type: "checkbox",
+													checked: stored?.enabled ?? false,
+													onChange: (event) => {
+														const enabled = event.target.checked;
+														setProfileDraft((current) => {
+															return (current.some((candidate) => candidate.platformId === profile.platformId) ? current : [...current, {
+																platformId: profile.platformId,
+																alias: profile.name,
+																enabled: false,
+																adaptationOverrides: null
+															}]).map((candidate) => candidate.platformId === profile.platformId ? {
+																...candidate,
+																enabled
+															} : candidate);
+														});
+													}
+												}), (0, react_jsx_runtime.jsx)("span", { children: profile.name })]
+											}),
+											(0, react_jsx_runtime.jsx)("input", {
+												type: "text",
+												className: PublishView_module_css_default.aliasInput,
+												placeholder: t("publish.profiles.alias"),
+												value: stored?.alias ?? "",
+												onChange: (event) => {
+													const alias = event.target.value;
+													setProfileDraft((current) => current.map((candidate) => candidate.platformId === profile.platformId ? {
+														...candidate,
+														alias
+													} : candidate));
+												}
+											}),
+											(0, react_jsx_runtime.jsx)("textarea", {
+												className: PublishView_module_css_default.overrideInput,
+												placeholder: t("publish.profiles.overrides"),
+												value: stored?.adaptationOverrides ?? "",
+												onChange: (event) => {
+													const adaptationOverrides = event.target.value;
+													setProfileDraft((current) => current.map((candidate) => candidate.platformId === profile.platformId ? {
+														...candidate,
+														adaptationOverrides
+													} : candidate));
+												}
+											})
+										]
+									}, profile.platformId);
+								})
+							}),
+							(0, react_jsx_runtime.jsxs)("div", {
+								className: PublishView_module_css_default.profilesActions,
+								children: [(0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: PublishView_module_css_default.primary,
+									onClick: () => {
+										publish.saveProfiles(profileDraft);
+									},
+									children: t("publish.profiles.save")
+								}), (0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: PublishView_module_css_default.ghost,
+									onClick: () => {
+										setShowProfiles(false);
+									},
+									children: t("publish.profiles.close")
+								})]
+							})
+						]
+					}),
+					(0, react_jsx_runtime.jsxs)("nav", {
+						className: PublishView_module_css_default.tabs,
+						role: "tablist",
+						children: [(0, react_jsx_runtime.jsx)("button", {
+							type: "button",
+							role: "tab",
+							"aria-selected": tab === "tasks",
+							className: clsx(PublishView_module_css_default.tab, tab === "tasks" && PublishView_module_css_default.tabActive),
+							onClick: () => {
+								setTab("tasks");
+							},
+							children: t("publish.tab.tasks")
+						}), (0, react_jsx_runtime.jsx)("button", {
+							type: "button",
+							role: "tab",
+							"aria-selected": tab === "history",
+							className: clsx(PublishView_module_css_default.tab, tab === "history" && PublishView_module_css_default.tabActive),
+							onClick: () => {
+								setTab("history");
+							},
+							children: t("publish.tab.history")
+						})]
+					}),
+					tab === "tasks" && (0, react_jsx_runtime.jsxs)("div", {
+						className: PublishView_module_css_default.columns,
+						children: [(0, react_jsx_runtime.jsxs)("aside", {
+							className: PublishView_module_css_default.taskList,
+							"aria-label": t("publish.tab.tasks"),
+							children: [
+								state.theme === null && (0, react_jsx_runtime.jsx)("p", {
+									className: PublishView_module_css_default.empty,
+									children: t("publish.theme.none")
+								}),
+								state.tasks.length === 0 && state.theme !== null && (0, react_jsx_runtime.jsx)("p", {
+									className: PublishView_module_css_default.empty,
+									children: t("publish.tasks.empty")
+								}),
+								state.tasks.map((task) => (0, react_jsx_runtime.jsxs)("button", {
+									type: "button",
+									className: clsx(PublishView_module_css_default.taskItem, task.taskId === state.openTaskId && PublishView_module_css_default.taskItemActive),
+									onClick: () => {
+										publish.selectTask(task.taskId);
+									},
+									children: [(0, react_jsx_runtime.jsx)("span", {
+										className: PublishView_module_css_default.taskItemTitle,
+										children: task.title
+									}), (0, react_jsx_runtime.jsx)("span", {
+										className: clsx(PublishView_module_css_default.badge, STATUS_CLASS[task.status]),
+										children: t(`publish.status.${task.status}`)
+									})]
+								}, task.taskId))
+							]
+						}), (0, react_jsx_runtime.jsxs)("div", {
+							className: PublishView_module_css_default.main,
+							children: [
+								state.manifestProblems.length > 0 && (0, react_jsx_runtime.jsx)("p", {
+									className: PublishView_module_css_default.problem,
+									children: t("publish.problems").replace("{list}", state.manifestProblems.join("；"))
+								}),
+								form === null && openTask === null && (0, react_jsx_runtime.jsxs)("section", {
+									className: PublishView_module_css_default.pool,
+									"aria-label": t("publish.pool.title"),
+									children: [
+										(0, react_jsx_runtime.jsx)("h3", {
+											className: PublishView_module_css_default.sectionTitle,
+											children: t("publish.pool.title")
+										}),
+										(0, react_jsx_runtime.jsx)("p", {
+											className: PublishView_module_css_default.hint,
+											children: t("publish.pool.hint")
+										}),
+										state.manuscripts.length === 0 && (0, react_jsx_runtime.jsx)("p", {
+											className: PublishView_module_css_default.empty,
+											children: t("publish.pool.empty")
+										}),
+										(0, react_jsx_runtime.jsx)("div", {
+											className: PublishView_module_css_default.poolGrid,
+											children: state.manuscripts.map((card) => (0, react_jsx_runtime.jsxs)("button", {
+												type: "button",
+												className: PublishView_module_css_default.poolCard,
+												onClick: () => {
+													startFormFrom(card);
+												},
+												children: [(0, react_jsx_runtime.jsx)("span", {
+													className: PublishView_module_css_default.poolTitle,
+													children: card.title
+												}), (0, react_jsx_runtime.jsxs)("span", {
+													className: PublishView_module_css_default.poolMeta,
+													children: [
+														card.theme,
+														"/",
+														card.file
+													]
+												})]
+											}, `${card.theme}/${card.file}`))
+										})
+									]
+								}),
+								form !== null && (0, react_jsx_runtime.jsxs)("section", {
+									className: PublishView_module_css_default.form,
+									"aria-label": t("publish.form.title"),
+									children: [
+										(0, react_jsx_runtime.jsx)("h3", {
+											className: PublishView_module_css_default.sectionTitle,
+											children: t("publish.form.title")
+										}),
+										(0, react_jsx_runtime.jsxs)("p", {
+											className: PublishView_module_css_default.formManuscript,
+											children: [form.title, (0, react_jsx_runtime.jsxs)("span", {
+												className: PublishView_module_css_default.formMeta,
+												children: [
+													form.theme,
+													"/",
+													form.file
+												]
+											})]
+										}),
+										(0, react_jsx_runtime.jsx)("div", {
+											className: PublishView_module_css_default.platformGrid,
+											children: PLATFORM_PROFILES.map((profile) => {
+												const card = state.profiles.find((candidate) => candidate.platformId === profile.platformId);
+												const checked = form.platformIds.includes(profile.platformId);
+												return (0, react_jsx_runtime.jsxs)("label", {
+													className: clsx(PublishView_module_css_default.platformCard, checked && PublishView_module_css_default.platformCardActive, card?.enabled === false && PublishView_module_css_default.platformCardOff),
+													children: [
+														(0, react_jsx_runtime.jsx)("input", {
+															type: "checkbox",
+															checked,
+															onChange: () => {
+																togglePlatform(profile.platformId);
+															}
+														}),
+														(0, react_jsx_runtime.jsx)("span", {
+															className: PublishView_module_css_default.platformName,
+															children: profile.name
+														}),
+														(0, react_jsx_runtime.jsx)("span", {
+															className: PublishView_module_css_default.platformMeta,
+															children: card?.alias ?? profile.name
+														})
+													]
+												}, profile.platformId);
+											})
+										}),
+										(0, react_jsx_runtime.jsxs)("div", {
+											className: PublishView_module_css_default.formRow,
+											children: [
+												(0, react_jsx_runtime.jsxs)("label", {
+													className: PublishView_module_css_default.formLabel,
+													children: [(0, react_jsx_runtime.jsx)("input", {
+														type: "radio",
+														name: "publish-mode",
+														checked: form.mode === "immediate",
+														onChange: () => {
+															setForm({
+																...form,
+																mode: "immediate"
+															});
+														}
+													}), t("publish.form.immediate")]
+												}),
+												(0, react_jsx_runtime.jsxs)("label", {
+													className: PublishView_module_css_default.formLabel,
+													children: [(0, react_jsx_runtime.jsx)("input", {
+														type: "radio",
+														name: "publish-mode",
+														checked: form.mode === "scheduled",
+														onChange: () => {
+															setForm({
+																...form,
+																mode: "scheduled"
+															});
+														}
+													}), t("publish.form.scheduled")]
+												}),
+												form.mode === "scheduled" && (0, react_jsx_runtime.jsx)("input", {
+													type: "datetime-local",
+													className: PublishView_module_css_default.input,
+													value: form.scheduledLocal,
+													onChange: (event) => {
+														setForm({
+															...form,
+															scheduledLocal: event.target.value
+														});
+													}
+												})
+											]
+										}),
+										(0, react_jsx_runtime.jsx)("textarea", {
+											className: PublishView_module_css_default.noteInput,
+											placeholder: t("publish.form.note"),
+											value: form.note,
+											onChange: (event) => {
+												setForm({
+													...form,
+													note: event.target.value
+												});
+											}
+										}),
+										(0, react_jsx_runtime.jsxs)("p", {
+											className: PublishView_module_css_default.hint,
+											children: [t("publish.form.persona"), persona.trim().length > 0 ? t("publish.form.personaOn") : t("publish.form.personaOff")]
+										}),
+										(0, react_jsx_runtime.jsxs)("div", {
+											className: PublishView_module_css_default.formActions,
+											children: [(0, react_jsx_runtime.jsx)("button", {
+												type: "button",
+												className: PublishView_module_css_default.primary,
+												disabled: form.platformIds.length === 0,
+												onClick: () => {
+													submitForm();
+												},
+												children: t("publish.form.submit")
+											}), (0, react_jsx_runtime.jsx)("button", {
+												type: "button",
+												className: PublishView_module_css_default.ghost,
+												onClick: () => {
+													setForm(null);
+												},
+												children: t("publish.form.cancel")
+											})]
+										})
+									]
+								}),
+								form === null && openTask !== null && (0, react_jsx_runtime.jsx)(TaskDetail, {
+									task: openTask,
+									state,
+									publish,
+									draftEdit,
+									setDraftEdit,
+									scheduleInputs,
+									setScheduleInputs,
+									t
+								})
+							]
+						})]
+					}),
+					tab === "history" && (0, react_jsx_runtime.jsxs)("section", {
+						className: PublishView_module_css_default.history,
+						"aria-label": t("publish.tab.history"),
+						children: [
+							state.indexProblems.length > 0 && (0, react_jsx_runtime.jsx)("p", {
+								className: PublishView_module_css_default.problem,
+								children: t("publish.problems").replace("{list}", state.indexProblems.join("；"))
+							}),
+							state.index.length === 0 && (0, react_jsx_runtime.jsx)("p", {
+								className: PublishView_module_css_default.empty,
+								children: t("publish.history.empty")
+							}),
+							(0, react_jsx_runtime.jsxs)("table", {
+								className: PublishView_module_css_default.historyTable,
+								children: [(0, react_jsx_runtime.jsx)("thead", { children: (0, react_jsx_runtime.jsxs)("tr", { children: [
+									(0, react_jsx_runtime.jsx)("th", { children: t("publish.history.task") }),
+									(0, react_jsx_runtime.jsx)("th", { children: t("publish.history.theme") }),
+									(0, react_jsx_runtime.jsx)("th", { children: t("publish.history.platforms") }),
+									(0, react_jsx_runtime.jsx)("th", { children: t("publish.history.status") }),
+									(0, react_jsx_runtime.jsx)("th", { children: t("publish.history.updated") }),
+									(0, react_jsx_runtime.jsx)("th", { "aria-label": t("publish.history.actions") })
+								] }) }), (0, react_jsx_runtime.jsx)("tbody", { children: [...state.index].reverse().map((entry) => (0, react_jsx_runtime.jsxs)("tr", { children: [
+									(0, react_jsx_runtime.jsx)("td", { children: entry.title }),
+									(0, react_jsx_runtime.jsx)("td", { children: entry.theme }),
+									(0, react_jsx_runtime.jsx)("td", { children: entry.platformIds.map((id) => platformProfileOf(id)?.name ?? id).join("、") }),
+									(0, react_jsx_runtime.jsx)("td", { children: (0, react_jsx_runtime.jsx)("span", {
+										className: clsx(PublishView_module_css_default.badge, STATUS_CLASS[entry.status]),
+										children: t(`publish.status.${entry.status}`)
+									}) }),
+									(0, react_jsx_runtime.jsx)("td", { children: entry.updatedAt.slice(0, 16).replace("T", " ") }),
+									(0, react_jsx_runtime.jsx)("td", { children: (0, react_jsx_runtime.jsx)("button", {
+										type: "button",
+										className: PublishView_module_css_default.mini,
+										onClick: () => {
+											openHistoryRow(entry.theme, entry.taskId);
+										},
+										children: t("publish.history.open")
+									}) })
+								] }, `${entry.theme}/${entry.taskId}`)) })]
+							})
+						]
+					})
+				]
+			});
+		}
+		/**
+		* Render one open task: the fact header, the platform legs with their
+		* adaptation/edit/log surfaces, and the task-level actions.
+		*/
+		function TaskDetail({ task, state, publish, draftEdit, setDraftEdit, scheduleInputs, setScheduleInputs, t }) {
+			const isRecorded = task.status === "recorded";
+			return (0, react_jsx_runtime.jsxs)("section", {
+				className: PublishView_module_css_default.detail,
+				"aria-label": task.title,
+				children: [
+					(0, react_jsx_runtime.jsxs)("header", {
+						className: PublishView_module_css_default.detailHead,
+						children: [(0, react_jsx_runtime.jsx)("h3", {
+							className: PublishView_module_css_default.sectionTitle,
+							children: task.title
+						}), (0, react_jsx_runtime.jsx)("span", {
+							className: clsx(PublishView_module_css_default.badge, STATUS_CLASS[task.status]),
+							children: t(`publish.status.${task.status}`)
+						})]
+					}),
+					(0, react_jsx_runtime.jsxs)("p", {
+						className: PublishView_module_css_default.facts,
+						children: [
+							(0, react_jsx_runtime.jsxs)("span", { children: [t("publish.fact.manuscript"), task.manuscriptFile] }),
+							task.topicId !== null && (0, react_jsx_runtime.jsxs)("span", { children: [t("publish.fact.topic"), task.topicId] }),
+							task.scheduledAt !== null && (0, react_jsx_runtime.jsxs)("span", { children: [t("publish.fact.scheduledAt"), task.scheduledAt.slice(0, 16).replace("T", " ")] }),
+							task.note !== null && (0, react_jsx_runtime.jsxs)("span", { children: [t("publish.fact.note"), task.note] })
+						]
+					}),
+					!isRecorded && (0, react_jsx_runtime.jsxs)("div", {
+						className: PublishView_module_css_default.detailActions,
+						children: [
+							(0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: PublishView_module_css_default.primary,
+								disabled: task.platforms.every((leg) => leg.status !== "pending"),
+								onClick: () => {
+									(async () => {
+										for (const leg of task.platforms) if (leg.status === "pending") await publish.adaptPlatform(task.taskId, leg.platformId);
+									})();
+								},
+								children: t("publish.action.preview")
+							}),
+							(0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: PublishView_module_css_default.primary,
+								disabled: state.recording,
+								onClick: () => {
+									publish.recordTask(task.taskId);
+								},
+								children: t("publish.action.record")
+							}),
+							task.mode === "scheduled" && task.scheduleItemId === null && (0, react_jsx_runtime.jsxs)("span", {
+								className: PublishView_module_css_default.scheduleRow,
+								children: [
+									(0, react_jsx_runtime.jsx)("input", {
+										type: "date",
+										className: PublishView_module_css_default.input,
+										value: scheduleInputs.date,
+										onChange: (event) => {
+											setScheduleInputs({
+												...scheduleInputs,
+												date: event.target.value
+											});
+										}
+									}),
+									(0, react_jsx_runtime.jsx)("input", {
+										type: "time",
+										className: PublishView_module_css_default.input,
+										value: scheduleInputs.time,
+										onChange: (event) => {
+											setScheduleInputs({
+												...scheduleInputs,
+												time: event.target.value
+											});
+										}
+									}),
+									(0, react_jsx_runtime.jsx)("button", {
+										type: "button",
+										className: PublishView_module_css_default.ghost,
+										disabled: scheduleInputs.date.length === 0,
+										onClick: () => {
+											publish.scheduleTask(task.taskId, scheduleInputs.date, scheduleInputs.time);
+										},
+										children: t("publish.action.schedule")
+									})
+								]
+							}),
+							(0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: PublishView_module_css_default.ghost,
+								onClick: () => {
+									publish.copyTask(task.taskId);
+								},
+								children: t("publish.action.copy")
+							}),
+							(0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: PublishView_module_css_default.danger,
+								onClick: () => {
+									if (!window.confirm(t("publish.action.deleteConfirm"))) return;
+									publish.deleteTask(task.taskId);
+								},
+								children: t("publish.action.delete")
+							})
+						]
+					}),
+					isRecorded && (0, react_jsx_runtime.jsxs)("div", {
+						className: PublishView_module_css_default.detailActions,
+						children: [(0, react_jsx_runtime.jsx)("p", {
+							className: PublishView_module_css_default.recordedNote,
+							children: t("publish.recorded.note")
+						}), task.topicId !== null && (0, react_jsx_runtime.jsx)("button", {
+							type: "button",
+							className: PublishView_module_css_default.primary,
+							onClick: () => {
+								publish.reflowTask(task.taskId);
+							},
+							children: t("publish.action.reflow")
+						})]
+					}),
+					(0, react_jsx_runtime.jsx)("div", {
+						className: PublishView_module_css_default.legGrid,
+						children: task.platforms.map((leg) => {
+							const profile = platformProfileOf(leg.platformId);
+							const busy = state.busyPlatforms[`${task.taskId}:${leg.platformId}`] === true;
+							const editing = draftEdit !== null && draftEdit.taskId === task.taskId && draftEdit.platformId === leg.platformId;
+							return (0, react_jsx_runtime.jsxs)("div", {
+								className: PublishView_module_css_default.legCard,
+								children: [
+									(0, react_jsx_runtime.jsxs)("header", {
+										className: PublishView_module_css_default.legHead,
+										children: [
+											(0, react_jsx_runtime.jsx)("span", {
+												className: PublishView_module_css_default.platformName,
+												children: profile?.name ?? leg.platformId
+											}),
+											(0, react_jsx_runtime.jsx)("span", {
+												className: PublishView_module_css_default.platformMeta,
+												children: leg.accountAlias
+											}),
+											(0, react_jsx_runtime.jsx)("span", {
+												className: clsx(PublishView_module_css_default.badge, LEG_STATUS_CLASS[leg.status]),
+												children: t(`publish.leg.${leg.status}`)
+											})
+										]
+									}),
+									leg.coverPrompt !== null && (0, react_jsx_runtime.jsxs)("p", {
+										className: PublishView_module_css_default.legCover,
+										children: [t("publish.leg.cover"), leg.coverPrompt]
+									}),
+									leg.tags.length > 0 && profile !== void 0 && (0, react_jsx_runtime.jsx)("p", {
+										className: PublishView_module_css_default.legTags,
+										children: formatTags(leg.tags, profile.tagStyle)
+									}),
+									(0, react_jsx_runtime.jsxs)("div", {
+										className: PublishView_module_css_default.legActions,
+										children: [(0, react_jsx_runtime.jsx)("button", {
+											type: "button",
+											className: PublishView_module_css_default.mini,
+											disabled: busy,
+											onClick: () => {
+												publish.adaptPlatform(task.taskId, leg.platformId);
+											},
+											children: leg.status === "pending" ? t("publish.leg.adapt") : t("publish.leg.readapt")
+										}), !editing && (0, react_jsx_runtime.jsx)("button", {
+											type: "button",
+											className: PublishView_module_css_default.mini,
+											onClick: () => {
+												(async () => {
+													const content = await publish.loadDraft(task.taskId, leg.platformId);
+													setDraftEdit({
+														taskId: task.taskId,
+														platformId: leg.platformId,
+														content: content ?? ""
+													});
+												})();
+											},
+											children: t("publish.leg.edit")
+										})]
+									}),
+									editing && draftEdit !== null && (0, react_jsx_runtime.jsxs)("div", {
+										className: PublishView_module_css_default.editBlock,
+										children: [
+											(0, react_jsx_runtime.jsx)("textarea", {
+												className: PublishView_module_css_default.editArea,
+												value: draftEdit.content,
+												onChange: (event) => {
+													setDraftEdit({
+														...draftEdit,
+														content: event.target.value
+													});
+												}
+											}),
+											exceedsCharLimit(draftEdit.content, profile?.charLimit ?? null) && (0, react_jsx_runtime.jsx)("p", {
+												className: PublishView_module_css_default.problem,
+												children: t("publish.leg.overLimit")
+											}),
+											(0, react_jsx_runtime.jsxs)("div", {
+												className: PublishView_module_css_default.editActions,
+												children: [(0, react_jsx_runtime.jsx)("button", {
+													type: "button",
+													className: PublishView_module_css_default.primary,
+													onClick: () => {
+														(async () => {
+															await publish.saveDraftEdit(task.taskId, leg.platformId, draftEdit.content);
+															setDraftEdit(null);
+														})();
+													},
+													children: t("publish.leg.save")
+												}), (0, react_jsx_runtime.jsx)("button", {
+													type: "button",
+													className: PublishView_module_css_default.ghost,
+													onClick: () => {
+														setDraftEdit(null);
+													},
+													children: t("publish.leg.cancel")
+												})]
+											})
+										]
+									}),
+									leg.attempts.length > 0 && (0, react_jsx_runtime.jsxs)("details", {
+										className: PublishView_module_css_default.logBox,
+										children: [(0, react_jsx_runtime.jsx)("summary", { children: t("publish.leg.log").replace("{count}", String(leg.attempts.length)) }), (0, react_jsx_runtime.jsx)("ul", {
+											className: PublishView_module_css_default.logList,
+											children: [...leg.attempts].reverse().map((attempt, index) => (0, react_jsx_runtime.jsxs)("li", {
+												className: attempt.ok ? PublishView_module_css_default.logOk : PublishView_module_css_default.logFail,
+												children: [
+													attempt.at.slice(11, 19),
+													" ",
+													t(`publish.attempt.${attempt.action}`),
+													" — ",
+													attempt.detail
+												]
+											}, `${attempt.at}-${index}`))
+										})]
+									})
+								]
+							}, leg.platformId);
+						})
+					})
+				]
+			});
+		}
+		//#endregion
+		//#region lib/types/client/review/model.js
+		/**
+		* Review-view pure functions: metric rates, the viral/weak/long-tail
+		* verdicts against the account baselines, the analysis-pool filter, the
+		* period aggregation, the top/bottom digest selection, and the data-only
+		* report fallback. No I/O and no React — everything the UI and the report
+		* pipeline derive from snapshots lives here, so the thresholds have exactly
+		* one implementation to test.
+		*/
+		/**
+		* Client-side copies of the wire enums. The bundle-purity gate forbids
+		* cross-plugin value imports, so the view carries its own constants; the
+		* review-model spec pins them byte-identical to the gateway's list.
+		*/
+		/** All platforms, in picker order (must match the gateway's REVIEW_PLATFORMS). */
+		const REVIEW_PLATFORMS = [
+			"xhs",
+			"douyin",
+			"gzh",
+			"bilibili"
+		];
+		/** All pool slices, in picker order (must match the gateway's REVIEW_WORK_FILTERS). */
+		const REVIEW_WORK_FILTERS = [
+			"all",
+			"viral",
+			"weak",
+			"longtail"
+		];
+		/** The built-in baselines used until the user sets their own (must match the gateway's DEFAULT_BASELINES). */
+		const DEFAULT_BASELINES = {
+			engagementRate: .05,
+			collectRate: .02,
+			source: "default",
+			updatedAt: ""
+		};
+		/** One millisecond-day. */
+		const DAY_MS = 864e5;
+		/** Long-tail pace gate: recent daily growth at or above this fraction of the lifetime pace. */
+		const LONGTAIL_PACE_FRACTION = .2;
+		/** Diagnosis draft cap: the front slice of the body that rides a diagnosis call. */
+		const DIAGNOSE_DRAFT_CHARS = 4e3;
+		/** Sum of one metrics record's interaction fields; missing metrics read as 0 in a sum. */
+		function interactionsOf(metrics) {
+			return (metrics.likes ?? 0) + (metrics.collects ?? 0) + (metrics.comments ?? 0) + (metrics.shares ?? 0);
+		}
+		/**
+		* Interaction rate: interactions over reads/plays. Null when the platform
+		* exports no reads — never a faked 0.
+		*/
+		function engagementRateOf(metrics) {
+			if (metrics.reads === null || metrics.reads <= 0) return null;
+			return interactionsOf(metrics) / metrics.reads;
+		}
+		/** Collect rate: collects over reads/plays; null when reads are missing. */
+		function collectRateOf(metrics) {
+			if (metrics.reads === null || metrics.reads <= 0) return null;
+			return (metrics.collects ?? 0) / metrics.reads;
+		}
+		/**
+		* Judge one snapshot against the baselines: viral at twice the baseline
+		* engagement rate, weak below half of it.
+		*/
+		function verdictOf(metrics, baselines) {
+			const rate = engagementRateOf(metrics);
+			if (rate === null) return "neutral";
+			if (rate >= 2 * baselines.engagementRate) return "viral";
+			if (rate < .5 * baselines.engagementRate) return "weak";
+			return "neutral";
+		}
+		/**
+		* Long-tail verdict: published at least 30 days ago, still growing in the
+		* last 7 days at no less than a fifth of its lifetime daily pace. Needs at
+		* least two snapshots; anything less reads as false.
+		* @param workSnapshots - every snapshot of one work, any order.
+		* @param now - the evaluation instant.
+		*/
+		function isLongtail(workSnapshots, now) {
+			if (workSnapshots.length < 2) return false;
+			const sorted = [...workSnapshots].sort((a, b) => a.capturedAt.localeCompare(b.capturedAt));
+			const latest = sorted[sorted.length - 1];
+			const earliest = sorted[0];
+			if (latest === void 0 || earliest === void 0 || latest.publishedAt === null) return false;
+			if (now.getTime() - new Date(latest.publishedAt).getTime() < 30 * DAY_MS) return false;
+			const cutoff = (/* @__PURE__ */ new Date(now.getTime() - 7 * DAY_MS)).toISOString();
+			const base = [...sorted].reverse().find((candidate) => candidate.capturedAt <= cutoff) ?? earliest;
+			if (base.snapshotId === latest.snapshotId) return false;
+			const recentGain = interactionsOf(latest.metrics) - interactionsOf(base.metrics);
+			if (recentGain <= 0) return false;
+			const windowDays = Math.max((new Date(latest.capturedAt).getTime() - new Date(base.capturedAt).getTime()) / DAY_MS, 1);
+			const lifetimeDays = Math.max((new Date(latest.capturedAt).getTime() - new Date(earliest.capturedAt).getTime()) / DAY_MS, 1);
+			const lifetimeDailyPace = (interactionsOf(latest.metrics) - interactionsOf(earliest.metrics)) / lifetimeDays;
+			if (lifetimeDailyPace <= 0) return false;
+			return recentGain / windowDays >= LONGTAIL_PACE_FRACTION * lifetimeDailyPace;
+		}
+		/**
+		* The analysis pool: bound snapshots only (a contentId is the admission
+		* ticket), inside the period, matching the platform, form, and verdict
+		* filters.
+		* @param manifest - snapshots to filter.
+		* @param filters - the active filter set (platforms, forms, verdict slice).
+		* @param period - the inclusive capture-date window.
+		* @param baselines - the account baselines grounding the verdict filters.
+		*/
+		function poolSnapshots(manifest, filters, period, baselines) {
+			return manifest.snapshots.filter((snapshot) => {
+				if (snapshot.contentId === null) return false;
+				if (snapshot.capturedAt < period.from || snapshot.capturedAt > `${period.to}T23:59:59.999Z`) return false;
+				if (filters.platforms.length > 0 && !filters.platforms.includes(snapshot.platformId)) return false;
+				if (filters.contentTypes.length > 0 && (snapshot.contentType === null || !filters.contentTypes.includes(snapshot.contentType))) return false;
+				if (filters.workFilter === "viral" && verdictOf(snapshot.metrics, baselines) !== "viral") return false;
+				if (filters.workFilter === "weak" && verdictOf(snapshot.metrics, baselines) !== "weak") return false;
+				return true;
+			});
+		}
+		/**
+		* The period aggregation the summary cards and the report prompt both
+		* render. Impressions sum per platform only — never across platforms.
+		* @param snapshots - the pool snapshots (bound, period-filtered).
+		* @param baselines - the verdict ground (viral/weak counts).
+		* @param now - the evaluation instant (long-tail needs one).
+		*/
+		function aggregateSummary(snapshots, baselines, now) {
+			const perPlatform = {
+				xhs: {
+					works: 0,
+					impressions: null,
+					engagement: null
+				},
+				douyin: {
+					works: 0,
+					impressions: null,
+					engagement: null
+				},
+				gzh: {
+					works: 0,
+					impressions: null,
+					engagement: null
+				},
+				bilibili: {
+					works: 0,
+					impressions: null,
+					engagement: null
+				}
+			};
+			let viralCount = 0;
+			let weakCount = 0;
+			let longtailCount = 0;
+			let engagementSum = 0;
+			let engagementWorks = 0;
+			let followersSum = 0;
+			let followersWorks = 0;
+			const byWork = /* @__PURE__ */ new Map();
+			for (const snapshot of snapshots) {
+				const slot = perPlatform[snapshot.platformId];
+				slot.works += 1;
+				if (snapshot.metrics.impressions !== null) slot.impressions = (slot.impressions ?? 0) + snapshot.metrics.impressions;
+				const interactions = interactionsOf(snapshot.metrics);
+				if (interactions > 0) slot.engagement = (slot.engagement ?? 0) + interactions;
+				const verdict = verdictOf(snapshot.metrics, baselines);
+				if (verdict === "viral") viralCount += 1;
+				if (verdict === "weak") weakCount += 1;
+				engagementSum += interactions;
+				if (snapshot.metrics.reads !== null) engagementWorks += 1;
+				if (snapshot.metrics.followersGained !== null) {
+					followersSum += snapshot.metrics.followersGained;
+					followersWorks += 1;
+				}
+				const key = `${snapshot.platformId}:${snapshot.platformWorkId}`;
+				const workSnapshots = byWork.get(key);
+				if (workSnapshots === void 0) byWork.set(key, [snapshot]);
+				else workSnapshots.push(snapshot);
+			}
+			for (const workSnapshots of byWork.values()) if (isLongtail(workSnapshots, now)) longtailCount += 1;
+			return {
+				totalWorks: byWork.size,
+				viralCount,
+				weakCount,
+				longtailCount,
+				perPlatform,
+				totalEngagement: engagementSum > 0 ? engagementSum : null,
+				avgEngagementRate: engagementWorks > 0 ? engagementSum / engagementWorks : null,
+				totalFollowersGained: followersWorks > 0 ? followersSum : null
+			};
+		}
+		/**
+		* Rank the pool for the leaderboard and the report's top/bottom lists:
+		* bound snapshots, latest per work, engagement-rate descending; works
+		* without a computable rate sink to the bottom sorted by raw interactions.
+		*/
+		function rankWorks(snapshots) {
+			const byWork = /* @__PURE__ */ new Map();
+			for (const snapshot of snapshots) {
+				const key = `${snapshot.platformId}:${snapshot.platformWorkId}`;
+				const current = byWork.get(key);
+				if (current === void 0 || snapshot.capturedAt >= current.capturedAt) byWork.set(key, snapshot);
+			}
+			return [...byWork.values()].sort((a, b) => {
+				const rateA = engagementRateOf(a.metrics);
+				const rateB = engagementRateOf(b.metrics);
+				if (rateA === null && rateB === null) return interactionsOf(b.metrics) - interactionsOf(a.metrics);
+				if (rateA === null) return 1;
+				if (rateB === null) return -1;
+				return rateB - rateA;
+			});
+		}
+		/**
+		* Select the report's top and bottom lists from the ranked pool, halving
+		* the counts past the sampling threshold and reporting it.
+		* @param ranked - the ranked pool from {@link rankWorks}.
+		* @param drafts - body text per work key (`platform:workId`), for excerpts.
+		*/
+		function selectDigests(ranked, drafts) {
+			const count = ranked.length > 50 ? Math.max(Math.floor(5 / 2), 1) : 5;
+			const toDigest = (snapshot) => ({
+				title: snapshot.title,
+				platformId: snapshot.platformId,
+				contentType: snapshot.contentType,
+				publishedAt: snapshot.publishedAt,
+				engagementRate: engagementRateOf(snapshot.metrics),
+				collectRate: collectRateOf(snapshot.metrics),
+				reads: snapshot.metrics.reads,
+				excerpt: (drafts[`${snapshot.platformId}:${snapshot.platformWorkId}`] ?? "").slice(0, 500)
+			});
+			return {
+				top: ranked.slice(0, count).map(toDigest),
+				bottom: ranked.slice(-count).map(toDigest),
+				sampled: ranked.length > 50
+			};
+		}
+		/**
+		* The data-only fallback report rendered when the report AI call fails: the
+		* frozen six-section template with the data sections filled from aggregates
+		* and the analysis sections naming the failure — never an empty document.
+		* @param name - the review task's name.
+		* @param period - the reviewed period.
+		* @param summary - the period aggregation.
+		* @param ranked - the ranked pool.
+		* @param baselines - the account baselines grounding the viral labels.
+		*/
+		function dataOnlyReport(name, period, summary, ranked, baselines) {
+			const percent = (rate) => rate === null ? "—" : `${(rate * 100).toFixed(1)}%`;
+			return [
+				`# ${name}（数据版）`,
+				"",
+				`> AI 增强部分生成失败，以下为纯数据版本；可重试生成完整报告。`,
+				"",
+				`## 周期数据概览`,
+				"",
+				`- 复盘周期：${period.from} 至 ${period.to}`,
+				`- 作品总数：${summary.totalWorks}`,
+				`- 爆款 ${summary.viralCount} 件；低表现 ${summary.weakCount} 件；长尾 ${summary.longtailCount} 件`,
+				`- 平均互动率：${percent(summary.avgEngagementRate)}`,
+				`- 总涨粉：${summary.totalFollowersGained ?? "—"}`,
+				"",
+				`### 分平台`,
+				"",
+				`| 平台 | 作品数 | 曝光 | 互动 |`,
+				`|---|---|---|---|`,
+				...REVIEW_PLATFORMS.filter((platform) => summary.perPlatform[platform].works > 0).map((platform) => `| ${platform} | ${summary.perPlatform[platform].works} | ${summary.perPlatform[platform].impressions ?? "—"} | ${summary.perPlatform[platform].engagement ?? "—"} |`),
+				"",
+				`> 曝光各平台口径不同，不作跨平台求和。`,
+				"",
+				`## 爆款内容分析`,
+				"",
+				...ranked.slice(0, 3).map((snapshot, index) => {
+					const rate = engagementRateOf(snapshot.metrics);
+					return `${index + 1}. 《${snapshot.title}》互动率 ${percent(rate)}${rate !== null && rate >= 2 * baselines.engagementRate ? "（爆款）" : ""}`;
+				}),
+				"",
+				`## 低效内容诊断`,
+				"",
+				...ranked.slice(-3).reverse().map((snapshot, index) => `${index + 1}. 《${snapshot.title}》互动率 ${percent(engagementRateOf(snapshot.metrics))}`),
+				"",
+				`## 受众反馈总结`,
+				"",
+				`【互动】栏目未上线，本节暂缺。`,
+				"",
+				`## 可落地优化建议`,
+				"",
+				`AI 建议生成失败。可参考上节数据自行判断，或点击「重新生成」重试完整报告。`,
+				"",
+				`## 下期行动清单`,
+				"",
+				`- [ ] 重试生成完整复盘报告`,
+				`- [ ] 为未绑定稿件补齐绑定`
+			].join("\n");
+		}
+		//#endregion
+		//#region \0dsh-css:D:\deepseek-harness\packages\client\ui-content-studio\src\client\ReviewView.module.css.mjs
+		const css$3 = ".VEANyG_view{flex-direction:column;gap:12px;height:100%;padding:4px 2px;display:flex;overflow-y:auto}.VEANyG_header{align-items:center;gap:12px;display:flex}.VEANyG_title{margin:0;font-size:18px;font-weight:600}.VEANyG_themePick{border:1px solid var(--dsh-border,#d0d0d0);background:var(--dsh-surface,#fff);border-radius:8px;max-width:240px;padding:6px 8px}.VEANyG_problems{color:#b45309;font-size:12px}.VEANyG_notice{background:var(--dsh-tint,#eef4ff);border-radius:8px;padding:8px 12px;font-size:13px}.VEANyG_busy{color:var(--dsh-muted,#888);font-size:13px}.VEANyG_tabs{gap:4px;display:flex}.VEANyG_tabButton{cursor:pointer;background:0 0;border:1px solid #0000;border-radius:8px;padding:6px 14px;font-size:14px}.VEANyG_tabButton[aria-selected=true]{background:var(--dsh-primary-soft,#e8f0ff);border-color:var(--dsh-primary,#3b6cf0);font-weight:600}.VEANyG_body{flex-direction:column;gap:16px;display:flex}.VEANyG_panel{flex-direction:column;gap:14px;display:flex}.VEANyG_panel h3{margin:0;font-size:15px}.VEANyG_subpanel{border:1px solid var(--dsh-border,#e2e2e2);border-radius:10px;flex-direction:column;gap:8px;padding:12px;display:flex}.VEANyG_subpanel h4{margin:0;font-size:13px}.VEANyG_hint{color:var(--dsh-muted,#888);margin:0;font-size:12px}.VEANyG_empty{color:var(--dsh-muted,#888);font-size:13px}.VEANyG_formRow{flex-wrap:wrap;align-items:center;gap:8px;display:flex}.VEANyG_formRow input[type=text],.VEANyG_formRow input[type=date]{border:1px solid var(--dsh-border,#d0d0d0);border-radius:8px;padding:6px 8px}.VEANyG_formRow button,.VEANyG_subpanel button{background:var(--dsh-primary,#3b6cf0);color:#fff;cursor:pointer;border:none;border-radius:8px;padding:6px 14px;font-size:13px}.VEANyG_formRow button:disabled,.VEANyG_subpanel button:disabled{opacity:.5;cursor:default}.VEANyG_checkLabel{align-items:center;gap:4px;font-size:13px;display:inline-flex}.VEANyG_cards{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;display:grid}.VEANyG_statCard{border:1px solid var(--dsh-border,#e2e2e2);border-radius:10px;flex-direction:column;gap:4px;padding:12px;display:flex}.VEANyG_statValue{font-size:22px;font-weight:700}.VEANyG_statLabel{color:var(--dsh-muted,#888);font-size:12px}.VEANyG_table{border-collapse:collapse;width:100%;font-size:13px}.VEANyG_table th,.VEANyG_table td{text-align:left;border-bottom:1px solid var(--dsh-border,#eee);padding:6px 8px}.VEANyG_workList{flex-direction:column;gap:6px;margin:0;padding:0;list-style:none;display:flex}.VEANyG_workRow{align-items:center;gap:8px;font-size:13px;display:flex}.VEANyG_workBlock{border-bottom:1px solid var(--dsh-border,#f0f0f0);flex-direction:column;gap:6px;padding-bottom:6px;display:flex}.VEANyG_workRank{width:20px;color:var(--dsh-muted,#888)}.VEANyG_workTitle{text-overflow:ellipsis;white-space:nowrap;max-width:260px;font-weight:500;overflow:hidden}.VEANyG_workMeta{color:var(--dsh-muted,#888);font-size:12px}.VEANyG_linkish{cursor:pointer;color:inherit;text-align:left;background:0 0;border:none;padding:0;font-size:13px}.VEANyG_chip{border-radius:999px;padding:2px 8px;font-size:11px}.VEANyG_viralChip{color:#b91c1c;background:#fde8e8}.VEANyG_weakChip{color:#92400e;background:#fef3c7}.VEANyG_neutralChip{background:var(--dsh-tint,#eef4ff);color:#1d4ed8}.VEANyG_bindInput{border:1px solid var(--dsh-border,#d0d0d0);border-radius:8px;width:200px;padding:4px 8px;font-size:12px}.VEANyG_rejectList{color:#b45309;margin:0;padding-left:18px;font-size:12px}.VEANyG_reportEditor{border:1px solid var(--dsh-border,#d0d0d0);resize:vertical;border-radius:8px;width:100%;padding:8px;font-family:monospace;font-size:12px}.VEANyG_topicNote{border:1px solid var(--dsh-border,#d0d0d0);resize:vertical;border-radius:8px;width:100%;padding:6px 8px;font-size:12px}.VEANyG_diagnosis{background:var(--dsh-tint,#f7f8fa);white-space:pre-wrap;border-radius:8px;margin:0;padding:10px;font-size:12px}";
+		const tagId$3 = "@deepseek-ai/dsh-client-ui-content-studio/ReviewView.module.css";
+		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId$3) + "]") === null) {
+			const tag = document.createElement("style");
+			tag.dataset.plugin = "@deepseek-ai/dsh-client-ui-content-studio";
+			tag.dataset.pluginCss = tagId$3;
+			tag.textContent = css$3;
+			document.head.appendChild(tag);
+		}
+		var ReviewView_module_css_default = {
+			"bindInput": "VEANyG_bindInput",
+			"body": "VEANyG_body",
+			"busy": "VEANyG_busy",
+			"cards": "VEANyG_cards",
+			"checkLabel": "VEANyG_checkLabel",
+			"chip": "VEANyG_chip",
+			"diagnosis": "VEANyG_diagnosis",
+			"empty": "VEANyG_empty",
+			"formRow": "VEANyG_formRow",
+			"header": "VEANyG_header",
+			"hint": "VEANyG_hint",
+			"linkish": "VEANyG_linkish",
+			"neutralChip": "VEANyG_neutralChip",
+			"notice": "VEANyG_notice",
+			"panel": "VEANyG_panel",
+			"problems": "VEANyG_problems",
+			"rejectList": "VEANyG_rejectList",
+			"reportEditor": "VEANyG_reportEditor",
+			"statCard": "VEANyG_statCard",
+			"statLabel": "VEANyG_statLabel",
+			"statValue": "VEANyG_statValue",
+			"subpanel": "VEANyG_subpanel",
+			"tabButton": "VEANyG_tabButton",
+			"table": "VEANyG_table",
+			"tabs": "VEANyG_tabs",
+			"themePick": "VEANyG_themePick",
+			"title": "VEANyG_title",
+			"topicNote": "VEANyG_topicNote",
+			"view": "VEANyG_view",
+			"viralChip": "VEANyG_viralChip",
+			"weakChip": "VEANyG_weakChip",
+			"workBlock": "VEANyG_workBlock",
+			"workList": "VEANyG_workList",
+			"workMeta": "VEANyG_workMeta",
+			"workRank": "VEANyG_workRank",
+			"workRow": "VEANyG_workRow",
+			"workTitle": "VEANyG_workTitle"
+		};
+		//#endregion
+		//#region lib/types/client/ReviewView.js
+		/**
+		* The review view: a four-panel workbench over the review controller —
+		* 数据 (import + bindings + baselines), 看板 (filters + summary cards +
+		* leaderboard), 诊断 (per-work AI diagnosis), 报告 (task creation, the
+		* report editor, history, and the topic-bank reflow). The theme picker
+		* rides the top; everything else renders against the loaded manifest.
+		*/
+		/** Percent label helper: rates render as percents, missing as a dash. */
+		function percent(rate) {
+			return rate === null ? "—" : `${(rate * 100).toFixed(1)}%`;
+		}
+		/** The platform display names, in picker order. */
+		const PLATFORM_LABELS = {
+			xhs: "小红书",
+			douyin: "抖音",
+			gzh: "公众号",
+			bilibili: "B站"
+		};
+		/**
+		* Render the review workbench.
+		* @param props - the injected face and the locale seat.
+		* @returns the view element tree.
+		*/
+		function ReviewView({ review, listThemes, t }) {
+			const state = (0, react.useSyncExternalStore)((fn) => review.subscribe(fn), () => review.getState());
+			const [tab, setTab] = (0, react.useState)("data");
+			const [themes, setThemes] = (0, react.useState)([]);
+			const [importPlatform, setImportPlatform] = (0, react.useState)("xhs");
+			const [importFileName, setImportFileName] = (0, react.useState)("");
+			const [importText, setImportText] = (0, react.useState)("");
+			const [taskName, setTaskName] = (0, react.useState)("");
+			const [topicTitle, setTopicTitle] = (0, react.useState)("");
+			const [topicNote, setTopicNote] = (0, react.useState)("");
+			(0, react.useEffect)(() => {
+				(async () => {
+					try {
+						setThemes(await listThemes());
+					} catch {
+						setThemes([]);
+					}
+				})();
+			}, [listThemes]);
+			(0, react.useEffect)(() => {
+				if (state.notice === null) return;
+				const timer = window.setTimeout(() => {
+					review.clearNotice();
+				}, 4e3);
+				return () => {
+					window.clearTimeout(timer);
+				};
+			}, [state.notice, review]);
+			const manifest = state.manifest;
+			const cards = (0, react.useMemo)(() => review.pool(), [
+				review,
+				state.manifest,
+				state.theme,
+				state.filtersRevision
+			]);
+			const summary = (0, react.useMemo)(() => review.summary(), [
+				review,
+				state.manifest,
+				state.theme,
+				state.filtersRevision
+			]);
+			const ranked = (0, react.useMemo)(() => rankWorks(cards.map((card) => card.snapshot)), [cards]);
+			const unbound = manifest?.snapshots.filter((snapshot) => snapshot.contentId === null) ?? [];
+			const pickTheme = (theme) => {
+				review.load(theme);
+			};
+			const onFilePicked = async (file) => {
+				if (file === void 0) return;
+				setImportFileName(file.name);
+				setImportText(await file.text());
+			};
+			const stageImport = () => {
+				if (importText.trim().length === 0) return;
+				review.stageImport(importPlatform, importFileName, importText);
+			};
+			const noticeText = (notice) => t(`review.notice.${notice}`);
+			return (0, react_jsx_runtime.jsxs)("div", {
+				className: ReviewView_module_css_default.view,
+				children: [
+					(0, react_jsx_runtime.jsxs)("header", {
+						className: ReviewView_module_css_default.header,
+						children: [
+							(0, react_jsx_runtime.jsx)("h2", {
+								className: ReviewView_module_css_default.title,
+								children: t("review.title")
+							}),
+							(0, react_jsx_runtime.jsxs)("select", {
+								className: ReviewView_module_css_default.themePick,
+								value: state.theme ?? "",
+								onChange: (event) => pickTheme(event.target.value),
+								"aria-label": t("review.theme.aria"),
+								children: [(0, react_jsx_runtime.jsx)("option", {
+									value: "",
+									children: t("review.theme.placeholder")
+								}), themes.map((theme) => (0, react_jsx_runtime.jsx)("option", {
+									value: theme,
+									children: theme
+								}, theme))]
+							}),
+							state.problems.length > 0 && (0, react_jsx_runtime.jsx)("span", {
+								className: ReviewView_module_css_default.problems,
+								children: state.problems[0]
+							})
+						]
+					}),
+					state.notice !== null && (0, react_jsx_runtime.jsx)("div", {
+						className: ReviewView_module_css_default.notice,
+						role: "status",
+						children: noticeText(state.notice)
+					}),
+					state.busy && (0, react_jsx_runtime.jsx)("div", {
+						className: ReviewView_module_css_default.busy,
+						children: t("review.busy")
+					}),
+					(0, react_jsx_runtime.jsx)("nav", {
+						className: ReviewView_module_css_default.tabs,
+						role: "tablist",
+						children: [
+							"data",
+							"board",
+							"diagnose",
+							"reports"
+						].map((candidate) => (0, react_jsx_runtime.jsx)("button", {
+							type: "button",
+							role: "tab",
+							"aria-selected": tab === candidate,
+							className: ReviewView_module_css_default.tabButton,
+							onClick: () => {
+								setTab(candidate);
+							},
+							children: t(`review.tab.${candidate}`)
+						}, candidate))
+					}),
+					state.theme === null && (0, react_jsx_runtime.jsx)("p", {
+						className: ReviewView_module_css_default.empty,
+						children: t("review.empty.noTheme")
+					}),
+					state.loading && (0, react_jsx_runtime.jsx)("p", {
+						className: ReviewView_module_css_default.empty,
+						children: t("review.loading")
+					}),
+					state.theme !== null && !state.loading && (0, react_jsx_runtime.jsxs)("div", {
+						className: ReviewView_module_css_default.body,
+						children: [
+							tab === "data" && (0, react_jsx_runtime.jsxs)("section", {
+								className: ReviewView_module_css_default.panel,
+								children: [
+									(0, react_jsx_runtime.jsx)("h3", { children: t("review.import.title") }),
+									(0, react_jsx_runtime.jsx)("p", {
+										className: ReviewView_module_css_default.hint,
+										children: t("review.import.hint")
+									}),
+									(0, react_jsx_runtime.jsxs)("div", {
+										className: ReviewView_module_css_default.formRow,
+										children: [
+											(0, react_jsx_runtime.jsx)("select", {
+												value: importPlatform,
+												onChange: (event) => setImportPlatform(event.target.value),
+												"aria-label": t("review.import.platform"),
+												children: REVIEW_PLATFORMS.map((platform) => (0, react_jsx_runtime.jsx)("option", {
+													value: platform,
+													children: PLATFORM_LABELS[platform]
+												}, platform))
+											}),
+											(0, react_jsx_runtime.jsx)("input", {
+												type: "file",
+												accept: ".csv,text/csv",
+												onChange: (event) => {
+													onFilePicked(event.target.files?.[0]);
+												},
+												"aria-label": t("review.import.file")
+											}),
+											(0, react_jsx_runtime.jsx)("button", {
+												type: "button",
+												disabled: state.busy || importText.length === 0,
+												onClick: stageImport,
+												children: t("review.import.parse")
+											})
+										]
+									}),
+									state.preview !== null && (0, react_jsx_runtime.jsx)(ImportPreviewCard, {
+										preview: state.preview,
+										ignoredColumns: state.ignoredColumns,
+										onIgnore: (columns) => review.setIgnoredColumns(columns),
+										onCommit: () => {
+											review.commitImport();
+										},
+										onDiscard: () => review.discardImport(),
+										t
+									}),
+									unbound.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
+										className: ReviewView_module_css_default.subpanel,
+										children: [
+											(0, react_jsx_runtime.jsx)("h4", { children: t("review.bind.title", { count: String(unbound.length) }) }),
+											(0, react_jsx_runtime.jsx)("p", {
+												className: ReviewView_module_css_default.hint,
+												children: t("review.bind.hint")
+											}),
+											(0, react_jsx_runtime.jsx)("ul", {
+												className: ReviewView_module_css_default.workList,
+												children: unbound.slice(0, 20).map((snapshot) => (0, react_jsx_runtime.jsx)(BindRow, {
+													snapshot,
+													review,
+													t
+												}, snapshot.snapshotId))
+											})
+										]
+									}),
+									(0, react_jsx_runtime.jsx)(BaselinesPanel, {
+										review,
+										manifest,
+										t
+									})
+								]
+							}),
+							tab === "board" && (0, react_jsx_runtime.jsxs)("section", {
+								className: ReviewView_module_css_default.panel,
+								children: [
+									(0, react_jsx_runtime.jsx)(FilterPanel, {
+										review,
+										t
+									}),
+									(0, react_jsx_runtime.jsxs)("div", {
+										className: ReviewView_module_css_default.cards,
+										children: [
+											(0, react_jsx_runtime.jsxs)("div", {
+												className: ReviewView_module_css_default.statCard,
+												children: [(0, react_jsx_runtime.jsx)("span", {
+													className: ReviewView_module_css_default.statValue,
+													children: summary.totalWorks
+												}), (0, react_jsx_runtime.jsx)("span", {
+													className: ReviewView_module_css_default.statLabel,
+													children: t("review.stat.works")
+												})]
+											}),
+											(0, react_jsx_runtime.jsxs)("div", {
+												className: ReviewView_module_css_default.statCard,
+												children: [(0, react_jsx_runtime.jsx)("span", {
+													className: ReviewView_module_css_default.statValue,
+													children: summary.viralCount
+												}), (0, react_jsx_runtime.jsx)("span", {
+													className: ReviewView_module_css_default.statLabel,
+													children: t("review.stat.viral")
+												})]
+											}),
+											(0, react_jsx_runtime.jsxs)("div", {
+												className: ReviewView_module_css_default.statCard,
+												children: [(0, react_jsx_runtime.jsx)("span", {
+													className: ReviewView_module_css_default.statValue,
+													children: percent(summary.avgEngagementRate)
+												}), (0, react_jsx_runtime.jsx)("span", {
+													className: ReviewView_module_css_default.statLabel,
+													children: t("review.stat.rate")
+												})]
+											}),
+											(0, react_jsx_runtime.jsxs)("div", {
+												className: ReviewView_module_css_default.statCard,
+												children: [(0, react_jsx_runtime.jsx)("span", {
+													className: ReviewView_module_css_default.statValue,
+													children: summary.longtailCount
+												}), (0, react_jsx_runtime.jsx)("span", {
+													className: ReviewView_module_css_default.statLabel,
+													children: t("review.stat.longtail")
+												})]
+											})
+										]
+									}),
+									(0, react_jsx_runtime.jsxs)("div", {
+										className: ReviewView_module_css_default.subpanel,
+										children: [
+											(0, react_jsx_runtime.jsx)("h4", { children: t("review.board.platforms") }),
+											(0, react_jsx_runtime.jsxs)("table", {
+												className: ReviewView_module_css_default.table,
+												children: [(0, react_jsx_runtime.jsx)("thead", { children: (0, react_jsx_runtime.jsxs)("tr", { children: [
+													(0, react_jsx_runtime.jsx)("th", { children: t("review.table.platform") }),
+													(0, react_jsx_runtime.jsx)("th", { children: t("review.table.works") }),
+													(0, react_jsx_runtime.jsx)("th", { children: t("review.table.impressions") }),
+													(0, react_jsx_runtime.jsx)("th", { children: t("review.table.engagement") })
+												] }) }), (0, react_jsx_runtime.jsx)("tbody", { children: REVIEW_PLATFORMS.filter((platform) => summary.perPlatform[platform].works > 0).map((platform) => (0, react_jsx_runtime.jsxs)("tr", { children: [
+													(0, react_jsx_runtime.jsx)("td", { children: PLATFORM_LABELS[platform] }),
+													(0, react_jsx_runtime.jsx)("td", { children: summary.perPlatform[platform].works }),
+													(0, react_jsx_runtime.jsx)("td", { children: summary.perPlatform[platform].impressions ?? "—" }),
+													(0, react_jsx_runtime.jsx)("td", { children: summary.perPlatform[platform].engagement ?? "—" })
+												] }, platform)) })]
+											}),
+											(0, react_jsx_runtime.jsx)("p", {
+												className: ReviewView_module_css_default.hint,
+												children: t("review.board.noSum")
+											})
+										]
+									}),
+									(0, react_jsx_runtime.jsxs)("div", {
+										className: ReviewView_module_css_default.subpanel,
+										children: [(0, react_jsx_runtime.jsx)("h4", { children: t("review.board.leaderboard") }), ranked.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
+											className: ReviewView_module_css_default.empty,
+											children: t("review.empty.pool")
+										}) : (0, react_jsx_runtime.jsx)("ol", {
+											className: ReviewView_module_css_default.workList,
+											children: ranked.slice(0, 10).map((snapshot, index) => {
+												const rate = engagementRateOf(snapshot.metrics);
+												return (0, react_jsx_runtime.jsxs)("li", {
+													className: ReviewView_module_css_default.workRow,
+													children: [
+														(0, react_jsx_runtime.jsx)("span", {
+															className: ReviewView_module_css_default.workRank,
+															children: index + 1
+														}),
+														(0, react_jsx_runtime.jsx)("span", {
+															className: ReviewView_module_css_default.workTitle,
+															children: snapshot.title
+														}),
+														(0, react_jsx_runtime.jsx)("span", {
+															className: ReviewView_module_css_default.workMeta,
+															children: PLATFORM_LABELS[snapshot.platformId]
+														}),
+														(0, react_jsx_runtime.jsx)("span", {
+															className: ReviewView_module_css_default.workMeta,
+															children: percent(rate)
+														})
+													]
+												}, snapshot.snapshotId);
+											})
+										})]
+									})
+								]
+							}),
+							tab === "diagnose" && (0, react_jsx_runtime.jsxs)("section", {
+								className: ReviewView_module_css_default.panel,
+								children: [(0, react_jsx_runtime.jsx)("h3", { children: t("review.diagnose.title") }), cards.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
+									className: ReviewView_module_css_default.empty,
+									children: t("review.empty.pool")
+								}) : (0, react_jsx_runtime.jsx)("ul", {
+									className: ReviewView_module_css_default.workList,
+									children: cards.map((card) => (0, react_jsx_runtime.jsx)(DiagnoseRow, {
+										card,
+										review,
+										persona: null,
+										t
+									}, card.snapshot.snapshotId))
+								})]
+							}),
+							tab === "reports" && (0, react_jsx_runtime.jsxs)("section", {
+								className: ReviewView_module_css_default.panel,
+								children: [
+									(0, react_jsx_runtime.jsx)("h3", { children: t("review.report.title") }),
+									(0, react_jsx_runtime.jsxs)("div", {
+										className: ReviewView_module_css_default.formRow,
+										children: [(0, react_jsx_runtime.jsx)("input", {
+											type: "text",
+											value: taskName,
+											placeholder: t("review.report.namePlaceholder"),
+											onChange: (event) => setTaskName(event.target.value),
+											"aria-label": t("review.report.namePlaceholder")
+										}), (0, react_jsx_runtime.jsx)("button", {
+											type: "button",
+											disabled: state.busy || taskName.trim().length === 0,
+											onClick: () => {
+												review.createTask(taskName.trim()).then(() => setTaskName(""));
+											},
+											children: t("review.report.generate")
+										})]
+									}),
+									state.reportDraft !== null && (0, react_jsx_runtime.jsxs)("div", {
+										className: ReviewView_module_css_default.subpanel,
+										children: [
+											(0, react_jsx_runtime.jsx)("h4", { children: t("review.report.editing") }),
+											(0, react_jsx_runtime.jsx)("textarea", {
+												className: ReviewView_module_css_default.reportEditor,
+												value: state.reportDraft,
+												rows: 18,
+												onChange: (event) => review.copyReportToEditor(event.target.value)
+											}),
+											(0, react_jsx_runtime.jsxs)("div", {
+												className: ReviewView_module_css_default.formRow,
+												children: [
+													(0, react_jsx_runtime.jsx)("button", {
+														type: "button",
+														onClick: () => {
+															review.saveReport();
+														},
+														children: t("review.report.save")
+													}),
+													(0, react_jsx_runtime.jsx)("button", {
+														type: "button",
+														onClick: () => review.closeReport(),
+														children: t("review.report.close")
+													}),
+													(0, react_jsx_runtime.jsx)("button", {
+														type: "button",
+														onClick: () => {
+															review.saveTemplate(`爆款模板-${Date.now()}`, state.reportDraft ?? "");
+														},
+														children: t("review.report.saveTemplate")
+													})
+												]
+											})
+										]
+									}),
+									(0, react_jsx_runtime.jsxs)("div", {
+										className: ReviewView_module_css_default.subpanel,
+										children: [(0, react_jsx_runtime.jsx)("h4", { children: t("review.history.title") }), (manifest?.tasks.length ?? 0) === 0 ? (0, react_jsx_runtime.jsx)("p", {
+											className: ReviewView_module_css_default.empty,
+											children: t("review.history.empty")
+										}) : (0, react_jsx_runtime.jsx)("ul", {
+											className: ReviewView_module_css_default.workList,
+											children: [...manifest?.tasks ?? []].reverse().map((task) => (0, react_jsx_runtime.jsx)(TaskRow, {
+												task,
+												review,
+												t
+											}, task.taskId))
+										})]
+									}),
+									(0, react_jsx_runtime.jsxs)("div", {
+										className: ReviewView_module_css_default.subpanel,
+										children: [
+											(0, react_jsx_runtime.jsx)("h4", { children: t("review.reflow.title") }),
+											(0, react_jsx_runtime.jsx)("p", {
+												className: ReviewView_module_css_default.hint,
+												children: t("review.reflow.hint")
+											}),
+											(0, react_jsx_runtime.jsx)("div", {
+												className: ReviewView_module_css_default.formRow,
+												children: (0, react_jsx_runtime.jsx)("input", {
+													type: "text",
+													value: topicTitle,
+													placeholder: t("review.reflow.titlePlaceholder"),
+													onChange: (event) => setTopicTitle(event.target.value)
+												})
+											}),
+											(0, react_jsx_runtime.jsx)("textarea", {
+												className: ReviewView_module_css_default.topicNote,
+												rows: 3,
+												value: topicNote,
+												placeholder: t("review.reflow.notePlaceholder"),
+												onChange: (event) => setTopicNote(event.target.value)
+											}),
+											(0, react_jsx_runtime.jsx)("button", {
+												type: "button",
+												disabled: topicTitle.trim().length === 0,
+												onClick: () => {
+													review.pushToTopicBank(topicTitle.trim(), null, topicNote.trim().length > 0 ? topicNote.trim() : null).then(() => {
+														setTopicTitle("");
+														setTopicNote("");
+													});
+												},
+												children: t("review.reflow.push")
+											})
+										]
+									}),
+									state.templates.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
+										className: ReviewView_module_css_default.subpanel,
+										children: [(0, react_jsx_runtime.jsx)("h4", { children: t("review.templates.title") }), (0, react_jsx_runtime.jsx)("ul", {
+											className: ReviewView_module_css_default.workList,
+											children: state.templates.map((file) => (0, react_jsx_runtime.jsx)("li", {
+												className: ReviewView_module_css_default.workRow,
+												children: file
+											}, file))
+										})]
+									})
+								]
+							})
+						]
+					})
+				]
+			});
+		}
+		/** One staged import preview: counts, unknown-column checks, commit controls. */
+		function ImportPreviewCard({ preview, ignoredColumns, onIgnore, onCommit, onDiscard, t }) {
+			const toggle = (column) => {
+				onIgnore(ignoredColumns.includes(column) ? ignoredColumns.filter((candidate) => candidate !== column) : [...ignoredColumns, column]);
+			};
+			return (0, react_jsx_runtime.jsxs)("div", {
+				className: ReviewView_module_css_default.subpanel,
+				children: [
+					(0, react_jsx_runtime.jsxs)("h4", { children: [
+						preview.fileName,
+						" · ",
+						preview.rows.length,
+						" ✓ / ",
+						preview.rejected.length,
+						" ✗"
+					] }),
+					preview.rejected.length > 0 && (0, react_jsx_runtime.jsx)("ul", {
+						className: ReviewView_module_css_default.rejectList,
+						children: preview.rejected.slice(0, 10).map((rejection) => (0, react_jsx_runtime.jsx)("li", { children: t("review.import.rowRejected", {
+							row: String(rejection.row),
+							reason: rejection.reason
+						}) }, rejection.row))
+					}),
+					preview.unknownColumns.length > 0 && (0, react_jsx_runtime.jsxs)("div", { children: [(0, react_jsx_runtime.jsx)("p", {
+						className: ReviewView_module_css_default.hint,
+						children: t("review.import.unknownColumns")
+					}), preview.unknownColumns.map((column) => (0, react_jsx_runtime.jsxs)("label", {
+						className: ReviewView_module_css_default.checkLabel,
+						children: [(0, react_jsx_runtime.jsx)("input", {
+							type: "checkbox",
+							checked: ignoredColumns.includes(column),
+							onChange: () => toggle(column)
+						}), column]
+					}, column))] }),
+					(0, react_jsx_runtime.jsxs)("div", {
+						className: ReviewView_module_css_default.formRow,
+						children: [(0, react_jsx_runtime.jsx)("button", {
+							type: "button",
+							onClick: onCommit,
+							children: t("review.import.commit")
+						}), (0, react_jsx_runtime.jsx)("button", {
+							type: "button",
+							onClick: onDiscard,
+							children: t("review.import.discard")
+						})]
+					})
+				]
+			});
+		}
+		/** One unbound snapshot with its manual contentId input. */
+		function BindRow({ snapshot, review, t }) {
+			const [contentId, setContentId] = (0, react.useState)("");
+			return (0, react_jsx_runtime.jsxs)("li", {
+				className: ReviewView_module_css_default.workRow,
+				children: [
+					(0, react_jsx_runtime.jsx)("span", {
+						className: ReviewView_module_css_default.workTitle,
+						children: snapshot.title
+					}),
+					(0, react_jsx_runtime.jsx)("span", {
+						className: ReviewView_module_css_default.workMeta,
+						children: PLATFORM_LABELS[snapshot.platformId]
+					}),
+					(0, react_jsx_runtime.jsx)("input", {
+						type: "text",
+						className: ReviewView_module_css_default.bindInput,
+						placeholder: t("review.bind.placeholder"),
+						value: contentId,
+						onChange: (event) => setContentId(event.target.value)
+					}),
+					(0, react_jsx_runtime.jsx)("button", {
+						type: "button",
+						disabled: contentId.trim().length === 0,
+						onClick: () => {
+							review.bindWork(snapshot.platformWorkId, snapshot.platformId, contentId.trim());
+						},
+						children: t("review.bind.button")
+					})
+				]
+			});
+		}
+		/** The baselines editor: two rates plus their source label. */
+		function BaselinesPanel({ review, manifest, t }) {
+			const [engagement, setEngagement] = (0, react.useState)("");
+			const [collect, setCollect] = (0, react.useState)("");
+			const current = manifest?.baselines;
+			return (0, react_jsx_runtime.jsxs)("div", {
+				className: ReviewView_module_css_default.subpanel,
+				children: [
+					(0, react_jsx_runtime.jsx)("h4", { children: t("review.baselines.title") }),
+					(0, react_jsx_runtime.jsxs)("p", {
+						className: ReviewView_module_css_default.hint,
+						children: [t("review.baselines.hint"), current !== void 0 && ` ${t("review.baselines.current", {
+							engagement: percent(current.engagementRate),
+							collect: percent(current.collectRate),
+							source: current.source === "user" ? t("review.baselines.sourceUser") : t("review.baselines.sourceDefault")
+						})}`]
+					}),
+					(0, react_jsx_runtime.jsxs)("div", {
+						className: ReviewView_module_css_default.formRow,
+						children: [
+							(0, react_jsx_runtime.jsx)("input", {
+								type: "text",
+								className: ReviewView_module_css_default.bindInput,
+								placeholder: "5%",
+								value: engagement,
+								onChange: (event) => setEngagement(event.target.value),
+								"aria-label": t("review.baselines.engagement")
+							}),
+							(0, react_jsx_runtime.jsx)("input", {
+								type: "text",
+								className: ReviewView_module_css_default.bindInput,
+								placeholder: "2%",
+								value: collect,
+								onChange: (event) => setCollect(event.target.value),
+								"aria-label": t("review.baselines.collect")
+							}),
+							(0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								onClick: () => {
+									const parse = (text) => {
+										const value = Number.parseFloat(text.replace("%", ""));
+										return Number.isFinite(value) ? value / 100 : null;
+									};
+									const nextEngagement = parse(engagement);
+									const nextCollect = parse(collect);
+									if (nextEngagement !== null && nextCollect !== null) {
+										review.saveBaselines(nextEngagement, nextCollect);
+										setEngagement("");
+										setCollect("");
+									}
+								},
+								children: t("review.baselines.save")
+							})
+						]
+					})
+				]
+			});
+		}
+		/** The filter panel: period, platforms, forms, and the verdict slice. */
+		function FilterPanel({ review, t }) {
+			const filters = review.filters();
+			const togglePlatform = (platform) => {
+				const next = filters.platforms.includes(platform) ? filters.platforms.filter((candidate) => candidate !== platform) : [...filters.platforms, platform];
+				review.setFilters({ platforms: next });
+			};
+			const toggleType = (kind) => {
+				const next = filters.contentTypes.includes(kind) ? filters.contentTypes.filter((candidate) => candidate !== kind) : [...filters.contentTypes, kind];
+				review.setFilters({ contentTypes: next });
+			};
+			return (0, react_jsx_runtime.jsxs)("div", {
+				className: ReviewView_module_css_default.subpanel,
+				children: [
+					(0, react_jsx_runtime.jsxs)("div", {
+						className: ReviewView_module_css_default.formRow,
+						children: [(0, react_jsx_runtime.jsx)("input", {
+							type: "date",
+							value: filters.period.from,
+							onChange: (event) => review.setFilters({ period: {
+								...filters.period,
+								from: event.target.value
+							} }),
+							"aria-label": t("review.filter.from")
+						}), (0, react_jsx_runtime.jsx)("input", {
+							type: "date",
+							value: filters.period.to,
+							onChange: (event) => review.setFilters({ period: {
+								...filters.period,
+								to: event.target.value
+							} }),
+							"aria-label": t("review.filter.to")
+						})]
+					}),
+					(0, react_jsx_runtime.jsxs)("div", {
+						className: ReviewView_module_css_default.formRow,
+						children: [
+							REVIEW_PLATFORMS.map((platform) => (0, react_jsx_runtime.jsxs)("label", {
+								className: ReviewView_module_css_default.checkLabel,
+								children: [(0, react_jsx_runtime.jsx)("input", {
+									type: "checkbox",
+									checked: filters.platforms.includes(platform),
+									onChange: () => togglePlatform(platform)
+								}), PLATFORM_LABELS[platform]]
+							}, platform)),
+							(0, react_jsx_runtime.jsxs)("label", {
+								className: ReviewView_module_css_default.checkLabel,
+								children: [(0, react_jsx_runtime.jsx)("input", {
+									type: "checkbox",
+									checked: filters.contentTypes.includes("image-text"),
+									onChange: () => toggleType("image-text")
+								}), t("review.filter.imageText")]
+							}),
+							(0, react_jsx_runtime.jsxs)("label", {
+								className: ReviewView_module_css_default.checkLabel,
+								children: [(0, react_jsx_runtime.jsx)("input", {
+									type: "checkbox",
+									checked: filters.contentTypes.includes("video"),
+									onChange: () => toggleType("video")
+								}), t("review.filter.video")]
+							})
+						]
+					}),
+					(0, react_jsx_runtime.jsx)("div", {
+						className: ReviewView_module_css_default.formRow,
+						children: REVIEW_WORK_FILTERS.map((candidate) => (0, react_jsx_runtime.jsxs)("label", {
+							className: ReviewView_module_css_default.checkLabel,
+							children: [(0, react_jsx_runtime.jsx)("input", {
+								type: "radio",
+								name: "review-work-filter",
+								checked: filters.workFilter === candidate,
+								onChange: () => review.setFilters({ workFilter: candidate })
+							}), t(`review.filter.${candidate}`)]
+						}, candidate))
+					})
+				]
+			});
+		}
+		/** One work row with its verdict chips and the diagnose button. */
+		function DiagnoseRow({ card, review, persona, t }) {
+			const key = `${card.snapshot.platformId}:${card.snapshot.platformWorkId}`;
+			const diagnosis = review.getState().diagnoses[key];
+			const [open, setOpen] = (0, react.useState)(false);
+			const [draftText, setDraftText] = (0, react.useState)("");
+			const verdictClass = card.verdict === "viral" ? ReviewView_module_css_default.viralChip : card.verdict === "weak" ? ReviewView_module_css_default.weakChip : ReviewView_module_css_default.neutralChip;
+			return (0, react_jsx_runtime.jsxs)("li", {
+				className: ReviewView_module_css_default.workBlock,
+				children: [(0, react_jsx_runtime.jsxs)("div", {
+					className: ReviewView_module_css_default.workRow,
+					children: [
+						(0, react_jsx_runtime.jsxs)("button", {
+							type: "button",
+							className: ReviewView_module_css_default.linkish,
+							onClick: () => setOpen(!open),
+							children: [
+								open ? "▾" : "▸",
+								" ",
+								card.snapshot.title
+							]
+						}),
+						(0, react_jsx_runtime.jsx)("span", {
+							className: ReviewView_module_css_default.workMeta,
+							children: PLATFORM_LABELS[card.snapshot.platformId]
+						}),
+						(0, react_jsx_runtime.jsx)("span", {
+							className: ReviewView_module_css_default.workMeta,
+							children: percent(engagementRateOf(card.snapshot.metrics))
+						}),
+						(0, react_jsx_runtime.jsx)("span", {
+							className: ReviewView_module_css_default.workMeta,
+							children: percent(collectRateOf(card.snapshot.metrics))
+						}),
+						(0, react_jsx_runtime.jsx)("span", {
+							className: `${ReviewView_module_css_default.chip} ${verdictClass}`,
+							children: t(`review.verdict.${card.longtail ? "longtail" : card.verdict}`)
+						}),
+						(0, react_jsx_runtime.jsx)("button", {
+							type: "button",
+							disabled: review.getState().busy,
+							onClick: () => {
+								review.diagnoseWork(card, draftText.length > 0 ? draftText : null, [], persona);
+							},
+							children: t("review.diagnose.run")
+						})
+					]
+				}), open && (0, react_jsx_runtime.jsxs)("div", {
+					className: ReviewView_module_css_default.workDetail,
+					children: [
+						(0, react_jsx_runtime.jsx)("p", {
+							className: ReviewView_module_css_default.hint,
+							children: t("review.diagnose.draftHint")
+						}),
+						(0, react_jsx_runtime.jsx)("textarea", {
+							className: ReviewView_module_css_default.topicNote,
+							rows: 3,
+							value: draftText,
+							onChange: (event) => setDraftText(event.target.value)
+						}),
+						diagnosis !== void 0 && (0, react_jsx_runtime.jsx)("pre", {
+							className: ReviewView_module_css_default.diagnosis,
+							children: diagnosis
+						})
+					]
+				})]
+			});
+		}
+		/** One history task row: status, report actions, delete. */
+		function TaskRow({ task, review, t }) {
+			return (0, react_jsx_runtime.jsxs)("li", {
+				className: ReviewView_module_css_default.workRow,
+				children: [
+					(0, react_jsx_runtime.jsx)("span", {
+						className: ReviewView_module_css_default.workTitle,
+						children: task.name
+					}),
+					(0, react_jsx_runtime.jsxs)("span", {
+						className: ReviewView_module_css_default.workMeta,
+						children: [
+							task.period.from,
+							" ~ ",
+							task.period.to
+						]
+					}),
+					(0, react_jsx_runtime.jsx)("span", {
+						className: `${ReviewView_module_css_default.chip} ${task.status === "ready" && !task.degraded ? ReviewView_module_css_default.viralChip : task.status === "failed" ? ReviewView_module_css_default.weakChip : ReviewView_module_css_default.neutralChip}`,
+						children: t(`review.status.${task.degraded ? "degraded" : task.status}`)
+					}),
+					task.reportFile !== null && (0, react_jsx_runtime.jsx)("button", {
+						type: "button",
+						onClick: () => {
+							review.editReport(task.taskId);
+						},
+						children: t("review.history.view")
+					}),
+					(0, react_jsx_runtime.jsx)("button", {
+						type: "button",
+						onClick: () => {
+							if (!window.confirm(t("review.history.deleteConfirm"))) return;
+							review.deleteTask(task.taskId);
+						},
+						children: t("review.history.delete")
+					})
+				]
+			});
+		}
+		//#endregion
+		//#region lib/types/client/interaction/interaction-model.js
+		/**
+		* Pure logic of the interaction view: the persisted filter set with its
+		* versioned load migration, the conversation filters, the thread-line
+		* projection the reply prompt consumes, the batch slicing for the
+		* classifier and insight extractor, the insight merge across batches, and
+		* the topic input builder for the one-click push. No React, no I/O — the
+		* view and the tests share this module.
+		*
+		* The enum tables mirror the gateway's `interactions/types.ts` (the bundle
+		* purity gate bans cross-plugin value imports); the parity test pins them.
+		*/
+		/** All platforms, in picker order; mirrors the gateway table. */
+		const INTERACTION_PLATFORM_IDS = [
+			"xhs",
+			"douyin",
+			"weixin",
+			"bilibili"
+		];
+		/** All message kinds, in picker order; mirrors the gateway table. */
+		const INTERACTION_TYPE_IDS = [
+			"comment",
+			"dm",
+			"mention"
+		];
+		/** All conversation statuses, in pipeline order; mirrors the gateway table. */
+		const INTERACTION_STATUS_IDS = [
+			"unread",
+			"pendingReply",
+			"replied",
+			"archived",
+			"spam"
+		];
+		/** All reply tones, in picker order; mirrors the gateway table. */
+		const INTERACTION_STYLE_IDS = [
+			"formal",
+			"friendly",
+			"humorous",
+			"brief"
+		];
+		/** Sentiment readings, including the unclassified fallback. */
+		const INTERACTION_SENTIMENT_IDS = [
+			"positive",
+			"negative",
+			"question",
+			"unknown"
+		];
+		/** Intent readings, including the unclassified fallback. */
+		const INTERACTION_INTENT_IDS = [
+			"consult",
+			"praise",
+			"complain",
+			"demand",
+			"spam",
+			"unknown"
+		];
+		/** Browser-local storage key of the filter set. */
+		const FILTERS_KEY$1 = "dsh-content-studio.interaction.filters";
+		/** The default filters: everything, no search. */
+		function defaultInteractionFilters() {
+			return {
+				version: 1,
+				platforms: [],
+				status: "all",
+				type: "all",
+				sentiment: "all",
+				intent: "all",
+				search: ""
+			};
+		}
+		/**
+		* Load the stored filter set; anything malformed or version-stale reloads
+		* defaults whole (the migration fallback the plugin's localStorage rule
+		* mandates).
+		* @returns the filters to render with.
+		*/
+		function loadInteractionFilters() {
+			try {
+				const raw = localStorage.getItem(FILTERS_KEY$1);
+				if (raw === null) return defaultInteractionFilters();
+				const parsed = JSON.parse(raw);
+				if (parsed.version !== 1) return defaultInteractionFilters();
+				return {
+					version: 1,
+					platforms: Array.isArray(parsed.platforms) ? parsed.platforms.filter((platform) => typeof platform === "string" && INTERACTION_PLATFORM_IDS.includes(platform)) : [],
+					status: parsed.status !== void 0 && INTERACTION_STATUS_IDS.includes(parsed.status) ? parsed.status : "all",
+					type: parsed.type !== void 0 && parsed.type !== "all" && INTERACTION_TYPE_IDS.includes(parsed.type) ? parsed.type : "all",
+					sentiment: parsed.sentiment !== void 0 && parsed.sentiment !== "all" && INTERACTION_SENTIMENT_IDS.includes(parsed.sentiment) ? parsed.sentiment : "all",
+					intent: parsed.intent !== void 0 && parsed.intent !== "all" && INTERACTION_INTENT_IDS.includes(parsed.intent) ? parsed.intent : "all",
+					search: typeof parsed.search === "string" ? parsed.search : ""
+				};
+			} catch {
+				return defaultInteractionFilters();
+			}
+		}
+		/**
+		* Persist the filter set under the versioned key.
+		* @param filters - the filters to store.
+		*/
+		function saveInteractionFilters(filters) {
+			localStorage.setItem(FILTERS_KEY$1, JSON.stringify(filters));
+		}
+		/** The last inbound message of a conversation, or null when it has none. */
+		function lastInboundMessage(conversation) {
+			for (let index = conversation.messages.length - 1; index >= 0; index -= 1) {
+				const message = conversation.messages[index];
+				if (message !== void 0 && message.direction === "in") return message;
+			}
+			return null;
+		}
+		/** The latest message of a conversation regardless of direction, or null. */
+		function lastMessage(conversation) {
+			return conversation.messages[conversation.messages.length - 1] ?? null;
+		}
+		/**
+		* Apply the filter set to the conversation list. Archived and spam
+		* conversations stay retrievable only through their explicit status filters
+		* — the default views never mix them back in.
+		* @param conversations - every stored conversation.
+		* @param filters - the active filter set.
+		* @returns the conversations matching, `updatedAt` order preserved.
+		*/
+		function filterConversations(conversations, filters) {
+			const search = filters.search.trim().toLowerCase();
+			return conversations.filter((conversation) => {
+				if (filters.platforms.length > 0 && !filters.platforms.includes(conversation.platform)) return false;
+				if (filters.status !== "all" && conversation.status !== filters.status) return false;
+				if (filters.type !== "all" && !conversation.messages.some((message) => message.type === filters.type)) return false;
+				if (filters.sentiment !== "all" || filters.intent !== "all") {
+					const inbound = conversation.messages.filter((message) => message.direction === "in");
+					if (filters.sentiment !== "all" && !inbound.some((message) => message.sentiment.value === filters.sentiment)) return false;
+					if (filters.intent !== "all" && !inbound.some((message) => message.intent.value === filters.intent)) return false;
+				}
+				if (search.length > 0) {
+					if (!`${conversation.participant.nickname}\n${conversation.participant.externalUserId}\n${conversation.messages.map((message) => message.content).join("\n")}`.toLowerCase().includes(search)) return false;
+				}
+				return true;
+			});
+		}
+		/**
+		* Project a conversation's thread into the lines the reply prompt embeds:
+		* content only, trimmed to the latest window.
+		* @param conversation - the conversation being answered.
+		* @param maxLines - how many trailing lines to keep.
+		* @returns the thread lines, oldest first.
+		*/
+		function threadLines(conversation, maxLines = 20) {
+			return conversation.messages.slice(-maxLines).map((message) => ({
+				direction: message.direction,
+				content: message.content
+			}));
+		}
+		/**
+		* Merge one insight batch into the accumulated entries: same-label entries
+		* sum their counts and keep the first example and hint; new labels append;
+		* the result sorts by count descending and caps at five lines per list.
+		* @param accumulated - the entries merged so far.
+		* @param incoming - one batch's lines.
+		* @returns the merged entries.
+		*/
+		function mergeInsightList(accumulated, incoming) {
+			const merged = /* @__PURE__ */ new Map();
+			for (const entry of [...accumulated, ...incoming]) {
+				const existing = merged.get(entry.label);
+				if (existing === void 0) merged.set(entry.label, { ...entry });
+				else merged.set(entry.label, {
+					...existing,
+					count: existing.count + entry.count,
+					exampleMessageId: existing.exampleMessageId ?? entry.exampleMessageId,
+					topicHint: existing.topicHint ?? entry.topicHint
+				});
+			}
+			return [...merged.values()].sort((a, b) => b.count - a.count).slice(0, 5);
+		}
+		/**
+		* Merge one batch result into the whole insights record.
+		* @param insights - the record so far.
+		* @param batch - one batch's extraction.
+		* @returns the updated record (generatedAt untouched — the caller stamps it).
+		*/
+		function mergeInsightBatch(insights, batch) {
+			return {
+				generatedAt: insights.generatedAt,
+				topQuestions: mergeInsightList(insights.topQuestions, batch.questions),
+				painPoints: mergeInsightList(insights.painPoints, batch.painPoints),
+				interests: mergeInsightList(insights.interests, batch.interests)
+			};
+		}
+		/**
+		* Slice message ids into classification batches.
+		* @param ids - every message id to classify.
+		* @param size - the batch size.
+		* @returns the id batches, last one possibly short.
+		*/
+		function batchIds(ids, size) {
+			const batches = [];
+			for (let index = 0; index < ids.length; index += size) batches.push(ids.slice(index, index + size));
+			return batches;
+		}
+		/**
+		* Build the topic-bank upsert for one insight line: an `interaction`-source
+		* idea whose refId anchors the conversation the insight came from and whose
+		* snapshot keeps the phrasing readable if the conversation goes away.
+		* @param title - the topic working title.
+		* @param oneLiner - the pitch (topic hint or the insight label).
+		* @param conversationId - the conversation the insight grounded in.
+		* @param summary - the snapshot summary.
+		* @param capturedAt - the capture instant, ISO 8601.
+		* @returns the upsert input for the contentTopics Remote.
+		*/
+		function insightToTopicInput(title, oneLiner, conversationId, summary, capturedAt) {
+			return {
+				title,
+				oneLiner,
+				status: "idea",
+				source: {
+					type: "interaction",
+					refId: conversationId,
+					url: null,
+					snapshot: {
+						title,
+						summary,
+						capturedAt
+					}
+				},
+				tags: ["互动"],
+				description: null,
+				score: null,
+				planDate: null,
+				scheduleItemId: null,
+				topicDir: null
+			};
+		}
+		//#endregion
+		//#region \0dsh-css:D:\deepseek-harness\packages\client\ui-content-studio\src\client\InteractionView.module.css.mjs
+		const css$2 = ".PHOj3q_view{flex-direction:column;gap:12px;height:100%;padding:4px 2px;display:flex;overflow-y:auto}.PHOj3q_header{align-items:baseline;gap:12px;display:flex}.PHOj3q_title{margin:0;font-size:18px;font-weight:600}.PHOj3q_subtitle{color:var(--dsh-muted,#888);font-size:13px}.PHOj3q_summaryRow{flex-wrap:wrap;gap:8px;display:flex}.PHOj3q_summaryChip{background:var(--dsh-tint,#eef4ff);border-radius:999px;padding:4px 10px;font-size:12px}.PHOj3q_problems{color:#b45309;font-size:12px}.PHOj3q_notice{background:var(--dsh-tint,#eef4ff);border-radius:8px;padding:8px 12px;font-size:13px}.PHOj3q_busy{color:var(--dsh-muted,#888);font-size:13px}.PHOj3q_toolbar{flex-wrap:wrap;align-items:center;gap:8px;display:flex}.PHOj3q_fileButton{border:1px solid var(--dsh-border,#d0d0d0);background:var(--dsh-surface,#fff);cursor:pointer;border-radius:8px;padding:6px 12px;font-size:13px;position:relative}.PHOj3q_fileInput{opacity:0;cursor:pointer;position:absolute;inset:0}.PHOj3q_mini{border:1px solid var(--dsh-border,#d0d0d0);background:var(--dsh-surface,#fff);cursor:pointer;border-radius:8px;padding:5px 10px;font-size:12px}.PHOj3q_mini:disabled{opacity:.5;cursor:default}.PHOj3q_primary{background:var(--dsh-primary,#2563eb);color:#fff;cursor:pointer;border:1px solid #0000;border-radius:8px;padding:6px 14px;font-size:13px}.PHOj3q_primary:disabled{opacity:.5;cursor:default}.PHOj3q_select{border:1px solid var(--dsh-border,#d0d0d0);background:var(--dsh-surface,#fff);border-radius:8px;padding:5px 8px;font-size:12px}.PHOj3q_exportGroup{align-items:center;gap:6px;margin-left:auto;display:inline-flex}.PHOj3q_mcpPull{display:inline-flex}.PHOj3q_preview,.PHOj3q_report,.PHOj3q_insights{border:1px solid var(--dsh-border,#d0d0d0);border-radius:10px;flex-direction:column;gap:6px;padding:10px 12px;font-size:13px;display:flex}.PHOj3q_rejected{color:#b45309;flex-direction:column;gap:2px;max-height:160px;font-size:12px;display:flex;overflow-y:auto}.PHOj3q_sectionTitle{font-size:13px;font-weight:600}.PHOj3q_generatedAt{color:var(--dsh-muted,#888);font-size:12px}.PHOj3q_insightList{flex-direction:column;gap:4px;display:flex}.PHOj3q_insightLabel{color:var(--dsh-muted,#888);font-size:12px}.PHOj3q_insightRow{align-items:center;gap:8px;font-size:13px;display:flex}.PHOj3q_insightText{min-width:0}.PHOj3q_insightHint{color:var(--dsh-muted,#888);font-size:12px}.PHOj3q_empty{color:var(--dsh-muted,#888);text-align:center;padding:24px 0;font-size:13px}.PHOj3q_emptySmall{color:var(--dsh-muted,#888);font-size:12px}.PHOj3q_listInner{flex-direction:column;gap:8px;height:100%;display:flex}.PHOj3q_filters{flex-direction:column;gap:6px;display:flex}.PHOj3q_chipRow,.PHOj3q_selectRow{flex-wrap:wrap;gap:4px;display:flex}.PHOj3q_chip{border:1px solid var(--dsh-border,#d0d0d0);background:var(--dsh-surface,#fff);cursor:pointer;border-radius:999px;padding:3px 10px;font-size:12px}.PHOj3q_chip[aria-pressed=true]{background:var(--dsh-tint,#eef4ff);border-color:var(--dsh-primary,#2563eb)}.PHOj3q_search{border:1px solid var(--dsh-border,#d0d0d0);border-radius:8px;padding:6px 8px;font-size:12px}.PHOj3q_cards{flex-direction:column;gap:6px;display:flex;overflow-y:auto}.PHOj3q_card{border:1px solid var(--dsh-border,#d0d0d0);background:var(--dsh-surface,#fff);text-align:left;cursor:pointer;border-radius:10px;flex-direction:column;gap:4px;padding:8px 10px;display:flex}.PHOj3q_card[aria-current=true]{border-color:var(--dsh-primary,#2563eb)}.PHOj3q_cardHead{justify-content:space-between;align-items:baseline;gap:8px;display:flex}.PHOj3q_cardName{font-size:13px;font-weight:600}.PHOj3q_platform{color:var(--dsh-muted,#888);font-size:11px}.PHOj3q_cardExcerpt{color:var(--dsh-muted,#888);font-size:12px}.PHOj3q_cardMeta{color:var(--dsh-muted,#888);gap:8px;font-size:11px;display:flex}.PHOj3q_detail{flex-direction:column;gap:10px;height:100%;display:flex;overflow-y:auto}.PHOj3q_detailHead{flex-wrap:wrap;align-items:center;gap:8px;display:flex}.PHOj3q_refs{color:var(--dsh-muted,#888);gap:12px;font-size:12px;display:flex}.PHOj3q_tagRow{flex-wrap:wrap;gap:4px;display:flex}.PHOj3q_note{border:1px solid var(--dsh-border,#d0d0d0);resize:vertical;border-radius:8px;min-height:44px;padding:6px 8px;font-size:12px}.PHOj3q_thread{flex-direction:column;gap:6px;display:flex}.PHOj3q_lineIn,.PHOj3q_lineOut{border:1px solid var(--dsh-border,#d0d0d0);background:var(--dsh-surface,#fff);text-align:left;cursor:pointer;border-radius:10px;gap:8px;padding:6px 10px;font-size:13px;display:flex}.PHOj3q_lineIn[data-target]{border-color:var(--dsh-primary,#2563eb)}.PHOj3q_lineOut{background:var(--dsh-tint,#eef4ff)}.PHOj3q_lineRole{color:var(--dsh-muted,#888);flex:none;padding-top:2px;font-size:11px}.PHOj3q_lineBody{flex-direction:column;gap:4px;min-width:0;display:flex}.PHOj3q_taggings{color:var(--dsh-muted,#888);gap:10px;font-size:11px;display:flex}.PHOj3q_reply{border-top:1px solid var(--dsh-border,#d0d0d0);flex-direction:column;gap:8px;padding-top:8px;display:flex}.PHOj3q_replyControls{flex-wrap:wrap;align-items:center;gap:8px;display:flex}.PHOj3q_label{align-items:center;gap:6px;font-size:12px;display:inline-flex}.PHOj3q_drafts{flex-direction:column;gap:6px;display:flex}.PHOj3q_draft{border:1px dashed var(--dsh-border,#d0d0d0);border-radius:8px;align-items:flex-start;gap:8px;padding:6px 8px;font-size:13px;display:flex}.PHOj3q_draftBody{flex:1;min-width:0}.PHOj3q_composer{border:1px solid var(--dsh-border,#d0d0d0);resize:vertical;border-radius:8px;min-height:72px;padding:8px;font-size:13px}.PHOj3q_replyActions{justify-content:flex-end;gap:8px;display:flex}";
+		const tagId$2 = "@deepseek-ai/dsh-client-ui-content-studio/InteractionView.module.css";
+		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId$2) + "]") === null) {
+			const tag = document.createElement("style");
+			tag.dataset.plugin = "@deepseek-ai/dsh-client-ui-content-studio";
+			tag.dataset.pluginCss = tagId$2;
+			tag.textContent = css$2;
+			document.head.appendChild(tag);
+		}
+		var InteractionView_module_css_default = {
+			"busy": "PHOj3q_busy",
+			"card": "PHOj3q_card",
+			"cardExcerpt": "PHOj3q_cardExcerpt",
+			"cardHead": "PHOj3q_cardHead",
+			"cardMeta": "PHOj3q_cardMeta",
+			"cardName": "PHOj3q_cardName",
+			"cards": "PHOj3q_cards",
+			"chip": "PHOj3q_chip",
+			"chipRow": "PHOj3q_chipRow",
+			"composer": "PHOj3q_composer",
+			"detail": "PHOj3q_detail",
+			"detailHead": "PHOj3q_detailHead",
+			"draft": "PHOj3q_draft",
+			"draftBody": "PHOj3q_draftBody",
+			"drafts": "PHOj3q_drafts",
+			"empty": "PHOj3q_empty",
+			"emptySmall": "PHOj3q_emptySmall",
+			"exportGroup": "PHOj3q_exportGroup",
+			"fileButton": "PHOj3q_fileButton",
+			"fileInput": "PHOj3q_fileInput",
+			"filters": "PHOj3q_filters",
+			"generatedAt": "PHOj3q_generatedAt",
+			"header": "PHOj3q_header",
+			"insightHint": "PHOj3q_insightHint",
+			"insightLabel": "PHOj3q_insightLabel",
+			"insightList": "PHOj3q_insightList",
+			"insightRow": "PHOj3q_insightRow",
+			"insightText": "PHOj3q_insightText",
+			"insights": "PHOj3q_insights",
+			"label": "PHOj3q_label",
+			"lineBody": "PHOj3q_lineBody",
+			"lineIn": "PHOj3q_lineIn",
+			"lineOut": "PHOj3q_lineOut",
+			"lineRole": "PHOj3q_lineRole",
+			"listInner": "PHOj3q_listInner",
+			"mcpPull": "PHOj3q_mcpPull",
+			"mini": "PHOj3q_mini",
+			"note": "PHOj3q_note",
+			"notice": "PHOj3q_notice",
+			"platform": "PHOj3q_platform",
+			"preview": "PHOj3q_preview",
+			"primary": "PHOj3q_primary",
+			"problems": "PHOj3q_problems",
+			"refs": "PHOj3q_refs",
+			"rejected": "PHOj3q_rejected",
+			"reply": "PHOj3q_reply",
+			"replyActions": "PHOj3q_replyActions",
+			"replyControls": "PHOj3q_replyControls",
+			"report": "PHOj3q_report",
+			"search": "PHOj3q_search",
+			"sectionTitle": "PHOj3q_sectionTitle",
+			"select": "PHOj3q_select",
+			"selectRow": "PHOj3q_selectRow",
+			"subtitle": "PHOj3q_subtitle",
+			"summaryChip": "PHOj3q_summaryChip",
+			"summaryRow": "PHOj3q_summaryRow",
+			"tagRow": "PHOj3q_tagRow",
+			"taggings": "PHOj3q_taggings",
+			"thread": "PHOj3q_thread",
+			"title": "PHOj3q_title",
+			"toolbar": "PHOj3q_toolbar",
+			"view": "PHOj3q_view"
+		};
+		//#endregion
+		//#region lib/types/client/InteractionView.js
+		/**
+		* The interaction view: a unified fan inbox over the interaction controller.
+		* The header carries the derived summary chips; the toolbar holds the CSV
+		* import, the CSV export, the batch classifier, the insight extractor, and
+		* the disabled MCP-pull entry (the reserved channel). The left pane lists
+		* the filtered conversations; the right pane renders the selected thread
+		* with the persona binding, the demand tags, the note, the AI draft set,
+		* and the send composer whose archive never depends on the reserved call.
+		*/
+		/** The demand-tag values the data contract freezes; stored and rendered verbatim. */
+		const TAG_OPTIONS = [
+			"产品咨询",
+			"价格疑问",
+			"内容建议",
+			"投诉",
+			"其他"
+		];
+		/** Platform label keys, aligned with the picker order. */
+		const PLATFORM_KEYS = {
+			xhs: "interaction.platform.xhs",
+			douyin: "interaction.platform.douyin",
+			weixin: "interaction.platform.weixin",
+			bilibili: "interaction.platform.bilibili"
+		};
+		/** Shorten one message to the list excerpt length. */
+		function excerpt(text, max = 60) {
+			const single = text.replaceAll(/\s+/gu, " ").trim();
+			return single.length > max ? `${single.slice(0, max)}…` : single;
+		}
+		/**
+		* Render the interaction workbench.
+		* @param props - the injected face and the locale seat.
+		* @returns the view element tree.
+		*/
+		function InteractionView({ interaction, personas, templates, listThemes, t }) {
+			const state = (0, react.useSyncExternalStore)((fn) => interaction.subscribe(fn), () => interaction.getState());
+			const personaState = (0, react.useSyncExternalStore)((fn) => personas.subscribe(fn), () => personas.getState());
+			const [themes, setThemes] = (0, react.useState)([]);
+			const [exportTheme, setExportTheme] = (0, react.useState)("");
+			const [composer, setComposer] = (0, react.useState)("");
+			const [style, setStyle] = (0, react.useState)("friendly");
+			const [targetMessageId, setTargetMessageId] = (0, react.useState)(null);
+			const [templateSkeleton, setTemplateSkeleton] = (0, react.useState)(null);
+			const [noteDraft, setNoteDraft] = (0, react.useState)("");
+			(0, react.useEffect)(() => {
+				(async () => {
+					try {
+						setThemes(await listThemes());
+					} catch {
+						setThemes([]);
+					}
+				})();
+			}, [listThemes]);
+			(0, react.useEffect)(() => {
+				if (state.notice === null) return;
+				const timer = window.setTimeout(() => {
+					interaction.clearNotice();
+				}, 4e3);
+				return () => {
+					window.clearTimeout(timer);
+				};
+			}, [state.notice, interaction]);
+			const filters = interaction.filters();
+			const conversations = (0, react.useMemo)(() => interaction.visible(), [
+				interaction,
+				state.manifest,
+				state.filtersRevision
+			]);
+			const selected = (0, react.useMemo)(() => state.manifest?.conversations.find((candidate) => candidate.id === state.selectedId) ?? null, [state.manifest, state.selectedId]);
+			const selectedId = selected?.id ?? null;
+			(0, react.useEffect)(() => {
+				const current = selectedId === null ? null : interaction.getState().manifest?.conversations.find((candidate) => candidate.id === selectedId) ?? null;
+				setNoteDraft(current?.note ?? "");
+				setTargetMessageId(current === null ? null : lastInboundMessage(current)?.id ?? null);
+				setComposer("");
+			}, [selectedId, interaction]);
+			(0, react.useEffect)(() => {
+				if (selected !== null && document.activeElement?.tagName !== "TEXTAREA") setNoteDraft(selected.note);
+			}, [selected]);
+			const personaOf = (id) => id === null ? null : personaState.personas.find((entry) => entry.id === id) ?? null;
+			const personaFacts = (entry) => entry === null ? null : {
+				id: entry.id,
+				digest: entry.digest.length > 0 ? entry.digest : null,
+				phrases: typeof entry.fields.phrases.value === "string" && entry.fields.phrases.value.trim().length > 0 ? [entry.fields.phrases.value.trim()] : [],
+				samples: entry.links.map((link) => link.sampleText).filter((sample) => sample !== null && sample.trim().length > 0)
+			};
+			const togglePlatform = (platform) => {
+				const next = filters.platforms.includes(platform) ? filters.platforms.filter((candidate) => candidate !== platform) : [...filters.platforms, platform];
+				interaction.setFilters({ platforms: next });
+			};
+			const toggleTag = (conversation, tag) => {
+				const next = conversation.tags.includes(tag) ? conversation.tags.filter((candidate) => candidate !== tag) : [...conversation.tags, tag];
+				interaction.patchConversation(conversation.id, { tags: next });
+			};
+			const onImportFile = (file) => {
+				if (file === void 0) return;
+				(async () => {
+					const text = await file.text();
+					await interaction.stageImport(file.name, text);
+				})();
+			};
+			const target = selected === null || targetMessageId === null ? null : selected.messages.find((message) => message.id === targetMessageId) ?? null;
+			const pickTemplate = () => {
+				templates.openPicker({
+					category: "interaction",
+					targetLabel: t("interaction.reply.title"),
+					hasContent: () => templateSkeleton !== null,
+					apply: (draft) => {
+						setTemplateSkeleton(draft.body);
+					}
+				});
+			};
+			const generate = () => {
+				if (selected === null || target === null || target.direction !== "in") return;
+				interaction.generateDrafts(selected.id, target.id, style, personaFacts(personaOf(selected.personaId)), templateSkeleton);
+			};
+			const conversationOfExample = (exampleMessageId) => {
+				if (exampleMessageId !== null) {
+					const owner = state.manifest?.conversations.find((conversation) => conversation.messages.some((message) => message.id === exampleMessageId));
+					if (owner !== void 0) return owner.id;
+				}
+				return selectedId ?? "";
+			};
+			const pushInsight = (entry) => {
+				interaction.pushTopic(entry.label, entry.topicHint ?? entry.label, conversationOfExample(entry.exampleMessageId), entry.topicHint ?? entry.label);
+			};
+			const summary = state.manifest?.summary;
+			const insights = state.manifest?.insights;
+			const listPane = (0, react_jsx_runtime.jsxs)("div", {
+				className: InteractionView_module_css_default.listInner,
+				children: [(0, react_jsx_runtime.jsxs)("div", {
+					className: InteractionView_module_css_default.filters,
+					children: [
+						(0, react_jsx_runtime.jsx)("div", {
+							className: InteractionView_module_css_default.chipRow,
+							children: INTERACTION_PLATFORM_IDS.map((platform) => (0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: InteractionView_module_css_default.chip,
+								"aria-pressed": filters.platforms.includes(platform),
+								onClick: () => {
+									togglePlatform(platform);
+								},
+								children: t(PLATFORM_KEYS[platform])
+							}, platform))
+						}),
+						(0, react_jsx_runtime.jsxs)("div", {
+							className: InteractionView_module_css_default.selectRow,
+							children: [
+								(0, react_jsx_runtime.jsxs)("select", {
+									className: InteractionView_module_css_default.select,
+									"aria-label": t("interaction.filter.status"),
+									value: filters.status,
+									onChange: (event) => {
+										interaction.setFilters({ status: event.target.value });
+									},
+									children: [(0, react_jsx_runtime.jsx)("option", {
+										value: "all",
+										children: t("interaction.filter.all")
+									}), INTERACTION_STATUS_IDS.map((status) => (0, react_jsx_runtime.jsx)("option", {
+										value: status,
+										children: t(`interaction.status.${status}`)
+									}, status))]
+								}),
+								(0, react_jsx_runtime.jsxs)("select", {
+									className: InteractionView_module_css_default.select,
+									"aria-label": t("interaction.filter.type"),
+									value: filters.type,
+									onChange: (event) => {
+										interaction.setFilters({ type: event.target.value });
+									},
+									children: [(0, react_jsx_runtime.jsx)("option", {
+										value: "all",
+										children: t("interaction.filter.all")
+									}), INTERACTION_TYPE_IDS.map((type) => (0, react_jsx_runtime.jsx)("option", {
+										value: type,
+										children: t(`interaction.type.${type}`)
+									}, type))]
+								}),
+								(0, react_jsx_runtime.jsxs)("select", {
+									className: InteractionView_module_css_default.select,
+									"aria-label": t("interaction.filter.sentiment"),
+									value: filters.sentiment,
+									onChange: (event) => {
+										interaction.setFilters({ sentiment: event.target.value });
+									},
+									children: [(0, react_jsx_runtime.jsx)("option", {
+										value: "all",
+										children: t("interaction.filter.all")
+									}), INTERACTION_SENTIMENT_IDS.map((sentiment) => (0, react_jsx_runtime.jsx)("option", {
+										value: sentiment,
+										children: t(`interaction.sentiment.${sentiment}`)
+									}, sentiment))]
+								}),
+								(0, react_jsx_runtime.jsxs)("select", {
+									className: InteractionView_module_css_default.select,
+									"aria-label": t("interaction.filter.intent"),
+									value: filters.intent,
+									onChange: (event) => {
+										interaction.setFilters({ intent: event.target.value });
+									},
+									children: [(0, react_jsx_runtime.jsx)("option", {
+										value: "all",
+										children: t("interaction.filter.all")
+									}), [
+										"consult",
+										"praise",
+										"complain",
+										"demand",
+										"spam",
+										"unknown"
+									].map((intent) => (0, react_jsx_runtime.jsx)("option", {
+										value: intent,
+										children: t(`interaction.intent.${intent}`)
+									}, intent))]
+								})
+							]
+						}),
+						(0, react_jsx_runtime.jsx)("input", {
+							className: InteractionView_module_css_default.search,
+							type: "search",
+							placeholder: t("interaction.filter.search"),
+							value: filters.search,
+							onChange: (event) => {
+								interaction.setFilters({ search: event.target.value });
+							}
+						})
+					]
+				}), (0, react_jsx_runtime.jsxs)("div", {
+					className: InteractionView_module_css_default.cards,
+					children: [conversations.length === 0 && (0, react_jsx_runtime.jsx)("div", {
+						className: InteractionView_module_css_default.emptySmall,
+						children: t("interaction.list.none")
+					}), conversations.map((conversation) => {
+						const latest = lastMessage(conversation);
+						return (0, react_jsx_runtime.jsxs)("button", {
+							type: "button",
+							className: InteractionView_module_css_default.card,
+							"aria-current": conversation.id === state.selectedId || void 0,
+							onClick: () => {
+								interaction.select(conversation.id);
+							},
+							children: [
+								(0, react_jsx_runtime.jsxs)("span", {
+									className: InteractionView_module_css_default.cardHead,
+									children: [(0, react_jsx_runtime.jsx)("span", {
+										className: InteractionView_module_css_default.cardName,
+										children: conversation.participant.nickname.length > 0 ? conversation.participant.nickname : conversation.participant.externalUserId
+									}), (0, react_jsx_runtime.jsx)("span", {
+										className: InteractionView_module_css_default.platform,
+										children: t(PLATFORM_KEYS[conversation.platform])
+									})]
+								}),
+								latest !== null && (0, react_jsx_runtime.jsx)("span", {
+									className: InteractionView_module_css_default.cardExcerpt,
+									children: excerpt(latest.content)
+								}),
+								(0, react_jsx_runtime.jsxs)("span", {
+									className: InteractionView_module_css_default.cardMeta,
+									children: [
+										(0, react_jsx_runtime.jsx)("span", { children: t(`interaction.status.${conversation.status}`) }),
+										(0, react_jsx_runtime.jsxs)("span", { children: [
+											conversation.messages.length,
+											" ",
+											t("interaction.list.messages")
+										] }),
+										conversation.starred && (0, react_jsx_runtime.jsx)("span", {
+											"aria-label": t("interaction.star"),
+											children: "★"
+										})
+									]
+								})
+							]
+						}, conversation.id);
+					})]
+				})]
+			});
+			const detailPane = selected === null ? (0, react_jsx_runtime.jsx)("div", {
+				className: InteractionView_module_css_default.empty,
+				children: t("interaction.detail.empty")
+			}) : (0, react_jsx_runtime.jsxs)("div", {
+				className: InteractionView_module_css_default.detail,
+				children: [
+					(0, react_jsx_runtime.jsxs)("div", {
+						className: InteractionView_module_css_default.detailHead,
+						children: [
+							(0, react_jsx_runtime.jsx)("span", {
+								className: InteractionView_module_css_default.cardName,
+								children: selected.participant.nickname.length > 0 ? selected.participant.nickname : selected.participant.externalUserId
+							}),
+							(0, react_jsx_runtime.jsx)("select", {
+								className: InteractionView_module_css_default.select,
+								"aria-label": t("interaction.filter.status"),
+								value: selected.status,
+								onChange: (event) => {
+									interaction.patchConversation(selected.id, { status: event.target.value });
+								},
+								children: INTERACTION_STATUS_IDS.map((status) => (0, react_jsx_runtime.jsx)("option", {
+									value: status,
+									children: t(`interaction.status.${status}`)
+								}, status))
+							}),
+							(0, react_jsx_runtime.jsxs)("select", {
+								className: InteractionView_module_css_default.select,
+								"aria-label": t("interaction.detail.persona"),
+								value: selected.personaId ?? "",
+								onChange: (event) => {
+									interaction.patchConversation(selected.id, { personaId: event.target.value === "" ? null : event.target.value });
+								},
+								children: [(0, react_jsx_runtime.jsx)("option", {
+									value: "",
+									children: t("interaction.detail.persona.none")
+								}), personaState.personas.map((entry) => (0, react_jsx_runtime.jsx)("option", {
+									value: entry.id,
+									children: entry.name
+								}, entry.id))]
+							}),
+							(0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: InteractionView_module_css_default.mini,
+								"aria-pressed": selected.starred,
+								onClick: () => {
+									interaction.patchConversation(selected.id, { starred: !selected.starred });
+								},
+								children: selected.starred ? `★ ${t("interaction.unstar")}` : `☆ ${t("interaction.star")}`
+							})
+						]
+					}),
+					(selected.topicRef !== null || selected.outputRef !== null) && (0, react_jsx_runtime.jsxs)("div", {
+						className: InteractionView_module_css_default.refs,
+						children: [selected.topicRef !== null && (0, react_jsx_runtime.jsxs)("span", { children: [
+							t("interaction.detail.topicRef"),
+							": ",
+							selected.topicRef
+						] }), selected.outputRef !== null && (0, react_jsx_runtime.jsxs)("span", { children: [
+							t("interaction.detail.outputRef"),
+							": ",
+							selected.outputRef
+						] })]
+					}),
+					(0, react_jsx_runtime.jsx)("div", {
+						className: InteractionView_module_css_default.tagRow,
+						"aria-label": t("interaction.detail.tags"),
+						children: TAG_OPTIONS.map((tag) => (0, react_jsx_runtime.jsx)("button", {
+							type: "button",
+							className: InteractionView_module_css_default.chip,
+							"aria-pressed": selected.tags.includes(tag),
+							onClick: () => {
+								toggleTag(selected, tag);
+							},
+							children: tag
+						}, tag))
+					}),
+					(0, react_jsx_runtime.jsx)("textarea", {
+						className: InteractionView_module_css_default.note,
+						"aria-label": t("interaction.detail.note.aria"),
+						placeholder: t("interaction.detail.note.placeholder"),
+						value: noteDraft,
+						onChange: (event) => {
+							setNoteDraft(event.target.value);
+						},
+						onBlur: () => {
+							if (noteDraft !== selected.note) interaction.patchConversation(selected.id, { note: noteDraft });
+						}
+					}),
+					(0, react_jsx_runtime.jsx)("div", {
+						className: InteractionView_module_css_default.thread,
+						"aria-label": t("interaction.detail.label"),
+						children: selected.messages.map((message) => {
+							const isFan = message.direction === "in";
+							return (0, react_jsx_runtime.jsxs)("button", {
+								type: "button",
+								className: isFan ? InteractionView_module_css_default.lineIn : InteractionView_module_css_default.lineOut,
+								"data-target": message.id === targetMessageId || void 0,
+								onClick: () => {
+									if (isFan) setTargetMessageId(message.id);
+								},
+								children: [(0, react_jsx_runtime.jsx)("span", {
+									className: InteractionView_module_css_default.lineRole,
+									children: isFan ? t("interaction.thread.fan") : t("interaction.thread.me")
+								}), (0, react_jsx_runtime.jsxs)("span", {
+									className: InteractionView_module_css_default.lineBody,
+									children: [message.content, isFan && (0, react_jsx_runtime.jsxs)("span", {
+										className: InteractionView_module_css_default.taggings,
+										children: [(0, react_jsx_runtime.jsxs)("span", { children: [t(`interaction.sentiment.${message.sentiment.value}`), message.sentiment.source === "ai" && t("interaction.thread.aiTag")] }), (0, react_jsx_runtime.jsxs)("span", { children: [t(`interaction.intent.${message.intent.value}`), message.intent.source === "ai" && t("interaction.thread.aiTag")] })]
+									})]
+								})]
+							}, message.id);
+						})
+					}),
+					(0, react_jsx_runtime.jsxs)("div", {
+						className: InteractionView_module_css_default.reply,
+						children: [(0, react_jsx_runtime.jsx)("span", {
+							className: InteractionView_module_css_default.sectionTitle,
+							children: t("interaction.reply.title")
+						}), target === null || target.direction !== "in" ? (0, react_jsx_runtime.jsx)("span", {
+							className: InteractionView_module_css_default.emptySmall,
+							children: t("interaction.reply.noTarget")
+						}) : (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
+							(0, react_jsx_runtime.jsxs)("div", {
+								className: InteractionView_module_css_default.replyControls,
+								children: [
+									(0, react_jsx_runtime.jsxs)("label", {
+										className: InteractionView_module_css_default.label,
+										children: [t("interaction.reply.style"), (0, react_jsx_runtime.jsx)("select", {
+											className: InteractionView_module_css_default.select,
+											value: style,
+											onChange: (event) => {
+												setStyle(event.target.value);
+											},
+											children: INTERACTION_STYLE_IDS.map((candidate) => (0, react_jsx_runtime.jsx)("option", {
+												value: candidate,
+												children: t(`interaction.style.${candidate}`)
+											}, candidate))
+										})]
+									}),
+									(0, react_jsx_runtime.jsx)("button", {
+										type: "button",
+										className: InteractionView_module_css_default.mini,
+										onClick: pickTemplate,
+										children: t("interaction.reply.template")
+									}),
+									templateSkeleton !== null && (0, react_jsx_runtime.jsx)("button", {
+										type: "button",
+										className: InteractionView_module_css_default.mini,
+										onClick: () => {
+											setTemplateSkeleton(null);
+										},
+										children: "✕"
+									}),
+									(0, react_jsx_runtime.jsx)("button", {
+										type: "button",
+										className: InteractionView_module_css_default.primary,
+										disabled: state.busy,
+										onClick: generate,
+										children: t("interaction.reply.generate")
+									})
+								]
+							}),
+							target.replyDrafts.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
+								className: InteractionView_module_css_default.drafts,
+								children: [(0, react_jsx_runtime.jsx)("span", {
+									className: InteractionView_module_css_default.sectionTitle,
+									children: t("interaction.reply.drafts")
+								}), target.replyDrafts.map((draft) => (0, react_jsx_runtime.jsxs)("div", {
+									className: InteractionView_module_css_default.draft,
+									children: [(0, react_jsx_runtime.jsx)("span", {
+										className: InteractionView_module_css_default.draftBody,
+										children: draft.content
+									}), (0, react_jsx_runtime.jsx)("button", {
+										type: "button",
+										className: InteractionView_module_css_default.mini,
+										onClick: () => {
+											setComposer(draft.content);
+										},
+										children: t("interaction.reply.adopt")
+									})]
+								}, draft.id))]
+							}),
+							(0, react_jsx_runtime.jsx)("textarea", {
+								className: InteractionView_module_css_default.composer,
+								"aria-label": t("interaction.reply.composer"),
+								value: composer,
+								onChange: (event) => {
+									setComposer(event.target.value);
+								}
+							}),
+							(0, react_jsx_runtime.jsxs)("div", {
+								className: InteractionView_module_css_default.replyActions,
+								children: [(0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: InteractionView_module_css_default.mini,
+									disabled: composer.trim().length === 0 || state.busy,
+									onClick: () => {
+										if (selected === null || target === null) return;
+										interaction.saveDraft(selected.id, target.id, style, composer.trim(), selected.personaId);
+									},
+									children: t("interaction.reply.sendDraft")
+								}), (0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: InteractionView_module_css_default.primary,
+									disabled: composer.trim().length === 0 || state.busy,
+									onClick: () => {
+										if (selected === null || target === null || composer.trim().length === 0) return;
+										const content = composer.trim();
+										const personaId = selected.personaId;
+										(async () => {
+											await interaction.sendReply(selected.id, target.id, content, personaId);
+											setComposer("");
+										})();
+									},
+									children: t("interaction.reply.send")
+								})]
+							})
+						] })]
+					})
+				]
+			});
+			return (0, react_jsx_runtime.jsxs)("div", {
+				className: InteractionView_module_css_default.view,
+				children: [
+					(0, react_jsx_runtime.jsxs)("div", {
+						className: InteractionView_module_css_default.header,
+						children: [(0, react_jsx_runtime.jsx)("h2", {
+							className: InteractionView_module_css_default.title,
+							children: t("interaction.title")
+						}), (0, react_jsx_runtime.jsx)("span", {
+							className: InteractionView_module_css_default.subtitle,
+							children: t("interaction.subtitle")
+						})]
+					}),
+					summary !== void 0 && (0, react_jsx_runtime.jsx)("div", {
+						className: InteractionView_module_css_default.summaryRow,
+						children: INTERACTION_STATUS_IDS.map((status) => (0, react_jsx_runtime.jsxs)("span", {
+							className: InteractionView_module_css_default.summaryChip,
+							children: [
+								t(`interaction.summary.${status}`),
+								" ×",
+								summary[status]
+							]
+						}, status))
+					}),
+					state.problems.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
+						className: InteractionView_module_css_default.problems,
+						children: [
+							t("interaction.problems"),
+							" ",
+							state.problems.join("；")
+						]
+					}),
+					state.notice !== null && (0, react_jsx_runtime.jsx)("div", {
+						className: InteractionView_module_css_default.notice,
+						role: "status",
+						children: t(`interaction.notice.${state.notice}`)
+					}),
+					state.busy && (0, react_jsx_runtime.jsxs)("div", {
+						className: InteractionView_module_css_default.busy,
+						children: [t("interaction.busy"), state.progress !== null && (0, react_jsx_runtime.jsx)("span", { children: ` ${state.progress.done}/${state.progress.total}` })]
+					}),
+					(0, react_jsx_runtime.jsxs)("div", {
+						className: InteractionView_module_css_default.toolbar,
+						children: [
+							(0, react_jsx_runtime.jsxs)("label", {
+								className: InteractionView_module_css_default.fileButton,
+								children: [t("interaction.import"), (0, react_jsx_runtime.jsx)("input", {
+									type: "file",
+									accept: ".csv,text/csv",
+									className: InteractionView_module_css_default.fileInput,
+									onChange: (event) => {
+										onImportFile(event.target.files?.[0]);
+									}
+								})]
+							}),
+							(0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: InteractionView_module_css_default.mini,
+								disabled: state.busy || conversations.length === 0,
+								onClick: () => {
+									interaction.classifySelected(conversations.map((conversation) => conversation.id));
+								},
+								children: t("interaction.classify")
+							}),
+							(0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: InteractionView_module_css_default.mini,
+								disabled: state.busy || conversations.length === 0,
+								onClick: () => {
+									interaction.extractInsights(conversations.map((conversation) => conversation.id));
+								},
+								children: t("interaction.insights")
+							}),
+							(0, react_jsx_runtime.jsx)("span", {
+								className: InteractionView_module_css_default.mcpPull,
+								title: t("interaction.mcp.disabled"),
+								children: (0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: InteractionView_module_css_default.mini,
+									disabled: true,
+									children: t("interaction.mcp.pull")
+								})
+							}),
+							(0, react_jsx_runtime.jsxs)("span", {
+								className: InteractionView_module_css_default.exportGroup,
+								children: [(0, react_jsx_runtime.jsxs)("select", {
+									className: InteractionView_module_css_default.select,
+									"aria-label": t("interaction.export.aria"),
+									value: exportTheme,
+									onChange: (event) => {
+										setExportTheme(event.target.value);
+									},
+									children: [(0, react_jsx_runtime.jsx)("option", {
+										value: "",
+										children: t("interaction.export.aria")
+									}), themes.map((theme) => (0, react_jsx_runtime.jsx)("option", {
+										value: theme,
+										children: theme
+									}, theme))]
+								}), (0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: InteractionView_module_css_default.mini,
+									disabled: state.busy,
+									onClick: () => {
+										interaction.exportCsv(exportTheme);
+									},
+									children: t("interaction.export")
+								})]
+							})
+						]
+					}),
+					state.preview !== null && (0, react_jsx_runtime.jsxs)("div", {
+						className: InteractionView_module_css_default.preview,
+						children: [
+							(0, react_jsx_runtime.jsxs)("span", {
+								className: InteractionView_module_css_default.sectionTitle,
+								children: [
+									t("interaction.import.preview"),
+									" — ",
+									state.preview.fileName
+								]
+							}),
+							(0, react_jsx_runtime.jsxs)("span", { children: [
+								state.preview.messages.length,
+								" ",
+								t("interaction.import.valid")
+							] }),
+							state.preview.rejected.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
+								className: InteractionView_module_css_default.rejected,
+								children: [(0, react_jsx_runtime.jsxs)("span", { children: [t("interaction.import.rejected"), ":"] }), state.preview.rejected.map((rejection) => (0, react_jsx_runtime.jsxs)("div", {
+									className: InteractionView_module_css_default.rejectedRow,
+									children: [
+										"#",
+										rejection.row,
+										": ",
+										rejection.reason
+									]
+								}, rejection.row))]
+							}),
+							(0, react_jsx_runtime.jsxs)("div", {
+								className: InteractionView_module_css_default.replyActions,
+								children: [(0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: InteractionView_module_css_default.mini,
+									onClick: () => {
+										interaction.discardImport();
+									},
+									children: t("interaction.import.discard")
+								}), (0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: InteractionView_module_css_default.primary,
+									disabled: state.preview.messages.length === 0,
+									onClick: () => {
+										interaction.commitImport();
+									},
+									children: t("interaction.import.commit")
+								})]
+							})
+						]
+					}),
+					state.importReport !== null && state.preview === null && (0, react_jsx_runtime.jsxs)("div", {
+						className: InteractionView_module_css_default.report,
+						children: [
+							(0, react_jsx_runtime.jsxs)("span", { children: [t("interaction.import.report"), ":"] }),
+							(0, react_jsx_runtime.jsxs)("span", { children: [
+								state.importReport.added,
+								" ",
+								t("interaction.import.added")
+							] }),
+							(0, react_jsx_runtime.jsxs)("span", { children: [
+								state.importReport.updated,
+								" ",
+								t("interaction.import.updated")
+							] }),
+							(0, react_jsx_runtime.jsxs)("span", { children: [
+								state.importReport.conversationsCreated,
+								" ",
+								t("interaction.import.created")
+							] }),
+							(0, react_jsx_runtime.jsxs)("span", { children: [
+								state.importReport.threadWarnings.length,
+								" ",
+								t("interaction.import.threads")
+							] })
+						]
+					}),
+					insights !== void 0 && (0, react_jsx_runtime.jsxs)("div", {
+						className: InteractionView_module_css_default.insights,
+						children: [
+							(0, react_jsx_runtime.jsx)("span", {
+								className: InteractionView_module_css_default.sectionTitle,
+								children: t("interaction.insights.title")
+							}),
+							insights.generatedAt !== null && (0, react_jsx_runtime.jsxs)("span", {
+								className: InteractionView_module_css_default.generatedAt,
+								children: [
+									t("interaction.insights.generatedAt"),
+									" ",
+									insights.generatedAt.slice(0, 10)
+								]
+							}),
+							insights.generatedAt === null && (0, react_jsx_runtime.jsx)("span", {
+								className: InteractionView_module_css_default.emptySmall,
+								children: t("interaction.insights.none")
+							}),
+							(0, react_jsx_runtime.jsx)(InsightList, {
+								label: t("interaction.insights.questions"),
+								entries: insights.topQuestions,
+								onPush: pushInsight,
+								t
+							}),
+							(0, react_jsx_runtime.jsx)(InsightList, {
+								label: t("interaction.insights.pain"),
+								entries: insights.painPoints,
+								onPush: pushInsight,
+								t
+							}),
+							(0, react_jsx_runtime.jsx)(InsightList, {
+								label: t("interaction.insights.interests"),
+								entries: insights.interests,
+								onPush: pushInsight,
+								t
+							})
+						]
+					}),
+					state.manifest === null && state.loading && (0, react_jsx_runtime.jsx)("div", {
+						className: InteractionView_module_css_default.empty,
+						children: t("interaction.loading")
+					}),
+					state.manifest !== null && state.manifest.conversations.length === 0 && (0, react_jsx_runtime.jsx)("div", {
+						className: InteractionView_module_css_default.empty,
+						children: t("interaction.empty")
+					}),
+					state.manifest !== null && state.manifest.conversations.length > 0 && (0, react_jsx_runtime.jsx)(SplitDetail, {
+						list: listPane,
+						detail: detailPane,
+						detailLabel: t("interaction.detail.label")
+					})
+				]
+			});
+		}
+		/** One insight list with its per-entry topic push. */
+		function InsightList({ label, entries, onPush, t }) {
+			if (entries.length === 0) return null;
+			return (0, react_jsx_runtime.jsxs)("div", {
+				className: InteractionView_module_css_default.insightList,
+				children: [(0, react_jsx_runtime.jsx)("span", {
+					className: InteractionView_module_css_default.insightLabel,
+					children: label
+				}), entries.map((entry) => (0, react_jsx_runtime.jsxs)("div", {
+					className: InteractionView_module_css_default.insightRow,
+					children: [
+						(0, react_jsx_runtime.jsxs)("span", {
+							className: InteractionView_module_css_default.insightText,
+							children: [
+								entry.label,
+								" ×",
+								entry.count
+							]
+						}),
+						entry.topicHint !== null && (0, react_jsx_runtime.jsx)("span", {
+							className: InteractionView_module_css_default.insightHint,
+							children: entry.topicHint
+						}),
+						(0, react_jsx_runtime.jsx)("button", {
+							type: "button",
+							className: InteractionView_module_css_default.mini,
+							onClick: () => {
+								onPush(entry);
+							},
+							children: t("interaction.insights.toTopic")
+						})
+					]
+				}, entry.label))]
+			});
+		}
+		//#endregion
+		//#region lib/types/client/template/model.js
+		/**
+		* Pure template-library helpers: body segmentation (code regions are never
+		* touched), placeholder scanning, variable reconciliation, rendering, and
+		* import-pack validation. The body is the source of truth — the variables
+		* metadata follows it, never the other way around. Rendering output is plain
+		* text: views must render it through text nodes (React's own escaping), never
+		* through `innerHTML`.
+		*/
+		/**
+		* Every template category, mirrored client-side: the bundle purity gate
+		* forbids cross-plugin value imports, so the wire type stays type-only and
+		* this frozen list carries the runtime order for the pickers.
+		*/
+		const TEMPLATE_CATEGORIES = [
+			"topic",
+			"creation",
+			"publish",
+			"calendar",
+			"retro",
+			"interaction",
+			"persona",
+			"benchmark",
+			"intel",
+			"dashboard"
+		];
+		/** Chinese label of one template category; shared by the library, the picker, and the generate box. */
+		const TEMPLATE_CATEGORY_LABELS = {
+			topic: "选题",
+			creation: "创作",
+			publish: "发布",
+			calendar: "日历",
+			retro: "复盘",
+			interaction: "互动",
+			persona: "画像",
+			benchmark: "对标",
+			intel: "信息",
+			dashboard: "仪表盘"
+		};
+		const VARIABLE_PATTERN = /\{\{\s*([a-zA-Z][a-zA-Z0-9_]*)\s*\}\}/gu;
+		/**
+		* Split one body into text and code segments. Fenced blocks (``` or ~~~)
+		* toggle per line; inline backtick spans are code within a text line.
+		* Unclosed fences run to the end of the body.
+		* @param body - the template Markdown body.
+		* @returns the ordered segments.
+		*/
+		function segmentTemplateBody(body) {
+			const segments = [];
+			let inFence = false;
+			let buffer = [];
+			let bufferCode = false;
+			const flush = () => {
+				if (buffer.length > 0) {
+					segments.push({
+						code: bufferCode,
+						text: buffer.join("\n")
+					});
+					buffer = [];
+				}
+			};
+			for (const line of body.split("\n")) {
+				if (/^\s{0,3}(?:```|~~~)/u.test(line)) {
+					flush();
+					segments.push({
+						code: true,
+						text: line
+					});
+					inFence = !inFence;
+					continue;
+				}
+				const code = inFence;
+				if (buffer.length > 0 && code !== bufferCode) flush();
+				bufferCode = code;
+				buffer.push(line);
+			}
+			flush();
+			return segments;
+		}
+		/** Inline backtick span within one line. */
+		const INLINE_CODE_PATTERN = /`[^`\n]*`/gu;
+		/** Split one text line into code spans and substitutable text parts. */
+		function splitInline(line) {
+			const parts = [];
+			let last = 0;
+			line.replace(INLINE_CODE_PATTERN, (match, offset) => {
+				if (offset > last) parts.push({
+					code: false,
+					text: line.slice(last, offset)
+				});
+				parts.push({
+					code: true,
+					text: match
+				});
+				last = offset + match.length;
+				return match;
+			});
+			if (last < line.length) parts.push({
+				code: false,
+				text: line.slice(last)
+			});
+			return parts;
+		}
+		/**
+		* Collect every placeholder occurrence in one substitutable text part.
+		* A `{{` preceded by a backslash is the literal escape, not a variable.
+		* @param text - the text part to scan.
+		* @returns the occurrences in order.
+		*/
+		function scanText(text) {
+			const matches = [];
+			text.replace(VARIABLE_PATTERN, (match, name, offset) => {
+				matches.push({
+					name,
+					escaped: offset > 0 && text[offset - 1] === "\\"
+				});
+				return match;
+			});
+			return matches;
+		}
+		/**
+		* Scan one body for the variable names its placeholders introduce, in
+		* first-occurrence order, deduplicated. Code regions never contribute.
+		* @param body - the template Markdown body.
+		* @returns the active variable names.
+		*/
+		function scanTemplateVariables(body) {
+			const names = [];
+			const seen = /* @__PURE__ */ new Set();
+			for (const segment of segmentTemplateBody(body)) {
+				if (segment.code) continue;
+				for (const part of splitInline(segment.text)) {
+					if (part.code) continue;
+					for (const match of scanText(part.text)) {
+						if (match.escaped || seen.has(match.name)) continue;
+						seen.add(match.name);
+						names.push(match.name);
+					}
+				}
+			}
+			return names;
+		}
+		/** Variable metadata synthesized for a placeholder the user has not described yet. */
+		function freshVariable(name) {
+			return {
+				name,
+				label: name,
+				description: "",
+				defaultValue: "",
+				required: false
+			};
+		}
+		/**
+		* Align variable metadata with the body's active placeholders: known names
+		* keep their metadata, unknown names get fresh entries, and metadata whose
+		* placeholder disappeared moves to `unused` (the editor shows it without
+		* silently deleting it).
+		* @param body - the template Markdown body.
+		* @param existing - the stored variable metadata.
+		* @returns the aligned metadata.
+		*/
+		function reconcileVariables(body, existing) {
+			const names = scanTemplateVariables(body);
+			const byName = new Map(existing.map((variable) => [variable.name, variable]));
+			const consumed = /* @__PURE__ */ new Set();
+			return {
+				active: names.map((name) => {
+					consumed.add(name);
+					return byName.get(name) ?? freshVariable(name);
+				}),
+				unused: existing.filter((variable) => !consumed.has(variable.name))
+			};
+		}
+		/**
+		* Render one body: substitutes placeholders outside code regions, falls back
+		* to each variable's default value, and keeps an unfilled optional without a
+		* default (or a placeholder with no metadata at all) visible — reporting it
+		* in `unresolved`. `\{{name}}` renders as the literal `{{name}}`.
+		* @param body - the template Markdown body.
+		* @param values - the filled values keyed by variable name.
+		* @param variables - the stored metadata supplying default values.
+		* @returns the output and the unresolved names.
+		*/
+		function renderTemplate(body, values, variables) {
+			const defaults = new Map(variables.map((variable) => [variable.name, variable.defaultValue]));
+			const unresolved = [];
+			const seen = /* @__PURE__ */ new Set();
+			const substitute = (text) => {
+				let out = "";
+				let last = 0;
+				text.replace(VARIABLE_PATTERN, (match, name, offset) => {
+					if (offset > 0 && text[offset - 1] === "\\") {
+						out += `${text.slice(last, offset - 1)}${match}`;
+						last = offset + match.length;
+						return match;
+					}
+					const filled = values[name]?.trim() ?? "";
+					const fallback = defaults.get(name)?.trim() ?? "";
+					const replacement = filled.length > 0 ? values[name] ?? "" : fallback;
+					if (replacement.length > 0) out += `${text.slice(last, offset)}${replacement}`;
+					else {
+						out += `${text.slice(last, offset)}${match}`;
+						if (!seen.has(name)) {
+							seen.add(name);
+							unresolved.push(name);
+						}
+					}
+					last = offset + match.length;
+					return match;
+				});
+				out += text.slice(last);
+				return out;
+			};
+			return {
+				output: segmentTemplateBody(body).map((segment) => segment.code ? segment.text : splitInline(segment.text).map((part) => part.code ? part.text : substitute(part.text)).join("")).join("\n"),
+				unresolved
+			};
+		}
+		/**
+		* Names of body-active required variables without a filled value; the picker
+		* disables its confirm button while any are missing. Only placeholders the
+		* body actually uses count — a required declaration whose placeholder was
+		* removed never blocks a pick.
+		* @param body - the template Markdown body.
+		* @param variables - the template's variable metadata.
+		* @param values - the filled values keyed by variable name.
+		* @returns the missing required names.
+		*/
+		function missingRequired(body, variables, values) {
+			const active = new Set(scanTemplateVariables(body));
+			return variables.filter((variable) => variable.required && active.has(variable.name) && (values[variable.name]?.trim().length ?? 0) === 0).map((variable) => variable.name);
+		}
+		/**
+		* Parse one import-file body into a pack: the envelope must identify itself
+		* and both lists must be arrays. Entries are not deeply validated here — the
+		* import face rejects each bad entry by name.
+		* @param raw - exact file contents.
+		* @returns the parsed pack or the reason it is not one.
+		*/
+		function parseTemplatePack(raw) {
+			let parsed;
+			try {
+				parsed = JSON.parse(raw);
+			} catch {
+				return {
+					kind: "invalid",
+					problem: "not valid JSON"
+				};
+			}
+			if (typeof parsed !== "object" || parsed === null) return {
+				kind: "invalid",
+				problem: "not a JSON object"
+			};
+			const record = parsed;
+			if (record.format !== "dsh-template-pack") return {
+				kind: "invalid",
+				problem: "not a dsh-template-pack file"
+			};
+			if (record.formatVersion !== 1) return {
+				kind: "invalid",
+				problem: `unsupported pack formatVersion ${String(record.formatVersion)}`
+			};
+			if (!Array.isArray(record.templates) || !Array.isArray(record.tags)) return {
+				kind: "invalid",
+				problem: "pack lists are missing"
+			};
+			return {
+				kind: "ok",
+				pack: {
+					format: "dsh-template-pack",
+					formatVersion: 1,
+					exportedAt: typeof record.exportedAt === "string" ? record.exportedAt : "",
+					templates: record.templates,
+					tags: record.tags
+				}
+			};
+		}
+		//#endregion
+		//#region \0dsh-css:D:\deepseek-harness\packages\client\ui-content-studio\src\client\template\TemplateLibraryView.module.css.mjs
+		const css$1 = ".aycneq_template{flex-direction:column;gap:16px;height:100%;min-height:0;display:flex}.aycneq_templateHead{justify-content:space-between;align-items:flex-start;gap:16px;display:flex}.aycneq_templateTitle{color:var(--dsw-alias-label-primary);margin:0;font-size:18px}.aycneq_templateHint{color:var(--dsw-alias-label-secondary);margin:4px 0 0;font-size:12px}.aycneq_templateActions{flex-wrap:wrap;align-items:center;gap:8px;display:flex}.aycneq_templatePrimary{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:8px;padding:6px 14px;font-size:13px}.aycneq_templatePrimary:hover{background:var(--dsw-alias-interactive-bg-hover)}.aycneq_templatePrimary:disabled{opacity:.6;cursor:default}.aycneq_templateMini{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:6px;padding:3px 10px;font-size:12px}.aycneq_templateMini:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.aycneq_templateMini:disabled{opacity:.5;cursor:default}.aycneq_templateDanger{color:var(--dsw-alias-label-critical,#d4553f)}.aycneq_templateBanner{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-secondary);border-radius:10px;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 12px;font-size:12px;display:flex}.aycneq_templateLayout{flex:1;gap:16px;min-height:0;display:flex}.aycneq_templateList{flex-direction:column;flex-shrink:0;gap:10px;width:320px;min-height:0;display:flex;overflow-y:auto}.aycneq_templateFilters{flex-wrap:wrap;gap:6px;display:flex}.aycneq_templateInput{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);color:var(--dsw-alias-label-primary);border-radius:7px;min-width:0;padding:5px 9px;font-size:12px}.aycneq_templateSearch{flex:1}.aycneq_templateTagRow{flex-wrap:wrap;align-items:center;gap:6px;display:flex}.aycneq_templateTag{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;background:0 0;border-radius:999px;padding:2px 9px;font-size:11px}.aycneq_templateTagActive{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}.aycneq_templateCard{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);border-radius:10px;flex-direction:column;gap:6px;padding:10px 12px;display:flex}.aycneq_templateCardArchived{opacity:.55}.aycneq_templateCardName{color:var(--dsw-alias-label-primary);flex-wrap:wrap;align-items:baseline;gap:8px;font-size:13px;font-weight:600;display:flex}.aycneq_templateCardMeta{color:var(--dsw-alias-label-secondary);flex-wrap:wrap;gap:6px;font-size:11px;display:flex}.aycneq_templateCardActions{flex-wrap:wrap;gap:6px;display:flex}.aycneq_templateMain{flex-direction:column;flex:1;gap:12px;min-width:0;min-height:0;display:flex;overflow-y:auto}.aycneq_templateEmpty{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);text-align:center;border-radius:10px;padding:32px 16px;font-size:13px}.aycneq_templateGenerate{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:8px;padding:12px;display:flex}.aycneq_templateGenerateTitle{color:var(--dsw-alias-label-primary);margin:0;font-size:13px}.aycneq_templateField{flex-direction:column;gap:4px;display:flex}.aycneq_templateLabel{color:var(--dsw-alias-label-secondary);font-size:12px}.aycneq_templateTextarea{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-1);color:var(--dsw-alias-label-primary);resize:vertical;border-radius:8px;padding:8px 10px;font-family:inherit;font-size:13px}.aycneq_templateBodyTextarea{min-height:180px;font-family:ui-monospace,monospace}.aycneq_templateFormGrid{grid-template-columns:1fr 1fr;gap:10px;display:grid}.aycneq_templateVariableTable{flex-direction:column;gap:6px;display:flex}.aycneq_templateVariableRow{grid-template-columns:120px 1fr 1.4fr 1fr auto auto;align-items:center;gap:6px;display:grid}.aycneq_templateVariableName{color:var(--dsw-alias-label-primary);text-overflow:ellipsis;white-space:nowrap;font-family:ui-monospace,monospace;font-size:12px;overflow:hidden}.aycneq_templateVariableUnused{opacity:.55}.aycneq_templateCheckboxLabel{color:var(--dsw-alias-label-secondary);white-space:nowrap;align-items:center;gap:4px;font-size:12px;display:flex}.aycneq_templatePreview{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:8px;padding:12px;display:flex}.aycneq_templatePreviewOutput{background:var(--dsw-alias-bg-layer-1);color:var(--dsw-alias-label-primary);white-space:pre-wrap;border-radius:8px;max-height:260px;margin:0;padding:10px;font-size:12px;overflow-y:auto}.aycneq_templateAria{clip:rect(0 0 0 0);width:1px;height:1px;position:absolute;overflow:hidden}.aycneq_templateFoot{flex-wrap:wrap;align-items:center;gap:8px;display:flex}.aycneq_templateFootNote{flex:1}.aycneq_templateHistory{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:6px;padding:12px;display:flex}.aycneq_templateHistoryRow{color:var(--dsw-alias-label-secondary);align-items:center;gap:10px;font-size:12px;display:flex}.aycneq_templateHistoryVersion{color:var(--dsw-alias-label-primary);white-space:nowrap;font-weight:600}.aycneq_templateHistoryNote{text-overflow:ellipsis;white-space:nowrap;flex:1;overflow:hidden}.aycneq_templateProblems{color:var(--dsw-alias-label-secondary);font-size:12px}.aycneq_templateDraft{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);border-radius:10px;flex-direction:column;gap:8px;padding:12px;display:flex}";
+		const tagId$1 = "@deepseek-ai/dsh-client-ui-content-studio/TemplateLibraryView.module.css";
+		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId$1) + "]") === null) {
+			const tag = document.createElement("style");
+			tag.dataset.plugin = "@deepseek-ai/dsh-client-ui-content-studio";
+			tag.dataset.pluginCss = tagId$1;
+			tag.textContent = css$1;
+			document.head.appendChild(tag);
+		}
+		var TemplateLibraryView_module_css_default = {
+			"template": "aycneq_template",
+			"templateActions": "aycneq_templateActions",
+			"templateAria": "aycneq_templateAria",
+			"templateBanner": "aycneq_templateBanner",
+			"templateBodyTextarea": "aycneq_templateBodyTextarea",
+			"templateCard": "aycneq_templateCard",
+			"templateCardActions": "aycneq_templateCardActions",
+			"templateCardArchived": "aycneq_templateCardArchived",
+			"templateCardMeta": "aycneq_templateCardMeta",
+			"templateCardName": "aycneq_templateCardName",
+			"templateCheckboxLabel": "aycneq_templateCheckboxLabel",
+			"templateDanger": "aycneq_templateDanger",
+			"templateDraft": "aycneq_templateDraft",
+			"templateEmpty": "aycneq_templateEmpty",
+			"templateField": "aycneq_templateField",
+			"templateFilters": "aycneq_templateFilters",
+			"templateFoot": "aycneq_templateFoot",
+			"templateFootNote": "aycneq_templateFootNote",
+			"templateFormGrid": "aycneq_templateFormGrid",
+			"templateGenerate": "aycneq_templateGenerate",
+			"templateGenerateTitle": "aycneq_templateGenerateTitle",
+			"templateHead": "aycneq_templateHead",
+			"templateHint": "aycneq_templateHint",
+			"templateHistory": "aycneq_templateHistory",
+			"templateHistoryNote": "aycneq_templateHistoryNote",
+			"templateHistoryRow": "aycneq_templateHistoryRow",
+			"templateHistoryVersion": "aycneq_templateHistoryVersion",
+			"templateInput": "aycneq_templateInput",
+			"templateLabel": "aycneq_templateLabel",
+			"templateLayout": "aycneq_templateLayout",
+			"templateList": "aycneq_templateList",
+			"templateMain": "aycneq_templateMain",
+			"templateMini": "aycneq_templateMini",
+			"templatePreview": "aycneq_templatePreview",
+			"templatePreviewOutput": "aycneq_templatePreviewOutput",
+			"templatePrimary": "aycneq_templatePrimary",
+			"templateProblems": "aycneq_templateProblems",
+			"templateSearch": "aycneq_templateSearch",
+			"templateTag": "aycneq_templateTag",
+			"templateTagActive": "aycneq_templateTagActive",
+			"templateTagRow": "aycneq_templateTagRow",
+			"templateTextarea": "aycneq_templateTextarea",
+			"templateTitle": "aycneq_templateTitle",
+			"templateVariableName": "aycneq_templateVariableName",
+			"templateVariableRow": "aycneq_templateVariableRow",
+			"templateVariableTable": "aycneq_templateVariableTable",
+			"templateVariableUnused": "aycneq_templateVariableUnused"
+		};
+		//#endregion
+		//#region lib/types/client/template/TemplateLibraryView.js
+		/**
+		* The template library page: the list panel (filters, tags, cards), the
+		* editor sheet (metadata, body, reconciled variables, live preview, explicit
+		* AI helpers, history drawer with confirmed restore), and the import/export
+		* face. All state and actions live on the injected controller; this file only
+		* wires them to the DOM.
+		*/
+		/** The import conflict strategies in picker order. */
+		const IMPORT_STRATEGIES = [
+			"skip",
+			"overwrite",
+			"rename"
+		];
+		/**
+		* Render the template library page.
+		* @param props - the injected controller and the locale seat.
+		* @returns the page element tree.
+		*/
+		function TemplateLibraryView({ templates, t }) {
+			const state = (0, react.useSyncExternalStore)((listener) => templates.subscribe(listener), () => templates.getState());
+			const prefs = (0, react.useSyncExternalStore)((listener) => templates.subscribe(listener), () => templates.getPrefs());
+			const [importStrategy, setImportStrategy] = (0, react.useState)("skip");
+			const [previewValues, setPreviewValues] = (0, react.useState)({});
+			(0, react.useEffect)(() => {
+				templates.reload();
+			}, [templates]);
+			const form = state.editor?.form ?? null;
+			const preview = form === null ? null : renderTemplate(form.body, previewValues, form.variables);
+			const filtered = (0, react.useMemo)(() => {
+				const search = prefs.search.trim().toLowerCase();
+				return state.templates.filter((record) => {
+					if (prefs.category !== null && record.category !== prefs.category) return false;
+					if (prefs.status !== "all" && record.status !== prefs.status) return false;
+					if (prefs.tagIds.length > 0 && !prefs.tagIds.every((tagId) => record.tagIds.includes(tagId))) return false;
+					if (search.length > 0 && !`${record.name}\n${record.description}\n${record.body}`.toLowerCase().includes(search)) return false;
+					return true;
+				});
+			}, [state.templates, prefs]);
+			const deleteRecord = (record) => {
+				if (window.confirm(t("template.delete.confirm").replace("{name}", record.name))) templates.remove(record.id);
+			};
+			const tagNames = new Map(state.tags.map((tag) => [tag.id, tag.name]));
+			return (0, react_jsx_runtime.jsxs)("div", {
+				className: TemplateLibraryView_module_css_default.template,
+				children: [
+					(0, react_jsx_runtime.jsxs)("div", {
+						className: TemplateLibraryView_module_css_default.templateHead,
+						children: [(0, react_jsx_runtime.jsxs)("div", { children: [(0, react_jsx_runtime.jsx)("h2", {
+							className: TemplateLibraryView_module_css_default.templateTitle,
+							children: t("template.title")
+						}), (0, react_jsx_runtime.jsx)("p", {
+							className: TemplateLibraryView_module_css_default.templateHint,
+							children: t("template.hint")
+						})] }), (0, react_jsx_runtime.jsxs)("div", {
+							className: TemplateLibraryView_module_css_default.templateActions,
+							children: [
+								(0, react_jsx_runtime.jsx)("label", {
+									className: TemplateLibraryView_module_css_default.templateAria,
+									htmlFor: "template-import-file",
+									children: t("template.import")
+								}),
+								(0, react_jsx_runtime.jsx)("select", {
+									"aria-label": t("template.import.strategy"),
+									value: importStrategy,
+									onChange: (event) => {
+										setImportStrategy(event.target.value);
+									},
+									children: IMPORT_STRATEGIES.map((strategy) => (0, react_jsx_runtime.jsx)("option", {
+										value: strategy,
+										children: t(`template.import.${strategy}`)
+									}, strategy))
+								}),
+								(0, react_jsx_runtime.jsx)("input", {
+									id: "template-import-file",
+									type: "file",
+									accept: "application/json,.json",
+									style: { display: "none" },
+									onChange: (event) => {
+										const file = event.target.files?.[0];
+										if (file !== void 0) templates.importFile(file, importStrategy);
+										event.target.value = "";
+									}
+								}),
+								(0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: TemplateLibraryView_module_css_default.templateMini,
+									onClick: () => {
+										document.getElementById("template-import-file")?.click();
+									},
+									children: t("template.import")
+								}),
+								(0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: TemplateLibraryView_module_css_default.templateMini,
+									onClick: () => {
+										templates.exportIds([]);
+									},
+									children: t("template.exportAll")
+								}),
+								(0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: TemplateLibraryView_module_css_default.templateMini,
+									onClick: () => {
+										templates.importStarterPack();
+									},
+									title: t("template.starter.hint"),
+									children: t("template.starter")
+								}),
+								(0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: TemplateLibraryView_module_css_default.templatePrimary,
+									onClick: () => {
+										templates.openNew();
+										setPreviewValues({});
+									},
+									children: t("template.new")
+								})
+							]
+						})]
+					}),
+					state.importReport !== null && (0, react_jsx_runtime.jsxs)("div", {
+						className: TemplateLibraryView_module_css_default.templateBanner,
+						role: "status",
+						children: [
+							(0, react_jsx_runtime.jsx)("span", { children: t("template.import.report").replace("{file}", state.importReport.fileName).replace("{added}", String(state.importReport.summary.added)).replace("{skipped}", String(state.importReport.summary.skipped)).replace("{overwritten}", String(state.importReport.summary.overwritten)).replace("{renamed}", String(state.importReport.summary.renamed)).replace("{failed}", String(state.importReport.summary.failed.length)) }),
+							state.importReport.summary.failed.map((detail) => (0, react_jsx_runtime.jsx)("span", {
+								className: TemplateLibraryView_module_css_default.templateProblems,
+								children: detail
+							}, detail)),
+							(0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: TemplateLibraryView_module_css_default.templateMini,
+								onClick: () => {
+									templates.dismissImportReport();
+								},
+								children: t("template.notice.dismiss")
+							})
+						]
+					}),
+					state.notice !== null && (0, react_jsx_runtime.jsxs)("div", {
+						className: TemplateLibraryView_module_css_default.templateBanner,
+						role: "status",
+						children: [(0, react_jsx_runtime.jsx)("span", { children: t(`template.notice.${state.notice}`) }), (0, react_jsx_runtime.jsx)("button", {
+							type: "button",
+							className: TemplateLibraryView_module_css_default.templateMini,
+							onClick: () => {
+								templates.dismissNotice();
+							},
+							children: t("template.notice.dismiss")
+						})]
+					}),
+					state.problems.length > 0 && (0, react_jsx_runtime.jsx)("div", {
+						className: TemplateLibraryView_module_css_default.templateBanner,
+						children: (0, react_jsx_runtime.jsx)("span", { children: `${t("template.problems")} ${state.problems.join("；")}` })
+					}),
+					(0, react_jsx_runtime.jsxs)("div", {
+						className: TemplateLibraryView_module_css_default.templateLayout,
+						children: [(0, react_jsx_runtime.jsxs)("div", {
+							className: TemplateLibraryView_module_css_default.templateList,
+							children: [
+								(0, react_jsx_runtime.jsxs)("div", {
+									className: TemplateLibraryView_module_css_default.templateFilters,
+									children: [
+										(0, react_jsx_runtime.jsx)("input", {
+											className: `${TemplateLibraryView_module_css_default.templateInput} ${TemplateLibraryView_module_css_default.templateSearch}`,
+											placeholder: t("template.search"),
+											value: prefs.search,
+											onChange: (event) => {
+												templates.setFilter({ search: event.target.value });
+											}
+										}),
+										(0, react_jsx_runtime.jsxs)("select", {
+											"aria-label": t("template.filter.category"),
+											value: prefs.category ?? "",
+											onChange: (event) => {
+												templates.setFilter({ category: event.target.value === "" ? null : event.target.value });
+											},
+											children: [(0, react_jsx_runtime.jsx)("option", {
+												value: "",
+												children: t("template.filter.all")
+											}), TEMPLATE_CATEGORIES.map((category) => (0, react_jsx_runtime.jsx)("option", {
+												value: category,
+												children: TEMPLATE_CATEGORY_LABELS[category]
+											}, category))]
+										}),
+										(0, react_jsx_runtime.jsxs)("select", {
+											"aria-label": t("template.filter.status"),
+											value: prefs.status,
+											onChange: (event) => {
+												templates.setFilter({ status: event.target.value });
+											},
+											children: [
+												(0, react_jsx_runtime.jsx)("option", {
+													value: "all",
+													children: t("template.status.all")
+												}),
+												(0, react_jsx_runtime.jsx)("option", {
+													value: "active",
+													children: t("template.status.active")
+												}),
+												(0, react_jsx_runtime.jsx)("option", {
+													value: "archived",
+													children: t("template.status.archived")
+												})
+											]
+										})
+									]
+								}),
+								(0, react_jsx_runtime.jsxs)("div", {
+									className: TemplateLibraryView_module_css_default.templateTagRow,
+									children: [state.tags.map((tag) => (0, react_jsx_runtime.jsx)("button", {
+										type: "button",
+										className: `${TemplateLibraryView_module_css_default.templateTag} ${prefs.tagIds.includes(tag.id) ? TemplateLibraryView_module_css_default.templateTagActive : ""}`,
+										onClick: () => {
+											templates.setFilter({ tagIds: prefs.tagIds.includes(tag.id) ? prefs.tagIds.filter((candidate) => candidate !== tag.id) : [...prefs.tagIds, tag.id] });
+										},
+										onDoubleClick: () => {
+											templates.removeTag(tag.id);
+										},
+										title: t("template.tag.removeHint"),
+										children: tag.name
+									}, tag.id)), (0, react_jsx_runtime.jsx)(TagInput, {
+										onAdd: (name) => {
+											templates.addTag(name);
+										},
+										placeholder: t("template.tag.add"),
+										addLabel: t("template.tag.addAria")
+									})]
+								}),
+								(0, react_jsx_runtime.jsx)("span", {
+									className: TemplateLibraryView_module_css_default.templateCardMeta,
+									children: t("template.count").replace("{n}", String(filtered.length))
+								}),
+								filtered.length === 0 && (0, react_jsx_runtime.jsxs)("div", {
+									className: TemplateLibraryView_module_css_default.templateEmpty,
+									children: [t("template.empty"), state.templates.length === 0 && (0, react_jsx_runtime.jsx)("div", { children: (0, react_jsx_runtime.jsx)("button", {
+										type: "button",
+										className: TemplateLibraryView_module_css_default.templatePrimary,
+										onClick: () => {
+											templates.importStarterPack();
+										},
+										children: t("template.starter.cta")
+									}) })]
+								}),
+								filtered.map((record) => (0, react_jsx_runtime.jsxs)("div", {
+									className: `${TemplateLibraryView_module_css_default.templateCard} ${record.status === "archived" ? TemplateLibraryView_module_css_default.templateCardArchived : ""}`,
+									children: [
+										(0, react_jsx_runtime.jsxs)("span", {
+											className: TemplateLibraryView_module_css_default.templateCardName,
+											children: [record.name, (0, react_jsx_runtime.jsx)("span", {
+												className: TemplateLibraryView_module_css_default.templateCardMeta,
+												children: `${TEMPLATE_CATEGORY_LABELS[record.category]} · v${String(record.version)} · ${record.status === "archived" ? t("template.status.archived") : t("template.status.active")}`
+											})]
+										}),
+										record.description.trim().length > 0 && (0, react_jsx_runtime.jsx)("span", {
+											className: TemplateLibraryView_module_css_default.templateCardMeta,
+											children: record.description
+										}),
+										(0, react_jsx_runtime.jsx)("span", {
+											className: TemplateLibraryView_module_css_default.templateCardMeta,
+											children: record.tagIds.map((tagId) => tagNames.get(tagId)).filter((name) => name !== void 0).join("、")
+										}),
+										(0, react_jsx_runtime.jsxs)("span", {
+											className: TemplateLibraryView_module_css_default.templateCardActions,
+											children: [
+												(0, react_jsx_runtime.jsx)("button", {
+													type: "button",
+													className: TemplateLibraryView_module_css_default.templateMini,
+													onClick: () => {
+														templates.openEditor(record);
+														setPreviewValues({});
+													},
+													children: t("template.card.edit")
+												}),
+												(0, react_jsx_runtime.jsx)("button", {
+													type: "button",
+													className: TemplateLibraryView_module_css_default.templateMini,
+													onClick: () => {
+														templates.copyTemplate(record);
+													},
+													children: t("template.card.copy")
+												}),
+												(0, react_jsx_runtime.jsx)("button", {
+													type: "button",
+													className: TemplateLibraryView_module_css_default.templateMini,
+													onClick: () => {
+														templates.exportIds([record.id]);
+													},
+													children: t("template.card.export")
+												}),
+												(0, react_jsx_runtime.jsx)("button", {
+													type: "button",
+													className: TemplateLibraryView_module_css_default.templateMini,
+													onClick: () => {
+														templates.toggleArchive(record);
+													},
+													children: record.status === "active" ? t("template.card.archive") : t("template.card.restore")
+												}),
+												(0, react_jsx_runtime.jsx)("button", {
+													type: "button",
+													className: `${TemplateLibraryView_module_css_default.templateMini} ${TemplateLibraryView_module_css_default.templateDanger}`,
+													onClick: () => {
+														deleteRecord(record);
+													},
+													children: t("template.card.delete")
+												})
+											]
+										})
+									]
+								}, record.id))
+							]
+						}), (0, react_jsx_runtime.jsx)("div", {
+							className: TemplateLibraryView_module_css_default.templateMain,
+							children: form === null ? (0, react_jsx_runtime.jsx)(GenerateBox, {
+								state,
+								templates,
+								t
+							}) : (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
+								state.aiDraft !== null && (0, react_jsx_runtime.jsxs)("div", {
+									className: TemplateLibraryView_module_css_default.templateDraft,
+									children: [
+										(0, react_jsx_runtime.jsx)("strong", {
+											className: TemplateLibraryView_module_css_default.templateGenerateTitle,
+											children: t("template.ai.draft")
+										}),
+										state.aiDraft.problems.map((problem) => (0, react_jsx_runtime.jsx)("span", {
+											className: TemplateLibraryView_module_css_default.templateProblems,
+											children: problem
+										}, problem)),
+										(0, react_jsx_runtime.jsx)("pre", {
+											className: TemplateLibraryView_module_css_default.templatePreviewOutput,
+											children: state.aiDraft.draft.body
+										}),
+										(0, react_jsx_runtime.jsxs)("div", {
+											className: TemplateLibraryView_module_css_default.templateFoot,
+											children: [(0, react_jsx_runtime.jsx)("button", {
+												type: "button",
+												className: TemplateLibraryView_module_css_default.templatePrimary,
+												onClick: () => {
+													templates.adoptAiDraft();
+													setPreviewValues({});
+												},
+												children: t("template.ai.adopt")
+											}), (0, react_jsx_runtime.jsx)("button", {
+												type: "button",
+												className: TemplateLibraryView_module_css_default.templateMini,
+												onClick: () => {
+													templates.discardAiDraft();
+												},
+												children: t("template.ai.discard")
+											})]
+										})
+									]
+								}),
+								(0, react_jsx_runtime.jsxs)("div", {
+									className: TemplateLibraryView_module_css_default.templateFormGrid,
+									children: [(0, react_jsx_runtime.jsxs)("label", {
+										className: TemplateLibraryView_module_css_default.templateField,
+										children: [(0, react_jsx_runtime.jsx)("span", {
+											className: TemplateLibraryView_module_css_default.templateLabel,
+											children: t("template.field.name")
+										}), (0, react_jsx_runtime.jsx)("input", {
+											className: TemplateLibraryView_module_css_default.templateInput,
+											value: form.name,
+											onChange: (event) => {
+												templates.patchForm({ name: event.target.value });
+											}
+										})]
+									}), (0, react_jsx_runtime.jsxs)("label", {
+										className: TemplateLibraryView_module_css_default.templateField,
+										children: [(0, react_jsx_runtime.jsx)("span", {
+											className: TemplateLibraryView_module_css_default.templateLabel,
+											children: t("template.field.category")
+										}), (0, react_jsx_runtime.jsx)("select", {
+											className: TemplateLibraryView_module_css_default.templateInput,
+											value: form.category,
+											onChange: (event) => {
+												templates.patchForm({ category: event.target.value });
+											},
+											children: TEMPLATE_CATEGORIES.map((category) => (0, react_jsx_runtime.jsx)("option", {
+												value: category,
+												children: TEMPLATE_CATEGORY_LABELS[category]
+											}, category))
+										})]
+									})]
+								}),
+								(0, react_jsx_runtime.jsxs)("label", {
+									className: TemplateLibraryView_module_css_default.templateField,
+									children: [(0, react_jsx_runtime.jsx)("span", {
+										className: TemplateLibraryView_module_css_default.templateLabel,
+										children: t("template.field.description")
+									}), (0, react_jsx_runtime.jsx)("input", {
+										className: TemplateLibraryView_module_css_default.templateInput,
+										value: form.description,
+										onChange: (event) => {
+											templates.patchForm({ description: event.target.value });
+										}
+									})]
+								}),
+								(0, react_jsx_runtime.jsxs)("div", {
+									className: TemplateLibraryView_module_css_default.templateTagRow,
+									children: [state.tags.map((tag) => (0, react_jsx_runtime.jsx)("button", {
+										type: "button",
+										className: `${TemplateLibraryView_module_css_default.templateTag} ${form.tagIds.includes(tag.id) ? TemplateLibraryView_module_css_default.templateTagActive : ""}`,
+										onClick: () => {
+											templates.toggleFormTag(tag.id);
+										},
+										children: tag.name
+									}, tag.id)), state.tags.length === 0 && (0, react_jsx_runtime.jsx)("span", {
+										className: TemplateLibraryView_module_css_default.templateCardMeta,
+										children: t("template.field.noTags")
+									})]
+								}),
+								(0, react_jsx_runtime.jsxs)("label", {
+									className: TemplateLibraryView_module_css_default.templateField,
+									children: [(0, react_jsx_runtime.jsx)("span", {
+										className: TemplateLibraryView_module_css_default.templateLabel,
+										children: t("template.field.body")
+									}), (0, react_jsx_runtime.jsx)("textarea", {
+										className: `${TemplateLibraryView_module_css_default.templateTextarea} ${TemplateLibraryView_module_css_default.templateBodyTextarea}`,
+										value: form.body,
+										placeholder: t("template.field.bodyHint"),
+										onChange: (event) => {
+											templates.patchForm({ body: event.target.value });
+										}
+									})]
+								}),
+								(0, react_jsx_runtime.jsxs)("div", {
+									className: TemplateLibraryView_module_css_default.templateVariableTable,
+									children: [
+										(0, react_jsx_runtime.jsx)("span", {
+											className: TemplateLibraryView_module_css_default.templateLabel,
+											children: t("template.field.variables")
+										}),
+										form.variables.length === 0 && (0, react_jsx_runtime.jsx)("span", {
+											className: TemplateLibraryView_module_css_default.templateCardMeta,
+											children: t("template.variable.none")
+										}),
+										form.variables.map((variable) => {
+											const active = scanTemplateVariables(form.body).includes(variable.name);
+											return (0, react_jsx_runtime.jsxs)("div", {
+												className: `${TemplateLibraryView_module_css_default.templateVariableRow} ${active ? "" : TemplateLibraryView_module_css_default.templateVariableUnused}`,
+												children: [
+													(0, react_jsx_runtime.jsx)("span", {
+														className: TemplateLibraryView_module_css_default.templateVariableName,
+														title: variable.name,
+														children: `{{${variable.name}}}`
+													}),
+													(0, react_jsx_runtime.jsx)("input", {
+														className: TemplateLibraryView_module_css_default.templateInput,
+														"aria-label": t("template.variable.label"),
+														placeholder: t("template.variable.label"),
+														value: variable.label,
+														onChange: (event) => {
+															templates.patchVariable(variable.name, { label: event.target.value });
+														}
+													}),
+													(0, react_jsx_runtime.jsx)("input", {
+														className: TemplateLibraryView_module_css_default.templateInput,
+														"aria-label": t("template.variable.description"),
+														placeholder: t("template.variable.description"),
+														value: variable.description,
+														onChange: (event) => {
+															templates.patchVariable(variable.name, { description: event.target.value });
+														}
+													}),
+													(0, react_jsx_runtime.jsx)("input", {
+														className: TemplateLibraryView_module_css_default.templateInput,
+														"aria-label": t("template.variable.default"),
+														placeholder: t("template.variable.default"),
+														value: variable.defaultValue,
+														onChange: (event) => {
+															templates.patchVariable(variable.name, { defaultValue: event.target.value });
+														}
+													}),
+													(0, react_jsx_runtime.jsxs)("label", {
+														className: TemplateLibraryView_module_css_default.templateCheckboxLabel,
+														children: [(0, react_jsx_runtime.jsx)("input", {
+															type: "checkbox",
+															checked: variable.required,
+															onChange: (event) => {
+																templates.patchVariable(variable.name, { required: event.target.checked });
+															}
+														}), t("template.variable.required")]
+													}),
+													!active && (0, react_jsx_runtime.jsx)("button", {
+														type: "button",
+														className: TemplateLibraryView_module_css_default.templateMini,
+														onClick: () => {
+															templates.patchForm({ variables: form.variables.filter((candidate) => candidate.name !== variable.name) });
+														},
+														children: t("template.variable.remove")
+													})
+												]
+											}, variable.name);
+										})
+									]
+								}),
+								(0, react_jsx_runtime.jsxs)("div", {
+									className: TemplateLibraryView_module_css_default.templatePreview,
+									children: [
+										(0, react_jsx_runtime.jsx)("span", {
+											className: TemplateLibraryView_module_css_default.templateLabel,
+											children: t("template.preview.title")
+										}),
+										form.variables.map((variable) => (0, react_jsx_runtime.jsx)("input", {
+											className: TemplateLibraryView_module_css_default.templateInput,
+											placeholder: `${variable.label || variable.name}${variable.required ? `（${t("template.variable.required")}）` : ""}`,
+											value: previewValues[variable.name] ?? "",
+											onChange: (event) => {
+												setPreviewValues({
+													...previewValues,
+													[variable.name]: event.target.value
+												});
+											}
+										}, variable.name)),
+										preview !== null && preview.unresolved.length > 0 && (0, react_jsx_runtime.jsx)("span", {
+											className: TemplateLibraryView_module_css_default.templateProblems,
+											children: t("template.preview.unresolved").replace("{list}", preview.unresolved.join("、"))
+										}),
+										(0, react_jsx_runtime.jsx)("pre", {
+											className: TemplateLibraryView_module_css_default.templatePreviewOutput,
+											children: preview?.output ?? ""
+										})
+									]
+								}),
+								(0, react_jsx_runtime.jsxs)("div", {
+									className: TemplateLibraryView_module_css_default.templateGenerate,
+									children: [
+										(0, react_jsx_runtime.jsx)("span", {
+											className: TemplateLibraryView_module_css_default.templateLabel,
+											children: t("template.ai.optimize")
+										}),
+										(0, react_jsx_runtime.jsxs)("div", {
+											className: TemplateLibraryView_module_css_default.templateFoot,
+											children: [(0, react_jsx_runtime.jsx)("input", {
+												className: `${TemplateLibraryView_module_css_default.templateInput} ${TemplateLibraryView_module_css_default.templateFootNote}`,
+												placeholder: t("template.ai.optimizePrompt"),
+												value: state.optimizeSource,
+												onChange: (event) => {
+													templates.setOptimizeSource(event.target.value);
+												}
+											}), (0, react_jsx_runtime.jsx)("button", {
+												type: "button",
+												className: TemplateLibraryView_module_css_default.templateMini,
+												disabled: state.aiBusy !== false,
+												onClick: () => {
+													templates.runAi({
+														operation: "optimize",
+														body: form.body,
+														instruction: state.optimizeSource
+													});
+												},
+												children: state.aiBusy === "optimize" ? t("template.ai.running") : t("template.ai.run")
+											})]
+										}),
+										(0, react_jsx_runtime.jsx)("span", {
+											className: TemplateLibraryView_module_css_default.templateLabel,
+											children: t("template.ai.extract")
+										}),
+										(0, react_jsx_runtime.jsx)("span", {
+											className: TemplateLibraryView_module_css_default.templateCardMeta,
+											children: t("template.ai.extractHint")
+										}),
+										(0, react_jsx_runtime.jsx)("textarea", {
+											className: TemplateLibraryView_module_css_default.templateTextarea,
+											rows: 3,
+											placeholder: t("template.ai.extractPlaceholder"),
+											value: state.extractSource,
+											onChange: (event) => {
+												templates.setExtractSource(event.target.value);
+											}
+										}),
+										(0, react_jsx_runtime.jsx)("div", {
+											className: TemplateLibraryView_module_css_default.templateFoot,
+											children: (0, react_jsx_runtime.jsx)("button", {
+												type: "button",
+												className: TemplateLibraryView_module_css_default.templateMini,
+												disabled: state.aiBusy !== false,
+												onClick: () => {
+													templates.runAi({
+														operation: "extract",
+														content: state.extractSource
+													});
+												},
+												children: state.aiBusy === "extract" ? t("template.ai.running") : t("template.ai.run")
+											})
+										})
+									]
+								}),
+								(0, react_jsx_runtime.jsxs)("div", {
+									className: TemplateLibraryView_module_css_default.templateFoot,
+									children: [
+										(0, react_jsx_runtime.jsx)("input", {
+											className: `${TemplateLibraryView_module_css_default.templateInput} ${TemplateLibraryView_module_css_default.templateFootNote}`,
+											placeholder: t("template.changeNote"),
+											value: form.changeNote,
+											onChange: (event) => {
+												templates.patchForm({ changeNote: event.target.value });
+											}
+										}),
+										(0, react_jsx_runtime.jsx)("button", {
+											type: "button",
+											className: TemplateLibraryView_module_css_default.templatePrimary,
+											disabled: state.saving || form.name.trim().length === 0 || form.body.trim().length === 0,
+											onClick: () => {
+												templates.save();
+											},
+											children: t("template.save")
+										}),
+										form.id !== null && (0, react_jsx_runtime.jsx)("button", {
+											type: "button",
+											className: TemplateLibraryView_module_css_default.templateMini,
+											onClick: () => {
+												const id = form.id;
+												if (id !== null) templates.openHistory(id);
+											},
+											children: t("template.history")
+										}),
+										(0, react_jsx_runtime.jsx)("button", {
+											type: "button",
+											className: TemplateLibraryView_module_css_default.templateMini,
+											onClick: () => {
+												templates.closeEditor();
+											},
+											children: t("template.close")
+										})
+									]
+								}),
+								state.historyOpen && (0, react_jsx_runtime.jsxs)("div", {
+									className: TemplateLibraryView_module_css_default.templateHistory,
+									children: [
+										(0, react_jsx_runtime.jsx)("span", {
+											className: TemplateLibraryView_module_css_default.templateLabel,
+											children: t("template.history")
+										}),
+										state.history.length === 0 && (0, react_jsx_runtime.jsx)("span", {
+											className: TemplateLibraryView_module_css_default.templateCardMeta,
+											children: t("template.history.empty")
+										}),
+										state.history.map((entry) => (0, react_jsx_runtime.jsxs)("div", {
+											className: TemplateLibraryView_module_css_default.templateHistoryRow,
+											children: [
+												(0, react_jsx_runtime.jsx)("span", {
+													className: TemplateLibraryView_module_css_default.templateHistoryVersion,
+													children: t("template.history.version").replace("{version}", String(entry.version))
+												}),
+												(0, react_jsx_runtime.jsx)("span", {
+													className: TemplateLibraryView_module_css_default.templateHistoryNote,
+													children: entry.changeNote.length > 0 ? entry.changeNote : entry.createdAt
+												}),
+												(0, react_jsx_runtime.jsx)("button", {
+													type: "button",
+													className: TemplateLibraryView_module_css_default.templateMini,
+													onClick: () => {
+														templates.restoreVersion(entry);
+														setPreviewValues({});
+													},
+													children: t("template.history.restore")
+												})
+											]
+										}, entry.version)),
+										(0, react_jsx_runtime.jsx)("button", {
+											type: "button",
+											className: TemplateLibraryView_module_css_default.templateMini,
+											onClick: () => {
+												templates.closeHistory();
+											},
+											children: t("template.close")
+										})
+									]
+								})
+							] })
+						})]
+					})
+				]
+			});
+		}
+		/** The empty-state AI generation box: description plus target category, explicit run. */
+		function GenerateBox({ state, templates, t }) {
+			return (0, react_jsx_runtime.jsxs)("div", {
+				className: TemplateLibraryView_module_css_default.templateGenerate,
+				children: [
+					(0, react_jsx_runtime.jsx)("p", {
+						className: TemplateLibraryView_module_css_default.templateGenerateTitle,
+						children: t("template.ai.generate.title")
+					}),
+					(0, react_jsx_runtime.jsx)("span", {
+						className: TemplateLibraryView_module_css_default.templateCardMeta,
+						children: t("template.ai.generate.hint")
+					}),
+					(0, react_jsx_runtime.jsx)("textarea", {
+						className: TemplateLibraryView_module_css_default.templateTextarea,
+						rows: 3,
+						placeholder: t("template.ai.generate.placeholder"),
+						value: state.generateSource,
+						onChange: (event) => {
+							templates.setGenerateSource(event.target.value);
+						}
+					}),
+					(0, react_jsx_runtime.jsxs)("div", {
+						className: TemplateLibraryView_module_css_default.templateFoot,
+						children: [(0, react_jsx_runtime.jsx)("select", {
+							className: TemplateLibraryView_module_css_default.templateInput,
+							"aria-label": t("template.field.category"),
+							value: state.generateCategory,
+							onChange: (event) => {
+								templates.setGenerateCategory(event.target.value);
+							},
+							children: TEMPLATE_CATEGORIES.map((category) => (0, react_jsx_runtime.jsx)("option", {
+								value: category,
+								children: TEMPLATE_CATEGORY_LABELS[category]
+							}, category))
+						}), (0, react_jsx_runtime.jsx)("button", {
+							type: "button",
+							className: TemplateLibraryView_module_css_default.templatePrimary,
+							disabled: state.aiBusy !== false,
+							onClick: () => {
+								templates.runAi({
+									operation: "generate",
+									category: state.generateCategory,
+									description: state.generateSource
+								});
+							},
+							children: state.aiBusy === "generate" ? t("template.ai.running") : t("template.ai.run")
+						})]
+					}),
+					state.aiDraft !== null && (0, react_jsx_runtime.jsxs)("div", {
+						className: TemplateLibraryView_module_css_default.templateDraft,
+						children: [
+							state.aiDraft.problems.map((problem) => (0, react_jsx_runtime.jsx)("span", {
+								className: TemplateLibraryView_module_css_default.templateProblems,
+								children: problem
+							}, problem)),
+							(0, react_jsx_runtime.jsx)("pre", {
+								className: TemplateLibraryView_module_css_default.templatePreviewOutput,
+								children: state.aiDraft.draft.body
+							}),
+							(0, react_jsx_runtime.jsxs)("div", {
+								className: TemplateLibraryView_module_css_default.templateFoot,
+								children: [(0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: TemplateLibraryView_module_css_default.templatePrimary,
+									onClick: () => {
+										templates.adoptAiDraft();
+									},
+									children: t("template.ai.adopt")
+								}), (0, react_jsx_runtime.jsx)("button", {
+									type: "button",
+									className: TemplateLibraryView_module_css_default.templateMini,
+									onClick: () => {
+										templates.discardAiDraft();
+									},
+									children: t("template.ai.discard")
+								})]
+							})
+						]
+					})
+				]
+			});
+		}
+		/** One-line tag input: Enter adds, blur adds a pending name. */
+		function TagInput({ onAdd, placeholder, addLabel }) {
+			const [name, setName] = (0, react.useState)("");
+			const add = () => {
+				if (name.trim().length > 0) onAdd(name);
+				setName("");
+			};
+			return (0, react_jsx_runtime.jsx)("input", {
+				className: TemplateLibraryView_module_css_default.templateInput,
+				placeholder,
+				"aria-label": addLabel,
+				value: name,
+				onChange: (event) => {
+					setName(event.target.value);
+				},
+				onKeyDown: (event) => {
+					if (event.key === "Enter") add();
+				},
+				onBlur: add
+			});
+		}
+		//#endregion
+		//#region \0dsh-css:D:\deepseek-harness\packages\client\ui-content-studio\src\client\template\TemplatePickerModal.module.css.mjs
+		const css = "._2SYzZq_overlay{z-index:40;background:#0006;justify-content:center;align-items:center;display:flex;position:fixed;inset:0}._2SYzZq_modal{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-1);border-radius:12px;flex-direction:column;gap:10px;width:min(560px,100vw - 48px);max-height:min(640px,100vh - 96px);padding:16px;display:flex;overflow-y:auto;box-shadow:0 12px 40px #0000003d}._2SYzZq_head{justify-content:space-between;align-items:center;gap:8px;display:flex}._2SYzZq_title{color:var(--dsw-alias-label-primary);flex-wrap:wrap;align-items:baseline;gap:8px;font-size:14px;font-weight:600;display:flex}._2SYzZq_subtitle{color:var(--dsw-alias-label-secondary);font-size:11px;font-weight:400}._2SYzZq_mini{border:1px solid var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);cursor:pointer;white-space:nowrap;background:0 0;border-radius:6px;padding:3px 10px;font-size:12px}._2SYzZq_mini:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}._2SYzZq_input{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);border-radius:7px;min-width:0;padding:5px 9px;font-size:12px}._2SYzZq_list{flex-direction:column;gap:6px;max-height:320px;display:flex;overflow-y:auto}._2SYzZq_card{border:1px solid var(--dsw-alias-border-l1);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);text-align:left;cursor:pointer;border-radius:9px;flex-direction:column;gap:4px;padding:9px 11px;font-size:12px;display:flex}._2SYzZq_card:hover{background:var(--dsw-alias-interactive-bg-hover)}._2SYzZq_cardName{color:var(--dsw-alias-label-primary);font-size:13px;font-weight:600}._2SYzZq_cardMeta{color:var(--dsw-alias-label-secondary);font-size:11px}._2SYzZq_empty{border:1px dashed var(--dsw-alias-border-l1);color:var(--dsw-alias-label-secondary);text-align:center;border-radius:9px;padding:24px 12px;font-size:12px}._2SYzZq_fillHead{justify-content:space-between;align-items:center;gap:8px;display:flex}._2SYzZq_field{flex-direction:column;gap:3px;display:flex}._2SYzZq_label{color:var(--dsw-alias-label-secondary);font-size:12px}._2SYzZq_required{color:var(--dsw-alias-label-critical,#d4553f)}._2SYzZq_preview{background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);white-space:pre-wrap;border-radius:8px;max-height:200px;margin:0;padding:10px;font-size:12px;overflow-y:auto}._2SYzZq_problems{color:var(--dsw-alias-label-secondary);font-size:11px}._2SYzZq_overwrite{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);border-radius:8px;align-items:center;gap:8px;padding:8px 10px;font-size:12px;display:flex}._2SYzZq_foot{flex-wrap:wrap;align-items:center;gap:10px;display:flex}._2SYzZq_primary{border:1px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-layer-2);color:var(--dsw-alias-label-primary);cursor:pointer;border-radius:8px;padding:6px 14px;font-size:13px}._2SYzZq_primary:hover{background:var(--dsw-alias-interactive-bg-hover)}._2SYzZq_primary:disabled{opacity:.5;cursor:default}";
+		const tagId = "@deepseek-ai/dsh-client-ui-content-studio/TemplatePickerModal.module.css";
+		if (typeof document !== "undefined" && document.querySelector("style[data-plugin-css=" + JSON.stringify(tagId) + "]") === null) {
+			const tag = document.createElement("style");
+			tag.dataset.plugin = "@deepseek-ai/dsh-client-ui-content-studio";
+			tag.dataset.pluginCss = tagId;
+			tag.textContent = css;
+			document.head.appendChild(tag);
+		}
+		var TemplatePickerModal_module_css_default = {
+			"card": "_2SYzZq_card",
+			"cardMeta": "_2SYzZq_cardMeta",
+			"cardName": "_2SYzZq_cardName",
+			"empty": "_2SYzZq_empty",
+			"field": "_2SYzZq_field",
+			"fillHead": "_2SYzZq_fillHead",
+			"foot": "_2SYzZq_foot",
+			"head": "_2SYzZq_head",
+			"input": "_2SYzZq_input",
+			"label": "_2SYzZq_label",
+			"list": "_2SYzZq_list",
+			"mini": "_2SYzZq_mini",
+			"modal": "_2SYzZq_modal",
+			"overlay": "_2SYzZq_overlay",
+			"overwrite": "_2SYzZq_overwrite",
+			"preview": "_2SYzZq_preview",
+			"primary": "_2SYzZq_primary",
+			"problems": "_2SYzZq_problems",
+			"required": "_2SYzZq_required",
+			"subtitle": "_2SYzZq_subtitle",
+			"title": "_2SYzZq_title"
+		};
+		//#endregion
+		//#region lib/types/client/template/TemplatePickerModal.js
+		/**
+		* The cross-column template picker modal, driven by the shared controller's
+		* picker state: the host column opens it with a {@link TemplatePickTarget},
+		* the user picks an active template of that category, fills the required
+		* variables, and confirms — the first confirm only arms the overwrite guard
+		* when the host field already holds content. Rendered at the workbench
+		* surface level so every column sees the same modal.
+		*/
+		/**
+		* Render the picker modal; null while no picker session is open.
+		* @param props - the injected controller and the locale seat.
+		* @returns the modal element tree, or null.
+		*/
+		function TemplatePickerModal({ templates, t }) {
+			const state = (0, react.useSyncExternalStore)((listener) => templates.subscribe(listener), () => templates.getState());
+			const picker = state.picker;
+			if (picker === null) return null;
+			const search = picker.search.trim().toLowerCase();
+			const candidates = state.templates.filter((record) => {
+				if (record.category !== picker.target.category || record.status !== "active") return false;
+				if (search.length > 0 && !`${record.name}\n${record.description}\n${record.body}`.toLowerCase().includes(search)) return false;
+				return true;
+			});
+			const selected = picker.selected;
+			const rendered = selected === null ? null : renderTemplate(selected.body, picker.values, selected.variables);
+			const missing = selected === null ? [] : missingRequired(selected.body, selected.variables, picker.values);
+			return (0, react_jsx_runtime.jsx)("div", {
+				className: TemplatePickerModal_module_css_default.overlay,
+				role: "dialog",
+				"aria-modal": "true",
+				"aria-label": t("template.picker.title"),
+				children: (0, react_jsx_runtime.jsxs)("div", {
+					className: TemplatePickerModal_module_css_default.modal,
+					children: [(0, react_jsx_runtime.jsxs)("div", {
+						className: TemplatePickerModal_module_css_default.head,
+						children: [(0, react_jsx_runtime.jsxs)("span", {
+							className: TemplatePickerModal_module_css_default.title,
+							children: [t("template.picker.title"), (0, react_jsx_runtime.jsx)("span", {
+								className: TemplatePickerModal_module_css_default.subtitle,
+								children: `${TEMPLATE_CATEGORY_LABELS[picker.target.category]} → ${picker.target.targetLabel}`
+							})]
+						}), (0, react_jsx_runtime.jsx)("button", {
+							type: "button",
+							className: TemplatePickerModal_module_css_default.mini,
+							onClick: () => {
+								templates.closePicker();
+							},
+							children: t("template.picker.close")
+						})]
+					}), selected === null ? (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [(0, react_jsx_runtime.jsx)("input", {
+						className: TemplatePickerModal_module_css_default.input,
+						placeholder: t("template.search"),
+						value: picker.search,
+						onChange: (event) => {
+							templates.pickerSearch(event.target.value);
+						}
+					}), (0, react_jsx_runtime.jsxs)("div", {
+						className: TemplatePickerModal_module_css_default.list,
+						children: [candidates.length === 0 && (0, react_jsx_runtime.jsx)("div", {
+							className: TemplatePickerModal_module_css_default.empty,
+							children: t("template.picker.empty")
+						}), candidates.map((record) => (0, react_jsx_runtime.jsxs)("button", {
+							type: "button",
+							className: TemplatePickerModal_module_css_default.card,
+							onClick: () => {
+								templates.pickerSelect(record);
+							},
+							children: [
+								(0, react_jsx_runtime.jsx)("span", {
+									className: TemplatePickerModal_module_css_default.cardName,
+									children: record.name
+								}),
+								record.description.trim().length > 0 && (0, react_jsx_runtime.jsx)("span", {
+									className: TemplatePickerModal_module_css_default.cardMeta,
+									children: record.description
+								}),
+								(0, react_jsx_runtime.jsx)("span", {
+									className: TemplatePickerModal_module_css_default.cardMeta,
+									children: `v${String(record.version)}`
+								})
+							]
+						}, record.id))]
+					})] }) : (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
+						(0, react_jsx_runtime.jsxs)("div", {
+							className: TemplatePickerModal_module_css_default.fillHead,
+							children: [(0, react_jsx_runtime.jsx)("span", {
+								className: TemplatePickerModal_module_css_default.cardName,
+								children: selected.name
+							}), (0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: TemplatePickerModal_module_css_default.mini,
+								onClick: () => {
+									templates.pickerBack();
+								},
+								children: t("template.picker.back")
+							})]
+						}),
+						selected.description.trim().length > 0 && (0, react_jsx_runtime.jsx)("span", {
+							className: TemplatePickerModal_module_css_default.cardMeta,
+							children: selected.description
+						}),
+						(0, react_jsx_runtime.jsx)("span", {
+							className: TemplatePickerModal_module_css_default.cardMeta,
+							children: t("template.picker.titleHint")
+						}),
+						selected.variables.length === 0 && (0, react_jsx_runtime.jsx)("span", {
+							className: TemplatePickerModal_module_css_default.cardMeta,
+							children: t("template.variable.none")
+						}),
+						selected.variables.map((variable) => (0, react_jsx_runtime.jsxs)("label", {
+							className: TemplatePickerModal_module_css_default.field,
+							children: [
+								(0, react_jsx_runtime.jsxs)("span", {
+									className: TemplatePickerModal_module_css_default.label,
+									children: [variable.label || variable.name, variable.required && (0, react_jsx_runtime.jsxs)("span", {
+										className: TemplatePickerModal_module_css_default.required,
+										children: [
+											"（",
+											t("template.variable.required"),
+											"）"
+										]
+									})]
+								}),
+								variable.description.trim().length > 0 && (0, react_jsx_runtime.jsx)("span", {
+									className: TemplatePickerModal_module_css_default.cardMeta,
+									children: variable.description
+								}),
+								(0, react_jsx_runtime.jsx)("input", {
+									className: TemplatePickerModal_module_css_default.input,
+									value: picker.values[variable.name] ?? "",
+									onChange: (event) => {
+										templates.pickerValue(variable.name, event.target.value);
+									}
+								})
+							]
+						}, variable.name)),
+						rendered !== null && rendered.unresolved.length > 0 && (0, react_jsx_runtime.jsx)("span", {
+							className: TemplatePickerModal_module_css_default.problems,
+							children: t("template.preview.unresolved").replace("{list}", rendered.unresolved.join("、"))
+						}),
+						rendered !== null && (0, react_jsx_runtime.jsx)("pre", {
+							className: TemplatePickerModal_module_css_default.preview,
+							children: rendered.output
+						}),
+						picker.overwriteConfirm && (0, react_jsx_runtime.jsxs)("div", {
+							className: TemplatePickerModal_module_css_default.overwrite,
+							role: "alert",
+							children: [(0, react_jsx_runtime.jsx)("span", { children: t("template.picker.overwrite").replace("{target}", picker.target.targetLabel) }), (0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: TemplatePickerModal_module_css_default.mini,
+								onClick: () => {
+									templates.pickerBack();
+								},
+								children: t("template.picker.cancel")
+							})]
+						}),
+						(0, react_jsx_runtime.jsxs)("div", {
+							className: TemplatePickerModal_module_css_default.foot,
+							children: [picker.target.apply !== null ? (0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: TemplatePickerModal_module_css_default.primary,
+								disabled: missing.length > 0,
+								onClick: () => {
+									templates.pickerConfirm();
+								},
+								children: t("template.picker.confirm")
+							}) : (0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: TemplatePickerModal_module_css_default.primary,
+								onClick: () => {
+									templates.pickerCopyBody();
+								},
+								children: t("template.picker.copy")
+							}), missing.length > 0 && (0, react_jsx_runtime.jsx)("span", {
+								className: TemplatePickerModal_module_css_default.problems,
+								children: t("template.picker.missing").replace("{list}", missing.join("、"))
+							})]
+						})
+					] })]
+				})
+			});
+		}
+		//#endregion
 		//#region lib/types/client/ContentStudio.js
 		/**
 		* The frame-wide workbench surface occupying the `shell.overlay` hole.
 		* Easel-style two-column shell: a left inner nav — 工作台 / 对话 / 对标 /
-		* 对标账号 / 选题库 / 信息收集 / 内容 / 创作 / 账号 / 画像, with the back-to-chat verb
-		* and the feedback link at the foot — and a main column rendering the active
-		* view, defaulting to the workbench home dashboard. 对话 closes back to the
-		* chat; 对标 is a capability slice of the catalog; 对标账号 is the
-		* benchmark-account view over the competitor write face; 选题库 is the topic
-		* bank over the contentTopics Remote; 画像 is the account-persona manager
-		* over the `_personas.json` manifest. 账号 keeps the browser-local creation
-		* identity injected into every copied capability instruction, and a selected
-		* disk persona injects its packed prompt instead. Escape dismisses the
-		* surface; closed state renders null while the slot entry stays mounted.
+		* 选题库 / 信息收集 / 内容 / 内容日历 / 创作 / 发布 / 账号 / 画像 / 模板, with the
+		* back-to-chat verb and the feedback link at the foot — and a main column
+		* rendering the active view, defaulting to the workbench home dashboard.
+		* 对话 closes back to the chat; 对标 is a capability slice of the catalog;
+		* 选题库 is the topic bank over the contentTopics Remote; 内容日历 is the
+		* scheduling workbench over the contentSchedule Remote; 画像 is the
+		* account-persona manager over the `_personas.json` manifest. 账号 keeps the
+		* browser-local creation identity injected into every copied capability
+		* instruction, and a selected disk persona injects its packed prompt
+		* instead. Escape dismisses the surface; closed state renders null while the
+		* slot entry stays mounted.
 		*/
 		/** How long a card shows its copied state before reverting. */
 		const COPIED_FEEDBACK_MS = 1600;
@@ -26227,8 +34607,24 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				key: "nav.content"
 			},
 			{
+				view: "calendar",
+				key: "nav.calendar"
+			},
+			{
 				view: "create",
 				key: "nav.create"
+			},
+			{
+				view: "publish",
+				key: "nav.publish"
+			},
+			{
+				view: "review",
+				key: "nav.review"
+			},
+			{
+				view: "interaction",
+				key: "nav.interaction"
 			},
 			{
 				view: "accounts",
@@ -26237,6 +34633,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			{
 				view: "persona",
 				key: "nav.persona"
+			},
+			{
+				view: "templates",
+				key: "nav.templates"
 			}
 		];
 		/** Capability slice behind the 对标 nav view. */
@@ -26253,7 +34653,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		* @param props - the injected face and the locale seat.
 		* @returns the surface element tree while open; null while closed.
 		*/
-		function ContentStudio({ studio, listOutputs, gather, schedule, competitors, create, personas, listThemes, topics, writeExport, t }) {
+		function ContentStudio({ studio, listOutputs, gather, schedule, notes, competitors, create, personas, listThemes, topics, writeExport, publish, review, interaction, templates, t }) {
 			const open = (0, react.useSyncExternalStore)((fn) => studio.subscribe(fn), () => studio.isOpen());
 			const [view, setView] = (0, react.useState)("workbench");
 			const [accounts, setAccounts] = (0, react.useState)(() => {
@@ -26319,6 +34719,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			}, [open, gather]);
 			const picked = (0, react.useSyncExternalStore)((fn) => studio.subscribe(fn), () => studio.pickedMaterial());
 			const pickedTopic = (0, react.useSyncExternalStore)((fn) => studio.subscribe(fn), () => studio.pickedTopic());
+			const pickedManuscript = (0, react.useSyncExternalStore)((fn) => studio.subscribe(fn), () => studio.pickedManuscript());
 			if (!open) return null;
 			const groups = capabilityGroups(tab);
 			const pickItem = (item) => {
@@ -26337,6 +34738,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			const startTopicCreate = (topic) => {
 				studio.pickTopic(topic);
 				setView("create");
+			};
+			const sendToPublish = (manuscript) => {
+				studio.pickManuscript(manuscript);
+				setView("publish");
 			};
 			const joinTopicBank = (materialId) => {
 				const material = gather.getState().materials.find((candidate) => candidate.id === materialId);
@@ -26409,163 +34814,203 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						]
 					}), (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.main,
-						children: [(0, react_jsx_runtime.jsx)("button", {
-							type: "button",
-							className: ContentStudio_module_css_default.close,
-							"aria-label": t("studio.close"),
-							onClick: () => {
-								studio.close();
-							},
-							children: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCloseOutline16, { size: 16 })
-						}), (0, react_jsx_runtime.jsxs)("div", {
-							className: ContentStudio_module_css_default.frame,
-							children: [
-								view === "workbench" && (0, react_jsx_runtime.jsx)(ContentWorkbench, {
-									listOutputs,
-									listSchedule: schedule.list,
-									onNavigate: setView,
-									onChat: () => {
-										studio.close();
-									},
-									account,
-									persona: personaText,
-									t
-								}),
-								view === "benchmark" && (0, react_jsx_runtime.jsx)(CapabilityPage, {
-									title: t("benchmark.title"),
-									ids: BENCHMARK_IDS,
-									copiedId,
-									pick: pickItem,
-									t
-								}),
-								view === "competitors" && (0, react_jsx_runtime.jsx)(CompetitorsView, {
-									listOutputs,
-									...competitors,
-									t
-								}),
-								view === "topicBank" && (0, react_jsx_runtime.jsx)(TopicBankView, {
-									topics,
-									schedule,
-									onStartCreate: startTopicCreate,
-									writeExport,
-									listThemes,
-									copiedCapabilityId: copiedId,
-									pickCapability: pickItem,
-									t
-								}),
-								view === "gather" && (0, react_jsx_runtime.jsx)(GatherView, {
-									gather,
-									onPushToCreate: pushToCreate,
-									addToTopicBank: joinTopicBank,
-									t
-								}),
-								view === "accounts" && (0, react_jsx_runtime.jsx)(AccountsView, {
-									account,
-									accounts,
-									onSelect: selectAccount,
-									onAdd: addAccount,
-									onRemove: removeAccount,
-									t
-								}),
-								view === "persona" && (0, react_jsx_runtime.jsx)(PersonaView, {
-									personas,
-									t
-								}),
-								view === "library" && (0, react_jsx_runtime.jsx)(ContentLibrary, {
-									listOutputs,
-									t
-								}),
-								view === "calendar" && (0, react_jsx_runtime.jsx)(ContentCalendar, {
-									listSchedule: schedule.list,
-									putSchedule: schedule.put,
-									removeSchedule: schedule.remove,
-									t
-								}),
-								view === "create" && (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [picked !== null && (0, react_jsx_runtime.jsxs)("div", {
-									className: GatherView_module_css_default.gatherPicked,
-									role: "status",
-									children: [(0, react_jsx_runtime.jsxs)("span", { children: [t("gather.picked.chip"), picked.title] }), (0, react_jsx_runtime.jsx)("button", {
-										type: "button",
-										className: GatherView_module_css_default.gatherMini,
-										onClick: () => {
+						children: [
+							(0, react_jsx_runtime.jsx)("button", {
+								type: "button",
+								className: ContentStudio_module_css_default.close,
+								"aria-label": t("studio.close"),
+								onClick: () => {
+									studio.close();
+								},
+								children: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCloseOutline16, { size: 16 })
+							}),
+							(0, react_jsx_runtime.jsxs)("div", {
+								className: ContentStudio_module_css_default.frame,
+								children: [
+									view === "workbench" && (0, react_jsx_runtime.jsx)(ContentWorkbench, {
+										listOutputs,
+										listSchedule: schedule.list,
+										onNavigate: setView,
+										onChat: () => {
+											studio.close();
+										},
+										account,
+										persona: personaText,
+										t
+									}),
+									view === "benchmark" && (0, react_jsx_runtime.jsx)(CapabilityPage, {
+										title: t("benchmark.title"),
+										ids: BENCHMARK_IDS,
+										copiedId,
+										pick: pickItem,
+										t
+									}),
+									view === "competitors" && (0, react_jsx_runtime.jsx)(CompetitorsView, {
+										listOutputs,
+										...competitors,
+										t
+									}),
+									view === "topicBank" && (0, react_jsx_runtime.jsx)(TopicBankView, {
+										topics,
+										schedule,
+										onStartCreate: startTopicCreate,
+										writeExport,
+										listThemes,
+										copiedCapabilityId: copiedId,
+										pickCapability: pickItem,
+										templateLibrary: templates,
+										t
+									}),
+									view === "gather" && (0, react_jsx_runtime.jsx)(GatherView, {
+										gather,
+										onPushToCreate: pushToCreate,
+										addToTopicBank: joinTopicBank,
+										t
+									}),
+									view === "accounts" && (0, react_jsx_runtime.jsx)(AccountsView, {
+										account,
+										accounts,
+										onSelect: selectAccount,
+										onAdd: addAccount,
+										onRemove: removeAccount,
+										t
+									}),
+									view === "persona" && (0, react_jsx_runtime.jsx)(PersonaView, {
+										personas,
+										t
+									}),
+									view === "library" && (0, react_jsx_runtime.jsx)(ContentLibrary, {
+										listOutputs,
+										t
+									}),
+									view === "publish" && (0, react_jsx_runtime.jsx)(PublishView, {
+										publish,
+										persona: personaText,
+										pickedManuscript,
+										onClearPickedManuscript: () => {
+											studio.clearPickedManuscript();
+										},
+										t
+									}),
+									view === "review" && (0, react_jsx_runtime.jsx)(ReviewView, {
+										review,
+										listThemes,
+										t
+									}),
+									view === "interaction" && (0, react_jsx_runtime.jsx)(InteractionView, {
+										interaction,
+										personas,
+										templates,
+										listThemes,
+										t
+									}),
+									view === "calendar" && (0, react_jsx_runtime.jsx)(ContentCalendar, {
+										listSchedule: schedule.list,
+										putSchedule: schedule.put,
+										removeSchedule: schedule.remove,
+										notes,
+										topics,
+										writeExport,
+										listThemes,
+										onNavigate: setView,
+										t
+									}),
+									view === "templates" && (0, react_jsx_runtime.jsx)(TemplateLibraryView, {
+										templates,
+										t
+									}),
+									view === "create" && (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [picked !== null && (0, react_jsx_runtime.jsxs)("div", {
+										className: GatherView_module_css_default.gatherPicked,
+										role: "status",
+										children: [(0, react_jsx_runtime.jsxs)("span", { children: [t("gather.picked.chip"), picked.title] }), (0, react_jsx_runtime.jsx)("button", {
+											type: "button",
+											className: GatherView_module_css_default.gatherMini,
+											onClick: () => {
+												studio.clearPickedMaterial();
+											},
+											children: t("gather.picked.clear")
+										})]
+									}), (0, react_jsx_runtime.jsx)(CreateView, {
+										create,
+										listThemes,
+										persona: personaText,
+										picked,
+										onClearPicked: () => {
 											studio.clearPickedMaterial();
 										},
-										children: t("gather.picked.clear")
-									})]
-								}), (0, react_jsx_runtime.jsx)(CreateView, {
-									create,
-									listThemes,
-									persona: personaText,
-									picked,
-									onClearPicked: () => {
-										studio.clearPickedMaterial();
-									},
-									pickedTopic,
-									onClearPickedTopic: () => {
-										studio.clearPickedTopic();
-									},
-									topics,
-									schedule,
-									catalog: (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [(0, react_jsx_runtime.jsx)("div", {
-										className: ContentStudio_module_css_default.tabs,
-										role: "tablist",
-										children: STUDIO_TABS.map((candidate) => (0, react_jsx_runtime.jsx)("button", {
-											type: "button",
-											role: "tab",
-											"aria-selected": tab === candidate.id,
-											"aria-label": t(candidate.id === "create" ? "tab.create.aria" : "tab.operate.aria"),
-											className: clsx(ContentStudio_module_css_default.tab, tab === candidate.id && ContentStudio_module_css_default.tabActive),
-											onClick: () => {
-												setTab(candidate.id);
-											},
-											children: t(candidate.id === "create" ? "tab.create" : "tab.operate")
-										}, candidate.id))
-									}), (0, react_jsx_runtime.jsx)("div", {
-										className: ContentStudio_module_css_default.body,
-										children: groups.map((group) => (0, react_jsx_runtime.jsxs)("section", {
-											className: ContentStudio_module_css_default.group,
-											children: [(0, react_jsx_runtime.jsx)("h2", {
-												className: ContentStudio_module_css_default.groupTitle,
-												children: t(`group.${group.id}`)
-											}), (0, react_jsx_runtime.jsx)("div", {
-												className: ContentStudio_module_css_default.grid,
-												children: group.items.map((item) => {
-													const copied = copiedId === item.id;
-													return (0, react_jsx_runtime.jsxs)("button", {
-														type: "button",
-														className: clsx(ContentStudio_module_css_default.card, copied && ContentStudio_module_css_default.cardCopied),
-														onClick: () => {
-															pick(item.id, item.prompt);
-														},
-														children: [
-															(0, react_jsx_runtime.jsxs)("span", {
-																className: ContentStudio_module_css_default.cardHead,
-																children: [(0, react_jsx_runtime.jsx)("span", {
-																	className: ContentStudio_module_css_default.cardTitle,
-																	children: t(`cap.${item.id}.title`)
-																}), (0, react_jsx_runtime.jsx)("span", {
-																	className: clsx(ContentStudio_module_css_default.badge, BADGE_CLASS[item.maturity]),
-																	children: t(`badge.${item.maturity}`)
-																})]
-															}),
-															(0, react_jsx_runtime.jsx)("span", {
-																className: ContentStudio_module_css_default.cardDetail,
-																children: t(`cap.${item.id}.detail`)
-															}),
-															(0, react_jsx_runtime.jsx)("span", {
-																className: clsx(ContentStudio_module_css_default.cardHint, copied && ContentStudio_module_css_default.cardHintCopied),
-																children: copied ? t("card.copied") : t("card.copyHint")
-															})
-														]
-													}, item.id);
-												})
-											})]
-										}, group.id))
-									})] }),
-									t
-								})] })
-							]
-						})]
+										pickedTopic,
+										templateLibrary: templates,
+										onClearPickedTopic: () => {
+											studio.clearPickedTopic();
+										},
+										topics,
+										schedule,
+										onSendToPublish: sendToPublish,
+										catalog: (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [(0, react_jsx_runtime.jsx)("div", {
+											className: ContentStudio_module_css_default.tabs,
+											role: "tablist",
+											children: STUDIO_TABS.map((candidate) => (0, react_jsx_runtime.jsx)("button", {
+												type: "button",
+												role: "tab",
+												"aria-selected": tab === candidate.id,
+												"aria-label": t(candidate.id === "create" ? "tab.create.aria" : "tab.operate.aria"),
+												className: clsx(ContentStudio_module_css_default.tab, tab === candidate.id && ContentStudio_module_css_default.tabActive),
+												onClick: () => {
+													setTab(candidate.id);
+												},
+												children: t(candidate.id === "create" ? "tab.create" : "tab.operate")
+											}, candidate.id))
+										}), (0, react_jsx_runtime.jsx)("div", {
+											className: ContentStudio_module_css_default.body,
+											children: groups.map((group) => (0, react_jsx_runtime.jsxs)("section", {
+												className: ContentStudio_module_css_default.group,
+												children: [(0, react_jsx_runtime.jsx)("h2", {
+													className: ContentStudio_module_css_default.groupTitle,
+													children: t(`group.${group.id}`)
+												}), (0, react_jsx_runtime.jsx)("div", {
+													className: ContentStudio_module_css_default.grid,
+													children: group.items.map((item) => {
+														const copied = copiedId === item.id;
+														return (0, react_jsx_runtime.jsxs)("button", {
+															type: "button",
+															className: clsx(ContentStudio_module_css_default.card, copied && ContentStudio_module_css_default.cardCopied),
+															onClick: () => {
+																pick(item.id, item.prompt);
+															},
+															children: [
+																(0, react_jsx_runtime.jsxs)("span", {
+																	className: ContentStudio_module_css_default.cardHead,
+																	children: [(0, react_jsx_runtime.jsx)("span", {
+																		className: ContentStudio_module_css_default.cardTitle,
+																		children: t(`cap.${item.id}.title`)
+																	}), (0, react_jsx_runtime.jsx)("span", {
+																		className: clsx(ContentStudio_module_css_default.badge, BADGE_CLASS[item.maturity]),
+																		children: t(`badge.${item.maturity}`)
+																	})]
+																}),
+																(0, react_jsx_runtime.jsx)("span", {
+																	className: ContentStudio_module_css_default.cardDetail,
+																	children: t(`cap.${item.id}.detail`)
+																}),
+																(0, react_jsx_runtime.jsx)("span", {
+																	className: clsx(ContentStudio_module_css_default.cardHint, copied && ContentStudio_module_css_default.cardHintCopied),
+																	children: copied ? t("card.copied") : t("card.copyHint")
+																})
+															]
+														}, item.id);
+													})
+												})]
+											}, group.id))
+										})] }),
+										t
+									})] })
+								]
+							}),
+							(0, react_jsx_runtime.jsx)(TemplatePickerModal, {
+								templates,
+								t
+							})
+						]
 					})]
 				})
 			});
@@ -27366,7 +35811,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				if (raw === null) return null;
 				const parsed = JSON.parse(raw);
 				if (parsed.version !== WIZARD_VERSION || typeof parsed.form?.name !== "string") return null;
-				const base = emptyForm();
+				const base = emptyForm$1();
 				return {
 					step: parsed.step === 2 || parsed.step === 3 || parsed.step === 4 ? parsed.step : 1,
 					form: {
@@ -27526,7 +35971,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				openNew() {
 					wizard = readDraft() ?? {
 						step: 1,
-						form: emptyForm()
+						form: emptyForm$1()
 					};
 					emit();
 				},
@@ -27807,7 +36252,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				async importLegacy(name) {
 					const text = legacyText;
 					if (text === null) return;
-					const form = emptyForm();
+					const form = emptyForm$1();
 					form.name = name;
 					form.customText = text;
 					try {
@@ -27835,6 +36280,2502 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			};
 		}
 		//#endregion
+		//#region lib/types/client/template/starter-pack.js
+		/**
+		* The bundled starter pack: eight seed skeletons across six categories that
+		* make an empty template library immediately usable, and demonstrate the
+		* pack format for the freemium "paid template pack" distribution channel.
+		* Ids are stable and readable (not UUIDs) so a re-import with the `skip`
+		* strategy is idempotent; the gateway re-validates every record, and the
+		* pack spec pins each body's placeholders to its declared variables.
+		* Client-safe data only — the bundle purity gate sees an in-plugin constant.
+		*/
+		/** Display name used in the import report. */
+		const STARTER_PACK_NAME = "starter-pack";
+		const PACKED_AT = "2026-09-27T00:00:00.000Z";
+		const TAGS = [
+			{
+				id: "starter-tag-hot",
+				name: "爆款"
+			},
+			{
+				id: "starter-tag-xhs",
+				name: "小红书"
+			},
+			{
+				id: "starter-tag-prompt",
+				name: "提示词"
+			},
+			{
+				id: "starter-tag-retro",
+				name: "复盘"
+			},
+			{
+				id: "starter-tag-script",
+				name: "话术"
+			},
+			{
+				id: "starter-tag-checklist",
+				name: "清单"
+			}
+		];
+		/** Brand the compile-time constants at this file's single boundary. */
+		function record(overrides) {
+			return {
+				status: "active",
+				version: 1,
+				createdAt: PACKED_AT,
+				updatedAt: PACKED_AT,
+				...overrides,
+				id: overrides.id,
+				tagIds: overrides.tagIds.map((tagId) => tagId)
+			};
+		}
+		/** The bundled starter pack document, imported with the idempotent `skip` strategy. */
+		const STARTER_TEMPLATE_PACK = {
+			format: "dsh-template-pack",
+			formatVersion: 1,
+			exportedAt: PACKED_AT,
+			templates: [
+				record({
+					id: "starter-topic-five-questions",
+					name: "选题五问卡",
+					category: "topic",
+					description: "一条选题立项前的五个必答问题，答不上来就不开工。",
+					tagIds: ["starter-tag-hot", "starter-tag-xhs"],
+					body: [
+						"# {{title}}",
+						"",
+						"1. 给谁看：{{audience}}",
+						"2. 凭什么看：与已有内容的差异是 {{differentiation}}",
+						"3. 看完得到：{{payoff}}",
+						"4. 什么形式：{{format}}",
+						"5. 为什么是现在：{{timing}}"
+					].join("\n"),
+					variables: [
+						{
+							name: "title",
+							label: "选题名",
+							description: "工作标题，会作为新建选题的标题",
+							defaultValue: "",
+							required: true
+						},
+						{
+							name: "audience",
+							label: "给谁看",
+							description: "目标受众，越具体越好",
+							defaultValue: "",
+							required: true
+						},
+						{
+							name: "differentiation",
+							label: "差异点",
+							description: "与同类内容的不同",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "payoff",
+							label: "看完得到",
+							description: "读者带走什么",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "format",
+							label: "形式",
+							description: "图文 / 短视频 / 长文",
+							defaultValue: "图文",
+							required: false
+						},
+						{
+							name: "timing",
+							label: "为什么是现在",
+							description: "热点 / 节点 / 需求",
+							defaultValue: "",
+							required: false
+						}
+					]
+				}),
+				record({
+					id: "starter-topic-benchmark-card",
+					name: "对标拆解选题卡",
+					category: "topic",
+					description: "从一条对标爆款反推自己的选题。",
+					tagIds: ["starter-tag-hot"],
+					body: [
+						"# {{title}}",
+						"",
+						"- 对标爆款：{{benchmark}}（数据：{{metrics}}）",
+						"- 它击中的需求：{{need}}",
+						"- 我能接住的切入：{{angle}}",
+						"- 风险与雷区：{{risk}}"
+					].join("\n"),
+					variables: [
+						{
+							name: "title",
+							label: "选题名",
+							description: "工作标题",
+							defaultValue: "",
+							required: true
+						},
+						{
+							name: "benchmark",
+							label: "对标作品",
+							description: "链接或标题",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "metrics",
+							label: "它的数据",
+							description: "点赞 / 收藏 / 评论",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "need",
+							label: "击中的需求",
+							description: "它为什么火",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "angle",
+							label: "我的切入",
+							description: "差异化角度",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "risk",
+							label: "风险",
+							description: "不宜碰的部分",
+							defaultValue: "",
+							required: false
+						}
+					]
+				}),
+				record({
+					id: "starter-creation-xhs-prompt",
+					name: "小红书图文三段式提示词",
+					category: "creation",
+					description: "钩子—干货—互动三段式，喂给 AI 的创作指令骨架。",
+					tagIds: ["starter-tag-xhs", "starter-tag-prompt"],
+					body: [
+						"请以 {{persona}} 的口吻写一篇小红书图文，主题：{{topic}}。",
+						"",
+						"结构要求：",
+						"1. 开头钩子（不超过 30 字，制造 {{hook_type}}）：",
+						"2. 干货主体：分 {{point_count}} 个要点展开，每点配一个具体例子；",
+						"3. 结尾互动：抛出一个让读者愿意评论的问题。",
+						"",
+						"全文口语化，多用换行，总字数 {{word_count}} 字左右，文末给出 {{tag_count}} 个话题标签。"
+					].join("\n"),
+					variables: [
+						{
+							name: "persona",
+							label: "账号口吻",
+							description: "账号画像的一句话风格",
+							defaultValue: "",
+							required: true
+						},
+						{
+							name: "topic",
+							label: "主题",
+							description: "这篇写什么",
+							defaultValue: "",
+							required: true
+						},
+						{
+							name: "hook_type",
+							label: "钩子类型",
+							description: "反常识 / 提问 / 数字",
+							defaultValue: "反常识",
+							required: false
+						},
+						{
+							name: "point_count",
+							label: "要点数",
+							description: "干货分几点",
+							defaultValue: "3",
+							required: false
+						},
+						{
+							name: "word_count",
+							label: "字数",
+							description: "总字数",
+							defaultValue: "600",
+							required: false
+						},
+						{
+							name: "tag_count",
+							label: "标签数",
+							description: "文末话题标签数量",
+							defaultValue: "5",
+							required: false
+						}
+					]
+				}),
+				record({
+					id: "starter-creation-article-prompt",
+					name: "公众号长文写作提示词",
+					category: "creation",
+					description: "观点—论证—案例—行动的长文指令骨架。",
+					tagIds: ["starter-tag-prompt"],
+					body: [
+						"请写一篇公众号文章，标题方向：{{title_direction}}，目标读者：{{audience}}。",
+						"",
+						"要求：",
+						"- 开头用一个 {{opening}} 引入，三段内点明核心观点：{{viewpoint}}；",
+						"- 论证部分给出 {{argument_count}} 个论据，其中至少一个来自 {{source_domain}}；",
+						"- 一个完整案例贯穿，案例主角是 {{case_persona}}；",
+						"- 结尾给读者一个今天就能做的行动；",
+						"- 全文 {{word_count}} 字左右，避免套话和排比堆砌。"
+					].join("\n"),
+					variables: [
+						{
+							name: "title_direction",
+							label: "标题方向",
+							description: "想起的标题感觉",
+							defaultValue: "",
+							required: true
+						},
+						{
+							name: "audience",
+							label: "目标读者",
+							description: "写给谁",
+							defaultValue: "",
+							required: true
+						},
+						{
+							name: "opening",
+							label: "开头方式",
+							description: "故事 / 数据 / 提问",
+							defaultValue: "故事",
+							required: false
+						},
+						{
+							name: "viewpoint",
+							label: "核心观点",
+							description: "一句话主张",
+							defaultValue: "",
+							required: true
+						},
+						{
+							name: "argument_count",
+							label: "论据数",
+							description: "几个论据",
+							defaultValue: "3",
+							required: false
+						},
+						{
+							name: "source_domain",
+							label: "论据来源领域",
+							description: "引用哪里的素材",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "case_persona",
+							label: "案例主角",
+							description: "案例讲谁",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "word_count",
+							label: "字数",
+							description: "总字数",
+							defaultValue: "2000",
+							required: false
+						}
+					]
+				}),
+				record({
+					id: "starter-retro-weekly",
+					name: "周复盘报告骨架",
+					category: "retro",
+					description: "数据—归因—下一步的固定三节复盘。",
+					tagIds: ["starter-tag-retro"],
+					body: [
+						"# 周复盘：{{week}}",
+						"",
+						"## 一、数据",
+						"- 发布：{{published_count}} 篇；最好一篇：{{best_post}}",
+						"- 核心指标：{{metrics}}",
+						"",
+						"## 二、归因",
+						"- 做对的：{{what_worked}}",
+						"- 做错的：{{what_failed}}",
+						"",
+						"## 三、下一步",
+						"- 下周唯一重点：{{next_focus}}",
+						"- 要停掉的事：{{to_stop}}"
+					].join("\n"),
+					variables: [
+						{
+							name: "week",
+							label: "复盘周期",
+							description: "如 9 月第 4 周",
+							defaultValue: "",
+							required: true
+						},
+						{
+							name: "published_count",
+							label: "发布数",
+							description: "本周发布篇数",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "best_post",
+							label: "最好一篇",
+							description: "数据最好的内容",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "metrics",
+							label: "核心指标",
+							description: "阅读 / 涨粉 / 互动",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "what_worked",
+							label: "做对的",
+							description: "有效动作",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "what_failed",
+							label: "做错的",
+							description: "无效动作",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "next_focus",
+							label: "下周重点",
+							description: "只写一件",
+							defaultValue: "",
+							required: true
+						},
+						{
+							name: "to_stop",
+							label: "停掉的事",
+							description: "不再投入的事",
+							defaultValue: "",
+							required: false
+						}
+					]
+				}),
+				record({
+					id: "starter-interaction-three-styles",
+					name: "互动回复话术·三风格",
+					category: "interaction",
+					description: "同一条评论的三种回法：捧场、专业、留钩子。",
+					tagIds: ["starter-tag-script"],
+					body: [
+						"针对评论「{{comment}}」：",
+						"",
+						"- 捧场式：{{enthusiastic}}",
+						"- 专业式：{{professional}}",
+						"- 留钩子式：{{hooked}}（引导私信或看主页）"
+					].join("\n"),
+					variables: [
+						{
+							name: "comment",
+							label: "原始评论",
+							description: "粉丝说了什么",
+							defaultValue: "",
+							required: true
+						},
+						{
+							name: "enthusiastic",
+							label: "捧场式回复",
+							description: "热情拉近距离",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "professional",
+							label: "专业式回复",
+							description: "给增量信息",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "hooked",
+							label: "留钩子式回复",
+							description: "引导私信 / 主页",
+							defaultValue: "",
+							required: false
+						}
+					]
+				}),
+				record({
+					id: "starter-publish-checklist",
+					name: "平台发布检查清单",
+					category: "publish",
+					description: "发布前逐项打勾；正文示例放在代码块里，渲染时原样保留。",
+					tagIds: ["starter-tag-checklist"],
+					body: [
+						"# {{platform}} 发布检查",
+						"",
+						"- 字数：{{word_count}} 字（平台上限 {{limit}}）",
+						"- 标签：{{tags}}",
+						"- 封面与首图：{{cover}}",
+						"- 发布时间：{{publish_time}}",
+						"",
+						"示例（代码块内不渲染占位符）:",
+						"",
+						"```",
+						"文案示例：{{example}}",
+						"```"
+					].join("\n"),
+					variables: [
+						{
+							name: "platform",
+							label: "平台",
+							description: "小红书 / 公众号 / 抖音…",
+							defaultValue: "",
+							required: true
+						},
+						{
+							name: "word_count",
+							label: "字数",
+							description: "实际字数",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "limit",
+							label: "字数上限",
+							description: "平台限制",
+							defaultValue: "1000",
+							required: false
+						},
+						{
+							name: "tags",
+							label: "标签",
+							description: "话题标签清单",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "cover",
+							label: "封面",
+							description: "封面确认",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "publish_time",
+							label: "发布时间",
+							description: "计划时间",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "example",
+							label: "示例",
+							description: "这个占位符在代码块内，渲染时原样保留",
+							defaultValue: "",
+							required: false
+						}
+					]
+				}),
+				record({
+					id: "starter-persona-quick-form",
+					name: "人设速填表",
+					category: "persona",
+					description: "注册新账号画像前，先把六个关键问题答清楚。",
+					tagIds: ["starter-tag-checklist"],
+					body: [
+						"# 人设速填：{{account}}",
+						"",
+						"- 我是谁：{{who_am_i}}",
+						"- 写给谁：{{audience}}",
+						"- 提供什么价值：{{value}}",
+						"- 风格关键词：{{style_keywords}}",
+						"- 绝不说的话（红线）：{{red_lines}}",
+						"- 更新节奏：{{cadence}}"
+					].join("\n"),
+					variables: [
+						{
+							name: "account",
+							label: "账号名",
+							description: "账号名称",
+							defaultValue: "",
+							required: true
+						},
+						{
+							name: "who_am_i",
+							label: "我是谁",
+							description: "主体背景一句话",
+							defaultValue: "",
+							required: true
+						},
+						{
+							name: "audience",
+							label: "写给谁",
+							description: "目标受众",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "value",
+							label: "价值",
+							description: "读者得到什么",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "style_keywords",
+							label: "风格关键词",
+							description: "三五个词",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "red_lines",
+							label: "红线",
+							description: "绝不说的话",
+							defaultValue: "",
+							required: false
+						},
+						{
+							name: "cadence",
+							label: "更新节奏",
+							description: "每周几更",
+							defaultValue: "",
+							required: false
+						}
+					]
+				})
+			],
+			tags: TAGS.map((tag) => ({
+				...tag,
+				id: tag.id
+			}))
+		};
+		//#endregion
+		//#region lib/types/client/template/template-store.js
+		/**
+		* The template-library controller: one observable state object over the
+		* global template faces of the content-outputs Remote, the 模板库 page's
+		* editor, and the cross-column picker modal. Every AI action is explicit and
+		* lands in a draft the user adopts or discards — nothing reaches disk except
+		* through a save. The picker never writes: it hands the rendered body back to
+		* the host column, which owns where it lands.
+		*/
+		/** Browser-local storage key for the template library's view preferences (view-only state, loss-free). */
+		const PREFS_KEY = "dsh-content-studio.template.prefs";
+		function emptyForm(category = "creation") {
+			return {
+				id: null,
+				name: "",
+				category,
+				description: "",
+				tagIds: [],
+				body: "",
+				variables: [],
+				changeNote: ""
+			};
+		}
+		function formFromRecord(record) {
+			return {
+				id: record.id,
+				name: record.name,
+				category: record.category,
+				description: record.description,
+				tagIds: [...record.tagIds],
+				body: record.body,
+				variables: [...record.variables],
+				changeNote: ""
+			};
+		}
+		function readPrefs() {
+			const fallback = {
+				category: null,
+				tagIds: [],
+				status: "all",
+				search: ""
+			};
+			try {
+				const raw = localStorage.getItem(PREFS_KEY);
+				if (raw === null) return fallback;
+				const parsed = JSON.parse(raw);
+				return {
+					category: parsed.category ?? null,
+					tagIds: Array.isArray(parsed.tagIds) ? parsed.tagIds : [],
+					status: parsed.status === "active" || parsed.status === "archived" ? parsed.status : "all",
+					search: typeof parsed.search === "string" ? parsed.search : ""
+				};
+			} catch {
+				return fallback;
+			}
+		}
+		function writePrefs(prefs) {
+			try {
+				localStorage.setItem(PREFS_KEY, JSON.stringify(prefs));
+			} catch {}
+		}
+		/** Monotonic suffix for browser-generated tag ids; uniqueness is all they need. */
+		let tagCounter = 0;
+		function nextTagId() {
+			tagCounter += 1;
+			return `tag-${Date.now().toString(36)}-${String(tagCounter)}`;
+		}
+		/**
+		* Create the template-library controller.
+		* @param deps - the injected gateway face.
+		* @returns the controller with its initial empty state.
+		*/
+		function createTemplateController(deps) {
+			const { gateway } = deps;
+			let state = {
+				templates: [],
+				tags: [],
+				problems: [],
+				loading: false,
+				saving: false,
+				editor: null,
+				history: [],
+				historyOpen: false,
+				aiBusy: false,
+				aiDraft: null,
+				generateSource: "",
+				generateCategory: "creation",
+				optimizeSource: "",
+				extractSource: "",
+				importReport: null,
+				picker: null,
+				notice: null
+			};
+			let prefs = readPrefs();
+			const listeners = /* @__PURE__ */ new Set();
+			const emit = () => {
+				for (const listener of listeners) listener();
+			};
+			const patch = (next) => {
+				state = {
+					...state,
+					...next
+				};
+				emit();
+			};
+			const setPrefs = (next) => {
+				prefs = {
+					...prefs,
+					...next
+				};
+				writePrefs(prefs);
+				emit();
+			};
+			const reload = async () => {
+				patch({ loading: true });
+				try {
+					const snapshot = await gateway.listTemplates();
+					patch({
+						templates: snapshot.templates,
+						tags: snapshot.tags,
+						problems: snapshot.problems,
+						loading: false
+					});
+				} catch {
+					patch({
+						loading: false,
+						notice: "load-failed"
+					});
+				}
+			};
+			const applyBody = (form, body) => {
+				const reconciled = reconcileVariables(body, form.variables);
+				return {
+					...form,
+					body,
+					variables: [...reconciled.active, ...reconciled.unused]
+				};
+			};
+			const controller = {
+				getState: () => state,
+				getPrefs: () => prefs,
+				subscribe: (listener) => {
+					listeners.add(listener);
+					return () => {
+						listeners.delete(listener);
+					};
+				},
+				reload: () => {
+					reload();
+				},
+				setFilter: (next) => {
+					setPrefs(next);
+				},
+				dismissNotice: () => {
+					if (state.notice !== null) patch({ notice: null });
+				},
+				openNew: () => patch({
+					editor: { form: emptyForm() },
+					aiDraft: null,
+					historyOpen: false,
+					history: []
+				}),
+				openEditor: (record) => patch({
+					editor: { form: formFromRecord(record) },
+					aiDraft: null,
+					historyOpen: false,
+					history: []
+				}),
+				closeEditor: () => patch({
+					editor: null,
+					aiDraft: null,
+					historyOpen: false,
+					history: [],
+					optimizeSource: "",
+					extractSource: ""
+				}),
+				patchForm: (formPatch) => {
+					if (state.editor === null) return;
+					const merged = {
+						...state.editor.form,
+						...formPatch
+					};
+					patch({ editor: { form: typeof formPatch.body === "string" ? applyBody(merged, formPatch.body) : merged } });
+				},
+				patchVariable: (name, variablePatch) => {
+					if (state.editor === null) return;
+					const variables = state.editor.form.variables.map((variable) => variable.name === name ? {
+						...variable,
+						...variablePatch
+					} : variable);
+					patch({ editor: { form: {
+						...state.editor.form,
+						variables
+					} } });
+				},
+				toggleFormTag: (tagId) => {
+					if (state.editor === null) return;
+					const form = state.editor.form;
+					const tagIds = form.tagIds.includes(tagId) ? form.tagIds.filter((candidate) => candidate !== tagId) : [...form.tagIds, tagId];
+					patch({ editor: { form: {
+						...form,
+						tagIds
+					} } });
+				},
+				save: () => {
+					const editor = state.editor;
+					if (editor === null || state.saving) return;
+					const form = editor.form;
+					if (form.name.trim().length === 0 || form.body.trim().length === 0) {
+						patch({ notice: "save-failed" });
+						return;
+					}
+					patch({ saving: true });
+					(async () => {
+						try {
+							patch({
+								saving: false,
+								editor: { form: formFromRecord(await gateway.putTemplate({
+									...form.id === null ? {} : { id: form.id },
+									name: form.name.trim(),
+									category: form.category,
+									description: form.description,
+									tagIds: form.tagIds,
+									body: form.body,
+									variables: form.variables,
+									...form.changeNote.trim().length > 0 ? { changeNote: form.changeNote.trim() } : {}
+								})) },
+								notice: "saved"
+							});
+							await reload();
+						} catch (error) {
+							const message = error instanceof Error ? error.message : "";
+							patch({
+								saving: false,
+								notice: /duplicate template name/.test(message) ? "name-duplicate" : "save-failed"
+							});
+						}
+					})();
+				},
+				toggleArchive: (record) => {
+					const status = record.status === "active" ? "archived" : "active";
+					(async () => {
+						try {
+							await gateway.setTemplateStatus(record.id, status);
+							patch({ notice: "archived" });
+							await reload();
+						} catch {
+							patch({ notice: "save-failed" });
+						}
+					})();
+				},
+				remove: (id) => {
+					(async () => {
+						try {
+							await gateway.deleteTemplate(id);
+							if (state.editor?.form.id === id) patch({ editor: null });
+							await reload();
+						} catch {
+							patch({ notice: "delete-failed" });
+						}
+					})();
+				},
+				copyTemplate: (record) => {
+					patch({ editor: { form: {
+						...formFromRecord(record),
+						id: null,
+						name: `${record.name} 副本`,
+						changeNote: ""
+					} } });
+				},
+				openHistory: (id) => {
+					patch({
+						historyOpen: true,
+						history: []
+					});
+					(async () => {
+						try {
+							patch({ history: (await gateway.getTemplateHistory(id)).entries });
+						} catch {
+							patch({ history: [] });
+						}
+					})();
+				},
+				closeHistory: () => patch({ historyOpen: false }),
+				restoreVersion: (entry) => {
+					const editor = state.editor;
+					if (editor === null || editor.form.id === null) return;
+					controller.patchForm({
+						body: entry.record.body,
+						variables: [...entry.record.variables],
+						changeNote: `回滚自 v${String(entry.version)}`
+					});
+					patch({
+						historyOpen: false,
+						notice: "restored"
+					});
+				},
+				addTag: (name) => {
+					const trimmed = name.trim();
+					if (trimmed.length === 0) {
+						patch({ notice: "tag-name-required" });
+						return;
+					}
+					const tag = {
+						id: nextTagId(),
+						name: trimmed
+					};
+					(async () => {
+						try {
+							await gateway.putTemplateTags([...state.tags, tag]);
+							await reload();
+						} catch {
+							patch({ notice: "tags-failed" });
+						}
+					})();
+				},
+				removeTag: (tagId) => {
+					(async () => {
+						try {
+							await gateway.putTemplateTags(state.tags.filter((tag) => tag.id !== tagId));
+							await reload();
+						} catch {
+							patch({ notice: "tags-failed" });
+						}
+					})();
+				},
+				importFile: (file, strategy) => {
+					(async () => {
+						try {
+							const parsed = parseTemplatePack(await file.text());
+							if (parsed.kind === "invalid") {
+								patch({ notice: "import-invalid" });
+								return;
+							}
+							const summary = await gateway.importTemplates(parsed.pack, strategy);
+							patch({ importReport: {
+								fileName: file.name,
+								summary
+							} });
+							await reload();
+						} catch {
+							patch({ notice: "import-failed" });
+						}
+					})();
+				},
+				dismissImportReport: () => patch({ importReport: null }),
+				importStarterPack: () => {
+					(async () => {
+						try {
+							patch({ importReport: {
+								fileName: STARTER_PACK_NAME,
+								summary: await gateway.importTemplates(STARTER_TEMPLATE_PACK, "skip")
+							} });
+							await reload();
+						} catch {
+							patch({ notice: "import-failed" });
+						}
+					})();
+				},
+				exportIds: (ids) => {
+					(async () => {
+						try {
+							const packDoc = await gateway.exportTemplates(ids);
+							const blob = new Blob([`${JSON.stringify(packDoc, null, 2)}\n`], { type: "application/json" });
+							const url = URL.createObjectURL(blob);
+							const anchor = document.createElement("a");
+							anchor.href = url;
+							anchor.download = `dsh-templates-${(/* @__PURE__ */ new Date()).toISOString().slice(0, 10)}.json`;
+							anchor.click();
+							URL.revokeObjectURL(url);
+						} catch {
+							patch({ notice: "export-failed" });
+						}
+					})();
+				},
+				setGenerateSource: (text) => patch({ generateSource: text }),
+				setGenerateCategory: (category) => patch({ generateCategory: category }),
+				setOptimizeSource: (text) => patch({ optimizeSource: text }),
+				setExtractSource: (text) => patch({ extractSource: text }),
+				runAi: (request) => {
+					if (state.aiBusy !== false) return;
+					if ((request.operation === "generate" ? request.description : request.operation === "optimize" ? request.instruction : request.content).trim().length === 0) {
+						patch({ notice: "ai-empty" });
+						return;
+					}
+					patch({
+						aiBusy: request.operation,
+						aiDraft: null
+					});
+					(async () => {
+						try {
+							patch({
+								aiBusy: false,
+								aiDraft: await gateway.processTemplateAi(request)
+							});
+						} catch {
+							patch({
+								aiBusy: false,
+								notice: "ai-failed"
+							});
+						}
+					})();
+				},
+				adoptAiDraft: () => {
+					const draft = state.aiDraft;
+					if (draft === null) return;
+					if (draft.operation === "generate") {
+						const reconciled = reconcileVariables(draft.draft.body, draft.draft.variables);
+						patch({
+							editor: { form: {
+								...emptyForm(state.generateCategory),
+								name: draft.draft.name,
+								description: draft.draft.description,
+								body: draft.draft.body,
+								variables: [...reconciled.active, ...reconciled.unused]
+							} },
+							aiDraft: null
+						});
+						return;
+					}
+					if (state.editor === null) return;
+					const current = state.editor.form;
+					if (draft.operation === "optimize") {
+						patch({
+							editor: { form: applyBody(current, draft.draft.body) },
+							aiDraft: null
+						});
+						return;
+					}
+					const proposed = draft.draft.variables.filter((variable) => !current.variables.some((candidate) => candidate.name === variable.name));
+					const reconciled = reconcileVariables(draft.draft.body, [...current.variables, ...proposed]);
+					patch({
+						editor: { form: {
+							...applyBody(current, draft.draft.body),
+							variables: [...reconciled.active, ...reconciled.unused]
+						} },
+						aiDraft: null
+					});
+				},
+				discardAiDraft: () => patch({ aiDraft: null }),
+				openPicker: (target) => patch({ picker: {
+					target,
+					search: "",
+					selected: null,
+					values: {},
+					overwriteConfirm: false
+				} }),
+				pickerSearch: (text) => {
+					if (state.picker !== null) patch({ picker: {
+						...state.picker,
+						search: text
+					} });
+				},
+				pickerSelect: (record) => {
+					if (state.picker !== null) patch({ picker: {
+						...state.picker,
+						selected: record,
+						values: {},
+						overwriteConfirm: false
+					} });
+				},
+				pickerValue: (name, value) => {
+					if (state.picker !== null) patch({ picker: {
+						...state.picker,
+						values: {
+							...state.picker.values,
+							[name]: value
+						}
+					} });
+				},
+				pickerBack: () => {
+					if (state.picker !== null) patch({ picker: {
+						...state.picker,
+						selected: null,
+						values: {},
+						overwriteConfirm: false
+					} });
+				},
+				pickerConfirm: () => {
+					const picker = state.picker;
+					if (picker === null || picker.selected === null) return;
+					if (picker.target.apply === void 0) return;
+					if (missingRequired(picker.selected.body, picker.selected.variables, picker.values).length > 0) return;
+					if (picker.target.hasContent() && !picker.overwriteConfirm) {
+						patch({ picker: {
+							...picker,
+							overwriteConfirm: true
+						} });
+						return;
+					}
+					const rendered = renderTemplate(picker.selected.body, picker.values, picker.selected.variables);
+					const title = picker.values["title"]?.trim() || picker.selected.name;
+					const tagNames = picker.selected.tagIds.map((tagId) => state.tags.find((tag) => tag.id === tagId)?.name).filter((name) => name !== void 0);
+					picker.target.apply({
+						title,
+						body: rendered.output,
+						tags: tagNames,
+						values: picker.values,
+						template: picker.selected
+					});
+					patch({ picker: null });
+				},
+				pickerCopyBody: () => {
+					const picker = state.picker;
+					if (picker === null || picker.selected === null) return;
+					const rendered = renderTemplate(picker.selected.body, picker.values, picker.selected.variables);
+					(async () => {
+						if (await (0, _deepseek_ai_dsh_client_ui_primitives.writeClipboard)(rendered.output)) patch({ picker: null });
+					})();
+				},
+				closePicker: () => patch({ picker: null })
+			};
+			return controller;
+		}
+		//#endregion
+		//#region lib/types/client/publish/publish-store.js
+		/**
+		* The publish view controller: one observable state object over the publish
+		* faces of the content-outputs Remote (theme-side `_publish.json` manifests,
+		* the global index, the account cards, derived drafts, and the per-platform
+		* AI adaptation), plus the calendar and topic-bank faces for the scheduling
+		* and reflow handoffs. Every AI call is explicit; a per-platform failure
+		* never blocks the other legs; task retries append attempt entries and never
+		* rewrite the logged history.
+		*/
+		/**
+		* Create the publish controller.
+		* @param deps - the gateway plus the library, calendar, and topic faces.
+		* @returns the controller with an idle state.
+		*/
+		function createPublishController(deps) {
+			const { gateway, listOutputs, schedule, topics } = deps;
+			let state = {
+				loading: false,
+				manuscripts: [],
+				profiles: [],
+				profileProblems: [],
+				index: [],
+				indexProblems: [],
+				theme: null,
+				tasks: [],
+				manifestProblems: [],
+				openTaskId: null,
+				busyPlatforms: {},
+				recording: false,
+				notice: null,
+				error: null
+			};
+			const listeners = /* @__PURE__ */ new Set();
+			const emit = () => {
+				for (const listener of listeners) listener();
+			};
+			const set = (patch) => {
+				state = {
+					...state,
+					...patch
+				};
+				emit();
+			};
+			const fail = (notice, cause) => {
+				set({
+					notice,
+					error: cause instanceof Error ? cause.message : String(cause)
+				});
+			};
+			const taskOf = (taskId) => state.tasks.find((task) => task.taskId === taskId);
+			/** Persist one task back into the theme manifest (read-modify-write). */
+			const persistTask = async (theme, next) => {
+				const { manifest } = await gateway.readPublishManifest(theme);
+				const tasks = (manifest?.tasks ?? []).map((task) => task.taskId === next.taskId ? next : task);
+				await gateway.writePublishManifest(theme, {
+					formatVersion: 0,
+					tasks
+				});
+				set({ tasks });
+			};
+			const loadIndex = async () => {
+				try {
+					const read = await gateway.listPublishIndex();
+					set({
+						index: read.index.entries,
+						indexProblems: read.problems
+					});
+				} catch (cause) {
+					fail("load-failed", cause);
+				}
+			};
+			const loadProfiles = async () => {
+				try {
+					const read = await gateway.readPublishProfiles();
+					set({
+						profiles: read.profiles,
+						profileProblems: read.problems
+					});
+				} catch (cause) {
+					fail("load-failed", cause);
+				}
+			};
+			const loadManuscripts = async () => {
+				try {
+					set({ manuscripts: manuscriptCards((await listOutputs()).projects) });
+				} catch (cause) {
+					fail("load-failed", cause);
+				}
+			};
+			/** One alias per platform: the stored card, or the platform's own name. */
+			const aliasFor = (platformId) => state.profiles.find((profile) => profile.platformId === platformId && profile.enabled)?.alias ?? platformProfileOf(platformId)?.name ?? platformId;
+			const controller = {
+				subscribe(listener) {
+					listeners.add(listener);
+					return () => {
+						listeners.delete(listener);
+					};
+				},
+				getState: () => state,
+				async init() {
+					set({ loading: true });
+					await Promise.all([
+						loadIndex(),
+						loadProfiles(),
+						loadManuscripts()
+					]);
+					set({ loading: false });
+				},
+				async refresh() {
+					await Promise.all([
+						loadIndex(),
+						loadProfiles(),
+						loadManuscripts(),
+						state.theme === null ? Promise.resolve() : controller.openTheme(state.theme)
+					]);
+				},
+				async saveProfiles(profiles) {
+					try {
+						await gateway.writePublishProfiles(profiles);
+						set({
+							profiles,
+							notice: "profiles-saved",
+							error: null
+						});
+					} catch (cause) {
+						fail("profiles-failed", cause);
+					}
+				},
+				async openTheme(theme) {
+					try {
+						const read = await gateway.readPublishManifest(theme);
+						const tasks = read.manifest?.tasks ?? [];
+						const due = dueScheduledTasks(tasks, /* @__PURE__ */ new Date());
+						set({
+							theme,
+							tasks,
+							manifestProblems: read.problems,
+							openTaskId: state.openTaskId !== null && tasks.some((task) => task.taskId === state.openTaskId) ? state.openTaskId : tasks.length > 0 ? tasks[tasks.length - 1]?.taskId ?? null : null,
+							notice: due.length > 0 ? "due-tasks" : state.notice
+						});
+					} catch (cause) {
+						fail("load-failed", cause);
+					}
+				},
+				selectTask(taskId) {
+					set({ openTaskId: taskId });
+				},
+				async createTask(input) {
+					if (input.platformIds.length === 0) {
+						set({
+							notice: "task-create-failed",
+							error: null
+						});
+						return;
+					}
+					const now = (/* @__PURE__ */ new Date()).toISOString();
+					const taskId = crypto.randomUUID();
+					const task = {
+						taskId,
+						title: input.manuscript.title,
+						manuscriptFile: input.manuscript.file,
+						manuscriptId: input.manuscriptId,
+						topicId: input.topicId,
+						personaDigest: input.personaDigest,
+						mode: input.mode,
+						scheduledAt: input.scheduledAt,
+						scheduleItemId: null,
+						status: "pendingReview",
+						note: input.note,
+						platforms: input.platformIds.map((platformId) => ({
+							platformId,
+							accountAlias: aliasFor(platformId),
+							contentFile: `${platformId}.md`,
+							coverPrompt: null,
+							tags: [],
+							status: "pending",
+							attempts: []
+						})),
+						createdAt: now,
+						updatedAt: now
+					};
+					try {
+						const { manifest } = await gateway.readPublishManifest(input.manuscript.theme);
+						await gateway.writePublishManifest(input.manuscript.theme, {
+							formatVersion: 0,
+							tasks: [...manifest?.tasks ?? [], task]
+						});
+						await controller.openTheme(input.manuscript.theme);
+						set({
+							openTaskId: taskId,
+							notice: "task-created",
+							error: null
+						});
+					} catch (cause) {
+						fail("task-create-failed", cause);
+					}
+				},
+				async adaptPlatform(taskId, platformId) {
+					const task = taskOf(taskId);
+					const theme = state.theme;
+					if (task === void 0 || theme === null) return;
+					const profile = platformProfileOf(platformId);
+					if (profile === void 0) {
+						set({
+							notice: "adapt-failed",
+							error: `unknown platform ${platformId}`
+						});
+						return;
+					}
+					const key = `${taskId}:${platformId}`;
+					set({ busyPlatforms: {
+						...state.busyPlatforms,
+						[key]: true
+					} });
+					try {
+						const source = await gateway.readPublishSource(theme, task.manuscriptFile);
+						if (source.content === void 0) throw new Error(`manuscript ${task.manuscriptFile} is unreadable`);
+						const overrides = state.profiles.find((card) => card.platformId === platformId)?.adaptationOverrides ?? null;
+						const result = await gateway.adaptPublishContent({
+							platformId,
+							platformName: profile.name,
+							styleHints: overrides === null ? profile.styleHints : `${profile.styleHints} 用户附加要求：${overrides}`,
+							charLimit: profile.charLimit,
+							title: task.title,
+							sourceText: source.content,
+							personaDigest: task.personaDigest
+						});
+						await gateway.writePublishDerived(theme, taskId, platformId, result.content);
+						const leg = task.platforms.find((candidate) => candidate.platformId === platformId);
+						if (leg === void 0) throw new Error(`platform leg ${platformId} is missing`);
+						const at = (/* @__PURE__ */ new Date()).toISOString();
+						await persistTask(theme, withPlatform(task, platformId, withAttempt({
+							...leg,
+							coverPrompt: result.coverPrompt,
+							tags: result.tags,
+							status: "adapted"
+						}, "adapt", true, `适配完成（${result.model}）`, at), at));
+						set({
+							notice: "adapt-done",
+							error: null
+						});
+					} catch (cause) {
+						const at = (/* @__PURE__ */ new Date()).toISOString();
+						const leg = task.platforms.find((candidate) => candidate.platformId === platformId);
+						if (leg !== void 0) try {
+							await persistTask(theme, withPlatform(task, platformId, withAttempt(leg, "adapt", false, cause instanceof Error ? cause.message : String(cause), at), at));
+						} catch {}
+						set({
+							notice: "adapt-failed",
+							error: cause instanceof Error ? cause.message : String(cause)
+						});
+					} finally {
+						set({ busyPlatforms: {
+							...state.busyPlatforms,
+							[key]: false
+						} });
+					}
+				},
+				async saveDraftEdit(taskId, platformId, content) {
+					const task = taskOf(taskId);
+					const theme = state.theme;
+					if (task === void 0 || theme === null) return;
+					try {
+						await gateway.writePublishDerived(theme, taskId, platformId, content);
+						const leg = task.platforms.find((candidate) => candidate.platformId === platformId);
+						if (leg === void 0) throw new Error(`platform leg ${platformId} is missing`);
+						const at = (/* @__PURE__ */ new Date()).toISOString();
+						await persistTask(theme, withPlatform(task, platformId, withAttempt({
+							...leg,
+							status: "edited"
+						}, "edit", true, "手动修改已保存", at), at));
+						set({
+							notice: "draft-saved",
+							error: null
+						});
+					} catch (cause) {
+						fail("draft-save-failed", cause);
+					}
+				},
+				async loadDraft(taskId, platformId) {
+					const theme = state.theme;
+					if (theme === null) return null;
+					try {
+						return (await gateway.readPublishDerived(theme, taskId, platformId)).content ?? null;
+					} catch {
+						return null;
+					}
+				},
+				async recordTask(taskId) {
+					const task = taskOf(taskId);
+					const theme = state.theme;
+					if (task === void 0 || theme === null) return;
+					set({ recording: true });
+					try {
+						const taskPackage = await gateway.buildPublishPackage(theme, taskId);
+						const at = (/* @__PURE__ */ new Date()).toISOString();
+						let next = withStatus(task, "recorded", at);
+						for (const leg of task.platforms) {
+							const logged = withAttempt({
+								...leg,
+								status: "recorded"
+							}, "record", true, `发布包已生成（${taskPackage.platforms.length} 个平台）；发布通道未接入，等待二期 MCP`, at);
+							next = withPlatform(next, leg.platformId, logged, at);
+						}
+						await persistTask(theme, next);
+						set({
+							notice: "recorded",
+							error: null,
+							recording: false
+						});
+					} catch (cause) {
+						set({ recording: false });
+						fail("record-failed", cause);
+					}
+				},
+				async scheduleTask(taskId, date, time) {
+					const task = taskOf(taskId);
+					const theme = state.theme;
+					if (task === void 0 || theme === null) return;
+					try {
+						const scheduleItemId = task.scheduleItemId ?? crypto.randomUUID();
+						const entry = (await schedule.put({
+							id: scheduleItemId,
+							title: task.title,
+							date,
+							time,
+							platform: task.platforms.map((leg) => leg.platformId).join(","),
+							status: "scheduled",
+							kind: "content",
+							topic: theme,
+							url: null
+						})).items.find((candidate) => candidate.id === scheduleItemId);
+						const scheduledAt = (/* @__PURE__ */ new Date(`${date}T${time ?? "09:00"}:00`)).toISOString();
+						await persistTask(theme, {
+							...task,
+							mode: "scheduled",
+							scheduledAt,
+							scheduleItemId: entry?.id ?? null,
+							updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+						});
+						set({
+							notice: "scheduled",
+							error: null
+						});
+					} catch (cause) {
+						fail("schedule-failed", cause);
+					}
+				},
+				async deleteTask(taskId) {
+					const theme = state.theme;
+					if (theme === null) return;
+					try {
+						const { manifest } = await gateway.readPublishManifest(theme);
+						const task = manifest?.tasks.find((candidate) => candidate.taskId === taskId);
+						let scheduleStale = false;
+						if (task?.scheduleItemId != null) try {
+							await schedule.remove(task.scheduleItemId);
+						} catch {
+							scheduleStale = true;
+						}
+						await gateway.writePublishManifest(theme, {
+							formatVersion: 0,
+							tasks: (manifest?.tasks ?? []).filter((candidate) => candidate.taskId !== taskId)
+						});
+						const read = await gateway.listPublishIndex();
+						set({
+							tasks: (manifest?.tasks ?? []).filter((candidate) => candidate.taskId !== taskId),
+							index: read.index.entries,
+							openTaskId: state.openTaskId === taskId ? null : state.openTaskId,
+							notice: scheduleStale ? "task-deleted-schedule-stale" : "task-deleted",
+							error: null
+						});
+					} catch (cause) {
+						fail("delete-failed", cause);
+					}
+				},
+				async copyTask(taskId) {
+					const task = taskOf(taskId);
+					const theme = state.theme;
+					if (task === void 0 || theme === null) return;
+					const now = (/* @__PURE__ */ new Date()).toISOString();
+					const fresh = {
+						...task,
+						taskId: crypto.randomUUID(),
+						mode: "immediate",
+						scheduledAt: null,
+						scheduleItemId: null,
+						status: "pendingReview",
+						platforms: task.platforms.map((leg) => ({
+							...leg,
+							status: "pending",
+							attempts: []
+						})),
+						createdAt: now,
+						updatedAt: now
+					};
+					try {
+						const { manifest } = await gateway.readPublishManifest(theme);
+						await gateway.writePublishManifest(theme, {
+							formatVersion: 0,
+							tasks: [...manifest?.tasks ?? [], fresh]
+						});
+						await controller.openTheme(theme);
+						set({
+							openTaskId: fresh.taskId,
+							notice: "copied",
+							error: null
+						});
+					} catch (cause) {
+						fail("task-create-failed", cause);
+					}
+				},
+				async reflowTask(taskId) {
+					const task = taskOf(taskId);
+					if (task === void 0 || task.topicId === null) return;
+					try {
+						const topic = (await topics.list()).items.find((candidate) => candidate.id === task.topicId);
+						if (topic === void 0) {
+							set({
+								notice: "reflow-orphan",
+								error: null
+							});
+							return;
+						}
+						if (topic.status !== "done") await topics.put({
+							...topic,
+							status: "done"
+						});
+						set({
+							notice: "reflowed",
+							error: null
+						});
+					} catch (cause) {
+						fail("reflow-failed", cause);
+					}
+				},
+				clearNotice() {
+					set({
+						notice: null,
+						error: null
+					});
+				}
+			};
+			return controller;
+		}
+		//#endregion
+		//#region lib/types/client/review/review-store.js
+		/**
+		* The review view controller: one observable state object over the
+		* `_review.json` manifest (via the content-outputs review faces), the
+		* two-step import flow (parse preview → confirmed commit), the explicit AI
+		* calls (single-work diagnosis, period report with its data-only fallback),
+		* the reflow into the topic bank, and the session-scoped filter/diagnosis
+		* buffers. Persistent business data (baselines, bindings, snapshots, tasks)
+		* lives in the manifest; only filters and in-progress diagnosis ride the
+		* browser session.
+		*/
+		/** Browser-local storage key of the session filter set. */
+		const FILTERS_KEY = "dsh-content-studio.review.filters";
+		/** The default session filters: the trailing month. */
+		function defaultFilters(now) {
+			const iso = (date) => date.toISOString().slice(0, 10);
+			return {
+				version: 1,
+				platforms: [],
+				contentTypes: [],
+				workFilter: "all",
+				period: {
+					from: iso(/* @__PURE__ */ new Date(now.getTime() - 30 * 864e5)),
+					to: iso(now)
+				}
+			};
+		}
+		/** Load the stored session filters; anything malformed drops back to defaults. */
+		function loadFilters(now) {
+			try {
+				const raw = localStorage.getItem(FILTERS_KEY);
+				if (raw === null) return defaultFilters(now);
+				const parsed = JSON.parse(raw);
+				if (parsed.version !== 1 || typeof parsed.period?.from !== "string") return defaultFilters(now);
+				return parsed;
+			} catch {
+				return defaultFilters(now);
+			}
+		}
+		/**
+		* Create the review controller over the wired gateway and topic face.
+		* @param gateway - the review half of the content-outputs Remote.
+		* @param topics - the topic-bank write face for the reflow.
+		* @returns the controller.
+		*/
+		function createReviewController(gateway, topics) {
+			let state = {
+				theme: null,
+				manifest: null,
+				problems: [],
+				loading: false,
+				busy: false,
+				notice: null,
+				preview: null,
+				ignoredColumns: [],
+				reportDraft: null,
+				editingTaskId: null,
+				templates: [],
+				diagnoses: {},
+				filtersRevision: 0
+			};
+			const listeners = /* @__PURE__ */ new Set();
+			const notify = () => {
+				for (const listener of listeners) listener();
+			};
+			const patch = (next) => {
+				state = {
+					...state,
+					...next
+				};
+				notify();
+			};
+			const requireManifest = () => {
+				if (state.manifest === null) throw new Error("review manifest not loaded");
+				return state.manifest;
+			};
+			const persist = async (manifest) => {
+				await gateway.writeReviewManifest(state.theme, manifest);
+				patch({ manifest });
+			};
+			/** Report file name for one save: new file per save, original never overwritten. */
+			const reportFileName = (taskId) => `report-${taskId}-${(/* @__PURE__ */ new Date()).toISOString().replace(/[:.]/gu, "-")}.md`;
+			/** The active filters as the store-side ReviewFilters shape. */
+			const activeFilters = (session) => ({
+				platforms: session.platforms,
+				contentTypes: session.contentTypes,
+				workFilter: session.workFilter
+			});
+			return {
+				getState: () => state,
+				subscribe(listener) {
+					listeners.add(listener);
+					return () => {
+						listeners.delete(listener);
+					};
+				},
+				async load(theme) {
+					patch({
+						theme,
+						loading: true,
+						notice: null
+					});
+					try {
+						const read = await gateway.readReviewManifest(theme);
+						const templates = await gateway.listReviewTemplates(theme);
+						patch({
+							manifest: read.manifest,
+							problems: read.problems,
+							loading: false,
+							templates: templates.files
+						});
+					} catch {
+						patch({
+							loading: false,
+							notice: "load-failed"
+						});
+					}
+				},
+				setIgnoredColumns(columns) {
+					patch({ ignoredColumns: columns });
+				},
+				async stageImport(platformId, fileName, text) {
+					if (state.theme === null) {
+						patch({ notice: "need-theme" });
+						return;
+					}
+					patch({
+						busy: true,
+						notice: null
+					});
+					try {
+						patch({
+							preview: await gateway.parseReviewImport({
+								platformId,
+								fileName,
+								text
+							}),
+							ignoredColumns: [],
+							busy: false,
+							notice: "import-parsed"
+						});
+					} catch {
+						patch({
+							busy: false,
+							notice: "import-failed"
+						});
+					}
+				},
+				async commitImport() {
+					const theme = state.theme;
+					const preview = state.preview;
+					if (theme === null || preview === null) return;
+					patch({
+						busy: true,
+						notice: null
+					});
+					try {
+						await gateway.commitReviewImport({
+							theme,
+							platformId: preview.platformId,
+							rows: preview.rows
+						});
+						const read = await gateway.readReviewManifest(theme);
+						patch({
+							manifest: read.manifest,
+							problems: read.problems,
+							preview: null,
+							busy: false,
+							notice: "import-committed"
+						});
+					} catch {
+						patch({
+							busy: false,
+							notice: "import-failed"
+						});
+					}
+				},
+				discardImport() {
+					patch({
+						preview: null,
+						ignoredColumns: []
+					});
+				},
+				async bindWork(platformWorkId, platformId, contentId) {
+					const manifest = requireManifest();
+					const snapshots = manifest.snapshots.map((snapshot) => snapshot.platformId === platformId && snapshot.platformWorkId === platformWorkId ? {
+						...snapshot,
+						contentId,
+						matchMethod: "manual"
+					} : snapshot);
+					try {
+						await persist({
+							...manifest,
+							snapshots
+						});
+					} catch {
+						patch({ notice: "bind-failed" });
+					}
+				},
+				async saveBaselines(engagementRate, collectRate) {
+					const manifest = requireManifest();
+					const baselines = {
+						engagementRate,
+						collectRate,
+						source: "user",
+						updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+					};
+					try {
+						await persist({
+							...manifest,
+							baselines
+						});
+						patch({ notice: "baselines-saved" });
+					} catch {
+						patch({ notice: "baselines-failed" });
+					}
+				},
+				filters: () => loadFilters(/* @__PURE__ */ new Date()),
+				setFilters(patchFilters) {
+					const next = {
+						...loadFilters(/* @__PURE__ */ new Date()),
+						...patchFilters
+					};
+					localStorage.setItem(FILTERS_KEY, JSON.stringify(next));
+					patch({ filtersRevision: state.filtersRevision + 1 });
+				},
+				pool() {
+					const manifest = state.manifest;
+					if (manifest === null) return [];
+					const baselines = manifest.baselines;
+					const now = /* @__PURE__ */ new Date();
+					const session = loadFilters(now);
+					const pooled = poolSnapshots(manifest, activeFilters(session), session.period, baselines);
+					if (session.workFilter !== "longtail") return pooled.map((snapshot) => ({
+						snapshot,
+						verdict: verdictOf(snapshot.metrics, baselines),
+						longtail: false
+					}));
+					const byWork = /* @__PURE__ */ new Map();
+					for (const snapshot of pooled) {
+						const key = `${snapshot.platformId}:${snapshot.platformWorkId}`;
+						const list = byWork.get(key);
+						if (list === void 0) byWork.set(key, [snapshot]);
+						else list.push(snapshot);
+					}
+					const cards = [];
+					for (const workSnapshots of byWork.values()) {
+						const latest = [...workSnapshots].sort((a, b) => b.capturedAt.localeCompare(a.capturedAt))[0];
+						if (latest === void 0) continue;
+						if (isLongtail(workSnapshots, now)) cards.push({
+							snapshot: latest,
+							verdict: "neutral",
+							longtail: true
+						});
+					}
+					return cards;
+				},
+				summary() {
+					const manifest = state.manifest;
+					if (manifest === null) return aggregateSummary([], DEFAULT_BASELINES, /* @__PURE__ */ new Date());
+					return aggregateSummary(this.pool().map((card) => card.snapshot), manifest.baselines, /* @__PURE__ */ new Date());
+				},
+				async createTask(name) {
+					const theme = state.theme;
+					if (theme === null) {
+						patch({ notice: "need-theme" });
+						return;
+					}
+					const manifest = requireManifest();
+					const session = loadFilters(/* @__PURE__ */ new Date());
+					const taskId = crypto.randomUUID();
+					const task = {
+						taskId,
+						name,
+						period: session.period,
+						filters: {
+							platforms: session.platforms,
+							contentTypes: session.contentTypes,
+							workFilter: session.workFilter
+						},
+						status: "generating",
+						reportFile: null,
+						degraded: false,
+						createdAt: (/* @__PURE__ */ new Date()).toISOString()
+					};
+					patch({
+						busy: true,
+						notice: null
+					});
+					try {
+						await persist({
+							...manifest,
+							tasks: [...manifest.tasks, task]
+						});
+					} catch {
+						patch({
+							busy: false,
+							notice: "save-failed"
+						});
+						return;
+					}
+					const now = /* @__PURE__ */ new Date();
+					const pooled = poolSnapshots(manifest, activeFilters(session), session.period, manifest.baselines);
+					const ranked = rankWorks(pooled);
+					const summary = aggregateSummary(pooled, manifest.baselines, now);
+					const digests = selectDigests(ranked, {});
+					let degraded = true;
+					let markdown;
+					try {
+						markdown = (await gateway.generateReviewReport({
+							name,
+							period: task.period,
+							platforms: task.filters.platforms,
+							baselines: manifest.baselines,
+							summary,
+							topWorks: digests.top,
+							bottomWorks: digests.bottom
+						})).markdown;
+						degraded = false;
+					} catch {
+						markdown = dataOnlyReport(name, task.period, summary, ranked, manifest.baselines);
+					}
+					try {
+						const stored = await gateway.writeReviewReport(theme, reportFileName(taskId), markdown);
+						const current = requireManifest();
+						const tasks = current.tasks.map((candidate) => candidate.taskId === taskId ? {
+							...candidate,
+							status: "ready",
+							degraded,
+							reportFile: stored.file
+						} : candidate);
+						await persist({
+							...current,
+							tasks
+						});
+						patch({
+							busy: false,
+							notice: degraded ? "report-degraded" : "report-ready"
+						});
+					} catch {
+						const current = requireManifest();
+						const tasks = current.tasks.map((candidate) => candidate.taskId === taskId ? {
+							...candidate,
+							status: "failed"
+						} : candidate);
+						await persist({
+							...current,
+							tasks
+						}).catch(() => void 0);
+						patch({
+							busy: false,
+							reportDraft: markdown,
+							editingTaskId: taskId,
+							notice: "report-failed"
+						});
+					}
+				},
+				async editReport(taskId) {
+					const theme = state.theme;
+					const task = requireManifest().tasks.find((candidate) => candidate.taskId === taskId);
+					if (theme === null || task === void 0 || task.reportFile === null) return;
+					try {
+						patch({
+							reportDraft: (await gateway.readReviewReport(theme, task.reportFile)).content ?? "",
+							editingTaskId: taskId
+						});
+					} catch {
+						patch({ notice: "load-failed" });
+					}
+				},
+				async saveReport() {
+					const theme = state.theme;
+					const taskId = state.editingTaskId;
+					const draft = state.reportDraft;
+					if (theme === null || taskId === null || draft === null) return;
+					try {
+						const stored = await gateway.writeReviewReport(theme, reportFileName(taskId), draft);
+						const manifest = requireManifest();
+						const tasks = manifest.tasks.map((candidate) => candidate.taskId === taskId ? {
+							...candidate,
+							reportFile: stored.file,
+							status: "ready"
+						} : candidate);
+						await persist({
+							...manifest,
+							tasks
+						});
+						patch({
+							reportDraft: null,
+							editingTaskId: null,
+							notice: "report-saved"
+						});
+					} catch {
+						patch({ notice: "save-failed" });
+					}
+				},
+				closeReport() {
+					patch({
+						reportDraft: null,
+						editingTaskId: null
+					});
+				},
+				copyReportToEditor(content) {
+					patch({ reportDraft: content });
+				},
+				async deleteTask(taskId) {
+					const theme = state.theme;
+					if (theme === null) return;
+					try {
+						await gateway.deleteReviewTask({
+							theme,
+							taskId
+						});
+						const read = await gateway.readReviewManifest(theme);
+						patch({
+							manifest: read.manifest,
+							problems: read.problems,
+							notice: "task-deleted"
+						});
+					} catch {
+						patch({ notice: "delete-failed" });
+					}
+				},
+				async saveTemplate(fileName, content) {
+					const theme = state.theme;
+					if (theme === null) {
+						patch({ notice: "need-theme" });
+						return;
+					}
+					try {
+						await gateway.writeReviewTemplate(theme, fileName.endsWith(".md") ? fileName : `${fileName}.md`, content);
+						patch({
+							templates: (await gateway.listReviewTemplates(theme)).files,
+							notice: "template-saved"
+						});
+					} catch {
+						patch({ notice: "save-failed" });
+					}
+				},
+				async diagnoseWork(card, draftText, tags, personaDigest) {
+					patch({
+						busy: true,
+						notice: null
+					});
+					const key = `${card.snapshot.platformId}:${card.snapshot.platformWorkId}`;
+					try {
+						const result = await gateway.analyzeReviewWork({
+							title: card.snapshot.title,
+							platformId: card.snapshot.platformId,
+							contentType: card.snapshot.contentType,
+							publishedAt: card.snapshot.publishedAt,
+							period: loadFilters(/* @__PURE__ */ new Date()).period,
+							metrics: card.snapshot.metrics,
+							verdict: card.verdict === "viral" || card.verdict === "weak" ? card.verdict : "neutral",
+							draftText: draftText === null ? null : draftText.slice(0, DIAGNOSE_DRAFT_CHARS),
+							tags,
+							personaDigest
+						});
+						patch({
+							busy: false,
+							diagnoses: {
+								...state.diagnoses,
+								[key]: result.markdown
+							}
+						});
+					} catch {
+						patch({
+							busy: false,
+							notice: "diagnose-failed"
+						});
+					}
+				},
+				async pushToTopicBank(title, oneLiner, description) {
+					const input = {
+						title,
+						oneLiner,
+						status: "idea",
+						source: {
+							type: "manual",
+							refId: null,
+							url: null,
+							snapshot: null
+						},
+						tags: ["复盘"],
+						description,
+						score: null,
+						planDate: null,
+						scheduleItemId: null,
+						topicDir: null
+					};
+					try {
+						await topics.put(input);
+						patch({ notice: "topic-added" });
+					} catch {
+						patch({ notice: "topic-failed" });
+					}
+				},
+				clearNotice() {
+					patch({ notice: null });
+				}
+			};
+		}
+		//#endregion
+		//#region lib/types/client/interaction/interaction-store.js
+		/**
+		* The interaction view controller: one observable state object over the
+		* library-root `_interactions.json` manifest (via the content-outputs
+		* interactions faces), the two-step CSV import, the explicit AI calls
+		* (reply drafts, batched sentiment/intent classification, batched insight
+		* extraction), the send-with-local-archive behavior, and the topic-bank
+		* push. Persistent business data (conversations, drafts, insights) lives in
+		* the manifest; only filters and the staged import ride the browser.
+		*/
+		/** The untagged tagging pair every stored message carries until classified. */
+		const untagged = {
+			sentiment: {
+				value: "unknown",
+				source: "user",
+				aiMeta: null
+			},
+			intent: {
+				value: "unknown",
+				source: "user",
+				aiMeta: null
+			}
+		};
+		/**
+		* Create the interaction controller over the wired gateway and the topic /
+		* export faces.
+		* @param gateway - the interactions half of the content-outputs Remote.
+		* @param topics - the topic-bank write face for the insight push.
+		* @param writeExport - the guarded asset write the CSV export rides.
+		* @returns the controller.
+		*/
+		function createInteractionController(gateway, topics, writeExport) {
+			let state = {
+				manifest: null,
+				problems: [],
+				loading: false,
+				busy: false,
+				progress: null,
+				notice: null,
+				preview: null,
+				importReport: null,
+				selectedId: null,
+				filtersRevision: 0
+			};
+			const listeners = /* @__PURE__ */ new Set();
+			const notify = () => {
+				for (const listener of listeners) listener();
+			};
+			const patch = (next) => {
+				state = {
+					...state,
+					...next
+				};
+				notify();
+			};
+			const requireManifest = () => {
+				if (state.manifest === null) throw new Error("interactions manifest not loaded");
+				return state.manifest;
+			};
+			/** Validate-and-store one patched manifest, adopting the normalized return. */
+			const persist = async (manifest) => {
+				patch({
+					manifest: await gateway.writeInteractions(manifest),
+					problems: []
+				});
+			};
+			/** Patch one conversation in the manifest and persist the whole document. */
+			const patchConversationIn = (manifest, id, patchConversation) => ({
+				...manifest,
+				conversations: manifest.conversations.map((conversation) => conversation.id === id ? patchConversation(conversation) : conversation)
+			});
+			return {
+				getState: () => state,
+				subscribe(listener) {
+					listeners.add(listener);
+					return () => {
+						listeners.delete(listener);
+					};
+				},
+				async load() {
+					patch({
+						loading: true,
+						notice: null
+					});
+					try {
+						const read = await gateway.readInteractions();
+						patch({
+							manifest: read.manifest,
+							problems: read.problems,
+							loading: false
+						});
+					} catch {
+						patch({
+							loading: false,
+							notice: "load-failed"
+						});
+					}
+				},
+				filters: () => loadInteractionFilters(),
+				setFilters(patchFilters) {
+					saveInteractionFilters({
+						...loadInteractionFilters(),
+						...patchFilters
+					});
+					patch({ filtersRevision: state.filtersRevision + 1 });
+				},
+				visible() {
+					const manifest = state.manifest;
+					if (manifest === null) return [];
+					return filterConversations(manifest.conversations, loadInteractionFilters());
+				},
+				select(id) {
+					patch({ selectedId: id });
+				},
+				async stageImport(fileName, text) {
+					patch({
+						busy: true,
+						notice: null
+					});
+					try {
+						patch({
+							preview: await gateway.parseInteractionImport({
+								fileName,
+								text
+							}),
+							busy: false,
+							notice: "import-parsed"
+						});
+					} catch {
+						patch({
+							busy: false,
+							notice: "import-failed"
+						});
+					}
+				},
+				async commitImport() {
+					const preview = state.preview;
+					if (preview === null) return;
+					patch({
+						busy: true,
+						notice: null
+					});
+					try {
+						const result = await gateway.commitInteractionImport({ messages: preview.messages });
+						const read = await gateway.readInteractions();
+						patch({
+							manifest: read.manifest,
+							problems: read.problems,
+							preview: null,
+							importReport: result,
+							busy: false,
+							notice: "import-committed"
+						});
+					} catch {
+						patch({
+							busy: false,
+							notice: "import-failed"
+						});
+					}
+				},
+				discardImport() {
+					patch({ preview: null });
+				},
+				async patchConversation(id, conversationPatch) {
+					const manifest = requireManifest();
+					try {
+						await persist(patchConversationIn(manifest, id, (conversation) => ({
+							...conversation,
+							...conversationPatch
+						})));
+					} catch {
+						patch({ notice: "save-failed" });
+					}
+				},
+				async generateDrafts(conversationId, messageId, style, persona, template) {
+					const conversation = requireManifest().conversations.find((candidate) => candidate.id === conversationId);
+					if (conversation === void 0) return;
+					patch({
+						busy: true,
+						notice: null
+					});
+					try {
+						const result = await gateway.generateInteractionReply({
+							style,
+							personaDigest: persona?.digest ?? null,
+							personaPhrases: persona?.phrases ?? [],
+							personaSamples: persona?.samples ?? [],
+							template,
+							thread: threadLines(conversation)
+						});
+						const now = (/* @__PURE__ */ new Date()).toISOString();
+						const drafts = result.drafts.map((draft) => ({
+							id: crypto.randomUUID(),
+							style: draft.style,
+							content: draft.content,
+							personaId: persona?.id ?? null,
+							createdAt: now
+						}));
+						await persist(patchConversationIn(requireManifest(), conversationId, (candidate) => ({
+							...candidate,
+							messages: candidate.messages.map((message) => message.id === messageId ? {
+								...message,
+								replyDrafts: drafts
+							} : message)
+						})));
+						patch({
+							busy: false,
+							notice: "drafts-ready"
+						});
+					} catch {
+						patch({
+							busy: false,
+							notice: "drafts-failed"
+						});
+					}
+				},
+				async saveDraft(conversationId, messageId, style, content, personaId) {
+					const manifest = requireManifest();
+					const draft = {
+						id: crypto.randomUUID(),
+						style,
+						content,
+						personaId,
+						createdAt: (/* @__PURE__ */ new Date()).toISOString()
+					};
+					try {
+						await persist(patchConversationIn(manifest, conversationId, (candidate) => ({
+							...candidate,
+							messages: candidate.messages.map((message) => message.id === messageId ? {
+								...message,
+								replyDrafts: [...message.replyDrafts, draft]
+							} : message)
+						})));
+					} catch {
+						patch({ notice: "save-failed" });
+					}
+				},
+				async sendReply(conversationId, inReplyToMessageId, content, personaId) {
+					const manifest = requireManifest();
+					const conversation = manifest.conversations.find((candidate) => candidate.id === conversationId);
+					if (conversation === void 0) return;
+					const replied = conversation.messages.find((message) => message.id === inReplyToMessageId);
+					const now = (/* @__PURE__ */ new Date()).toISOString();
+					try {
+						await persist(patchConversationIn(manifest, conversationId, (candidate) => ({
+							...candidate,
+							status: candidate.status === "unread" || candidate.status === "pendingReply" ? "replied" : candidate.status,
+							updatedAt: now,
+							messages: [...candidate.messages, {
+								id: crypto.randomUUID(),
+								externalMessageId: `local-${crypto.randomUUID()}`,
+								direction: "out",
+								type: replied?.type ?? "comment",
+								content,
+								inReplyTo: inReplyToMessageId,
+								sentAt: now,
+								sentiment: { ...untagged.sentiment },
+								intent: { ...untagged.intent },
+								replyDrafts: []
+							}]
+						})));
+					} catch {
+						patch({ notice: "save-failed" });
+						return;
+					}
+					await gateway.sendInteractionReply({
+						conversationId,
+						inReplyTo: inReplyToMessageId,
+						content,
+						personaId
+					}).catch(() => void 0);
+					patch({ notice: "sent-archived" });
+				},
+				async classifySelected(conversationIds) {
+					const manifest = requireManifest();
+					const wanted = new Set(conversationIds);
+					const messages = manifest.conversations.filter((conversation) => wanted.has(conversation.id)).flatMap((conversation) => conversation.messages.filter((message) => message.direction === "in" && message.sentiment.source !== "ai" && message.intent.source !== "ai").map((message) => ({
+						conversationId: conversation.id,
+						messageId: message.id,
+						content: message.content
+					})));
+					if (messages.length === 0) {
+						patch({ notice: "classify-done" });
+						return;
+					}
+					const byId = new Map(messages.map((message) => [message.messageId, message]));
+					const batches = batchIds(messages.map((message) => message.messageId), 50);
+					patch({
+						busy: true,
+						notice: null,
+						progress: {
+							done: 0,
+							total: batches.length
+						}
+					});
+					let working = requireManifest();
+					let failures = 0;
+					for (let index = 0; index < batches.length; index += 1) {
+						const batch = batches[index];
+						try {
+							const result = await gateway.classifyInteractions({ messages: batch.map((id) => ({
+								messageId: id,
+								content: byId.get(id)?.content ?? ""
+							})) });
+							const byMessage = new Map(result.entries.map((entry) => [entry.messageId, entry]));
+							const now = (/* @__PURE__ */ new Date()).toISOString();
+							working = {
+								...working,
+								conversations: working.conversations.map((conversation) => wanted.has(conversation.id) ? {
+									...conversation,
+									messages: conversation.messages.map((message) => {
+										const entry = byMessage.get(message.id);
+										if (entry === void 0) return message;
+										return {
+											...message,
+											sentiment: {
+												value: entry.sentiment,
+												source: "ai",
+												aiMeta: {
+													promptVersion: result.promptVersion,
+													at: now
+												}
+											},
+											intent: {
+												value: entry.intent,
+												source: "ai",
+												aiMeta: {
+													promptVersion: result.promptVersion,
+													at: now
+												}
+											}
+										};
+									})
+								} : conversation)
+							};
+							await persist(working);
+						} catch {
+							failures += 1;
+						}
+						patch({ progress: {
+							done: index + 1,
+							total: batches.length
+						} });
+					}
+					patch({
+						busy: false,
+						progress: null,
+						notice: failures > 0 ? "classify-failed" : "classify-done"
+					});
+				},
+				async extractInsights(conversationIds) {
+					const manifest = requireManifest();
+					const wanted = new Set(conversationIds);
+					const messages = manifest.conversations.filter((conversation) => wanted.has(conversation.id) && conversation.status !== "archived" && conversation.status !== "spam").flatMap((conversation) => conversation.messages.filter((message) => message.direction === "in").map((message) => ({
+						messageId: message.id,
+						content: message.content
+					})));
+					if (messages.length === 0) {
+						patch({ notice: "insights-done" });
+						return;
+					}
+					const byId = new Map(messages.map((message) => [message.messageId, message]));
+					const batches = batchIds(messages.map((message) => message.messageId), 200);
+					patch({
+						busy: true,
+						notice: null,
+						progress: {
+							done: 0,
+							total: batches.length
+						}
+					});
+					let insights = { ...requireManifest().insights };
+					let failures = 0;
+					for (let index = 0; index < batches.length; index += 1) {
+						const batch = batches[index];
+						try {
+							const result = await gateway.extractInteractionInsights({ messages: batch.map((id) => ({
+								messageId: id,
+								content: byId.get(id)?.content ?? ""
+							})) });
+							insights = mergeInsightBatch(insights, result.batch);
+						} catch {
+							failures += 1;
+						}
+						patch({ progress: {
+							done: index + 1,
+							total: batches.length
+						} });
+					}
+					try {
+						await persist({
+							...requireManifest(),
+							insights: {
+								...insights,
+								generatedAt: (/* @__PURE__ */ new Date()).toISOString()
+							}
+						});
+						patch({
+							busy: false,
+							progress: null,
+							notice: failures > 0 ? "insights-failed" : "insights-done"
+						});
+					} catch {
+						patch({
+							busy: false,
+							progress: null,
+							notice: "save-failed"
+						});
+					}
+				},
+				async pushTopic(title, oneLiner, conversationId, summary) {
+					const input = insightToTopicInput(title, oneLiner, conversationId, summary, (/* @__PURE__ */ new Date()).toISOString());
+					try {
+						await topics.put(input);
+						patch({ notice: "topic-added" });
+					} catch {
+						patch({ notice: "topic-failed" });
+					}
+				},
+				async exportCsv(theme) {
+					if (theme.length === 0) {
+						patch({ notice: "need-theme" });
+						return;
+					}
+					patch({
+						busy: true,
+						notice: null
+					});
+					try {
+						const { text } = await gateway.exportInteractionCsv();
+						await writeExport(theme, `interactions-${(/* @__PURE__ */ new Date()).toISOString().slice(0, 10)}.csv`, text);
+						patch({
+							busy: false,
+							notice: "exported"
+						});
+					} catch {
+						patch({
+							busy: false,
+							notice: "export-failed"
+						});
+					}
+				},
+				clearNotice() {
+					patch({ notice: null });
+				}
+			};
+		}
+		//#endregion
 		//#region lib/types/client/locales.js
 		/**
 		* `content-studio` namespace dictionaries: the sidebar entry, the workbench
@@ -27855,7 +38796,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"view.create": "开始创作",
 			"view.library": "内容库",
 			"view.calendar": "内容日历",
-			"nav.workbench": "工作台",
+			"nav.workbench": "总览",
 			"nav.create": "创作",
 			"nav.chat": "对话",
 			"nav.benchmark": "对标",
@@ -28024,6 +38965,57 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"calendar.month.10": "10 月",
 			"calendar.month.11": "11 月",
 			"calendar.month.12": "12 月",
+			"calendar.view.month": "月视图",
+			"calendar.view.week": "周视图",
+			"calendar.view.list": "列表",
+			"calendar.prevWeek": "上一周",
+			"calendar.nextWeek": "下一周",
+			"calendar.filters.clear": "清除筛选",
+			"calendar.filter.kind": "类型",
+			"calendar.kind.all": "全部类型",
+			"calendar.kind.content": "选题排期",
+			"calendar.kind.event": "独立日程",
+			"calendar.filter.status": "状态",
+			"calendar.status.idea": "构思",
+			"calendar.status.draft": "草稿",
+			"calendar.status.scheduled": "已排期",
+			"calendar.status.published": "已发布",
+			"calendar.filter.range": "时间范围",
+			"calendar.filter.query.aria": "按标题搜索",
+			"calendar.filter.overdue": "仅看逾期",
+			"calendar.overdue": "逾期",
+			"calendar.conflicts": "排期冲突",
+			"calendar.conflict.hint": "同平台临近时间已有多条排期",
+			"calendar.detail.title": "排期详情",
+			"calendar.detail.date": "日期",
+			"calendar.detail.time": "时间",
+			"calendar.detail.platform": "平台",
+			"calendar.detail.topic": "关联选题",
+			"calendar.note.placeholder": "备注（仅日历可见）",
+			"calendar.note.save": "保存备注",
+			"calendar.note.saved": "备注已保存",
+			"calendar.jump.topicBank": "前往选题库",
+			"calendar.delete": "删除排期",
+			"calendar.delete.confirm": "确认删除这条排期？源稿件不受影响。",
+			"calendar.delete.clearPlan": "删除并清空选题计划时间",
+			"calendar.drag.confirm": "把排期从 {from} 改到 {to}？",
+			"calendar.drag.failed": "改期失败，视图已还原",
+			"calendar.drag.topicSyncFailed": "排期已更新，但选题计划时间同步失败",
+			"calendar.action.failed": "操作失败，请重试",
+			"calendar.export": "导出 CSV",
+			"calendar.export.done": "已导出到 {theme}/assets/",
+			"calendar.export.failed": "导出失败",
+			"calendar.export.none": "暂无主题目录，无法导出",
+			"calendar.ai": "AI 排期建议",
+			"calendar.ai.hint": "AI 能力后续版本开放",
+			"calendar.timePlaceholder": "时间（如 09:30）",
+			"calendar.topicPlaceholder": "关联选题（可选）",
+			"calendar.list.title": "标题",
+			"calendar.list.all": "全选",
+			"calendar.batch.publish": "批量标记已发布",
+			"calendar.batch.remove": "批量删除",
+			"calendar.batch.done": "批量操作已完成",
+			"calendar.batchDelete.confirm": "确认删除选中的排期？",
 			"library.loading": "正在读取内容库…",
 			"library.error": "内容库读取失败",
 			"library.retry": "重试",
@@ -28162,6 +39154,8 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"comp.unmarkFavorite": "取消收藏",
 			"comp.addIdea": "收录为选题",
 			"comp.removeWork": "删除这条作品",
+			"comp.removeWorkConfirm": "确定删除这条对标作品？其正文与拆解快照文件将从磁盘删除。",
+			"comp.removeAccountConfirm": "确定删除该对标账号？其已录入的作品保留。",
 			"comp.openOriginal": "打开原文",
 			"comp.hookType": "钩子类型：",
 			"comp.structure": "内容结构：",
@@ -28228,6 +39222,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"gather.sources.title": "订阅源",
 			"gather.sources.add": "添加源",
 			"gather.sources.remove": "删除",
+			"gather.sources.removeConfirm": "确定删除该采集源？已采集的素材保留在素材库。",
 			"gather.sources.enable": "启用",
 			"gather.sources.disable": "停用",
 			"gather.sources.test": "测试连接",
@@ -28252,6 +39247,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"gather.task.pause": "暂停定时",
 			"gather.task.resume": "恢复定时",
 			"gather.task.log": "日志",
+			"gather.task.removeConfirm": "确定删除该采集任务？任务日志一并删除，已采集素材保留。",
 			"gather.task.logEmpty": "还没有运行记录",
 			"gather.task.manual": "仅手动",
 			"gather.task.namePlaceholder": "任务名称",
@@ -28318,6 +39314,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"topic.source.manual": "手动",
 			"topic.source.gather": "信息收集",
 			"topic.source.benchmark": "对标拆解",
+			"topic.source.interaction": "互动洞察",
 			"topic.status.idea": "灵感待评估",
 			"topic.status.todo": "待创作",
 			"topic.status.creating": "创作中",
@@ -28525,6 +39522,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"create.template.new": "新建模板",
 			"create.template.edit": "编辑",
 			"create.template.delete": "删除",
+			"create.template.deleteConfirm": "确定删除该自定义模板？",
 			"create.template.save": "保存模板",
 			"create.template.saved": "模板已保存",
 			"create.template.active": "使用中",
@@ -28538,7 +39536,409 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"create.seo.none": "没有提炼出高频关键词（正文太短或太均匀）。",
 			"create.seo.region": "目标区域（可选）",
 			"create.seo.regionPlaceholder": "例：杭州",
-			"create.seo.layout": "布局建议："
+			"create.seo.layout": "布局建议：",
+			"create.sendToPublish": "送去发布",
+			"nav.publish": "发布",
+			"publish.title": "发布",
+			"publish.hint": "把定稿适配到各平台、编排发布任务；本期记录发布包，真实上传由发布通道（二期 MCP）执行。",
+			"publish.tab.tasks": "任务",
+			"publish.tab.history": "历史",
+			"publish.theme.none": "请先从下方成品稿件中选择，或在「创作」栏目定稿后「送去发布」。",
+			"publish.tasks.empty": "当前主题还没有发布任务。",
+			"publish.pool.title": "成品稿件",
+			"publish.pool.hint": "点击一张卡片开始编排发布任务；稿件只做引用，不会重复拷贝。",
+			"publish.pool.empty": "还没有成品稿件。在「创作」栏目完成定稿发布后，这里会出现可分发的稿件。",
+			"publish.form.title": "新建发布任务",
+			"publish.form.immediate": "立即发布",
+			"publish.form.scheduled": "定时发布",
+			"publish.form.note": "任务备注（可选）",
+			"publish.form.persona": "适配人设：",
+			"publish.form.personaOn": "已注入当前画像",
+			"publish.form.personaOff": "未选择画像，使用通用风格",
+			"publish.form.submit": "创建任务",
+			"publish.form.cancel": "取消",
+			"publish.status.draft": "草稿",
+			"publish.status.pendingReview": "待复核",
+			"publish.status.scheduled": "待定时",
+			"publish.status.recorded": "已记录",
+			"publish.leg.pending": "未适配",
+			"publish.leg.adapted": "已适配",
+			"publish.leg.edited": "已手改",
+			"publish.leg.recorded": "已记录",
+			"publish.leg.adapt": "AI 适配",
+			"publish.leg.readapt": "重新适配",
+			"publish.leg.edit": "编辑草稿",
+			"publish.leg.save": "保存草稿",
+			"publish.leg.cancel": "取消编辑",
+			"publish.leg.cover": "封面建议：",
+			"publish.leg.overLimit": "正文超出该平台字数上限，请裁剪后再发布。",
+			"publish.leg.log": "执行日志（{count}）",
+			"publish.attempt.adapt": "适配",
+			"publish.attempt.edit": "手改",
+			"publish.attempt.record": "记录",
+			"publish.action.preview": "预演（仅 AI 适配）",
+			"publish.action.record": "执行发布（生成发布包）",
+			"publish.action.schedule": "写入日历",
+			"publish.action.copy": "复制任务",
+			"publish.action.delete": "删除任务",
+			"publish.action.deleteConfirm": "确定删除该发布任务？关联的日历条目一并删除。",
+			"publish.action.reflow": "回流：选题标记已发布",
+			"publish.fact.manuscript": "稿件：",
+			"publish.fact.topic": "选题：",
+			"publish.fact.scheduledAt": "计划时间：",
+			"publish.fact.note": "备注：",
+			"publish.recorded.note": "发布包已生成并记录；发布通道未接入，当前不会真实上传。单平台可手动标记后回流选题状态。",
+			"publish.history.empty": "还没有发布任务历史。",
+			"publish.history.task": "任务",
+			"publish.history.theme": "主题",
+			"publish.history.platforms": "平台",
+			"publish.history.status": "状态",
+			"publish.history.updated": "更新时间",
+			"publish.history.actions": "操作",
+			"publish.history.open": "打开",
+			"publish.profiles.title": "平台账号矩阵",
+			"publish.profiles.hint": "仅保存账号别名、启用状态与适配偏好，不保存任何账号密码；数据落盘到 _publish-profiles.json。",
+			"publish.profiles.toggle": "账号矩阵",
+			"publish.profiles.alias": "账号别名",
+			"publish.profiles.overrides": "适配附加要求（可选）",
+			"publish.profiles.save": "保存账号矩阵",
+			"publish.profiles.close": "收起",
+			"publish.problems": "部分存储数据校验失败已被跳过：{list}",
+			"publish.notice.dismiss": "知道了",
+			"publish.notice.profiles-saved": "账号矩阵已保存",
+			"publish.notice.profiles-failed": "账号矩阵保存失败",
+			"publish.notice.task-created": "发布任务已创建",
+			"publish.notice.task-create-failed": "创建任务失败：请至少选择一个平台",
+			"publish.notice.adapt-done": "平台适配完成；AI 生成内容请人工核对后再进入发布",
+			"publish.notice.adapt-failed": "平台适配失败",
+			"publish.notice.draft-saved": "草稿修改已保存",
+			"publish.notice.draft-save-failed": "草稿保存失败",
+			"publish.notice.recorded": "发布包已生成，任务已记录",
+			"publish.notice.record-failed": "生成发布包失败：请先完成全部平台的适配",
+			"publish.notice.scheduled": "已写入内容日历并关联任务",
+			"publish.notice.schedule-failed": "写入日历失败",
+			"publish.notice.task-deleted": "任务记录已删除（衍生稿保留）",
+			"publish.notice.task-deleted-schedule-stale": "任务记录已删除；其日历条目删除失败，可能残留在日历中",
+			"publish.notice.delete-failed": "删除任务失败",
+			"publish.notice.copied": "已复制为新建任务",
+			"publish.notice.reflowed": "选题状态已更新为「已发布」",
+			"publish.notice.reflow-orphan": "关联的选题不存在，已跳过回流",
+			"publish.notice.reflow-failed": "回流失败：选题库暂不可达",
+			"publish.notice.due-tasks": "有到期的定时任务等待处理",
+			"publish.notice.load-failed": "发布数据加载失败",
+			"nav.templates": "模板",
+			"template.title": "模板库",
+			"template.hint": "全局模板资产：变量骨架 + 版本快照，所有栏目可弹窗调用；渲染只进表单，不产生业务数据。",
+			"template.new": "新建模板",
+			"template.import": "导入",
+			"template.exportAll": "导出全部",
+			"template.search": "搜索模板…",
+			"template.filter.category": "按分类筛选",
+			"template.filter.status": "按状态筛选",
+			"template.filter.all": "全部分类",
+			"template.status.all": "全部状态",
+			"template.status.active": "启用",
+			"template.status.archived": "归档",
+			"template.count": "{n} 个模板",
+			"template.empty": "还没有模板。点击「新建模板」，或用 AI 从一句描述生成骨架。",
+			"template.tag.add": "添加标签…",
+			"template.tag.addAria": "添加标签",
+			"template.tag.removeHint": "双击删除标签",
+			"template.card.edit": "编辑",
+			"template.card.copy": "复制",
+			"template.card.export": "导出",
+			"template.card.archive": "归档",
+			"template.card.restore": "恢复",
+			"template.card.delete": "删除",
+			"template.delete.confirm": "删除模板「{name}」？其全部历史版本将一并删除。",
+			"template.problems": "部分存储记录无效，已跳过：",
+			"template.notice.dismiss": "知道了",
+			"template.notice.load-failed": "读取模板库失败",
+			"template.notice.save-failed": "保存失败：名称与正文必填，或存储不可写",
+			"template.notice.name-duplicate": "模板名称已存在，请换一个",
+			"template.notice.delete-failed": "删除失败",
+			"template.notice.tags-failed": "标签保存失败",
+			"template.notice.tag-name-required": "请输入标签名",
+			"template.notice.import-invalid": "不是有效的模板包文件（dsh-template-pack）",
+			"template.notice.import-failed": "导入失败",
+			"template.notice.export-failed": "导出失败",
+			"template.notice.ai-failed": "AI 调用失败（检查网络或额度），可手动编辑完成",
+			"template.notice.ai-empty": "请先填写内容",
+			"template.notice.saved": "已保存，生成新版本快照",
+			"template.notice.archived": "状态已更新",
+			"template.notice.restored": "已回滚到历史版本，保存后生效",
+			"template.import.strategy": "导入冲突策略",
+			"template.import.skip": "跳过同名",
+			"template.import.overwrite": "覆盖同名",
+			"template.import.rename": "另存副本",
+			"template.import.report": "「{file}」导入完成：新增 {added} · 跳过 {skipped} · 覆盖 {overwritten} · 重命名 {renamed} · 失败 {failed}",
+			"template.field.name": "模板名称 *",
+			"template.field.category": "所属栏目",
+			"template.field.description": "描述",
+			"template.field.noTags": "还没有标签",
+			"template.field.body": "模板正文（Markdown，{{变量}} 占位符）",
+			"template.field.bodyHint": "正文是唯一事实：占位符决定变量。代码块内不渲染；\\{{name}} 输出字面量。",
+			"template.field.variables": "变量",
+			"template.variable.none": "正文暂无占位符；写入 {{示例}} 后自动出现在这里",
+			"template.variable.label": "展示名",
+			"template.variable.description": "说明",
+			"template.variable.default": "默认值",
+			"template.variable.required": "必填",
+			"template.variable.remove": "移除",
+			"template.preview.title": "预览渲染（填测试值）",
+			"template.preview.unresolved": "保留占位符：{list}",
+			"template.changeNote": "版本备注（可选）",
+			"template.save": "保存（生成快照）",
+			"template.close": "关闭",
+			"template.history": "历史版本",
+			"template.history.empty": "暂无历史版本",
+			"template.history.version": "v{version}",
+			"template.history.restore": "回滚到此版",
+			"template.ai.generate.title": "AI 生成模板",
+			"template.ai.generate.hint": "描述想要的模板，AI 起草骨架与变量，确认后才会入库。",
+			"template.ai.generate.placeholder": "例：一个小红书图文的三段式创作提示词模板，含钩子、正文、标签变量…",
+			"template.ai.optimize": "AI 优化正文",
+			"template.ai.optimizePrompt": "优化要求（精简 / 改写风格 / 调整结构…）",
+			"template.ai.extract": "AI 提取变量（从业务实例另存模板）",
+			"template.ai.extractHint": "粘贴一份成稿内容，AI 把会变的部分切成占位符；识别结果可逐条修改。",
+			"template.ai.extractPlaceholder": "粘贴一份定稿稿件 / 复盘报告…",
+			"template.ai.running": "生成中…",
+			"template.ai.run": "运行",
+			"template.ai.draft": "AI 草稿预览（未入库）",
+			"template.ai.adopt": "采纳到编辑器",
+			"template.ai.discard": "放弃",
+			"template.picker.title": "使用模板",
+			"template.picker.close": "关闭",
+			"template.picker.empty": "该栏目暂无可用模板",
+			"template.picker.back": "返回列表",
+			"template.picker.confirm": "使用此模板",
+			"template.picker.overwrite": "当前「{target}」已有内容，再次确认将覆盖。",
+			"template.picker.cancel": "取消",
+			"template.picker.copy": "复制渲染正文",
+			"template.picker.missing": "必填变量未填：{list}",
+			"nav.review": "复盘",
+			"review.title": "复盘",
+			"review.theme.aria": "选择主题",
+			"review.theme.placeholder": "选择主题…",
+			"review.busy": "处理中…",
+			"review.loading": "正在读取复盘数据…",
+			"review.empty.noTheme": "先在上方选择一个主题目录，再开始复盘。",
+			"review.empty.pool": "当前筛选下没有已绑定稿件的数据。先导入数据并完成稿件绑定。",
+			"review.tab.data": "数据",
+			"review.tab.board": "看板",
+			"review.tab.diagnose": "诊断",
+			"review.tab.reports": "报告",
+			"review.import.title": "导入平台数据",
+			"review.import.hint": "导入各平台创作者中心导出的 CSV（UTF-8）。未知列不会静默丢弃，需勾选忽略。",
+			"review.import.platform": "平台",
+			"review.import.file": "选择 CSV 文件",
+			"review.import.parse": "解析预览",
+			"review.import.commit": "确认导入",
+			"review.import.discard": "放弃",
+			"review.import.unknownColumns": "以下列未识别，勾选要忽略的列：",
+			"review.import.rowRejected": "第 {row} 行被跳过：{reason}",
+			"review.bind.title": "待绑定稿件（{count}）",
+			"review.bind.hint": "只有绑定到创作稿件的数据才进入分析池。粘贴该稿件的创作内容 ID 完成绑定。",
+			"review.bind.placeholder": "创作内容 ID",
+			"review.bind.button": "绑定",
+			"review.baselines.title": "账号基准线",
+			"review.baselines.hint": "爆款与低表现的判定基准（互动率、收藏率）。",
+			"review.baselines.current": "当前：互动率 {engagement}，收藏率 {collect}（{source}）。",
+			"review.baselines.sourceUser": "用户设置",
+			"review.baselines.sourceDefault": "内置默认",
+			"review.baselines.engagement": "基准互动率",
+			"review.baselines.collect": "基准收藏率",
+			"review.baselines.save": "保存基准",
+			"review.filter.from": "开始日期",
+			"review.filter.to": "结束日期",
+			"review.filter.imageText": "图文",
+			"review.filter.video": "视频",
+			"review.filter.all": "全部作品",
+			"review.filter.viral": "爆款",
+			"review.filter.weak": "低表现",
+			"review.filter.longtail": "长尾",
+			"review.stat.works": "作品数",
+			"review.stat.viral": "爆款数",
+			"review.stat.rate": "平均互动率",
+			"review.stat.longtail": "长尾作品",
+			"review.board.platforms": "分平台汇总",
+			"review.board.leaderboard": "作品排行榜",
+			"review.board.noSum": "曝光各平台口径不同，不作跨平台求和。",
+			"review.table.platform": "平台",
+			"review.table.works": "作品数",
+			"review.table.impressions": "曝光",
+			"review.table.engagement": "互动",
+			"review.diagnose.title": "单作品 AI 诊断",
+			"review.diagnose.run": "AI 诊断",
+			"review.diagnose.draftHint": "可选：粘贴稿件正文以提升诊断准确度（截取前 4000 字）。",
+			"review.verdict.viral": "爆款",
+			"review.verdict.weak": "低表现",
+			"review.verdict.neutral": "中性",
+			"review.verdict.longtail": "长尾",
+			"review.report.title": "AI 复盘报告",
+			"review.report.namePlaceholder": "复盘名称，如：九月上旬复盘",
+			"review.report.generate": "生成复盘报告",
+			"review.report.editing": "报告编辑",
+			"review.report.save": "保存为新版本",
+			"review.report.close": "关闭编辑",
+			"review.report.saveTemplate": "存为爆款模板",
+			"review.history.title": "历史复盘",
+			"review.history.empty": "还没有复盘记录。",
+			"review.history.view": "查看/编辑",
+			"review.history.delete": "删除",
+			"review.history.deleteConfirm": "确定删除该复盘任务？复盘报告文件一并删除。",
+			"review.status.ready": "已完成",
+			"review.status.generating": "生成中",
+			"review.status.failed": "失败",
+			"review.status.degraded": "数据版",
+			"review.reflow.title": "回流选题库",
+			"review.reflow.hint": "把复盘产出的选题方向一键送入选题库（带「复盘」标签）。",
+			"review.reflow.titlePlaceholder": "选题标题",
+			"review.reflow.notePlaceholder": "补充说明（可选）",
+			"review.reflow.push": "送入选题库",
+			"review.templates.title": "已存爆款模板",
+			"review.notice.load-failed": "读取复盘数据失败，请重试。",
+			"review.notice.import-parsed": "解析完成，请核对预览后确认导入。",
+			"review.notice.import-committed": "导入完成。",
+			"review.notice.import-failed": "导入失败：文件格式或内容无法解析。",
+			"review.notice.bind-failed": "绑定保存失败，请重试。",
+			"review.notice.baselines-saved": "基准线已保存。",
+			"review.notice.baselines-failed": "基准线保存失败，请重试。",
+			"review.notice.report-ready": "复盘报告已生成。",
+			"review.notice.report-degraded": "AI 增强部分生成失败，已保存纯数据版报告。",
+			"review.notice.report-failed": "报告落盘失败，正文已放入编辑器，可复制保存。",
+			"review.notice.report-saved": "报告已保存。",
+			"review.notice.save-failed": "保存失败，请重试。",
+			"review.notice.task-deleted": "复盘记录已删除（数据快照保留）。",
+			"review.notice.delete-failed": "删除失败，请重试。",
+			"review.notice.template-saved": "爆款模板已保存。",
+			"review.notice.diagnose-failed": "AI 诊断失败，请重试。",
+			"review.notice.topic-added": "已送入选题库。",
+			"review.notice.topic-failed": "送入选题库失败，请重试。",
+			"review.notice.need-theme": "请先在上方选择主题。",
+			"create.pickTemplate": "模板",
+			"create.pickTemplate.target": "创作正文",
+			"template.starter": "内置模板包",
+			"template.starter.hint": "一键导入 8 个内置模板，覆盖选题/创作/复盘/互动/发布/画像；重复导入自动跳过",
+			"template.starter.cta": "导入内置模板包试试",
+			"template.target.topic": "新建选题",
+			"template.picker.titleHint": "填了 {{title}} 变量会作为标题；没填则用模板名。模板的标签会一并带过去。",
+			"topicBank.useTemplate": "从模板新建",
+			"nav.interaction": "互动",
+			"interaction.title": "互动",
+			"interaction.subtitle": "统一收件箱：评论、私信、@提及",
+			"interaction.loading": "正在读取互动数据…",
+			"interaction.empty": "还没有会话。点击「导入 CSV」把平台导出的粉丝留言带进来。",
+			"interaction.problems": "部分存储记录无效，已跳过：",
+			"interaction.busy": "处理中…",
+			"interaction.summary.unread": "未读",
+			"interaction.summary.pendingReply": "待回复",
+			"interaction.summary.replied": "已回复",
+			"interaction.summary.archived": "已归档",
+			"interaction.summary.spam": "垃圾",
+			"interaction.import": "导入 CSV",
+			"interaction.export": "导出 CSV",
+			"interaction.export.aria": "选择导出主题",
+			"interaction.classify": "AI 识别",
+			"interaction.insights": "提取洞察",
+			"interaction.mcp.pull": "MCP 拉取",
+			"interaction.mcp.disabled": "MCP 拉取后续版本开放",
+			"interaction.import.hint": "首行为表头：platform, external_message_id, external_user_id, nickname, type, content, in_reply_to, sent_at, topic_ref, output_ref, persona_id。UTF-8 编码，单次不超过 5000 行。",
+			"interaction.import.pick": "选择文件",
+			"interaction.import.preview": "解析结果",
+			"interaction.import.valid": "合法消息",
+			"interaction.import.rejected": "被拒绝的行",
+			"interaction.import.commit": "确认导入",
+			"interaction.import.discard": "放弃",
+			"interaction.import.report": "导入报告",
+			"interaction.import.added": "新增消息",
+			"interaction.import.updated": "更新消息",
+			"interaction.import.created": "新会话",
+			"interaction.import.threads": "未解析楼中楼",
+			"interaction.filter.platform": "平台",
+			"interaction.filter.all": "全部",
+			"interaction.filter.status": "状态",
+			"interaction.filter.type": "类型",
+			"interaction.filter.sentiment": "语气",
+			"interaction.filter.intent": "诉求",
+			"interaction.filter.search": "搜内容或昵称…",
+			"interaction.list.label": "会话列表",
+			"interaction.list.none": "无匹配会话",
+			"interaction.list.messages": "条消息",
+			"interaction.star": "收藏",
+			"interaction.unstar": "取消收藏",
+			"interaction.platform.xhs": "小红书",
+			"interaction.platform.douyin": "抖音",
+			"interaction.platform.weixin": "微信",
+			"interaction.platform.bilibili": "B站",
+			"interaction.type.comment": "评论",
+			"interaction.type.dm": "私信",
+			"interaction.type.mention": "提及",
+			"interaction.status.unread": "未读",
+			"interaction.status.pendingReply": "待回复",
+			"interaction.status.replied": "已回复",
+			"interaction.status.archived": "已归档",
+			"interaction.status.spam": "垃圾",
+			"interaction.sentiment.positive": "正面",
+			"interaction.sentiment.negative": "负面",
+			"interaction.sentiment.question": "提问",
+			"interaction.sentiment.unknown": "未知",
+			"interaction.intent.consult": "咨询",
+			"interaction.intent.praise": "夸奖",
+			"interaction.intent.complain": "吐槽",
+			"interaction.intent.demand": "需求",
+			"interaction.intent.spam": "广告垃圾",
+			"interaction.intent.unknown": "未知",
+			"interaction.detail.label": "会话详情",
+			"interaction.detail.empty": "选择左侧会话查看详情。",
+			"interaction.detail.persona": "绑定画像",
+			"interaction.detail.persona.none": "无画像",
+			"interaction.detail.topicRef": "主题",
+			"interaction.detail.outputRef": "稿件",
+			"interaction.detail.tags": "诉求标签",
+			"interaction.detail.note.aria": "会话备注",
+			"interaction.detail.note.placeholder": "会话备注…",
+			"interaction.thread.me": "我方",
+			"interaction.thread.fan": "粉丝",
+			"interaction.thread.aiTag": "（AI 推断，供参考）",
+			"interaction.reply.title": "起草回复",
+			"interaction.reply.style": "语气",
+			"interaction.style.formal": "正式",
+			"interaction.style.friendly": "亲切",
+			"interaction.style.humorous": "幽默",
+			"interaction.style.brief": "简短",
+			"interaction.reply.template": "模板",
+			"interaction.reply.generate": "AI 生成草稿",
+			"interaction.reply.drafts": "候选草稿",
+			"interaction.reply.adopt": "采用",
+			"interaction.reply.composer": "最终回复",
+			"interaction.reply.send": "发送",
+			"interaction.reply.sendDraft": "存草稿",
+			"interaction.reply.noTarget": "先选中一条粉丝留言再起草。",
+			"interaction.insights.title": "用户洞察",
+			"interaction.insights.none": "还没有洞察。点击「提取洞察」分析当前筛选内的粉丝留言。",
+			"interaction.insights.generatedAt": "生成于",
+			"interaction.insights.questions": "高频问题",
+			"interaction.insights.pain": "痛点",
+			"interaction.insights.interests": "兴趣方向",
+			"interaction.insights.toTopic": "送选题",
+			"interaction.notice.load-failed": "互动数据读取失败。",
+			"interaction.notice.import-parsed": "解析完成，请确认后导入。",
+			"interaction.notice.import-failed": "导入解析失败：文件为空、非 UTF-8 编码或缺少必需列。",
+			"interaction.notice.import-committed": "导入完成。",
+			"interaction.notice.save-failed": "保存失败，请重试。",
+			"interaction.notice.drafts-ready": "草稿已生成。",
+			"interaction.notice.drafts-failed": "草稿生成失败（配额或上游不可用）。",
+			"interaction.notice.classify-done": "识别完成。",
+			"interaction.notice.classify-failed": "部分批次识别失败，相关留言保持未知。",
+			"interaction.notice.insights-done": "洞察已更新。",
+			"interaction.notice.insights-failed": "部分批次洞察提取失败。",
+			"interaction.notice.sent-archived": "外部 MCP 发送服务未接入，回复已本地存档。",
+			"interaction.notice.exported": "已导出到所选主题的 assets 目录。",
+			"interaction.notice.export-failed": "导出失败。",
+			"interaction.notice.need-theme": "请先选择导出主题。",
+			"interaction.notice.topic-added": "已送入选题库。",
+			"interaction.notice.topic-failed": "送选题失败。"
 		};
 		/** English dictionary; every zh key must be present. */
 		const en = {
@@ -28553,7 +39953,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"view.create": "Create",
 			"view.library": "Library",
 			"view.calendar": "Calendar",
-			"nav.workbench": "Workbench",
+			"nav.workbench": "Overview",
 			"nav.create": "Create",
 			"nav.chat": "Chat",
 			"nav.benchmark": "Benchmark",
@@ -28722,6 +40122,57 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"calendar.month.10": "Oct",
 			"calendar.month.11": "Nov",
 			"calendar.month.12": "Dec",
+			"calendar.view.month": "Month",
+			"calendar.view.week": "Week",
+			"calendar.view.list": "List",
+			"calendar.prevWeek": "Previous week",
+			"calendar.nextWeek": "Next week",
+			"calendar.filters.clear": "Clear filters",
+			"calendar.filter.kind": "Kind",
+			"calendar.kind.all": "All kinds",
+			"calendar.kind.content": "Topic schedule",
+			"calendar.kind.event": "Standalone",
+			"calendar.filter.status": "Status",
+			"calendar.status.idea": "Idea",
+			"calendar.status.draft": "Draft",
+			"calendar.status.scheduled": "Scheduled",
+			"calendar.status.published": "Published",
+			"calendar.filter.range": "Range",
+			"calendar.filter.query.aria": "Search titles",
+			"calendar.filter.overdue": "Overdue only",
+			"calendar.overdue": "Overdue",
+			"calendar.conflicts": "Schedule conflicts",
+			"calendar.conflict.hint": "Same platform scheduled close together",
+			"calendar.detail.title": "Schedule detail",
+			"calendar.detail.date": "Date",
+			"calendar.detail.time": "Time",
+			"calendar.detail.platform": "Platform",
+			"calendar.detail.topic": "Linked topic",
+			"calendar.note.placeholder": "Note (calendar only)",
+			"calendar.note.save": "Save note",
+			"calendar.note.saved": "Note saved",
+			"calendar.jump.topicBank": "Open topic bank",
+			"calendar.delete": "Delete",
+			"calendar.delete.confirm": "Delete this schedule item? The source manuscript is untouched.",
+			"calendar.delete.clearPlan": "Delete and clear the topic plan date",
+			"calendar.drag.confirm": "Move this item from {from} to {to}?",
+			"calendar.drag.failed": "Reschedule failed; the view is unchanged",
+			"calendar.drag.topicSyncFailed": "Rescheduled, but syncing the topic plan date failed",
+			"calendar.action.failed": "The action failed; try again",
+			"calendar.export": "Export CSV",
+			"calendar.export.done": "Exported to {theme}/assets/",
+			"calendar.export.failed": "Export failed",
+			"calendar.export.none": "No theme directory to export into",
+			"calendar.ai": "AI scheduling advice",
+			"calendar.ai.hint": "AI arrives in a later version",
+			"calendar.timePlaceholder": "Time (e.g. 09:30)",
+			"calendar.topicPlaceholder": "Linked topic (optional)",
+			"calendar.list.title": "Title",
+			"calendar.list.all": "Select all",
+			"calendar.batch.publish": "Mark selected published",
+			"calendar.batch.remove": "Delete selected",
+			"calendar.batch.done": "Batch update done",
+			"calendar.batchDelete.confirm": "Delete the selected schedule items?",
 			"library.loading": "Reading the library…",
 			"library.error": "Failed to read the library",
 			"library.retry": "Retry",
@@ -28860,6 +40311,8 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"comp.unmarkFavorite": "Unfavorite",
 			"comp.addIdea": "Save as topic",
 			"comp.removeWork": "Delete this work",
+			"comp.removeWorkConfirm": "Delete this benchmark work? Its text and analysis snapshots are deleted from disk.",
+			"comp.removeAccountConfirm": "Delete this benchmark account? Its recorded works stay.",
 			"comp.openOriginal": "Open original",
 			"comp.hookType": "Hook type: ",
 			"comp.structure": "Structure: ",
@@ -28926,6 +40379,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"gather.sources.title": "Sources",
 			"gather.sources.add": "Add source",
 			"gather.sources.remove": "Remove",
+			"gather.sources.removeConfirm": "Delete this source? Already gathered materials stay in the library.",
 			"gather.sources.enable": "Enable",
 			"gather.sources.disable": "Disable",
 			"gather.sources.test": "Test",
@@ -28950,6 +40404,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"gather.task.pause": "Pause schedule",
 			"gather.task.resume": "Resume schedule",
 			"gather.task.log": "Log",
+			"gather.task.removeConfirm": "Delete this gather task? Its run log goes too; gathered materials stay.",
 			"gather.task.logEmpty": "No runs yet",
 			"gather.task.manual": "manual only",
 			"gather.task.namePlaceholder": "Task name",
@@ -29015,6 +40470,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"topic.score.none": "Unscored",
 			"topic.source.manual": "Manual",
 			"topic.source.gather": "Gather",
+			"topic.source.interaction": "Engagement insight",
 			"topic.source.benchmark": "Rival teardown",
 			"topic.status.idea": "Idea",
 			"topic.status.todo": "To create",
@@ -29223,6 +40679,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"create.template.new": "New template",
 			"create.template.edit": "Edit",
 			"create.template.delete": "Delete",
+			"create.template.deleteConfirm": "Delete this custom template?",
 			"create.template.save": "Save template",
 			"create.template.saved": "Template saved",
 			"create.template.active": "active",
@@ -29236,7 +40693,409 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"create.seo.none": "No frequent keywords surfaced (the body is too short or too uniform).",
 			"create.seo.region": "Target region (optional)",
 			"create.seo.regionPlaceholder": "e.g. Hangzhou",
-			"create.seo.layout": "Placement advice:"
+			"create.seo.layout": "Placement advice:",
+			"create.sendToPublish": "Send to publish",
+			"nav.publish": "Publish",
+			"publish.title": "Publish",
+			"publish.hint": "Adapt a finished manuscript per platform and run distribution tasks; this phase records the publish package — the real upload rides the phase-2 MCP channel.",
+			"publish.tab.tasks": "Tasks",
+			"publish.tab.history": "History",
+			"publish.theme.none": "Pick a finished manuscript below, or finalize one in Create and press \"Send to publish\".",
+			"publish.tasks.empty": "No publish tasks in this theme yet.",
+			"publish.pool.title": "Finished manuscripts",
+			"publish.pool.hint": "Click a card to start a publish task; manuscripts are referenced, never copied.",
+			"publish.pool.empty": "No finished manuscripts yet. Publish a deliverable in Create and it shows up here.",
+			"publish.form.title": "New publish task",
+			"publish.form.immediate": "Publish now",
+			"publish.form.scheduled": "Schedule",
+			"publish.form.note": "Task note (optional)",
+			"publish.form.persona": "Adaptation persona: ",
+			"publish.form.personaOn": "active persona injected",
+			"publish.form.personaOff": "none selected, generic style",
+			"publish.form.submit": "Create task",
+			"publish.form.cancel": "Cancel",
+			"publish.status.draft": "Draft",
+			"publish.status.pendingReview": "Pending review",
+			"publish.status.scheduled": "Scheduled",
+			"publish.status.recorded": "Recorded",
+			"publish.leg.pending": "Not adapted",
+			"publish.leg.adapted": "Adapted",
+			"publish.leg.edited": "Hand-edited",
+			"publish.leg.recorded": "Recorded",
+			"publish.leg.adapt": "AI adapt",
+			"publish.leg.readapt": "Re-adapt",
+			"publish.leg.edit": "Edit draft",
+			"publish.leg.save": "Save draft",
+			"publish.leg.cancel": "Cancel edit",
+			"publish.leg.cover": "Cover: ",
+			"publish.leg.overLimit": "The body exceeds this platform's character cap; trim before publishing.",
+			"publish.leg.log": "Attempt log ({count})",
+			"publish.attempt.adapt": "adapt",
+			"publish.attempt.edit": "edit",
+			"publish.attempt.record": "record",
+			"publish.action.preview": "Preview (AI adapt only)",
+			"publish.action.record": "Execute (build publish package)",
+			"publish.action.schedule": "Write to calendar",
+			"publish.action.copy": "Duplicate task",
+			"publish.action.delete": "Delete task",
+			"publish.action.deleteConfirm": "Delete this publish task? Its linked calendar entry is removed too.",
+			"publish.action.reflow": "Reflow: mark topic done",
+			"publish.fact.manuscript": "Manuscript: ",
+			"publish.fact.topic": "Topic: ",
+			"publish.fact.scheduledAt": "Planned: ",
+			"publish.fact.note": "Note: ",
+			"publish.recorded.note": "The publish package is built and recorded; the channel is not connected, nothing uploads yet. Mark platforms manually, then reflow the topic.",
+			"publish.history.empty": "No publish history yet.",
+			"publish.history.task": "Task",
+			"publish.history.theme": "Theme",
+			"publish.history.platforms": "Platforms",
+			"publish.history.status": "Status",
+			"publish.history.updated": "Updated",
+			"publish.history.actions": "Actions",
+			"publish.history.open": "Open",
+			"publish.profiles.title": "Platform account matrix",
+			"publish.profiles.hint": "Stores aliases, enabled switches, and adaptation preferences only — never credentials; persisted to _publish-profiles.json.",
+			"publish.profiles.toggle": "Account matrix",
+			"publish.profiles.alias": "Account alias",
+			"publish.profiles.overrides": "Adaptation overrides (optional)",
+			"publish.profiles.save": "Save account matrix",
+			"publish.profiles.close": "Close",
+			"publish.problems": "Some stored records failed validation and were skipped: {list}",
+			"publish.notice.dismiss": "Dismiss",
+			"publish.notice.profiles-saved": "Account matrix saved",
+			"publish.notice.profiles-failed": "Saving the account matrix failed",
+			"publish.notice.task-created": "Publish task created",
+			"publish.notice.task-create-failed": "Creating the task failed: pick at least one platform",
+			"publish.notice.adapt-done": "Platform adaptation done; review the AI output before publishing",
+			"publish.notice.adapt-failed": "Platform adaptation failed",
+			"publish.notice.draft-saved": "Draft edit saved",
+			"publish.notice.draft-save-failed": "Saving the draft failed",
+			"publish.notice.recorded": "Publish package built; task recorded",
+			"publish.notice.record-failed": "Building the publish package failed: adapt every platform first",
+			"publish.notice.scheduled": "Written to the calendar and linked to the task",
+			"publish.notice.schedule-failed": "Writing to the calendar failed",
+			"publish.notice.task-deleted": "Task record deleted (derived drafts stay)",
+			"publish.notice.task-deleted-schedule-stale": "Task record deleted; its calendar entry could not be removed and may linger",
+			"publish.notice.delete-failed": "Deleting the task failed",
+			"publish.notice.copied": "Duplicated into a new task",
+			"publish.notice.reflowed": "Topic status set to \"published\"",
+			"publish.notice.reflow-orphan": "The linked topic no longer exists; reflow skipped",
+			"publish.notice.reflow-failed": "Reflow failed: the topic bank is unreachable",
+			"publish.notice.due-tasks": "Scheduled tasks are due and waiting",
+			"publish.notice.load-failed": "Loading publish data failed",
+			"nav.templates": "Templates",
+			"template.title": "Template library",
+			"template.hint": "Global template assets: variable skeletons with version history, callable from every column via the picker; renders fill forms only, never business data.",
+			"template.new": "New template",
+			"template.import": "Import",
+			"template.exportAll": "Export all",
+			"template.search": "Search templates…",
+			"template.filter.category": "Filter by category",
+			"template.filter.status": "Filter by status",
+			"template.filter.all": "All categories",
+			"template.status.all": "All statuses",
+			"template.status.active": "Active",
+			"template.status.archived": "Archived",
+			"template.count": "{n} templates",
+			"template.empty": "No templates yet. Click \"New template\", or let AI draft one from a sentence.",
+			"template.tag.add": "Add tag…",
+			"template.tag.addAria": "Add tag",
+			"template.tag.removeHint": "Double-click to delete the tag",
+			"template.card.edit": "Edit",
+			"template.card.copy": "Duplicate",
+			"template.card.export": "Export",
+			"template.card.archive": "Archive",
+			"template.card.restore": "Restore",
+			"template.card.delete": "Delete",
+			"template.delete.confirm": "Delete template \"{name}\"? Its whole version history goes with it.",
+			"template.problems": "Some stored records failed validation and were skipped:",
+			"template.notice.dismiss": "Dismiss",
+			"template.notice.load-failed": "Loading the template library failed",
+			"template.notice.save-failed": "Save failed: name and body are required, or the store is unwritable",
+			"template.notice.name-duplicate": "That template name already exists",
+			"template.notice.delete-failed": "Deleting failed",
+			"template.notice.tags-failed": "Saving tags failed",
+			"template.notice.tag-name-required": "Enter a tag name first",
+			"template.notice.import-invalid": "Not a valid template pack file (dsh-template-pack)",
+			"template.notice.import-failed": "Importing failed",
+			"template.notice.export-failed": "Exporting failed",
+			"template.notice.ai-failed": "The AI call failed (check network or quota); manual editing still works",
+			"template.notice.ai-empty": "Fill in the content first",
+			"template.notice.saved": "Saved — a new version snapshot was written",
+			"template.notice.archived": "Status updated",
+			"template.notice.restored": "Rolled back to a history version; effective on save",
+			"template.import.strategy": "Import conflict strategy",
+			"template.import.skip": "Skip conflicts",
+			"template.import.overwrite": "Overwrite conflicts",
+			"template.import.rename": "Keep as copies",
+			"template.import.report": "\"{file}\" imported: {added} added · {skipped} skipped · {overwritten} overwritten · {renamed} renamed · {failed} failed",
+			"template.field.name": "Template name *",
+			"template.field.category": "Category",
+			"template.field.description": "Description",
+			"template.field.noTags": "No tags yet",
+			"template.field.body": "Body (Markdown with {{variable}} placeholders)",
+			"template.field.bodyHint": "The body is the single source of truth: its placeholders define the variables. Code regions never render; \\{{name}} outputs the literal.",
+			"template.field.variables": "Variables",
+			"template.variable.none": "No placeholders yet; write {{an_example}} and it appears here",
+			"template.variable.label": "Label",
+			"template.variable.description": "Hint",
+			"template.variable.default": "Default",
+			"template.variable.required": "Required",
+			"template.variable.remove": "Remove",
+			"template.preview.title": "Preview render (test values)",
+			"template.preview.unresolved": "Left as placeholders: {list}",
+			"template.changeNote": "Version note (optional)",
+			"template.save": "Save (writes a snapshot)",
+			"template.close": "Close",
+			"template.history": "History",
+			"template.history.empty": "No history yet",
+			"template.history.version": "v{version}",
+			"template.history.restore": "Roll back",
+			"template.ai.generate.title": "AI draft a template",
+			"template.ai.generate.hint": "Describe the template; AI drafts the skeleton and variables — nothing lands until you confirm.",
+			"template.ai.generate.placeholder": "e.g. a three-part xhs-note prompt template with hook, body, and tag variables…",
+			"template.ai.optimize": "AI optimize the body",
+			"template.ai.optimizePrompt": "Optimization instruction (condense / restyle / restructure…)",
+			"template.ai.extract": "AI extract variables (save an instance as a template)",
+			"template.ai.extractHint": "Paste one finished piece; AI turns the varying parts into placeholders you can edit one by one.",
+			"template.ai.extractPlaceholder": "Paste a final draft / retro report…",
+			"template.ai.running": "Generating…",
+			"template.ai.run": "Run",
+			"template.ai.draft": "AI draft preview (not stored)",
+			"template.ai.adopt": "Adopt into the editor",
+			"template.ai.discard": "Discard",
+			"template.picker.title": "Use a template",
+			"template.picker.close": "Close",
+			"template.picker.empty": "No active templates for this column yet",
+			"template.picker.back": "Back to the list",
+			"template.picker.confirm": "Use this template",
+			"template.picker.overwrite": "\"{target}\" already has content; confirming again will overwrite it.",
+			"template.picker.cancel": "Cancel",
+			"template.picker.copy": "Copy rendered body",
+			"template.picker.missing": "Missing required variables: {list}",
+			"nav.review": "Review",
+			"review.title": "Review",
+			"review.theme.aria": "Pick a theme",
+			"review.theme.placeholder": "Pick a theme…",
+			"review.busy": "Working…",
+			"review.loading": "Loading review data…",
+			"review.empty.noTheme": "Pick a theme directory above to start a review.",
+			"review.empty.pool": "No bound-work data under the current filters. Import data and finish the bindings first.",
+			"review.tab.data": "Data",
+			"review.tab.board": "Board",
+			"review.tab.diagnose": "Diagnose",
+			"review.tab.reports": "Reports",
+			"review.import.title": "Import platform data",
+			"review.import.hint": "Import the CSV exports from each platform creator center (UTF-8). Unknown columns are never dropped silently — check the ones to ignore.",
+			"review.import.platform": "Platform",
+			"review.import.file": "Pick a CSV file",
+			"review.import.parse": "Parse preview",
+			"review.import.commit": "Confirm import",
+			"review.import.discard": "Discard",
+			"review.import.unknownColumns": "Unrecognized columns — check the ones to ignore:",
+			"review.import.rowRejected": "Row {row} skipped: {reason}",
+			"review.bind.title": "Unbound works ({count})",
+			"review.bind.hint": "Only rows bound to a creation content id enter the analysis pool. Paste the content id to bind.",
+			"review.bind.placeholder": "Creation content id",
+			"review.bind.button": "Bind",
+			"review.baselines.title": "Account baselines",
+			"review.baselines.hint": "The engagement/collect rate baselines grounding the viral and weak verdicts.",
+			"review.baselines.current": "Current: engagement {engagement}, collect {collect} ({source}).",
+			"review.baselines.sourceUser": "user set",
+			"review.baselines.sourceDefault": "built-in default",
+			"review.baselines.engagement": "Baseline engagement rate",
+			"review.baselines.collect": "Baseline collect rate",
+			"review.baselines.save": "Save baselines",
+			"review.filter.from": "From date",
+			"review.filter.to": "To date",
+			"review.filter.imageText": "Image-text",
+			"review.filter.video": "Video",
+			"review.filter.all": "All works",
+			"review.filter.viral": "Viral",
+			"review.filter.weak": "Weak",
+			"review.filter.longtail": "Long-tail",
+			"review.stat.works": "Works",
+			"review.stat.viral": "Viral",
+			"review.stat.rate": "Avg engagement",
+			"review.stat.longtail": "Long-tail",
+			"review.board.platforms": "Per-platform totals",
+			"review.board.leaderboard": "Leaderboard",
+			"review.board.noSum": "Impression definitions differ per platform; they are never summed across platforms.",
+			"review.table.platform": "Platform",
+			"review.table.works": "Works",
+			"review.table.impressions": "Impressions",
+			"review.table.engagement": "Engagement",
+			"review.diagnose.title": "Single-work AI diagnosis",
+			"review.diagnose.run": "AI diagnose",
+			"review.diagnose.draftHint": "Optional: paste the body text for a sharper diagnosis (front 4000 chars).",
+			"review.verdict.viral": "Viral",
+			"review.verdict.weak": "Weak",
+			"review.verdict.neutral": "Neutral",
+			"review.verdict.longtail": "Long-tail",
+			"review.report.title": "AI review report",
+			"review.report.namePlaceholder": "Review name, e.g. Early-September review",
+			"review.report.generate": "Generate report",
+			"review.report.editing": "Report editor",
+			"review.report.save": "Save as new version",
+			"review.report.close": "Close editor",
+			"review.report.saveTemplate": "Save as viral template",
+			"review.history.title": "Review history",
+			"review.history.empty": "No review runs yet.",
+			"review.history.view": "View / edit",
+			"review.history.delete": "Delete",
+			"review.history.deleteConfirm": "Delete this review task? Its report file goes too.",
+			"review.status.ready": "Ready",
+			"review.status.generating": "Generating",
+			"review.status.failed": "Failed",
+			"review.status.degraded": "Data-only",
+			"review.reflow.title": "Reflow into the topic bank",
+			"review.reflow.hint": "Push review conclusions into the topic bank as topics (tagged Review).",
+			"review.reflow.titlePlaceholder": "Topic title",
+			"review.reflow.notePlaceholder": "Notes (optional)",
+			"review.reflow.push": "Push to topic bank",
+			"review.templates.title": "Saved viral templates",
+			"review.notice.load-failed": "Failed to load review data; retry.",
+			"review.notice.import-parsed": "Parsed. Check the preview, then confirm the import.",
+			"review.notice.import-committed": "Import committed.",
+			"review.notice.import-failed": "Import failed: the file could not be parsed.",
+			"review.notice.bind-failed": "Failed to save the binding; retry.",
+			"review.notice.baselines-saved": "Baselines saved.",
+			"review.notice.baselines-failed": "Failed to save the baselines; retry.",
+			"review.notice.report-ready": "The review report is ready.",
+			"review.notice.report-degraded": "The AI part failed; a data-only report was saved.",
+			"review.notice.report-failed": "The disk write failed; the text sits in the editor, copy it out.",
+			"review.notice.report-saved": "Report saved.",
+			"review.notice.save-failed": "Save failed; retry.",
+			"review.notice.task-deleted": "Review task deleted (snapshots kept).",
+			"review.notice.delete-failed": "Delete failed; retry.",
+			"review.notice.template-saved": "Viral template saved.",
+			"review.notice.diagnose-failed": "AI diagnosis failed; retry.",
+			"review.notice.topic-added": "Pushed to the topic bank.",
+			"review.notice.topic-failed": "The topic-bank push failed; retry.",
+			"review.notice.need-theme": "Pick a theme above first.",
+			"create.pickTemplate": "Templates",
+			"create.pickTemplate.target": "the draft body",
+			"template.starter": "Starter pack",
+			"template.starter.hint": "Import the 8 built-in templates covering topics, creation, retros, interaction, publish, and persona; re-imports are skipped",
+			"template.starter.cta": "Import the starter pack",
+			"template.target.topic": "the new-topic form",
+			"template.picker.titleHint": "A filled {{title}} variable becomes the title; otherwise the template name is used. The template’s tags come along.",
+			"topicBank.useTemplate": "New from template",
+			"nav.interaction": "Engagement",
+			"interaction.title": "Engagement",
+			"interaction.subtitle": "One inbox for comments, DMs, and mentions",
+			"interaction.loading": "Loading interactions…",
+			"interaction.empty": "No conversations yet. Import a CSV export to bring fan messages in.",
+			"interaction.problems": "Some stored records were invalid and skipped:",
+			"interaction.busy": "Working…",
+			"interaction.summary.unread": "Unread",
+			"interaction.summary.pendingReply": "To reply",
+			"interaction.summary.replied": "Replied",
+			"interaction.summary.archived": "Archived",
+			"interaction.summary.spam": "Spam",
+			"interaction.import": "Import CSV",
+			"interaction.export": "Export CSV",
+			"interaction.export.aria": "Pick the export theme",
+			"interaction.classify": "Classify with AI",
+			"interaction.insights": "Extract insights",
+			"interaction.mcp.pull": "MCP pull",
+			"interaction.mcp.disabled": "MCP pull arrives in a later release",
+			"interaction.import.hint": "Header row: platform, external_message_id, external_user_id, nickname, type, content, in_reply_to, sent_at, topic_ref, output_ref, persona_id. UTF-8, at most 5000 rows per file.",
+			"interaction.import.pick": "Choose file",
+			"interaction.import.preview": "Parse result",
+			"interaction.import.valid": "valid messages",
+			"interaction.import.rejected": "Rejected rows",
+			"interaction.import.commit": "Confirm import",
+			"interaction.import.discard": "Discard",
+			"interaction.import.report": "Import report",
+			"interaction.import.added": "messages added",
+			"interaction.import.updated": "messages updated",
+			"interaction.import.created": "new conversations",
+			"interaction.import.threads": "unresolved threads",
+			"interaction.filter.platform": "Platform",
+			"interaction.filter.all": "All",
+			"interaction.filter.status": "Status",
+			"interaction.filter.type": "Type",
+			"interaction.filter.sentiment": "Sentiment",
+			"interaction.filter.intent": "Intent",
+			"interaction.filter.search": "Search content or nickname…",
+			"interaction.list.label": "Conversation list",
+			"interaction.list.none": "No matching conversations",
+			"interaction.list.messages": "messages",
+			"interaction.star": "Star",
+			"interaction.unstar": "Unstar",
+			"interaction.platform.xhs": "Xiaohongshu",
+			"interaction.platform.douyin": "Douyin",
+			"interaction.platform.weixin": "WeChat",
+			"interaction.platform.bilibili": "Bilibili",
+			"interaction.type.comment": "Comment",
+			"interaction.type.dm": "DM",
+			"interaction.type.mention": "Mention",
+			"interaction.status.unread": "Unread",
+			"interaction.status.pendingReply": "To reply",
+			"interaction.status.replied": "Replied",
+			"interaction.status.archived": "Archived",
+			"interaction.status.spam": "Spam",
+			"interaction.sentiment.positive": "Positive",
+			"interaction.sentiment.negative": "Negative",
+			"interaction.sentiment.question": "Question",
+			"interaction.sentiment.unknown": "Unknown",
+			"interaction.intent.consult": "Consult",
+			"interaction.intent.praise": "Praise",
+			"interaction.intent.complain": "Complaint",
+			"interaction.intent.demand": "Demand",
+			"interaction.intent.spam": "Spam",
+			"interaction.intent.unknown": "Unknown",
+			"interaction.detail.label": "Conversation detail",
+			"interaction.detail.empty": "Pick a conversation to see its thread.",
+			"interaction.detail.persona": "Bound persona",
+			"interaction.detail.persona.none": "No persona",
+			"interaction.detail.topicRef": "Theme",
+			"interaction.detail.outputRef": "Work",
+			"interaction.detail.tags": "Demand tags",
+			"interaction.detail.note.aria": "Conversation note",
+			"interaction.detail.note.placeholder": "Conversation note…",
+			"interaction.thread.me": "Me",
+			"interaction.thread.fan": "Fan",
+			"interaction.thread.aiTag": "(AI-inferred, for reference)",
+			"interaction.reply.title": "Draft a reply",
+			"interaction.reply.style": "Tone",
+			"interaction.style.formal": "Formal",
+			"interaction.style.friendly": "Friendly",
+			"interaction.style.humorous": "Humorous",
+			"interaction.style.brief": "Brief",
+			"interaction.reply.template": "Template",
+			"interaction.reply.generate": "Generate drafts",
+			"interaction.reply.drafts": "Candidates",
+			"interaction.reply.adopt": "Use",
+			"interaction.reply.composer": "Final reply",
+			"interaction.reply.send": "Send",
+			"interaction.reply.sendDraft": "Save draft",
+			"interaction.reply.noTarget": "Select a fan message before drafting.",
+			"interaction.insights.title": "Audience insights",
+			"interaction.insights.none": "No insights yet. Extract insights to analyze the fan messages in view.",
+			"interaction.insights.generatedAt": "Generated at",
+			"interaction.insights.questions": "Top questions",
+			"interaction.insights.pain": "Pain points",
+			"interaction.insights.interests": "Interests",
+			"interaction.insights.toTopic": "To topics",
+			"interaction.notice.load-failed": "Failed to load the interactions.",
+			"interaction.notice.import-parsed": "Parsed; review and confirm.",
+			"interaction.notice.import-failed": "Import failed: empty file, non-UTF-8 encoding, or missing required columns.",
+			"interaction.notice.import-committed": "Import finished.",
+			"interaction.notice.save-failed": "Save failed; retry.",
+			"interaction.notice.drafts-ready": "Drafts ready.",
+			"interaction.notice.drafts-failed": "Draft generation failed (quota or upstream).",
+			"interaction.notice.classify-done": "Classification finished.",
+			"interaction.notice.classify-failed": "Some batches failed; those messages stay unknown.",
+			"interaction.notice.insights-done": "Insights updated.",
+			"interaction.notice.insights-failed": "Some insight batches failed.",
+			"interaction.notice.sent-archived": "The external MCP send channel is not connected; the reply was archived locally.",
+			"interaction.notice.exported": "Exported into the chosen theme’s assets.",
+			"interaction.notice.export-failed": "Export failed.",
+			"interaction.notice.need-theme": "Pick an export theme first.",
+			"interaction.notice.topic-added": "Pushed to the topic bank.",
+			"interaction.notice.topic-failed": "The topic push failed."
 		};
 		//#endregion
 		//#region lib/types/client/index.js
@@ -29258,10 +41117,15 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			return result.value;
 		}
 		/**
-		* Mount the plugin's own Remote contributions, then register the sidebar
-		* entry and the workbench surface once their slot declarations are on the
-		* ledger; both registrations install and roll back atomically through one
-		* generator. The mounts unwound in reverse order after every registration.
+		* Mount the plugin's own Remote contributions, then run the workbench body on
+		* a fiber that declares every mounted namespace by its exact service name.
+		* Cordis snapshots a namespace service only into fibers whose inject lists
+		* that name (`remote.contentOutputs`), so a consumer that merely injects
+		* `remote` — including this plugin's own apply fiber, a sibling of each
+		* namespace fiber — never resolves it and every gateway call dies with
+		* "cannot get property ... without inject". The mount runs first so the
+		* namespace services exist before the workbench fiber waits on them; Cordis
+		* unloads and re-runs the workbench body if a namespace unmounts.
 		* @param ctx - client root context.
 		*/
 		async function apply(ctx) {
@@ -29269,17 +41133,43 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				zh,
 				en
 			}), "ui-content-studio: dictionaries");
-			const disposers = [];
+			const mountDisposers = [];
 			try {
 				for (const contribution of [
 					TYPERT_REMOTE$2,
 					TYPERT_REMOTE$1,
 					TYPERT_REMOTE
-				]) disposers.push(await ctx.remote.$mount(contribution));
+				]) mountDisposers.push(await ctx.remote.$mount(contribution));
 			} catch (error) {
-				for (const dispose of disposers.reverse()) await dispose();
+				for (const dispose of mountDisposers.reverse()) await dispose();
 				throw error;
 			}
+			const workbench = await ctx.plugin({
+				name: "ui-content-studio:workbench",
+				inject: [
+					"slots",
+					"locale",
+					"remote",
+					"remote.contentOutputs",
+					"remote.contentSchedule",
+					"remote.contentTopics"
+				],
+				apply: (workbenchCtx) => mainApply(workbenchCtx)
+			});
+			return async () => {
+				await workbench.dispose();
+				for (const dispose of mountDisposers.reverse()) await dispose();
+			};
+		}
+		/**
+		* The workbench body: the controllers, the gateway closures, and the two slot
+		* registrations (sidebar entry + frame-wide surface), on the fiber that
+		* declared the Remote namespaces. The slot registrations unwind with this
+		* fiber — the `slots.inject` generator owns their lifetime — so there is no
+		* separate disposer.
+		* @param ctx - the workbench fiber's context.
+		*/
+		async function mainApply(ctx) {
 			const studio = createContentStudioController();
 			const listOutputs = async () => {
 				const result = await ctx.remote.contentOutputs.list();
@@ -29325,6 +41215,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					if (!result.ok) throw new Error(`contentSchedule.delete failed: ${result.error.code}: ${result.error.message}`);
 					return result.value;
 				}
+			};
+			const notes = {
+				list: () => unwrap("contentSchedule.getNotes", ctx.remote.contentSchedule.getNotes()),
+				put: (id, text) => unwrap("contentSchedule.putNote", ctx.remote.contentSchedule.putNote(id, text))
 			};
 			const topics = {
 				list: () => unwrap("contentTopics.list", ctx.remote.contentTopics.list()),
@@ -29429,6 +41323,58 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					return result.value;
 				}
 			};
+			const publish = createPublishController({
+				gateway: {
+					readPublishManifest: (theme) => unwrap("contentOutputs.readPublishManifest", ctx.remote.contentOutputs.readPublishManifest(theme)),
+					writePublishManifest: (theme, manifest) => unwrap("contentOutputs.writePublishManifest", ctx.remote.contentOutputs.writePublishManifest(theme, manifest)),
+					listPublishIndex: () => unwrap("contentOutputs.listPublishIndex", ctx.remote.contentOutputs.listPublishIndex()),
+					readPublishProfiles: () => unwrap("contentOutputs.readPublishProfiles", ctx.remote.contentOutputs.readPublishProfiles()),
+					writePublishProfiles: (profiles) => unwrap("contentOutputs.writePublishProfiles", ctx.remote.contentOutputs.writePublishProfiles(profiles)),
+					writePublishDerived: (theme, taskId, platformId, content) => unwrap("contentOutputs.writePublishDerived", ctx.remote.contentOutputs.writePublishDerived(theme, taskId, platformId, content)),
+					readPublishDerived: (theme, taskId, platformId) => unwrap("contentOutputs.readPublishDerived", ctx.remote.contentOutputs.readPublishDerived(theme, taskId, platformId)),
+					readPublishSource: (theme, file) => unwrap("contentOutputs.readPublishSource", ctx.remote.contentOutputs.readPublishSource(theme, file)),
+					buildPublishPackage: (theme, taskId) => unwrap("contentOutputs.buildPublishPackage", ctx.remote.contentOutputs.buildPublishPackage(theme, taskId)),
+					adaptPublishContent: (request) => unwrap("contentOutputs.adaptPublishContent", ctx.remote.contentOutputs.adaptPublishContent(request))
+				},
+				listOutputs,
+				schedule,
+				topics
+			});
+			const templates = createTemplateController({ gateway: {
+				listTemplates: () => unwrap("contentOutputs.listTemplates", ctx.remote.contentOutputs.listTemplates()),
+				putTemplate: (input) => unwrap("contentOutputs.putTemplate", ctx.remote.contentOutputs.putTemplate(input)),
+				setTemplateStatus: (id, status) => unwrap("contentOutputs.setTemplateStatus", ctx.remote.contentOutputs.setTemplateStatus(id, status)),
+				deleteTemplate: (id) => unwrap("contentOutputs.deleteTemplate", ctx.remote.contentOutputs.deleteTemplate(id)),
+				getTemplateHistory: (id) => unwrap("contentOutputs.getTemplateHistory", ctx.remote.contentOutputs.getTemplateHistory(id)),
+				putTemplateTags: (tags) => unwrap("contentOutputs.putTemplateTags", ctx.remote.contentOutputs.putTemplateTags(tags)),
+				exportTemplates: (ids) => unwrap("contentOutputs.exportTemplates", ctx.remote.contentOutputs.exportTemplates(ids)),
+				importTemplates: (pack, strategy) => unwrap("contentOutputs.importTemplates", ctx.remote.contentOutputs.importTemplates(pack, strategy)),
+				processTemplateAi: (request) => unwrap("contentOutputs.processTemplateAi", ctx.remote.contentOutputs.processTemplateAi(request))
+			} });
+			const review = createReviewController({
+				readReviewManifest: (theme) => unwrap("contentOutputs.readReviewManifest", ctx.remote.contentOutputs.readReviewManifest(theme)),
+				writeReviewManifest: (theme, manifest) => unwrap("contentOutputs.writeReviewManifest", ctx.remote.contentOutputs.writeReviewManifest(theme, manifest)),
+				parseReviewImport: (request) => unwrap("contentOutputs.parseReviewImport", ctx.remote.contentOutputs.parseReviewImport(request)),
+				commitReviewImport: (request) => unwrap("contentOutputs.commitReviewImport", ctx.remote.contentOutputs.commitReviewImport(request)),
+				deleteReviewTask: (request) => unwrap("contentOutputs.deleteReviewTask", ctx.remote.contentOutputs.deleteReviewTask(request)),
+				writeReviewReport: (theme, file, content) => unwrap("contentOutputs.writeReviewReport", ctx.remote.contentOutputs.writeReviewReport(theme, file, content)),
+				readReviewReport: (theme, file) => unwrap("contentOutputs.readReviewReport", ctx.remote.contentOutputs.readReviewReport(theme, file)),
+				writeReviewTemplate: (theme, file, content) => unwrap("contentOutputs.writeReviewTemplate", ctx.remote.contentOutputs.writeReviewTemplate(theme, file, content)),
+				listReviewTemplates: (theme) => unwrap("contentOutputs.listReviewTemplates", ctx.remote.contentOutputs.listReviewTemplates(theme)),
+				analyzeReviewWork: (request) => unwrap("contentOutputs.analyzeReviewWork", ctx.remote.contentOutputs.analyzeReviewWork(request)),
+				generateReviewReport: (request) => unwrap("contentOutputs.generateReviewReport", ctx.remote.contentOutputs.generateReviewReport(request))
+			}, topics);
+			const interaction = createInteractionController({
+				readInteractions: () => unwrap("contentOutputs.readInteractions", ctx.remote.contentOutputs.readInteractions()),
+				writeInteractions: (manifest) => unwrap("contentOutputs.writeInteractions", ctx.remote.contentOutputs.writeInteractions(manifest)),
+				parseInteractionImport: (request) => unwrap("contentOutputs.parseInteractionImport", ctx.remote.contentOutputs.parseInteractionImport(request)),
+				commitInteractionImport: (request) => unwrap("contentOutputs.commitInteractionImport", ctx.remote.contentOutputs.commitInteractionImport(request)),
+				generateInteractionReply: (request) => unwrap("contentOutputs.generateInteractionReply", ctx.remote.contentOutputs.generateInteractionReply(request)),
+				classifyInteractions: (request) => unwrap("contentOutputs.classifyInteractions", ctx.remote.contentOutputs.classifyInteractions(request)),
+				extractInteractionInsights: (request) => unwrap("contentOutputs.extractInteractionInsights", ctx.remote.contentOutputs.extractInteractionInsights(request)),
+				exportInteractionCsv: () => unwrap("contentOutputs.exportInteractionCsv", ctx.remote.contentOutputs.exportInteractionCsv()),
+				sendInteractionReply: (request) => unwrap("contentOutputs.sendInteractionReply", ctx.remote.contentOutputs.sendInteractionReply(request))
+			}, topics, writeExport);
 			ctx.slots.inject("sidebar.footer.action", function* () {
 				yield ctx.slots.register({
 					name: "sidebar.footer.action",
@@ -29446,22 +41392,25 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						listOutputs,
 						gather,
 						schedule,
+						notes,
 						competitors,
 						create,
 						personas,
 						listThemes,
 						topics,
-						writeExport
+						writeExport,
+						publish,
+						review,
+						interaction,
+						templates
 					})
 				}, ContentStudio);
 			});
-			return async () => {
-				for (const dispose of disposers.reverse()) await dispose();
-			};
 		}
 		//#endregion
 		exports.CAPABILITY_ITEMS = CAPABILITY_ITEMS;
 		exports.DEFAULT_TOPIC_BANK_CONFIG = DEFAULT_TOPIC_BANK_CONFIG;
+		exports.PLATFORM_PROFILES = PLATFORM_PROFILES;
 		exports.STUDIO_TABS = STUDIO_TABS;
 		exports.TOPIC_BANK_CONFIG_VERSION = TOPIC_BANK_CONFIG_VERSION;
 		exports.TOPIC_SOURCE_TYPES = TOPIC_SOURCE_TYPES;
@@ -29471,16 +41420,24 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		exports.collectTags = collectTags;
 		exports.createContentStudioController = createContentStudioController;
 		exports.createGatherController = createGatherController;
+		exports.createInteractionController = createInteractionController;
 		exports.createPersonaController = createPersonaController;
+		exports.createPublishController = createPublishController;
+		exports.createReviewController = createReviewController;
+		exports.createTemplateController = createTemplateController;
+		exports.dueScheduledTasks = dueScheduledTasks;
 		exports.filterTopics = filterTopics;
 		exports.formatScore = formatScore;
+		exports.formatTags = formatTags;
 		exports.gatherMaterialToTopicInput = gatherMaterialToTopicInput;
 		exports.groupByStatus = groupByStatus;
 		exports.inject = inject;
 		exports.loadTopicBankConfig = loadTopicBankConfig;
 		exports.manualTopicInput = manualTopicInput;
+		exports.manuscriptCards = manuscriptCards;
 		exports.parseTopicsMarkdown = parseTopicsMarkdown;
 		exports.planWindowRange = planWindowRange;
+		exports.platformProfileOf = platformProfileOf;
 		exports.saveTopicBankConfig = saveTopicBankConfig;
 		exports.topicInputOf = topicInputOf;
 		exports.topicToMarkdown = topicToMarkdown;

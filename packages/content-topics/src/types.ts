@@ -13,7 +13,7 @@ export type TopicItemId = Branded<'TopicItemId'>
 export type TopicStatus = 'idea' | 'todo' | 'creating' | 'done' | 'shelved'
 
 /** Where one topic came from. */
-export type TopicSourceType = 'manual' | 'gather' | 'benchmark'
+export type TopicSourceType = 'manual' | 'gather' | 'benchmark' | 'interaction'
 
 /** Who produced a topic score. */
 export type TopicScoreSource = 'manual' | 'ai'
