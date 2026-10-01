@@ -3563,7 +3563,7 @@ function parsePublishManifest(raw) {
 function assertPublishManifest(manifest) {
 	if (manifest.formatVersion !== 0) throw new Error(`unknown publish manifest formatVersion ${String(manifest.formatVersion)}`);
 	if (!Array.isArray(manifest.tasks)) throw new Error("publish manifest tasks is not an array");
-	for (const task of manifest.tasks) if (!isTask$1(task)) throw new Error(`publish task ${task.taskId ?? "<unnamed>"} is malformed`);
+	for (const task of manifest.tasks) if (!isTask$1(task)) throw new Error(`malformed publish task: ${JSON.stringify(task).slice(0, 120)}`);
 }
 /**
 * Read the theme's `_publish.json` manifest.
@@ -4468,7 +4468,7 @@ async function importTemplatePack(root, pack, strategy, now = (/* @__PURE__ */ n
 		let renamed = 0;
 		const tagById = new Map(state.tags.map((tag) => [tag.id, tag]));
 		let taxonomyDirty = false;
-		for (const raw of pack.tags ?? []) {
+		for (const raw of pack.tags) {
 			if (!isTag(raw)) {
 				failed.push(`invalid tag record: ${JSON.stringify(raw).slice(0, 120)}`);
 				continue;
@@ -4483,7 +4483,7 @@ async function importTemplatePack(root, pack, strategy, now = (/* @__PURE__ */ n
 			taxonomyDirty = true;
 		}
 		const templates = [...state.templates];
-		for (const raw of pack.templates ?? []) {
+		for (const raw of pack.templates) {
 			if (!isTemplateRecord(raw)) {
 				failed.push(`invalid template record: ${JSON.stringify(raw).slice(0, 120)}`);
 				continue;
@@ -4917,7 +4917,9 @@ function isTask(value) {
 	const record = value;
 	const period = record.period;
 	const filters = record.filters;
-	return typeof record.taskId === "string" && record.taskId.length > 0 && typeof record.name === "string" && record.name.length > 0 && typeof period === "object" && period !== null && typeof period.from === "string" && typeof period.to === "string" && typeof filters === "object" && filters !== null && Array.isArray(filters.platforms) && filters.platforms.every(isPlatformId$2) && Array.isArray(filters.contentTypes) && filters.contentTypes.every(isContentType) && (filters.workFilter === "all" || filters.workFilter === "viral" || filters.workFilter === "weak" || filters.workFilter === "longtail") && isStatus$1(record.status) && (record.reportFile === null || typeof record.reportFile === "string" && record.reportFile.length > 0) && typeof record.degraded === "boolean" && typeof record.createdAt === "string" && record.createdAt.length > 0;
+	const periodOk = typeof period === "object" && period !== null;
+	const filtersOk = typeof filters === "object" && filters !== null;
+	return typeof record.taskId === "string" && record.taskId.length > 0 && typeof record.name === "string" && record.name.length > 0 && periodOk && typeof period.from === "string" && typeof period.to === "string" && filtersOk && Array.isArray(filters.platforms) && filters.platforms.every(isPlatformId$2) && Array.isArray(filters.contentTypes) && filters.contentTypes.every(isContentType) && (filters.workFilter === "all" || filters.workFilter === "viral" || filters.workFilter === "weak" || filters.workFilter === "longtail") && isStatus$1(record.status) && (record.reportFile === null || typeof record.reportFile === "string" && record.reportFile.length > 0) && typeof record.degraded === "boolean" && typeof record.createdAt === "string" && record.createdAt.length > 0;
 }
 /** Whether one stored baselines record is well-typed with finite ratios. */
 function isBaselines(value) {
@@ -5082,7 +5084,8 @@ async function readReviewIndexFile(root) {
 	record.rows.forEach((entry, position) => {
 		const candidate = entry;
 		const period = candidate.period;
-		if (typeof candidate.taskId === "string" && typeof candidate.theme === "string" && typeof candidate.name === "string" && typeof period === "object" && period !== null && typeof period.from === "string" && typeof period.to === "string" && Array.isArray(candidate.platforms) && candidate.platforms.every(isPlatformId$2) && isStatus$1(candidate.status) && typeof candidate.updatedAt === "string") rows.push({
+		const periodOk = typeof period === "object" && period !== null;
+		if (typeof candidate.taskId === "string" && typeof candidate.theme === "string" && typeof candidate.name === "string" && periodOk && typeof period.from === "string" && typeof period.to === "string" && Array.isArray(candidate.platforms) && candidate.platforms.every(isPlatformId$2) && isStatus$1(candidate.status) && typeof candidate.updatedAt === "string") rows.push({
 			taskId: candidate.taskId,
 			theme: candidate.theme,
 			name: candidate.name,
@@ -5548,7 +5551,7 @@ function parseContentTypeCell(cell) {
 * @returns the preview; nothing is stored.
 */
 function parseImportFile(request) {
-	if (!REVIEW_PLATFORMS.includes(request.platformId)) throw new Error(`invalid review platformId: ${String(request.platformId)}`);
+	if (!REVIEW_PLATFORMS.includes(request.platformId)) throw new Error(`invalid review platformId: ${request.platformId}`);
 	if (request.text.length > 2e6) throw new Error(`review import exceeds the ${REVIEW_MAX_IMPORT_CHARS}-character cap`);
 	const physicalRows = parseCsvRows(request.text).filter((row) => row.some((cell) => cell.trim().length > 0));
 	if (physicalRows.length === 0) throw new Error("review import file is empty");
@@ -8405,8 +8408,8 @@ let ContentOutputsGateway = (() => {
 		* @param request - the platform, file name, and raw CSV text.
 		* @returns the preview.
 		*/
-		async parseReviewImport(request) {
-			return parseImportFile(request);
+		parseReviewImport(request) {
+			return Promise.resolve(parseImportFile(request));
 		}
 		/**
 		* Commit confirmed import rows as snapshots: new works append, a known
@@ -8523,8 +8526,8 @@ let ContentOutputsGateway = (() => {
 		* @param request - the file name and raw CSV text (browser-decoded).
 		* @returns the preview.
 		*/
-		async parseInteractionImport(request) {
-			return parseInteractionImport(request);
+		parseInteractionImport(request) {
+			return Promise.resolve(parseInteractionImport(request));
 		}
 		/**
 		* Commit confirmed import rows: messages group into conversations by

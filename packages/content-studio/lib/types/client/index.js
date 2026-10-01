@@ -63,7 +63,7 @@ export async function apply(ctx) {
     const workbench = await ctx.plugin({
         name: 'ui-content-studio:workbench',
         inject: ['slots', 'locale', 'remote', 'remote.contentOutputs', 'remote.contentSchedule', 'remote.contentTopics'],
-        apply: (workbenchCtx) => mainApply(workbenchCtx),
+        apply: workbenchCtx => mainApply(workbenchCtx),
     });
     return async () => {
         await workbench.dispose();
@@ -79,7 +79,7 @@ export async function apply(ctx) {
  * separate disposer.
  * @param ctx - the workbench fiber's context.
  */
-async function mainApply(ctx) {
+function mainApply(ctx) {
     const studio = createContentStudioController();
     const listOutputs = async () => {
         const result = await ctx.remote.contentOutputs.list();
@@ -209,6 +209,8 @@ async function mainApply(ctx) {
         },
     });
     const competitors = {
+        // The benchmark side's 收录为选题 rides the shared topic-bank face.
+        topics,
         readCompetitorManifest: async (theme) => {
             const result = await ctx.remote.contentOutputs.readCompetitorManifest(theme);
             if (!result.ok)
@@ -306,6 +308,10 @@ async function mainApply(ctx) {
     // The interaction face: the `_interactions.json` inbox manifest, the
     // two-step CSV import, the reply/classify/insight AI, and the reserved
     // MCP send knock — plus the topic and export faces for the reflows.
+    // Raw manifest reads for the workbench home: the dashboard aggregates
+    // across columns without pulling the controllers' session state.
+    const readInteractions = () => unwrap('contentOutputs.readInteractions', ctx.remote.contentOutputs.readInteractions());
+    const readReviewManifest = theme => unwrap('contentOutputs.readReviewManifest', ctx.remote.contentOutputs.readReviewManifest(theme));
     const interaction = createInteractionController({
         readInteractions: () => unwrap('contentOutputs.readInteractions', ctx.remote.contentOutputs.readInteractions()),
         writeInteractions: manifest => unwrap('contentOutputs.writeInteractions', ctx.remote.contentOutputs.writeInteractions(manifest)),
@@ -329,7 +335,11 @@ async function mainApply(ctx) {
             id: 'content-studio',
             order: 50,
             locale: NS,
-            inject: () => ({ studio, listOutputs, gather, schedule, notes, competitors, create, personas, listThemes, topics, writeExport, publish, review, interaction, templates }),
+            inject: () => ({
+                studio, listOutputs, gather, schedule, notes, competitors, create, personas, listThemes,
+                topics, writeExport, publish, review, interaction, readInteractions, readReviewManifest,
+                templates,
+            }),
         }, ContentStudio);
     });
 }

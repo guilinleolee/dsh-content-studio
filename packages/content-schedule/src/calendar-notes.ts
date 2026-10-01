@@ -69,10 +69,14 @@ export async function writeNote(file: string, id: string, text: string): Promise
   return withFileLock(file, async () => {
     await mkdir(dirname(file), { recursive: true, mode: 0o700 })
     const before = await readNotes(file)
-    const notes: Record<string, CalendarNoteEntry> = { ...before.notes }
     const body = text.trim()
-    if (body.length === 0) delete notes[id]
-    else notes[id] = { text: body, updatedAt: new Date().toISOString() }
+    // Rebuild the map instead of deleting: an empty text clears the entry.
+    const notes: Record<string, CalendarNoteEntry> = {}
+    for (const [key, entry] of Object.entries(before.notes)) {
+      if (body.length === 0 && key === id) continue
+      notes[key] = entry
+    }
+    if (body.length > 0) notes[id] = { text: body, updatedAt: new Date().toISOString() }
     const serialized = `${JSON.stringify({ formatVersion: 0, notes }, null, 2)}\n`
     await writeFileAtomic(file, serialized, { mode: 0o600, dirMode: 0o700 })
     return readNotes(file)

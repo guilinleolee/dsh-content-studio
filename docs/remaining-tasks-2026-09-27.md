@@ -41,9 +41,12 @@
 
 ## 二、结构性断点（最小闭环修复集，约半天）
 
-- [ ] **发布→选题回流死链**：`PublishView.tsx:131` 表单硬编码 `topicId: null` → "回流：选题标记已发布"按钮渲染条件（`PublishView.tsx:488-492`）永假、任务关联选题落空。另回流目标状态是 `done` 而非需求的「已发布上线」（`TopicStatus` 无已发布态，需决定加态或文档让步）
-- [ ] **对标→选题库未切换**：`CompetitorsView.tsx:431-440` `addIdea` 只写 `idea-<id>.md` 资产文件，不写 `_topics.json`；`pushTopic` 预留接口在代码中不存在。可照抄信息侧 `joinTopicBank`（`ContentStudio.tsx:245-260`）→ `gatherMaterialToTopicInput`（`topic-bank.ts:398-419`）链路；补"前往选题库查看"轻提示链接
-- [ ] **对标账号视图无导航入口**：`CompetitorsView` 已完整实现且有渲染分支（`ContentStudio.tsx:342-343`），但 `NAV_ITEMS`（`ContentStudio.tsx:59-75`）无 `competitors` 项（导航里的"对标"指向提示词切片页 `CapabilityPage`）；`nav.competitors` locale 键已存在未被引用，加一行即修
+> **2026-09-28：前三条已全部修复并验证**（581/581 回归 + client typecheck 清零 + bundle 重建；Agent Note: `.agents/notes/implemented/feature/2026-09-28-dsh-content-studio-loop-closure.md`）。第 4 条（总览数据源）未动。
+
+
+- [x] **发布→选题回流死链（2026-09-28 已修）**：`PublishView.tsx:131` 表单硬编码 `topicId: null` → "回流：选题标记已发布"按钮渲染条件（`PublishView.tsx:488-492`）永假、任务关联选题落空。另回流目标状态是 `done` 而非需求的「已发布上线」（`TopicStatus` 无已发布态，需决定加态或文档让步）
+- [x] **对标→选题库未切换（2026-09-28 已修）**：`CompetitorsView.tsx:431-440` `addIdea` 只写 `idea-<id>.md` 资产文件，不写 `_topics.json`；`pushTopic` 预留接口在代码中不存在。可照抄信息侧 `joinTopicBank`（`ContentStudio.tsx:245-260`）→ `gatherMaterialToTopicInput`（`topic-bank.ts:398-419`）链路；补"前往选题库查看"轻提示链接
+- [x] **对标账号视图无导航入口（2026-09-28 已修）**：`CompetitorsView` 已完整实现且有渲染分支（`ContentStudio.tsx:342-343`），但 `NAV_ITEMS`（`ContentStudio.tsx:59-75`）无 `competitors` 项（导航里的"对标"指向提示词切片页 `CapabilityPage`）；`nav.competitors` locale 键已存在未被引用，加一行即修
 - [ ] **总览数据源过窄**：`ContentWorkbench.tsx:23-26` 只接 outputs+schedule 两个 Remote；topics/review Remote 均已存在，接入可补齐大部分缺失指标
 
 ## 三、栏目内功能缺口

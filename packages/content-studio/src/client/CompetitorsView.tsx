@@ -17,10 +17,12 @@ import type {
   ContentOutputsSnapshot, OutputProject,
 } from '@deepseek-ai/dsh-content-outputs/types'
 import {
-  aggregateAccountDigest, buildIdeaMarkdown, COMPETITOR_PLATFORMS, exportAccounts, heatByWork,
-  importAccounts, interactionScore, isAccountStale, loadAccounts, newId, saveAccounts, upsertWork,
+  aggregateAccountDigest, buildIdeaMarkdown, COMPETITOR_PLATFORMS, competitorWorkToTopicInput,
+  exportAccounts, heatByWork, importAccounts, interactionScore, isAccountStale, loadAccounts,
+  newId, saveAccounts, upsertWork,
   type CompetitorAccount,
 } from './competitors.ts'
+import type { TopicBankGateway } from './TopicBankView.tsx'
 import type { StudioKey } from './locales.ts'
 import css from './ContentStudio.module.css'
 
@@ -32,6 +34,8 @@ const THEME_LEGACY_STORAGE_KEY = 'content-studio.competitors.theme'
 
 /** Injected face of the competitors view: the Remote wrappers it needs. */
 export interface CompetitorsViewInjected {
+  /** The topic-bank face the 收录为选题 push rides. */
+  topics: TopicBankGateway
   listOutputs: () => Promise<ContentOutputsSnapshot>
   readCompetitorManifest: (theme: string) => Promise<CompetitorManifestRead>
   writeCompetitorManifest: (theme: string, manifest: CompetitorManifest) => Promise<void>
@@ -156,7 +160,7 @@ function numberField(value: string): number {
 export function CompetitorsView(props: CompetitorsViewProps) {
   const {
     listOutputs, readCompetitorManifest, writeCompetitorManifest, writeAsset, deleteAsset, readAsset,
-    analyzeCompetitorWork, generateCompetitorReport, t,
+    analyzeCompetitorWork, generateCompetitorReport, topics, t,
   } = props
   const [accounts, setAccounts] = useState<readonly CompetitorAccount[]>(() => loadAccounts().accounts)
   const [storageDegraded, setStorageDegraded] = useState(false)
@@ -437,6 +441,12 @@ export function CompetitorsView(props: CompetitorsViewProps) {
 
   const addIdea = (work: CompetitorWork): void => {
     void act(async () => {
+      // The topic bank is the primary target: one benchmark work yields one
+      // topic, ever — the list check makes a retry after a half-done round
+      // (topic landed, file write failed) a pure marker backfill.
+      const bank = await topics.list()
+      const exists = bank.items.some(topic => topic.source.type === 'benchmark' && topic.source.refId === work.id)
+      if (!exists) await topics.put(competitorWorkToTopicInput(work, new Date().toISOString()))
       const file = `idea-${work.id.slice(3)}.md`
       await writeAsset({ theme, file, content: buildIdeaMarkdown(work, work.analysis.result?.migrationTopics[0]) })
       await commitManifest({

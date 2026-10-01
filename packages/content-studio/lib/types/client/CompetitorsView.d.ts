@@ -1,7 +1,10 @@
 import type { PropsLocale } from '@deepseek-ai/dsh-client-ui-slots';
 import type { CompetitorAnalyzeWorkRequest, CompetitorAnalyzeWorkResult, CompetitorManifest, CompetitorManifestRead, CompetitorReportRequest, CompetitorReportResult, ContentOutputsSnapshot } from '@deepseek-ai/dsh-content-outputs/types';
+import type { TopicBankGateway } from './TopicBankView.tsx';
 /** Injected face of the competitors view: the Remote wrappers it needs. */
 export interface CompetitorsViewInjected {
+    /** The topic-bank face the 收录为选题 push rides. */
+    topics: TopicBankGateway;
     listOutputs: () => Promise<ContentOutputsSnapshot>;
     readCompetitorManifest: (theme: string) => Promise<CompetitorManifestRead>;
     writeCompetitorManifest: (theme: string, manifest: CompetitorManifest) => Promise<void>;

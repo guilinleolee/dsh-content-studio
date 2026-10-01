@@ -121,13 +121,16 @@ export function parsePublishManifest(raw) {
  * @throws when any task is malformed.
  */
 export function assertPublishManifest(manifest) {
+    // The read path feeds parsed-unknown JSON through this assert cast to the
+    // typed shape, so the envelope version gate is load-bearing.
+    // oxlint-disable-next-line typescript/no-unnecessary-condition
     if (manifest.formatVersion !== 0)
         throw new Error(`unknown publish manifest formatVersion ${String(manifest.formatVersion)}`);
     if (!Array.isArray(manifest.tasks))
         throw new Error('publish manifest tasks is not an array');
     for (const task of manifest.tasks) {
         if (!isTask(task))
-            throw new Error(`publish task ${task.taskId ?? '<unnamed>'} is malformed`);
+            throw new Error(`malformed publish task: ${JSON.stringify(task).slice(0, 120)}`);
     }
 }
 /**

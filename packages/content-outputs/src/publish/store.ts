@@ -136,10 +136,13 @@ export function parsePublishManifest(raw: string): { manifest: PublishManifest; 
  * @throws when any task is malformed.
  */
 export function assertPublishManifest(manifest: PublishManifest): void {
+  // The read path feeds parsed-unknown JSON through this assert cast to the
+  // typed shape, so the envelope version gate is load-bearing.
+  // oxlint-disable-next-line typescript/no-unnecessary-condition
   if (manifest.formatVersion !== 0) throw new Error(`unknown publish manifest formatVersion ${String(manifest.formatVersion)}`)
   if (!Array.isArray(manifest.tasks)) throw new Error('publish manifest tasks is not an array')
   for (const task of manifest.tasks) {
-    if (!isTask(task)) throw new Error(`publish task ${task.taskId ?? '<unnamed>'} is malformed`)
+    if (!isTask(task)) throw new Error(`malformed publish task: ${JSON.stringify(task).slice(0, 120)}`)
   }
 }
 
@@ -149,7 +152,10 @@ export function assertPublishManifest(manifest: PublishManifest): void {
  * @param theme - outputs-project directory name.
  * @returns the manifest (null when absent) plus every dropped task named.
  */
-export async function readPublishManifestFile(root: string, theme: string): Promise<{ manifest: PublishManifest | null; problems: string[] }> {
+export async function readPublishManifestFile(
+  root: string,
+  theme: string,
+): Promise<{ manifest: PublishManifest | null; problems: string[] }> {
   const file = join(resolveAssetsDir(root, theme), PUBLISH_MANIFEST_FILENAME)
   let raw: string
   try {
@@ -215,7 +221,7 @@ export async function readPublishIndexFile(root: string): Promise<{ index: Publi
         theme: candidate.theme,
         title: candidate.title,
         status: candidate.status as PublishStatus,
-        platformIds: candidate.platformIds as readonly string[],
+        platformIds: candidate.platformIds,
         updatedAt: candidate.updatedAt,
       })
     } else {
@@ -263,7 +269,13 @@ export function resolvePublishDerivedPath(root: string, theme: string, taskId: s
  * @param content - the complete draft text.
  * @returns the stored path relative to the theme's `assets/`.
  */
-export async function writePublishDerivedFile(root: string, theme: string, taskId: string, platformId: string, content: string): Promise<{ file: string }> {
+export async function writePublishDerivedFile(
+  root: string,
+  theme: string,
+  taskId: string,
+  platformId: string,
+  content: string,
+): Promise<{ file: string }> {
   const path = resolvePublishDerivedPath(root, theme, taskId, platformId)
   await mkdir(join(path, '..'), { recursive: true })
   await writeAtomicallyLocked(path, content)

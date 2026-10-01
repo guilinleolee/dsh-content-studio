@@ -541,8 +541,12 @@ function uniqueName(name, taken) {
  * @returns the per-bucket summary.
  */
 export async function importTemplatePack(root, pack, strategy, now = new Date().toISOString()) {
+    // The envelope checks are load-bearing: the import path feeds parsed-
+    // unknown JSON cast to TemplatePack, so the literal gates carry the type.
+    // oxlint-disable-next-line typescript/no-unnecessary-condition
     if (pack.format !== 'dsh-template-pack')
         throw new Error(`unsupported pack format: ${String(pack.format)}`);
+    // oxlint-disable-next-line typescript/no-unnecessary-condition
     if (pack.formatVersion !== 1)
         throw new Error(`unsupported pack formatVersion: ${String(pack.formatVersion)}`);
     return withTemplatesLock(root, async () => {
@@ -555,7 +559,7 @@ export async function importTemplatePack(root, pack, strategy, now = new Date().
         // Pack tags merge additively: known ids keep their local names.
         const tagById = new Map(state.tags.map(tag => [tag.id, tag]));
         let taxonomyDirty = false;
-        for (const raw of pack.tags ?? []) {
+        for (const raw of pack.tags) {
             if (!isTag(raw)) {
                 failed.push(`invalid tag record: ${JSON.stringify(raw).slice(0, 120)}`);
                 continue;
@@ -571,7 +575,7 @@ export async function importTemplatePack(root, pack, strategy, now = new Date().
             taxonomyDirty = true;
         }
         const templates = [...state.templates];
-        for (const raw of pack.templates ?? []) {
+        for (const raw of pack.templates) {
             if (!isTemplateRecord(raw)) {
                 failed.push(`invalid template record: ${JSON.stringify(raw).slice(0, 120)}`);
                 continue;

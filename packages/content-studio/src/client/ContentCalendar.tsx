@@ -175,7 +175,7 @@ export function ContentCalendar({
   // export button explains itself instead of failing at write time.
   useEffect(() => {
     let alive = true
-    listThemes().then(names => {
+    listThemes().then((names) => {
       if (alive) setExportTheme(names[0] ?? null)
     }).catch(() => {
       // Theme listing failed: export stays disabled with its own hint.
@@ -184,7 +184,7 @@ export function ContentCalendar({
   }, [listThemes])
 
   const patchConfig = (patch: Partial<Omit<CalendarConfig, 'version'>>): void => {
-    setConfig(current => {
+    setConfig((current) => {
       const next = { ...current, ...patch }
       try {
         localStorage.setItem(CONFIG_KEY, saveCalendarConfig(next))
@@ -220,14 +220,14 @@ export function ContentCalendar({
 
   const shift = (delta: number): void => {
     if (config.view === 'week') {
-      setWeekAnchor(current => {
+      setWeekAnchor((current) => {
         const base = new Date(Number(current.slice(0, 4)), Number(current.slice(5, 7)) - 1, Number(current.slice(8, 10)))
         const day = new Date(base.getFullYear(), base.getMonth(), base.getDate() + delta * 7)
         return formatDate(day.getFullYear(), day.getMonth() + 1, day.getDate())
       })
       return
     }
-    setMonth(current => {
+    setMonth((current) => {
       const zero = current.year * 12 + current.month - 1 + delta
       return { year: Math.floor(zero / 12), month: ((zero % 12) + 12) % 12 + 1 }
     })
@@ -380,10 +380,10 @@ export function ContentCalendar({
         role="button"
         tabIndex={0}
         aria-label={day.date}
-        onDragOver={event => {
+        onDragOver={(event) => {
           if (dragId !== undefined) event.preventDefault()
         }}
-        onDrop={event => {
+        onDrop={(event) => {
           event.preventDefault()
           const dropped = dragId
           setDragId(undefined)
@@ -391,7 +391,7 @@ export function ContentCalendar({
           if (item !== undefined) void reschedule(item, day.date)
         }}
         onClick={() => { setForm(form?.date === day.date ? undefined : newForm(day.date)) }}
-        onKeyDown={event => { if (event.key === 'Enter') setForm(form?.date === day.date ? undefined : newForm(day.date)) }}
+        onKeyDown={(event) => { if (event.key === 'Enter') setForm(form?.date === day.date ? undefined : newForm(day.date)) }}
       >
         <span className={css.calendarDayNum}>{Number(day.date.slice(8, 10))}</span>
         {cellItems.map(item => (
@@ -409,8 +409,8 @@ export function ContentCalendar({
             role="button"
             tabIndex={0}
             title={conflicts.has(item.id) ? t('calendar.conflict.hint') : undefined}
-            onClick={event => { event.stopPropagation(); setDetailId(item.id) }}
-            onKeyDown={event => { if (event.key === 'Enter') { event.stopPropagation(); setDetailId(item.id) } }}
+            onClick={(event) => { event.stopPropagation(); setDetailId(item.id) }}
+            onKeyDown={(event) => { if (event.key === 'Enter') { event.stopPropagation(); setDetailId(item.id) } }}
           >
             <span className={clsx(css.calendarDot, DOT_CLASS[item.status])} aria-hidden="true" />
             <span className={cal.chipKind} aria-hidden="true">{item.kind === 'content' ? '📄' : '📌'}</span>
@@ -421,7 +421,7 @@ export function ContentCalendar({
                 className={css.calendarChipAction}
                 aria-label={t('calendar.publish.aria')}
                 title={t('calendar.publish')}
-                onClick={event => { event.stopPropagation(); void markPublished(item) }}
+                onClick={(event) => { event.stopPropagation(); void markPublished(item) }}
               >
                 ✓
               </button>
@@ -430,28 +430,28 @@ export function ContentCalendar({
               type="button"
               className={css.calendarChipAction}
               aria-label={t('calendar.remove.aria')}
-              onClick={event => { event.stopPropagation(); void removeItem(item, false) }}
+              onClick={(event) => { event.stopPropagation(); void removeItem(item, false) }}
             >
               <IconTrashOutline16 size={11} />
             </button>
           </span>
         ))}
         {form?.date === day.date && (
-          <div className={css.calendarForm} onClick={event => { event.stopPropagation() }}>
+          <div className={css.calendarForm} onClick={(event) => { event.stopPropagation() }}>
             <input
               className={css.calendarInput}
               autoFocus
               placeholder={t('calendar.titlePlaceholder')}
               value={form.title}
-              onChange={event => { setForm({ ...form, title: event.currentTarget.value }) }}
-              onKeyDown={event => { if (event.key === 'Enter') void submit() }}
+              onChange={(event) => { setForm({ ...form, title: event.currentTarget.value }) }}
+              onKeyDown={(event) => { if (event.key === 'Enter') void submit() }}
             />
             <div className={cal.formRow}>
               <select
                 className={cal.formSelect}
                 aria-label={t('calendar.filter.kind')}
                 value={form.kind}
-                onChange={event => { setForm({ ...form, kind: event.currentTarget.value as ScheduleItemKind }) }}
+                onChange={(event) => { setForm({ ...form, kind: event.currentTarget.value as ScheduleItemKind }) }}
               >
                 <option value="event">{t('calendar.kind.event')}</option>
                 <option value="content">{t('calendar.kind.content')}</option>
@@ -460,7 +460,7 @@ export function ContentCalendar({
                 className={css.calendarInput}
                 placeholder={t('calendar.timePlaceholder')}
                 value={form.time}
-                onChange={event => { setForm({ ...form, time: event.currentTarget.value }) }}
+                onChange={(event) => { setForm({ ...form, time: event.currentTarget.value }) }}
               />
             </div>
             <div className={cal.formRow}>
@@ -468,13 +468,13 @@ export function ContentCalendar({
                 className={css.calendarInput}
                 placeholder={t('calendar.platformPlaceholder')}
                 value={form.platform}
-                onChange={event => { setForm({ ...form, platform: event.currentTarget.value }) }}
+                onChange={(event) => { setForm({ ...form, platform: event.currentTarget.value }) }}
               />
               <select
                 className={cal.formSelect}
                 aria-label={t('calendar.detail.topic')}
                 value={form.topicDir}
-                onChange={event => { setForm({ ...form, topicDir: event.currentTarget.value }) }}
+                onChange={(event) => { setForm({ ...form, topicDir: event.currentTarget.value }) }}
               >
                 <option value="">{t('calendar.topicPlaceholder')}</option>
                 {(topicsSnapshot?.items ?? []).filter(candidate => candidate.topicDir !== null).map(candidate => (
@@ -505,8 +505,9 @@ export function ContentCalendar({
   }
 
   const grid: CalendarDay[][] = config.view === 'week' ? [weekGrid(weekAnchor)] : monthGrid(month.year, month.month)
+  const weekRow = grid[0] ?? []
   const periodLabel = config.view === 'week'
-    ? `${grid[0]![0]!.date} ~ ${grid[0]!.at(-1)!.date}`
+    ? `${weekRow[0]?.date ?? ''} ~ ${weekRow.at(-1)?.date ?? ''}`
     : `${month.year} · ${t(`calendar.month.${month.month}` as StudioKey)}`
   const filters = config.filters
 
@@ -554,7 +555,7 @@ export function ContentCalendar({
           className={cal.formSelect}
           aria-label={t('calendar.filter.kind')}
           value={filters.kind}
-          onChange={event => { patchFilters({ kind: event.currentTarget.value as CalendarFilters['kind'] }) }}
+          onChange={(event) => { patchFilters({ kind: event.currentTarget.value as CalendarFilters['kind'] }) }}
         >
           <option value="all">{t('calendar.kind.all')}</option>
           <option value="content">{t('calendar.kind.content')}</option>
@@ -578,7 +579,7 @@ export function ContentCalendar({
             onClick={() => { patchFilters({ statuses: toggleInList(filters.statuses, status) }) }}
           >
             <span className={clsx(css.calendarDot, DOT_CLASS[status])} aria-hidden="true" />
-            {t(`calendar.status.${status}` as StudioKey)}
+            {t(`calendar.status.${status}`)}
           </button>
         ))}
         <input
@@ -586,14 +587,14 @@ export function ContentCalendar({
           className={cal.formSelect}
           aria-label={t('calendar.filter.range')}
           value={filters.start ?? ''}
-          onChange={event => { patchFilters({ start: event.currentTarget.value === '' ? null : event.currentTarget.value }) }}
+          onChange={(event) => { patchFilters({ start: event.currentTarget.value === '' ? null : event.currentTarget.value }) }}
         />
         <input
           type="date"
           className={cal.formSelect}
           aria-label={t('calendar.filter.range')}
           value={filters.end ?? ''}
-          onChange={event => { patchFilters({ end: event.currentTarget.value === '' ? null : event.currentTarget.value }) }}
+          onChange={(event) => { patchFilters({ end: event.currentTarget.value === '' ? null : event.currentTarget.value }) }}
         />
         <input
           type="search"
@@ -601,7 +602,7 @@ export function ContentCalendar({
           aria-label={t('calendar.filter.query.aria')}
           placeholder={t('calendar.filter.query.aria')}
           value={filters.query}
-          onChange={event => { patchFilters({ query: event.currentTarget.value }) }}
+          onChange={(event) => { patchFilters({ query: event.currentTarget.value }) }}
         />
         <button
           type="button"
@@ -638,7 +639,7 @@ export function ContentCalendar({
                 type="checkbox"
                 aria-label={t('calendar.list.all')}
                 checked={filtered.length > 0 && filtered.every(item => checked.has(item.id))}
-                onChange={event => {
+                onChange={(event) => {
                   setChecked(event.currentTarget.checked ? new Set(filtered.map(item => item.id)) : new Set())
                 }}
               />
@@ -651,7 +652,7 @@ export function ContentCalendar({
             <span>{t('calendar.detail.platform')}</span>
             <span>{t('calendar.detail.topic')}</span>
           </div>
-          {filtered.map(item => {
+          {filtered.map((item) => {
             const topicTitle = topicTitleOf(item)
             return (
               <div
@@ -660,13 +661,13 @@ export function ContentCalendar({
                 role="button"
                 tabIndex={0}
                 onClick={() => { setDetailId(item.id) }}
-                onKeyDown={event => { if (event.key === 'Enter') setDetailId(item.id) }}
+                onKeyDown={(event) => { if (event.key === 'Enter') setDetailId(item.id) }}
               >
-                <label className={cal.listCheck} onClick={event => { event.stopPropagation() }}>
+                <label className={cal.listCheck} onClick={(event) => { event.stopPropagation() }}>
                   <input
                     type="checkbox"
                     checked={checked.has(item.id)}
-                    onChange={event => {
+                    onChange={(event) => {
                       const next = new Set(checked)
                       if (event.currentTarget.checked) next.add(item.id)
                       else next.delete(item.id)
@@ -679,7 +680,7 @@ export function ContentCalendar({
                 <span>{item.kind === 'content' ? t('calendar.kind.content') : t('calendar.kind.event')}</span>
                 <span className={cal.listStatus}>
                   <span className={clsx(css.calendarDot, DOT_CLASS[item.status])} aria-hidden="true" />
-                  {t(`calendar.status.${item.status}` as StudioKey)}
+                  {t(`calendar.status.${item.status}`)}
                 </span>
                 <span className={cal.listTitle}>{item.title}</span>
                 <span>{item.platform ?? ''}</span>
@@ -729,7 +730,7 @@ export function ContentCalendar({
             <dt>{t('calendar.filter.status')}</dt>
             <dd className={cal.listStatus}>
               <span className={clsx(css.calendarDot, DOT_CLASS[detail.status])} aria-hidden="true" />
-              {t(`calendar.status.${detail.status}` as StudioKey)}
+              {t(`calendar.status.${detail.status}`)}
             </dd>
             <dt>{t('calendar.detail.platform')}</dt>
             <dd>{detail.platform ?? '—'}</dd>
@@ -793,7 +794,7 @@ function NoteEditor({ initial, onSave, t }: NoteEditorProps) {
         rows={3}
         placeholder={t('calendar.note.placeholder')}
         value={draft}
-        onChange={event => { setDraft(event.currentTarget.value) }}
+        onChange={(event) => { setDraft(event.currentTarget.value) }}
       />
       <button
         type="button"

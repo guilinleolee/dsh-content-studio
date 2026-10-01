@@ -101,7 +101,7 @@ export function ReviewView({ review, listThemes, t }: ReviewViewProps) {
     void review.stageImport(importPlatform, importFileName, importText)
   }
 
-  const noticeText = (notice: ReviewNotice): string => t(`review.notice.${notice}` as StudioKey)
+  const noticeText = (notice: ReviewNotice): string => t(`review.notice.${notice}`)
 
   return (
     <div className={css.view}>
@@ -110,7 +110,7 @@ export function ReviewView({ review, listThemes, t }: ReviewViewProps) {
         <select
           className={css.themePick}
           value={state.theme ?? ''}
-          onChange={event => pickTheme(event.target.value)}
+          onChange={(event) =>{  pickTheme(event.target.value) }}
           aria-label={t('review.theme.aria')}
         >
           <option value="">{t('review.theme.placeholder')}</option>
@@ -132,7 +132,7 @@ export function ReviewView({ review, listThemes, t }: ReviewViewProps) {
             className={css.tabButton}
             onClick={() => { setTab(candidate) }}
           >
-            {t(`review.tab.${candidate}` as StudioKey)}
+            {t(`review.tab.${candidate}`)}
           </button>
         ))}
       </nav>
@@ -149,7 +149,7 @@ export function ReviewView({ review, listThemes, t }: ReviewViewProps) {
               <div className={css.formRow}>
                 <select
                   value={importPlatform}
-                  onChange={event => setImportPlatform(event.target.value as ReviewPlatformId)}
+                  onChange={(event) =>{  setImportPlatform(event.target.value as ReviewPlatformId) }}
                   aria-label={t('review.import.platform')}
                 >
                   {REVIEW_PLATFORMS.map(platform => (
@@ -159,7 +159,7 @@ export function ReviewView({ review, listThemes, t }: ReviewViewProps) {
                 <input
                   type="file"
                   accept=".csv,text/csv"
-                  onChange={event => { void onFilePicked(event.target.files?.[0]) }}
+                  onChange={(event) => { void onFilePicked(event.target.files?.[0]) }}
                   aria-label={t('review.import.file')}
                 />
                 <button type="button" disabled={state.busy || importText.length === 0} onClick={stageImport}>
@@ -171,9 +171,9 @@ export function ReviewView({ review, listThemes, t }: ReviewViewProps) {
                 <ImportPreviewCard
                   preview={state.preview}
                   ignoredColumns={state.ignoredColumns}
-                  onIgnore={columns => review.setIgnoredColumns(columns)}
+                  onIgnore={(columns) =>{  review.setIgnoredColumns(columns) }}
                   onCommit={() => { void review.commitImport() }}
-                  onDiscard={() => review.discardImport()}
+                  onDiscard={() =>{  review.discardImport() }}
                   t={t}
                 />
               )}
@@ -293,13 +293,13 @@ export function ReviewView({ review, listThemes, t }: ReviewViewProps) {
                   type="text"
                   value={taskName}
                   placeholder={t('review.report.namePlaceholder')}
-                  onChange={event => setTaskName(event.target.value)}
+                  onChange={(event) =>{  setTaskName(event.target.value) }}
                   aria-label={t('review.report.namePlaceholder')}
                 />
                 <button
                   type="button"
                   disabled={state.busy || taskName.trim().length === 0}
-                  onClick={() => { void review.createTask(taskName.trim()).then(() => setTaskName('')) }}
+                  onClick={() => { void review.createTask(taskName.trim()).then(() =>{  setTaskName('') }) }}
                 >
                   {t('review.report.generate')}
                 </button>
@@ -312,11 +312,11 @@ export function ReviewView({ review, listThemes, t }: ReviewViewProps) {
                     className={css.reportEditor}
                     value={state.reportDraft}
                     rows={18}
-                    onChange={event => review.copyReportToEditor(event.target.value)}
+                    onChange={(event) =>{  review.copyReportToEditor(event.target.value) }}
                   />
                   <div className={css.formRow}>
                     <button type="button" onClick={() => { void review.saveReport() }}>{t('review.report.save')}</button>
-                    <button type="button" onClick={() => review.closeReport()}>{t('review.report.close')}</button>
+                    <button type="button" onClick={() =>{  review.closeReport() }}>{t('review.report.close')}</button>
                     <button
                       type="button"
                       onClick={() => { void review.saveTemplate(`爆款模板-${Date.now()}`, state.reportDraft ?? '') }}
@@ -348,7 +348,7 @@ export function ReviewView({ review, listThemes, t }: ReviewViewProps) {
                     type="text"
                     value={topicTitle}
                     placeholder={t('review.reflow.titlePlaceholder')}
-                    onChange={event => setTopicTitle(event.target.value)}
+                    onChange={(event) =>{  setTopicTitle(event.target.value) }}
                   />
                 </div>
                 <textarea
@@ -356,7 +356,7 @@ export function ReviewView({ review, listThemes, t }: ReviewViewProps) {
                   rows={3}
                   value={topicNote}
                   placeholder={t('review.reflow.notePlaceholder')}
-                  onChange={event => setTopicNote(event.target.value)}
+                  onChange={(event) =>{  setTopicNote(event.target.value) }}
                 />
                 <button
                   type="button"
@@ -406,7 +406,7 @@ function ImportPreviewCard({ preview, ignoredColumns, onIgnore, onCommit, onDisc
       {preview.rejected.length > 0 && (
         <ul className={css.rejectList}>
           {preview.rejected.slice(0, 10).map(rejection => (
-            <li key={rejection.row}>{t('review.import.rowRejected' as never, { row: String(rejection.row), reason: rejection.reason })}</li>
+            <li key={rejection.row}>{t('review.import.rowRejected', { row: String(rejection.row), reason: rejection.reason })}</li>
           ))}
         </ul>
       )}
@@ -418,7 +418,7 @@ function ImportPreviewCard({ preview, ignoredColumns, onIgnore, onCommit, onDisc
               <input
                 type="checkbox"
                 checked={ignoredColumns.includes(column)}
-                onChange={() => toggle(column)}
+                onChange={() =>{  toggle(column) }}
               />
               {column}
             </label>
@@ -447,16 +447,16 @@ function BindRow({ snapshot, review, t }: {
       <input
         type="text"
         className={css.bindInput}
-        placeholder={t('review.bind.placeholder' as StudioKey)}
+        placeholder={t('review.bind.placeholder')}
         value={contentId}
-        onChange={event => setContentId(event.target.value)}
+        onChange={(event) =>{  setContentId(event.target.value) }}
       />
       <button
         type="button"
         disabled={contentId.trim().length === 0}
         onClick={() => { void review.bindWork(snapshot.platformWorkId, snapshot.platformId, contentId.trim()) }}
       >
-        {t('review.bind.button' as StudioKey)}
+        {t('review.bind.button')}
       </button>
     </li>
   )
@@ -473,10 +473,10 @@ function BaselinesPanel({ review, manifest, t }: {
   const current = manifest?.baselines
   return (
     <div className={css.subpanel}>
-      <h4>{t('review.baselines.title' as StudioKey)}</h4>
+      <h4>{t('review.baselines.title')}</h4>
       <p className={css.hint}>
-        {t('review.baselines.hint' as StudioKey)}
-        {current !== undefined && ` ${t('review.baselines.current' as never, { engagement: percent(current.engagementRate), collect: percent(current.collectRate), source: current.source === 'user' ? t('review.baselines.sourceUser' as StudioKey) : t('review.baselines.sourceDefault' as StudioKey) })}`}
+        {t('review.baselines.hint')}
+        {current !== undefined && ` ${t('review.baselines.current', { engagement: percent(current.engagementRate), collect: percent(current.collectRate), source: current.source === 'user' ? t('review.baselines.sourceUser') : t('review.baselines.sourceDefault') })}`}
       </p>
       <div className={css.formRow}>
         <input
@@ -484,16 +484,16 @@ function BaselinesPanel({ review, manifest, t }: {
           className={css.bindInput}
           placeholder="5%"
           value={engagement}
-          onChange={event => setEngagement(event.target.value)}
-          aria-label={t('review.baselines.engagement' as StudioKey)}
+          onChange={(event) =>{  setEngagement(event.target.value) }}
+          aria-label={t('review.baselines.engagement')}
         />
         <input
           type="text"
           className={css.bindInput}
           placeholder="2%"
           value={collect}
-          onChange={event => setCollect(event.target.value)}
-          aria-label={t('review.baselines.collect' as StudioKey)}
+          onChange={(event) =>{  setCollect(event.target.value) }}
+          aria-label={t('review.baselines.collect')}
         />
         <button
           type="button"
@@ -511,7 +511,7 @@ function BaselinesPanel({ review, manifest, t }: {
             }
           }}
         >
-          {t('review.baselines.save' as StudioKey)}
+          {t('review.baselines.save')}
         </button>
       </div>
     </div>
@@ -542,14 +542,14 @@ function FilterPanel({ review, t }: {
         <input
           type="date"
           value={filters.period.from}
-          onChange={event => review.setFilters({ period: { ...filters.period, from: event.target.value } })}
-          aria-label={t('review.filter.from' as StudioKey)}
+          onChange={(event) =>{  review.setFilters({ period: { ...filters.period, from: event.target.value } }) }}
+          aria-label={t('review.filter.from')}
         />
         <input
           type="date"
           value={filters.period.to}
-          onChange={event => review.setFilters({ period: { ...filters.period, to: event.target.value } })}
-          aria-label={t('review.filter.to' as StudioKey)}
+          onChange={(event) =>{  review.setFilters({ period: { ...filters.period, to: event.target.value } }) }}
+          aria-label={t('review.filter.to')}
         />
       </div>
       <div className={css.formRow}>
@@ -558,7 +558,7 @@ function FilterPanel({ review, t }: {
             <input
               type="checkbox"
               checked={filters.platforms.includes(platform)}
-              onChange={() => togglePlatform(platform)}
+              onChange={() =>{  togglePlatform(platform) }}
             />
             {PLATFORM_LABELS[platform]}
           </label>
@@ -567,17 +567,17 @@ function FilterPanel({ review, t }: {
           <input
             type="checkbox"
             checked={filters.contentTypes.includes('image-text')}
-            onChange={() => toggleType('image-text')}
+            onChange={() =>{  toggleType('image-text') }}
           />
-          {t('review.filter.imageText' as StudioKey)}
+          {t('review.filter.imageText')}
         </label>
         <label className={css.checkLabel}>
           <input
             type="checkbox"
             checked={filters.contentTypes.includes('video')}
-            onChange={() => toggleType('video')}
+            onChange={() =>{  toggleType('video') }}
           />
-          {t('review.filter.video' as StudioKey)}
+          {t('review.filter.video')}
         </label>
       </div>
       <div className={css.formRow}>
@@ -587,9 +587,9 @@ function FilterPanel({ review, t }: {
               type="radio"
               name="review-work-filter"
               checked={filters.workFilter === candidate}
-              onChange={() => review.setFilters({ workFilter: candidate })}
+              onChange={() =>{  review.setFilters({ workFilter: candidate }) }}
             />
-            {t(`review.filter.${candidate}` as StudioKey)}
+            {t(`review.filter.${candidate}`)}
           </label>
         ))}
       </div>
@@ -612,27 +612,27 @@ function DiagnoseRow({ card, review, persona, t }: {
   return (
     <li className={css.workBlock}>
       <div className={css.workRow}>
-        <button type="button" className={css.linkish} onClick={() => setOpen(!open)}>{open ? '▾' : '▸'} {card.snapshot.title}</button>
+        <button type="button" className={css.linkish} onClick={() =>{  setOpen(!open) }}>{open ? '▾' : '▸'} {card.snapshot.title}</button>
         <span className={css.workMeta}>{PLATFORM_LABELS[card.snapshot.platformId]}</span>
         <span className={css.workMeta}>{percent(engagementRateOf(card.snapshot.metrics))}</span>
         <span className={css.workMeta}>{percent(collectRateOf(card.snapshot.metrics))}</span>
-        <span className={`${css.chip} ${verdictClass}`}>{t(`review.verdict.${card.longtail ? 'longtail' : card.verdict}` as StudioKey)}</span>
+        <span className={`${css.chip} ${verdictClass}`}>{t(`review.verdict.${card.longtail ? 'longtail' : card.verdict}`)}</span>
         <button
           type="button"
           disabled={review.getState().busy}
           onClick={() => { void review.diagnoseWork(card, draftText.length > 0 ? draftText : null, [], persona) }}
         >
-          {t('review.diagnose.run' as StudioKey)}
+          {t('review.diagnose.run')}
         </button>
       </div>
       {open && (
         <div className={css.workDetail}>
-          <p className={css.hint}>{t('review.diagnose.draftHint' as StudioKey)}</p>
+          <p className={css.hint}>{t('review.diagnose.draftHint')}</p>
           <textarea
             className={css.topicNote}
             rows={3}
             value={draftText}
-            onChange={event => setDraftText(event.target.value)}
+            onChange={(event) =>{  setDraftText(event.target.value) }}
           />
           {diagnosis !== undefined && <pre className={css.diagnosis}>{diagnosis}</pre>}
         </div>
@@ -656,17 +656,17 @@ function TaskRow({ task, review, t }: {
       </span>
       {task.reportFile !== null && (
         <button type="button" onClick={() => { void review.editReport(task.taskId) }}>
-          {t('review.history.view' as StudioKey)}
+          {t('review.history.view')}
         </button>
       )}
       <button
         type="button"
         onClick={() => {
-          if (!window.confirm(t('review.history.deleteConfirm' as StudioKey))) return
+          if (!window.confirm(t('review.history.deleteConfirm'))) return
           void review.deleteTask(task.taskId)
         }}
       >
-        {t('review.history.delete' as StudioKey)}
+        {t('review.history.delete')}
       </button>
     </li>
   )

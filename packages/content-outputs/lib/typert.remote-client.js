@@ -3149,7 +3149,7 @@ export const TYPERT_REMOTE = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#InteractionImportPreview',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_parseInteractionImport_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1047,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1047,"column":3},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/parseReviewImport',
@@ -3174,7 +3174,7 @@ export const TYPERT_REMOTE = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#ReviewImportPreview',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_parseReviewImport_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":905,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":905,"column":3},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/processMaterial',

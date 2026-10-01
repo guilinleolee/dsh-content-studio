@@ -226,10 +226,14 @@ async function writeNote(file, id, text) {
 			recursive: true,
 			mode: 448
 		});
-		const notes = { ...(await readNotes(file)).notes };
+		const before = await readNotes(file);
 		const body = text.trim();
-		if (body.length === 0) delete notes[id];
-		else notes[id] = {
+		const notes = {};
+		for (const [key, entry] of Object.entries(before.notes)) {
+			if (body.length === 0 && key === id) continue;
+			notes[key] = entry;
+		}
+		if (body.length > 0) notes[id] = {
 			text: body,
 			updatedAt: (/* @__PURE__ */ new Date()).toISOString()
 		};

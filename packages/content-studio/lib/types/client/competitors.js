@@ -359,6 +359,36 @@ function median(values) {
  * @param idea - the AI-suggested differentiated topic text, when analyzed.
  * @returns the markdown file content.
  */
+/**
+ * Build the topic-bank upsert for one benchmark work: a `benchmark`-source
+ * idea whose `refId` anchors the work id and whose snapshot keeps the title
+ * and the first differentiated topic suggestion readable if the work or its
+ * teardown later goes away. Idempotency lives with the caller, which checks
+ * the bank for the same `refId` before putting.
+ * @param work - the benchmark work being collected.
+ * @param capturedAt - the capture instant, ISO 8601.
+ * @returns the upsert input for the contentTopics Remote.
+ */
+export function competitorWorkToTopicInput(work, capturedAt) {
+    const suggestion = work.analysis.result?.migrationTopics[0] ?? null;
+    return {
+        title: suggestion ?? work.title,
+        oneLiner: suggestion,
+        status: 'idea',
+        source: {
+            type: 'benchmark',
+            refId: work.id,
+            url: work.url ?? null,
+            snapshot: { title: work.title, summary: suggestion, capturedAt },
+        },
+        tags: ['对标'],
+        description: null,
+        score: null,
+        planDate: null,
+        scheduleItemId: null,
+        topicDir: null,
+    };
+}
 export function buildIdeaMarkdown(work, idea) {
     const lines = [
         '---',

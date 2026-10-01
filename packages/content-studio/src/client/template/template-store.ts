@@ -274,9 +274,9 @@ export function createTemplateController(deps: TemplateControllerDeps): Template
       if (state.notice !== null) patch({ notice: null })
     },
 
-    openNew: () => patch({ editor: { form: emptyForm() }, aiDraft: null, historyOpen: false, history: [] }),
-    openEditor: record => patch({ editor: { form: formFromRecord(record) }, aiDraft: null, historyOpen: false, history: [] }),
-    closeEditor: () => patch({ editor: null, aiDraft: null, historyOpen: false, history: [], optimizeSource: '', extractSource: '' }),
+    openNew: () =>{  patch({ editor: { form: emptyForm() }, aiDraft: null, historyOpen: false, history: [] }) },
+    openEditor: (record) =>{  patch({ editor: { form: formFromRecord(record) }, aiDraft: null, historyOpen: false, history: [] }) },
+    closeEditor: () =>{  patch({ editor: null, aiDraft: null, historyOpen: false, history: [], optimizeSource: '', extractSource: '' }) },
     patchForm: (formPatch) => {
       if (state.editor === null) return
       const current = state.editor.form
@@ -366,7 +366,7 @@ export function createTemplateController(deps: TemplateControllerDeps): Template
         }
       })()
     },
-    closeHistory: () => patch({ historyOpen: false }),
+    closeHistory: () =>{  patch({ historyOpen: false }) },
     restoreVersion: (entry) => {
       const editor = state.editor
       if (editor === null || editor.form.id === null) return
@@ -422,7 +422,7 @@ export function createTemplateController(deps: TemplateControllerDeps): Template
         }
       })()
     },
-    dismissImportReport: () => patch({ importReport: null }),
+    dismissImportReport: () =>{  patch({ importReport: null }) },
     importStarterPack: () => {
       void (async () => {
         try {
@@ -451,10 +451,10 @@ export function createTemplateController(deps: TemplateControllerDeps): Template
       })()
     },
 
-    setGenerateSource: text => patch({ generateSource: text }),
-    setGenerateCategory: category => patch({ generateCategory: category }),
-    setOptimizeSource: text => patch({ optimizeSource: text }),
-    setExtractSource: text => patch({ extractSource: text }),
+    setGenerateSource: (text) =>{  patch({ generateSource: text }) },
+    setGenerateCategory: (category) =>{  patch({ generateCategory: category }) },
+    setOptimizeSource: (text) =>{  patch({ optimizeSource: text }) },
+    setExtractSource: (text) =>{  patch({ extractSource: text }) },
     runAi: (request) => {
       if (state.aiBusy !== false) return
       const body = request.operation === 'generate'
@@ -502,9 +502,9 @@ export function createTemplateController(deps: TemplateControllerDeps): Template
         aiDraft: null,
       })
     },
-    discardAiDraft: () => patch({ aiDraft: null }),
+    discardAiDraft: () =>{  patch({ aiDraft: null }) },
 
-    openPicker: target => patch({ picker: { target, search: '', selected: null, values: {}, overwriteConfirm: false } }),
+    openPicker: (target) =>{  patch({ picker: { target, search: '', selected: null, values: {}, overwriteConfirm: false } }) },
     pickerSearch: (text) => {
       if (state.picker !== null) patch({ picker: { ...state.picker, search: text } })
     },
@@ -548,7 +548,7 @@ export function createTemplateController(deps: TemplateControllerDeps): Template
         if (await writeClipboard(rendered.output)) patch({ picker: null })
       })()
     },
-    closePicker: () => patch({ picker: null }),
+    closePicker: () =>{  patch({ picker: null }) },
   }
   return controller
 }

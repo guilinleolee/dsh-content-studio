@@ -33,6 +33,8 @@ export interface PickedManuscript {
   readonly file: string
   /** Working title; becomes the publish task's title. */
   readonly title: string
+  /** The creation topic the manuscript fulfills, when the editor had one linked. */
+  readonly topicId?: string | null
 }
 
 /** Observable open state, the two verbs, and the two create-view handoffs. */

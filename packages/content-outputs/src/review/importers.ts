@@ -211,8 +211,8 @@ function parseContentTypeCell(cell: string | undefined): ReviewContentType | nul
  * @returns the preview; nothing is stored.
  */
 export function parseImportFile(request: ReviewImportPreviewRequest): ReviewImportPreview {
-  if (!(REVIEW_PLATFORMS as readonly string[]).includes(request.platformId)) {
-    throw new Error(`invalid review platformId: ${String(request.platformId)}`)
+  if (!REVIEW_PLATFORMS.includes(request.platformId)) {
+    throw new Error(`invalid review platformId: ${request.platformId}`)
   }
   if (request.text.length > REVIEW_MAX_IMPORT_CHARS) {
     throw new Error(`review import exceeds the ${REVIEW_MAX_IMPORT_CHARS}-character cap`)

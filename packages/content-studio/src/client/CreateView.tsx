@@ -95,7 +95,12 @@ export interface CreateViewProps {
     put(input: ScheduleItemInput): Promise<ContentScheduleSnapshot>
   }
   /** The publish-view handoff for a registered deliverable; absent when the publish view is not mounted. */
-  readonly onSendToPublish?: (manuscript: { readonly theme: string; readonly file: string; readonly title: string }) => void
+  readonly onSendToPublish?: (manuscript: {
+    readonly theme: string
+    readonly file: string
+    readonly title: string
+    readonly topicId: string | null
+  }) => void
   /** The capability card catalog, reachable behind the 指令库 toggle. */
   readonly catalog: ReactNode
   /** The global template library controller; absent hides the 模板 picker entry. */
@@ -142,7 +147,8 @@ function parseBrief(pasted: string): { title: string; rest: string } {
  * @returns the view element tree.
  */
 export function CreateView({
-  create, listThemes, persona, picked, onClearPicked, pickedTopic, onClearPickedTopic, topics, schedule, onSendToPublish, catalog, templateLibrary, t,
+  create, listThemes, persona, picked, onClearPicked, pickedTopic, onClearPickedTopic, topics, schedule,
+  onSendToPublish, catalog, templateLibrary, t,
 }: CreateViewProps) {
   const [showCatalog, setShowCatalog] = useState(false)
   const [entryMode, setEntryMode] = useState<EntryMode>('blank')
@@ -890,7 +896,16 @@ export function CreateView({
         {onSendToPublish !== undefined && editor.publishedFile !== null && (
           <button
             type="button" className={workbenchCss.retry}
-            onClick={() => { onSendToPublish({ theme: editor.theme, file: editor.publishedFile as string, title: editor.title.trim().length > 0 ? editor.title.trim() : editor.publishedFile as string }) }}
+            onClick={() => {
+              onSendToPublish({
+                theme: editor.theme,
+                file: editor.publishedFile as string,
+                title: editor.title.trim().length > 0 ? editor.title.trim() : editor.publishedFile as string,
+                // The linked creation topic rides the handoff so the publish
+                // task can reflow its status when the platforms report back.
+                topicId: editor.manifest.topicRef?.topicId ?? null,
+              })
+            }}
           >
             {t('create.sendToPublish')}
           </button>

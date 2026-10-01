@@ -201,16 +201,22 @@ export function detectConflicts(items) {
             continue;
         }
         for (let left = 0; left < bucket.length; left++) {
-            const leftMinutes = minutesOf(bucket[left].time);
+            const first = bucket[left];
+            if (first === undefined)
+                continue;
+            const leftMinutes = minutesOf(first.time);
             if (leftMinutes === null)
                 continue;
             for (let right = left + 1; right < bucket.length; right++) {
-                const rightMinutes = minutesOf(bucket[right].time);
+                const second = bucket[right];
+                if (second === undefined)
+                    continue;
+                const rightMinutes = minutesOf(second.time);
                 if (rightMinutes === null)
                     continue;
                 if (Math.abs(leftMinutes - rightMinutes) < CALENDAR_CONFLICT_WINDOW_MINUTES) {
-                    conflicted.add(bucket[left].id);
-                    conflicted.add(bucket[right].id);
+                    conflicted.add(first.id);
+                    conflicted.add(second.id);
                 }
             }
         }
@@ -226,7 +232,7 @@ export function detectConflicts(items) {
  */
 export function filterCalendarItems(items, filters, today) {
     const query = filters.query.trim().toLowerCase();
-    return items.filter(item => {
+    return items.filter((item) => {
         if (filters.kind !== 'all' && item.kind !== filters.kind)
             return false;
         if (filters.platforms.length > 0 && (item.platform === null || !filters.platforms.includes(item.platform)))

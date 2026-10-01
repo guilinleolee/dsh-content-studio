@@ -936,8 +936,8 @@ let ContentOutputsGateway = (() => {
          * @param request - the platform, file name, and raw CSV text.
          * @returns the preview.
          */
-        async parseReviewImport(request) {
-            return parseImportFile(request);
+        parseReviewImport(request) {
+            return Promise.resolve(parseImportFile(request));
         }
         /**
          * Commit confirmed import rows as snapshots: new works append, a known
@@ -1054,8 +1054,8 @@ let ContentOutputsGateway = (() => {
          * @param request - the file name and raw CSV text (browser-decoded).
          * @returns the preview.
          */
-        async parseInteractionImport(request) {
-            return parseInteractionImportText(request);
+        parseInteractionImport(request) {
+            return Promise.resolve(parseInteractionImportText(request));
         }
         /**
          * Commit confirmed import rows: messages group into conversations by

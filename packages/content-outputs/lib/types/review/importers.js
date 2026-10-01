@@ -204,7 +204,7 @@ function parseContentTypeCell(cell) {
  */
 export function parseImportFile(request) {
     if (!REVIEW_PLATFORMS.includes(request.platformId)) {
-        throw new Error(`invalid review platformId: ${String(request.platformId)}`);
+        throw new Error(`invalid review platformId: ${request.platformId}`);
     }
     if (request.text.length > REVIEW_MAX_IMPORT_CHARS) {
         throw new Error(`review import exceeds the ${REVIEW_MAX_IMPORT_CHARS}-character cap`);

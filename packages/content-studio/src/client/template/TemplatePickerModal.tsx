@@ -112,7 +112,7 @@ export function TemplatePickerModal({ templates, t }: TemplatePickerModalProps) 
               </div>
             )}
             <div className={css.foot}>
-              {picker.target.apply !== null ? (
+              {picker.target.apply !== undefined ? (
                 <button
                   type="button"
                   className={css.primary}

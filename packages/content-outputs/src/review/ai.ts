@@ -152,7 +152,11 @@ export function frameReportRequest(request: ReviewGenerateReportRequest, maxInpu
     `作品总数 ${request.summary.totalWorks}；爆款 ${request.summary.viralCount}；低表现 ${request.summary.weakCount}；长尾 ${request.summary.longtailCount}`,
     `平均互动率 ${rateLabel(request.summary.avgEngagementRate)}；总涨粉 ${request.summary.totalFollowersGained ?? '—'}`,
     '分平台（曝光不跨平台求和）：',
-    ...(Object.entries(request.summary.perPlatform) as ReadonlyArray<readonly [string, { works: number; impressions: number | null; engagement: number | null }]>)
+    ...(Object.entries(request.summary.perPlatform) as ReadonlyArray<readonly [string, {
+      works: number
+      impressions: number | null
+      engagement: number | null
+    }]>)
       .filter(([, value]) => value.works > 0)
       .map(([platform, value]) => `  ${PLATFORM_LABELS[platform as ReviewPlatformId]}：${value.works} 件，曝光 ${value.impressions ?? '—'}，互动 ${value.engagement ?? '—'}`),
     '',

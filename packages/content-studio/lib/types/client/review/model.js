@@ -134,7 +134,8 @@ export function poolSnapshots(manifest, filters, period, baselines) {
             return false;
         if (filters.platforms.length > 0 && !filters.platforms.includes(snapshot.platformId))
             return false;
-        if (filters.contentTypes.length > 0 && (snapshot.contentType === null || !filters.contentTypes.includes(snapshot.contentType)))
+        if (filters.contentTypes.length > 0
+            && (snapshot.contentType === null || !filters.contentTypes.includes(snapshot.contentType)))
             return false;
         if (filters.workFilter === 'viral' && verdictOf(snapshot.metrics, baselines) !== 'viral')
             return false;
@@ -272,9 +273,9 @@ export function dataOnlyReport(name, period, summary, ranked, baselines) {
     const lines = [
         `# ${name}（数据版）`,
         '',
-        `> AI 增强部分生成失败，以下为纯数据版本；可重试生成完整报告。`,
+        '> AI 增强部分生成失败，以下为纯数据版本；可重试生成完整报告。',
         '',
-        `## 周期数据概览`,
+        '## 周期数据概览',
         '',
         `- 复盘周期：${period.from} 至 ${period.to}`,
         `- 作品总数：${summary.totalWorks}`,
@@ -282,39 +283,39 @@ export function dataOnlyReport(name, period, summary, ranked, baselines) {
         `- 平均互动率：${percent(summary.avgEngagementRate)}`,
         `- 总涨粉：${summary.totalFollowersGained ?? '—'}`,
         '',
-        `### 分平台`,
+        '### 分平台',
         '',
-        `| 平台 | 作品数 | 曝光 | 互动 |`,
-        `|---|---|---|---|`,
+        '| 平台 | 作品数 | 曝光 | 互动 |',
+        '|---|---|---|---|',
         ...REVIEW_PLATFORMS
             .filter(platform => summary.perPlatform[platform].works > 0)
             .map(platform => `| ${platform} | ${summary.perPlatform[platform].works} | ${summary.perPlatform[platform].impressions ?? '—'} | ${summary.perPlatform[platform].engagement ?? '—'} |`),
         '',
-        `> 曝光各平台口径不同，不作跨平台求和。`,
+        '> 曝光各平台口径不同，不作跨平台求和。',
         '',
-        `## 爆款内容分析`,
+        '## 爆款内容分析',
         '',
         ...(ranked.slice(0, 3).map((snapshot, index) => {
             const rate = engagementRateOf(snapshot.metrics);
             return `${index + 1}. 《${snapshot.title}》互动率 ${percent(rate)}${rate !== null && rate >= 2 * baselines.engagementRate ? '（爆款）' : ''}`;
         })),
         '',
-        `## 低效内容诊断`,
+        '## 低效内容诊断',
         '',
         ...(ranked.slice(-3).reverse().map((snapshot, index) => `${index + 1}. 《${snapshot.title}》互动率 ${percent(engagementRateOf(snapshot.metrics))}`)),
         '',
-        `## 受众反馈总结`,
+        '## 受众反馈总结',
         '',
-        `【互动】栏目未上线，本节暂缺。`,
+        '【互动】栏目未上线，本节暂缺。',
         '',
-        `## 可落地优化建议`,
+        '## 可落地优化建议',
         '',
-        `AI 建议生成失败。可参考上节数据自行判断，或点击「重新生成」重试完整报告。`,
+        'AI 建议生成失败。可参考上节数据自行判断，或点击「重新生成」重试完整报告。',
         '',
-        `## 下期行动清单`,
+        '## 下期行动清单',
         '',
-        `- [ ] 重试生成完整复盘报告`,
-        `- [ ] 为未绑定稿件补齐绑定`,
+        '- [ ] 重试生成完整复盘报告',
+        '- [ ] 为未绑定稿件补齐绑定',
     ];
     return lines.join('\n');
 }

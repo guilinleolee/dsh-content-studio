@@ -8450,7 +8450,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
 						"line": 1047,
-						"column": 9
+						"column": 3
 					}
 				},
 				{
@@ -8477,7 +8477,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
 						"line": 905,
-						"column": 9
+						"column": 3
 					}
 				},
 				{
@@ -10960,14 +10960,18 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					continue;
 				}
 				for (let left = 0; left < bucket.length; left++) {
-					const leftMinutes = minutesOf(bucket[left].time);
+					const first = bucket[left];
+					if (first === void 0) continue;
+					const leftMinutes = minutesOf(first.time);
 					if (leftMinutes === null) continue;
 					for (let right = left + 1; right < bucket.length; right++) {
-						const rightMinutes = minutesOf(bucket[right].time);
+						const second = bucket[right];
+						if (second === void 0) continue;
+						const rightMinutes = minutesOf(second.time);
 						if (rightMinutes === null) continue;
 						if (Math.abs(leftMinutes - rightMinutes) < 120) {
-							conflicted.add(bucket[left].id);
-							conflicted.add(bucket[right].id);
+							conflicted.add(first.id);
+							conflicted.add(second.id);
 						}
 					}
 				}
@@ -12027,7 +12031,8 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				children: t("calendar.loading")
 			});
 			const grid = config.view === "week" ? [weekGrid(weekAnchor)] : monthGrid(month.year, month.month);
-			const periodLabel = config.view === "week" ? `${grid[0][0].date} ~ ${grid[0].at(-1).date}` : `${month.year} · ${t(`calendar.month.${month.month}`)}`;
+			const weekRow = grid[0] ?? [];
+			const periodLabel = config.view === "week" ? `${weekRow[0]?.date ?? ""} ~ ${weekRow.at(-1)?.date ?? ""}` : `${month.year} · ${t(`calendar.month.${month.month}`)}`;
 			const filters = config.filters;
 			return (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.calendar,
@@ -12468,11 +12473,12 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		//#endregion
 		//#region lib/types/client/ContentWorkbench.js
 		/**
-		* The workbench home (Easel-style dashboard): greeting, icon verb chips
-		* (navigate or copy a capability instruction), four stat cards with tinted
-		* icon tiles, and a 3+2 panel grid — quick-create rows, recent outputs,
-		* upcoming schedule, and a creation-data breakdown — each panel hopping to
-		* its full view.
+		* The workbench home (Easel-style dashboard): greeting, verb chips and the
+		* five quick-create entries, eight stat cards over four Remotes (outputs,
+		* schedule, topics, interactions) plus a per-theme review digest, and a
+		* 2×3 panel grid — quick-create rows, recent topics, recent deliverables,
+		* the merged activity/reminders feed, and the reads/likes preview. Each
+		* panel hops to its full view; one failing Remote never blanks the home.
 		*/
 		/** Quick-create panel rows: these capability ids, in this order. */
 		const QUICK_IDS = [
@@ -12481,6 +12487,29 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"short-script",
 			"multi-platform",
 			"pre-publish"
+		];
+		/** The five quick-create entries and the view each one opens. */
+		const NEW_ENTRIES = [
+			{
+				view: "gather",
+				key: "nav.gather"
+			},
+			{
+				view: "competitors",
+				key: "nav.competitors"
+			},
+			{
+				view: "topicBank",
+				key: "nav.topicBank"
+			},
+			{
+				view: "persona",
+				key: "nav.persona"
+			},
+			{
+				view: "publish",
+				key: "nav.publish"
+			}
 		];
 		/** How long a row shows its copied state before reverting. */
 		const COPIED_FEEDBACK_MS$1 = 1600;
@@ -12495,13 +12524,57 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			return found;
 		}
 		/**
+		* Aggregate one theme's snapshots into the preview digest: the latest
+		* snapshot per work, null metrics skipped (never faked as zero).
+		* @param read - the theme's review manifest read.
+		* @param digest - the accumulator to merge into.
+		* @returns the updated digest.
+		*/
+		function foldReviewDigest(read, digest) {
+			const manifest = read.manifest;
+			if (manifest === null) return digest;
+			const latest = /* @__PURE__ */ new Map();
+			for (const snapshot of manifest.snapshots) latest.set(`${snapshot.platformId}:${snapshot.platformWorkId}`, snapshot.capturedAt);
+			const pick = (key) => {
+				let total = null;
+				for (const snapshot of manifest.snapshots) {
+					if (latest.get(`${snapshot.platformId}:${snapshot.platformWorkId}`) !== snapshot.capturedAt) continue;
+					const value = snapshot.metrics[key];
+					if (value === null) continue;
+					total = (total ?? 0) + value;
+				}
+				return total;
+			};
+			return {
+				works: digest.works + latest.size,
+				reads: addMetric(digest.reads, pick("reads")),
+				likes: addMetric(digest.likes, pick("likes")),
+				followers: addMetric(digest.followers, pick("followersGained")),
+				themesAwaitingReview: digest.themesAwaitingReview + (manifest.snapshots.length > 0 && manifest.tasks.length === 0 ? 1 : 0)
+			};
+		}
+		const EMPTY_DIGEST = {
+			works: 0,
+			reads: null,
+			likes: null,
+			followers: null,
+			themesAwaitingReview: 0
+		};
+		/** Merge two optional metric totals; a missing side never fakes a zero. */
+		function addMetric(base, addend) {
+			return base === null ? addend : addend === null ? base : base + addend;
+		}
+		/**
 		* Render the workbench home.
 		* @param props - the Remote read wrappers, view navigation, and the locale seat.
 		* @returns the dashboard element tree.
 		*/
-		function ContentWorkbench({ listOutputs, listSchedule, onNavigate, onChat, account, persona, t }) {
+		function ContentWorkbench({ listOutputs, listSchedule, listTopics, readInteractions, readReviewManifest, onNavigate, onChat, account, persona, t }) {
 			const [outputs, setOutputs] = (0, react.useState)({ state: "loading" });
 			const [schedule, setSchedule] = (0, react.useState)({ state: "loading" });
+			const [topics, setTopics] = (0, react.useState)({ state: "loading" });
+			const [interactions, setInteractions] = (0, react.useState)({ state: "loading" });
+			const [review, setReview] = (0, react.useState)({ state: "loading" });
 			const [copiedId, setCopiedId] = (0, react.useState)(void 0);
 			const loadOutputs = (0, react.useCallback)(async () => {
 				setOutputs({ state: "loading" });
@@ -12533,12 +12606,80 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					});
 				}
 			}, [listSchedule]);
+			const loadTopics = (0, react.useCallback)(async () => {
+				setTopics({ state: "loading" });
+				try {
+					setTopics({
+						state: "ok",
+						value: await listTopics()
+					});
+				} catch (error) {
+					console.error("[content-studio] contentTopics/list failed:", error);
+					setTopics({
+						state: "failed",
+						detail: error instanceof Error ? error.message : String(error)
+					});
+				}
+			}, [listTopics]);
+			const loadInteractions = (0, react.useCallback)(async () => {
+				setInteractions({ state: "loading" });
+				try {
+					setInteractions({
+						state: "ok",
+						value: await readInteractions()
+					});
+				} catch (error) {
+					console.error("[content-studio] readInteractions failed:", error);
+					setInteractions({
+						state: "failed",
+						detail: error instanceof Error ? error.message : String(error)
+					});
+				}
+			}, [readInteractions]);
 			(0, react.useEffect)(() => {
 				loadOutputs();
 			}, [loadOutputs]);
 			(0, react.useEffect)(() => {
 				loadSchedule();
 			}, [loadSchedule]);
+			(0, react.useEffect)(() => {
+				loadTopics();
+			}, [loadTopics]);
+			(0, react.useEffect)(() => {
+				loadInteractions();
+			}, [loadInteractions]);
+			(0, react.useEffect)(() => {
+				if (outputs.state !== "ok") return;
+				let cancelled = false;
+				(async () => {
+					setReview({ state: "loading" });
+					try {
+						const themes = outputs.value.projects.map((project) => project.topic);
+						const digests = await Promise.all(themes.map(async (theme) => readReviewManifest(theme).then((read) => foldReviewDigest(read, { ...EMPTY_DIGEST }))));
+						if (cancelled) return;
+						setReview({
+							state: "ok",
+							value: digests.reduce((acc, cur) => ({
+								works: acc.works + cur.works,
+								reads: addMetric(acc.reads, cur.reads),
+								likes: addMetric(acc.likes, cur.likes),
+								followers: addMetric(acc.followers, cur.followers),
+								themesAwaitingReview: acc.themesAwaitingReview + cur.themesAwaitingReview
+							}), { ...EMPTY_DIGEST })
+						});
+					} catch (error) {
+						if (cancelled) return;
+						console.error("[content-studio] review digest failed:", error);
+						setReview({
+							state: "failed",
+							detail: error instanceof Error ? error.message : String(error)
+						});
+					}
+				})();
+				return () => {
+					cancelled = true;
+				};
+			}, [outputs, readReviewManifest]);
 			(0, react.useEffect)(() => {
 				if (copiedId === void 0) return;
 				const timer = window.setTimeout(() => {
@@ -12560,13 +12701,63 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			if (schedule.state === "failed") console.warn("[content-studio] schedule panel degraded:", schedule.detail);
 			const projects = outputs.state === "ok" ? outputs.value.projects : [];
 			const ready = projects.filter((project) => project.status === "ready").length;
+			const publishedProjects = projects.filter((project) => project.status === "published").length;
 			const items = schedule.state === "ok" ? schedule.value.items : [];
-			const pending = items.filter((item) => item.status !== "published").length;
-			const published = items.filter((item) => item.status === "published").length;
-			const recent = [...projects].sort((a, b) => a.updatedAt < b.updatedAt ? 1 : -1).slice(0, 5);
 			const today = (/* @__PURE__ */ new Date()).toISOString().slice(0, 10);
-			const upcoming = items.filter((item) => item.status !== "published" && item.date >= today).slice(0, 5);
-			const allSchedule = items;
+			const todayDue = items.filter((item) => item.status !== "published" && item.date === today).length;
+			const scheduledTasks = items.filter((item) => item.status !== "published" && item.date > today).length;
+			const topicItems = topics.state === "ok" ? topics.value.items : [];
+			const topicTodo = topicItems.filter((topic) => topic.status === "idea" || topic.status === "todo" || topic.status === "creating").length;
+			const topicDone = topicItems.filter((topic) => topic.status === "done").length;
+			const summary = interactions.state === "ok" ? interactions.value.manifest?.summary ?? null : null;
+			const recentTopics = [...topicItems].sort((a, b) => a.updatedAt < b.updatedAt ? 1 : -1).slice(0, 5);
+			const recentFinals = [...projects].filter((project) => project.status === "ready" || project.status === "published").sort((a, b) => a.updatedAt < b.updatedAt ? 1 : -1).slice(0, 5);
+			const feed = (0, react.useMemo)(() => {
+				const entries = [];
+				for (const topic of recentTopics) entries.push({
+					key: `topic:${topic.id}`,
+					at: topic.updatedAt,
+					label: `${t("workbench.tl.newTopic")}「${topic.title}」`,
+					view: "topicBank"
+				});
+				for (const project of [...projects].sort((a, b) => a.updatedAt < b.updatedAt ? 1 : -1).slice(0, 5)) entries.push({
+					key: `project:${project.topic}`,
+					at: project.updatedAt,
+					label: `「${project.title}」· ${t(`status.${project.status}`)}`,
+					view: "library"
+				});
+				for (const item of items.filter((candidate) => candidate.status !== "published" && candidate.date >= today).slice(0, 5)) entries.push({
+					key: `schedule:${item.id}`,
+					at: item.date,
+					label: `${t("workbench.tl.due")}「${item.title}」`,
+					view: "calendar"
+				});
+				const manifest = interactions.state === "ok" ? interactions.value.manifest : null;
+				if (manifest !== null) {
+					const waiting = manifest.summary.unread + manifest.summary.pendingReply;
+					if (waiting > 0) entries.push({
+						key: "interaction:waiting",
+						at: manifest.conversations[0]?.updatedAt ?? today,
+						label: `${t("workbench.tl.reply")} ×${waiting}`,
+						view: "interaction"
+					});
+				}
+				if (review.state === "ok" && review.value.themesAwaitingReview > 0) entries.push({
+					key: "review:waiting",
+					at: today,
+					label: `${t("workbench.tl.reviewData")} ×${review.value.themesAwaitingReview}`,
+					view: "review"
+				});
+				return entries.sort((a, b) => a.at < b.at ? 1 : -1).slice(0, 8);
+			}, [
+				recentTopics,
+				projects,
+				items,
+				interactions,
+				review,
+				today,
+				t
+			]);
 			/** Loading / failed seat for a panel fed by one Remote. */
 			const panelState = (load, retry) => {
 				if (load.state === "loading") return (0, react_jsx_runtime.jsx)("p", {
@@ -12644,27 +12835,66 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						]
 					}),
 					(0, react_jsx_runtime.jsxs)("div", {
+						className: ContentStudio_module_css_default.quickRow,
+						children: [(0, react_jsx_runtime.jsx)("span", {
+							className: ContentStudio_module_css_default.panelTitle,
+							children: t("workbench.createNew")
+						}), NEW_ENTRIES.map((entry) => (0, react_jsx_runtime.jsxs)("button", {
+							type: "button",
+							className: ContentStudio_module_css_default.chip,
+							onClick: () => {
+								onNavigate(entry.view);
+							},
+							children: ["＋ ", t(entry.key)]
+						}, entry.view))]
+					}),
+					(0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.statRow,
 						children: [
 							(0, react_jsx_runtime.jsx)(StatCard, {
-								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconFolderOpenOutline16, { size: 16 }),
-								value: outputs.state === "ok" ? projects.length : void 0,
-								label: t("stat.projects")
+								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 16 }),
+								value: topics.state === "ok" ? topicItems.length : void 0,
+								label: t("stat.topicTotal")
 							}),
 							(0, react_jsx_runtime.jsx)(StatCard, {
-								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 16 }),
-								value: schedule.state === "ok" ? pending : void 0,
-								label: t("stat.scheduled")
+								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconEditOutline16, { size: 16 }),
+								value: topics.state === "ok" ? topicTodo : void 0,
+								label: t("stat.topicTodo")
 							}),
 							(0, react_jsx_runtime.jsx)(StatCard, {
 								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCheckOutline16, { size: 16 }),
-								value: outputs.state === "ok" ? ready : void 0,
-								label: t("stat.ready")
+								value: topics.state === "ok" ? topicDone : void 0,
+								label: t("stat.topicDone")
 							}),
 							(0, react_jsx_runtime.jsx)(StatCard, {
+								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconFolderOpenOutline16, { size: 16 }),
+								value: outputs.state === "ok" ? ready : void 0,
+								label: t("stat.ready")
+							})
+						]
+					}),
+					(0, react_jsx_runtime.jsxs)("div", {
+						className: ContentStudio_module_css_default.statRow,
+						children: [
+							(0, react_jsx_runtime.jsx)(StatCard, {
 								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconGoalOutline16, { size: 16 }),
-								value: schedule.state === "ok" ? published : void 0,
+								value: outputs.state === "ok" ? publishedProjects : void 0,
 								label: t("stat.published")
+							}),
+							(0, react_jsx_runtime.jsx)(StatCard, {
+								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 16 }),
+								value: schedule.state === "ok" ? todayDue : void 0,
+								label: t("stat.todayDue")
+							}),
+							(0, react_jsx_runtime.jsx)(StatCard, {
+								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconNewChatOutline16, { size: 16 }),
+								value: summary === null ? void 0 : summary.unread + summary.pendingReply,
+								label: t("stat.pendingReply")
+							}),
+							(0, react_jsx_runtime.jsx)(StatCard, {
+								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 16 }),
+								value: schedule.state === "ok" ? scheduledTasks : void 0,
+								label: t("stat.scheduledTasks")
 							})
 						]
 					}),
@@ -12707,7 +12937,42 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									className: ContentStudio_module_css_default.panelHead,
 									children: [(0, react_jsx_runtime.jsxs)("h2", {
 										className: ContentStudio_module_css_default.panelTitle,
-										children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconFolderOpenOutline16, { size: 13 }), t("panel.recent")]
+										children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 13 }), t("panel.recentTopics")]
+									}), (0, react_jsx_runtime.jsxs)("button", {
+										type: "button",
+										className: ContentStudio_module_css_default.panelMore,
+										onClick: () => {
+											onNavigate("topicBank");
+										},
+										children: [t("nav.topicBank"), " →"]
+									})]
+								}), panelState(topics, () => {
+									loadTopics();
+								}) ?? (recentTopics.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
+									className: ContentStudio_module_css_default.panelEmpty,
+									children: t("panel.emptyRecentTopics")
+								}) : recentTopics.map((topic) => (0, react_jsx_runtime.jsxs)("button", {
+									type: "button",
+									className: ContentStudio_module_css_default.listRowButton,
+									onClick: () => {
+										onNavigate("topicBank");
+									},
+									children: [(0, react_jsx_runtime.jsx)("span", {
+										className: ContentStudio_module_css_default.listTitle,
+										children: topic.title
+									}), (0, react_jsx_runtime.jsx)("span", {
+										className: ContentStudio_module_css_default.listMeta,
+										children: t(`topic.status.${topic.status}`)
+									})]
+								}, topic.id)))]
+							}),
+							(0, react_jsx_runtime.jsxs)("section", {
+								className: ContentStudio_module_css_default.panel,
+								children: [(0, react_jsx_runtime.jsxs)("header", {
+									className: ContentStudio_module_css_default.panelHead,
+									children: [(0, react_jsx_runtime.jsxs)("h2", {
+										className: ContentStudio_module_css_default.panelTitle,
+										children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconFolderOpenOutline16, { size: 13 }), t("panel.recentFinals")]
 									}), (0, react_jsx_runtime.jsxs)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.panelMore,
@@ -12718,11 +12983,15 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									})]
 								}), panelState(outputs, () => {
 									loadOutputs();
-								}) ?? (recent.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
+								}) ?? (recentFinals.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
 									className: ContentStudio_module_css_default.panelEmpty,
 									children: t("panel.emptyRecent")
-								}) : recent.map((project) => (0, react_jsx_runtime.jsxs)("div", {
-									className: ContentStudio_module_css_default.listRow,
+								}) : recentFinals.map((project) => (0, react_jsx_runtime.jsxs)("button", {
+									type: "button",
+									className: ContentStudio_module_css_default.listRowButton,
+									onClick: () => {
+										onNavigate("library");
+									},
 									children: [(0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.listTitle,
 										children: project.title
@@ -12731,37 +13000,6 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										children: t(`status.${project.status}`)
 									})]
 								}, project.topic)))]
-							}),
-							(0, react_jsx_runtime.jsxs)("section", {
-								className: ContentStudio_module_css_default.panel,
-								children: [(0, react_jsx_runtime.jsxs)("header", {
-									className: ContentStudio_module_css_default.panelHead,
-									children: [(0, react_jsx_runtime.jsxs)("h2", {
-										className: ContentStudio_module_css_default.panelTitle,
-										children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 13 }), t("panel.upcoming")]
-									}), (0, react_jsx_runtime.jsxs)("button", {
-										type: "button",
-										className: ContentStudio_module_css_default.panelMore,
-										onClick: () => {
-											onNavigate("calendar");
-										},
-										children: [t("nav.calendar"), " →"]
-									})]
-								}), panelState(schedule, () => {
-									loadSchedule();
-								}) ?? (upcoming.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
-									className: ContentStudio_module_css_default.panelEmpty,
-									children: t("panel.emptyUpcoming")
-								}) : upcoming.map((item) => (0, react_jsx_runtime.jsxs)("div", {
-									className: ContentStudio_module_css_default.listRow,
-									children: [(0, react_jsx_runtime.jsx)("span", {
-										className: ContentStudio_module_css_default.listTitle,
-										children: item.title
-									}), (0, react_jsx_runtime.jsx)("span", {
-										className: ContentStudio_module_css_default.listMeta,
-										children: item.date
-									})]
-								}, item.id)))]
 							})
 						]
 					}),
@@ -12773,91 +13011,109 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								className: ContentStudio_module_css_default.panelHead,
 								children: [(0, react_jsx_runtime.jsxs)("h2", {
 									className: ContentStudio_module_css_default.panelTitle,
-									children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconGoalOutline16, { size: 13 }), t("panel.data")]
+									children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconGoalOutline16, { size: 13 }), t("panel.timeline")]
 								}), (0, react_jsx_runtime.jsxs)("button", {
 									type: "button",
 									className: ContentStudio_module_css_default.panelMore,
 									onClick: () => {
-										onNavigate("library");
+										onNavigate("review");
 									},
-									children: [t("nav.library"), " →"]
+									children: [t("nav.review"), " →"]
 								})]
-							}), outputs.state === "ok" ? (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [(0, react_jsx_runtime.jsxs)("div", {
-								className: ContentStudio_module_css_default.dataPills,
-								children: [
-									(0, react_jsx_runtime.jsxs)("span", {
-										className: ContentStudio_module_css_default.dataPill,
-										children: [
-											t("stat.projects"),
-											" · ",
-											projects.length
-										]
-									}),
-									(0, react_jsx_runtime.jsxs)("span", {
-										className: ContentStudio_module_css_default.dataPill,
-										children: [
-											t("status.draft"),
-											" · ",
-											projects.filter((project) => project.status === "draft").length
-										]
-									}),
-									(0, react_jsx_runtime.jsxs)("span", {
-										className: ContentStudio_module_css_default.dataPill,
-										children: [
-											t("stat.ready"),
-											" · ",
-											ready
-										]
-									}),
-									(0, react_jsx_runtime.jsxs)("span", {
-										className: ContentStudio_module_css_default.dataPill,
-										children: [
-											t("stat.published"),
-											" · ",
-											published
-										]
-									})
-								]
-							}), (0, react_jsx_runtime.jsx)("p", {
+							}), feed.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
 								className: ContentStudio_module_css_default.panelEmpty,
-								children: t("panel.dataHint")
-							})] }) : panelState(outputs, () => {
-								loadOutputs();
-							})]
-						}), (0, react_jsx_runtime.jsxs)("section", {
-							className: ContentStudio_module_css_default.panel,
-							children: [(0, react_jsx_runtime.jsxs)("header", {
-								className: ContentStudio_module_css_default.panelHead,
-								children: [(0, react_jsx_runtime.jsxs)("h2", {
-									className: ContentStudio_module_css_default.panelTitle,
-									children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 13 }), t("panel.recentSchedule")]
-								}), (0, react_jsx_runtime.jsxs)("button", {
-									type: "button",
-									className: ContentStudio_module_css_default.panelMore,
-									onClick: () => {
-										onNavigate("calendar");
-									},
-									children: [t("nav.calendar"), " →"]
-								})]
-							}), schedule.state === "ok" ? allSchedule.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
-								className: ContentStudio_module_css_default.panelEmpty,
-								children: t("panel.emptyUpcoming")
-							}) : allSchedule.slice(-5).reverse().map((item) => (0, react_jsx_runtime.jsxs)("div", {
-								className: ContentStudio_module_css_default.listRow,
+								children: t("workbench.emptyTimeline")
+							}) : feed.map((entry) => (0, react_jsx_runtime.jsxs)("button", {
+								type: "button",
+								className: ContentStudio_module_css_default.listRowButton,
+								onClick: () => {
+									onNavigate(entry.view);
+								},
 								children: [(0, react_jsx_runtime.jsx)("span", {
 									className: ContentStudio_module_css_default.listTitle,
-									children: item.title
-								}), (0, react_jsx_runtime.jsxs)("span", {
+									children: entry.label
+								}), (0, react_jsx_runtime.jsx)("span", {
 									className: ContentStudio_module_css_default.listMeta,
-									children: [
-										item.date,
-										" · ",
-										t(`status.${item.status}`)
-									]
+									children: entry.at.slice(0, 10)
 								})]
-							}, item.id)) : panelState(schedule, () => {
-								loadSchedule();
-							})]
+							}, entry.key))]
+						}), (0, react_jsx_runtime.jsxs)("section", {
+							className: ContentStudio_module_css_default.panel,
+							children: [
+								(0, react_jsx_runtime.jsxs)("header", {
+									className: ContentStudio_module_css_default.panelHead,
+									children: [(0, react_jsx_runtime.jsxs)("h2", {
+										className: ContentStudio_module_css_default.panelTitle,
+										children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 13 }), t("panel.dataPreview")]
+									}), (0, react_jsx_runtime.jsxs)("button", {
+										type: "button",
+										className: ContentStudio_module_css_default.panelMore,
+										onClick: () => {
+											onNavigate("review");
+										},
+										children: [t("nav.review"), " →"]
+									})]
+								}),
+								review.state === "loading" && (0, react_jsx_runtime.jsx)("p", {
+									className: ContentStudio_module_css_default.panelEmpty,
+									children: t("library.loading")
+								}),
+								review.state === "failed" && (0, react_jsx_runtime.jsxs)("div", {
+									className: ContentStudio_module_css_default.libraryState,
+									children: [(0, react_jsx_runtime.jsxs)("span", { children: [
+										t("library.error"),
+										": ",
+										review.detail
+									] }), (0, react_jsx_runtime.jsx)("button", {
+										type: "button",
+										className: ContentStudio_module_css_default.retry,
+										onClick: () => {
+											setOutputs({ ...outputs });
+										},
+										children: t("library.retry")
+									})]
+								}),
+								review.state === "ok" && (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [(0, react_jsx_runtime.jsxs)("div", {
+									className: ContentStudio_module_css_default.dataPills,
+									children: [
+										(0, react_jsx_runtime.jsxs)("span", {
+											className: ContentStudio_module_css_default.dataPill,
+											children: [
+												t("stat.previewWorks"),
+												" · ",
+												review.value.works
+											]
+										}),
+										(0, react_jsx_runtime.jsxs)("span", {
+											className: ContentStudio_module_css_default.dataPill,
+											children: [
+												t("stat.reads"),
+												" · ",
+												review.value.reads ?? "—"
+											]
+										}),
+										(0, react_jsx_runtime.jsxs)("span", {
+											className: ContentStudio_module_css_default.dataPill,
+											children: [
+												t("stat.likes"),
+												" · ",
+												review.value.likes ?? "—"
+											]
+										}),
+										(0, react_jsx_runtime.jsxs)("span", {
+											className: ContentStudio_module_css_default.dataPill,
+											children: [
+												t("stat.followers"),
+												" · ",
+												review.value.followers ?? "—"
+											]
+										})
+									]
+								}), (0, react_jsx_runtime.jsx)("p", {
+									className: ContentStudio_module_css_default.panelEmpty,
+									children: t("workbench.reviewHint")
+								})] })
+							]
 						})]
 					})
 				]
@@ -14686,6 +14942,40 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		* @param idea - the AI-suggested differentiated topic text, when analyzed.
 		* @returns the markdown file content.
 		*/
+		/**
+		* Build the topic-bank upsert for one benchmark work: a `benchmark`-source
+		* idea whose `refId` anchors the work id and whose snapshot keeps the title
+		* and the first differentiated topic suggestion readable if the work or its
+		* teardown later goes away. Idempotency lives with the caller, which checks
+		* the bank for the same `refId` before putting.
+		* @param work - the benchmark work being collected.
+		* @param capturedAt - the capture instant, ISO 8601.
+		* @returns the upsert input for the contentTopics Remote.
+		*/
+		function competitorWorkToTopicInput(work, capturedAt) {
+			const suggestion = work.analysis.result?.migrationTopics[0] ?? null;
+			return {
+				title: suggestion ?? work.title,
+				oneLiner: suggestion,
+				status: "idea",
+				source: {
+					type: "benchmark",
+					refId: work.id,
+					url: work.url ?? null,
+					snapshot: {
+						title: work.title,
+						summary: suggestion,
+						capturedAt
+					}
+				},
+				tags: ["对标"],
+				description: null,
+				score: null,
+				planDate: null,
+				scheduleItemId: null,
+				topicDir: null
+			};
+		}
 		function buildIdeaMarkdown(work, idea) {
 			return `${[
 				"---",
@@ -14798,7 +15088,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		* @returns the view element tree.
 		*/
 		function CompetitorsView(props) {
-			const { listOutputs, readCompetitorManifest, writeCompetitorManifest, writeAsset, deleteAsset, readAsset, analyzeCompetitorWork, generateCompetitorReport, t } = props;
+			const { listOutputs, readCompetitorManifest, writeCompetitorManifest, writeAsset, deleteAsset, readAsset, analyzeCompetitorWork, generateCompetitorReport, topics, t } = props;
 			const [accounts, setAccounts] = (0, react.useState)(() => loadAccounts().accounts);
 			const [storageDegraded, setStorageDegraded] = (0, react.useState)(false);
 			const [section, setSection] = (0, react.useState)("works");
@@ -15106,6 +15396,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			};
 			const addIdea = (work) => {
 				act(async () => {
+					if (!(await topics.list()).items.some((topic) => topic.source.type === "benchmark" && topic.source.refId === work.id)) await topics.put(competitorWorkToTopicInput(work, (/* @__PURE__ */ new Date()).toISOString()));
 					const file = `idea-${work.id.slice(3)}.md`;
 					await writeAsset({
 						theme,
@@ -27935,7 +28226,8 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								onSendToPublish({
 									theme: editor.theme,
 									file: editor.publishedFile,
-									title: editor.title.trim().length > 0 ? editor.title.trim() : editor.publishedFile
+									title: editor.title.trim().length > 0 ? editor.title.trim() : editor.publishedFile,
+									topicId: editor.manifest.topicRef?.topicId ?? null
 								});
 							},
 							children: t("create.sendToPublish")
@@ -30293,7 +30585,8 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					platformIds: [],
 					mode: "immediate",
 					scheduledLocal: "",
-					note: ""
+					note: "",
+					topicId: pickedManuscript.topicId ?? null
 				});
 				onClearPickedManuscript();
 			}, [pickedManuscript, onClearPickedManuscript]);
@@ -30309,7 +30602,8 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					platformIds: [],
 					mode: "immediate",
 					scheduledLocal: "",
-					note: ""
+					note: "",
+					topicId: null
 				});
 			};
 			const submitForm = async () => {
@@ -30325,7 +30619,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					mode: form.mode,
 					scheduledAt,
 					note: form.note.trim().length > 0 ? form.note.trim() : null,
-					topicId: null,
+					topicId: form.topicId,
 					personaDigest: persona.trim().length > 0 ? persona.trim().slice(0, 500) : null,
 					manuscriptId: null
 				});
@@ -30937,7 +31231,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											children: t("publish.leg.edit")
 										})]
 									}),
-									editing && draftEdit !== null && (0, react_jsx_runtime.jsxs)("div", {
+									editing && (0, react_jsx_runtime.jsxs)("div", {
 										className: PublishView_module_css_default.editBlock,
 										children: [
 											(0, react_jsx_runtime.jsx)("textarea", {
@@ -31245,9 +31539,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			return [
 				`# ${name}（数据版）`,
 				"",
-				`> AI 增强部分生成失败，以下为纯数据版本；可重试生成完整报告。`,
+				"> AI 增强部分生成失败，以下为纯数据版本；可重试生成完整报告。",
 				"",
-				`## 周期数据概览`,
+				"## 周期数据概览",
 				"",
 				`- 复盘周期：${period.from} 至 ${period.to}`,
 				`- 作品总数：${summary.totalWorks}`,
@@ -31255,37 +31549,37 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				`- 平均互动率：${percent(summary.avgEngagementRate)}`,
 				`- 总涨粉：${summary.totalFollowersGained ?? "—"}`,
 				"",
-				`### 分平台`,
+				"### 分平台",
 				"",
-				`| 平台 | 作品数 | 曝光 | 互动 |`,
-				`|---|---|---|---|`,
+				"| 平台 | 作品数 | 曝光 | 互动 |",
+				"|---|---|---|---|",
 				...REVIEW_PLATFORMS.filter((platform) => summary.perPlatform[platform].works > 0).map((platform) => `| ${platform} | ${summary.perPlatform[platform].works} | ${summary.perPlatform[platform].impressions ?? "—"} | ${summary.perPlatform[platform].engagement ?? "—"} |`),
 				"",
-				`> 曝光各平台口径不同，不作跨平台求和。`,
+				"> 曝光各平台口径不同，不作跨平台求和。",
 				"",
-				`## 爆款内容分析`,
+				"## 爆款内容分析",
 				"",
 				...ranked.slice(0, 3).map((snapshot, index) => {
 					const rate = engagementRateOf(snapshot.metrics);
 					return `${index + 1}. 《${snapshot.title}》互动率 ${percent(rate)}${rate !== null && rate >= 2 * baselines.engagementRate ? "（爆款）" : ""}`;
 				}),
 				"",
-				`## 低效内容诊断`,
+				"## 低效内容诊断",
 				"",
 				...ranked.slice(-3).reverse().map((snapshot, index) => `${index + 1}. 《${snapshot.title}》互动率 ${percent(engagementRateOf(snapshot.metrics))}`),
 				"",
-				`## 受众反馈总结`,
+				"## 受众反馈总结",
 				"",
-				`【互动】栏目未上线，本节暂缺。`,
+				"【互动】栏目未上线，本节暂缺。",
 				"",
-				`## 可落地优化建议`,
+				"## 可落地优化建议",
 				"",
-				`AI 建议生成失败。可参考上节数据自行判断，或点击「重新生成」重试完整报告。`,
+				"AI 建议生成失败。可参考上节数据自行判断，或点击「重新生成」重试完整报告。",
 				"",
-				`## 下期行动清单`,
+				"## 下期行动清单",
 				"",
-				`- [ ] 重试生成完整复盘报告`,
-				`- [ ] 为未绑定稿件补齐绑定`
+				"- [ ] 重试生成完整复盘报告",
+				"- [ ] 为未绑定稿件补齐绑定"
 			].join("\n");
 		}
 		//#endregion
@@ -31432,7 +31726,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							(0, react_jsx_runtime.jsxs)("select", {
 								className: ReviewView_module_css_default.themePick,
 								value: state.theme ?? "",
-								onChange: (event) => pickTheme(event.target.value),
+								onChange: (event) => {
+									pickTheme(event.target.value);
+								},
 								"aria-label": t("review.theme.aria"),
 								children: [(0, react_jsx_runtime.jsx)("option", {
 									value: "",
@@ -31500,7 +31796,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										children: [
 											(0, react_jsx_runtime.jsx)("select", {
 												value: importPlatform,
-												onChange: (event) => setImportPlatform(event.target.value),
+												onChange: (event) => {
+													setImportPlatform(event.target.value);
+												},
 												"aria-label": t("review.import.platform"),
 												children: REVIEW_PLATFORMS.map((platform) => (0, react_jsx_runtime.jsx)("option", {
 													value: platform,
@@ -31526,11 +31824,15 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									state.preview !== null && (0, react_jsx_runtime.jsx)(ImportPreviewCard, {
 										preview: state.preview,
 										ignoredColumns: state.ignoredColumns,
-										onIgnore: (columns) => review.setIgnoredColumns(columns),
+										onIgnore: (columns) => {
+											review.setIgnoredColumns(columns);
+										},
 										onCommit: () => {
 											review.commitImport();
 										},
-										onDiscard: () => review.discardImport(),
+										onDiscard: () => {
+											review.discardImport();
+										},
 										t
 									}),
 									unbound.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
@@ -31694,13 +31996,17 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											type: "text",
 											value: taskName,
 											placeholder: t("review.report.namePlaceholder"),
-											onChange: (event) => setTaskName(event.target.value),
+											onChange: (event) => {
+												setTaskName(event.target.value);
+											},
 											"aria-label": t("review.report.namePlaceholder")
 										}), (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											disabled: state.busy || taskName.trim().length === 0,
 											onClick: () => {
-												review.createTask(taskName.trim()).then(() => setTaskName(""));
+												review.createTask(taskName.trim()).then(() => {
+													setTaskName("");
+												});
 											},
 											children: t("review.report.generate")
 										})]
@@ -31713,7 +32019,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												className: ReviewView_module_css_default.reportEditor,
 												value: state.reportDraft,
 												rows: 18,
-												onChange: (event) => review.copyReportToEditor(event.target.value)
+												onChange: (event) => {
+													review.copyReportToEditor(event.target.value);
+												}
 											}),
 											(0, react_jsx_runtime.jsxs)("div", {
 												className: ReviewView_module_css_default.formRow,
@@ -31727,7 +32035,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 													}),
 													(0, react_jsx_runtime.jsx)("button", {
 														type: "button",
-														onClick: () => review.closeReport(),
+														onClick: () => {
+															review.closeReport();
+														},
 														children: t("review.report.close")
 													}),
 													(0, react_jsx_runtime.jsx)("button", {
@@ -31769,7 +32079,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 													type: "text",
 													value: topicTitle,
 													placeholder: t("review.reflow.titlePlaceholder"),
-													onChange: (event) => setTopicTitle(event.target.value)
+													onChange: (event) => {
+														setTopicTitle(event.target.value);
+													}
 												})
 											}),
 											(0, react_jsx_runtime.jsx)("textarea", {
@@ -31777,7 +32089,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												rows: 3,
 												value: topicNote,
 												placeholder: t("review.reflow.notePlaceholder"),
-												onChange: (event) => setTopicNote(event.target.value)
+												onChange: (event) => {
+													setTopicNote(event.target.value);
+												}
 											}),
 											(0, react_jsx_runtime.jsx)("button", {
 												type: "button",
@@ -31840,7 +32154,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						children: [(0, react_jsx_runtime.jsx)("input", {
 							type: "checkbox",
 							checked: ignoredColumns.includes(column),
-							onChange: () => toggle(column)
+							onChange: () => {
+								toggle(column);
+							}
 						}), column]
 					}, column))] }),
 					(0, react_jsx_runtime.jsxs)("div", {
@@ -31877,7 +32193,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						className: ReviewView_module_css_default.bindInput,
 						placeholder: t("review.bind.placeholder"),
 						value: contentId,
-						onChange: (event) => setContentId(event.target.value)
+						onChange: (event) => {
+							setContentId(event.target.value);
+						}
 					}),
 					(0, react_jsx_runtime.jsx)("button", {
 						type: "button",
@@ -31915,7 +32233,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								className: ReviewView_module_css_default.bindInput,
 								placeholder: "5%",
 								value: engagement,
-								onChange: (event) => setEngagement(event.target.value),
+								onChange: (event) => {
+									setEngagement(event.target.value);
+								},
 								"aria-label": t("review.baselines.engagement")
 							}),
 							(0, react_jsx_runtime.jsx)("input", {
@@ -31923,7 +32243,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								className: ReviewView_module_css_default.bindInput,
 								placeholder: "2%",
 								value: collect,
-								onChange: (event) => setCollect(event.target.value),
+								onChange: (event) => {
+									setCollect(event.target.value);
+								},
 								"aria-label": t("review.baselines.collect")
 							}),
 							(0, react_jsx_runtime.jsx)("button", {
@@ -31967,18 +32289,22 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						children: [(0, react_jsx_runtime.jsx)("input", {
 							type: "date",
 							value: filters.period.from,
-							onChange: (event) => review.setFilters({ period: {
-								...filters.period,
-								from: event.target.value
-							} }),
+							onChange: (event) => {
+								review.setFilters({ period: {
+									...filters.period,
+									from: event.target.value
+								} });
+							},
 							"aria-label": t("review.filter.from")
 						}), (0, react_jsx_runtime.jsx)("input", {
 							type: "date",
 							value: filters.period.to,
-							onChange: (event) => review.setFilters({ period: {
-								...filters.period,
-								to: event.target.value
-							} }),
+							onChange: (event) => {
+								review.setFilters({ period: {
+									...filters.period,
+									to: event.target.value
+								} });
+							},
 							"aria-label": t("review.filter.to")
 						})]
 					}),
@@ -31990,7 +32316,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								children: [(0, react_jsx_runtime.jsx)("input", {
 									type: "checkbox",
 									checked: filters.platforms.includes(platform),
-									onChange: () => togglePlatform(platform)
+									onChange: () => {
+										togglePlatform(platform);
+									}
 								}), PLATFORM_LABELS[platform]]
 							}, platform)),
 							(0, react_jsx_runtime.jsxs)("label", {
@@ -31998,7 +32326,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								children: [(0, react_jsx_runtime.jsx)("input", {
 									type: "checkbox",
 									checked: filters.contentTypes.includes("image-text"),
-									onChange: () => toggleType("image-text")
+									onChange: () => {
+										toggleType("image-text");
+									}
 								}), t("review.filter.imageText")]
 							}),
 							(0, react_jsx_runtime.jsxs)("label", {
@@ -32006,7 +32336,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								children: [(0, react_jsx_runtime.jsx)("input", {
 									type: "checkbox",
 									checked: filters.contentTypes.includes("video"),
-									onChange: () => toggleType("video")
+									onChange: () => {
+										toggleType("video");
+									}
 								}), t("review.filter.video")]
 							})
 						]
@@ -32019,7 +32351,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								type: "radio",
 								name: "review-work-filter",
 								checked: filters.workFilter === candidate,
-								onChange: () => review.setFilters({ workFilter: candidate })
+								onChange: () => {
+									review.setFilters({ workFilter: candidate });
+								}
 							}), t(`review.filter.${candidate}`)]
 						}, candidate))
 					})
@@ -32041,7 +32375,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						(0, react_jsx_runtime.jsxs)("button", {
 							type: "button",
 							className: ReviewView_module_css_default.linkish,
-							onClick: () => setOpen(!open),
+							onClick: () => {
+								setOpen(!open);
+							},
 							children: [
 								open ? "▾" : "▸",
 								" ",
@@ -32084,7 +32420,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							className: ReviewView_module_css_default.topicNote,
 							rows: 3,
 							value: draftText,
-							onChange: (event) => setDraftText(event.target.value)
+							onChange: (event) => {
+								setDraftText(event.target.value);
+							}
 						}),
 						diagnosis !== void 0 && (0, react_jsx_runtime.jsx)("pre", {
 							className: ReviewView_module_css_default.diagnosis,
@@ -34533,7 +34871,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						}),
 						(0, react_jsx_runtime.jsxs)("div", {
 							className: TemplatePickerModal_module_css_default.foot,
-							children: [picker.target.apply !== null ? (0, react_jsx_runtime.jsx)("button", {
+							children: [picker.target.apply !== void 0 ? (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: TemplatePickerModal_module_css_default.primary,
 								disabled: missing.length > 0,
@@ -34589,6 +34927,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			{
 				view: "benchmark",
 				key: "nav.benchmark"
+			},
+			{
+				view: "competitors",
+				key: "nav.competitors"
 			},
 			{
 				view: "topicBank",
@@ -34649,7 +34991,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		* @param props - the injected face and the locale seat.
 		* @returns the surface element tree while open; null while closed.
 		*/
-		function ContentStudio({ studio, listOutputs, gather, schedule, notes, competitors, create, personas, listThemes, topics, writeExport, publish, review, interaction, templates, t }) {
+		function ContentStudio({ studio, listOutputs, gather, schedule, notes, competitors, create, personas, listThemes, topics, writeExport, publish, review, interaction, readInteractions, readReviewManifest, templates, t }) {
 			const open = (0, react.useSyncExternalStore)((fn) => studio.subscribe(fn), () => studio.isOpen());
 			const [view, setView] = (0, react.useState)("workbench");
 			const [accounts, setAccounts] = (0, react.useState)(() => {
@@ -34826,6 +35168,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									view === "workbench" && (0, react_jsx_runtime.jsx)(ContentWorkbench, {
 										listOutputs,
 										listSchedule: schedule.list,
+										listTopics: topics.list,
+										readInteractions,
+										readReviewManifest,
 										onNavigate: setView,
 										onChat: () => {
 											studio.close();
@@ -37015,26 +37360,32 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				dismissNotice: () => {
 					if (state.notice !== null) patch({ notice: null });
 				},
-				openNew: () => patch({
-					editor: { form: emptyForm() },
-					aiDraft: null,
-					historyOpen: false,
-					history: []
-				}),
-				openEditor: (record) => patch({
-					editor: { form: formFromRecord(record) },
-					aiDraft: null,
-					historyOpen: false,
-					history: []
-				}),
-				closeEditor: () => patch({
-					editor: null,
-					aiDraft: null,
-					historyOpen: false,
-					history: [],
-					optimizeSource: "",
-					extractSource: ""
-				}),
+				openNew: () => {
+					patch({
+						editor: { form: emptyForm() },
+						aiDraft: null,
+						historyOpen: false,
+						history: []
+					});
+				},
+				openEditor: (record) => {
+					patch({
+						editor: { form: formFromRecord(record) },
+						aiDraft: null,
+						historyOpen: false,
+						history: []
+					});
+				},
+				closeEditor: () => {
+					patch({
+						editor: null,
+						aiDraft: null,
+						historyOpen: false,
+						history: [],
+						optimizeSource: "",
+						extractSource: ""
+					});
+				},
 				patchForm: (formPatch) => {
 					if (state.editor === null) return;
 					const merged = {
@@ -37142,7 +37493,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						}
 					})();
 				},
-				closeHistory: () => patch({ historyOpen: false }),
+				closeHistory: () => {
+					patch({ historyOpen: false });
+				},
 				restoreVersion: (entry) => {
 					const editor = state.editor;
 					if (editor === null || editor.form.id === null) return;
@@ -37204,7 +37557,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						}
 					})();
 				},
-				dismissImportReport: () => patch({ importReport: null }),
+				dismissImportReport: () => {
+					patch({ importReport: null });
+				},
 				importStarterPack: () => {
 					(async () => {
 						try {
@@ -37234,10 +37589,18 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						}
 					})();
 				},
-				setGenerateSource: (text) => patch({ generateSource: text }),
-				setGenerateCategory: (category) => patch({ generateCategory: category }),
-				setOptimizeSource: (text) => patch({ optimizeSource: text }),
-				setExtractSource: (text) => patch({ extractSource: text }),
+				setGenerateSource: (text) => {
+					patch({ generateSource: text });
+				},
+				setGenerateCategory: (category) => {
+					patch({ generateCategory: category });
+				},
+				setOptimizeSource: (text) => {
+					patch({ optimizeSource: text });
+				},
+				setExtractSource: (text) => {
+					patch({ extractSource: text });
+				},
 				runAi: (request) => {
 					if (state.aiBusy !== false) return;
 					if ((request.operation === "generate" ? request.description : request.operation === "optimize" ? request.instruction : request.content).trim().length === 0) {
@@ -37298,14 +37661,18 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						aiDraft: null
 					});
 				},
-				discardAiDraft: () => patch({ aiDraft: null }),
-				openPicker: (target) => patch({ picker: {
-					target,
-					search: "",
-					selected: null,
-					values: {},
-					overwriteConfirm: false
-				} }),
+				discardAiDraft: () => {
+					patch({ aiDraft: null });
+				},
+				openPicker: (target) => {
+					patch({ picker: {
+						target,
+						search: "",
+						selected: null,
+						values: {},
+						overwriteConfirm: false
+					} });
+				},
 				pickerSearch: (text) => {
 					if (state.picker !== null) patch({ picker: {
 						...state.picker,
@@ -37369,7 +37736,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						if (await (0, _deepseek_ai_dsh_client_ui_primitives.writeClipboard)(rendered.output)) patch({ picker: null });
 					})();
 				},
-				closePicker: () => patch({ picker: null })
+				closePicker: () => {
+					patch({ picker: null });
+				}
 			};
 			return controller;
 		}
@@ -37854,7 +38223,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				const raw = localStorage.getItem(FILTERS_KEY);
 				if (raw === null) return defaultFilters(now);
 				const parsed = JSON.parse(raw);
-				if (parsed.version !== 1 || typeof parsed.period?.from !== "string") return defaultFilters(now);
+				if (parsed.version !== 1 || typeof parsed.period.from !== "string") return defaultFilters(now);
 				return parsed;
 			} catch {
 				return defaultFilters(now);
@@ -38801,7 +39170,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"nav.accounts": "账号",
 			"nav.persona": "画像",
 			"nav.library": "内容库",
-			"nav.calendar": "内容日历",
+			"nav.calendar": "日历",
 			"benchmark.title": "对标拆解",
 			"accounts.title": "账号管理",
 			"accounts.hint": "选择当前创作账号；账号会注入到每条复制的创作指令中。",
@@ -39934,7 +40303,29 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"interaction.notice.export-failed": "导出失败。",
 			"interaction.notice.need-theme": "请先选择导出主题。",
 			"interaction.notice.topic-added": "已送入选题库。",
-			"interaction.notice.topic-failed": "送选题失败。"
+			"interaction.notice.topic-failed": "送选题失败。",
+			"stat.topicTotal": "选题",
+			"stat.topicTodo": "待创作选题",
+			"stat.topicDone": "选题已完成",
+			"stat.todayDue": "今日待发布",
+			"stat.pendingReply": "待回复评论",
+			"stat.scheduledTasks": "定时任务",
+			"stat.reads": "累计阅读",
+			"stat.likes": "累计点赞",
+			"stat.followers": "累计涨粉",
+			"stat.previewWorks": "在追作品",
+			"workbench.createNew": "新建：",
+			"workbench.tl.newTopic": "新增选题",
+			"workbench.tl.due": "排期将至",
+			"workbench.tl.reply": "评论待回复",
+			"workbench.tl.reviewData": "主题待复盘",
+			"workbench.emptyTimeline": "暂无动态。",
+			"workbench.reviewHint": "以上为复盘数据的全库汇总；详细分析请前往复盘。",
+			"panel.recentTopics": "最近选题",
+			"panel.recentFinals": "最近定稿",
+			"panel.timeline": "近期动态",
+			"panel.dataPreview": "数据预览",
+			"panel.emptyRecentTopics": "还没有选题，去选题库新建一条。"
 		};
 		/** English dictionary; every zh key must be present. */
 		const en = {
@@ -41091,7 +41482,29 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"interaction.notice.export-failed": "Export failed.",
 			"interaction.notice.need-theme": "Pick an export theme first.",
 			"interaction.notice.topic-added": "Pushed to the topic bank.",
-			"interaction.notice.topic-failed": "The topic push failed."
+			"interaction.notice.topic-failed": "The topic push failed.",
+			"stat.topicTotal": "Topics",
+			"stat.topicTodo": "Topics to write",
+			"stat.topicDone": "Topics done",
+			"stat.todayDue": "Due today",
+			"stat.pendingReply": "Replies waiting",
+			"stat.scheduledTasks": "Scheduled",
+			"stat.reads": "Total reads",
+			"stat.likes": "Total likes",
+			"stat.followers": "Total follows",
+			"stat.previewWorks": "Works tracked",
+			"workbench.createNew": "New:",
+			"workbench.tl.newTopic": "New topic",
+			"workbench.tl.due": "Due soon",
+			"workbench.tl.reply": "Replies waiting",
+			"workbench.tl.reviewData": "Themes awaiting review",
+			"workbench.emptyTimeline": "No activity yet.",
+			"workbench.reviewHint": "A library-wide aggregate of the review data; the full analysis lives in the review view.",
+			"panel.recentTopics": "Recent topics",
+			"panel.recentFinals": "Recent finals",
+			"panel.timeline": "Activity",
+			"panel.dataPreview": "Data preview",
+			"panel.emptyRecentTopics": "No topics yet; create one in the topic bank."
 		};
 		//#endregion
 		//#region lib/types/client/index.js
@@ -41165,7 +41578,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		* separate disposer.
 		* @param ctx - the workbench fiber's context.
 		*/
-		async function mainApply(ctx) {
+		function mainApply(ctx) {
 			const studio = createContentStudioController();
 			const listOutputs = async () => {
 				const result = await ctx.remote.contentOutputs.list();
@@ -41283,6 +41696,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				}
 			} });
 			const competitors = {
+				topics,
 				readCompetitorManifest: async (theme) => {
 					const result = await ctx.remote.contentOutputs.readCompetitorManifest(theme);
 					if (!result.ok) throw new Error(`contentOutputs.readCompetitorManifest failed: ${result.error.code}: ${result.error.message}`);
@@ -41360,6 +41774,8 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				analyzeReviewWork: (request) => unwrap("contentOutputs.analyzeReviewWork", ctx.remote.contentOutputs.analyzeReviewWork(request)),
 				generateReviewReport: (request) => unwrap("contentOutputs.generateReviewReport", ctx.remote.contentOutputs.generateReviewReport(request))
 			}, topics);
+			const readInteractions = () => unwrap("contentOutputs.readInteractions", ctx.remote.contentOutputs.readInteractions());
+			const readReviewManifest = (theme) => unwrap("contentOutputs.readReviewManifest", ctx.remote.contentOutputs.readReviewManifest(theme));
 			const interaction = createInteractionController({
 				readInteractions: () => unwrap("contentOutputs.readInteractions", ctx.remote.contentOutputs.readInteractions()),
 				writeInteractions: (manifest) => unwrap("contentOutputs.writeInteractions", ctx.remote.contentOutputs.writeInteractions(manifest)),
@@ -41398,6 +41814,8 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						publish,
 						review,
 						interaction,
+						readInteractions,
+						readReviewManifest,
 						templates
 					})
 				}, ContentStudio);

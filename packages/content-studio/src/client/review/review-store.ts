@@ -121,7 +121,9 @@ function loadFilters(now: Date): ReviewFilterSession {
     const raw = localStorage.getItem(FILTERS_KEY)
     if (raw === null) return defaultFilters(now)
     const parsed = JSON.parse(raw) as ReviewFilterSession
-    if (parsed.version !== 1 || typeof parsed.period?.from !== 'string') return defaultFilters(now)
+    // The version gate runs on parsed-unknown JSON; the literal check
+    // carries the type. oxlint-disable-next-line typescript/no-unnecessary-condition
+    if (parsed.version !== 1 || typeof parsed.period.from !== 'string') return defaultFilters(now)
     return parsed
   } catch {
     return defaultFilters(now)
@@ -291,7 +293,7 @@ export function createReviewController(gateway: ReviewGateway, topics: ReviewTop
 
     async bindWork(platformWorkId, platformId, contentId) {
       const manifest = requireManifest()
-      const snapshots = manifest.snapshots.map((snapshot) =>
+      const snapshots = manifest.snapshots.map(snapshot =>
         snapshot.platformId === platformId && snapshot.platformWorkId === platformWorkId
           ? { ...snapshot, contentId, matchMethod: 'manual' as const }
           : snapshot)

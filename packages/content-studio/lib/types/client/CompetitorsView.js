@@ -10,7 +10,7 @@ import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-run
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { clsx } from 'clsx';
 import { IconRefreshOutline14, IconTrashOutline16, IconWarningOutline16 } from '@deepseek-ai/dsh-client-ui-primitives';
-import { aggregateAccountDigest, buildIdeaMarkdown, COMPETITOR_PLATFORMS, exportAccounts, heatByWork, importAccounts, interactionScore, isAccountStale, loadAccounts, newId, saveAccounts, upsertWork, } from "./competitors.js";
+import { aggregateAccountDigest, buildIdeaMarkdown, COMPETITOR_PLATFORMS, competitorWorkToTopicInput, exportAccounts, heatByWork, importAccounts, interactionScore, isAccountStale, loadAccounts, newId, saveAccounts, upsertWork, } from "./competitors.js";
 import css from './ContentStudio.module.css';
 /** localStorage key of the last opened theme. */
 const THEME_STORAGE_KEY = 'dsh-content-studio.competitors.theme';
@@ -84,7 +84,7 @@ function numberField(value) {
  * @returns the view element tree.
  */
 export function CompetitorsView(props) {
-    const { listOutputs, readCompetitorManifest, writeCompetitorManifest, writeAsset, deleteAsset, readAsset, analyzeCompetitorWork, generateCompetitorReport, t, } = props;
+    const { listOutputs, readCompetitorManifest, writeCompetitorManifest, writeAsset, deleteAsset, readAsset, analyzeCompetitorWork, generateCompetitorReport, topics, t, } = props;
     const [accounts, setAccounts] = useState(() => loadAccounts().accounts);
     const [storageDegraded, setStorageDegraded] = useState(false);
     const [section, setSection] = useState('works');
@@ -370,6 +370,13 @@ export function CompetitorsView(props) {
     };
     const addIdea = (work) => {
         void act(async () => {
+            // The topic bank is the primary target: one benchmark work yields one
+            // topic, ever — the list check makes a retry after a half-done round
+            // (topic landed, file write failed) a pure marker backfill.
+            const bank = await topics.list();
+            const exists = bank.items.some(topic => topic.source.type === 'benchmark' && topic.source.refId === work.id);
+            if (!exists)
+                await topics.put(competitorWorkToTopicInput(work, new Date().toISOString()));
             const file = `idea-${work.id.slice(3)}.md`;
             await writeAsset({ theme, file, content: buildIdeaMarkdown(work, work.analysis.result?.migrationTopics[0]) });
             await commitManifest({

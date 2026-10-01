@@ -902,8 +902,8 @@ export class ContentOutputsGateway extends TypertRemoteService {
    * @returns the preview.
    */
   @Remote('parseReviewImport')
-  async parseReviewImport(request: ReviewImportPreviewRequest): Promise<ReviewImportPreview> {
-    return parseImportFile(request)
+  parseReviewImport(request: ReviewImportPreviewRequest): Promise<ReviewImportPreview> {
+    return Promise.resolve(parseImportFile(request))
   }
 
   /**
@@ -1044,8 +1044,8 @@ export class ContentOutputsGateway extends TypertRemoteService {
    * @returns the preview.
    */
   @Remote('parseInteractionImport')
-  async parseInteractionImport(request: InteractionImportPreviewRequest): Promise<InteractionImportPreview> {
-    return parseInteractionImportText(request)
+  parseInteractionImport(request: InteractionImportPreviewRequest): Promise<InteractionImportPreview> {
+    return Promise.resolve(parseInteractionImportText(request))
   }
 
   /**

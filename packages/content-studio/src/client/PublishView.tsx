@@ -13,7 +13,6 @@ import { PLATFORM_PROFILES, exceedsCharLimit, formatTags, platformProfileOf } fr
 import type { ManuscriptCard } from './publish/model.ts'
 import type { PublishController, PublishNotice, PublishState } from './publish/publish-store.ts'
 import type { PickedManuscript } from './studio-store.ts'
-import type { StudioKey } from './locales.ts'
 import css from './PublishView.module.css'
 
 /** Injected face of the publish view. */
@@ -59,6 +58,8 @@ interface NewTaskForm {
   readonly mode: PublishTask['mode']
   readonly scheduledLocal: string
   readonly note: string
+  /** The creation topic this task fulfills; null on manual entries. */
+  readonly topicId: string | null
 }
 
 /** Whether the locale key exists in the publish notice family. */
@@ -99,6 +100,7 @@ export function PublishView({ publish, persona, pickedManuscript, onClearPickedM
       mode: 'immediate',
       scheduledLocal: '',
       note: '',
+      topicId: pickedManuscript.topicId ?? null,
     })
     onClearPickedManuscript()
   }, [pickedManuscript, onClearPickedManuscript])
@@ -114,6 +116,7 @@ export function PublishView({ publish, persona, pickedManuscript, onClearPickedM
     setForm({
       theme: card.theme, file: card.file, title: card.title,
       platformIds: [], mode: 'immediate', scheduledLocal: '', note: '',
+      topicId: null,
     })
   }
 
@@ -128,7 +131,7 @@ export function PublishView({ publish, persona, pickedManuscript, onClearPickedM
       mode: form.mode,
       scheduledAt,
       note: form.note.trim().length > 0 ? form.note.trim() : null,
-      topicId: null,
+      topicId: form.topicId,
       personaDigest: persona.trim().length > 0 ? persona.trim().slice(0, 500) : null,
       manuscriptId: null,
     })
@@ -170,7 +173,7 @@ export function PublishView({ publish, persona, pickedManuscript, onClearPickedM
           className={clsx(css.notice, state.notice.endsWith('failed') || state.notice === 'load-failed' ? css.noticeWarn : css.noticeOk)}
           role="status"
         >
-          <span>{t(`publish.notice.${state.notice}` as StudioKey)}</span>
+          <span>{t(`publish.notice.${state.notice}`)}</span>
           {state.error !== null && <span className={css.noticeDetail}>{state.error}</span>}
           <button type="button" className={css.mini} onClick={() => { publish.clearNotice() }}>
             {t('publish.notice.dismiss')}
@@ -191,12 +194,15 @@ export function PublishView({ publish, persona, pickedManuscript, onClearPickedM
                     <input
                       type="checkbox"
                       checked={stored?.enabled ?? false}
-                      onChange={event => {
+                      onChange={(event) => {
                         const enabled = event.target.checked
-                        setProfileDraft(current => {
+                        setProfileDraft((current) => {
                           const base = current.some(candidate => candidate.platformId === profile.platformId)
                             ? current
-                            : [...current, { platformId: profile.platformId, alias: profile.name, enabled: false, adaptationOverrides: null }]
+                            : [...current, {
+                              platformId: profile.platformId, alias: profile.name,
+                              enabled: false, adaptationOverrides: null,
+                            }]
                           return base.map(candidate => candidate.platformId === profile.platformId ? { ...candidate, enabled } : candidate)
                         })
                       }}
@@ -208,7 +214,7 @@ export function PublishView({ publish, persona, pickedManuscript, onClearPickedM
                     className={css.aliasInput}
                     placeholder={t('publish.profiles.alias')}
                     value={stored?.alias ?? ''}
-                    onChange={event => {
+                    onChange={(event) => {
                       const alias = event.target.value
                       setProfileDraft(current => current.map(candidate =>
                         candidate.platformId === profile.platformId ? { ...candidate, alias } : candidate))
@@ -218,7 +224,7 @@ export function PublishView({ publish, persona, pickedManuscript, onClearPickedM
                     className={css.overrideInput}
                     placeholder={t('publish.profiles.overrides')}
                     value={stored?.adaptationOverrides ?? ''}
-                    onChange={event => {
+                    onChange={(event) => {
                       const adaptationOverrides = event.target.value
                       setProfileDraft(current => current.map(candidate =>
                         candidate.platformId === profile.platformId ? { ...candidate, adaptationOverrides } : candidate))
@@ -269,7 +275,7 @@ export function PublishView({ publish, persona, pickedManuscript, onClearPickedM
                 onClick={() => { publish.selectTask(task.taskId) }}
               >
                 <span className={css.taskItemTitle}>{task.title}</span>
-                <span className={clsx(css.badge, STATUS_CLASS[task.status])}>{t(`publish.status.${task.status}` as StudioKey)}</span>
+                <span className={clsx(css.badge, STATUS_CLASS[task.status])}>{t(`publish.status.${task.status}`)}</span>
               </button>
             ))}
           </aside>
@@ -304,7 +310,14 @@ export function PublishView({ publish, persona, pickedManuscript, onClearPickedM
                     const card = state.profiles.find(candidate => candidate.platformId === profile.platformId)
                     const checked = form.platformIds.includes(profile.platformId)
                     return (
-                      <label key={profile.platformId} className={clsx(css.platformCard, checked && css.platformCardActive, card?.enabled === false && css.platformCardOff)}>
+                      <label
+                        key={profile.platformId}
+                        className={clsx(
+                          css.platformCard,
+                          checked && css.platformCardActive,
+                          card?.enabled === false && css.platformCardOff,
+                        )}
+                      >
                         <input type="checkbox" checked={checked} onChange={() => { togglePlatform(profile.platformId) }} />
                         <span className={css.platformName}>{profile.name}</span>
                         <span className={css.platformMeta}>{card?.alias ?? profile.name}</span>
@@ -331,7 +344,7 @@ export function PublishView({ publish, persona, pickedManuscript, onClearPickedM
                     <input
                       type="datetime-local" className={css.input}
                       value={form.scheduledLocal}
-                      onChange={event => { setForm({ ...form, scheduledLocal: event.target.value }) }}
+                      onChange={(event) => { setForm({ ...form, scheduledLocal: event.target.value }) }}
                     />
                   )}
                 </div>
@@ -339,7 +352,7 @@ export function PublishView({ publish, persona, pickedManuscript, onClearPickedM
                   className={css.noteInput}
                   placeholder={t('publish.form.note')}
                   value={form.note}
-                  onChange={event => { setForm({ ...form, note: event.target.value }) }}
+                  onChange={(event) => { setForm({ ...form, note: event.target.value }) }}
                 />
                 <p className={css.hint}>{t('publish.form.persona')}{persona.trim().length > 0 ? t('publish.form.personaOn') : t('publish.form.personaOff')}</p>
                 <div className={css.formActions}>
@@ -392,7 +405,7 @@ export function PublishView({ publish, persona, pickedManuscript, onClearPickedM
                   <td>{entry.title}</td>
                   <td>{entry.theme}</td>
                   <td>{entry.platformIds.map(id => platformProfileOf(id)?.name ?? id).join('、')}</td>
-                  <td><span className={clsx(css.badge, STATUS_CLASS[entry.status])}>{t(`publish.status.${entry.status}` as StudioKey)}</span></td>
+                  <td><span className={clsx(css.badge, STATUS_CLASS[entry.status])}>{t(`publish.status.${entry.status}`)}</span></td>
                   <td>{entry.updatedAt.slice(0, 16).replace('T', ' ')}</td>
                   <td>
                     <button type="button" className={css.mini} onClick={() => { void openHistoryRow(entry.theme, entry.taskId) }}>
@@ -431,7 +444,7 @@ function TaskDetail({ task, state, publish, draftEdit, setDraftEdit, scheduleInp
     <section className={css.detail} aria-label={task.title}>
       <header className={css.detailHead}>
         <h3 className={css.sectionTitle}>{task.title}</h3>
-        <span className={clsx(css.badge, STATUS_CLASS[task.status])}>{t(`publish.status.${task.status}` as StudioKey)}</span>
+        <span className={clsx(css.badge, STATUS_CLASS[task.status])}>{t(`publish.status.${task.status}`)}</span>
       </header>
       <p className={css.facts}>
         <span>{t('publish.fact.manuscript')}{task.manuscriptFile}</span>
@@ -461,9 +474,9 @@ function TaskDetail({ task, state, publish, draftEdit, setDraftEdit, scheduleInp
           {task.mode === 'scheduled' && task.scheduleItemId === null && (
             <span className={css.scheduleRow}>
               <input type="date" className={css.input} value={scheduleInputs.date}
-                onChange={event => { setScheduleInputs({ ...scheduleInputs, date: event.target.value }) }} />
+                onChange={(event) => { setScheduleInputs({ ...scheduleInputs, date: event.target.value }) }} />
               <input type="time" className={css.input} value={scheduleInputs.time}
-                onChange={event => { setScheduleInputs({ ...scheduleInputs, time: event.target.value }) }} />
+                onChange={(event) => { setScheduleInputs({ ...scheduleInputs, time: event.target.value }) }} />
               <button
                 type="button" className={css.ghost}
                 disabled={scheduleInputs.date.length === 0}
@@ -510,7 +523,7 @@ function TaskDetail({ task, state, publish, draftEdit, setDraftEdit, scheduleInp
               <header className={css.legHead}>
                 <span className={css.platformName}>{profile?.name ?? leg.platformId}</span>
                 <span className={css.platformMeta}>{leg.accountAlias}</span>
-                <span className={clsx(css.badge, LEG_STATUS_CLASS[leg.status])}>{t(`publish.leg.${leg.status}` as StudioKey)}</span>
+                <span className={clsx(css.badge, LEG_STATUS_CLASS[leg.status])}>{t(`publish.leg.${leg.status}`)}</span>
               </header>
               {leg.coverPrompt !== null && <p className={css.legCover}>{t('publish.leg.cover')}{leg.coverPrompt}</p>}
               {leg.tags.length > 0 && profile !== undefined && (
@@ -537,12 +550,12 @@ function TaskDetail({ task, state, publish, draftEdit, setDraftEdit, scheduleInp
                   </button>
                 )}
               </div>
-              {editing && draftEdit !== null && (
+              {editing && (
                 <div className={css.editBlock}>
                   <textarea
                     className={css.editArea}
                     value={draftEdit.content}
-                    onChange={event => { setDraftEdit({ ...draftEdit, content: event.target.value }) }}
+                    onChange={(event) => { setDraftEdit({ ...draftEdit, content: event.target.value }) }}
                   />
                   {exceedsCharLimit(draftEdit.content, profile?.charLimit ?? null) && (
                     <p className={css.problem}>{t('publish.leg.overLimit')}</p>
@@ -571,7 +584,7 @@ function TaskDetail({ task, state, publish, draftEdit, setDraftEdit, scheduleInp
                   <ul className={css.logList}>
                     {[...leg.attempts].reverse().map((attempt, index) => (
                       <li key={`${attempt.at}-${index}`} className={attempt.ok ? css.logOk : css.logFail}>
-                        {attempt.at.slice(11, 19)} {t(`publish.attempt.${attempt.action}` as StudioKey)} — {attempt.detail}
+                        {attempt.at.slice(11, 19)} {t(`publish.attempt.${attempt.action}`)} — {attempt.detail}
                       </li>
                     ))}
                   </ul>

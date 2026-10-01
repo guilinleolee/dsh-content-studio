@@ -26,7 +26,7 @@ export declare const zh: {
     readonly 'nav.accounts': "账号";
     readonly 'nav.persona': "画像";
     readonly 'nav.library': "内容库";
-    readonly 'nav.calendar': "内容日历";
+    readonly 'nav.calendar': "日历";
     readonly 'benchmark.title': "对标拆解";
     readonly 'accounts.title': "账号管理";
     readonly 'accounts.hint': "选择当前创作账号；账号会注入到每条复制的创作指令中。";
@@ -1160,6 +1160,28 @@ export declare const zh: {
     readonly 'interaction.notice.need-theme': "请先选择导出主题。";
     readonly 'interaction.notice.topic-added': "已送入选题库。";
     readonly 'interaction.notice.topic-failed': "送选题失败。";
+    readonly 'stat.topicTotal': "选题";
+    readonly 'stat.topicTodo': "待创作选题";
+    readonly 'stat.topicDone': "选题已完成";
+    readonly 'stat.todayDue': "今日待发布";
+    readonly 'stat.pendingReply': "待回复评论";
+    readonly 'stat.scheduledTasks': "定时任务";
+    readonly 'stat.reads': "累计阅读";
+    readonly 'stat.likes': "累计点赞";
+    readonly 'stat.followers': "累计涨粉";
+    readonly 'stat.previewWorks': "在追作品";
+    readonly 'workbench.createNew': "新建：";
+    readonly 'workbench.tl.newTopic': "新增选题";
+    readonly 'workbench.tl.due': "排期将至";
+    readonly 'workbench.tl.reply': "评论待回复";
+    readonly 'workbench.tl.reviewData': "主题待复盘";
+    readonly 'workbench.emptyTimeline': "暂无动态。";
+    readonly 'workbench.reviewHint': "以上为复盘数据的全库汇总；详细分析请前往复盘。";
+    readonly 'panel.recentTopics': "最近选题";
+    readonly 'panel.recentFinals': "最近定稿";
+    readonly 'panel.timeline': "近期动态";
+    readonly 'panel.dataPreview': "数据预览";
+    readonly 'panel.emptyRecentTopics': "还没有选题，去选题库新建一条。";
 };
 /** Type of the dictionary keys owned by this plugin. */
 export type StudioKey = keyof typeof zh;

@@ -30,7 +30,9 @@ function loadFilters(now) {
         if (raw === null)
             return defaultFilters(now);
         const parsed = JSON.parse(raw);
-        if (parsed.version !== 1 || typeof parsed.period?.from !== 'string')
+        // The version gate runs on parsed-unknown JSON; the literal check
+        // carries the type. oxlint-disable-next-line typescript/no-unnecessary-condition
+        if (parsed.version !== 1 || typeof parsed.period.from !== 'string')
             return defaultFilters(now);
         return parsed;
     }
@@ -140,7 +142,7 @@ export function createReviewController(gateway, topics) {
         },
         async bindWork(platformWorkId, platformId, contentId) {
             const manifest = requireManifest();
-            const snapshots = manifest.snapshots.map((snapshot) => snapshot.platformId === platformId && snapshot.platformWorkId === platformWorkId
+            const snapshots = manifest.snapshots.map(snapshot => snapshot.platformId === platformId && snapshot.platformWorkId === platformWorkId
                 ? { ...snapshot, contentId, matchMethod: 'manual' }
                 : snapshot);
             try {

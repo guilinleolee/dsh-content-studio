@@ -10,7 +10,6 @@ import type { PropsLocale } from '@deepseek-ai/dsh-client-ui-slots'
 import type { TemplateCategory, TemplateImportStrategy, TemplateRecord } from '@deepseek-ai/dsh-content-outputs/types'
 import { renderTemplate, scanTemplateVariables, TEMPLATE_CATEGORIES, TEMPLATE_CATEGORY_LABELS } from './model.ts'
 import type { TemplateController, TemplatePrefs, TemplateState } from './template-store.ts'
-import type { StudioKey } from '../locales.ts'
 import css from './TemplateLibraryView.module.css'
 
 /** Props: the injected controller plus the locale seat. */
@@ -29,7 +28,7 @@ const IMPORT_STRATEGIES: readonly TemplateImportStrategy[] = ['skip', 'overwrite
 export function TemplateLibraryView({ templates, t }: TemplateLibraryViewProps) {
   const state = useSyncExternalStore(
     listener => templates.subscribe(listener),
-    () => templates.getState() as TemplateState,
+    () => templates.getState(),
   )
   const prefs = useSyncExternalStore(
     listener => templates.subscribe(listener),
@@ -79,7 +78,7 @@ export function TemplateLibraryView({ templates, t }: TemplateLibraryViewProps) 
             onChange={(event) => { setImportStrategy(event.target.value as TemplateImportStrategy) }}
           >
             {IMPORT_STRATEGIES.map(strategy => (
-              <option key={strategy} value={strategy}>{t(`template.import.${strategy}` as StudioKey)}</option>
+              <option key={strategy} value={strategy}>{t(`template.import.${strategy}`)}</option>
             ))}
           </select>
           <input
@@ -127,7 +126,7 @@ export function TemplateLibraryView({ templates, t }: TemplateLibraryViewProps) 
       )}
       {state.notice !== null && (
         <div className={css.templateBanner} role="status">
-          <span>{t(`template.notice.${state.notice}` as StudioKey)}</span>
+          <span>{t(`template.notice.${state.notice}`)}</span>
           <button type="button" className={css.templateMini} onClick={() => { templates.dismissNotice() }}>
             {t('template.notice.dismiss')}
           </button>

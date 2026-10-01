@@ -1,4 +1,4 @@
-import type { ContentOutputsSnapshot } from '@deepseek-ai/dsh-content-outputs/types';
+import type { ContentOutputsSnapshot, InteractionsManifestRead, ReviewManifestRead } from '@deepseek-ai/dsh-content-outputs/types';
 import type { ContentScheduleSnapshot, ScheduleItem, ScheduleItemInput } from '@deepseek-ai/dsh-content-schedule/types';
 import type { PropsLocale } from '@deepseek-ai/dsh-client-ui-slots';
 import { type ContentCalendarInjected } from './ContentCalendar.tsx';
@@ -43,6 +43,10 @@ export interface ContentStudioInjected {
     review: ReviewController;
     /** The interaction controller: the fan inbox, the CSV import, and the AI helpers. */
     interaction: InteractionController;
+    /** Raw read of the `_interactions.json` manifest for the workbench home. */
+    readInteractions: () => Promise<InteractionsManifestRead>;
+    /** Raw read of one theme's `_review.json` manifest for the workbench home. */
+    readReviewManifest: (theme: string) => Promise<ReviewManifestRead>;
     /** The global template library controller: the asset store plus the cross-column picker. */
     templates: TemplateController;
 }
@@ -53,5 +57,5 @@ export type ContentStudioProps = ContentStudioInjected & PropsLocale<'content-st
  * @param props - the injected face and the locale seat.
  * @returns the surface element tree while open; null while closed.
  */
-export declare function ContentStudio({ studio, listOutputs, gather, schedule, notes, competitors, create, personas, listThemes, topics, writeExport, publish, review, interaction, templates, t, }: ContentStudioProps): import("react").JSX.Element | null;
+export declare function ContentStudio({ studio, listOutputs, gather, schedule, notes, competitors, create, personas, listThemes, topics, writeExport, publish, review, interaction, readInteractions, readReviewManifest, templates, t, }: ContentStudioProps): import("react").JSX.Element | null;
 //# sourceMappingURL=ContentStudio.d.ts.map

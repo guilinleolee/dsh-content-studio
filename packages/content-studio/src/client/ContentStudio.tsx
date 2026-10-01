@@ -16,7 +16,9 @@
 import { useEffect, useState, useSyncExternalStore } from 'react'
 import { clsx } from 'clsx'
 import { IconCloseOutline16, IconSparkle16, writeClipboard } from '@deepseek-ai/dsh-client-ui-primitives'
-import type { ContentOutputsSnapshot } from '@deepseek-ai/dsh-content-outputs/types'
+import type {
+  ContentOutputsSnapshot, InteractionsManifestRead, ReviewManifestRead,
+} from '@deepseek-ai/dsh-content-outputs/types'
 import type { ContentScheduleSnapshot, ScheduleItem, ScheduleItemInput } from '@deepseek-ai/dsh-content-schedule/types'
 import type { PropsLocale } from '@deepseek-ai/dsh-client-ui-slots'
 import type { TopicItemInput } from '@deepseek-ai/dsh-content-topics/types'
@@ -63,6 +65,7 @@ const NAV_ITEMS: readonly { view: StudioView | 'chat'; key: StudioKey }[] = [
   { view: 'workbench', key: 'nav.workbench' },
   { view: 'chat', key: 'nav.chat' },
   { view: 'benchmark', key: 'nav.benchmark' },
+  { view: 'competitors', key: 'nav.competitors' },
   { view: 'topicBank', key: 'nav.topicBank' },
   { view: 'gather', key: 'nav.gather' },
   { view: 'library', key: 'nav.content' },
@@ -110,6 +113,10 @@ export interface ContentStudioInjected {
   review: ReviewController
   /** The interaction controller: the fan inbox, the CSV import, and the AI helpers. */
   interaction: InteractionController
+  /** Raw read of the `_interactions.json` manifest for the workbench home. */
+  readInteractions: () => Promise<InteractionsManifestRead>
+  /** Raw read of one theme's `_review.json` manifest for the workbench home. */
+  readReviewManifest: (theme: string) => Promise<ReviewManifestRead>
   /** The global template library controller: the asset store plus the cross-column picker. */
   templates: TemplateController
 }
@@ -131,7 +138,8 @@ const BADGE_CLASS: Record<CapabilityMaturity, string> = {
  * @returns the surface element tree while open; null while closed.
  */
 export function ContentStudio({
-  studio, listOutputs, gather, schedule, notes, competitors, create, personas, listThemes, topics, writeExport, publish, review, interaction, templates, t,
+  studio, listOutputs, gather, schedule, notes, competitors, create, personas, listThemes,
+  topics, writeExport, publish, review, interaction, readInteractions, readReviewManifest, templates, t,
 }: ContentStudioProps) {
   const open = useSyncExternalStore(
     fn => studio.subscribe(fn),
@@ -334,6 +342,9 @@ export function ContentStudio({
               <ContentWorkbench
                 listOutputs={listOutputs}
                 listSchedule={schedule.list}
+                listTopics={topics.list}
+                readInteractions={readInteractions}
+                readReviewManifest={readReviewManifest}
                 onNavigate={setView}
                 onChat={() => { studio.close() }}
                 account={account}

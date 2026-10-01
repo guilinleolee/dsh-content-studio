@@ -76,11 +76,18 @@ function isTask(value) {
     const record = value;
     const period = record.period;
     const filters = record.filters;
+    // The period/filters shape checks are load-bearing on this parse path:
+    // the values arrived as parsed-unknown JSON, so the literal guards carry
+    // the type.
+    // oxlint-disable-next-line typescript/no-unnecessary-condition
+    const periodOk = typeof period === 'object' && period !== null;
+    // oxlint-disable-next-line typescript/no-unnecessary-condition
+    const filtersOk = typeof filters === 'object' && filters !== null;
     return typeof record.taskId === 'string' && record.taskId.length > 0
         && typeof record.name === 'string' && record.name.length > 0
-        && typeof period === 'object' && period !== null
+        && periodOk
         && typeof period.from === 'string' && typeof period.to === 'string'
-        && typeof filters === 'object' && filters !== null
+        && filtersOk
         && Array.isArray(filters.platforms) && filters.platforms.every(isPlatformId)
         && Array.isArray(filters.contentTypes) && filters.contentTypes.every(isContentType)
         && (filters.workFilter === 'all' || filters.workFilter === 'viral' || filters.workFilter === 'weak' || filters.workFilter === 'longtail')
@@ -260,9 +267,11 @@ export async function readReviewIndexFile(root) {
     record.rows.forEach((entry, position) => {
         const candidate = entry;
         const period = candidate.period;
+        // oxlint-disable-next-line typescript/no-unnecessary-condition -- parsed-unknown JSON; the literal guard carries the type
+        const periodOk = typeof period === 'object' && period !== null;
         if (typeof candidate.taskId === 'string' && typeof candidate.theme === 'string'
             && typeof candidate.name === 'string'
-            && typeof period === 'object' && period !== null
+            && periodOk
             && typeof period.from === 'string' && typeof period.to === 'string'
             && Array.isArray(candidate.platforms) && candidate.platforms.every(isPlatformId)
             && isStatus(candidate.status)

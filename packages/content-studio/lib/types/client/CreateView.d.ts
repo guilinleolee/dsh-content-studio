@@ -102,6 +102,7 @@ export interface CreateViewProps {
         readonly theme: string;
         readonly file: string;
         readonly title: string;
+        readonly topicId: string | null;
     }) => void;
     /** The capability card catalog, reachable behind the 指令库 toggle. */
     readonly catalog: ReactNode;

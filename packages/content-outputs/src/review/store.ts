@@ -94,11 +94,18 @@ function isTask(value: unknown): value is ReviewTask {
   const record = value as Record<string, unknown>
   const period = record.period as Record<string, unknown> | undefined
   const filters = record.filters as Record<string, unknown> | undefined
+  // The period/filters shape checks are load-bearing on this parse path:
+  // the values arrived as parsed-unknown JSON, so the literal guards carry
+  // the type.
+  // oxlint-disable-next-line typescript/no-unnecessary-condition
+  const periodOk = typeof period === 'object' && period !== null
+  // oxlint-disable-next-line typescript/no-unnecessary-condition
+  const filtersOk = typeof filters === 'object' && filters !== null
   return typeof record.taskId === 'string' && record.taskId.length > 0
     && typeof record.name === 'string' && record.name.length > 0
-    && typeof period === 'object' && period !== null
+    && periodOk
     && typeof period.from === 'string' && typeof period.to === 'string'
-    && typeof filters === 'object' && filters !== null
+    && filtersOk
     && Array.isArray(filters.platforms) && filters.platforms.every(isPlatformId)
     && Array.isArray(filters.contentTypes) && filters.contentTypes.every(isContentType)
     && (filters.workFilter === 'all' || filters.workFilter === 'viral' || filters.workFilter === 'weak' || filters.workFilter === 'longtail')
@@ -270,9 +277,11 @@ export async function readReviewIndexFile(root: string): Promise<ReviewIndexRead
   record.rows.forEach((entry, position) => {
     const candidate = entry as Record<string, unknown>
     const period = candidate.period as Record<string, unknown> | undefined
+    // oxlint-disable-next-line typescript/no-unnecessary-condition -- parsed-unknown JSON; the literal guard carries the type
+    const periodOk = typeof period === 'object' && period !== null
     if (typeof candidate.taskId === 'string' && typeof candidate.theme === 'string'
       && typeof candidate.name === 'string'
-      && typeof period === 'object' && period !== null
+      && periodOk
       && typeof period.from === 'string' && typeof period.to === 'string'
       && Array.isArray(candidate.platforms) && candidate.platforms.every(isPlatformId)
       && isStatus(candidate.status)
@@ -281,9 +290,9 @@ export async function readReviewIndexFile(root: string): Promise<ReviewIndexRead
         taskId: candidate.taskId,
         theme: candidate.theme,
         name: candidate.name,
-        period: { from: period.from as string, to: period.to as string },
-        platforms: candidate.platforms as ReviewIndexRow['platforms'],
-        status: candidate.status as ReviewStatus,
+        period: { from: period.from, to: period.to },
+        platforms: candidate.platforms,
+        status: candidate.status,
         updatedAt: candidate.updatedAt,
       })
     } else {
