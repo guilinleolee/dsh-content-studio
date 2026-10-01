@@ -43,7 +43,10 @@ export interface InteractionGateway {
     template: string | null
     thread: readonly { direction: 'in' | 'out'; content: string }[]
   }) => Promise<{ drafts: readonly { style: InteractionStyle; content: string }[]; model: string; promptVersion: string }>
-  classifyInteractions: (request: { messages: readonly InteractionClassifyMessage[] }) => Promise<{ entries: readonly InteractionClassifyEntry[]; promptVersion: string }>
+  classifyInteractions: (request: { messages: readonly InteractionClassifyMessage[] }) => Promise<{
+    entries: readonly InteractionClassifyEntry[]
+    promptVersion: string
+  }>
   extractInteractionInsights: (request: { messages: readonly InteractionClassifyMessage[] }) => Promise<{
     batch: { questions: InteractionInsights['topQuestions']; painPoints: InteractionInsights['painPoints']; interests: InteractionInsights['interests'] }
   }>
@@ -122,7 +125,13 @@ export interface InteractionController {
    * Generate the fixed draft set for one message and store it as the
    * message's drafts.
    */
-  generateDrafts(conversationId: string, messageId: string, style: InteractionStyle, persona: InteractionPersonaFacts | null, template: string | null): Promise<void>
+  generateDrafts(
+    conversationId: string,
+    messageId: string,
+    style: InteractionStyle,
+    persona: InteractionPersonaFacts | null,
+    template: string | null,
+  ): Promise<void>
   /** Save one hand-tuned draft onto the message's draft list. */
   saveDraft(conversationId: string, messageId: string, style: InteractionStyle, content: string, personaId: string | null): Promise<void>
   /**
@@ -156,7 +165,11 @@ const untagged = {
  * @param writeExport - the guarded asset write the CSV export rides.
  * @returns the controller.
  */
-export function createInteractionController(gateway: InteractionGateway, topics: InteractionTopicsFace, writeExport: InteractionExportFace): InteractionController {
+export function createInteractionController(
+  gateway: InteractionGateway,
+  topics: InteractionTopicsFace,
+  writeExport: InteractionExportFace,
+): InteractionController {
   let state: InteractionState = {
     manifest: null,
     problems: [],
@@ -190,7 +203,11 @@ export function createInteractionController(gateway: InteractionGateway, topics:
   }
 
   /** Patch one conversation in the manifest and persist the whole document. */
-  const patchConversationIn = (manifest: InteractionsManifest, id: string, patchConversation: (conversation: InteractionConversation) => InteractionConversation): InteractionsManifest => ({
+  const patchConversationIn = (
+    manifest: InteractionsManifest,
+    id: string,
+    patchConversation: (conversation: InteractionConversation) => InteractionConversation,
+  ): InteractionsManifest => ({
     ...manifest,
     conversations: manifest.conversations.map(conversation => conversation.id === id ? patchConversation(conversation) : conversation),
   })
@@ -290,7 +307,7 @@ export function createInteractionController(gateway: InteractionGateway, topics:
           personaId: persona?.id ?? null,
           createdAt: now,
         }))
-        const next = patchConversationIn(requireManifest(), conversationId, (candidate) => ({
+        const next = patchConversationIn(requireManifest(), conversationId, candidate => ({
           ...candidate,
           messages: candidate.messages.map(message =>
             message.id === messageId ? { ...message, replyDrafts: drafts } : message),
@@ -312,7 +329,7 @@ export function createInteractionController(gateway: InteractionGateway, topics:
         createdAt: new Date().toISOString(),
       }
       try {
-        await persist(patchConversationIn(manifest, conversationId, (candidate) => ({
+        await persist(patchConversationIn(manifest, conversationId, candidate => ({
           ...candidate,
           messages: candidate.messages.map(message =>
             message.id === messageId ? { ...message, replyDrafts: [...message.replyDrafts, draft] } : message),
@@ -329,7 +346,7 @@ export function createInteractionController(gateway: InteractionGateway, topics:
       const replied = conversation.messages.find(message => message.id === inReplyToMessageId)
       const now = new Date().toISOString()
       try {
-        await persist(patchConversationIn(manifest, conversationId, (candidate) => ({
+        await persist(patchConversationIn(manifest, conversationId, candidate => ({
           ...candidate,
           // The status machine's only other automatic transition: answering
           // an open conversation closes it.

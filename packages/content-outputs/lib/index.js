@@ -5865,7 +5865,12 @@ function isStyle$1(value) {
 function isTagging(value, values) {
 	if (typeof value !== "object" || value === null) return false;
 	const record = value;
-	return typeof record.value === "string" && values.includes(record.value) && (record.source === "user" || record.source === "ai") && (record.aiMeta === null || typeof record.aiMeta === "object" && record.aiMeta !== null && isTrimmedNonEmpty(record.aiMeta.promptVersion) && isIsoTimestamp(record.aiMeta.at));
+	if (typeof record.value !== "string" || !values.includes(record.value)) return false;
+	if (record.source !== "user" && record.source !== "ai") return false;
+	if (record.aiMeta === null) return true;
+	if (typeof record.aiMeta !== "object" || record.aiMeta === null) return false;
+	const meta = record.aiMeta;
+	return isTrimmedNonEmpty(meta.promptVersion) && isIsoTimestamp(meta.at);
 }
 const SENTIMENTS = [
 	"positive",
@@ -5896,7 +5901,9 @@ function isConversation(value) {
 	if (typeof value !== "object" || value === null) return false;
 	const record = value;
 	const participant = record.participant;
-	return isTrimmedNonEmpty(record.id) && isPlatform$1(record.platform) && typeof participant === "object" && participant !== null && isTrimmedNonEmpty(participant.externalUserId) && typeof participant.nickname === "string" && isNullableString(record.topicRef) && isNullableString(record.outputRef) && isNullableString(record.personaId) && isStatus(record.status) && isStringArray(record.tags) && record.tags.every((tag) => tag.length > 0) && typeof record.note === "string" && typeof record.starred === "boolean" && isIsoTimestamp(record.createdAt) && isIsoTimestamp(record.updatedAt) && Array.isArray(record.messages) && record.messages.every(isMessage);
+	if (typeof participant !== "object" || participant === null) return false;
+	const fields = participant;
+	return isTrimmedNonEmpty(record.id) && isPlatform$1(record.platform) && isTrimmedNonEmpty(fields.externalUserId) && typeof fields.nickname === "string" && isNullableString(record.topicRef) && isNullableString(record.outputRef) && isNullableString(record.personaId) && isStatus(record.status) && isStringArray(record.tags) && record.tags.every((tag) => tag.length > 0) && typeof record.note === "string" && typeof record.starred === "boolean" && isIsoTimestamp(record.createdAt) && isIsoTimestamp(record.updatedAt) && Array.isArray(record.messages) && record.messages.every(isMessage);
 }
 /** Whether one stored insight entry is well-typed. */
 function isInsightEntry(value) {

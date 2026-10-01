@@ -228,8 +228,16 @@ export function frameInsightRequest(request: InteractionInsightRequest, maxInput
   return lines.join('\n').slice(0, maxInputChars)
 }
 
+/** The minimum insight-entry shape the parser accepts from the model. */
+interface RawInsightLine {
+  label: string
+  count: number
+  exampleMessageId: string | null
+  topicHint: string | null
+}
+
 /** Whether one parsed insight entry has the minimum viable shape. */
-function isInsightLine(value: unknown): value is { label: string; count: number; exampleMessageId: string | null; topicHint: string | null } {
+function isInsightLine(value: unknown): value is RawInsightLine {
   if (typeof value !== 'object' || value === null) return false
   const record = value as Record<string, unknown>
   return typeof record.label === 'string' && record.label.trim().length > 0
@@ -366,6 +374,6 @@ export class InteractionAiProcessor {
         shouldRetry: isRateLimitError,
         onFailedAttempt: error => honorRetryAfter(error),
       },
-    )) as Promise<T>
+    ))
   }
 }

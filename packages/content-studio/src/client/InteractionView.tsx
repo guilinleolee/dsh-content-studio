@@ -226,7 +226,7 @@ export function InteractionView({ interaction, personas, templates, listThemes, 
           >
             <option value="all">{t('interaction.filter.all')}</option>
             {INTERACTION_STATUS_IDS.map(status => (
-              <option key={status} value={status}>{t(`interaction.status.${status}` as StudioKey)}</option>
+              <option key={status} value={status}>{t(`interaction.status.${status}`)}</option>
             ))}
           </select>
           <select
@@ -237,7 +237,7 @@ export function InteractionView({ interaction, personas, templates, listThemes, 
           >
             <option value="all">{t('interaction.filter.all')}</option>
             {INTERACTION_TYPE_IDS.map(type => (
-              <option key={type} value={type}>{t(`interaction.type.${type}` as StudioKey)}</option>
+              <option key={type} value={type}>{t(`interaction.type.${type}`)}</option>
             ))}
           </select>
           <select
@@ -248,7 +248,7 @@ export function InteractionView({ interaction, personas, templates, listThemes, 
           >
             <option value="all">{t('interaction.filter.all')}</option>
             {INTERACTION_SENTIMENT_IDS.map(sentiment => (
-              <option key={sentiment} value={sentiment}>{t(`interaction.sentiment.${sentiment}` as StudioKey)}</option>
+              <option key={sentiment} value={sentiment}>{t(`interaction.sentiment.${sentiment}`)}</option>
             ))}
           </select>
           <select
@@ -259,7 +259,7 @@ export function InteractionView({ interaction, personas, templates, listThemes, 
           >
             <option value="all">{t('interaction.filter.all')}</option>
             {(['consult', 'praise', 'complain', 'demand', 'spam', 'unknown'] as const).map(intent => (
-              <option key={intent} value={intent}>{t(`interaction.intent.${intent}` as StudioKey)}</option>
+              <option key={intent} value={intent}>{t(`interaction.intent.${intent}`)}</option>
             ))}
           </select>
         </div>
@@ -293,7 +293,7 @@ export function InteractionView({ interaction, personas, templates, listThemes, 
               </span>
               {latest !== null && <span className={css.cardExcerpt}>{excerpt(latest.content)}</span>}
               <span className={css.cardMeta}>
-                <span>{t(`interaction.status.${conversation.status}` as StudioKey)}</span>
+                <span>{t(`interaction.status.${conversation.status}`)}</span>
                 <span>{conversation.messages.length} {t('interaction.list.messages')}</span>
                 {conversation.starred && <span aria-label={t('interaction.star')}>★</span>}
               </span>
@@ -316,10 +316,12 @@ export function InteractionView({ interaction, personas, templates, listThemes, 
             className={css.select}
             aria-label={t('interaction.filter.status')}
             value={selected.status}
-            onChange={(event) => { void interaction.patchConversation(selected.id, { status: event.target.value as InteractionConversationStatus }) }}
+            onChange={(event) => {
+              void interaction.patchConversation(selected.id, { status: event.target.value as InteractionConversationStatus })
+            }}
           >
             {INTERACTION_STATUS_IDS.map(status => (
-              <option key={status} value={status}>{t(`interaction.status.${status}` as StudioKey)}</option>
+              <option key={status} value={status}>{t(`interaction.status.${status}`)}</option>
             ))}
           </select>
           <select
@@ -389,11 +391,11 @@ export function InteractionView({ interaction, personas, templates, listThemes, 
                   {isFan && (
                     <span className={css.taggings}>
                       <span>
-                        {t(`interaction.sentiment.${message.sentiment.value}` as StudioKey)}
+                        {t(`interaction.sentiment.${message.sentiment.value}`)}
                         {message.sentiment.source === 'ai' && t('interaction.thread.aiTag')}
                       </span>
                       <span>
-                        {t(`interaction.intent.${message.intent.value}` as StudioKey)}
+                        {t(`interaction.intent.${message.intent.value}`)}
                         {message.intent.source === 'ai' && t('interaction.thread.aiTag')}
                       </span>
                     </span>
@@ -419,7 +421,7 @@ export function InteractionView({ interaction, personas, templates, listThemes, 
                       onChange={(event) => { setStyle(event.target.value as InteractionStyle) }}
                     >
                       {INTERACTION_STYLE_IDS.map(candidate => (
-                        <option key={candidate} value={candidate}>{t(`interaction.style.${candidate}` as StudioKey)}</option>
+                        <option key={candidate} value={candidate}>{t(`interaction.style.${candidate}`)}</option>
                       ))}
                     </select>
                   </label>
@@ -461,7 +463,9 @@ export function InteractionView({ interaction, personas, templates, listThemes, 
                     className={css.mini}
                     disabled={composer.trim().length === 0 || state.busy}
                     onClick={() => {
-                      if (selected === null || target === null) return
+                      // The surrounding target guard already narrowed both;
+                      // only the composer emptiness needs checking here.
+                      if (composer.trim().length === 0) return
                       void interaction.saveDraft(selected.id, target.id, style, composer.trim(), selected.personaId)
                     }}
                   >
@@ -472,7 +476,7 @@ export function InteractionView({ interaction, personas, templates, listThemes, 
                     className={css.primary}
                     disabled={composer.trim().length === 0 || state.busy}
                     onClick={() => {
-                      if (selected === null || target === null || composer.trim().length === 0) return
+                      if (composer.trim().length === 0) return
                       const content = composer.trim()
                       const personaId = selected.personaId
                       void (async () => {
@@ -500,7 +504,7 @@ export function InteractionView({ interaction, personas, templates, listThemes, 
         <div className={css.summaryRow}>
           {INTERACTION_STATUS_IDS.map(status => (
             <span key={status} className={css.summaryChip}>
-              {t(`interaction.summary.${status}` as StudioKey)} ×{summary[status]}
+              {t(`interaction.summary.${status}`)} ×{summary[status]}
             </span>
           ))}
         </div>
@@ -509,7 +513,7 @@ export function InteractionView({ interaction, personas, templates, listThemes, 
         <div className={css.problems}>{t('interaction.problems')} {state.problems.join('；')}</div>
       )}
       {state.notice !== null && (
-        <div className={css.notice} role="status">{t(`interaction.notice.${state.notice}` as StudioKey)}</div>
+        <div className={css.notice} role="status">{t(`interaction.notice.${state.notice}`)}</div>
       )}
       {state.busy && (
         <div className={css.busy}>

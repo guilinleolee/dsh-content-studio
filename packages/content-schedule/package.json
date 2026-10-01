@@ -1,6 +1,6 @@
 {
   "name": "@guilinleolee/dsh-content-schedule",
-  "version": "0.1.4-rc.1",
+  "version": "0.1.4-rc.2",
   "description": "Publication calendar Remote over the outputs library's _schedule.json",
   "type": "module",
   "main": "lib/index.js",

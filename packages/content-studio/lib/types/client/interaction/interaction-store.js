@@ -150,7 +150,7 @@ export function createInteractionController(gateway, topics, writeExport) {
                     personaId: persona?.id ?? null,
                     createdAt: now,
                 }));
-                const next = patchConversationIn(requireManifest(), conversationId, (candidate) => ({
+                const next = patchConversationIn(requireManifest(), conversationId, candidate => ({
                     ...candidate,
                     messages: candidate.messages.map(message => message.id === messageId ? { ...message, replyDrafts: drafts } : message),
                 }));
@@ -171,7 +171,7 @@ export function createInteractionController(gateway, topics, writeExport) {
                 createdAt: new Date().toISOString(),
             };
             try {
-                await persist(patchConversationIn(manifest, conversationId, (candidate) => ({
+                await persist(patchConversationIn(manifest, conversationId, candidate => ({
                     ...candidate,
                     messages: candidate.messages.map(message => message.id === messageId ? { ...message, replyDrafts: [...message.replyDrafts, draft] } : message),
                 })));
@@ -188,7 +188,7 @@ export function createInteractionController(gateway, topics, writeExport) {
             const replied = conversation.messages.find(message => message.id === inReplyToMessageId);
             const now = new Date().toISOString();
             try {
-                await persist(patchConversationIn(manifest, conversationId, (candidate) => ({
+                await persist(patchConversationIn(manifest, conversationId, candidate => ({
                     ...candidate,
                     // The status machine's only other automatic transition: answering
                     // an open conversation closes it.

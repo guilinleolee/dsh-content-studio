@@ -1,6 +1,6 @@
 {
   "name": "@guilinleolee/dsh-content-topics",
-  "version": "0.1.4-rc.1",
+  "version": "0.1.4-rc.2",
   "description": "Topic-bank Remote over the outputs library's _topics.json",
   "type": "module",
   "main": "lib/index.js",

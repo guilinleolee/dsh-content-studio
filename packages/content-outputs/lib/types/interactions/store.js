@@ -54,11 +54,19 @@ function isTagging(value, values) {
     if (typeof value !== 'object' || value === null)
         return false;
     const record = value;
-    return typeof record.value === 'string' && values.includes(record.value)
-        && (record.source === 'user' || record.source === 'ai')
-        && (record.aiMeta === null || (typeof record.aiMeta === 'object' && record.aiMeta !== null
-            && isTrimmedNonEmpty(record.aiMeta.promptVersion)
-            && isIsoTimestamp(record.aiMeta.at)));
+    if (typeof record.value !== 'string' || !values.includes(record.value))
+        return false;
+    if (record.source !== 'user' && record.source !== 'ai')
+        return false;
+    if (record.aiMeta === null)
+        return true;
+    // The aiMeta shape checks are load-bearing on this parse path: the value
+    // arrived as parsed-unknown JSON, so the literal guards carry the type.
+    // oxlint-disable-next-line typescript/no-unnecessary-condition
+    if (typeof record.aiMeta !== 'object' || record.aiMeta === null)
+        return false;
+    const meta = record.aiMeta;
+    return isTrimmedNonEmpty(meta.promptVersion) && isIsoTimestamp(meta.at);
 }
 const SENTIMENTS = ['positive', 'negative', 'question', 'unknown'];
 const INTENTS = ['consult', 'praise', 'complain', 'demand', 'spam', 'unknown'];
@@ -91,11 +99,16 @@ function isConversation(value) {
         return false;
     const record = value;
     const participant = record.participant;
+    // The participant shape checks are load-bearing on this parse path: the
+    // value arrived as parsed-unknown JSON, so the literal guards carry the
+    // type. oxlint-disable-next-line typescript/no-unnecessary-condition
+    if (typeof participant !== 'object' || participant === null)
+        return false;
+    const fields = participant;
     return isTrimmedNonEmpty(record.id)
         && isPlatform(record.platform)
-        && typeof participant === 'object' && participant !== null
-        && isTrimmedNonEmpty(participant.externalUserId)
-        && typeof participant.nickname === 'string'
+        && isTrimmedNonEmpty(fields.externalUserId)
+        && typeof fields.nickname === 'string'
         && isNullableString(record.topicRef)
         && isNullableString(record.outputRef)
         && isNullableString(record.personaId)

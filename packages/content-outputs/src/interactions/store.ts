@@ -75,11 +75,15 @@ function isStyle(value: unknown): value is (typeof INTERACTION_STYLES)[number] {
 function isTagging<T extends string>(value: unknown, values: readonly T[]): value is { value: T; source: 'user' | 'ai'; aiMeta: { promptVersion: string; at: string } | null } {
   if (typeof value !== 'object' || value === null) return false
   const record = value as Record<string, unknown>
-  return typeof record.value === 'string' && (values as readonly string[]).includes(record.value)
-    && (record.source === 'user' || record.source === 'ai')
-    && (record.aiMeta === null || (typeof record.aiMeta === 'object' && record.aiMeta !== null
-      && isTrimmedNonEmpty((record.aiMeta as Record<string, unknown>).promptVersion)
-      && isIsoTimestamp((record.aiMeta as Record<string, unknown>).at)))
+  if (typeof record.value !== 'string' || !(values as readonly string[]).includes(record.value)) return false
+  if (record.source !== 'user' && record.source !== 'ai') return false
+  if (record.aiMeta === null) return true
+  // The aiMeta shape checks are load-bearing on this parse path: the value
+  // arrived as parsed-unknown JSON, so the literal guards carry the type.
+  // oxlint-disable-next-line typescript/no-unnecessary-condition
+  if (typeof record.aiMeta !== 'object' || record.aiMeta === null) return false
+  const meta = record.aiMeta as Record<string, unknown>
+  return isTrimmedNonEmpty(meta.promptVersion) && isIsoTimestamp(meta.at)
 }
 
 const SENTIMENTS = ['positive', 'negative', 'question', 'unknown'] as const
@@ -99,24 +103,28 @@ function isMessage(value: unknown): value is InteractionMessage {
     && isTagging(record.sentiment, SENTIMENTS)
     && isTagging(record.intent, INTENTS)
     && Array.isArray(record.replyDrafts) && record.replyDrafts.every((draft) => {
-      if (typeof draft !== 'object' || draft === null) return false
-      const entry = draft as Record<string, unknown>
-      return isTrimmedNonEmpty(entry.id) && isStyle(entry.style)
+    if (typeof draft !== 'object' || draft === null) return false
+    const entry = draft as Record<string, unknown>
+    return isTrimmedNonEmpty(entry.id) && isStyle(entry.style)
         && typeof entry.content === 'string' && entry.content.length > 0
         && isNullableString(entry.personaId) && isIsoTimestamp(entry.createdAt)
-    })
+  })
 }
 
 /** Whether one stored conversation has every field present and well-typed. */
 function isConversation(value: unknown): value is InteractionConversation {
   if (typeof value !== 'object' || value === null) return false
   const record = value as Record<string, unknown>
-  const participant = record.participant as Record<string, unknown> | undefined
+  const participant = record.participant
+  // The participant shape checks are load-bearing on this parse path: the
+  // value arrived as parsed-unknown JSON, so the literal guards carry the
+  // type. oxlint-disable-next-line typescript/no-unnecessary-condition
+  if (typeof participant !== 'object' || participant === null) return false
+  const fields = participant as Record<string, unknown>
   return isTrimmedNonEmpty(record.id)
     && isPlatform(record.platform)
-    && typeof participant === 'object' && participant !== null
-    && isTrimmedNonEmpty(participant.externalUserId)
-    && typeof participant.nickname === 'string'
+    && isTrimmedNonEmpty(fields.externalUserId)
+    && typeof fields.nickname === 'string'
     && isNullableString(record.topicRef)
     && isNullableString(record.outputRef)
     && isNullableString(record.personaId)
@@ -300,7 +308,10 @@ export async function writeInteractionsFile(root: string, manifest: Interactions
  * @param request - the confirmed parsed rows.
  * @returns the append/update accounting and the thread warnings.
  */
-export async function commitInteractionImportFile(root: string, request: InteractionImportCommitRequest): Promise<InteractionImportCommitResult> {
+export async function commitInteractionImportFile(
+  root: string,
+  request: InteractionImportCommitRequest,
+): Promise<InteractionImportCommitResult> {
   await mkdir(root, { recursive: true, mode: 0o700 })
   return withFileLock(interactionsPath(root), async () => {
     const raw = await readFile(interactionsPath(root), 'utf8').catch(() => null)

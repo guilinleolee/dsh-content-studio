@@ -168,7 +168,10 @@ export function threadLines(conversation: InteractionConversation, maxLines = RE
  * @param incoming - one batch's lines.
  * @returns the merged entries.
  */
-export function mergeInsightList(accumulated: readonly InteractionInsightEntry[], incoming: readonly InteractionInsightEntry[]): InteractionInsightEntry[] {
+export function mergeInsightList(
+  accumulated: readonly InteractionInsightEntry[],
+  incoming: readonly InteractionInsightEntry[],
+): InteractionInsightEntry[] {
   const merged = new Map<string, InteractionInsightEntry>()
   for (const entry of [...accumulated, ...incoming]) {
     const existing = merged.get(entry.label)

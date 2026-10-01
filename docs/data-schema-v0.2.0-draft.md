@@ -32,10 +32,16 @@ Schema 基准：JSON Schema Draft 2020-12（`$ref` 一律 `#/$defs/...` 片段�
 | `assets/_gather.json` | 主题 `assets/` | `materials` | 素材 | 1.3 |
 | `assets/_competitors.json` | 主题 `assets/` | `works` / `reports`（另含 `synced_at`） | 对标作品 / 对标报告 | 2.2 / 2.4 |
 | `assets/_create.json` | 主题 `assets/` | （单稿清单，无集合字段） | 创作工作台状态 | 4.1 |
+| `assets/_publish.json` | 主题 `assets/` | `tasks` | 发布任务 | 5.1 |
+| `assets/_review.json` | 主题 `assets/` | `baselines` / `snapshots` / `tasks` | 复盘基线 / 指标快照 / 复盘任务 | 7.1 |
 | `_topics.json` | 库根 | `items` | 选题 | 3.1 |
 | `_schedule.json` | 库根 | `items` | 排期条目 | 6.2 |
+| `_calendar.json` | 库根 | `notes`（按排期条目 id 键控） | 日历备注 | 6.1 |
 | `_personas.json` | 库根 | `personas` | 画像 | 9.1 |
 | `_templates.json` | 库根 | `templates` | 全局内容模板 | 10.1 |
+| `_publish-index.json` | 库根 | `entries` | 发布任务全局聚合（可重建的加速层，sidecar 为事实源） | 5.1 |
+| `_publish-profiles.json` | 库根 | `profiles` | 发布平台账号卡 | 5.1 |
+| `_review-index.json` | 库根 | `rows` | 复盘任务全局聚合（可重建的加速层，sidecar 为事实源） | 7.1 |
 
 - `.dsh-output.json` 是 outputs 项目（主题目录）级元数据文件，承载 `format_version/title/kind/platform/status/tags/summary/create`（见 0.8），不是实体容器；v0.1.x 中"实体 entries 登记于 .dsh-output.json"的说法自本版废止。
 - 版本放容器级，不放实例级。
@@ -93,7 +99,7 @@ Schema 基准：JSON Schema Draft 2020-12（`$ref` 一律 `#/$defs/...` 片段�
 | 无前缀 | 素材 | feed guid，否则规范化 link 的 SHA-1 | content-outputs/src/gather/types.ts |
 | 无前缀 | 选题（常规与对标转选题均同） / 排期条目 / 画像 | `randomUUID()` | content-topics/src/store.ts:138、content-schedule/src/store.ts:73、content-outputs/src/persona/store.ts:379 |
 
-> 注记：`idea-` 不是实体 ID 前缀。它仅是"收录选题"的 assets 文件名前缀（`idea-<cw序号>.md`，写入对标作品的 `gathered_ref`，见 content-studio/src/client/CompetitorsView.tsx:433），不创建任何实体；v0.1.x 审阅稿曾误将其列为选题实体前缀，本版更正。
+> 注记：`idea-` 不是实体 ID 前缀。它仅是"收录选题"的 assets 文件名前缀（`idea-<cw序号>.md`，写入对标作品的 `collected_idea_ref`，见 content-studio/src/client/CompetitorsView.tsx:433），不创建任何实体；v0.1.x 审阅稿曾误将其列为选题实体前缀，本版更正。
 
 v0.1.x 中"栏目类型前缀+随机"的笼统说法废止。新增实体类型时：能从 ID 直接辨认来源的才引入前缀，并在本表登记。
 
@@ -114,16 +120,14 @@ v0.1.x 中"栏目类型前缀+随机"的笼统说法废止。新增实体类型�
 | `persona_id` / `persona_ids` | 画像 / 多个画像 |
 | `template_id` | 模板 |
 | `publish_task_id` | 发布任务 |
-| `calendar_event_id` | 日历事件 |
 | `schedule_item_id` | `_schedule.json` 排期条目 |
 | `review_id` | 复盘任务 |
 | `conversation_id` | 互动会话 |
 | `topic_draft.source.ref_id` | 选题溯源引用（素材 id 或对标记录 id；仅存在于 topic_draft.source 内） |
-| `calendar_event.ref_id` | 日历事件关联的实体 ID（语义随 event_type 配对，见 6.1） |
 | `ref` | 实体自带的 assets 文件引用（对标作品拆解报告、对标报告） |
 | `cloned_from` | 画像克隆来源 |
 
-**对标作品（work）引用的现落点**：v0.1.x 的 `work_id` 在实现中无独立字段，其职责由两处承接——选题溯源经 `topic_draft.source.ref_id`（source.type=benchmark 时指向对标记录 id）；对标作品反向关联素材经 `competitor_work.gathered_ref`。注意 `gathered_ref` 的实现口径存在内部不一致：类型注释声明"关联的信息栏目素材"，而视图实现实际写入收录选题文件名（`idea-*.md`，CompetitorsView.tsx:433-437）——本版按类型注释声明语义，实现侧统一列为待办（附录B#33）。
+**对标作品（work）引用的现落点**：v0.1.x 的 `work_id` 在实现中无独立字段，其职责由两处承接——选题溯源经 `topic_draft.source.ref_id`（source.type=benchmark 时指向对标记录 id）；对标作品反向关联收录产物经 `competitor_work.collected_idea_ref`（已收录选题的导出文件名 `idea-*.md`，兼已收录标记）。三轮修订已统一实现口径：原字段名 `gathered_ref` 与其"关联信息采集素材"注释废止（附录B#33，实现侧已同步改名）。
 
 v0.1.x 的 `linked_publish_id` 更名 `publish_task_id`；`material_refs` 更名 `material_ids`（实现侧对应 CreateSourceRef 记录列表，见 4.1）。
 
@@ -384,7 +388,7 @@ v0.1.x 变更：`platform` 收敛至 `$defs/competitorPlatform`（xiaohongshu/bi
     "hot":             { "type": "boolean", "description": "用户爆款标记，豁免清理" },
     "favorite":        { "type": "boolean", "description": "用户收藏标记，豁免清理" },
     "via":             { "enum": ["manual"], "description": "入库途径；本期仅人工导入" },
-    "gathered_ref":    { "type": ["string", "null"], "description": "关联的信息栏目素材引用（语义见 0.4 的落点注记）" },
+    "collected_idea_ref": { "type": ["string", "null"], "description": "收录为选题后写入的导出文件名（idea-<work_id 去前缀>.md，主题 assets/ 下）；非空即已收录标记（收录按钮据此禁用）。文件名可由 id 推导，字段兼作标记与缓存" },
     "analysis":        { "$ref": "#/$defs/competitorWorkAnalysis" }
   },
   "required": ["id", "account_id", "account_name", "platform", "platform_work_id", "title", "imported_at", "metrics", "hot", "favorite", "via", "analysis"]
@@ -393,7 +397,7 @@ v0.1.x 变更：`platform` 收敛至 `$defs/competitorPlatform`（xiaohongshu/bi
 
 容器：`{ "format_version": 0, "synced_at": { "<account_id>": "ISO8601" }, "works": [competitor_work], "reports": [competitor_report] }`，文件位于主题 `assets/_competitors.json`。
 **去重规则（含 title 兜底）**：`platform_work_id` 为空时以 `title:<trimmed 标题>` 作为其去重键值；匹配先按精确键、再按 title 键——重导入时即便已学到真实平台 ID，仍能按标题找回原记录（content-studio/src/client/competitors.ts:242-250）。
-v0.1.x 变更：`heat_level(low/medium/high/viral)` 废止——热度改为账号内分布相对计算（`hot/normal/cold`，视图层基于最近 30 条、样本 ≥4 的窗口计算，不入盘）；`interaction` 单快照对象 → `metrics` 追加式快照数组；`content/content_file → text_file`；`breakdown_status+breakdown` 合并为 `analysis`；`cover_url` 废止（实现未采集封面，CompetitorWork 无对应字段）。
+v0.1.x 变更：`heat_level(low/medium/high/viral)` 废止——热度改为账号内分布相对计算（`hot/normal/cold`，视图层基于最近 30 条、样本 ≥4 的窗口计算，不入盘）；`interaction` 单快照对象 → `metrics` 追加式快照数组；`content/content_file → text_file`；`breakdown_status+breakdown` 合并为 `analysis`；`cover_url` 废止（实现未采集封面，CompetitorWork 无对应字段）；`gathered_ref → collected_idea_ref`（原"关联信息采集素材"注释系误导——实现仅写入收录选题文件名并作已收录标记，已统一，见附录B#33）。
 
 ### 2.3 对标作品拆解 analysis（嵌套结构，非法状态不可构造）
 
@@ -661,100 +665,96 @@ v0.1.x → v0.2.0 结构对应：`title/content → versions[]`（v/ts/trigger/c
 
 ## 五、发布栏目（多平台分发）
 
-**存储落位**：适配稿/日志进主题 `assets/`；任务元数据入发布清单；定时以 `_schedule.json` 为唯一投影（同步规则见 6.3）；发布登记镜像 `.dsh-output.json` 的 `create` 字段（0.8）。
+**存储落位**：任务状态入主题 `assets/_publish.json`；衍生稿 `assets/publish/<task_id>/<platform_id>.md`（该腿正文唯一权威）；全局历史索引 `_publish-index.json` 与账号卡 `_publish-profiles.json` 在库根；定时以 `_schedule.json` 为唯一投影（同步规则见 6.3）；发布登记镜像 `.dsh-output.json` 的 `create` 字段（0.8）。
 
-### 5.1 发布任务 publish_task
-
-> **裁决先行**：本实体无实现证据（创作工作台的发布当前为主题根文件复制 + `.dsh-output.json` 簿记，无独立 publish_task 清单）。以下结构按 v0.1.x + 修订裁决先行，与现状实现的冲突点：实现无此实体与清单文件。
+### 5.1 发布任务 publish_task（实现定形）
 
 ```json
 {
   "$id": "publish.task",
-  "allOf": [ { "$ref": "#/$defs/instanceBase" } ],
   "type": "object",
   "properties": {
-    "id":               { "type": "string" },
-    "topic_dir":        { "type": "string" },
-    "draft_id":         { "type": "string", "description": "来源定稿稿件；选题溯源经稿件 topic_ref 传递，本实体不再冗余 topic_draft_id" },
+    "task_id":          { "type": "string" },
+    "title":            { "type": "string", "description": "展示标题，默认取稿件标题" },
+    "manuscript_file":  { "type": "string", "description": "被分发的主题根交付文件" },
+    "manuscript_id":    { "type": ["string", "null"], "description": "创作工作台 content_id（cc- 前缀）；非创作工作台稿件为 null" },
+    "topic_id":         { "type": ["string", "null"], "description": "选题库回链；回流成功置选题为 done（幂等，已 done 跳过写）" },
+    "persona_digest":   { "type": ["string", "null"], "description": "适配所用画像摘要，注入 AI 提示词" },
     "mode":             { "enum": ["immediate", "scheduled"] },
-    "scheduled_time":   { "type": ["string", "null"], "format": "date-time" },
-    "schedule_item_id": { "type": ["string", "null"], "description": "关联 _schedule.json 条目，回链" },
-    "account_ids":      { "type": "array", "items": { "type": "string" }, "description": "目标平台账号" },
-    "status":           { "enum": ["reviewing", "scheduled", "running", "partial_success", "success", "failed"] },
+    "scheduled_at":     { "type": ["string", "null"], "format": "date-time", "description": "scheduled 模式的计划时刻，其余为 null" },
+    "schedule_item_id": { "type": ["string", "null"], "description": "业务→排期唯一回链（6.3）；排期条目不反持任务 id" },
+    "status":           { "enum": ["draft", "pendingReview", "scheduled", "recorded"] },
+    "note":             { "type": ["string", "null"] },
     "platforms":        { "type": "array", "items": { "type": "object",
         "properties": {
-          "platform":        { "$ref": "#/$defs/platform" },
-          "account_id":      { "type": "string" },
-          "adapted_title":   { "type": "string" },
-          "adapted_content": { "type": "string" },
-          "cover_suggestion":{ "type": ["string", "null"] },
-          "status":          { "enum": ["pending", "success", "failed"] },
-          "log":             { "type": "array", "items": { "type": "string" } }
+          "platform_id":   { "type": "string", "description": "发布平台注册表 id（数据驱动，现 7 平台，独立于 0.5 词汇表）" },
+          "account_alias": { "type": "string", "description": "账号卡别名（_publish-profiles.json）；账号卡零凭据" },
+          "content_file":  { "type": "string", "description": "衍生稿文件名，位于 assets/publish/<task_id>/ 下" },
+          "cover_prompt":  { "type": ["string", "null"], "description": "适配给出的封面建议" },
+          "tags":          { "type": "array", "items": { "type": "string" } },
+          "status":        { "enum": ["pending", "adapted", "edited", "recorded"] },
+          "attempts":      { "type": "array", "items": { "type": "object",
+              "properties": {
+                "at":     { "type": "string", "format": "date-time" },
+                "action": { "enum": ["adapt", "edit", "record"] },
+                "ok":     { "type": "boolean", "description": "失败同样留痕" },
+                "detail": { "type": "string", "description": "一行人类可读结果" }
+              },
+              "required": ["at", "action", "ok", "detail"] },
+            "description": "只追加执行日志；重试的幂等依据，永不改写历史" }
         },
-        "required": ["platform", "account_id", "adapted_title", "adapted_content", "status"] } }
+        "required": ["platform_id", "account_alias", "content_file", "cover_prompt", "tags", "status", "attempts"] },
+      "description": "平台腿" },
+    "created_at":       { "type": "string", "format": "date-time" },
+    "updated_at":       { "type": "string", "format": "date-time" }
   },
-  "required": ["id", "topic_dir", "draft_id", "mode", "scheduled_time", "schedule_item_id", "account_ids", "status", "platforms"]
+  "required": ["task_id", "title", "manuscript_file", "manuscript_id", "topic_id", "persona_digest", "mode", "scheduled_at", "schedule_item_id", "status", "note", "platforms", "created_at", "updated_at"]
 }
 ```
 
-状态机：
+容器：主题 `assets/_publish.json` → `{ "format_version": 0, "tasks": [publish_task] }`。库根两张全局辅助文件：`_publish-index.json` → `{ "format_version": 0, "entries": [{task_id, theme, title, status, platform_ids, updated_at}] }`（跨主题历史加速层，sidecar 为事实源，损坏可全扫描重建）；`_publish-profiles.json` → `{ "format_version": 0, "profiles": [{platform_id, alias, enabled, adaptation_overrides}] }`。
+
+**执行语义（本期）**：执行发布 = 生成冻结的二期 MCP 交接包 `PublishPackage`（`{task_id, theme, title, manuscript_file, topic_id, persona_digest, mode, scheduled_at, platforms[{platform_id, account_alias, content_file, tags, cover_prompt, scheduled_at}], generated_at}`，浏览器本期不调用）+ 任务置 `recorded`；任一平台腿缺衍生稿即拒绝。`recorded` 为本期终态——二期执行态（`executing/partialSuccess/success/failed`）随 MCP 通道引入，**有意缺席**；定时无后台调度，到点后打开视图执行。
+
+状态机（任务）：
 
 | 当前态 | 迁移 | 触发 |
 |--------|------|------|
-| reviewing | → scheduled | 人工确认 + 定时登记 |
-| reviewing | → running | 立即发布 |
-| scheduled | → running | 到点执行 |
-| running | → success / partial_success / failed | 各平台结果聚合 |
+| draft | → pendingReview | 提交待复核 |
+| draft | → scheduled | 定时登记（同时写 `_schedule.json` 投影，本实体持 `schedule_item_id`） |
+| draft | → recorded | 立即执行发布 |
+| pendingReview | → draft / scheduled / recorded | 退回 / 定时 / 执行 |
+| scheduled | → recorded | 到点后执行 |
 
-v0.1.x 变更：`topic_draft_id` 冗余字段删除（选题溯源以稿件的 `topic_ref` 为准）；`platforms[].platform` 收敛至 `$defs/platform`；新增 `schedule_item_id` 回链；`topic_id → topic_dir`。
+状态机（平台腿）：`pending → adapted → edited → recorded`（AI 适配 → 人工编辑 → 执行登记）。
+
+v0.1.x 变更：**整章按实现重写**（三轮修订废止二轮"裁决先行"标注）——六态（reviewing/running/partial_success/success/failed）裁剪为本期四态，执行态显式留待二期；`adapted_title/adapted_content/log` 内嵌废止，改为衍生稿文件 `content_file` + `attempts` 只追加日志；`account_ids` 数组改为 `platforms[]` 腿结构（`account_id → account_alias` 别名制，零凭据）；`draft_id → manuscript_file + manuscript_id`；`scheduled_time → scheduled_at`；`schedule_item_id` 由裁决转正为实现，且 `ScheduleItem` 侧反向字段 `publishTaskId` 已删除（回链单向，见 6.3）。
 
 ---
 
 ## 六、日历栏目（排期）
 
-**存储落位**：`_schedule.json` 为库根唯一排期文件；日历事件实体（浏览器侧，裁决先行）与排期条目经 id 双链；视图配置暂无 localStorage 键（0.7 注记）。
+**存储落位**：`_schedule.json`（库根）为排期唯一事实源；日历视图是排期条目的派生呈现，不自持事件实体；日历自有数据仅 `_calendar.json`（库根）备注 sidecar；视图配置暂无 localStorage 键（0.7 注记）。
 
-### 6.1 日历事件 calendar_event（浏览器侧实体，裁决先行）
+### 6.1 日历视图（排期条目派生；`calendar_event` 实体废止）
 
-> 本实体无实现证据；排期的已实现落点是 6.2 的 `_schedule.json` 条目。以下按 v0.1.x + 修订裁决先行。
+v0.1.x 的独立 `calendar_event` 实体（event_type/ref_id/planned_time/status）**废止**：实现裁决事件即排期条目——选题计划（`TopicItem.plan_date`）经排期模块写为 `kind:"content"` 条目，发布定时任务同理；一选题一事件（单一 `plan_date` 时间源），无独立事件表、无双向链。派生态（如逾期、冲突）渲染时计算，不入盘。
+
+日历唯一自有数据是**备注**，挂在排期条目的稳定 id 上：
 
 ```json
 {
-  "$id": "calendar.event",
-  "allOf": [ { "$ref": "#/$defs/instanceBase" } ],
+  "$id": "calendar.note",
   "type": "object",
   "properties": {
-    "id":               { "type": "string" },
-    "topic_dir":        { "type": "string" },
-    "event_type":       { "enum": ["topic_plan", "draft_plan", "publish_plan"] },
-    "title":            { "type": "string" },
-    "ref_id":           { "type": "string", "description": "必填。topic_plan→选题 id；draft_plan→稿件 content_id；publish_plan→publish_task_id" },
-    "persona_id":       { "type": ["string", "null"] },
-    "platform":         { "anyOf": [ { "type": "null" }, { "$ref": "#/$defs/platform" } ] },
-    "planned_time":     { "type": "string", "format": "date-time" },
-    "status":           { "enum": ["todo", "done", "overdue"] },
-    "note":             { "type": ["string", "null"] },
-    "schedule_item_id": { "type": ["string", "null"], "description": "关联 _schedule.json 条目，回链" }
+    "text":       { "type": "string", "minLength": 1, "description": "备注正文；空白写=清除该条" },
+    "updated_at": { "type": "string", "format": "date-time" }
   },
-  "required": ["id", "topic_dir", "event_type", "title", "ref_id", "planned_time", "status"]
+  "required": ["text", "updated_at"]
 }
 ```
 
-`event_type ↔ ref_id` 一一配对，载入时校验，错配即拒绝载入该条（named in problems）：
-
-| event_type | ref_id 指向 |
-|------------|-------------|
-| topic_plan | 选题 id（randomUUID，无前缀，见 0.3） |
-| draft_plan | 稿件 content_id（`cc-` 前缀） |
-| publish_plan | publish_task id |
-
-状态机：
-
-| 当前态 | 迁移 | 触发 |
-|--------|------|------|
-| todo | → done | 事项完成 |
-| todo | → overdue | 逾期（判定方与时机待核实：视图推导或定时判定） |
-| overdue | → done | 补完成 |
+容器：库根 `_calendar.json` → `{ "format_version": 0, "notes": { "<schedule_item_id>": calendar_note } }`。读写规则：非空文本 upsert、空白文本清除，文件锁 + 原子写；指向已删条目的备注是惰性数据——读取方忽略未知 id，同 id 下次写入自然覆盖或清除。
 
 ### 6.2 排期条目 schedule_item（`_schedule.json`，实现已定）
 
@@ -783,18 +783,18 @@ v0.1.x 变更：`topic_draft_id` 冗余字段删除（选题溯源以稿件的 `
 ### 6.3 排期同步规则
 
 - `_schedule.json` 由排期模块**单点写入**：文件锁（`withFileLock`）+ 原子写（`writeFileAtomic`，0600 权限），每次变更整文件重写。
-- 业务实体（topic_draft / publish_task / calendar_event）为**源**，排期条目为**投影**；业务实体持 `schedule_item_id` 回链。
-- 改期 = 更新源实体的计划时间 + 由排期模块单点重写对应投影条目；其他模块不得直写 `_schedule.json`。
-- 删除源实体级联删除其投影条目；删除投影条目须清空源的 `schedule_item_id`。
+- 业务实体（topic_draft / publish_task）为**源**，排期条目为**投影**；回链单向——业务实体持 `schedule_item_id`，排期条目不持业务 id（实现侧原 `ScheduleItem.publishTaskId` 反向字段已删除）。已落地两侧：`TopicItem.scheduleItemId`（选题）与 `PublishTask.scheduleItemId`（发布，定时登记以显式 id upsert，重排原位更新、不孤儿化旧条目）。
+- 改期 = 更新源实体的计划时间 + 由排期模块单点重写对应投影条目；其他模块不得直写 `_schedule.json`（日历拖拽改发布时间必须走发布模块的更新函数）。
+- 删除源实体级联删除其投影条目（发布侧 `deleteTask` 已如此）；删除投影条目须清空源的 `schedule_item_id`。
 - 一条损坏记录不隐藏其余：校验失败条目进入 `problems` 具名跳过，其余照常上屏。
 
 ---
 
 ## 七、复盘栏目（数据分析）
 
-**存储落位**：数据快照、报告文件进主题 `assets/`；复盘任务元数据入复盘清单；报告文件为权威。
+**存储落位**：复盘状态入主题 `assets/_review.json`（基线 + 快照 + 任务一份清单）；报告与模板文件在主题 `assets/review/reports|templates/`；全局历史索引 `_review-index.json` 在库根（可重建加速层，sidecar 为事实源）。
 
-### 7.0 共享指标集 `$defs.MetricSet`
+### 7.0 共享指标集 `$defs.metricSet`（对齐实现 ReviewMetrics）
 
 ```json
 {
@@ -802,120 +802,185 @@ v0.1.x 变更：`topic_draft_id` 冗余字段删除（选题溯源以稿件的 `
     "metricSet": {
       "type": "object",
       "properties": {
-        "impressions":     { "type": ["number", "null"], "description": "曝光" },
-        "reads":           { "type": ["number", "null"], "description": "阅读/播放" },
-        "likes":           { "type": ["number", "null"] },
-        "comments":        { "type": ["number", "null"] },
-        "shares":          { "type": ["number", "null"], "description": "转发" },
-        "collects":        { "type": ["number", "null"], "description": "收藏" },
-        "follows":         { "type": ["number", "null"], "description": "涨粉" },
-        "conversion_rate": { "type": ["number", "null"], "description": "转化率" },
-        "captured_at":     { "type": "string", "format": "date-time", "description": "快照时刻" }
+        "impressions":      { "type": ["number", "null"], "description": "曝光" },
+        "reads":            { "type": ["number", "null"], "description": "阅读/播放" },
+        "likes":            { "type": ["number", "null"] },
+        "collects":         { "type": ["number", "null"], "description": "收藏" },
+        "comments":         { "type": ["number", "null"] },
+        "shares":           { "type": ["number", "null"], "description": "转发" },
+        "followers_gained": { "type": ["number", "null"], "description": "涨粉" },
+        "cover_ctr":        { "type": ["number", "null"], "description": "封面点击率" }
       },
-      "required": ["captured_at"]
+      "required": ["impressions", "reads", "likes", "collects", "comments", "shares", "followers_gained", "cover_ctr"],
+      "description": "平台导出字段不一：缺失指标保持 null——聚合跳过、UI 显示破折号，永不伪造 0"
     }
   }
 }
 ```
 
-### 7.1 复盘任务/报告 review（裁决先行）
-
-> 本实体无实现证据；以下按 v0.1.x + 修订裁决先行，与现状实现的冲突点：实现无此实体与清单文件。
+### 7.1 复盘 review（实现定形）
 
 ```json
 {
-  "$id": "review.task",
-  "allOf": [ { "$ref": "#/$defs/instanceBase" } ],
+  "$id": "review.manifest",
   "type": "object",
   "properties": {
-    "id":            { "type": "string" },
-    "topic_dir":     { "type": "string" },
-    "period":        { "type": "object",
-      "properties": { "start": { "type": "string", "format": "date" }, "end": { "type": "string", "format": "date" } },
-      "required": ["start", "end"] },
-    "platforms":     { "type": "array", "items": { "$ref": "#/$defs/platform" } },
-    "persona_ids":   { "type": "array", "items": { "type": "string" } },
-    "content_types": { "type": "array", "items": { "type": "string" } },
-    "baseline":      { "type": "array",
-      "items": { "type": "object",
-        "properties": {
-          "metric": { "type": "string", "description": "指标名，如平均阅读/点赞率/收藏率" },
-          "value":  { "type": "number" },
-          "window": { "type": "string", "description": "基准窗口，如近30天" }
-        },
-        "required": ["metric", "value", "window"] },
-      "description": "基准线" },
-    "metrics":       { "type": "object",
+    "baselines": { "type": "object",
       "properties": {
-        "snapshot": { "$ref": "#/$defs/metricSet" },
-        "delta":    { "$ref": "#/$defs/metricSet", "description": "相对上一周期增量" }
+        "engagement_rate": { "type": "number", "description": "互动率基准；内置默认 0.05" },
+        "collect_rate":    { "type": "number", "description": "收藏率基准；内置默认 0.02" },
+        "source":          { "enum": ["user", "default"], "description": "数值来自用户或内置默认" },
+        "updated_at":      { "type": "string", "format": "date-time" }
       },
-      "required": ["snapshot", "delta"] },
-    "per_work":      { "type": "array",
-      "items": { "type": "object",
+      "required": ["engagement_rate", "collect_rate", "source", "updated_at"],
+      "description": "持久业务配置，落清单禁 localStorage" },
+    "snapshots": { "type": "array", "items": { "type": "object",
         "properties": {
-          "publish_task_id": { "type": "string" },
-          "platform":        { "$ref": "#/$defs/platform" },
-          "external_id":     { "type": "string", "description": "平台内容 ID" },
-          "post_url":        { "type": ["string", "null"], "format": "uri" },
-          "metrics":         { "$ref": "#/$defs/metricSet" }
+          "snapshot_id":      { "type": "string" },
+          "platform_id":      { "enum": ["xhs", "douyin", "gzh", "bilibili"], "description": "复盘面接受导出的平台（picker 序）" },
+          "platform_work_id": { "type": "string", "description": "平台侧作品 id；与 captured_at 的 UTC 日组成去重键" },
+          "title":            { "type": "string" },
+          "published_at":     { "type": ["string", "null"], "format": "date-time" },
+          "captured_at":      { "type": "string", "format": "date-time", "description": "快照时刻" },
+          "content_id":       { "type": ["string", "null"], "description": "绑定的创作 content_id；null=未绑定，不进分析池" },
+          "match_method":     { "enum": ["url", "title", "manual", null], "description": "绑定方式；null=未绑定" },
+          "content_type":     { "enum": ["image-text", "video", null], "description": "导出未携带时读 null" },
+          "metrics":          { "$ref": "#/$defs/metricSet" }
         },
-        "required": ["publish_task_id", "platform", "external_id", "metrics"] },
-      "description": "分作品明细" },
-    "report_file":   { "type": ["string", "null"], "description": "assets/ 报告文件，正文权威" },
-    "report_preview":{ "type": ["string", "null"], "description": "报告前 N 字预览，仅列表展示" },
-    "report_content":{ "type": ["string", "null"], "description": "≤4KB 时可直存；与 report_file 并存时以 report_file 为权威" },
-    "insights":        { "type": "array", "items": { "type": "string" }, "description": "AI提炼洞察" },
-    "recommendations": { "type": "array", "items": { "type": "string" }, "description": "下期行动清单/选题建议" },
-    "data_source":   { "enum": ["manual_import", "mcp"], "description": "本期 manual_import" },
-    "status":        { "enum": ["draft", "done"] }
+        "required": ["snapshot_id", "platform_id", "platform_work_id", "title", "published_at", "captured_at", "content_id", "match_method", "content_type", "metrics"] },
+      "description": "指标快照，追加式历史" },
+    "tasks": { "type": "array", "items": { "type": "object",
+        "properties": {
+          "task_id":     { "type": "string" },
+          "name":        { "type": "string" },
+          "period":      { "type": "object",
+            "properties": { "from": { "type": "string", "format": "date" }, "to": { "type": "string", "format": "date" } },
+            "required": ["from", "to"] },
+          "filters":     { "type": "object",
+            "properties": {
+              "platforms":     { "type": "array", "items": { "enum": ["xhs", "douyin", "gzh", "bilibili"] } },
+              "content_types": { "type": "array", "items": { "enum": ["image-text", "video"] } },
+              "work_filter":   { "enum": ["all", "viral", "weak", "longtail"] }
+            },
+            "required": ["platforms", "content_types", "work_filter"],
+            "description": "创建时冻结的筛选集" },
+          "status":      { "enum": ["generating", "ready", "failed"] },
+          "report_file": { "type": ["string", "null"], "description": "assets/review/reports/ 下报告文件名，null=尚未生成；报告文件为权威（0.6）" },
+          "degraded":    { "type": "boolean", "description": "true=纯数据降级报告（AI 部分失败不阻塞产出）" },
+          "created_at":  { "type": "string", "format": "date-time" }
+        },
+        "required": ["task_id", "name", "period", "filters", "status", "report_file", "degraded", "created_at"] } }
   },
-  "required": ["id", "topic_dir", "period", "platforms", "persona_ids", "content_types", "baseline", "metrics", "report_file", "insights", "recommendations", "data_source", "status"]
+  "required": ["baselines", "snapshots", "tasks"]
 }
 ```
 
-状态机：`draft → done`（报告确认）。
-v0.1.x 变更：`metrics` 自由对象拆为 `snapshot`+`delta` 两个 MetricSet；新增 `per_work` 分作品明细；`baseline` 由自由对象改数组结构；`report_content/report_file` 明确权威关系（0.6）。
+容器：主题 `assets/_review.json` → `{ "format_version": 0, "baselines": …, "snapshots": […], "tasks": […] }`；全局库根 `_review-index.json` → `{ "format_version": 0, "rows": [{task_id, theme, name, period, platforms, status, updated_at}] }`（清单写锁内双写；损坏由该主题下次清单写重建行）。
+
+**运行规则**：
+
+- 快照追加式：同作品同 UTC 日重导入覆盖当日快照（幂等），跨日追加新行。
+- 绑定三级：URL → 标题 → 人工；仅 `content_id` 非空的快照进分析池，未绑定行留列待绑。
+- 判定阈值（视图层计算，verdict 随 AI 请求传递）：互动率 ≥2×基准 = viral、<0.5× = weak；长尾 = 发布 ≥30 天且近 7 天增量 ≥ 周期日均 20%；默认基准 5% 须 UI 明示。
+- 聚合红线：曝光禁止跨平台直加（`per_platform` 各自聚合）。
+- 报告：`report_file` 权威；在线编辑保存 = 新文件，永不覆写生成原件；爆款模板存 `assets/review/templates/`。
+- AI 两面（走 create AI 网关）：单作品诊断（请求含 verdict 与前截断正文）与周期报告（聚合摘要 + 正/负作品摘要，摘录 ≤500 字，禁全文）；结果 `{markdown, model, prompt_version}`。
+- 导入两步：parse 预览（拒绝行带 1-based 行号 + 未匹配列名单，不入盘）→ commit 确认行（返回 added/overwritten 计数）；本期仅 CSV（UTF-8 容 BOM）。
+
+状态机（任务）：`generating → ready | failed`；编辑报告不迁移状态。
+
+**裁决先行注**：v0.1.x 的 `per_work[{publish_task_id, platform, external_id, post_url, metrics}]` 分作品—发布任务明细，实现暂以 `content_id`（创作稿件）为绑定锚，发布任务外链留待后续；该结构保留为规划字段。11.3 的 `works[].metrics` 仍 `$ref` 本 7.0 的 metricSet。
+
+v0.1.x 变更：**整章按实现重写**（三轮修订废止二轮"裁决先行"标注）——`review` 单实体拆为清单三段（baselines/snapshots/tasks）；`metrics{snapshot,delta}` 废止（增量由视图聚合），`$defs/metricSet` 对齐实现 ReviewMetrics（`follows → followers_gained`、`conversion_rate` 废止、`captured_at` 上移快照级）；`platforms/persona_ids/content_types` 收敛进 `filters` 冻结集；`baseline` 数组改双指标结构（+source 溯源）；`insights/recommendations` 内嵌废止（由报告文件承载）；`status draft/done → generating/ready/failed`；新增快照去重键、绑定三级、降级标记与 CSV 两步导入契约。
 
 ---
 
 ## 八、互动栏目（评论私信运营）
 
-**存储落位**：会话记录进主题 `assets/`；会话元数据入互动清单。
+**存储落位**：唯一真源为库根 `_interactions.json`（互动不隶属单次创作，**禁入主题 `assets/` 与 `.dsh-output.json`**——放主题目录会被产物扫描计入并被创作重建误伤，v1 冻结裁决）；导出 CSV 经网关写主题 `assets/`（路径校验限 outputs 根内）。
 
-### 8.1 互动会话 conversation（裁决先行）
+### 8.1 互动会话 conversation（裁决先行，锚定 interaction-dev-prompt-v1 冻结契约）
 
-> 本实体无实现证据；以下按 v0.1.x + 修订裁决先行，与现状实现的冲突点：实现无此实体与清单文件。
+> 实现不存在；本节转写 `docs/interaction-dev-prompt-v1.md` 第三章冻结契约（落地形态：content-outputs 新 `src/interactions/` 面，不建独立包）。两文冲突时以 v1 文档为准。
+
+**Conversation（聚合根，消息内嵌）**：
 
 ```json
 {
   "$id": "interaction.conversation",
-  "allOf": [ { "$ref": "#/$defs/instanceBase" } ],
   "type": "object",
   "properties": {
-    "id":              { "type": "string" },
-    "topic_dir":       { "type": "string" },
-    "platform":        { "$ref": "#/$defs/platform" },
-    "account_id":      { "type": ["string", "null"] },
-    "message_type":    { "enum": ["comment", "dm", "mention"] },
-    "user":            { "type": "string", "description": "留言用户" },
-    "content":         { "type": "string", "minLength": 1 },
-    "time":            { "type": "string", "format": "date-time", "description": "留言发生时刻（业务时间字段）" },
-    "status":          { "enum": ["unread", "pending", "replied", "archived", "spam"] },
-    "tags":            { "type": "array", "items": { "type": "string" }, "description": "诉求标签：咨询/价格/建议/投诉等" },
-    "sentiment":       { "enum": ["positive", "neutral", "negative", "question"] },
-    "publish_task_id": { "type": ["string", "null"], "description": "关联发布任务；v0.1.x 字段名 linked_publish_id 废止" },
-    "reply_drafts":    { "type": "array", "items": { "type": "string" }, "description": "AI生成回复草稿（可多版本）" },
-    "final_reply":     { "type": ["string", "null"] },
-    "persona_id":      { "type": ["string", "null"], "description": "回复使用的画像" },
-    "note":            { "type": ["string", "null"] }
+    "id":          { "type": "string", "description": "randomUUID" },
+    "platform":    { "enum": ["weixin", "xhs", "douyin", "bilibili"], "description": "对齐画像平台表，新增平台先扩此处" },
+    "participant": { "type": "object",
+      "properties": { "external_user_id": { "type": "string" }, "nickname": { "type": "string" } },
+      "required": ["external_user_id", "nickname"] },
+    "topic_ref":   { "type": ["string", "null"], "description": "主题目录名 | null" },
+    "output_ref":  { "type": ["string", "null"], "description": "主题名/文件名，关联作品库稿件" },
+    "persona_id":  { "type": ["string", "null"], "description": "人工绑定的画像 id（_personas.json）" },
+    "status":      { "enum": ["unread", "pendingReply", "replied", "archived", "spam"] },
+    "tags":        { "type": "array", "items": { "enum": ["产品咨询", "价格疑问", "内容建议", "投诉", "其他"] }, "description": "诉求标签，固定枚举，组件只渲染" },
+    "note":        { "type": ["string", "null"] },
+    "starred":     { "type": "boolean" },
+    "created_at":  { "type": "string", "format": "date-time" },
+    "updated_at":  { "type": "string", "format": "date-time" },
+    "messages":    { "type": "array", "items": { "$ref": "#/$defs/interactionMessage" }, "description": "按 sent_at 升序" }
   },
-  "required": ["id", "topic_dir", "platform", "account_id", "message_type", "user", "content", "time", "status", "publish_task_id", "reply_drafts", "final_reply", "persona_id"]
+  "required": ["id", "platform", "participant", "topic_ref", "output_ref", "persona_id", "status", "tags", "note", "starred", "created_at", "updated_at", "messages"]
 }
 ```
 
-状态机：`unread → pending → replied`；任意态 `→ archived / spam`。
-v0.1.x 变更：`linked_publish_id → publish_task_id`；`platform` 收敛至 `$defs/platform`；`topic_id → topic_dir`。
+**Message 与标签溯源（`$defs/interactionMessage` / `$defs/provenanceLabel`）**：
+
+```json
+{
+  "$defs": {
+    "interactionMessage": {
+      "type": "object",
+      "properties": {
+        "id":                  { "type": "string" },
+    "external_message_id": { "type": "string", "description": "平台消息 id；platform + external_message_id 全局唯一，CSV 去重键" },
+    "direction":           { "enum": ["in", "out"] },
+    "type":                { "enum": ["comment", "dm", "mention"] },
+    "content":             { "type": "string" },
+    "in_reply_to":         { "type": ["string", "null"], "description": "楼中楼上游内部消息 id；null=无上游或上游不在库（置 null 不丢弃）" },
+    "sent_at":             { "type": "string", "format": "date-time" },
+    "sentiment":           { "$ref": "#/$defs/provenanceLabel", "description": "value ∈ positive|negative|question|unknown" },
+    "intent":              { "$ref": "#/$defs/provenanceLabel", "description": "value ∈ consult|praise|complain|demand|spam|unknown" },
+    "reply_drafts":        { "type": "array", "items": { "type": "object",
+        "properties": {
+          "id":         { "type": "string" },
+          "style":      { "enum": ["formal", "friendly", "humorous", "brief"] },
+          "content":    { "type": "string" },
+          "persona_id": { "type": ["string", "null"] },
+          "created_at": { "type": "string", "format": "date-time" }
+        },
+        "required": ["id", "style", "content", "persona_id", "created_at"] },
+      "description": "AI 固定 3 候选，走 create AI 网关，显式触发" }
+      },
+      "required": ["id", "external_message_id", "direction", "type", "content", "in_reply_to", "sent_at", "sentiment", "intent", "reply_drafts"]
+    },
+    "provenanceLabel": {
+      "type": "object",
+      "properties": {
+        "value":   { "type": "string", "description": "标签值，随使用处收窄（sentiment/intent 各有闭集，见上文字段描述）" },
+        "source":  { "enum": ["user", "ai"] },
+        "ai_meta": { "type": ["object", "null"],
+          "properties": { "prompt_version": { "type": "string" }, "at": { "type": "string", "format": "date-time" } },
+          "required": ["prompt_version", "at"] }
+      },
+      "required": ["value", "source", "ai_meta"],
+      "description": "正交标签溯源包装，与画像 fields 同型；ai_meta.prompt_version 示例 interaction-sentiment@1、interaction-intent@1"
+    }
+  }
+}
+```
+
+**状态机与标签规则**：唯一自动流转 = 导入 → `unread`；其余全部用户显式标记（单条或批量）——`spam` 可从任意态进入、可恢复为 `unread`；`archived` 可检索但不进默认列表、不进洞察分析；保存最终回复自动 `pendingReply|unread → replied`。`sentiment`/`intent` 为两套**正交**标签：AI 显式按钮批量识别（非导入强制），人工覆盖即 `source:"user"`，识别失败置 `unknown` 不阻塞导入、不自动改会话状态。
+
+MCP 通道本期为恒失败 stub：`fetchMessages(req) / sendReply(req)`（11.4/11.6），发送按钮行为写死为"存档转 replied，不依赖 stub 结果"。
+
+v0.1.x 变更：单消息实体改为 **Conversation + Message 聚合根**；`user → participant{external_user_id, nickname}`；`time → sent_at`（消息级）；`message_type → type` 并新增 `direction/in_reply_to`（楼中楼）；`tags` 收敛固定枚举；裸 `sentiment` 枚举 → provenance 包装并新增正交 `intent`；`reply_drafts` 字符串数组 → 结构化候选（含风格参数与画像引用）；`final_reply` 废止（最终回复以 `direction:"out"` 消息落库）；`publish_task_id` 废止（稿件关联走 `output_ref`）；落位由主题 assets 改为库根 `_interactions.json`。
 
 ---
 
@@ -1158,11 +1223,11 @@ v0.1.x 变更（以实现为准全面重构）：
 | 对标作品 / 拆解 / 报告 | 2.2 / 2.3 / 2.4 | 主题 `assets/_competitors.json`；正文/拆解/报告全文→同目录（ref 单源） |
 | 选题 | 3.1 | 库根 `_topics.json`；排期→`_schedule.json`（schedule_item_id 回链） |
 | 创作工作台 | 4.1 | 主题 `assets/_create.json`（版本正文内嵌自含）；发布簿记镜像 `.dsh-output.json` |
-| 发布任务 | 5.1 | 适配稿/日志→assets；定时→`_schedule.json`（裁决先行） |
+| 发布任务 | 5.1 | 主题 `assets/_publish.json`；衍生稿→`assets/publish/<task_id>/`；账号卡/全局索引→库根；定时→`_schedule.json`（schedule_item_id 回链） |
 | 排期条目 | 6.2 | 库根 `_schedule.json`（排期模块单点写：文件锁+原子写） |
-| 日历事件 | 6.1 | 浏览器侧实体（裁决先行）；定时复用 `_schedule.json`；视图配置暂无 localStorage 键 |
-| 复盘 | 7.1 | 数据快照/报告→assets（report_file 单源）；元数据入复盘清单（裁决先行） |
-| 互动会话 | 8.1 | 会话记录→assets；元数据入互动清单（裁决先行） |
+| 日历视图（派生） | 6.1 | 排期事实源=库根 `_schedule.json`；日历自有数据仅 `_calendar.json` 备注；`calendar_event` 实体废止 |
+| 复盘 | 7.1 | 主题 `assets/_review.json`（baselines/snapshots/tasks）；报告/模板→`assets/review/`；全局索引→库根 |
+| 互动会话 | 8.1 | 库根 `_interactions.json`（Conversation+Message 聚合；禁入主题 assets，裁决先行锚 interaction v1） |
 | 画像 | 9.1 / 9.2 | 库根 `_personas.json`（全文内嵌，含报告）；localStorage 仅选中态/向导草稿/旧数据迁移源 |
 | 内容模板 | 10.1 | 库根 `_templates.json`（revision 单调计数，无版本快照数组） |
 | outputs 项目元数据 | 0.8 | `<主题>/.dsh-output.json` |
@@ -1199,6 +1264,11 @@ v0.1.x 变更（以实现为准全面重构）：
 26. **MCP 契约（11）**：统一 envelope（`v/request_id/params`、`ok/data/error{code,message,retryable}`）；错误码闭枚举五值；`publish_content/send_reply` 必填 `idempotency_key`（确定性生成规则，稿件侧键源改为 `content_id`）；`fetch_rss` items 加 `id/raw_guid`（guid 优先，否则规范化 link SHA-1）；`fetch_messages` 消息加 `id`；`fetch_source/fetch_platform_stats` 的 `topic_id → topic_dir`、`work_id → external_id`；声明落盘职责（MCP 只返 content，file_ref 为封装层返回的 assets 相对路径）；`publish_content.scheduled_at` 本期必须 null；响应中的 `error` 字符串字段由 envelope `error{code,message}` 承接。
 27. **Schema 合法性（全文）**：声明 Draft 2020-12 基准；`$ref` 与 `type` 不并列（可空引用改 `anyOf` + null 分支，涉及 2.3 result、3.1 source/score、4.1 profile_ref、9.1 report/ai_meta、各 platform 可空字段）；`$ref` 片段指针统一 `#/$defs/...`。
 28. **实现侧长度约束（0.9，新）**：登记 persona 12 项 caps、gather 配额与正文截断、模板标题上限，声明为 wire 校验上限、Schema 不重复声明（示例字段除外）。
+29. **发布任务（5.1，三轮）**：**整章按实现重写**，废止二轮"裁决先行"标注——四态任务状态机（`recorded` 本期终态，执行态有意缺席随二期 MCP）、`attempts` 只追加日志、`platforms[]` 腿结构 + `account_alias` 别名制（账号卡零凭据）、衍生稿 `assets/publish/<task_id>/` 为腿正文唯一权威、冻结的 `PublishPackage` 二期交接包、`_publish-index.json`/`_publish-profiles.json` 两张库根辅助文件。
+30. **日历（6.1/6.3，三轮）**：`calendar_event` 独立实体**废止**——事件即排期条目（一选题一事件），日历唯一自有数据为 `_calendar.json` 备注（非空 upsert、空白清除、惰性条目读取忽略）；回链统一为**业务→排期单向**：`ScheduleItem.publishTaskId` 反向字段已删除，`PublishTask.scheduleItemId` 为实现（定时登记显式 id upsert，重排不孤儿化旧条目）。
+31. **复盘（7.0/7.1，三轮）**：**整章按实现重写**——`review` 单实体拆为 `_review.json` 三段清单（baselines/snapshots/tasks）+ `_review-index.json` 全局索引；`$defs/metricSet` 对齐实现 ReviewMetrics（`follows→followers_gained`、`conversion_rate` 废止、`captured_at` 上移快照级、八指标全列 required-nullable）；快照去重键 platform+platform_work_id+captured_at(UTC日)、绑定三级（URL→标题→人工）、判定阈值注记、CSV 两步导入、`degraded` 降级标记；`per_work` 发布任务关联降为裁决先行注。
+32. **互动（8.1，三轮）**：由自由裁决改为**锚定 interaction-dev-prompt-v1 第三章冻结契约**转写——Conversation+Message 聚合根、库根 `_interactions.json`（废止二轮"会话记录进 assets"的错误落位）、platform+external_message_id 去重、provenance 包装的正交 sentiment/intent 标签、固定枚举、单自动流转状态机、恒失败 MCP stub。
+33. **对标作品（2.2/0.4，三轮）**：`gathered_ref → collected_idea_ref` 改名统一（实现侧已同步改名并修注释）——语义定为"已收录选题的导出文件名 idea-*.md，兼已收录标记"；废止二轮"按类型注释声明语义、实现侧待办"的处理（附录A#6 的遗留就此闭合）。
 
 ---
 
@@ -1216,7 +1286,7 @@ v0.1.x 变更（以实现为准全面重构）：
 | 8 | 选题溯源 | 裸 source_type + source_id | `source{type,ref_id,url,snapshot}` 快照结构（源删后仍可读） | content-topics/src/types.ts | 采纳实现结构 |
 | 9 | 选题评分 | ai_score + score_breakdown 固定四维 | `score{total,source,factors[],evaluated_at}`，因子带 reason/confidence/estimated，人工可无因子 | content-topics/src/types.ts | 采纳实现结构 |
 | 10 | 选题归属字段 | topic_id 必填 | TopicItem 无 topic_id，用 `topic_dir` 关联 outputs 目录 | content-topics/src/types.ts | topic_dir；instanceBase 不含 topic_id |
-| 11 | 选题排期回链 | 无 | `schedule_item_id` 关联 `_schedule.json` 条目 | content-topics/src/types.ts | 采纳，并推广到 publish_task/calendar_event（裁决先行） |
+| 11 | 选题排期回链 | 无 | `schedule_item_id` 关联 `_schedule.json` 条目 | content-topics/src/types.ts | 采纳；回链已统一业务→排期单向（publish 侧同向落地，日历侧随 calendar_event 废止不适用，见 39） |
 | 12 | ID 前缀 | "栏目类型前缀+随机" | acc-/cw-/cr-（浏览器侧 newId）、cc-（工作台）、ct-（模板，网关）；选题/排期/画像为裸 randomUUID；素材为 guid/SHA-1；`idea-` 仅为收录选题 assets 文件名前缀 | content-studio/src/client/competitors.ts:158,262、CompetitorsView.tsx:322,433,454、client/create.ts:42、content-topics/src/store.ts:138、content-schedule/src/store.ts:73、content-outputs/src/persona/store.ts:379、create/store.ts（putCreateTemplateFile） | 前缀表按实现重建；v0.1.x 审阅稿曾把 idea- 误列为选题实体前缀，更正 |
 | 13 | 素材去重键与保留 | 无 | guid 优先，否则规范化 link 的 SHA-1；`raw_guid` 随行；每源保留 ≤50 条，favorite/picked 豁免 | content-outputs/src/gather/types.ts、gather/store.ts:25,28 | 采纳并写入 MCP fetch_rss 契约；配额入 0.9 |
 | 14 | 素材正文 | content + content_file 双字段 | `body_file` 单源；原始 HTML 落盘前服务端净化并按 GATHER_MAX_BODY_CHARS=100_000 截断；summary/points/tags/excerpts 小文本直存 | content-outputs/src/gather/types.ts、gather/store.ts:258-260 | 0.6 单源规则；素材无审计字段 |
@@ -1235,18 +1305,26 @@ v0.1.x 变更（以实现为准全面重构）：
 | 27 | 排期文件写法 | "定时写入 _schedule.json"（写法未约定） | 排期模块单点写：`withFileLock` + `writeFileAtomic`（0600），每次整文件重写；坏记录具名跳过 | content-schedule/src/store.ts | 6.3 单点写规则 |
 | 28 | 排期条目结构 | （文档无此实体；calendar_event 为 date-time 粒度） | `ScheduleItem{date:YYYY-MM-DD, time:HH:mm|null, status:idea/draft/scheduled/published, kind:content/event, topic, url}`；无审计字段 | content-schedule/src/types.ts、store.ts | 6.2 独立成节；calendar_event 与之经 id 双链 |
 | 29 | outputs 项目元数据 | 未定义 | `.dsh-output.json`：status(draft/ready/published)、kind 七值、create 簿记（currentVersion/publishedVersion/publishedPath/publishedAt） | content-outputs/src/types.ts、create/types.ts:218-223 | 0.8 新增（含 create 结构化） |
-| 30 | publish_task / calendar_event / review / conversation | v0.1.x 结构 | 无对应实现证据（发布现为主题根文件复制 + `.dsh-output.json` 簿记） | — | 本版结构按裁决先行，各节显式标注与现状实现的冲突 |
+| 30 | publish_task / calendar_event / review / conversation | v0.1.x 结构 | 三轮核实：publish/review 已实现（publish M1、复盘全链路，二轮误判"无实现证据"系未读该两模块）；日历无独立事件实体；conversation 确无实现 | content-outputs/src/publish、content-outputs/src/review、content-schedule/src/calendar-notes.ts | publish/review 按实现重写（36/38），日历改派生模型（37），conversation 锚 v1（40） |
 | 31 | topic_draft.persona_id | 选题可关联画像 | 实现无此字段；画像经创作稿件 `topic_ref`/`profile_ref` 关联 | content-topics/src/types.ts、create/types.ts | 字段废止，关联路径待产品确认 |
 | 32 | MCP envelope | 扁平 request/response + error 字符串 | 无实现证据；本期契约自定 envelope 与闭枚举错误码 | —（契约先行） | 11.0 声明；接入实现时回填对账 |
-| 33 | gathered_ref 语义 | 无 | 类型注释"关联信息采集素材"，视图实现写入收录选题文件名（idea-*.md）——实现内部口径不一致 | content-outputs/src/competitor/types.ts、content-studio/src/client/CompetitorsView.tsx:433-437 | 本版按类型注释声明语义；实现侧统一列为待办 |
+| 33 | gathered_ref 语义 | 无 | 类型注释"关联信息采集素材"，视图实现写入收录选题文件名（idea-*.md）——实现内部口径不一致 | content-outputs/src/competitor/types.ts、content-studio/src/client/CompetitorsView.tsx:433-437 | **三轮已统一**：字段改名 `collectedIdeaRef`（注释与读写同步），语义=已收录选题导出文件名兼已收录标记（2.2 `collected_idea_ref`） |
 | 34 | MCP 11.3 external_id 口径 | 11.3 返回 work_id | 对标侧平台原生 ID 名为 platform_work_id；复盘 per_work 用 external_id | content-outputs/src/competitor/types.ts、本版 7.1/11.3 | MCP 面统一 external_id，盘内对标实体保留 platform_work_id；待实现统一 |
 | 35 | fetch_messages 消息 id | 无 id | 无实现证据；契约先行要求平台原生消息 id 作去重键 | —（契约先行） | id 必填，生成规则待实现核实 |
+| 36 | publish_task 结构 | 六态（reviewing/running/partial_success/success/failed）+ 内嵌 adapted_title/content/log + account_ids | 四态（draft/pendingReview/scheduled/recorded，本期终态 recorded，执行态随二期 MCP）；衍生稿 content_file + attempts 只追加日志；platforms[] 腿 + account_alias 别名制（零凭据） | content-outputs/src/publish/types.ts | 5.1 整章按实现重写 |
+| 37 | 日历事件实体 | 独立 calendar_event（event_type/ref_id/planned_time/status） | 无独立实体：事件=排期条目派生；日历自有数据仅 `_calendar.json` 备注（非空 upsert、空白清除、惰性条目忽略） | content-schedule/src/{types,store,calendar-notes}.ts | 6.1 废止 calendar_event，改派生模型 + 备注 sidecar |
+| 38 | review 结构 | 单实体（metrics snapshot+delta/per_work/insights/recommendations） | `_review.json` 三段清单（baselines/snapshots/tasks）+ `_review-index.json` 全局索引；CSV 两步导入；绑定三级；degraded 降级标记 | content-outputs/src/review/{types,store,importers}.ts | 7.1 整章按实现重写；metricSet 对齐 ReviewMetrics |
+| 39 | 排期回链方向 | "同步日历与 _schedule.json"（方向未约定） | 回链单向业务→排期：`TopicItem.scheduleItemId` 与 `PublishTask.scheduleItemId`；`ScheduleItem.publishTaskId` 反向字段已删除；发布定时以显式 id upsert（重排原位更新不孤儿化） | content-topics/src/types.ts、content-outputs/src/publish/types.ts:82、content-schedule/src/types.ts、ui-content-studio publish-store（scheduleTask） | 6.3 统一规则；主会话三轮代码已落地（293 用例绿、定向 tsc 净） |
+| 40 | conversation 落位 | 会话记录进主题 assets | 冻结契约：库根 `_interactions.json`（禁主题 assets/ 与 .dsh-output.json，防产物扫描误伤）；Conversation+Message 聚合 | interaction-dev-prompt-v1.md 第二、三章 | 8.1 锚定 v1 转写（裁决先行） |
 
 ### 遗留待核实项（汇总）
 
-1. publish_task、calendar_event、review、conversation 四类实体（无实现证据，本版按裁决先行并显式声明冲突）。
-2. publish_task / calendar_event 的 `schedule_item_id` 回链（选题侧已实现，其余待实现跟进）。
-3. `dsh-content-studio.*` 与 `content-studio.*` 两种 localStorage 键前缀的统一时机；日历视图配置键（当前不存在）。
+1. **conversation（互动）**——唯一无实现实体；本版按 interaction-dev-prompt-v1 冻结契约转写（裁决先行），实现后回填对账（附录B#40）。
+2. **复盘 `per_work` 发布任务关联 / 发布二期执行态与 MCP 通道**——契约已留位（7.1 注、5.1 执行语义），随二期落地回填。
+3. **MCP envelope / 幂等键 / 消息 id 生成规则**——契约先行，接入实现时回填（附录B#32/35）。
+4. **11.3 `external_id` 与盘内 `platform_work_id` 命名统一**（附录B#34）。
+5. **`dsh-content-studio.*` 与 `content-studio.*` 两种 localStorage 键前缀**的统一时机；日历视图配置键（当前不存在）。
+6. **4.1 裁决先行规划字段**（compliance_check/seo_geo/generated_batch 等）随实现回填。
 4. MCP envelope、幂等键、fetch_messages 消息 id 生成规则（契约先行，接入时回填）。
 5. `event_type ↔ ref_id` 配对校验的载入行为（拒绝单条 vs 拒绝整文件）；calendar_event 的 overdue 判定方与时机。
 6. MCP 11.3 `external_id` 与对标实体 `platform_work_id` 的命名统一。

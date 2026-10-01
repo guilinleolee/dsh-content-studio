@@ -9733,8 +9733,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				]).readonly(),
 				"kind": union([literal("content"), literal("event")]).readonly(),
 				"topic": union([literal(null), string()]).readonly(),
-				"url": union([literal(null), string()]).readonly(),
-				"publishTaskId": string().readonly().optional()
+				"url": union([literal(null), string()]).readonly()
 			})).readonly(),
 			"problems": array(string()).readonly()
 		});
@@ -9762,8 +9761,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				]).readonly(),
 				"kind": union([literal("content"), literal("event")]).readonly(),
 				"topic": union([literal(null), string()]).readonly(),
-				"url": union([literal(null), string()]).readonly(),
-				"publishTaskId": string().readonly().optional()
+				"url": union([literal(null), string()]).readonly()
 			})).readonly(),
 			"problems": array(string()).readonly()
 		});
@@ -9781,8 +9779,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			]).readonly(),
 			"kind": union([literal("content"), literal("event")]).readonly(),
 			"topic": union([literal(null), string()]).readonly(),
-			"url": union([literal(null), string()]).readonly(),
-			"publishTaskId": string().readonly().optional()
+			"url": union([literal(null), string()]).readonly()
 		});
 		const _deepseek_ai_dsh_content_schedule_contentSchedule_put_result$schema = object({
 			"file": string().readonly(),
@@ -9800,8 +9797,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				]).readonly(),
 				"kind": union([literal("content"), literal("event")]).readonly(),
 				"topic": union([literal(null), string()]).readonly(),
-				"url": union([literal(null), string()]).readonly(),
-				"publishTaskId": string().readonly().optional()
+				"url": union([literal(null), string()]).readonly()
 			})).readonly(),
 			"problems": array(string()).readonly()
 		});
@@ -32921,7 +32917,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									className: InteractionView_module_css_default.mini,
 									disabled: composer.trim().length === 0 || state.busy,
 									onClick: () => {
-										if (selected === null || target === null) return;
+										if (composer.trim().length === 0) return;
 										interaction.saveDraft(selected.id, target.id, style, composer.trim(), selected.personaId);
 									},
 									children: t("interaction.reply.sendDraft")
@@ -32930,7 +32926,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									className: InteractionView_module_css_default.primary,
 									disabled: composer.trim().length === 0 || state.busy,
 									onClick: () => {
-										if (selected === null || target === null || composer.trim().length === 0) return;
+										if (composer.trim().length === 0) return;
 										const content = composer.trim();
 										const personaId = selected.personaId;
 										(async () => {
