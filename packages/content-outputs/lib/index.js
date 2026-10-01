@@ -4272,6 +4272,21 @@ async function writeHistoryEntry(root, entry) {
 	for (const version of versions.slice(20)) await rm(historyFile(root, entry.record.id, version), { force: true }).catch(() => void 0);
 }
 /**
+* Acquire the library write lock, creating the library directory first: the
+* lock file lives beside `templates.json`, so a first-ever write on a machine
+* without `<templatesRoot>/` would otherwise fail on the lock itself.
+* @param root - absolute templates root directory.
+* @param fn - the locked critical section.
+* @returns the section's result.
+*/
+async function withTemplatesLock(root, fn) {
+	await mkdir(root, {
+		recursive: true,
+		mode: 448
+	});
+	return withFileLock(join(root, TEMPLATES_FILENAME), fn);
+}
+/**
 * Upsert one template under a file lock, atomically: the version increments
 * and one full-record snapshot lands in `history/` before the manifest
 * commits. Creating with an id that is absent from the manifest rejects — a
@@ -4282,7 +4297,7 @@ async function writeHistoryEntry(root, entry) {
 * @returns the stored record.
 */
 async function putTemplateFile(root, input, now = (/* @__PURE__ */ new Date()).toISOString()) {
-	return withFileLock(join(root, TEMPLATES_FILENAME), async () => {
+	return withTemplatesLock(root, async () => {
 		const state = await readForWrite(root);
 		const existing = input.id === void 0 ? void 0 : state.templates.find((candidate) => candidate.id === input.id);
 		if (input.id !== void 0 && existing === void 0) throw new Error(`unknown template: ${input.id}`);
@@ -4309,7 +4324,7 @@ async function putTemplateFile(root, input, now = (/* @__PURE__ */ new Date()).t
 * @returns the stored record.
 */
 async function setTemplateStatusFile(root, id, status, now = (/* @__PURE__ */ new Date()).toISOString()) {
-	return withFileLock(join(root, TEMPLATES_FILENAME), async () => {
+	return withTemplatesLock(root, async () => {
 		const state = await readForWrite(root);
 		const existing = state.templates.find((candidate) => candidate.id === id);
 		if (existing === void 0) throw new Error(`unknown template: ${id}`);
@@ -4329,7 +4344,7 @@ async function setTemplateStatusFile(root, id, status, now = (/* @__PURE__ */ ne
 * @param id - the template to remove.
 */
 async function deleteTemplateFile(root, id) {
-	await withFileLock(join(root, TEMPLATES_FILENAME), async () => {
+	await withTemplatesLock(root, async () => {
 		const state = await readForWrite(root);
 		const next = state.templates.filter((candidate) => candidate.id !== id);
 		if (next.length === state.templates.length) return;
@@ -4349,7 +4364,7 @@ async function deleteTemplateFile(root, id) {
 * @returns the stored tag list.
 */
 async function putTemplateTagsFile(root, tags) {
-	return withFileLock(join(root, TEMPLATES_FILENAME), async () => {
+	return withTemplatesLock(root, async () => {
 		const state = await readForWrite(root);
 		if (tags.length > 50) throw new Error(`tags exceed ${String(50)}`);
 		for (const tag of tags) if (!isTag(tag)) throw new Error("invalid tag record");
@@ -4444,7 +4459,7 @@ function uniqueName(name, taken) {
 async function importTemplatePack(root, pack, strategy, now = (/* @__PURE__ */ new Date()).toISOString()) {
 	if (pack.format !== "dsh-template-pack") throw new Error(`unsupported pack format: ${String(pack.format)}`);
 	if (pack.formatVersion !== 1) throw new Error(`unsupported pack formatVersion: ${String(pack.formatVersion)}`);
-	return withFileLock(join(root, TEMPLATES_FILENAME), async () => {
+	return withTemplatesLock(root, async () => {
 		const state = await readForWrite(root);
 		const failed = [];
 		let added = 0;
