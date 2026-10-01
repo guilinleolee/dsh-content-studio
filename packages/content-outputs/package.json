@@ -1,6 +1,6 @@
 {
   "name": "@guilinleolee/dsh-content-outputs",
-  "version": "0.1.4-rc.3",
+  "version": "0.1.4-rc.4",
   "description": "Outputs-library Remote: read-only projection plus the Content Studio gather write face",
   "type": "module",
   "main": "lib/index.js",
