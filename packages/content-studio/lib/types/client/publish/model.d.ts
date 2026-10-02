@@ -41,6 +41,8 @@ export interface ManuscriptCard {
     readonly file: string;
     readonly title: string;
     readonly status: OutputProject['status'];
+    /** Topic the creation started from, when the mirror carries it; null otherwise. */
+    readonly topicId: string | null;
 }
 /**
  * Project the outputs library snapshot into the manuscript pool: every

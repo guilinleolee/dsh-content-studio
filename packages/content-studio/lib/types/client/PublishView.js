@@ -70,7 +70,7 @@ export function PublishView({ publish, persona, pickedManuscript, onClearPickedM
         setForm({
             theme: card.theme, file: card.file, title: card.title,
             platformIds: [], mode: 'immediate', scheduledLocal: '', note: '',
-            topicId: null,
+            topicId: card.topicId,
         });
     };
     const submitForm = async () => {

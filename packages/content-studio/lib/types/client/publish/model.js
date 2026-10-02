@@ -98,7 +98,7 @@ export function manuscriptCards(projects) {
     const cards = [];
     for (const project of projects) {
         for (const file of project.deliverables) {
-            cards.push({ theme: project.topic, file, title: project.title, status: project.status });
+            cards.push({ theme: project.topic, file, title: project.title, status: project.status, topicId: project.topicId ?? null });
         }
     }
     return cards.reverse();

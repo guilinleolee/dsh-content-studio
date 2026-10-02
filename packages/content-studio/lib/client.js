@@ -5050,7 +5050,8 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				"updatedAt": string().readonly(),
 				"deliverables": array(string()).readonly(),
 				"assetCount": number().readonly(),
-				"hasMetadata": boolean().readonly()
+				"hasMetadata": boolean().readonly(),
+				"topicId": union([literal(null), string()]).readonly().optional()
 			})).readonly(),
 			"problems": array(object({
 				"topic": string().readonly(),
@@ -6466,7 +6467,8 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					"currentVersion": number().readonly(),
 					"publishedVersion": union([literal(null), number()]).readonly(),
 					"publishedPath": union([literal(null), string()]).readonly(),
-					"publishedAt": union([literal(null), string()]).readonly()
+					"publishedAt": union([literal(null), string()]).readonly(),
+					"topicId": union([literal(null), string()]).readonly().optional()
 				}).readonly().optional()
 			})]),
 			"problem": union([literal(null), string()])
@@ -7041,7 +7043,8 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 				"currentVersion": number().readonly(),
 				"publishedVersion": union([literal(null), number()]).readonly(),
 				"publishedPath": union([literal(null), string()]).readonly(),
-				"publishedAt": union([literal(null), string()]).readonly()
+				"publishedAt": union([literal(null), string()]).readonly(),
+				"topicId": union([literal(null), string()]).readonly().optional()
 			}).readonly().optional()
 		});
 		const _deepseek_ai_dsh_content_outputs_contentOutputs_writeCreateMetadata_result$schema = _void();
@@ -30277,7 +30280,8 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				theme: project.topic,
 				file,
 				title: project.title,
-				status: project.status
+				status: project.status,
+				topicId: project.topicId ?? null
 			});
 			return cards.reverse();
 		}
@@ -30547,7 +30551,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					mode: "immediate",
 					scheduledLocal: "",
 					note: "",
-					topicId: null
+					topicId: card.topicId
 				});
 			};
 			const submitForm = async () => {
