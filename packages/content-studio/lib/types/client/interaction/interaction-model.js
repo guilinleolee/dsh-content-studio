@@ -29,7 +29,10 @@ export const INSIGHT_BATCH_SIZE = 200;
 export const REPLY_THREAD_LINES = 20;
 /** Browser-local storage key of the filter set. */
 export const FILTERS_KEY = 'dsh-content-studio.interaction.filters';
-/** The default filters: everything, no search. */
+/**
+ * The default filters: everything, no search.
+ * @returns the filter set every malformed or version-stale load falls back to.
+ */
 export function defaultInteractionFilters() {
     return { version: 1, platforms: [], status: 'all', type: 'all', sentiment: 'all', intent: 'all', search: '' };
 }
@@ -70,7 +73,11 @@ export function loadInteractionFilters() {
 export function saveInteractionFilters(filters) {
     localStorage.setItem(FILTERS_KEY, JSON.stringify(filters));
 }
-/** The last inbound message of a conversation, or null when it has none. */
+/**
+ * The last inbound message of a conversation, or null when it has none.
+ * @param conversation - the conversation to scan.
+ * @returns the newest `direction: 'in'` message, or null.
+ */
 export function lastInboundMessage(conversation) {
     for (let index = conversation.messages.length - 1; index >= 0; index -= 1) {
         const message = conversation.messages[index];
@@ -79,7 +86,11 @@ export function lastInboundMessage(conversation) {
     }
     return null;
 }
-/** The latest message of a conversation regardless of direction, or null. */
+/**
+ * The latest message of a conversation regardless of direction, or null.
+ * @param conversation - the conversation to scan.
+ * @returns the last message in stored order, or null without messages.
+ */
 export function lastMessage(conversation) {
     return conversation.messages[conversation.messages.length - 1] ?? null;
 }

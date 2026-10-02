@@ -269,14 +269,6 @@ export declare class ContentOutputsGateway extends TypertRemoteService {
      */
     rewriteCreateSelection(request: CreateRewriteRequest): Promise<CreateAiResult>;
     /**
-     * Evaluate one draft through the model: four rubric dimensions plus an
-     * overall advisory grade. Explicit per call, queued one at a time,
-     * rate limits retried with backoff; nothing is persisted here. A
-     * paid-tier feature — the advisory result never blocks anything.
-     * @param request - the content type, title, and draft text.
-     * @returns the structured evaluation with its provenance.
-     */
-    /**
      * List the global custom templates. A malformed bank reads as empty with
      * the rejection named, so the manager can warn before overwriting.
      * @returns the valid templates plus every rejection.
@@ -296,6 +288,14 @@ export declare class ContentOutputsGateway extends TypertRemoteService {
      * @returns the stored templates.
      */
     deleteCreateTemplate(id: string): Promise<CreateTemplateList>;
+    /**
+     * Evaluate one draft through the model: four rubric dimensions plus an
+     * overall advisory grade. Explicit per call, queued one at a time,
+     * rate limits retried with backoff; nothing is persisted here. A
+     * paid-tier feature — the advisory result never blocks anything.
+     * @param request - the content type, title, and draft text.
+     * @returns the structured evaluation with its provenance.
+     */
     evaluateCreateContent(request: CreateEvaluateRequest): Promise<CreateEvaluation>;
     /**
      * List every account persona from the library root's `_personas.json`.
@@ -395,6 +395,9 @@ export declare class ContentOutputsGateway extends TypertRemoteService {
     }>;
     /**
      * Read one derived platform draft back for the preview pane.
+     * @param theme - outputs-project directory name.
+     * @param taskId - the owning task's UUID.
+     * @param platformId - the platform registry key.
      * @returns the text, or an empty record when the draft does not exist yet.
      */
     readPublishDerived(theme: string, taskId: string, platformId: string): Promise<{
@@ -557,6 +560,8 @@ export declare class ContentOutputsGateway extends TypertRemoteService {
     }>;
     /**
      * Read one report file back for the viewer and editor.
+     * @param theme - outputs-project directory name.
+     * @param file - plain report file name (`report-<taskId>-<ts>.md`).
      * @returns the markdown, or an empty record when the file does not exist.
      */
     readReviewReport(theme: string, file: string): Promise<ReviewReportRead>;
@@ -580,6 +585,8 @@ export declare class ContentOutputsGateway extends TypertRemoteService {
     }>;
     /**
      * Read one saved template's content.
+     * @param theme - outputs-project directory name.
+     * @param file - plain template file name.
      * @returns the markdown, or an empty record when the file does not exist.
      */
     readReviewTemplate(theme: string, file: string): Promise<ReviewReportRead>;

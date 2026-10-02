@@ -14,7 +14,11 @@ export const GATHER_BODY_CHAR_LIMIT = 100_000;
 /** Failure backoff sequence: doubling hours capped at 24h. */
 const BACKOFF_BASE_MS = 60 * 60 * 1000;
 const BACKOFF_MAX_MS = 24 * 60 * 60 * 1000;
-/** Whether one material is exempt from retention trimming. */
+/**
+ * Whether one material is exempt from retention trimming.
+ * @param material - the material to test.
+ * @returns whether its status is `favorite` or `picked`.
+ */
 export function isRetentionExempt(material) {
     return material.status === 'favorite' || material.status === 'picked';
 }
@@ -56,7 +60,12 @@ export function applyQuota(materials) {
 function compareRetentionEntry(a, b) {
     return compareRetention(a.material, b.material);
 }
-/** Whether one draft passes the keyword filters (case-insensitive substring match on title + summary). */
+/**
+ * Whether one draft passes the keyword filters (case-insensitive substring match on title + summary).
+ * @param draft - the feed item draft to test.
+ * @param filters - the source's and the task's keyword filters in effect.
+ * @returns whether the draft survives exclusion, inclusion, and source-exclusion checks.
+ */
 export function passesKeywordFilters(draft, filters) {
     const haystack = `${draft.title ?? ''}\n${draft.summary ?? ''}`.toLowerCase();
     const matches = (word) => haystack.includes(word.toLowerCase());
@@ -160,7 +169,11 @@ export function isSourceDue(source, now) {
     const intervalMs = Math.max(source.intervalMinutes, 30) * 60 * 1000;
     return elapsedMs >= Math.max(intervalMs, backoffMs);
 }
-/** Snapshot file name for one material's body. */
+/**
+ * Asset file name for one material's body snapshot.
+ * @param materialId - the material's id; also the file stem.
+ * @returns the file name the gateway writes the snapshot under (`body-<materialId>.html`).
+ */
 export function bodyFileName(materialId) {
     return `body-${materialId}.html`;
 }

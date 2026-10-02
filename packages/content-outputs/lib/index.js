@@ -124,7 +124,8 @@ async function scanProject(root, topic) {
 		updatedAt,
 		deliverables,
 		assetCount,
-		hasMetadata
+		hasMetadata,
+		topicId: metadata?.create?.topicId ?? null
 	} };
 }
 /**
@@ -227,7 +228,11 @@ function textValue(value) {
 	if (typeof value === "string") return value;
 	return value.value ?? null;
 }
-/** Normalize one parsed feed document (any supported format) into drafts. */
+/**
+* Normalize one parsed feed document (any supported format) into drafts.
+* @param parsed - the feedsmith-parsed document (RSS or Atom).
+* @returns the feed title plus one draft per entry that has a link.
+*/
 function normalizeParsedFeed(parsed) {
 	if (parsed.format === "rss") {
 		const { feed } = parsed;
@@ -1015,19 +1020,31 @@ const SYSTEM_PROMPT = [
 	"4. tags：最多 5 个简短主题标签。",
 	"只输出一个 JSON 对象，形如 {\"summary\":\"...\",\"points\":[\"...\"],\"score\":88,\"tags\":[\"...\"]}，不要输出其他任何文字。"
 ].join("\n");
-/** Whether one thrown error (or its p-retry context) is an upstream rate limit worth retrying. */
+/**
+* Whether one thrown error (or its p-retry context) is an upstream rate limit worth retrying.
+* @param failure - the failed attempt's error or its p-retry context.
+* @returns whether the underlying error codes as `RATE_LIMIT` or HTTP 429.
+*/
 function isRateLimitError(failure) {
 	const error = underlyingError(failure);
 	if (error instanceof LlmError) return error.failure.code === "RATE_LIMIT" || error.failure.status === 429;
 	const code = error?.code;
 	return code === "RATE_LIMIT" || code === "429";
 }
-/** Provider-requested retry delay in milliseconds, capped so one source cannot pin the queue. */
+/**
+* Provider-requested retry delay in milliseconds, capped so one source cannot pin the queue.
+* @param failure - the failed attempt's error or its p-retry context.
+* @returns the provider `Retry-After` delay capped at 30s, or undefined when absent.
+*/
 function retryAfterMs(failure) {
 	const error = underlyingError(failure);
 	if (error instanceof LlmError && error.failure.providerRetryAfterMs !== void 0) return Math.min(error.failure.providerRetryAfterMs, 3e4);
 }
-/** Terminal model finish reasons that mean the call failed. */
+/**
+* Terminal model finish reasons that mean the call failed.
+* @param finish - the model call's finish reason.
+* @returns the failure as an `Error` carrying the failure code, or undefined for a clean `stop`.
+*/
 function finishError(finish) {
 	switch (finish.kind) {
 		case "stop": return;
@@ -1293,7 +1310,10 @@ function parseCompetitorManifest(raw) {
 		problems
 	};
 }
-/** The empty manifest every absent or unreadable manifest reads as. */
+/**
+* The empty manifest every absent or unreadable manifest reads as.
+* @returns the manifest with no works, no reports, and empty sync stamps.
+*/
 function emptyManifest() {
 	return {
 		formatVersion: 0,
@@ -1675,7 +1695,7 @@ function isVersion(value) {
 function isCreateState(value) {
 	if (typeof value !== "object" || value === null) return false;
 	const record = value;
-	return typeof record.currentVersion === "number" && Number.isInteger(record.currentVersion) && record.currentVersion >= 0 && (record.publishedVersion === null || typeof record.publishedVersion === "number" && Number.isInteger(record.publishedVersion)) && (record.publishedPath === null || typeof record.publishedPath === "string") && (record.publishedAt === null || typeof record.publishedAt === "string");
+	return typeof record.currentVersion === "number" && Number.isInteger(record.currentVersion) && record.currentVersion >= 0 && (record.publishedVersion === null || typeof record.publishedVersion === "number" && Number.isInteger(record.publishedVersion)) && (record.publishedPath === null || typeof record.publishedPath === "string") && (record.publishedAt === null || typeof record.publishedAt === "string") && (record.topicId === void 0 || record.topicId === null || typeof record.topicId === "string");
 }
 /** Whether the value carries the editable generation context. */
 function isContext(value) {
@@ -1684,7 +1704,11 @@ function isContext(value) {
 	const isText = (field) => field === null || typeof field === "string";
 	return isText(record.audience) && isText(record.points) && isText(record.references);
 }
-/** Whether the manifest envelope and every version conform; one violation rejects whole. */
+/**
+* Whether the manifest envelope and every version conform; one violation rejects whole.
+* @param manifest - the manifest being read or written.
+* @throws naming the first format violation.
+*/
 function assertCreateManifest(manifest) {
 	if (manifest.formatVersion !== 0) throw new Error(`unsupported create manifest formatVersion ${String(manifest.formatVersion)}`);
 	if (typeof manifest.contentId !== "string" || manifest.contentId.length === 0) throw new Error("create manifest has no contentId");
@@ -1883,6 +1907,7 @@ async function registerCreatePublishFile(root, theme, request) {
 	}
 	const { metadata, problem } = await readCreateMetadataFile(root, theme);
 	if (metadata === null) throw new Error(problem !== null ? "existing output metadata violates the format-0 rules" : `theme ${theme} has no output metadata to register the publish into`);
+	const { manifest } = await readCreateStateFile(root, theme);
 	await writeOutputMetadataFile(root, theme, {
 		...metadata,
 		status: "published",
@@ -1890,7 +1915,8 @@ async function registerCreatePublishFile(root, theme, request) {
 			currentVersion: request.version,
 			publishedVersion: request.version,
 			publishedPath: request.file,
-			publishedAt: (/* @__PURE__ */ new Date()).toISOString()
+			publishedAt: (/* @__PURE__ */ new Date()).toISOString(),
+			topicId: manifest?.topicRef?.topicId ?? null
 		}
 	});
 }
@@ -2456,7 +2482,11 @@ function resolveQuotaConfig(config) {
 		paidTierEnabled: config.paidTierEnabled ?? false
 	};
 }
-/** Today's local day key (`YYYY-MM-DD` in the gateway's timezone). */
+/**
+* Today's local day key (`YYYY-MM-DD` in the gateway's timezone).
+* @param now - the instant to key.
+* @returns the local-time day key the quota counters reset on.
+*/
 function localDayKey(now) {
 	const month = String(now.getMonth() + 1).padStart(2, "0");
 	const day = String(now.getDate()).padStart(2, "0");
@@ -2656,9 +2686,13 @@ const PERSONA_STYLE_PRESET_LABELS = {
 */
 /** System file name of the persona manifest at the library root. */
 const PERSONAS_FILENAME = "_personas.json";
+/** Character cap of one persona field's value. */
 const PERSONA_MAX_FIELD_VALUE = 5e3;
+/** Character cap of the free-text fields (custom style text, resume text, red lines). */
 const PERSONA_MAX_TEXT = 1e5;
+/** Character cap of one link's URL. */
 const PERSONA_MAX_URL = 2e3;
+/** Character cap of one link's display text. */
 const PERSONA_MAX_LINK_TEXT = 5e3;
 /** The fields every persona entry carries; wire records must be complete. */
 const FIELD_KEYS = PERSONA_FIELD_KEYS;
@@ -3475,11 +3509,19 @@ const PUBLISH_PROFILES_FILENAME = "_publish-profiles.json";
 const TASK_ID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/iu;
 /** Platform ids are registry keys: lowercase letters, digits, dashes. */
 const PLATFORM_ID_PATTERN = /^[a-z0-9][a-z0-9-]{0,31}$/u;
-/** Whether the value is one well-formed task id. */
+/**
+* Whether the value is one well-formed task id.
+* @param value - the id candidate.
+* @returns whether it matches the UUID shape the store generates and the derived path embeds.
+*/
 function isTaskId(value) {
 	return TASK_ID_PATTERN.test(value);
 }
-/** Whether the value is one well-formed platform id. */
+/**
+* Whether the value is one well-formed platform id.
+* @param value - the platform-id candidate.
+* @returns whether it matches the registry-key shape (lowercase letters, digits, dashes).
+*/
 function isPlatformId(value) {
 	return PLATFORM_ID_PATTERN.test(value);
 }
@@ -3685,7 +3727,15 @@ async function writePublishManifestFile(root, theme, manifest) {
 		entries
 	}, null, 2)}\n`);
 }
-/** Absolute path of one derived draft. */
+/**
+* Absolute path of one derived draft.
+* @param root - absolute outputs library root.
+* @param theme - outputs-project directory name.
+* @param taskId - the owning task's UUID.
+* @param platformId - the platform registry key.
+* @returns the guarded `assets/publish/<taskId>/<platformId>.md` path.
+* @throws when the task or platform id is malformed.
+*/
 function resolvePublishDerivedPath(root, theme, taskId, platformId) {
 	if (!isTaskId(taskId)) throw new Error(`invalid publish task id: ${JSON.stringify(taskId)}`);
 	if (!isPlatformId(platformId)) throw new Error(`invalid publish platform id: ${JSON.stringify(platformId)}`);
@@ -3710,6 +3760,10 @@ async function writePublishDerivedFile(root, theme, taskId, platformId, content)
 }
 /**
 * Read one derived draft back.
+* @param root - absolute outputs library root.
+* @param theme - outputs-project directory name.
+* @param taskId - the owning task's UUID.
+* @param platformId - the platform registry key.
 * @returns the text, or undefined when the draft does not exist yet.
 */
 async function readPublishDerivedFile(root, theme, taskId, platformId) {
@@ -3987,9 +4041,13 @@ var PublishAiProcessor = class {
 */
 /** Library file names under `<templatesRoot>`. */
 const TEMPLATES_FILENAME = "templates.json";
+/** Shared tag-list file name under `<templatesRoot>`. */
 const TAXONOMY_FILENAME = "taxonomy.json";
+/** Per-template history snapshot directory under `<templatesRoot>`. */
 const HISTORY_DIRNAME = "history";
+/** Character cap of one template's body. */
 const TEMPLATE_MAX_BODY = 1e5;
+/** How many full-record history snapshots one template keeps. */
 const TEMPLATE_HISTORY_LIMIT = 20;
 /** Placeholder identifier shape inside a template body. */
 const TEMPLATE_VARIABLE_NAME_PATTERN = /^[a-zA-Z][a-zA-Z0-9_]{0,63}$/;
@@ -5224,6 +5282,9 @@ async function writeReviewReportFile(root, theme, file, content) {
 }
 /**
 * Read one report file back from its stored reference.
+* @param root - absolute outputs library root.
+* @param theme - outputs-project directory name.
+* @param reference - the stored report reference, relative to `assets/review/`.
 * @returns the markdown, or an empty record when the file does not exist.
 */
 async function readReviewReportFile(root, theme, reference) {
@@ -5250,6 +5311,8 @@ async function writeReviewTemplateFile(root, theme, file, content) {
 }
 /**
 * List saved template file names under `assets/review/templates/`.
+* @param root - absolute outputs library root.
+* @param theme - outputs-project directory name.
 * @returns the sorted plain file names.
 */
 async function listReviewTemplatesFile(root, theme) {
@@ -5268,6 +5331,9 @@ function isTemplateFileName(name) {
 }
 /**
 * Read one saved template's content.
+* @param root - absolute outputs library root.
+* @param theme - outputs-project directory name.
+* @param file - plain template file name.
 * @returns the markdown, or an empty record when the file does not exist.
 */
 async function readReviewTemplateFile(root, theme, file) {
@@ -6292,7 +6358,11 @@ function isMessageType(value) {
 function normalizeHeader(cell) {
 	return cell.trim().toLowerCase();
 }
-/** Escape one CSV field per RFC 4180: quotes double, delimiters force quoting. */
+/**
+* Escape one CSV field per RFC 4180: quotes double, delimiters force quoting.
+* @param value - the raw field text.
+* @returns the field safe to place as one CSV record cell.
+*/
 function escapeCsvField(value) {
 	return /[",\r\n]/u.test(value) ? `"${value.replaceAll("\"", "\"\"")}"` : value;
 }
@@ -6427,7 +6497,9 @@ function buildInteractionExportCsv(conversations) {
 const INTERACTION_AI_TIMEOUT_CODE = "INTERACTION_AI_TIMEOUT";
 /** Prompt vocabulary versions pinned into every result for provenance. */
 const INTERACTION_REPLY_PROMPT_VERSION = "interaction-reply@1";
+/** Sentiment-classifier prompt vocabulary version pinned into classification results. */
 const INTERACTION_SENTIMENT_PROMPT_VERSION = "interaction-sentiment@1";
+/** Insight-extraction prompt vocabulary version pinned into insight results. */
 const INTERACTION_INSIGHT_PROMPT_VERSION = "interaction-insight@1";
 /** The reply face's fixed candidate count; the contract freezes it at three. */
 const INTERACTION_REPLY_CANDIDATES = 3;
@@ -8078,14 +8150,6 @@ let ContentOutputsGateway = (() => {
 			return this.createAi.rewrite(request);
 		}
 		/**
-		* Evaluate one draft through the model: four rubric dimensions plus an
-		* overall advisory grade. Explicit per call, queued one at a time,
-		* rate limits retried with backoff; nothing is persisted here. A
-		* paid-tier feature — the advisory result never blocks anything.
-		* @param request - the content type, title, and draft text.
-		* @returns the structured evaluation with its provenance.
-		*/
-		/**
 		* List the global custom templates. A malformed bank reads as empty with
 		* the rejection named, so the manager can warn before overwriting.
 		* @returns the valid templates plus every rejection.
@@ -8121,6 +8185,14 @@ let ContentOutputsGateway = (() => {
 				problems: []
 			};
 		}
+		/**
+		* Evaluate one draft through the model: four rubric dimensions plus an
+		* overall advisory grade. Explicit per call, queued one at a time,
+		* rate limits retried with backoff; nothing is persisted here. A
+		* paid-tier feature — the advisory result never blocks anything.
+		* @param request - the content type, title, and draft text.
+		* @returns the structured evaluation with its provenance.
+		*/
 		async evaluateCreateContent(request) {
 			await this.createQuota.requirePaidFeature("evaluation");
 			return this.createAi.evaluate(request);
@@ -8244,6 +8316,9 @@ let ContentOutputsGateway = (() => {
 		}
 		/**
 		* Read one derived platform draft back for the preview pane.
+		* @param theme - outputs-project directory name.
+		* @param taskId - the owning task's UUID.
+		* @param platformId - the platform registry key.
 		* @returns the text, or an empty record when the draft does not exist yet.
 		*/
 		async readPublishDerived(theme, taskId, platformId) {
@@ -8443,6 +8518,8 @@ let ContentOutputsGateway = (() => {
 		}
 		/**
 		* Read one report file back for the viewer and editor.
+		* @param theme - outputs-project directory name.
+		* @param file - plain report file name (`report-<taskId>-<ts>.md`).
 		* @returns the markdown, or an empty record when the file does not exist.
 		*/
 		async readReviewReport(theme, file) {
@@ -8468,6 +8545,8 @@ let ContentOutputsGateway = (() => {
 		}
 		/**
 		* Read one saved template's content.
+		* @param theme - outputs-project directory name.
+		* @param file - plain template file name.
 		* @returns the markdown, or an empty record when the file does not exist.
 		*/
 		async readReviewTemplate(theme, file) {

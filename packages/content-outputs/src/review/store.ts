@@ -435,6 +435,9 @@ export async function writeReviewReportFile(root: string, theme: string, file: s
 
 /**
  * Read one report file back from its stored reference.
+ * @param root - absolute outputs library root.
+ * @param theme - outputs-project directory name.
+ * @param reference - the stored report reference, relative to `assets/review/`.
  * @returns the markdown, or an empty record when the file does not exist.
  */
 export async function readReviewReportFile(root: string, theme: string, reference: string): Promise<{ content?: string }> {
@@ -468,6 +471,8 @@ export async function writeReviewTemplateFile(root: string, theme: string, file:
 
 /**
  * List saved template file names under `assets/review/templates/`.
+ * @param root - absolute outputs library root.
+ * @param theme - outputs-project directory name.
  * @returns the sorted plain file names.
  */
 export async function listReviewTemplatesFile(root: string, theme: string): Promise<readonly string[]> {
@@ -488,6 +493,9 @@ function isTemplateFileName(name: string): boolean {
 
 /**
  * Read one saved template's content.
+ * @param root - absolute outputs library root.
+ * @param theme - outputs-project directory name.
+ * @param file - plain template file name.
  * @returns the markdown, or an empty record when the file does not exist.
  */
 export async function readReviewTemplateFile(root: string, theme: string, file: string): Promise<{ content?: string }> {

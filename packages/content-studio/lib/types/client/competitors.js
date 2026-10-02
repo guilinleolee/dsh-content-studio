@@ -125,7 +125,11 @@ export function importAccounts(json, existing) {
 function duplicateKey(account) {
     return `${account.platform}::${account.name.trim()}`;
 }
-/** Export the registry as the import/export JSON payload. */
+/**
+ * Export the registry as the import/export JSON payload.
+ * @param accounts - the accounts to serialize.
+ * @returns the pretty-printed JSON payload with a trailing newline, the exact format `importAccounts` accepts.
+ */
 export function exportAccounts(accounts) {
     return `${JSON.stringify(accounts, null, 2)}\n`;
 }
@@ -389,6 +393,12 @@ export function competitorWorkToTopicInput(work, capturedAt) {
         topicDir: null,
     };
 }
+/**
+ * Build the topic-idea markdown file the competitor view saves for one work.
+ * @param work - the source competitor work the idea came from.
+ * @param idea - the differentiated-angle suggestion; falls back to the work title when absent.
+ * @returns the markdown document with a `kind: topic-idea` front matter and source-attribution footer.
+ */
 export function buildIdeaMarkdown(work, idea) {
     const lines = [
         '---',

@@ -31,16 +31,27 @@ export const PERSONAS_FILENAME = '_personas.json'
 
 /** Stored-shape caps enforced at the wire boundary; generous, never a product decision. */
 export const PERSONA_MAX_NAME = 100
+/** Character cap of one persona field's value. */
 export const PERSONA_MAX_FIELD_VALUE = 5_000
+/** Character cap of the free-text fields (custom style text, resume text, red lines). */
 export const PERSONA_MAX_TEXT = 100_000
+/** Cap on how many links one persona entry carries. */
 export const PERSONA_MAX_LINKS = 10
+/** Character cap of one link's URL. */
 export const PERSONA_MAX_URL = 2_000
+/** Character cap of one link's display text. */
 export const PERSONA_MAX_LINK_TEXT = 5_000
+/** Cap on how many entries a banned-words or style word list carries. */
 export const PERSONA_MAX_WORD_ITEMS = 50
+/** Character cap of one word inside a word list. */
 export const PERSONA_MAX_WORD = 100
+/** Character cap of the stored AI report digest. */
 export const PERSONA_MAX_DIGEST = 200
+/** Character cap of persona and related record ids. */
 export const PERSONA_MAX_ID = 64
+/** Character cap of the stored prompt-version string. */
 export const PERSONA_MAX_PROMPT_VERSION = 100
+/** Character cap of stored ISO-8601 timestamp strings. */
 export const PERSONA_MAX_TIMESTAMP = 40
 
 /** The fields every persona entry carries; wire records must be complete. */

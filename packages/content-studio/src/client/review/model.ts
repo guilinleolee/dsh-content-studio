@@ -71,7 +71,11 @@ export const REPORT_TOP_N = 5
 /** Pool size beyond which the report sampling halves its lists and says so. */
 export const REPORT_SAMPLE_POOL = 50
 
-/** Sum of one metrics record's interaction fields; missing metrics read as 0 in a sum. */
+/**
+ * Sum of one metrics record's interaction fields; missing metrics read as 0 in a sum.
+ * @param metrics - the metrics record of one snapshot.
+ * @returns likes + collects + comments + shares, absent fields counted as 0.
+ */
 export function interactionsOf(metrics: MetricSnapshot['metrics']): number {
   return (metrics.likes ?? 0) + (metrics.collects ?? 0) + (metrics.comments ?? 0) + (metrics.shares ?? 0)
 }
@@ -79,13 +83,19 @@ export function interactionsOf(metrics: MetricSnapshot['metrics']): number {
 /**
  * Interaction rate: interactions over reads/plays. Null when the platform
  * exports no reads — never a faked 0.
+ * @param metrics - the metrics record of one snapshot.
+ * @returns the rate as a fraction, or null without a positive reads value.
  */
 export function engagementRateOf(metrics: MetricSnapshot['metrics']): number | null {
   if (metrics.reads === null || metrics.reads <= 0) return null
   return interactionsOf(metrics) / metrics.reads
 }
 
-/** Collect rate: collects over reads/plays; null when reads are missing. */
+/**
+ * Collect rate: collects over reads/plays; null when reads are missing.
+ * @param metrics - the metrics record of one snapshot.
+ * @returns the rate as a fraction, or null without a positive reads value.
+ */
 export function collectRateOf(metrics: MetricSnapshot['metrics']): number | null {
   if (metrics.reads === null || metrics.reads <= 0) return null
   return (metrics.collects ?? 0) / metrics.reads
@@ -97,6 +107,9 @@ export type WorkVerdict = 'viral' | 'weak' | 'neutral'
 /**
  * Judge one snapshot against the baselines: viral at twice the baseline
  * engagement rate, weak below half of it.
+ * @param metrics - the metrics record of one snapshot.
+ * @param baselines - the account baselines grounding the gates.
+ * @returns `'viral'`, `'weak'`, or `'neutral'`; an incomputable rate reads neutral.
  */
 export function verdictOf(metrics: MetricSnapshot['metrics'], baselines: ReviewBaselines): WorkVerdict {
   const rate = engagementRateOf(metrics)
@@ -112,6 +125,7 @@ export function verdictOf(metrics: MetricSnapshot['metrics'], baselines: ReviewB
  * least two snapshots; anything less reads as false.
  * @param workSnapshots - every snapshot of one work, any order.
  * @param now - the evaluation instant.
+ * @returns whether the work meets the long-tail age and recent-pace gates.
  */
 export function isLongtail(workSnapshots: readonly MetricSnapshot[], now: Date): boolean {
   if (workSnapshots.length < 2) return false
@@ -141,6 +155,7 @@ export function isLongtail(workSnapshots: readonly MetricSnapshot[], now: Date):
  * @param filters - the active filter set (platforms, forms, verdict slice).
  * @param period - the inclusive capture-date window.
  * @param baselines - the account baselines grounding the verdict filters.
+ * @returns the snapshots passing every filter, manifest order preserved.
  */
 export function poolSnapshots(
   manifest: { readonly snapshots: readonly MetricSnapshot[] },
@@ -166,6 +181,7 @@ export function poolSnapshots(
  * @param snapshots - the pool snapshots (bound, period-filtered).
  * @param baselines - the verdict ground (viral/weak counts).
  * @param now - the evaluation instant (long-tail needs one).
+ * @returns the aggregation behind the summary cards and the report prompt.
  */
 export function aggregateSummary(
   snapshots: readonly MetricSnapshot[],
@@ -227,6 +243,8 @@ export function aggregateSummary(
  * Rank the pool for the leaderboard and the report's top/bottom lists:
  * bound snapshots, latest per work, engagement-rate descending; works
  * without a computable rate sink to the bottom sorted by raw interactions.
+ * @param snapshots - the pool snapshots (one entry per capture, any order).
+ * @returns one latest snapshot per work, ranked best first.
  */
 export function rankWorks(snapshots: readonly MetricSnapshot[]): MetricSnapshot[] {
   const byWork = new Map<string, MetricSnapshot>()
@@ -250,6 +268,7 @@ export function rankWorks(snapshots: readonly MetricSnapshot[]): MetricSnapshot[
  * the counts past the sampling threshold and reporting it.
  * @param ranked - the ranked pool from {@link rankWorks}.
  * @param drafts - body text per work key (`platform:workId`), for excerpts.
+ * @returns the top and bottom digests plus whether the pool size halved the lists.
  */
 export function selectDigests(
   ranked: readonly MetricSnapshot[],
@@ -282,6 +301,7 @@ export function selectDigests(
  * @param summary - the period aggregation.
  * @param ranked - the ranked pool.
  * @param baselines - the account baselines grounding the viral labels.
+ * @returns the fallback report markdown.
  */
 export function dataOnlyReport(
   name: string,

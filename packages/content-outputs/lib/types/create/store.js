@@ -83,7 +83,8 @@ function isCreateState(value) {
     return typeof record.currentVersion === 'number' && Number.isInteger(record.currentVersion) && record.currentVersion >= 0
         && (record.publishedVersion === null || (typeof record.publishedVersion === 'number' && Number.isInteger(record.publishedVersion)))
         && (record.publishedPath === null || typeof record.publishedPath === 'string')
-        && (record.publishedAt === null || typeof record.publishedAt === 'string');
+        && (record.publishedAt === null || typeof record.publishedAt === 'string')
+        && (record.topicId === undefined || record.topicId === null || typeof record.topicId === 'string');
 }
 /** Whether the value carries the editable generation context. */
 function isContext(value) {
@@ -93,7 +94,11 @@ function isContext(value) {
     const isText = (field) => field === null || typeof field === 'string';
     return isText(record.audience) && isText(record.points) && isText(record.references);
 }
-/** Whether the manifest envelope and every version conform; one violation rejects whole. */
+/**
+ * Whether the manifest envelope and every version conform; one violation rejects whole.
+ * @param manifest - the manifest being read or written.
+ * @throws naming the first format violation.
+ */
 export function assertCreateManifest(manifest) {
     // The read path feeds parsed-unknown JSON through this assert cast to the
     // typed shape, so the envelope version gate is load-bearing.
@@ -308,6 +313,7 @@ export async function registerCreatePublishFile(root, theme, request) {
             ? 'existing output metadata violates the format-0 rules'
             : `theme ${theme} has no output metadata to register the publish into`);
     }
+    const { manifest } = await readCreateStateFile(root, theme);
     await writeOutputMetadataFile(root, theme, {
         ...metadata,
         status: 'published',
@@ -316,6 +322,7 @@ export async function registerCreatePublishFile(root, theme, request) {
             publishedVersion: request.version,
             publishedPath: request.file,
             publishedAt: new Date().toISOString(),
+            topicId: manifest?.topicRef?.topicId ?? null,
         },
     });
 }

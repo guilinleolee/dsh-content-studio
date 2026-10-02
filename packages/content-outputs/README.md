@@ -2,7 +2,7 @@
 
 English | [中文](README.zh.md)
 
-Remote gateway over the content-creation outputs library: the read-only projection the Content Studio library view reads, plus the gather write face — the single authorized write path for the workbench's information-gathering view.
+Remote gateway over the content-creation outputs library: the read-only projection the Content Studio library view reads, plus the authorized write faces of the workbench columns — information gathering, benchmark accounts, creation, personas, publishing, review, the global template library, and interactions. Each column's storage follows one convention: theme-scoped sidecar manifests (`_<column>.json`) under `outputs/<theme>/assets/`, hidden root-level indexes (`_<column>-index.json`), and `.dsh-output.json` never touched.
 
 The library convention is one directory per creation under the library root (default `<dsh home>/outputs`, override with the `root` config field): finished files sit at the project root, intermediate material lives under `assets/`, and `.dsh-output.json` is the only metadata file (format version 0 — this backend rejects older and newer formats alike). Directory names beginning with `.` or `_` are system entries, never projects. The `contentOutputs/list` Remote scans the root on every call and returns projects in topic order; a malformed or future-format metadata file never hides its directory — the project projects with fallbacks and `hasMetadata: false`, and an unreadable directory is named in `problems`.
 
@@ -20,11 +20,19 @@ Retention: per source, the newest 50 `unread`/`read` materials stay in a theme; 
 
 ## Model Experience
 
-Explicit only: `processMaterial` sends one framed request per user click through the shared `llm` service (session-title one-shot pattern). Nothing here calls a model automatically, and a failed call never blocks collection or browsing.
+### Explicit one-shot AI remotes
+
+#### What the model sees
+
+Every user click assembles exactly one framed request through the shared `llm` service: material processing, creation generation/rewrite/evaluation, competitor teardowns and reports, persona fill/resume/report, publish adaptation, review diagnosis and period reports, template generate/optimize/extract, and interaction reply drafts, sentiment/intent classification, and insight extraction. Prompts are frozen gateway constants versioned per face (`processMaterial`, `generateCreateContent`, `analyzeCompetitorWork`), inputs are truncated to the configured character cap, and the JSON-contract faces parse strictly with per-field problems; a failed or rate-limited call surfaces to the caller and never blocks the filesystem operations.
+
+#### Token effect
+
+One request per click. The prompt skeletons are fixed constants, so tokens scale with the caller-supplied material excerpt, persona digest, thread lines, or insight batch; batch flows (three creation variants, 50-message classification, 200-message insight batches) pay per request.
 
 #### KV Cache effect
 
-Each `processMaterial` call is an isolated one-shot request; there is no shared conversation state to cache.
+None retained. Every call is an isolated one-shot with no shared conversation prefix, so there is no cross-call cache state to invalidate; the caller owns whatever it stores in the manifests.
 
 ## Known Limitations and Deferred Work
 

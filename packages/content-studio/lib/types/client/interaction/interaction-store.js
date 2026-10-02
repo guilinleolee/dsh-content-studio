@@ -29,6 +29,7 @@ export function createInteractionController(gateway, topics, writeExport) {
         busy: false,
         progress: null,
         notice: null,
+        errorDetail: null,
         preview: null,
         importReport: null,
         selectedId: null,
@@ -42,6 +43,10 @@ export function createInteractionController(gateway, topics, writeExport) {
     const patch = (next) => {
         state = { ...state, ...next };
         notify();
+    };
+    /** Fail with a notice plus the server's own message, when one exists. */
+    const fail = (notice, error) => {
+        patch({ notice, errorDetail: error instanceof Error ? error.message : null });
     };
     const requireManifest = () => {
         if (state.manifest === null)
@@ -94,8 +99,8 @@ export function createInteractionController(gateway, topics, writeExport) {
                 const preview = await gateway.parseInteractionImport({ fileName, text });
                 patch({ preview, busy: false, notice: 'import-parsed' });
             }
-            catch {
-                patch({ busy: false, notice: 'import-failed' });
+            catch (error) {
+                fail('import-failed', error);
             }
         },
         async commitImport() {
@@ -111,8 +116,8 @@ export function createInteractionController(gateway, topics, writeExport) {
                     importReport: result, busy: false, notice: 'import-committed',
                 });
             }
-            catch {
-                patch({ busy: false, notice: 'import-failed' });
+            catch (error) {
+                fail('import-failed', error);
             }
         },
         discardImport() {
@@ -157,8 +162,8 @@ export function createInteractionController(gateway, topics, writeExport) {
                 await persist(next);
                 patch({ busy: false, notice: 'drafts-ready' });
             }
-            catch {
-                patch({ busy: false, notice: 'drafts-failed' });
+            catch (error) {
+                fail('drafts-failed', error);
             }
         },
         async saveDraft(conversationId, messageId, style, content, personaId) {

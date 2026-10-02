@@ -112,7 +112,11 @@ const SYSTEM_PROMPT = [
   '只输出一个 JSON 对象，形如 {"summary":"...","points":["..."],"score":88,"tags":["..."]}，不要输出其他任何文字。',
 ].join('\n')
 
-/** Whether one thrown error (or its p-retry context) is an upstream rate limit worth retrying. */
+/**
+ * Whether one thrown error (or its p-retry context) is an upstream rate limit worth retrying.
+ * @param failure - the failed attempt's error or its p-retry context.
+ * @returns whether the underlying error codes as `RATE_LIMIT` or HTTP 429.
+ */
 export function isRateLimitError(failure: unknown): boolean {
   const error = underlyingError(failure)
   if (error instanceof LlmError) return error.failure.code === 'RATE_LIMIT' || error.failure.status === 429
@@ -120,7 +124,11 @@ export function isRateLimitError(failure: unknown): boolean {
   return code === 'RATE_LIMIT' || code === '429'
 }
 
-/** Provider-requested retry delay in milliseconds, capped so one source cannot pin the queue. */
+/**
+ * Provider-requested retry delay in milliseconds, capped so one source cannot pin the queue.
+ * @param failure - the failed attempt's error or its p-retry context.
+ * @returns the provider `Retry-After` delay capped at 30s, or undefined when absent.
+ */
 export function retryAfterMs(failure: unknown): number | undefined {
   const error = underlyingError(failure)
   if (error instanceof LlmError && error.failure.providerRetryAfterMs !== undefined) {
@@ -129,7 +137,11 @@ export function retryAfterMs(failure: unknown): number | undefined {
   return undefined
 }
 
-/** Terminal model finish reasons that mean the call failed. */
+/**
+ * Terminal model finish reasons that mean the call failed.
+ * @param finish - the model call's finish reason.
+ * @returns the failure as an `Error` carrying the failure code, or undefined for a clean `stop`.
+ */
 export function finishError(finish: FinishReason): Error | undefined {
   switch (finish.kind) {
     case 'stop': return undefined

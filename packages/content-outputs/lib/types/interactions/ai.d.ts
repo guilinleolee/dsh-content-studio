@@ -15,7 +15,9 @@ import type { AiCallPolicy } from '../gather/ai.ts';
 export declare const INTERACTION_AI_TIMEOUT_CODE = "INTERACTION_AI_TIMEOUT";
 /** Prompt vocabulary versions pinned into every result for provenance. */
 export declare const INTERACTION_REPLY_PROMPT_VERSION = "interaction-reply@1";
+/** Sentiment-classifier prompt vocabulary version pinned into classification results. */
 export declare const INTERACTION_SENTIMENT_PROMPT_VERSION = "interaction-sentiment@1";
+/** Insight-extraction prompt vocabulary version pinned into insight results. */
 export declare const INTERACTION_INSIGHT_PROMPT_VERSION = "interaction-insight@1";
 /** The reply face's fixed candidate count; the contract freezes it at three. */
 export declare const INTERACTION_REPLY_CANDIDATES = 3;

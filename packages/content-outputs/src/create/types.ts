@@ -220,6 +220,8 @@ export interface OutputCreateState {
   readonly publishedVersion: number | null
   readonly publishedPath: string | null
   readonly publishedAt: string | null
+  /** Topic the creation started from, when any; absent on pre-field mirrors. */
+  readonly topicId?: string | null
 }
 
 /** One user-defined content template stored in the global `_templates.json`. */

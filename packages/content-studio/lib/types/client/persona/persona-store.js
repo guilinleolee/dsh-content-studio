@@ -186,7 +186,8 @@ export function createPersonaController(deps) {
                 writeSelected(null);
             }
         }
-        catch {
+        catch (error) {
+            console.error('[persona] listPersonas failed', error);
             setNotice('load-failed');
         }
         finally {

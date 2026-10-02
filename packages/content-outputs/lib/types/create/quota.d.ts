@@ -44,7 +44,11 @@ export declare class CreateQuotaError extends Error {
  * @returns the validated policy, fail loud on out-of-range values.
  */
 export declare function resolveQuotaConfig(config: CreateQuotaConfig): ResolvedQuotaConfig;
-/** Today's local day key (`YYYY-MM-DD` in the gateway's timezone). */
+/**
+ * Today's local day key (`YYYY-MM-DD` in the gateway's timezone).
+ * @param now - the instant to key.
+ * @returns the local-time day key the quota counters reset on.
+ */
 export declare function localDayKey(now: Date): string;
 /**
  * Whether the stored state is usable for `today`: same day key with sane

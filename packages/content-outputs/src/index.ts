@@ -515,14 +515,6 @@ export class ContentOutputsGateway extends TypertRemoteService {
   }
 
   /**
-   * Evaluate one draft through the model: four rubric dimensions plus an
-   * overall advisory grade. Explicit per call, queued one at a time,
-   * rate limits retried with backoff; nothing is persisted here. A
-   * paid-tier feature — the advisory result never blocks anything.
-   * @param request - the content type, title, and draft text.
-   * @returns the structured evaluation with its provenance.
-   */
-  /**
    * List the global custom templates. A malformed bank reads as empty with
    * the rejection named, so the manager can warn before overwriting.
    * @returns the valid templates plus every rejection.
@@ -555,6 +547,14 @@ export class ContentOutputsGateway extends TypertRemoteService {
     return { templates: await deleteCreateTemplateFile(this.root, id), problems: [] }
   }
 
+  /**
+   * Evaluate one draft through the model: four rubric dimensions plus an
+   * overall advisory grade. Explicit per call, queued one at a time,
+   * rate limits retried with backoff; nothing is persisted here. A
+   * paid-tier feature — the advisory result never blocks anything.
+   * @param request - the content type, title, and draft text.
+   * @returns the structured evaluation with its provenance.
+   */
   @Remote('evaluateCreateContent')
   async evaluateCreateContent(request: CreateEvaluateRequest): Promise<CreateEvaluation> {
     await this.createQuota.requirePaidFeature('evaluation')
@@ -705,6 +705,9 @@ export class ContentOutputsGateway extends TypertRemoteService {
 
   /**
    * Read one derived platform draft back for the preview pane.
+   * @param theme - outputs-project directory name.
+   * @param taskId - the owning task's UUID.
+   * @param platformId - the platform registry key.
    * @returns the text, or an empty record when the draft does not exist yet.
    */
   @Remote('readPublishDerived')
@@ -944,6 +947,8 @@ export class ContentOutputsGateway extends TypertRemoteService {
 
   /**
    * Read one report file back for the viewer and editor.
+   * @param theme - outputs-project directory name.
+   * @param file - plain report file name (`report-<taskId>-<ts>.md`).
    * @returns the markdown, or an empty record when the file does not exist.
    */
   @Remote('readReviewReport')
@@ -975,6 +980,8 @@ export class ContentOutputsGateway extends TypertRemoteService {
 
   /**
    * Read one saved template's content.
+   * @param theme - outputs-project directory name.
+   * @param file - plain template file name.
    * @returns the markdown, or an empty record when the file does not exist.
    */
   @Remote('readReviewTemplate')

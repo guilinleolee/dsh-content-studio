@@ -69,7 +69,11 @@ export function resolveQuotaConfig(config: CreateQuotaConfig): ResolvedQuotaConf
   return { freeDailyGenerates, freeDailyRewrites, paidTierEnabled: config.paidTierEnabled ?? false }
 }
 
-/** Today's local day key (`YYYY-MM-DD` in the gateway's timezone). */
+/**
+ * Today's local day key (`YYYY-MM-DD` in the gateway's timezone).
+ * @param now - the instant to key.
+ * @returns the local-time day key the quota counters reset on.
+ */
 export function localDayKey(now: Date): string {
   const month = String(now.getMonth() + 1).padStart(2, '0')
   const day = String(now.getDate()).padStart(2, '0')

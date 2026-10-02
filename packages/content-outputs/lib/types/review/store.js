@@ -420,6 +420,9 @@ export async function writeReviewReportFile(root, theme, file, content) {
 }
 /**
  * Read one report file back from its stored reference.
+ * @param root - absolute outputs library root.
+ * @param theme - outputs-project directory name.
+ * @param reference - the stored report reference, relative to `assets/review/`.
  * @returns the markdown, or an empty record when the file does not exist.
  */
 export async function readReviewReportFile(root, theme, reference) {
@@ -452,6 +455,8 @@ export async function writeReviewTemplateFile(root, theme, file, content) {
 }
 /**
  * List saved template file names under `assets/review/templates/`.
+ * @param root - absolute outputs library root.
+ * @param theme - outputs-project directory name.
  * @returns the sorted plain file names.
  */
 export async function listReviewTemplatesFile(root, theme) {
@@ -471,6 +476,9 @@ function isTemplateFileName(name) {
 }
 /**
  * Read one saved template's content.
+ * @param root - absolute outputs library root.
+ * @param theme - outputs-project directory name.
+ * @param file - plain template file name.
  * @returns the markdown, or an empty record when the file does not exist.
  */
 export async function readReviewTemplateFile(root, theme, file) {

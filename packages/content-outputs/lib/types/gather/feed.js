@@ -69,7 +69,11 @@ function textValue(value) {
         return value;
     return value.value ?? null;
 }
-/** Normalize one parsed feed document (any supported format) into drafts. */
+/**
+ * Normalize one parsed feed document (any supported format) into drafts.
+ * @param parsed - the feedsmith-parsed document (RSS or Atom).
+ * @returns the feed title plus one draft per entry that has a link.
+ */
 export function normalizeParsedFeed(parsed) {
     if (parsed.format === 'rss') {
         const { feed } = parsed;

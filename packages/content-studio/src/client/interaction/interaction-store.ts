@@ -85,6 +85,8 @@ export interface InteractionState {
   /** Batched-loop progress, present only while a loop runs. */
   readonly progress: { readonly done: number; readonly total: number } | null
   readonly notice: InteractionNotice | null
+  /** The underlying server message of the last failed call, for the notice line. */
+  readonly errorDetail: string | null
   /** The staged import preview awaiting user confirmation. */
   readonly preview: InteractionImportPreview | null
   /** The last commit's accounting, rendered as the import report. */
@@ -177,6 +179,7 @@ export function createInteractionController(
     busy: false,
     progress: null,
     notice: null,
+    errorDetail: null,
     preview: null,
     importReport: null,
     selectedId: null,
@@ -189,6 +192,10 @@ export function createInteractionController(
   const patch = (next: Partial<InteractionState>): void => {
     state = { ...state, ...next }
     notify()
+  }
+  /** Fail with a notice plus the server's own message, when one exists. */
+  const fail = (notice: InteractionNotice, error: unknown): void => {
+    patch({ notice, errorDetail: error instanceof Error ? error.message : null })
   }
 
   const requireManifest = (): InteractionsManifest => {
@@ -251,8 +258,8 @@ export function createInteractionController(
       try {
         const preview = await gateway.parseInteractionImport({ fileName, text })
         patch({ preview, busy: false, notice: 'import-parsed' })
-      } catch {
-        patch({ busy: false, notice: 'import-failed' })
+      } catch (error) {
+        fail('import-failed', error)
       }
     },
 
@@ -267,8 +274,8 @@ export function createInteractionController(
           manifest: read.manifest, problems: read.problems, preview: null,
           importReport: result, busy: false, notice: 'import-committed',
         })
-      } catch {
-        patch({ busy: false, notice: 'import-failed' })
+      } catch (error) {
+        fail('import-failed', error)
       }
     },
 
@@ -314,8 +321,8 @@ export function createInteractionController(
         }))
         await persist(next)
         patch({ busy: false, notice: 'drafts-ready' })
-      } catch {
-        patch({ busy: false, notice: 'drafts-failed' })
+      } catch (error) {
+        fail('drafts-failed', error)
       }
     },
 

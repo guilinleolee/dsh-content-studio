@@ -12,7 +12,11 @@ import type { GatherItemDraft, GatherMaterial } from './types.ts';
 export declare const GATHER_QUOTA_PER_SOURCE = 50;
 /** Body snapshots larger than this many characters are written truncated. */
 export declare const GATHER_BODY_CHAR_LIMIT = 100000;
-/** Whether one material is exempt from retention trimming. */
+/**
+ * Whether one material is exempt from retention trimming.
+ * @param material - the material to test.
+ * @returns whether its status is `favorite` or `picked`.
+ */
 export declare function isRetentionExempt(material: GatherMaterial): boolean;
 /**
  * Apply the retention quota: per source, keep `unread`/`read` materials up
@@ -33,7 +37,12 @@ export interface GatherKeywordFilters {
     readonly includeKeywords: readonly string[];
     readonly excludeKeywords: readonly string[];
 }
-/** Whether one draft passes the keyword filters (case-insensitive substring match on title + summary). */
+/**
+ * Whether one draft passes the keyword filters (case-insensitive substring match on title + summary).
+ * @param draft - the feed item draft to test.
+ * @param filters - the source's and the task's keyword filters in effect.
+ * @returns whether the draft survives exclusion, inclusion, and source-exclusion checks.
+ */
 export declare function passesKeywordFilters(draft: GatherItemDraft, filters: GatherKeywordFilters): boolean;
 /**
  * Filter one feed run's drafts for one task: keyword filters, the `since`
@@ -85,6 +94,10 @@ export declare function isSourceDue(source: {
     lastFetchedAt: string | null;
     consecutiveFailures: number;
 }, now: string): boolean;
-/** Snapshot file name for one material's body. */
+/**
+ * Asset file name for one material's body snapshot.
+ * @param materialId - the material's id; also the file stem.
+ * @returns the file name the gateway writes the snapshot under (`body-<materialId>.html`).
+ */
 export declare function bodyFileName(materialId: string): string;
 //# sourceMappingURL=model.d.ts.map

@@ -4,8 +4,8 @@ window.__ModuleLoader__.load({
 		var module = { exports: {} };
 		var exports = module.exports;
 		Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-		let react_jsx_runtime = require("react/jsx-runtime");
 		let _deepseek_ai_dsh_client_ui_primitives = require("@deepseek-ai/dsh-client-ui-primitives");
+		let react_jsx_runtime = require("react/jsx-runtime");
 		let react = require("react");
 		//#region ../../../node_modules/.pnpm/zod@4.4.3/node_modules/zod/v4/core/core.js
 		var _a$2;
@@ -7593,7 +7593,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 753,
+						"line": 756,
 						"column": 9
 					}
 				},
@@ -7647,7 +7647,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 995,
+						"line": 1002,
 						"column": 9
 					}
 				},
@@ -7683,7 +7683,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 740,
+						"line": 743,
 						"column": 9
 					}
 				},
@@ -7710,7 +7710,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 1087,
+						"line": 1094,
 						"column": 9
 					}
 				},
@@ -7737,7 +7737,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 1060,
+						"line": 1067,
 						"column": 9
 					}
 				},
@@ -7764,7 +7764,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 917,
+						"line": 920,
 						"column": 9
 					}
 				},
@@ -7827,7 +7827,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 554,
+						"line": 546,
 						"column": 9
 					}
 				},
@@ -7881,7 +7881,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 928,
+						"line": 931,
 						"column": 9
 					}
 				},
@@ -7908,7 +7908,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 798,
+						"line": 801,
 						"column": 9
 					}
 				},
@@ -7953,7 +7953,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 1127,
+						"line": 1134,
 						"column": 9
 					}
 				},
@@ -7980,7 +7980,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 831,
+						"line": 834,
 						"column": 9
 					}
 				},
@@ -8007,7 +8007,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 1101,
+						"line": 1108,
 						"column": 9
 					}
 				},
@@ -8116,7 +8116,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 1073,
+						"line": 1080,
 						"column": 9
 					}
 				},
@@ -8143,7 +8143,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 1009,
+						"line": 1016,
 						"column": 9
 					}
 				},
@@ -8197,7 +8197,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 809,
+						"line": 812,
 						"column": 9
 					}
 				},
@@ -8233,7 +8233,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 844,
+						"line": 847,
 						"column": 9
 					}
 				},
@@ -8296,7 +8296,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 531,
+						"line": 523,
 						"column": 9
 					}
 				},
@@ -8350,7 +8350,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 893,
+						"line": 896,
 						"column": 9
 					}
 				},
@@ -8377,7 +8377,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 972,
+						"line": 977,
 						"column": 9
 					}
 				},
@@ -8395,7 +8395,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 765,
+						"line": 768,
 						"column": 9
 					}
 				},
@@ -8449,7 +8449,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 1047,
+						"line": 1054,
 						"column": 3
 					}
 				},
@@ -8476,7 +8476,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 905,
+						"line": 908,
 						"column": 3
 					}
 				},
@@ -8557,7 +8557,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 857,
+						"line": 860,
 						"column": 9
 					}
 				},
@@ -8620,7 +8620,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 544,
+						"line": 536,
 						"column": 9
 					}
 				},
@@ -8710,7 +8710,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 776,
+						"line": 779,
 						"column": 9
 					}
 				},
@@ -8737,7 +8737,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 820,
+						"line": 823,
 						"column": 9
 					}
 				},
@@ -8899,7 +8899,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 1021,
+						"line": 1028,
 						"column": 9
 					}
 				},
@@ -8948,7 +8948,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 711,
+						"line": 714,
 						"column": 9
 					}
 				},
@@ -9029,7 +9029,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 725,
+						"line": 728,
 						"column": 9
 					}
 				},
@@ -9056,7 +9056,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 869,
+						"line": 872,
 						"column": 9
 					}
 				},
@@ -9092,7 +9092,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 950,
+						"line": 955,
 						"column": 9
 					}
 				},
@@ -9128,7 +9128,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 981,
+						"line": 988,
 						"column": 9
 					}
 				},
@@ -9218,7 +9218,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 1115,
+						"line": 1122,
 						"column": 9
 					}
 				},
@@ -9254,7 +9254,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 788,
+						"line": 791,
 						"column": 9
 					}
 				},
@@ -9452,7 +9452,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 1035,
+						"line": 1042,
 						"column": 9
 					}
 				},
@@ -9610,7 +9610,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 882,
+						"line": 885,
 						"column": 9
 					}
 				},
@@ -9659,7 +9659,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 941,
+						"line": 944,
 						"column": 9
 					}
 				},
@@ -9708,7 +9708,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					},
 					sourceLocation: {
 						"file": "packages/creation/content-outputs/src/index.ts",
-						"line": 962,
+						"line": 967,
 						"column": 9
 					}
 				}
@@ -10217,15 +10217,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			]
 		};
 		//#endregion
-		//#region lib/types/client/studio-store.js
-		/**
-		* The open/close controller shared by the sidebar entry and the frame-wide
-		* surface, plus the two handoffs into the create view — the picked-material
-		* handoff from the gather view and the picked-topic handoff from the topic
-		* bank. apply() creates one instance and injects it into both slot
-		* registrations — component state cannot cross two slot entries, and no
-		* store seat is needed for a single observable.
-		*/
+		//#region src/client/studio-store.ts
 		/**
 		* Create the shared controller.
 		* @returns the controller with an initially closed state and no handoff.
@@ -10453,7 +10445,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"workbench": "jTHpnG_workbench"
 		};
 		//#endregion
-		//#region lib/types/client/StudioEntry.js
+		//#region src/client/StudioEntry.tsx
 		/**
 		* The sidebar entry occupying the `sidebar.footer.action` hole: a labeled
 		* row while the column is wide, a 16px icon on the 56px rail. Clicking opens
@@ -10465,19 +10457,19 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		* @returns the entry button element tree.
 		*/
 		function StudioEntry({ wide, studio, t }) {
-			const button = (0, react_jsx_runtime.jsxs)("button", {
+			const button = /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 				type: "button",
 				className: wide ? ContentStudio_module_css_default.entryWide : ContentStudio_module_css_default.entryRail,
 				"aria-label": t("entry.aria"),
 				onClick: () => {
 					studio.open();
 				},
-				children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: wide ? 16 : 18 }), wide && (0, react_jsx_runtime.jsx)("span", {
+				children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: wide ? 16 : 18 }), wide && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 					className: ContentStudio_module_css_default.entryLabel,
 					children: t("entry.label")
 				})]
 			});
-			return wide ? button : (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.Tooltip, {
+			return wide ? button : /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.Tooltip, {
 				label: t("entry.label"),
 				delayMs: 500,
 				children: button
@@ -10499,13 +10491,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			return n;
 		}
 		//#endregion
-		//#region lib/types/client/capabilities.js
-		/**
-		* The Content Studio capability catalog: the static dual-tab menu of creation
-		* and operation verbs this plugin ships. Display copy lives in the locale
-		* dictionaries under `cap.<id>.title` / `cap.<id>.detail`; this module owns
-		* the structure, the clipboard payload, and the maturity classification.
-		*/
+		//#region src/client/capabilities.ts
 		/** Tab order and the group sequence each tab renders. */
 		const STUDIO_TABS = [{
 			id: "create",
@@ -10642,7 +10628,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			return groups;
 		}
 		//#endregion
-		//#region lib/types/client/ContentLibrary.js
+		//#region src/client/ContentLibrary.tsx
 		/**
 		* The library view: one card per outputs project, read through the
 		* `contentOutputs/list` Remote wrapped by the injected face. Loading, error,
@@ -10676,42 +10662,42 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			(0, react.useEffect)(() => {
 				load();
 			}, [load]);
-			if (failed) return (0, react_jsx_runtime.jsxs)("div", {
+			if (failed) return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.libraryState,
 				children: [
-					(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 16 }),
-					(0, react_jsx_runtime.jsxs)("span", { children: [
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 16 }),
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
 						t("library.error"),
 						": ",
 						failed
 					] }),
-					(0, react_jsx_runtime.jsxs)("button", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 						type: "button",
 						className: ContentStudio_module_css_default.retry,
 						onClick: () => {
 							load();
 						},
-						children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconRefreshOutline14, { size: 14 }), t("library.retry")]
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconRefreshOutline14, { size: 14 }), t("library.retry")]
 					})
 				]
 			});
-			if (snapshot === void 0) return (0, react_jsx_runtime.jsx)("div", {
+			if (snapshot === void 0) return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.libraryState,
 				children: t("library.loading")
 			});
-			if (snapshot.projects.length === 0) return (0, react_jsx_runtime.jsx)("div", {
+			if (snapshot.projects.length === 0) return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.libraryState,
-				children: (0, react_jsx_runtime.jsx)("span", { children: t("library.empty") })
+				children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("library.empty") })
 			});
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.library,
-				children: [snapshot.problems.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
+				children: [snapshot.problems.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: ContentStudio_module_css_default.libraryProblems,
 					role: "alert",
-					children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), (0, react_jsx_runtime.jsx)("span", { children: t("library.problems", { n: snapshot.problems.length }) })]
-				}), (0, react_jsx_runtime.jsx)("div", {
+					children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("library.problems", { n: snapshot.problems.length }) })]
+				}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 					className: ContentStudio_module_css_default.grid,
-					children: snapshot.projects.map((project) => (0, react_jsx_runtime.jsx)(ProjectCard, {
+					children: snapshot.projects.map((project) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)(ProjectCard, {
 						project,
 						t
 					}, project.topic))
@@ -10720,35 +10706,35 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		}
 		/** One outputs project as a read-only card. */
 		function ProjectCard({ project, t }) {
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.libraryCard,
 				children: [
-					(0, react_jsx_runtime.jsxs)("span", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 						className: ContentStudio_module_css_default.cardHead,
-						children: [(0, react_jsx_runtime.jsx)("span", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: ContentStudio_module_css_default.cardTitle,
 							children: project.title
-						}), (0, react_jsx_runtime.jsx)("span", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: clsx(ContentStudio_module_css_default.badge, STATUS_CLASS$1[project.status]),
 							children: t(`status.${project.status}`)
 						})]
 					}),
-					(0, react_jsx_runtime.jsxs)("span", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 						className: ContentStudio_module_css_default.cardDetail,
 						children: [t(`kind.${project.kind}`), project.platform !== null && ` · ${project.platform}`]
 					}),
-					project.summary !== null && (0, react_jsx_runtime.jsx)("span", {
+					project.summary !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 						className: ContentStudio_module_css_default.cardDetail,
 						children: project.summary
 					}),
-					project.tags.length > 0 && (0, react_jsx_runtime.jsx)("span", {
+					project.tags.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 						className: ContentStudio_module_css_default.libraryTags,
-						children: project.tags.map((tag) => (0, react_jsx_runtime.jsx)("span", {
+						children: project.tags.map((tag) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: ContentStudio_module_css_default.libraryTag,
 							children: tag
 						}, tag))
 					}),
-					(0, react_jsx_runtime.jsxs)("span", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 						className: ContentStudio_module_css_default.cardHint,
 						children: [
 							project.hasMetadata ? t("library.deliverables", { n: project.deliverables.length }) : t("library.noMetadata"),
@@ -10762,15 +10748,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			});
 		}
 		//#endregion
-		//#region lib/types/client/calendar.js
-		/**
-		* Pure calendar math for the calendar view: no React, no IO. Month and week
-		* grids (weeks start Monday), view/filter configuration with a versioned
-		* whole-fallback migration, the render-time overdue and conflict
-		* derivations, list filtering, and CSV export. Every grid day carries its
-		* `YYYY-MM-DD` wire date plus an in-month flag so leading/trailing padding
-		* renders dimmed.
-		*/
+		//#region src/client/calendar.ts
 		/**
 		* Local-time today as `YYYY-MM-DD`.
 		* @returns today's wire date in the host time zone.
@@ -11041,16 +11019,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			return `\uFEFF${[header.join(","), ...rows].join("\r\n")}\r\n`;
 		}
 		//#endregion
-		//#region lib/types/client/topic-bank.js
-		/**
-		* Pure logic of the topic-bank view: the five-status single-source config,
-		* the persisted view/filter configuration with versioned load migration,
-		* filtering (source, score range, tag, status, keyword, plan window), the
-		* kanban grouping, and the Markdown export whose frontmatter is emitted and
-		* parsed by one strict schema so export → import round-trips losslessly.
-		* No React, no I/O — the view and the tests share this module, like
-		* `calendar.ts`, `create.ts`, and `competitors.ts`.
-		*/
+		//#region src/client/topic-bank.ts
 		/** Kanban column order and the canonical status sequence, oldest stage first. */
 		const TOPIC_STATUSES = [
 			"idea",
@@ -11504,7 +11473,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			"weekGrid": "U-sEEq_weekGrid"
 		};
 		//#endregion
-		//#region lib/types/client/ContentCalendar.js
+		//#region src/client/ContentCalendar.tsx
 		/**
 		* The calendar view: the scheduling workbench over `_schedule.json` — the
 		* month, week, and list faces render the same filtered items, native
@@ -11829,7 +11798,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			/** One day cell: the drop target plus its chips and the inline add form. */
 			const renderCell = (day) => {
 				const cellItems = byDate.get(day.date) ?? [];
-				return (0, react_jsx_runtime.jsxs)("div", {
+				return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: clsx(ContentStudio_module_css_default.calendarCell, !day.inMonth && ContentStudio_module_css_default.calendarCellOutside, day.isToday && ContentStudio_module_css_default.calendarCellToday),
 					role: "button",
 					tabIndex: 0,
@@ -11851,11 +11820,11 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 						if (event.key === "Enter") setForm(form?.date === day.date ? void 0 : newForm(day.date));
 					},
 					children: [
-						(0, react_jsx_runtime.jsx)("span", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: ContentStudio_module_css_default.calendarDayNum,
 							children: Number(day.date.slice(8, 10))
 						}),
-						cellItems.map((item) => (0, react_jsx_runtime.jsxs)("span", {
+						cellItems.map((item) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 							draggable: true,
 							onDragStart: () => {
 								setDragId(item.id);
@@ -11878,20 +11847,20 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 								}
 							},
 							children: [
-								(0, react_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: clsx(ContentStudio_module_css_default.calendarDot, DOT_CLASS[item.status]),
 									"aria-hidden": "true"
 								}),
-								(0, react_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: ContentCalendar_module_css_default.chipKind,
 									"aria-hidden": "true",
 									children: item.kind === "content" ? "📄" : "📌"
 								}),
-								(0, react_jsx_runtime.jsxs)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 									className: ContentStudio_module_css_default.calendarChipTitle,
 									children: [item.time !== null && `${item.time} `, item.title]
 								}),
-								item.status !== "published" && (0, react_jsx_runtime.jsx)("button", {
+								item.status !== "published" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: ContentStudio_module_css_default.calendarChipAction,
 									"aria-label": t("calendar.publish.aria"),
@@ -11902,7 +11871,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 									},
 									children: "✓"
 								}),
-								(0, react_jsx_runtime.jsx)("button", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: ContentStudio_module_css_default.calendarChipAction,
 									"aria-label": t("calendar.remove.aria"),
@@ -11910,17 +11879,17 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 										event.stopPropagation();
 										removeItem(item, false);
 									},
-									children: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 11 })
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 11 })
 								})
 							]
 						}, item.id)),
-						form?.date === day.date && (0, react_jsx_runtime.jsxs)("div", {
+						form?.date === day.date && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: ContentStudio_module_css_default.calendarForm,
 							onClick: (event) => {
 								event.stopPropagation();
 							},
 							children: [
-								(0, react_jsx_runtime.jsx)("input", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 									className: ContentStudio_module_css_default.calendarInput,
 									autoFocus: true,
 									placeholder: t("calendar.titlePlaceholder"),
@@ -11935,9 +11904,9 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 										if (event.key === "Enter") submit();
 									}
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: ContentCalendar_module_css_default.formRow,
-									children: [(0, react_jsx_runtime.jsxs)("select", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 										className: ContentCalendar_module_css_default.formSelect,
 										"aria-label": t("calendar.filter.kind"),
 										value: form.kind,
@@ -11947,14 +11916,14 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 												kind: event.currentTarget.value
 											});
 										},
-										children: [(0, react_jsx_runtime.jsx)("option", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 											value: "event",
 											children: t("calendar.kind.event")
-										}), (0, react_jsx_runtime.jsx)("option", {
+										}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 											value: "content",
 											children: t("calendar.kind.content")
 										})]
-									}), (0, react_jsx_runtime.jsx)("input", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										className: ContentStudio_module_css_default.calendarInput,
 										placeholder: t("calendar.timePlaceholder"),
 										value: form.time,
@@ -11966,9 +11935,9 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 										}
 									})]
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: ContentCalendar_module_css_default.formRow,
-									children: [(0, react_jsx_runtime.jsx)("input", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										className: ContentStudio_module_css_default.calendarInput,
 										placeholder: t("calendar.platformPlaceholder"),
 										value: form.platform,
@@ -11978,7 +11947,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 												platform: event.currentTarget.value
 											});
 										}
-									}), (0, react_jsx_runtime.jsxs)("select", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 										className: ContentCalendar_module_css_default.formSelect,
 										"aria-label": t("calendar.detail.topic"),
 										value: form.topicDir,
@@ -11988,26 +11957,26 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 												topicDir: event.currentTarget.value
 											});
 										},
-										children: [(0, react_jsx_runtime.jsx)("option", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 											value: "",
 											children: t("calendar.topicPlaceholder")
-										}), (topicsSnapshot?.items ?? []).filter((candidate) => candidate.topicDir !== null).map((candidate) => (0, react_jsx_runtime.jsx)("option", {
+										}), (topicsSnapshot?.items ?? []).filter((candidate) => candidate.topicDir !== null).map((candidate) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 											value: candidate.topicDir ?? "",
 											children: candidate.title
 										}, candidate.id))]
 									})]
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: ContentStudio_module_css_default.calendarFormRow,
-									children: [(0, react_jsx_runtime.jsxs)("button", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.calendarSubmit,
 										disabled: submitting,
 										onClick: () => {
 											submit();
 										},
-										children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconPlusOutline16, { size: 12 }), t("calendar.add")]
-									}), (0, react_jsx_runtime.jsx)("button", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconPlusOutline16, { size: 12 }), t("calendar.add")]
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.calendarChipAction,
 										"aria-label": t("calendar.cancel"),
@@ -12022,11 +11991,11 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					]
 				}, day.date);
 			};
-			if (failed) return (0, react_jsx_runtime.jsx)("div", {
+			if (failed) return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.libraryState,
 				children: t("library.error")
 			});
-			if (snapshot === void 0 || notesSnapshot === void 0) return (0, react_jsx_runtime.jsx)("div", {
+			if (snapshot === void 0 || notesSnapshot === void 0) return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.libraryState,
 				children: t("calendar.loading")
 			});
@@ -12034,16 +12003,16 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			const weekRow = grid[0] ?? [];
 			const periodLabel = config.view === "week" ? `${weekRow[0]?.date ?? ""} ~ ${weekRow.at(-1)?.date ?? ""}` : `${month.year} · ${t(`calendar.month.${month.month}`)}`;
 			const filters = config.filters;
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.calendar,
 				children: [
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentCalendar_module_css_default.toolbar,
 						children: [
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.calendarBar,
-								children: [config.view !== "list" && (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
-									(0, react_jsx_runtime.jsx)("button", {
+								children: [config.view !== "list" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.calendarNav,
 										"aria-label": config.view === "week" ? t("calendar.prevWeek") : t("calendar.prev"),
@@ -12052,11 +12021,11 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 										},
 										children: "‹"
 									}),
-									(0, react_jsx_runtime.jsx)("span", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.calendarMonth,
 										children: periodLabel
 									}),
-									(0, react_jsx_runtime.jsx)("button", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.calendarNav,
 										"aria-label": config.view === "week" ? t("calendar.nextWeek") : t("calendar.next"),
@@ -12065,7 +12034,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 										},
 										children: "›"
 									})
-								] }), (0, react_jsx_runtime.jsx)("button", {
+								] }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: ContentStudio_module_css_default.calendarToday,
 									onClick: () => {
@@ -12074,14 +12043,14 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 									children: t("calendar.today")
 								})]
 							}),
-							(0, react_jsx_runtime.jsx)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 								className: ContentCalendar_module_css_default.tabs,
 								role: "tablist",
 								children: [
 									"month",
 									"week",
 									"list"
-								].map((kind) => (0, react_jsx_runtime.jsx)("button", {
+								].map((kind) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									role: "tab",
 									"aria-selected": config.view === kind,
@@ -12092,9 +12061,9 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 									children: t(VIEW_KEYS[kind])
 								}, kind))
 							}),
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentCalendar_module_css_default.toolbarActions,
-								children: [(0, react_jsx_runtime.jsx)("button", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: ContentCalendar_module_css_default.toolButton,
 									disabled: exportTheme === null,
@@ -12103,7 +12072,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 										exportCsv();
 									},
 									children: t("calendar.export")
-								}), (0, react_jsx_runtime.jsx)("button", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: ContentCalendar_module_css_default.toolButton,
 									disabled: true,
@@ -12113,10 +12082,10 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 							})
 						]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentCalendar_module_css_default.filters,
 						children: [
-							(0, react_jsx_runtime.jsxs)("select", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 								className: ContentCalendar_module_css_default.formSelect,
 								"aria-label": t("calendar.filter.kind"),
 								value: filters.kind,
@@ -12124,21 +12093,21 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 									patchFilters({ kind: event.currentTarget.value });
 								},
 								children: [
-									(0, react_jsx_runtime.jsx)("option", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: "all",
 										children: t("calendar.kind.all")
 									}),
-									(0, react_jsx_runtime.jsx)("option", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: "content",
 										children: t("calendar.kind.content")
 									}),
-									(0, react_jsx_runtime.jsx)("option", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: "event",
 										children: t("calendar.kind.event")
 									})
 								]
 							}),
-							platforms.map((platform) => (0, react_jsx_runtime.jsx)("button", {
+							platforms.map((platform) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: clsx(ContentCalendar_module_css_default.chip, filters.platforms.includes(platform) && ContentCalendar_module_css_default.chipActive),
 								onClick: () => {
@@ -12146,18 +12115,18 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 								},
 								children: platform
 							}, platform)),
-							STATUS_KEYS.map((status) => (0, react_jsx_runtime.jsxs)("button", {
+							STATUS_KEYS.map((status) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								className: clsx(ContentCalendar_module_css_default.chip, filters.statuses.includes(status) && ContentCalendar_module_css_default.chipActive),
 								onClick: () => {
 									patchFilters({ statuses: toggleInList(filters.statuses, status) });
 								},
-								children: [(0, react_jsx_runtime.jsx)("span", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: clsx(ContentStudio_module_css_default.calendarDot, DOT_CLASS[status]),
 									"aria-hidden": "true"
 								}), t(`calendar.status.${status}`)]
 							}, status)),
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								type: "date",
 								className: ContentCalendar_module_css_default.formSelect,
 								"aria-label": t("calendar.filter.range"),
@@ -12166,7 +12135,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 									patchFilters({ start: event.currentTarget.value === "" ? null : event.currentTarget.value });
 								}
 							}),
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								type: "date",
 								className: ContentCalendar_module_css_default.formSelect,
 								"aria-label": t("calendar.filter.range"),
@@ -12175,7 +12144,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 									patchFilters({ end: event.currentTarget.value === "" ? null : event.currentTarget.value });
 								}
 							}),
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								type: "search",
 								className: ContentCalendar_module_css_default.formSelect,
 								"aria-label": t("calendar.filter.query.aria"),
@@ -12185,7 +12154,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 									patchFilters({ query: event.currentTarget.value });
 								}
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: clsx(ContentCalendar_module_css_default.chip, filters.overdueOnly && ContentCalendar_module_css_default.chipOverdueActive),
 								onClick: () => {
@@ -12193,7 +12162,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 								},
 								children: t("calendar.filter.overdue")
 							}),
-							(filters.kind !== "all" || filters.platforms.length > 0 || filters.statuses.length > 0 || filters.start !== null || filters.end !== null || filters.query !== "" || filters.overdueOnly) && (0, react_jsx_runtime.jsx)("button", {
+							(filters.kind !== "all" || filters.platforms.length > 0 || filters.statuses.length > 0 || filters.start !== null || filters.end !== null || filters.query !== "" || filters.overdueOnly) && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentCalendar_module_css_default.chip,
 								onClick: () => {
@@ -12203,18 +12172,18 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 							})
 						]
 					}),
-					conflictItems.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
+					conflictItems.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentCalendar_module_css_default.conflicts,
 						role: "status",
 						children: [
-							(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }),
-							(0, react_jsx_runtime.jsxs)("span", { children: [
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
 								t("calendar.conflicts"),
 								"（",
 								conflictItems.length,
 								"）"
 							] }),
-							conflictItems.map((item) => (0, react_jsx_runtime.jsxs)("button", {
+							conflictItems.map((item) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								className: ContentCalendar_module_css_default.chip,
 								onClick: () => {
@@ -12229,15 +12198,15 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 							}, item.id))
 						]
 					}),
-					config.view === "list" ? (0, react_jsx_runtime.jsxs)("div", {
+					config.view === "list" ? /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentCalendar_module_css_default.listWrap,
 						children: [
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentCalendar_module_css_default.listHead,
 								children: [
-									(0, react_jsx_runtime.jsx)("label", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("label", {
 										className: ContentCalendar_module_css_default.listCheck,
-										children: (0, react_jsx_runtime.jsx)("input", {
+										children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 											type: "checkbox",
 											"aria-label": t("calendar.list.all"),
 											checked: filtered.length > 0 && filtered.every((item) => checked.has(item.id)),
@@ -12246,18 +12215,18 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 											}
 										})
 									}),
-									(0, react_jsx_runtime.jsx)("span", { children: t("calendar.detail.date") }),
-									(0, react_jsx_runtime.jsx)("span", { children: t("calendar.detail.time") }),
-									(0, react_jsx_runtime.jsx)("span", { children: t("calendar.filter.kind") }),
-									(0, react_jsx_runtime.jsx)("span", { children: t("calendar.filter.status") }),
-									(0, react_jsx_runtime.jsx)("span", { children: t("calendar.list.title") }),
-									(0, react_jsx_runtime.jsx)("span", { children: t("calendar.detail.platform") }),
-									(0, react_jsx_runtime.jsx)("span", { children: t("calendar.detail.topic") })
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("calendar.detail.date") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("calendar.detail.time") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("calendar.filter.kind") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("calendar.filter.status") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("calendar.list.title") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("calendar.detail.platform") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("calendar.detail.topic") })
 								]
 							}),
 							filtered.map((item) => {
 								const topicTitle = topicTitleOf(item);
-								return (0, react_jsx_runtime.jsxs)("div", {
+								return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: clsx(ContentCalendar_module_css_default.listRow, detailId === item.id && ContentCalendar_module_css_default.listRowActive),
 									role: "button",
 									tabIndex: 0,
@@ -12268,12 +12237,12 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 										if (event.key === "Enter") setDetailId(item.id);
 									},
 									children: [
-										(0, react_jsx_runtime.jsx)("label", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("label", {
 											className: ContentCalendar_module_css_default.listCheck,
 											onClick: (event) => {
 												event.stopPropagation();
 											},
-											children: (0, react_jsx_runtime.jsx)("input", {
+											children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 												type: "checkbox",
 												checked: checked.has(item.id),
 												onChange: (event) => {
@@ -12284,39 +12253,39 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 												}
 											})
 										}),
-										(0, react_jsx_runtime.jsx)("span", { children: overdueOf(item, today) ? `${item.date} · ${t("calendar.overdue")}` : item.date }),
-										(0, react_jsx_runtime.jsx)("span", { children: item.time ?? "" }),
-										(0, react_jsx_runtime.jsx)("span", { children: item.kind === "content" ? t("calendar.kind.content") : t("calendar.kind.event") }),
-										(0, react_jsx_runtime.jsxs)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: overdueOf(item, today) ? `${item.date} · ${t("calendar.overdue")}` : item.date }),
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: item.time ?? "" }),
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: item.kind === "content" ? t("calendar.kind.content") : t("calendar.kind.event") }),
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 											className: ContentCalendar_module_css_default.listStatus,
-											children: [(0, react_jsx_runtime.jsx)("span", {
+											children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 												className: clsx(ContentStudio_module_css_default.calendarDot, DOT_CLASS[item.status]),
 												"aria-hidden": "true"
 											}), t(`calendar.status.${item.status}`)]
 										}),
-										(0, react_jsx_runtime.jsx)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: ContentCalendar_module_css_default.listTitle,
 											children: item.title
 										}),
-										(0, react_jsx_runtime.jsx)("span", { children: item.platform ?? "" }),
-										(0, react_jsx_runtime.jsx)("span", { children: topicTitle ?? item.topic ?? "" })
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: item.platform ?? "" }),
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: topicTitle ?? item.topic ?? "" })
 									]
 								}, item.id);
 							}),
-							filtered.length === 0 && (0, react_jsx_runtime.jsx)("div", {
+							filtered.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 								className: ContentStudio_module_css_default.calendarHint,
 								children: t("calendar.empty")
 							}),
-							checked.size > 0 && (0, react_jsx_runtime.jsxs)("div", {
+							checked.size > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentCalendar_module_css_default.batchBar,
-								children: [(0, react_jsx_runtime.jsx)("button", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: ContentCalendar_module_css_default.toolButton,
 									onClick: () => {
 										batchPublish();
 									},
 									children: t("calendar.batch.publish")
-								}), (0, react_jsx_runtime.jsx)("button", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: ContentCalendar_module_css_default.toolButtonDanger,
 									onClick: () => {
@@ -12326,30 +12295,30 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 								})]
 							})
 						]
-					}) : (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
-						(0, react_jsx_runtime.jsx)("div", {
+					}) : /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 							className: ContentStudio_module_css_default.calendarHead,
-							children: WEEKDAY_KEYS.map((key) => (0, react_jsx_runtime.jsx)("span", {
+							children: WEEKDAY_KEYS.map((key) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: ContentStudio_module_css_default.calendarWeekday,
 								children: t(key)
 							}, key))
 						}),
-						(0, react_jsx_runtime.jsx)("div", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 							className: clsx(ContentStudio_module_css_default.calendarGrid, config.view === "week" && ContentCalendar_module_css_default.weekGrid),
 							children: grid.flat().map(renderCell)
 						}),
-						form === void 0 && items.length === 0 && (0, react_jsx_runtime.jsx)("div", {
+						form === void 0 && items.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 							className: ContentStudio_module_css_default.calendarHint,
 							children: t("calendar.empty")
 						})
 					] }),
-					detail !== void 0 && (0, react_jsx_runtime.jsxs)("section", {
+					detail !== void 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 						className: ContentCalendar_module_css_default.detail,
 						"aria-label": t("calendar.detail.title"),
 						children: [
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentCalendar_module_css_default.detailHead,
-								children: [(0, react_jsx_runtime.jsx)("strong", { children: detail.title }), (0, react_jsx_runtime.jsx)("button", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: detail.title }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: ContentStudio_module_css_default.calendarChipAction,
 									"aria-label": t("calendar.cancel"),
@@ -12359,38 +12328,38 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 									children: "×"
 								})]
 							}),
-							(0, react_jsx_runtime.jsxs)("dl", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("dl", {
 								className: ContentCalendar_module_css_default.detailGrid,
 								children: [
-									(0, react_jsx_runtime.jsx)("dt", { children: t("calendar.detail.date") }),
-									(0, react_jsx_runtime.jsxs)("dd", { children: [detail.date, overdueOf(detail, today) ? ` · ${t("calendar.overdue")}` : ""] }),
-									(0, react_jsx_runtime.jsx)("dt", { children: t("calendar.detail.time") }),
-									(0, react_jsx_runtime.jsx)("dd", { children: detail.time ?? "—" }),
-									(0, react_jsx_runtime.jsx)("dt", { children: t("calendar.filter.kind") }),
-									(0, react_jsx_runtime.jsx)("dd", { children: detail.kind === "content" ? t("calendar.kind.content") : t("calendar.kind.event") }),
-									(0, react_jsx_runtime.jsx)("dt", { children: t("calendar.filter.status") }),
-									(0, react_jsx_runtime.jsxs)("dd", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("dt", { children: t("calendar.detail.date") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("dd", { children: [detail.date, overdueOf(detail, today) ? ` · ${t("calendar.overdue")}` : ""] }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("dt", { children: t("calendar.detail.time") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("dd", { children: detail.time ?? "—" }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("dt", { children: t("calendar.filter.kind") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("dd", { children: detail.kind === "content" ? t("calendar.kind.content") : t("calendar.kind.event") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("dt", { children: t("calendar.filter.status") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("dd", {
 										className: ContentCalendar_module_css_default.listStatus,
-										children: [(0, react_jsx_runtime.jsx)("span", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: clsx(ContentStudio_module_css_default.calendarDot, DOT_CLASS[detail.status]),
 											"aria-hidden": "true"
 										}), t(`calendar.status.${detail.status}`)]
 									}),
-									(0, react_jsx_runtime.jsx)("dt", { children: t("calendar.detail.platform") }),
-									(0, react_jsx_runtime.jsx)("dd", { children: detail.platform ?? "—" }),
-									(0, react_jsx_runtime.jsx)("dt", { children: t("calendar.detail.topic") }),
-									(0, react_jsx_runtime.jsx)("dd", { children: topicTitleOf(detail) ?? detail.topic ?? "—" })
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("dt", { children: t("calendar.detail.platform") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("dd", { children: detail.platform ?? "—" }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("dt", { children: t("calendar.detail.topic") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("dd", { children: topicTitleOf(detail) ?? detail.topic ?? "—" })
 								]
 							}),
-							(0, react_jsx_runtime.jsx)(NoteEditor, {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(NoteEditor, {
 								initial: notesSnapshot.notes[detail.id]?.text ?? "",
 								onSave: (text) => saveNote(detail.id, text),
 								t
 							}, detail.id),
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentCalendar_module_css_default.detailActions,
 								children: [
-									detail.status !== "published" && (0, react_jsx_runtime.jsx)("button", {
+									detail.status !== "published" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: ContentCalendar_module_css_default.toolButton,
 										onClick: () => {
@@ -12398,7 +12367,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 										},
 										children: t("calendar.publish")
 									}),
-									(0, react_jsx_runtime.jsx)("button", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: ContentCalendar_module_css_default.toolButton,
 										onClick: () => {
@@ -12406,15 +12375,15 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 										},
 										children: t("calendar.jump.topicBank")
 									}),
-									(0, react_jsx_runtime.jsxs)("button", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 										type: "button",
 										className: ContentCalendar_module_css_default.toolButtonDanger,
 										onClick: () => {
 											removeItem(detail, false);
 										},
-										children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 12 }), t("calendar.delete")]
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 12 }), t("calendar.delete")]
 									}),
-									detail.kind === "content" && (0, react_jsx_runtime.jsx)("button", {
+									detail.kind === "content" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: ContentCalendar_module_css_default.toolButtonDanger,
 										onClick: () => {
@@ -12426,7 +12395,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 							})
 						]
 					}),
-					notice !== void 0 && (0, react_jsx_runtime.jsx)("div", {
+					notice !== void 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: clsx(ContentCalendar_module_css_default.toast, notice.tone === "warn" && ContentCalendar_module_css_default.toastWarn),
 						role: "status",
 						children: notice.text
@@ -12442,9 +12411,9 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 		function NoteEditor({ initial, onSave, t }) {
 			const [draft, setDraft] = (0, react.useState)(initial);
 			const [saving, setSaving] = (0, react.useState)(false);
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentCalendar_module_css_default.noteArea,
-				children: [(0, react_jsx_runtime.jsx)("textarea", {
+				children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 					className: ContentCalendar_module_css_default.noteInput,
 					rows: 3,
 					placeholder: t("calendar.note.placeholder"),
@@ -12452,7 +12421,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 					onChange: (event) => {
 						setDraft(event.currentTarget.value);
 					}
-				}), (0, react_jsx_runtime.jsx)("button", {
+				}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 					type: "button",
 					className: ContentCalendar_module_css_default.toolButton,
 					disabled: saving || draft.trim() === initial.trim(),
@@ -12471,7 +12440,7 @@ Set the \`cycles\` parameter to \`"ref"\` to resolve cyclical schemas with defs.
 			});
 		}
 		//#endregion
-		//#region lib/types/client/ContentWorkbench.js
+		//#region src/client/ContentWorkbench.tsx
 		/**
 		* The workbench home (Easel-style dashboard): greeting, verb chips and the
 		* five quick-create entries, eight stat cards over four Remotes (outputs,
@@ -12760,17 +12729,17 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			]);
 			/** Loading / failed seat for a panel fed by one Remote. */
 			const panelState = (load, retry) => {
-				if (load.state === "loading") return (0, react_jsx_runtime.jsx)("p", {
+				if (load.state === "loading") return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 					className: ContentStudio_module_css_default.panelEmpty,
 					children: t("library.loading")
 				});
-				if (load.state === "failed") return (0, react_jsx_runtime.jsxs)("div", {
+				if (load.state === "failed") return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: ContentStudio_module_css_default.libraryState,
-					children: [(0, react_jsx_runtime.jsxs)("span", { children: [
+					children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
 						t("library.error"),
 						": ",
 						load.detail
-					] }), (0, react_jsx_runtime.jsx)("button", {
+					] }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 						type: "button",
 						className: ContentStudio_module_css_default.retry,
 						onClick: retry,
@@ -12778,68 +12747,68 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					})]
 				});
 			};
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.workbench,
 				children: [
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.helloRow,
-						children: [(0, react_jsx_runtime.jsxs)("h1", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h1", {
 							className: ContentStudio_module_css_default.hello,
 							children: [t(`greet.${greetKey((/* @__PURE__ */ new Date()).getHours())}`), " 👋"]
-						}), (0, react_jsx_runtime.jsx)("p", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 							className: ContentStudio_module_css_default.helloSub,
 							children: t("workbench.subtitle")
 						})]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.quickRow,
 						children: [
-							(0, react_jsx_runtime.jsxs)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.chip,
 								onClick: onChat,
-								children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconNewChatOutline16, { size: 14 }), t("action.chat")]
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconNewChatOutline16, { size: 14 }), t("action.chat")]
 							}),
-							(0, react_jsx_runtime.jsxs)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.chip,
 								onClick: () => {
 									onNavigate("create");
 								},
-								children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 14 }), t("nav.create")]
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 14 }), t("nav.create")]
 							}),
-							(0, react_jsx_runtime.jsxs)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.chip,
 								onClick: () => {
 									onNavigate("calendar");
 								},
-								children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 14 }), t("action.schedule")]
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 14 }), t("action.schedule")]
 							}),
-							(0, react_jsx_runtime.jsxs)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								className: clsx(ContentStudio_module_css_default.chip, copiedId === "social-card" && ContentStudio_module_css_default.chipCopied),
 								onClick: () => {
 									pick(cap("social-card"));
 								},
-								children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconEditOutline16, { size: 14 }), copiedId === "social-card" ? t("card.copied") : t("cap.social-card.title")]
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconEditOutline16, { size: 14 }), copiedId === "social-card" ? t("card.copied") : t("cap.social-card.title")]
 							}),
-							(0, react_jsx_runtime.jsxs)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								className: clsx(ContentStudio_module_css_default.chip, copiedId === "pre-publish" && ContentStudio_module_css_default.chipCopied),
 								onClick: () => {
 									pick(cap("pre-publish"));
 								},
-								children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCheckOutline16, { size: 14 }), copiedId === "pre-publish" ? t("card.copied") : t("cap.pre-publish.title")]
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCheckOutline16, { size: 14 }), copiedId === "pre-publish" ? t("card.copied") : t("cap.pre-publish.title")]
 							})
 						]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.quickRow,
-						children: [(0, react_jsx_runtime.jsx)("span", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: ContentStudio_module_css_default.panelTitle,
 							children: t("workbench.createNew")
-						}), NEW_ENTRIES.map((entry) => (0, react_jsx_runtime.jsxs)("button", {
+						}), NEW_ENTRIES.map((entry) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 							type: "button",
 							className: ContentStudio_module_css_default.chip,
 							onClick: () => {
@@ -12848,67 +12817,67 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							children: ["＋ ", t(entry.key)]
 						}, entry.view))]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.statRow,
 						children: [
-							(0, react_jsx_runtime.jsx)(StatCard, {
-								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 16 }),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
+								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 16 }),
 								value: topics.state === "ok" ? topicItems.length : void 0,
 								label: t("stat.topicTotal")
 							}),
-							(0, react_jsx_runtime.jsx)(StatCard, {
-								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconEditOutline16, { size: 16 }),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
+								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconEditOutline16, { size: 16 }),
 								value: topics.state === "ok" ? topicTodo : void 0,
 								label: t("stat.topicTodo")
 							}),
-							(0, react_jsx_runtime.jsx)(StatCard, {
-								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCheckOutline16, { size: 16 }),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
+								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCheckOutline16, { size: 16 }),
 								value: topics.state === "ok" ? topicDone : void 0,
 								label: t("stat.topicDone")
 							}),
-							(0, react_jsx_runtime.jsx)(StatCard, {
-								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconFolderOpenOutline16, { size: 16 }),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
+								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconFolderOpenOutline16, { size: 16 }),
 								value: outputs.state === "ok" ? ready : void 0,
 								label: t("stat.ready")
 							})
 						]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.statRow,
 						children: [
-							(0, react_jsx_runtime.jsx)(StatCard, {
-								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconGoalOutline16, { size: 16 }),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
+								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconGoalOutline16, { size: 16 }),
 								value: outputs.state === "ok" ? publishedProjects : void 0,
 								label: t("stat.published")
 							}),
-							(0, react_jsx_runtime.jsx)(StatCard, {
-								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 16 }),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
+								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 16 }),
 								value: schedule.state === "ok" ? todayDue : void 0,
 								label: t("stat.todayDue")
 							}),
-							(0, react_jsx_runtime.jsx)(StatCard, {
-								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconNewChatOutline16, { size: 16 }),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
+								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconNewChatOutline16, { size: 16 }),
 								value: summary === null ? void 0 : summary.unread + summary.pendingReply,
 								label: t("stat.pendingReply")
 							}),
-							(0, react_jsx_runtime.jsx)(StatCard, {
-								icon: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 16 }),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(StatCard, {
+								icon: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 16 }),
 								value: schedule.state === "ok" ? scheduledTasks : void 0,
 								label: t("stat.scheduledTasks")
 							})
 						]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.panelRowThree,
 						children: [
-							(0, react_jsx_runtime.jsxs)("section", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 								className: ContentStudio_module_css_default.panel,
-								children: [(0, react_jsx_runtime.jsxs)("header", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
 									className: ContentStudio_module_css_default.panelHead,
-									children: [(0, react_jsx_runtime.jsxs)("h2", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h2", {
 										className: ContentStudio_module_css_default.panelTitle,
-										children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 13 }), t("panel.quickCreate")]
-									}), (0, react_jsx_runtime.jsxs)("button", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 13 }), t("panel.quickCreate")]
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.panelMore,
 										onClick: () => {
@@ -12916,29 +12885,29 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										},
 										children: [t("nav.create"), " →"]
 									})]
-								}), quick.map((item) => (0, react_jsx_runtime.jsxs)("button", {
+								}), quick.map((item) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 									type: "button",
 									className: clsx(ContentStudio_module_css_default.listRowButton, copiedId === item.id && ContentStudio_module_css_default.listRowCopied),
 									onClick: () => {
 										pick(item);
 									},
-									children: [(0, react_jsx_runtime.jsx)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.listTitle,
 										children: copiedId === item.id ? t("card.copied") : t(`cap.${item.id}.title`)
-									}), (0, react_jsx_runtime.jsx)("span", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.listMeta,
 										children: copiedId === item.id ? "" : t("card.copyHint")
 									})]
 								}, item.id))]
 							}),
-							(0, react_jsx_runtime.jsxs)("section", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 								className: ContentStudio_module_css_default.panel,
-								children: [(0, react_jsx_runtime.jsxs)("header", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
 									className: ContentStudio_module_css_default.panelHead,
-									children: [(0, react_jsx_runtime.jsxs)("h2", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h2", {
 										className: ContentStudio_module_css_default.panelTitle,
-										children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 13 }), t("panel.recentTopics")]
-									}), (0, react_jsx_runtime.jsxs)("button", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChecklistOutline14, { size: 13 }), t("panel.recentTopics")]
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.panelMore,
 										onClick: () => {
@@ -12948,32 +12917,32 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									})]
 								}), panelState(topics, () => {
 									loadTopics();
-								}) ?? (recentTopics.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
+								}) ?? (recentTopics.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 									className: ContentStudio_module_css_default.panelEmpty,
 									children: t("panel.emptyRecentTopics")
-								}) : recentTopics.map((topic) => (0, react_jsx_runtime.jsxs)("button", {
+								}) : recentTopics.map((topic) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 									type: "button",
 									className: ContentStudio_module_css_default.listRowButton,
 									onClick: () => {
 										onNavigate("topicBank");
 									},
-									children: [(0, react_jsx_runtime.jsx)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.listTitle,
 										children: topic.title
-									}), (0, react_jsx_runtime.jsx)("span", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.listMeta,
 										children: t(`topic.status.${topic.status}`)
 									})]
 								}, topic.id)))]
 							}),
-							(0, react_jsx_runtime.jsxs)("section", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 								className: ContentStudio_module_css_default.panel,
-								children: [(0, react_jsx_runtime.jsxs)("header", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
 									className: ContentStudio_module_css_default.panelHead,
-									children: [(0, react_jsx_runtime.jsxs)("h2", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h2", {
 										className: ContentStudio_module_css_default.panelTitle,
-										children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconFolderOpenOutline16, { size: 13 }), t("panel.recentFinals")]
-									}), (0, react_jsx_runtime.jsxs)("button", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconFolderOpenOutline16, { size: 13 }), t("panel.recentFinals")]
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.panelMore,
 										onClick: () => {
@@ -12983,19 +12952,19 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									})]
 								}), panelState(outputs, () => {
 									loadOutputs();
-								}) ?? (recentFinals.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
+								}) ?? (recentFinals.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 									className: ContentStudio_module_css_default.panelEmpty,
 									children: t("panel.emptyRecent")
-								}) : recentFinals.map((project) => (0, react_jsx_runtime.jsxs)("button", {
+								}) : recentFinals.map((project) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 									type: "button",
 									className: ContentStudio_module_css_default.listRowButton,
 									onClick: () => {
 										onNavigate("library");
 									},
-									children: [(0, react_jsx_runtime.jsx)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.listTitle,
 										children: project.title
-									}), (0, react_jsx_runtime.jsx)("span", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.listMeta,
 										children: t(`status.${project.status}`)
 									})]
@@ -13003,16 +12972,16 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.panelRowTwo,
-						children: [(0, react_jsx_runtime.jsxs)("section", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 							className: ContentStudio_module_css_default.panel,
-							children: [(0, react_jsx_runtime.jsxs)("header", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
 								className: ContentStudio_module_css_default.panelHead,
-								children: [(0, react_jsx_runtime.jsxs)("h2", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h2", {
 									className: ContentStudio_module_css_default.panelTitle,
-									children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconGoalOutline16, { size: 13 }), t("panel.timeline")]
-								}), (0, react_jsx_runtime.jsxs)("button", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconGoalOutline16, { size: 13 }), t("panel.timeline")]
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 									type: "button",
 									className: ContentStudio_module_css_default.panelMore,
 									onClick: () => {
@@ -13020,32 +12989,32 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									},
 									children: [t("nav.review"), " →"]
 								})]
-							}), feed.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
+							}), feed.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 								className: ContentStudio_module_css_default.panelEmpty,
 								children: t("workbench.emptyTimeline")
-							}) : feed.map((entry) => (0, react_jsx_runtime.jsxs)("button", {
+							}) : feed.map((entry) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.listRowButton,
 								onClick: () => {
 									onNavigate(entry.view);
 								},
-								children: [(0, react_jsx_runtime.jsx)("span", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: ContentStudio_module_css_default.listTitle,
 									children: entry.label
-								}), (0, react_jsx_runtime.jsx)("span", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: ContentStudio_module_css_default.listMeta,
 									children: entry.at.slice(0, 10)
 								})]
 							}, entry.key))]
-						}), (0, react_jsx_runtime.jsxs)("section", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 							className: ContentStudio_module_css_default.panel,
 							children: [
-								(0, react_jsx_runtime.jsxs)("header", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
 									className: ContentStudio_module_css_default.panelHead,
-									children: [(0, react_jsx_runtime.jsxs)("h2", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h2", {
 										className: ContentStudio_module_css_default.panelTitle,
-										children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 13 }), t("panel.dataPreview")]
-									}), (0, react_jsx_runtime.jsxs)("button", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 13 }), t("panel.dataPreview")]
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.panelMore,
 										onClick: () => {
@@ -13054,17 +13023,17 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										children: [t("nav.review"), " →"]
 									})]
 								}),
-								review.state === "loading" && (0, react_jsx_runtime.jsx)("p", {
+								review.state === "loading" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 									className: ContentStudio_module_css_default.panelEmpty,
 									children: t("library.loading")
 								}),
-								review.state === "failed" && (0, react_jsx_runtime.jsxs)("div", {
+								review.state === "failed" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: ContentStudio_module_css_default.libraryState,
-									children: [(0, react_jsx_runtime.jsxs)("span", { children: [
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
 										t("library.error"),
 										": ",
 										review.detail
-									] }), (0, react_jsx_runtime.jsx)("button", {
+									] }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.retry,
 										onClick: () => {
@@ -13073,10 +13042,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										children: t("library.retry")
 									})]
 								}),
-								review.state === "ok" && (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [(0, react_jsx_runtime.jsxs)("div", {
+								review.state === "ok" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: ContentStudio_module_css_default.dataPills,
 									children: [
-										(0, react_jsx_runtime.jsxs)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 											className: ContentStudio_module_css_default.dataPill,
 											children: [
 												t("stat.previewWorks"),
@@ -13084,7 +13053,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												review.value.works
 											]
 										}),
-										(0, react_jsx_runtime.jsxs)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 											className: ContentStudio_module_css_default.dataPill,
 											children: [
 												t("stat.reads"),
@@ -13092,7 +13061,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												review.value.reads ?? "—"
 											]
 										}),
-										(0, react_jsx_runtime.jsxs)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 											className: ContentStudio_module_css_default.dataPill,
 											children: [
 												t("stat.likes"),
@@ -13100,7 +13069,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												review.value.likes ?? "—"
 											]
 										}),
-										(0, react_jsx_runtime.jsxs)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 											className: ContentStudio_module_css_default.dataPill,
 											children: [
 												t("stat.followers"),
@@ -13109,7 +13078,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											]
 										})
 									]
-								}), (0, react_jsx_runtime.jsx)("p", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 									className: ContentStudio_module_css_default.panelEmpty,
 									children: t("workbench.reviewHint")
 								})] })
@@ -13121,18 +13090,18 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		}
 		/** One stat card with a tinted icon tile over the value and label. */
 		function StatCard({ icon, value, label }) {
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.statCard,
 				children: [
-					(0, react_jsx_runtime.jsx)("span", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 						className: ContentStudio_module_css_default.statIcon,
 						children: icon
 					}),
-					(0, react_jsx_runtime.jsx)("span", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 						className: ContentStudio_module_css_default.statValue,
 						children: value === void 0 ? "—" : String(value)
 					}),
-					(0, react_jsx_runtime.jsx)("span", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 						className: ContentStudio_module_css_default.statLabel,
 						children: label
 					})
@@ -13140,7 +13109,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			});
 		}
 		//#endregion
-		//#region lib/types/client/AccountSelect.js
+		//#region src/client/AccountSelect.tsx
 		/**
 		* The account selector under the workbench brand row (Easel's persona
 		* dropdown): a bordered select showing the active creation account, a
@@ -13171,10 +13140,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				setCreating(false);
 				setOpen(false);
 			};
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.accountBox,
 				ref: boxRef,
-				children: [(0, react_jsx_runtime.jsxs)("button", {
+				children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 					type: "button",
 					className: ContentStudio_module_css_default.accountButton,
 					"aria-haspopup": "listbox",
@@ -13182,15 +13151,15 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					onClick: () => {
 						setOpen(!open);
 					},
-					children: [(0, react_jsx_runtime.jsx)("span", {
+					children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 						className: ContentStudio_module_css_default.accountName,
 						children: account
-					}), (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChevronDownOutline14, { size: 14 })]
-				}), open && (0, react_jsx_runtime.jsxs)("div", {
+					}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconChevronDownOutline14, { size: 14 })]
+				}), open && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: ContentStudio_module_css_default.accountList,
 					role: "listbox",
 					"aria-label": t("account.label"),
-					children: [accounts.map((name) => (0, react_jsx_runtime.jsx)("button", {
+					children: [accounts.map((name) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 						type: "button",
 						role: "option",
 						"aria-selected": name === account,
@@ -13200,9 +13169,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							setOpen(false);
 						},
 						children: name
-					}, name)), creating ? (0, react_jsx_runtime.jsxs)("div", {
+					}, name)), creating ? /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.accountCreateRow,
-						children: [(0, react_jsx_runtime.jsx)("input", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 							ref: inputRef,
 							className: ContentStudio_module_css_default.accountInput,
 							placeholder: t("account.placeholder"),
@@ -13217,25 +13186,25 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									setDraft("");
 								}
 							}
-						}), (0, react_jsx_runtime.jsx)("button", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: ContentStudio_module_css_default.accountCreateAdd,
 							onClick: commitDraft,
 							children: t("account.add")
 						})]
-					}) : (0, react_jsx_runtime.jsxs)("button", {
+					}) : /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 						type: "button",
 						className: ContentStudio_module_css_default.accountOption,
 						onClick: () => {
 							setCreating(true);
 						},
-						children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconPlusOutline16, { size: 12 }), t("account.new")]
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconPlusOutline16, { size: 12 }), t("account.new")]
 					})]
 				})]
 			});
 		}
 		//#endregion
-		//#region lib/types/client/CapabilityPage.js
+		//#region src/client/CapabilityPage.tsx
 		/**
 		* A capability page: one titled grid of capability cards for a nav view that
 		* fronts a slice of the catalog (对标 / 选题). Pick = copy the instruction.
@@ -13247,37 +13216,37 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		*/
 		function CapabilityPage({ title, ids, copiedId, pick, t }) {
 			const items = ids.map((id) => CAPABILITY_ITEMS.find((item) => item.id === id)).filter((item) => item !== void 0);
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.workbench,
-				children: [(0, react_jsx_runtime.jsx)("h2", {
+				children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h2", {
 					className: ContentStudio_module_css_default.pageTitle,
 					children: title
-				}), (0, react_jsx_runtime.jsx)("div", {
+				}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 					className: ContentStudio_module_css_default.grid,
 					children: items.map((item) => {
 						const copied = copiedId === item.id;
-						return (0, react_jsx_runtime.jsxs)("button", {
+						return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 							type: "button",
 							className: clsx(ContentStudio_module_css_default.card, copied && ContentStudio_module_css_default.cardCopied),
 							onClick: () => {
 								pick(item);
 							},
 							children: [
-								(0, react_jsx_runtime.jsxs)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 									className: ContentStudio_module_css_default.cardHead,
-									children: [(0, react_jsx_runtime.jsx)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.cardTitle,
 										children: t(`cap.${item.id}.title`)
-									}), (0, react_jsx_runtime.jsx)("span", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: clsx(ContentStudio_module_css_default.badge, ContentStudio_module_css_default.badgeReady),
 										children: t("badge.ready")
 									})]
 								}),
-								(0, react_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: ContentStudio_module_css_default.cardDetail,
 									children: t(`cap.${item.id}.detail`)
 								}),
-								(0, react_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: clsx(ContentStudio_module_css_default.cardHint, copied && ContentStudio_module_css_default.cardHintCopied),
 									children: copied ? t("card.copied") : t("card.copyHint")
 								})
@@ -13288,7 +13257,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			});
 		}
 		//#endregion
-		//#region lib/types/client/AccountsView.js
+		//#region src/client/AccountsView.tsx
 		/**
 		* The accounts view: select the active creation account, add new ones, and
 		* delete non-default ones. State is browser-local and owned by the workbench
@@ -13300,43 +13269,43 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		* @returns the page element tree.
 		*/
 		function AccountsView({ account, accounts, onSelect, onAdd, onRemove, t }) {
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.workbench,
 				children: [
-					(0, react_jsx_runtime.jsx)("h2", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h2", {
 						className: ContentStudio_module_css_default.pageTitle,
 						children: t("accounts.title")
 					}),
-					(0, react_jsx_runtime.jsx)("p", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 						className: ContentStudio_module_css_default.helloSub,
 						children: t("accounts.hint")
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.accountsPane,
-						children: [(0, react_jsx_runtime.jsx)(AccountSelect, {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(AccountSelect, {
 							account,
 							accounts,
 							onSelect,
 							onAdd,
 							t
-						}), (0, react_jsx_runtime.jsx)("div", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 							className: ContentStudio_module_css_default.accountsList,
-							children: accounts.map((name) => (0, react_jsx_runtime.jsxs)("div", {
+							children: accounts.map((name) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.listRow,
-								children: [(0, react_jsx_runtime.jsxs)("span", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 									className: ContentStudio_module_css_default.listTitle,
-									children: [name, name === account && (0, react_jsx_runtime.jsx)("span", {
+									children: [name, name === account && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.accountActiveTag,
 										children: t("account.active")
 									})]
-								}), name !== "通用模式" && (0, react_jsx_runtime.jsx)("button", {
+								}), name !== "通用模式" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: ContentStudio_module_css_default.calendarChipAction,
 									"aria-label": t("accounts.delete"),
 									onClick: () => {
 										onRemove(name);
 									},
-									children: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 12 })
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 12 })
 								})]
 							}, name))
 						})]
@@ -13345,14 +13314,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			});
 		}
 		//#endregion
-		//#region lib/types/client/persona/model.js
-		/**
-		* The persona wizard's editable form model: the browser-side shape between
-		* the wire `PersonaEntry` and the four-step form. Every wire round-trip goes
-		* through {@link formFromEntry} / {@link inputFromForm}, and every field
-		* edit flips its provenance back to `user` — the AI never stays the source
-		* of a value the user has touched.
-		*/
+		//#region src/client/persona/model.ts
 		/**
 		* The persona vocabulary the browser owns: the platform, field, and style
 		* enum tables for the pickers, the packed prompt preview, and the fill
@@ -13429,7 +13391,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			hardcore: "硬核干货",
 			empathy: "温柔共情"
 		};
-		/** The empty form of a brand-new persona. */
+		/**
+		* The empty form of a brand-new persona.
+		* @returns the form with every field blank, no editing target, and no stored report.
+		*/
 		function emptyForm$1() {
 			const fields = {};
 			for (const key of PERSONA_FIELD_KEYS) fields[key] = {
@@ -13578,18 +13543,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			};
 		}
 		//#endregion
-		//#region lib/types/client/persona/prompt.js
-		/**
-		* The packed account-persona prompt (`persona-prompt@1`): the deterministic
-		* rendering that turns one persona's fields and style into the text the
-		* create face injects as its style layer. Pure functions of the persona
-		* content — the wizard's live preview, the card digest display, and the
-		* future create-side profile injection all read this one rendering, so the
-		* prompt the user previews is byte-for-byte the prompt that gets injected.
-		* Empty fields drop their whole line; AI-sourced values carry the inference
-		* annotation; banned words and red lines render as structured hard
-		* constraints, never blended into the prose.
-		*/
+		//#region src/client/persona/prompt.ts
 		/** The annotation appended to AI-inferred values, in the prompt and the report alike. */
 		const PERSONA_AI_MARK = "（AI 推断，供参考）";
 		/**
@@ -13712,7 +13666,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"personaTitle": "SWa2cq_personaTitle"
 		};
 		//#endregion
-		//#region lib/types/client/PersonaView.js
+		//#region src/client/PersonaView.tsx
 		/**
 		* The persona view: the account-persona card list over the `_personas.json`
 		* manifest, the four-step wizard (basics, social links, intent, style and
@@ -13736,18 +13690,18 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			}, [personas]);
 			const previewEntry = previewId === null ? null : state.personas.find((entry) => entry.id === previewId) ?? null;
 			const reportEntry = state.reportId === null ? null : state.personas.find((entry) => entry.id === state.reportId) ?? null;
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: PersonaView_module_css_default.persona,
 				children: [
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: PersonaView_module_css_default.personaHead,
-						children: [(0, react_jsx_runtime.jsxs)("div", { children: [(0, react_jsx_runtime.jsx)("h2", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h2", {
 							className: PersonaView_module_css_default.personaTitle,
 							children: t("persona.title")
-						}), (0, react_jsx_runtime.jsx)("p", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 							className: PersonaView_module_css_default.personaHint,
 							children: t("persona.hint")
-						})] }), (0, react_jsx_runtime.jsx)("button", {
+						})] }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: PersonaView_module_css_default.personaPrimary,
 							onClick: () => {
@@ -13756,12 +13710,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							children: t("persona.new")
 						})]
 					}),
-					state.legacyText !== null && (0, react_jsx_runtime.jsxs)("div", {
+					state.legacyText !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: PersonaView_module_css_default.personaBanner,
 						role: "status",
 						children: [
-							(0, react_jsx_runtime.jsx)("span", { children: t("persona.legacy.text") }),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("persona.legacy.text") }),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: PersonaView_module_css_default.personaMini,
 								onClick: () => {
@@ -13769,7 +13723,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								children: t("persona.legacy.import")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: PersonaView_module_css_default.personaMini,
 								onClick: () => {
@@ -13779,12 +13733,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					state.problems.length > 0 && (0, react_jsx_runtime.jsx)("div", {
+					state.problems.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: PersonaView_module_css_default.personaBanner,
 						role: "alert",
 						children: `${t("persona.problems")} ${state.problems.join(" ")}`
 					}),
-					state.notice !== null && (0, react_jsx_runtime.jsx)("button", {
+					state.notice !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 						type: "button",
 						className: PersonaView_module_css_default.personaNotice,
 						role: "status",
@@ -13793,15 +13747,15 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						},
 						children: t(`persona.notice.${state.notice}`)
 					}),
-					state.loading ? (0, react_jsx_runtime.jsx)("p", {
+					state.loading ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 						className: PersonaView_module_css_default.personaEmpty,
 						children: t("persona.loading")
-					}) : state.personas.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
+					}) : state.personas.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 						className: PersonaView_module_css_default.personaEmpty,
 						children: t("persona.empty")
-					}) : (0, react_jsx_runtime.jsx)("div", {
+					}) : /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: PersonaView_module_css_default.personaGrid,
-						children: state.personas.map((entry) => (0, react_jsx_runtime.jsx)(PersonaCardView, {
+						children: state.personas.map((entry) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)(PersonaCardView, {
 							entry,
 							selected: state.selectedId === entry.id,
 							controller: personas,
@@ -13812,17 +13766,17 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							t
 						}, entry.id))
 					}),
-					previewEntry !== null && (0, react_jsx_runtime.jsx)(PersonaPreviewPanel, {
+					previewEntry !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(PersonaPreviewPanel, {
 						entry: previewEntry,
 						controller: personas,
 						t
 					}),
-					state.wizard !== null && (0, react_jsx_runtime.jsx)(PersonaWizard, {
+					state.wizard !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(PersonaWizard, {
 						state,
 						controller: personas,
 						t
 					}),
-					reportEntry !== null && (0, react_jsx_runtime.jsx)(PersonaReportPanel, {
+					reportEntry !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(PersonaReportPanel, {
 						entry: reportEntry,
 						controller: personas,
 						t
@@ -13834,44 +13788,44 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		function PersonaCardView(props) {
 			const { entry, selected, previewOpen, controller, onTogglePreview, t } = props;
 			const stale = entry.report !== null && entry.revision > entry.report.sourceRevision;
-			return (0, react_jsx_runtime.jsxs)("article", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("article", {
 				className: PersonaView_module_css_default.personaCard,
 				children: [
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: PersonaView_module_css_default.personaCardHead,
 						children: [
-							(0, react_jsx_runtime.jsx)("h3", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h3", {
 								className: PersonaView_module_css_default.personaCardName,
 								children: entry.name
 							}),
-							selected && (0, react_jsx_runtime.jsx)("span", {
+							selected && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: PersonaView_module_css_default.personaBadgeActive,
 								children: t("persona.card.selected")
 							}),
-							entry.report !== null && (0, react_jsx_runtime.jsx)("span", {
+							entry.report !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: stale ? PersonaView_module_css_default.personaBadgeStale : PersonaView_module_css_default.personaBadge,
 								children: stale ? t("persona.card.stale") : t("persona.card.report")
 							})
 						]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: PersonaView_module_css_default.personaChips,
-						children: [entry.platforms.map((platform) => (0, react_jsx_runtime.jsx)("span", {
+						children: [entry.platforms.map((platform) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: PersonaView_module_css_default.personaChip,
 							children: PERSONA_PLATFORM_LABELS[platform]
-						}, platform)), entry.fields.niche.value !== null && (0, react_jsx_runtime.jsx)("span", {
+						}, platform)), entry.fields.niche.value !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: PersonaView_module_css_default.personaChip,
 							children: entry.fields.niche.value
 						})]
 					}),
-					(0, react_jsx_runtime.jsx)("p", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 						className: PersonaView_module_css_default.personaDigest,
 						children: entry.digest
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: PersonaView_module_css_default.personaActions,
 						children: [
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: PersonaView_module_css_default.personaMini,
 								onClick: () => {
@@ -13879,13 +13833,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								children: t(selected ? "persona.card.deselect" : "persona.card.select")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: PersonaView_module_css_default.personaMini,
 								onClick: onTogglePreview,
 								children: t(previewOpen ? "persona.card.hide" : "persona.card.preview")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: PersonaView_module_css_default.personaMini,
 								onClick: () => {
@@ -13893,7 +13847,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								children: t("persona.card.edit")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: PersonaView_module_css_default.personaMini,
 								onClick: () => {
@@ -13901,7 +13855,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								children: t("persona.card.reportView")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: PersonaView_module_css_default.personaMini,
 								onClick: () => {
@@ -13909,7 +13863,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								children: t("persona.card.clone")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: PersonaView_module_css_default.personaMini,
 								onClick: () => {
@@ -13926,13 +13880,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		function PersonaPreviewPanel(props) {
 			const { entry, controller, t } = props;
 			const sourceBadge = (source) => source === "ai" ? t("persona.preview.source.ai") : source === "template" ? t("persona.preview.source.template") : t("persona.preview.source.user");
-			return (0, react_jsx_runtime.jsxs)("section", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 				className: PersonaView_module_css_default.personaPreview,
 				"aria-label": t("persona.preview.title"),
 				children: [
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: PersonaView_module_css_default.personaPreviewHead,
-						children: [(0, react_jsx_runtime.jsx)("h3", { children: t("persona.preview.title") }), entry.id !== controller.getState().selectedId && (0, react_jsx_runtime.jsx)("button", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h3", { children: t("persona.preview.title") }), entry.id !== controller.getState().selectedId && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: PersonaView_module_css_default.personaMini,
 							onClick: () => {
@@ -13941,33 +13895,33 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							children: t("persona.preview.use")
 						})]
 					}),
-					(0, react_jsx_runtime.jsx)("dl", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("dl", {
 						className: PersonaView_module_css_default.personaFacts,
 						children: PERSONA_FIELD_KEYS.map((key) => {
 							const field = entry.fields[key];
 							if (field.value === null) return null;
-							return (0, react_jsx_runtime.jsxs)("div", {
+							return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: PersonaView_module_css_default.personaFact,
-								children: [(0, react_jsx_runtime.jsxs)("dt", { children: [
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("dt", { children: [
 									PERSONA_FIELD_LABELS[key],
 									" ",
-									(0, react_jsx_runtime.jsx)("span", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: PersonaView_module_css_default.personaSource,
 										children: sourceBadge(field.source)
 									})
-								] }), (0, react_jsx_runtime.jsx)("dd", { children: field.value })]
+								] }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("dd", { children: field.value })]
 							}, key);
 						})
 					}),
-					(0, react_jsx_runtime.jsx)("p", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 						className: PersonaView_module_css_default.personaFactLine,
 						children: `${t("persona.preview.digest")}：${entry.digest}`
 					}),
-					entry.style.bannedWords.length > 0 && (0, react_jsx_runtime.jsx)("p", {
+					entry.style.bannedWords.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 						className: PersonaView_module_css_default.personaFactLine,
 						children: `${t("persona.preview.banned")}：${entry.style.bannedWords.join("；")}`
 					}),
-					entry.style.redLines.length > 0 && (0, react_jsx_runtime.jsx)("p", {
+					entry.style.redLines.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 						className: PersonaView_module_css_default.personaFactLine,
 						children: `${t("persona.preview.red")}：${entry.style.redLines.join("；")}`
 					})
@@ -13976,9 +13930,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		}
 		/** Shared label+control row for the wizard's fields. */
 		function FieldRow(props) {
-			return (0, react_jsx_runtime.jsxs)("label", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 				className: PersonaView_module_css_default.personaField,
-				children: [(0, react_jsx_runtime.jsx)("span", {
+				children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 					className: PersonaView_module_css_default.personaFieldLabel,
 					children: props.label
 				}), props.children]
@@ -14009,23 +13963,23 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					redLines: parseWordList(form.redLinesText)
 				}
 			});
-			return (0, react_jsx_runtime.jsx)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 				className: PersonaView_module_css_default.personaModal,
 				role: "dialog",
 				"aria-modal": "true",
 				"aria-label": t("persona.wizard.title"),
-				children: (0, react_jsx_runtime.jsxs)("div", {
+				children: /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: PersonaView_module_css_default.personaModalCard,
 					children: [
-						(0, react_jsx_runtime.jsxs)("div", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: PersonaView_module_css_default.personaModalHead,
 							children: [
-								(0, react_jsx_runtime.jsx)("h3", { children: t("persona.wizard.title") }),
-								(0, react_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h3", { children: t("persona.wizard.title") }),
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: PersonaView_module_css_default.personaStepLabel,
 									children: `${String(step)} / 4 · ${t(`persona.wizard.step${String(step)}`)}`
 								}),
-								(0, react_jsx_runtime.jsx)("button", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: PersonaView_module_css_default.personaMini,
 									onClick: () => {
@@ -14036,12 +13990,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								})
 							]
 						}),
-						step === 1 && (0, react_jsx_runtime.jsxs)("div", {
+						step === 1 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: PersonaView_module_css_default.personaStepBody,
 							children: [
-								(0, react_jsx_runtime.jsx)(FieldRow, {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FieldRow, {
 									label: t("persona.name.label"),
-									children: (0, react_jsx_runtime.jsx)("input", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										value: form.name,
 										placeholder: t("persona.name.placeholder"),
 										onChange: (event) => {
@@ -14049,14 +14003,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										}
 									})
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: PersonaView_module_css_default.personaField,
-									children: [(0, react_jsx_runtime.jsx)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: PersonaView_module_css_default.personaFieldLabel,
 										children: t("persona.platforms.label")
-									}), (0, react_jsx_runtime.jsx)("div", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 										className: PersonaView_module_css_default.personaChips,
-										children: PERSONA_PLATFORMS.map((platform) => (0, react_jsx_runtime.jsx)("button", {
+										children: PERSONA_PLATFORMS.map((platform) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											className: form.platforms.includes(platform) ? PersonaView_module_css_default.personaChipOn : PersonaView_module_css_default.personaChip,
 											onClick: () => {
@@ -14066,14 +14020,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										}, platform))
 									})]
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: PersonaView_module_css_default.personaField,
-									children: [(0, react_jsx_runtime.jsx)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: PersonaView_module_css_default.personaFieldLabel,
 										children: t("persona.stage.label")
-									}), (0, react_jsx_runtime.jsx)("div", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 										className: PersonaView_module_css_default.personaChips,
-										children: ["fresh", "existing"].map((stage) => (0, react_jsx_runtime.jsx)("button", {
+										children: ["fresh", "existing"].map((stage) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											className: form.accountStage === stage ? PersonaView_module_css_default.personaChipOn : PersonaView_module_css_default.personaChip,
 											onClick: () => {
@@ -14083,18 +14037,18 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										}, stage))
 									})]
 								}),
-								(0, react_jsx_runtime.jsx)(FieldRow, {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FieldRow, {
 									label: PERSONA_FIELD_LABELS.niche,
-									children: (0, react_jsx_runtime.jsx)("input", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										value: form.fields.niche.value,
 										onChange: (event) => {
 											setField("niche")(event.currentTarget.value);
 										}
 									})
 								}),
-								(0, react_jsx_runtime.jsx)(FieldRow, {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FieldRow, {
 									label: PERSONA_FIELD_LABELS.whoAmI,
-									children: (0, react_jsx_runtime.jsx)("textarea", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 										rows: 4,
 										value: form.fields.whoAmI.value,
 										onChange: (event) => {
@@ -14102,11 +14056,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										}
 									})
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: PersonaView_module_css_default.personaResume,
-									children: [(0, react_jsx_runtime.jsx)(FieldRow, {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FieldRow, {
 										label: t("persona.resume.title"),
-										children: (0, react_jsx_runtime.jsx)("textarea", {
+										children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 											rows: 3,
 											placeholder: t("persona.resume.paste"),
 											value: form.resumeText,
@@ -14114,10 +14068,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												controller.updateForm({ resumeText: event.currentTarget.value.slice(0, TEXT_CAP) });
 											}
 										})
-									}), (0, react_jsx_runtime.jsxs)("div", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: PersonaView_module_css_default.personaResumeRow,
 										children: [
-											(0, react_jsx_runtime.jsx)("input", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 												type: "file",
 												accept: ".txt,.md",
 												onChange: (event) => {
@@ -14132,9 +14086,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 													})();
 												}
 											}),
-											(0, react_jsx_runtime.jsxs)("label", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 												className: PersonaView_module_css_default.personaConsent,
-												children: [(0, react_jsx_runtime.jsx)("input", {
+												children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 													type: "checkbox",
 													checked: form.resumeConsent,
 													onChange: (event) => {
@@ -14142,7 +14096,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 													}
 												}), t("persona.resume.consent")]
 											}),
-											(0, react_jsx_runtime.jsx)("button", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												className: PersonaView_module_css_default.personaMini,
 												disabled: state.aiBusy !== false,
@@ -14154,9 +14108,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										]
 									})]
 								}),
-								(0, react_jsx_runtime.jsx)(FieldRow, {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FieldRow, {
 									label: PERSONA_FIELD_LABELS.audience,
-									children: (0, react_jsx_runtime.jsx)("textarea", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 										rows: 3,
 										value: form.fields.audience.value,
 										onChange: (event) => {
@@ -14164,9 +14118,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										}
 									})
 								}),
-								(0, react_jsx_runtime.jsx)(FieldRow, {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FieldRow, {
 									label: PERSONA_FIELD_LABELS.oneLiner,
-									children: (0, react_jsx_runtime.jsx)("input", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										value: form.fields.oneLiner.value,
 										onChange: (event) => {
 											setField("oneLiner")(event.currentTarget.value);
@@ -14175,37 +14129,37 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								})
 							]
 						}),
-						step === 2 && (0, react_jsx_runtime.jsxs)("div", {
+						step === 2 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: PersonaView_module_css_default.personaStepBody,
 							children: [
-								form.links.map((link, index) => (0, react_jsx_runtime.jsxs)("div", {
+								form.links.map((link, index) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: PersonaView_module_css_default.personaLinkRow,
 									children: [
-										(0, react_jsx_runtime.jsx)("select", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("select", {
 											value: link.platform,
 											onChange: (event) => {
 												updateLink(index, { platform: event.currentTarget.value });
 											},
-											children: PERSONA_PLATFORMS.map((platform) => (0, react_jsx_runtime.jsx)("option", {
+											children: PERSONA_PLATFORMS.map((platform) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 												value: platform,
 												children: PERSONA_PLATFORM_LABELS[platform]
 											}, platform))
 										}),
-										(0, react_jsx_runtime.jsx)("input", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 											placeholder: t("persona.links.url"),
 											value: link.url,
 											onChange: (event) => {
 												updateLink(index, { url: event.currentTarget.value });
 											}
 										}),
-										(0, react_jsx_runtime.jsx)("input", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 											placeholder: t("persona.links.bio"),
 											value: link.bio ?? "",
 											onChange: (event) => {
 												updateLink(index, { bio: event.currentTarget.value.slice(0, TEXT_CAP) });
 											}
 										}),
-										(0, react_jsx_runtime.jsx)("button", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											className: PersonaView_module_css_default.personaMini,
 											onClick: () => {
@@ -14215,7 +14169,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										})
 									]
 								}, index)),
-								(0, react_jsx_runtime.jsx)("button", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: PersonaView_module_css_default.personaMini,
 									onClick: () => {
@@ -14223,9 +14177,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									},
 									children: t("persona.links.add")
 								}),
-								(0, react_jsx_runtime.jsx)(FieldRow, {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FieldRow, {
 									label: t("persona.site.url.label"),
-									children: (0, react_jsx_runtime.jsx)("input", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										placeholder: t("persona.site.url.placeholder"),
 										value: form.siteUrl,
 										onChange: (event) => {
@@ -14233,9 +14187,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										}
 									})
 								}),
-								(0, react_jsx_runtime.jsx)(FieldRow, {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FieldRow, {
 									label: t("persona.site.paste.label"),
-									children: (0, react_jsx_runtime.jsx)("textarea", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 										rows: 4,
 										value: form.sitePastedText,
 										onChange: (event) => {
@@ -14243,7 +14197,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										}
 									})
 								}),
-								(0, react_jsx_runtime.jsx)("button", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: PersonaView_module_css_default.personaMini,
 									disabled: true,
@@ -14252,39 +14206,39 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								})
 							]
 						}),
-						step === 3 && (0, react_jsx_runtime.jsxs)("div", {
+						step === 3 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: PersonaView_module_css_default.personaStepBody,
 							children: [
-								(0, react_jsx_runtime.jsx)(FieldRow, {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FieldRow, {
 									label: PERSONA_FIELD_LABELS.goal,
-									children: (0, react_jsx_runtime.jsx)("input", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										value: form.fields.goal.value,
 										onChange: (event) => {
 											setField("goal")(event.currentTarget.value);
 										}
 									})
 								}),
-								(0, react_jsx_runtime.jsx)(FieldRow, {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FieldRow, {
 									label: PERSONA_FIELD_LABELS.monetize,
-									children: (0, react_jsx_runtime.jsx)("input", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										value: form.fields.monetize.value,
 										onChange: (event) => {
 											setField("monetize")(event.currentTarget.value);
 										}
 									})
 								}),
-								(0, react_jsx_runtime.jsx)(FieldRow, {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FieldRow, {
 									label: PERSONA_FIELD_LABELS.contentValue,
-									children: (0, react_jsx_runtime.jsx)("input", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										value: form.fields.contentValue.value,
 										onChange: (event) => {
 											setField("contentValue")(event.currentTarget.value);
 										}
 									})
 								}),
-								(0, react_jsx_runtime.jsx)(FieldRow, {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FieldRow, {
 									label: PERSONA_FIELD_LABELS.cadence,
-									children: (0, react_jsx_runtime.jsx)("input", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										value: form.fields.cadence.value,
 										onChange: (event) => {
 											setField("cadence")(event.currentTarget.value);
@@ -14293,28 +14247,28 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								})
 							]
 						}),
-						step === 4 && (0, react_jsx_runtime.jsxs)("div", {
+						step === 4 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: PersonaView_module_css_default.personaStepBody,
 							children: [
-								(0, react_jsx_runtime.jsx)(FieldRow, {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FieldRow, {
 									label: t("persona.style.preset.label"),
-									children: (0, react_jsx_runtime.jsxs)("select", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 										value: form.preset ?? "",
 										onChange: (event) => {
 											controller.updateForm({ preset: event.currentTarget.value === "" ? null : event.currentTarget.value });
 										},
-										children: [(0, react_jsx_runtime.jsx)("option", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 											value: "",
 											children: t("persona.style.preset.none")
-										}), PERSONA_STYLE_PRESETS.map((preset) => (0, react_jsx_runtime.jsx)("option", {
+										}), PERSONA_STYLE_PRESETS.map((preset) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 											value: preset,
 											children: PERSONA_STYLE_PRESET_LABELS[preset]
 										}, preset))]
 									})
 								}),
-								(0, react_jsx_runtime.jsx)(FieldRow, {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FieldRow, {
 									label: t("persona.style.custom.label"),
-									children: (0, react_jsx_runtime.jsx)("textarea", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 										rows: 2,
 										placeholder: t("persona.style.custom.placeholder"),
 										value: form.customText,
@@ -14323,14 +14277,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										}
 									})
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: PersonaView_module_css_default.personaField,
-									children: [(0, react_jsx_runtime.jsx)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: PersonaView_module_css_default.personaFieldLabel,
 										children: t("persona.style.strength.label")
-									}), (0, react_jsx_runtime.jsx)("div", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 										className: PersonaView_module_css_default.personaChips,
-										children: ["light", "strict"].map((strength) => (0, react_jsx_runtime.jsx)("button", {
+										children: ["light", "strict"].map((strength) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											className: form.strength === strength ? PersonaView_module_css_default.personaChipOn : PersonaView_module_css_default.personaChip,
 											onClick: () => {
@@ -14340,18 +14294,18 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										}, strength))
 									})]
 								}),
-								(0, react_jsx_runtime.jsx)(FieldRow, {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FieldRow, {
 									label: PERSONA_FIELD_LABELS.phrases,
-									children: (0, react_jsx_runtime.jsx)("input", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										value: form.fields.phrases.value,
 										onChange: (event) => {
 											setField("phrases")(event.currentTarget.value);
 										}
 									})
 								}),
-								(0, react_jsx_runtime.jsx)(FieldRow, {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FieldRow, {
 									label: t("persona.style.banned.label"),
-									children: (0, react_jsx_runtime.jsx)("textarea", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 										rows: 2,
 										value: form.bannedWordsText,
 										onChange: (event) => {
@@ -14359,9 +14313,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										}
 									})
 								}),
-								(0, react_jsx_runtime.jsx)(FieldRow, {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FieldRow, {
 									label: t("persona.style.red.label"),
-									children: (0, react_jsx_runtime.jsx)("textarea", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 										rows: 2,
 										value: form.redLinesText,
 										onChange: (event) => {
@@ -14369,11 +14323,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										}
 									})
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: PersonaView_module_css_default.personaPromptBox,
-									children: [(0, react_jsx_runtime.jsxs)("div", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: PersonaView_module_css_default.personaPromptHead,
-										children: [(0, react_jsx_runtime.jsx)("strong", { children: t("persona.prompt.preview") }), (0, react_jsx_runtime.jsx)("button", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: t("persona.prompt.preview") }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											className: PersonaView_module_css_default.personaMini,
 											onClick: () => {
@@ -14381,22 +14335,22 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											},
 											children: t("persona.prompt.copy")
 										})]
-									}), (0, react_jsx_runtime.jsx)("pre", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("pre", {
 										className: PersonaView_module_css_default.personaPromptText,
 										children: prompt
 									})]
 								})
 							]
 						}),
-						state.fillPreview !== null && (0, react_jsx_runtime.jsx)(FillPreviewPanel, {
+						state.fillPreview !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(FillPreviewPanel, {
 							state,
 							controller,
 							t
 						}),
-						(0, react_jsx_runtime.jsxs)("div", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: PersonaView_module_css_default.personaModalFoot,
 							children: [
-								step > 1 && (0, react_jsx_runtime.jsx)("button", {
+								step > 1 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: PersonaView_module_css_default.personaMini,
 									onClick: () => {
@@ -14404,7 +14358,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									},
 									children: t("persona.prev")
 								}),
-								step < 4 && (0, react_jsx_runtime.jsx)("button", {
+								step < 4 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: PersonaView_module_css_default.personaPrimary,
 									onClick: () => {
@@ -14412,7 +14366,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									},
 									children: t("persona.next")
 								}),
-								(0, react_jsx_runtime.jsx)("button", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: PersonaView_module_css_default.personaPrimary,
 									disabled: state.saving,
@@ -14421,7 +14375,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									},
 									children: state.saving ? t("persona.saving") : t("persona.save")
 								}),
-								step === 4 && (0, react_jsx_runtime.jsx)("button", {
+								step === 4 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: PersonaView_module_css_default.personaMini,
 									disabled: state.aiBusy !== false,
@@ -14442,14 +14396,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			const { state, controller, t } = props;
 			const preview = state.fillPreview;
 			if (preview === null) return null;
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: PersonaView_module_css_default.personaFill,
 				role: "status",
-				children: [(0, react_jsx_runtime.jsxs)("div", {
+				children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: PersonaView_module_css_default.personaFillHead,
 					children: [
-						(0, react_jsx_runtime.jsx)("strong", { children: t("persona.fill.title") }),
-						(0, react_jsx_runtime.jsx)("button", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: t("persona.fill.title") }),
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: PersonaView_module_css_default.personaMini,
 							onClick: () => {
@@ -14457,7 +14411,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							},
 							children: t("persona.fill.adoptAll")
 						}),
-						(0, react_jsx_runtime.jsx)("button", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: PersonaView_module_css_default.personaMini,
 							onClick: () => {
@@ -14466,7 +14420,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							children: t("persona.fill.discard")
 						})
 					]
-				}), Object.keys(preview.fields).map((key) => (0, react_jsx_runtime.jsx)(FillRow, {
+				}), Object.keys(preview.fields).map((key) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)(FillRow, {
 					fieldKey: key,
 					value: preview.fields[key] ?? "",
 					controller,
@@ -14478,21 +14432,21 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		function FillRow(props) {
 			const { fieldKey, value, controller, t } = props;
 			const [draft, setDraft] = (0, react.useState)(value);
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: PersonaView_module_css_default.personaFillRow,
 				children: [
-					(0, react_jsx_runtime.jsx)("span", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 						className: PersonaView_module_css_default.personaFieldLabel,
 						children: PERSONA_FIELD_LABELS[fieldKey]
 					}),
-					(0, react_jsx_runtime.jsx)("textarea", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 						rows: 2,
 						value: draft,
 						onChange: (event) => {
 							setDraft(event.currentTarget.value);
 						}
 					}),
-					(0, react_jsx_runtime.jsx)("button", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 						type: "button",
 						className: PersonaView_module_css_default.personaMini,
 						onClick: () => {
@@ -14516,17 +14470,17 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				if (report !== null && report.editedByUser && !window.confirm(t("persona.report.confirmRegen"))) return;
 				controller.generateReport(entry.id);
 			};
-			return (0, react_jsx_runtime.jsx)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 				className: PersonaView_module_css_default.personaModal,
 				role: "dialog",
 				"aria-modal": "true",
 				"aria-label": t("persona.report.title"),
-				children: (0, react_jsx_runtime.jsxs)("div", {
+				children: /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: PersonaView_module_css_default.personaModalCard,
 					children: [
-						(0, react_jsx_runtime.jsxs)("div", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: PersonaView_module_css_default.personaModalHead,
-							children: [(0, react_jsx_runtime.jsx)("h3", { children: `${t("persona.report.title")} · ${entry.name}` }), (0, react_jsx_runtime.jsx)("button", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h3", { children: `${t("persona.report.title")} · ${entry.name}` }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: PersonaView_module_css_default.personaMini,
 								onClick: () => {
@@ -14536,20 +14490,20 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								children: t("persona.report.close")
 							})]
 						}),
-						report === null ? (0, react_jsx_runtime.jsx)("p", {
+						report === null ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 							className: PersonaView_module_css_default.personaEmpty,
 							children: t("persona.report.empty")
-						}) : (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
-							stale && (0, react_jsx_runtime.jsx)("div", {
+						}) : /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
+							stale && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 								className: PersonaView_module_css_default.personaBanner,
 								role: "status",
 								children: t("persona.report.stale")
 							}),
-							report.editedByUser && (0, react_jsx_runtime.jsx)("p", {
+							report.editedByUser && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 								className: PersonaView_module_css_default.personaReportEdited,
 								children: t("persona.report.edited")
 							}),
-							(0, react_jsx_runtime.jsx)("textarea", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 								className: PersonaView_module_css_default.personaReportText,
 								rows: 14,
 								value: draft,
@@ -14558,9 +14512,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								}
 							})
 						] }),
-						(0, react_jsx_runtime.jsxs)("div", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: PersonaView_module_css_default.personaModalFoot,
-							children: [(0, react_jsx_runtime.jsx)("button", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: PersonaView_module_css_default.personaMini,
 								disabled: controller.getState().aiBusy !== false || report === null || draft.trim().length === 0 || draft === report.markdown,
@@ -14568,7 +14522,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									controller.saveReportEdit(entry.id, draft);
 								},
 								children: t("persona.report.edit.save")
-							}), (0, react_jsx_runtime.jsx)("button", {
+							}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: PersonaView_module_css_default.personaPrimary,
 								disabled: controller.getState().aiBusy === "report",
@@ -14581,14 +14535,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			});
 		}
 		//#endregion
-		//#region lib/types/client/competitors.js
-		/**
-		* Browser-side configuration and pure logic for the competitors view: the
-		* benchmark-account registry (localStorage), dedup/upsert semantics, the
-		* account-relative heat ranking, report digests, and the catch-up check.
-		* No React, no IO beyond the one localStorage namespace — everything here is
-		* unit-testable, and the manifest itself lives on disk behind the gateway.
-		*/
+		//#region src/client/competitors.ts
 		/** localStorage namespace owned by the competitors view. */
 		const COMPETITORS_STORAGE_KEY = "dsh-content-studio.competitors.accounts";
 		/** Pre-alignment namespace; still read on load so existing browsers migrate. */
@@ -14718,7 +14665,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		function duplicateKey(account) {
 			return `${account.platform}::${account.name.trim()}`;
 		}
-		/** Export the registry as the import/export JSON payload. */
+		/**
+		* Export the registry as the import/export JSON payload.
+		* @param accounts - the accounts to serialize.
+		* @returns the pretty-printed JSON payload with a trailing newline, the exact format `importAccounts` accepts.
+		*/
 		function exportAccounts(accounts) {
 			return `${JSON.stringify(accounts, null, 2)}\n`;
 		}
@@ -14976,6 +14927,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				topicDir: null
 			};
 		}
+		/**
+		* Build the topic-idea markdown file the competitor view saves for one work.
+		* @param work - the source competitor work the idea came from.
+		* @param idea - the differentiated-angle suggestion; falls back to the work title when absent.
+		* @returns the markdown document with a `kind: topic-idea` front matter and source-attribution footer.
+		*/
 		function buildIdeaMarkdown(work, idea) {
 			return `${[
 				"---",
@@ -14998,7 +14955,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			].join("\n")}\n`;
 		}
 		//#endregion
-		//#region lib/types/client/CompetitorsView.js
+		//#region src/client/CompetitorsView.tsx
 		/**
 		* The competitors view (对标账号): benchmark-account registry in the browser,
 		* works library on disk behind the content-outputs competitor write face,
@@ -15452,11 +15409,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					}
 				});
 			};
-			const themeInput = (0, react_jsx_runtime.jsxs)("label", {
+			const themeInput = /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 				className: ContentStudio_module_css_default.compThemeRow,
 				children: [
-					(0, react_jsx_runtime.jsx)("span", { children: t("comp.theme") }),
-					(0, react_jsx_runtime.jsx)("input", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("comp.theme") }),
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 						className: ContentStudio_module_css_default.compInput,
 						list: "comp-theme-options",
 						placeholder: t("comp.themePlaceholder"),
@@ -15465,16 +15422,16 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							selectTheme(event.currentTarget.value);
 						}
 					}),
-					(0, react_jsx_runtime.jsx)("datalist", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("datalist", {
 						id: "comp-theme-options",
-						children: projects.map((project) => (0, react_jsx_runtime.jsx)("option", { value: project.topic }, project.topic))
+						children: projects.map((project) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", { value: project.topic }, project.topic))
 					})
 				]
 			});
-			const sectionBar = (0, react_jsx_runtime.jsx)("div", {
+			const sectionBar = /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.compSections,
 				role: "tablist",
-				children: SECTIONS.map((candidate) => (0, react_jsx_runtime.jsx)("button", {
+				children: SECTIONS.map((candidate) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 					type: "button",
 					role: "tab",
 					"aria-selected": section === candidate,
@@ -15485,37 +15442,37 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					children: t(SECTION_KEYS[candidate])
 				}, candidate))
 			});
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.comp,
 				children: [
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.compToolbar,
 						children: [themeInput, sectionBar]
 					}),
-					theme.length === 0 && (0, react_jsx_runtime.jsx)("div", {
+					theme.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: ContentStudio_module_css_default.compBanner,
 						children: t("comp.noTheme")
 					}),
-					storageDegraded && (0, react_jsx_runtime.jsx)("div", {
+					storageDegraded && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: ContentStudio_module_css_default.compBanner,
 						children: t("comp.storageDegraded")
 					}),
-					manifestError !== void 0 && (0, react_jsx_runtime.jsxs)("div", {
+					manifestError !== void 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.compBanner,
-						children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), (0, react_jsx_runtime.jsxs)("span", { children: [
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
 							t("comp.manifestError"),
 							": ",
 							manifestError
 						] })]
 					}),
-					manifestProblems.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
+					manifestProblems.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.compBanner,
 						role: "alert",
-						children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), (0, react_jsx_runtime.jsx)("span", { children: t("comp.manifestProblems", { n: manifestProblems.length }) })]
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("comp.manifestProblems", { n: manifestProblems.length }) })]
 					}),
-					manifest !== void 0 && stale.length > 0 && section !== "accounts" && (0, react_jsx_runtime.jsxs)("div", {
+					manifest !== void 0 && stale.length > 0 && section !== "accounts" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.compBanner,
-						children: [(0, react_jsx_runtime.jsx)("span", { children: t("comp.stale", { names: stale.map((account) => account.name).join("、") }) }), (0, react_jsx_runtime.jsx)("button", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("comp.stale", { names: stale.map((account) => account.name).join("、") }) }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: ContentStudio_module_css_default.retry,
 							onClick: () => {
@@ -15524,7 +15481,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							children: t("comp.markCollected")
 						})]
 					}),
-					actionError !== void 0 && (0, react_jsx_runtime.jsxs)("div", {
+					actionError !== void 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.compBanner,
 						children: [
 							t("comp.actionError"),
@@ -15532,7 +15489,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							actionError
 						]
 					}),
-					section === "accounts" && (0, react_jsx_runtime.jsx)(AccountsSection, {
+					section === "accounts" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(AccountsSection, {
 						accounts,
 						form: accountForm,
 						onForm: setAccountForm,
@@ -15554,58 +15511,58 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						},
 						t
 					}),
-					section === "works" && (0, react_jsx_runtime.jsxs)("div", {
+					section === "works" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.compSplit,
-						children: [(0, react_jsx_runtime.jsxs)("div", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: ContentStudio_module_css_default.compListPane,
 							children: [
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: ContentStudio_module_css_default.compFilterRow,
 									children: [
-										(0, react_jsx_runtime.jsxs)("select", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 											className: ContentStudio_module_css_default.compInput,
 											value: workFormState.accountId,
 											onChange: (event) => {
 												setWorkFormState(workForm(event.currentTarget.value, workFormState.platform));
 											},
-											children: [(0, react_jsx_runtime.jsx)("option", {
+											children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 												value: "",
 												children: t("comp.filterAllAccounts")
-											}), accounts.map((account) => (0, react_jsx_runtime.jsx)("option", {
+											}), accounts.map((account) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 												value: account.id,
 												children: account.name
 											}, account.id))]
 										}),
-										(0, react_jsx_runtime.jsxs)("select", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 											className: ContentStudio_module_css_default.compInput,
 											value: flagFilter,
 											onChange: (event) => {
 												setFlagFilter(event.currentTarget.value);
 											},
 											children: [
-												(0, react_jsx_runtime.jsx)("option", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 													value: "all",
 													children: t("comp.filterAll")
 												}),
-												(0, react_jsx_runtime.jsx)("option", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 													value: "hot",
 													children: t("comp.filterHot")
 												}),
-												(0, react_jsx_runtime.jsx)("option", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 													value: "favorite",
 													children: t("comp.filterFavorite")
 												}),
-												(0, react_jsx_runtime.jsx)("option", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 													value: "analyzed",
 													children: t("comp.filterAnalyzed")
 												}),
-												(0, react_jsx_runtime.jsx)("option", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 													value: "unanalyzed",
 													children: t("comp.filterUnanalyzed")
 												})
 											]
 										}),
-										(0, react_jsx_runtime.jsx)("input", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 											className: ContentStudio_module_css_default.compInput,
 											placeholder: t("comp.search"),
 											value: query,
@@ -15615,9 +15572,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										})
 									]
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: ContentStudio_module_css_default.compImportRow,
-									children: [(0, react_jsx_runtime.jsx)("button", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.retry,
 										disabled: theme.length === 0,
@@ -15625,12 +15582,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											setImportOpen(!importOpen);
 										},
 										children: importOpen ? t("comp.importClose") : t("comp.importOpen")
-									}), (0, react_jsx_runtime.jsx)("span", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.listMeta,
 										children: t("comp.workCount", { n: current.works.length })
 									})]
 								}),
-								importOpen && (0, react_jsx_runtime.jsx)(WorkImportForm, {
+								importOpen && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(WorkImportForm, {
 									form: workFormState,
 									accounts,
 									onForm: setWorkFormState,
@@ -15638,12 +15595,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									disabled: theme.length === 0,
 									t
 								}),
-								(0, react_jsx_runtime.jsx)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 									className: ContentStudio_module_css_default.compWorkList,
-									children: works.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
+									children: works.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 										className: ContentStudio_module_css_default.panelEmpty,
 										children: t("comp.worksEmpty")
-									}) : works.map((work) => (0, react_jsx_runtime.jsx)(WorkRow, {
+									}) : works.map((work) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)(WorkRow, {
 										work,
 										heat: heat.get(work.id),
 										pending: pendingAnalysis.includes(work.id),
@@ -15656,12 +15613,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									}, work.id))
 								})
 							]
-						}), (0, react_jsx_runtime.jsx)("div", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 							className: ContentStudio_module_css_default.compDetailPane,
-							children: selectedWork === void 0 ? (0, react_jsx_runtime.jsx)("p", {
+							children: selectedWork === void 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 								className: ContentStudio_module_css_default.panelEmpty,
 								children: t("comp.pickWork")
-							}) : (0, react_jsx_runtime.jsx)(WorkDetail, {
+							}) : /* @__PURE__ */ (0, react_jsx_runtime.jsx)(WorkDetail, {
 								work: selectedWork,
 								themeReady: theme.length > 0,
 								pending: pendingAnalysis.includes(selectedWork.id),
@@ -15687,32 +15644,32 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						})]
 					}),
-					section === "reports" && (0, react_jsx_runtime.jsxs)("div", {
+					section === "reports" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.compSplit,
-						children: [(0, react_jsx_runtime.jsxs)("div", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: ContentStudio_module_css_default.compListPane,
-							children: [(0, react_jsx_runtime.jsxs)("div", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.compReportPicker,
 								children: [
-									(0, react_jsx_runtime.jsx)("p", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 										className: ContentStudio_module_css_default.compFieldLabel,
 										children: t("comp.reportAccount")
 									}),
-									(0, react_jsx_runtime.jsxs)("select", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 										className: ContentStudio_module_css_default.compInput,
 										value: compareIds[0] ?? "",
 										onChange: (event) => {
 											setCompareIds([event.currentTarget.value]);
 										},
-										children: [(0, react_jsx_runtime.jsx)("option", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 											value: "",
 											children: t("comp.pickAccount")
-										}), accounts.map((account) => (0, react_jsx_runtime.jsx)("option", {
+										}), accounts.map((account) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 											value: account.id,
 											children: account.name
 										}, account.id))]
 									}),
-									(0, react_jsx_runtime.jsx)("button", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.retry,
 										disabled: theme.length === 0 || generating || compareIds.length !== 1,
@@ -15722,25 +15679,25 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										},
 										children: t("comp.generateAccountReport")
 									}),
-									(0, react_jsx_runtime.jsx)("p", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 										className: ContentStudio_module_css_default.compFieldLabel,
 										children: t("comp.reportCompare")
 									}),
-									(0, react_jsx_runtime.jsxs)("select", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 										className: ContentStudio_module_css_default.compInput,
 										value: compareIds[1] ?? "",
 										onChange: (event) => {
 											setCompareIds([compareIds[0] ?? "", event.currentTarget.value].filter((id) => id.length > 0).slice(0, 2));
 										},
-										children: [(0, react_jsx_runtime.jsx)("option", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 											value: "",
 											children: t("comp.pickAccount")
-										}), accounts.filter((account) => account.id !== compareIds[0]).map((account) => (0, react_jsx_runtime.jsx)("option", {
+										}), accounts.filter((account) => account.id !== compareIds[0]).map((account) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 											value: account.id,
 											children: account.name
 										}, account.id))]
 									}),
-									(0, react_jsx_runtime.jsx)("button", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.retry,
 										disabled: theme.length === 0 || generating || compareIds.length !== 2,
@@ -15749,30 +15706,30 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										},
 										children: t("comp.generateCompareReport")
 									}),
-									generating && (0, react_jsx_runtime.jsx)("p", {
+									generating && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 										className: ContentStudio_module_css_default.panelEmpty,
 										children: t("comp.generating")
 									})
 								]
-							}), (0, react_jsx_runtime.jsx)("div", {
+							}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 								className: ContentStudio_module_css_default.compWorkList,
-								children: current.reports.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
+								children: current.reports.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 									className: ContentStudio_module_css_default.panelEmpty,
 									children: t("comp.reportsEmpty")
-								}) : current.reports.map((report) => (0, react_jsx_runtime.jsxs)("button", {
+								}) : current.reports.map((report) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 									type: "button",
 									className: clsx(ContentStudio_module_css_default.listRowButton, report.id === selectedReportId && ContentStudio_module_css_default.listRowCopied),
 									onClick: () => {
 										setSelectedReportId(report.id);
 									},
-									children: [(0, react_jsx_runtime.jsxs)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 										className: ContentStudio_module_css_default.listTitle,
 										children: [
 											t(report.kind === "account" ? "comp.reportKindAccount" : "comp.reportKindCompare"),
 											" · ",
 											report.accountNames.join(" vs ")
 										]
-									}), (0, react_jsx_runtime.jsxs)("span", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 										className: ContentStudio_module_css_default.listMeta,
 										children: [
 											report.createdAt.slice(0, 10),
@@ -15782,18 +15739,18 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									})]
 								}, report.id))
 							})]
-						}), (0, react_jsx_runtime.jsx)("div", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 							className: ContentStudio_module_css_default.compDetailPane,
-							children: selectedReport === void 0 ? (0, react_jsx_runtime.jsx)("p", {
+							children: selectedReport === void 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 								className: ContentStudio_module_css_default.panelEmpty,
 								children: t("comp.pickReport")
-							}) : (0, react_jsx_runtime.jsx)("pre", {
+							}) : /* @__PURE__ */ (0, react_jsx_runtime.jsx)("pre", {
 								className: ContentStudio_module_css_default.compReport,
 								children: reportText ?? t("comp.reportLoading")
 							})
 						})]
 					}),
-					(0, react_jsx_runtime.jsx)("p", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 						className: ContentStudio_module_css_default.compCompliance,
 						children: t("comp.compliance")
 					})
@@ -15803,16 +15760,16 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		/** One work row in the list: title, account, heat badge, and analysis state. */
 		function WorkRow({ work, heat, pending, active, onOpen, t }) {
 			const analysisKey = pending ? "comp.analysisRunning" : work.analysis.status === "done" ? "comp.analysisDone" : work.analysis.status === "failed" ? "comp.analysisFailed" : "comp.analysisNone";
-			return (0, react_jsx_runtime.jsxs)("button", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 				type: "button",
 				className: clsx(ContentStudio_module_css_default.listRowButton, active && ContentStudio_module_css_default.listRowCopied),
 				onClick: onOpen,
 				children: [
-					(0, react_jsx_runtime.jsxs)("span", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 						className: ContentStudio_module_css_default.listTitle,
 						children: [work.hot && "🔥 ", work.title]
 					}),
-					(0, react_jsx_runtime.jsxs)("span", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 						className: ContentStudio_module_css_default.listMeta,
 						children: [
 							work.accountName,
@@ -15820,15 +15777,15 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							t(PLATFORM_KEYS$1[work.platform])
 						]
 					}),
-					(0, react_jsx_runtime.jsxs)("span", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 						className: ContentStudio_module_css_default.listMeta,
 						children: [
-							heat !== void 0 && (0, react_jsx_runtime.jsx)("span", {
+							heat !== void 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: clsx(ContentStudio_module_css_default.badge, heat.level === "hot" ? ContentStudio_module_css_default.compBadgeHot : heat.level === "cold" ? ContentStudio_module_css_default.badgeIncoming : ContentStudio_module_css_default.statusDraft),
 								children: t(`comp.heat.${heat.level}`)
 							}),
 							" ",
-							(0, react_jsx_runtime.jsx)("span", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: clsx(ContentStudio_module_css_default.badge, work.analysis.status === "done" ? ContentStudio_module_css_default.badgeDone : work.analysis.status === "failed" ? ContentStudio_module_css_default.compBadgeFailed : ContentStudio_module_css_default.badgeIncoming),
 								children: t(analysisKey)
 							})
@@ -15840,22 +15797,22 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		/** The work detail pane: facts, markers, actions, teardown result, and preview. */
 		function WorkDetail({ work, themeReady, pending, previewText, commentsDraft, onCommentsDraft, onAnalyze, onToggleHot, onToggleFavorite, onIdea, onRemove, t }) {
 			const result = work.analysis.result;
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.compDetail,
 				children: [
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.compDetailHead,
-						children: [(0, react_jsx_runtime.jsx)("strong", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", {
 							className: ContentStudio_module_css_default.compDetailTitle,
 							children: work.title
-						}), (0, react_jsx_runtime.jsxs)("span", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 							className: ContentStudio_module_css_default.listMeta,
 							children: [
 								work.accountName,
 								" · ",
 								t(PLATFORM_KEYS$1[work.platform]),
 								work.publishedAt !== void 0 && ` · ${work.publishedAt.slice(0, 10)}`,
-								work.url !== void 0 && (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [" · ", (0, react_jsx_runtime.jsx)("a", {
+								work.url !== void 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [" · ", /* @__PURE__ */ (0, react_jsx_runtime.jsx)("a", {
 									href: work.url,
 									target: "_blank",
 									rel: "noreferrer",
@@ -15864,29 +15821,29 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							]
 						})]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.compActions,
 						children: [
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.retry,
 								disabled: !themeReady || pending,
 								onClick: onAnalyze,
 								children: pending ? t("comp.analysisRunning") : work.analysis.status === "done" ? t("comp.reanalyze") : t("comp.analyze")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.retry,
 								onClick: onToggleHot,
 								children: work.hot ? t("comp.unmarkHot") : t("comp.markHot")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.retry,
 								onClick: onToggleFavorite,
 								children: work.favorite ? t("comp.unmarkFavorite") : t("comp.markFavorite")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.retry,
 								disabled: !themeReady || work.collectedIdeaRef !== void 0,
@@ -15894,64 +15851,64 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								title: work.collectedIdeaRef,
 								children: t("comp.addIdea")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.retry,
 								onClick: onRemove,
 								"aria-label": t("comp.removeWork"),
-								children: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 12 })
+								children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 12 })
 							})
 						]
 					}),
-					work.analysis.status === "failed" && (0, react_jsx_runtime.jsxs)("div", {
+					work.analysis.status === "failed" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.compBanner,
 						role: "alert",
-						children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), (0, react_jsx_runtime.jsxs)("span", { children: [
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
 							t("comp.analysisFailed"),
 							": ",
 							work.analysis.error
 						] })]
 					}),
-					result !== void 0 && (0, react_jsx_runtime.jsxs)("div", {
+					result !== void 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.compResult,
 						children: [
-							(0, react_jsx_runtime.jsxs)("p", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("p", {
 								className: ContentStudio_module_css_default.compResultLine,
-								children: [(0, react_jsx_runtime.jsx)("strong", { children: t("comp.hookType") }), result.hookType]
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: t("comp.hookType") }), result.hookType]
 							}),
-							(0, react_jsx_runtime.jsxs)("p", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("p", {
 								className: ContentStudio_module_css_default.compResultLine,
-								children: [(0, react_jsx_runtime.jsx)("strong", { children: t("comp.structure") }), result.structure]
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: t("comp.structure") }), result.structure]
 							}),
-							(0, react_jsx_runtime.jsx)(ListBlock, {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(ListBlock, {
 								label: t("comp.painPoints"),
 								values: result.painPoints
 							}),
-							(0, react_jsx_runtime.jsx)(ListBlock, {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(ListBlock, {
 								label: t("comp.topics"),
 								values: result.topics
 							}),
-							(0, react_jsx_runtime.jsx)(ListBlock, {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(ListBlock, {
 								label: t("comp.risks"),
 								values: result.risks
 							}),
-							(0, react_jsx_runtime.jsx)(ListBlock, {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(ListBlock, {
 								label: t("comp.reusable"),
 								values: result.reusable
 							}),
-							(0, react_jsx_runtime.jsx)(ListBlock, {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(ListBlock, {
 								label: t("comp.migrationTopics"),
 								values: result.migrationTopics
 							}),
-							(0, react_jsx_runtime.jsxs)("p", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("p", {
 								className: ContentStudio_module_css_default.compResultLine,
-								children: [(0, react_jsx_runtime.jsx)("strong", { children: t("comp.commentInsight") }), result.commentInsight === "unavailable" ? t("comp.commentUnavailable") : result.commentInsight]
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: t("comp.commentInsight") }), result.commentInsight === "unavailable" ? t("comp.commentUnavailable") : result.commentInsight]
 							})
 						]
 					}),
-					(0, react_jsx_runtime.jsxs)("label", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 						className: ContentStudio_module_css_default.compFieldLabel,
-						children: [t("comp.commentsInput"), (0, react_jsx_runtime.jsx)("textarea", {
+						children: [t("comp.commentsInput"), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 							className: ContentStudio_module_css_default.compTextarea,
 							rows: 3,
 							value: commentsDraft,
@@ -15961,12 +15918,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							placeholder: t("comp.commentsPlaceholder")
 						})]
 					}),
-					(0, react_jsx_runtime.jsxs)("details", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("details", {
 						className: ContentStudio_module_css_default.compPreview,
-						children: [(0, react_jsx_runtime.jsx)("summary", { children: t("comp.previewBody") }), work.textFile === void 0 ? (0, react_jsx_runtime.jsx)("p", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("summary", { children: t("comp.previewBody") }), work.textFile === void 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 							className: ContentStudio_module_css_default.panelEmpty,
 							children: t("comp.noBody")
-						}) : (0, react_jsx_runtime.jsx)("pre", {
+						}) : /* @__PURE__ */ (0, react_jsx_runtime.jsx)("pre", {
 							className: ContentStudio_module_css_default.compReport,
 							children: previewText === void 0 ? t("comp.reportLoading") : previewText
 						})]
@@ -15977,11 +15934,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		/** One labeled string list inside the teardown result. */
 		function ListBlock({ label, values }) {
 			if (values.length === 0) return null;
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.compResultLine,
-				children: [(0, react_jsx_runtime.jsx)("strong", { children: label }), (0, react_jsx_runtime.jsx)("ul", {
+				children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: label }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("ul", {
 					className: ContentStudio_module_css_default.compResultList,
-					children: values.map((value) => (0, react_jsx_runtime.jsx)("li", { children: value }, value))
+					children: values.map((value) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("li", { children: value }, value))
 				})]
 			});
 		}
@@ -15993,90 +15950,90 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					[key]: event.currentTarget.value
 				});
 			};
-			return (0, react_jsx_runtime.jsxs)("form", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("form", {
 				className: ContentStudio_module_css_default.compForm,
 				onSubmit: (event) => {
 					event.preventDefault();
 					onSubmit();
 				},
 				children: [
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.compFormRow,
-						children: [(0, react_jsx_runtime.jsxs)("select", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 							className: ContentStudio_module_css_default.compInput,
 							value: form.accountId,
 							onChange: field("accountId"),
 							"aria-label": t("comp.fieldAccount"),
-							children: [(0, react_jsx_runtime.jsx)("option", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 								value: "",
 								children: t("comp.fieldAccount")
-							}), accounts.map((account) => (0, react_jsx_runtime.jsx)("option", {
+							}), accounts.map((account) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 								value: account.id,
 								children: account.name
 							}, account.id))]
-						}), (0, react_jsx_runtime.jsx)("select", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("select", {
 							className: ContentStudio_module_css_default.compInput,
 							value: form.platform,
 							onChange: field("platform"),
 							"aria-label": t("comp.fieldPlatform"),
-							children: COMPETITOR_PLATFORMS.map((platform) => (0, react_jsx_runtime.jsx)("option", {
+							children: COMPETITOR_PLATFORMS.map((platform) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 								value: platform,
 								children: t(PLATFORM_KEYS$1[platform])
 							}, platform))
 						})]
 					}),
-					(0, react_jsx_runtime.jsx)("input", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 						className: ContentStudio_module_css_default.compInput,
 						placeholder: t("comp.fieldTitle"),
 						value: form.title,
 						onChange: field("title")
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.compFormRow,
-						children: [(0, react_jsx_runtime.jsx)("input", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 							className: ContentStudio_module_css_default.compInput,
 							placeholder: t("comp.fieldWorkId"),
 							value: form.platformWorkId,
 							onChange: field("platformWorkId")
-						}), (0, react_jsx_runtime.jsx)("input", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 							className: ContentStudio_module_css_default.compInput,
 							placeholder: t("comp.fieldUrl"),
 							value: form.url,
 							onChange: field("url")
 						})]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.compFormRow,
 						children: [
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								className: ContentStudio_module_css_default.compInput,
 								type: "date",
 								"aria-label": t("comp.fieldPublished"),
 								value: form.publishedDate,
 								onChange: field("publishedDate")
 							}),
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								className: ContentStudio_module_css_default.compInput,
 								inputMode: "numeric",
 								placeholder: t("comp.fieldLikes"),
 								value: form.likes,
 								onChange: field("likes")
 							}),
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								className: ContentStudio_module_css_default.compInput,
 								inputMode: "numeric",
 								placeholder: t("comp.fieldComments"),
 								value: form.comments,
 								onChange: field("comments")
 							}),
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								className: ContentStudio_module_css_default.compInput,
 								inputMode: "numeric",
 								placeholder: t("comp.fieldShares"),
 								value: form.shares,
 								onChange: field("shares")
 							}),
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								className: ContentStudio_module_css_default.compInput,
 								inputMode: "numeric",
 								placeholder: t("comp.fieldViews"),
@@ -16085,21 +16042,21 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					(0, react_jsx_runtime.jsx)("textarea", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 						className: ContentStudio_module_css_default.compTextarea,
 						rows: 4,
 						placeholder: t("comp.fieldBody"),
 						value: form.body,
 						onChange: field("body")
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.compFormRow,
-						children: [(0, react_jsx_runtime.jsx)("button", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "submit",
 							className: ContentStudio_module_css_default.retry,
 							disabled: disabled || form.title.trim().length === 0,
 							children: t("comp.importSubmit")
-						}), (0, react_jsx_runtime.jsx)("span", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: ContentStudio_module_css_default.listMeta,
 							children: t("comp.importHint")
 						})]
@@ -16110,13 +16067,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		/** The account registry section. */
 		function AccountsSection({ accounts, form, onForm, onSubmit, onRemove, onImport, onExport, onToggle, manifest, onCollect, t }) {
 			const fileInputId = "comp-account-import";
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.compAccounts,
 				children: [
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.compImportRow,
 						children: [
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.retry,
 								onClick: () => {
@@ -16124,12 +16081,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								children: form === void 0 ? t("comp.accountAdd") : t("comp.accountCancel")
 							}),
-							(0, react_jsx_runtime.jsx)("label", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("label", {
 								className: ContentStudio_module_css_default.retry,
 								htmlFor: fileInputId,
 								children: t("comp.accountImport")
 							}),
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								id: fileInputId,
 								type: "file",
 								accept: "application/json,.json",
@@ -16140,30 +16097,30 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									event.currentTarget.value = "";
 								}
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.retry,
 								disabled: accounts.length === 0,
 								onClick: onExport,
 								children: t("comp.accountExport")
 							}),
-							(0, react_jsx_runtime.jsx)("span", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: ContentStudio_module_css_default.listMeta,
 								children: t("comp.accountCount", { n: accounts.length })
 							})
 						]
 					}),
-					form !== void 0 && (0, react_jsx_runtime.jsxs)("form", {
+					form !== void 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("form", {
 						className: ContentStudio_module_css_default.compForm,
 						onSubmit: (event) => {
 							event.preventDefault();
 							onSubmit();
 						},
 						children: [
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.compFormRow,
 								children: [
-									(0, react_jsx_runtime.jsx)("input", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										className: ContentStudio_module_css_default.compInput,
 										placeholder: t("comp.fieldName"),
 										value: form.name,
@@ -16174,7 +16131,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											});
 										}
 									}),
-									(0, react_jsx_runtime.jsx)("select", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("select", {
 										className: ContentStudio_module_css_default.compInput,
 										value: form.platform,
 										onChange: (event) => {
@@ -16184,12 +16141,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											});
 										},
 										"aria-label": t("comp.fieldPlatform"),
-										children: COMPETITOR_PLATFORMS.map((platform) => (0, react_jsx_runtime.jsx)("option", {
+										children: COMPETITOR_PLATFORMS.map((platform) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 											value: platform,
 											children: t(PLATFORM_KEYS$1[platform])
 										}, platform))
 									}),
-									(0, react_jsx_runtime.jsxs)("select", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 										className: ContentStudio_module_css_default.compInput,
 										value: form.priority,
 										onChange: (event) => {
@@ -16200,21 +16157,21 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										},
 										"aria-label": t("comp.fieldPriority"),
 										children: [
-											(0, react_jsx_runtime.jsx)("option", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 												value: "high",
 												children: t("comp.priority.high")
 											}),
-											(0, react_jsx_runtime.jsx)("option", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 												value: "medium",
 												children: t("comp.priority.medium")
 											}),
-											(0, react_jsx_runtime.jsx)("option", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 												value: "low",
 												children: t("comp.priority.low")
 											})
 										]
 									}),
-									(0, react_jsx_runtime.jsxs)("select", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 										className: ContentStudio_module_css_default.compInput,
 										value: form.intervalDays,
 										onChange: (event) => {
@@ -16225,15 +16182,15 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										},
 										"aria-label": t("comp.fieldInterval"),
 										children: [
-											(0, react_jsx_runtime.jsx)("option", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 												value: 1,
 												children: t("comp.intervalDaily")
 											}),
-											(0, react_jsx_runtime.jsx)("option", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 												value: 3,
 												children: t("comp.interval3d")
 											}),
-											(0, react_jsx_runtime.jsx)("option", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 												value: 7,
 												children: t("comp.intervalWeekly")
 											})
@@ -16241,7 +16198,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									})
 								]
 							}),
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								className: ContentStudio_module_css_default.compInput,
 								placeholder: t("comp.fieldHomepage"),
 								value: form.homepageUrl,
@@ -16252,7 +16209,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									});
 								}
 							}),
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								className: ContentStudio_module_css_default.compInput,
 								placeholder: t("comp.fieldTopics"),
 								value: form.topics,
@@ -16263,10 +16220,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									});
 								}
 							}),
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.compFormRow,
 								children: [
-									(0, react_jsx_runtime.jsx)("input", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										className: ContentStudio_module_css_default.compInput,
 										placeholder: t("comp.fieldPositioning"),
 										value: form.positioning,
@@ -16277,7 +16234,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											});
 										}
 									}),
-									(0, react_jsx_runtime.jsx)("input", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										className: ContentStudio_module_css_default.compInput,
 										placeholder: t("comp.fieldFollowerTier"),
 										value: form.followerTier,
@@ -16288,7 +16245,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											});
 										}
 									}),
-									(0, react_jsx_runtime.jsx)("input", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										className: ContentStudio_module_css_default.compInput,
 										placeholder: t("comp.fieldMonetization"),
 										value: form.monetization,
@@ -16301,7 +16258,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									})
 								]
 							}),
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								className: ContentStudio_module_css_default.compInput,
 								placeholder: t("comp.fieldNote"),
 								value: form.note,
@@ -16312,9 +16269,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									});
 								}
 							}),
-							(0, react_jsx_runtime.jsx)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 								className: ContentStudio_module_css_default.compFormRow,
-								children: (0, react_jsx_runtime.jsx)("button", {
+								children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "submit",
 									className: ContentStudio_module_css_default.retry,
 									disabled: form.name.trim().length === 0,
@@ -16323,33 +16280,33 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					(0, react_jsx_runtime.jsx)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: ContentStudio_module_css_default.compWorkList,
-						children: accounts.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
+						children: accounts.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 							className: ContentStudio_module_css_default.panelEmpty,
 							children: t("comp.accountsEmpty")
 						}) : accounts.map((account) => {
 							const workCount = manifest?.works.filter((work) => work.accountId === account.id).length ?? 0;
 							const hotCount = manifest?.works.filter((work) => work.accountId === account.id && work.hot).length ?? 0;
 							const lastSynced = manifest?.syncedAt[account.id];
-							return (0, react_jsx_runtime.jsxs)("div", {
+							return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.compAccountCard,
 								children: [
-									(0, react_jsx_runtime.jsxs)("div", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: ContentStudio_module_css_default.compDetailHead,
 										children: [
-											(0, react_jsx_runtime.jsx)("strong", { children: account.name }),
-											(0, react_jsx_runtime.jsx)("span", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: account.name }),
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 												className: clsx(ContentStudio_module_css_default.badge, PRIORITY_CLASS[account.priority]),
 												children: t(`comp.priority.${account.priority}`)
 											}),
-											(0, react_jsx_runtime.jsxs)("span", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 												className: ContentStudio_module_css_default.listMeta,
 												children: [t(PLATFORM_KEYS$1[account.platform]), account.topics.length > 0 && ` · ${account.topics.join(" / ")}`]
 											})
 										]
 									}),
-									(0, react_jsx_runtime.jsxs)("span", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 										className: ContentStudio_module_css_default.listMeta,
 										children: [
 											t("comp.accountWorks", {
@@ -16360,14 +16317,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											lastSynced === void 0 ? t("comp.neverCollected") : t("comp.lastCollected", { date: lastSynced.slice(0, 10) })
 										]
 									}),
-									account.positioning.length > 0 && (0, react_jsx_runtime.jsx)("span", {
+									account.positioning.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: ContentStudio_module_css_default.listMeta,
 										children: account.positioning
 									}),
-									(0, react_jsx_runtime.jsxs)("div", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: ContentStudio_module_css_default.compActions,
 										children: [
-											(0, react_jsx_runtime.jsx)("button", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												className: ContentStudio_module_css_default.retry,
 												onClick: () => {
@@ -16375,7 +16332,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												},
 												children: account.enabled ? t("comp.accountDisable") : t("comp.accountEnable")
 											}),
-											(0, react_jsx_runtime.jsxs)("button", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 												type: "button",
 												className: ContentStudio_module_css_default.retry,
 												disabled: manifest === void 0,
@@ -16383,12 +16340,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 													onCollect([account.id]);
 												},
 												children: [
-													(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconRefreshOutline14, { size: 12 }),
+													/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconRefreshOutline14, { size: 12 }),
 													" ",
 													t("comp.markCollectedOne")
 												]
 											}),
-											(0, react_jsx_runtime.jsx)("button", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												className: ContentStudio_module_css_default.retry,
 												onClick: () => {
@@ -16396,14 +16353,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												},
 												children: t("comp.accountEdit")
 											}),
-											(0, react_jsx_runtime.jsx)("button", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												className: ContentStudio_module_css_default.retry,
 												onClick: () => {
 													onRemove(account);
 												},
 												"aria-label": t("comp.accountRemove"),
-												children: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 12 })
+												children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconTrashOutline16, { size: 12 })
 											})
 										]
 									})
@@ -22797,7 +22754,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			return parsed;
 		};
 		//#endregion
-		//#region lib/types/client/gather/opml.js
+		//#region src/client/gather/opml.ts
 		/**
 		* OPML import preview and export for the gather source list, built on
 		* feedsmith's OPML grammar. Import returns a preview (folder grouping,
@@ -25343,7 +25300,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		}
 		var purify_default = createDOMPurify();
 		//#endregion
-		//#region lib/types/client/gather/purify.js
+		//#region src/client/gather/purify.ts
 		/**
 		* Render-side sanitization for gathered body snapshots: DOMPurify runs at
 		* render as the second layer behind the gateway's sanitize-html allowlist,
@@ -25381,19 +25338,19 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"split": "ECWxzq_split"
 		};
 		//#endregion
-		//#region lib/types/client/SplitDetail.js
+		//#region src/client/SplitDetail.tsx
 		/**
 		* Render the two-pane master-detail layout.
 		* @param props - the list pane, the detail pane, and the detail label.
 		* @returns the split layout element tree.
 		*/
 		function SplitDetail({ list, detail, detailLabel }) {
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: SplitDetail_module_css_default.split,
-				children: [(0, react_jsx_runtime.jsx)("div", {
+				children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 					className: SplitDetail_module_css_default.listPane,
 					children: list
-				}), (0, react_jsx_runtime.jsx)("section", {
+				}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("section", {
 					className: SplitDetail_module_css_default.detailPane,
 					"aria-label": detailLabel,
 					children: detail
@@ -25456,7 +25413,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"groupTitle": "mTheea_groupTitle"
 		};
 		//#endregion
-		//#region lib/types/client/GatherView.js
+		//#region src/client/GatherView.tsx
 		/**
 		* The gather view: the information-collection surface inside the workbench
 		* overlay. Three regions — sources and tasks (browser-side configuration),
@@ -25486,52 +25443,52 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			const joinTopicBank = addToTopicBank ?? ((materialId) => {
 				gather.showNotice("topic-bank-pending");
 			});
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: GatherView_module_css_default.gather,
 				children: [
-					(0, react_jsx_runtime.jsxs)("header", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
 						className: GatherView_module_css_default.gatherHead,
-						children: [(0, react_jsx_runtime.jsxs)("div", { children: [(0, react_jsx_runtime.jsx)("h1", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h1", {
 							className: ContentStudio_module_css_default.title,
 							children: t("gather.title")
-						}), (0, react_jsx_runtime.jsx)("p", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 							className: ContentStudio_module_css_default.subtitle,
 							children: t("gather.subtitle")
-						})] }), state.notice !== null && (0, react_jsx_runtime.jsxs)("button", {
+						})] }), state.notice !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 							type: "button",
 							className: GatherView_module_css_default.gatherNotice,
 							onClick: () => {
 								gather.dismissNotice();
 							},
-							children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), (0, react_jsx_runtime.jsx)("span", { children: noticeText(state.notice, t) })]
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: noticeText(state.notice, t) })]
 						})]
 					}),
-					!state.storagePersistent && (0, react_jsx_runtime.jsxs)("div", {
+					!state.storagePersistent && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: GatherView_module_css_default.gatherWarn,
 						role: "alert",
-						children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), (0, react_jsx_runtime.jsx)("span", { children: t("gather.storage.memory") })]
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("gather.storage.memory") })]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: GatherView_module_css_default.gatherColumns,
-						children: [(0, react_jsx_runtime.jsxs)("aside", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("aside", {
 							className: GatherView_module_css_default.gatherConfig,
-							children: [(0, react_jsx_runtime.jsx)(SourcesSection, {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(SourcesSection, {
 								state,
 								gather,
 								t
-							}), (0, react_jsx_runtime.jsx)(TasksSection, {
+							}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)(TasksSection, {
 								state,
 								gather,
 								t
 							})]
-						}), (0, react_jsx_runtime.jsx)(SplitDetail, {
-							list: (0, react_jsx_runtime.jsx)(MaterialsSection, {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)(SplitDetail, {
+							list: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(MaterialsSection, {
 								state,
 								gather,
 								onJoinTopicBank: joinTopicBank,
 								t
 							}),
-							detail: (0, react_jsx_runtime.jsx)(MaterialDetail, {
+							detail: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(MaterialDetail, {
 								state,
 								gather,
 								onPushToCreate,
@@ -25592,33 +25549,33 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				setUrl("");
 				setExclude("");
 			};
-			return (0, react_jsx_runtime.jsxs)("section", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 				className: GatherView_module_css_default.gatherPanel,
 				children: [
-					(0, react_jsx_runtime.jsxs)("header", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
 						className: GatherView_module_css_default.gatherPanelHead,
-						children: [(0, react_jsx_runtime.jsx)("h2", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h2", {
 							className: ContentStudio_module_css_default.groupTitle,
 							children: t("gather.sources.title")
-						}), (0, react_jsx_runtime.jsx)("span", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: ContentStudio_module_css_default.listMeta,
 							children: state.sources.length
 						})]
 					}),
-					(0, react_jsx_runtime.jsx)("ul", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("ul", {
 						className: GatherView_module_css_default.gatherList,
-						children: state.sources.map((source) => (0, react_jsx_runtime.jsxs)("li", {
+						children: state.sources.map((source) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("li", {
 							className: GatherView_module_css_default.gatherItem,
 							children: [
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: GatherView_module_css_default.gatherItemHead,
 									children: [
-										(0, react_jsx_runtime.jsx)("span", { className: clsx(GatherView_module_css_default.gatherBadge, sourceBadge(source)) }),
-										(0, react_jsx_runtime.jsx)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { className: clsx(GatherView_module_css_default.gatherBadge, sourceBadge(source)) }),
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: GatherView_module_css_default.gatherItemTitle,
 											children: source.name
 										}),
-										(0, react_jsx_runtime.jsx)("button", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											className: GatherView_module_css_default.gatherMini,
 											onClick: () => {
@@ -25626,7 +25583,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											},
 											children: source.enabled ? t("gather.sources.disable") : t("gather.sources.enable")
 										}),
-										(0, react_jsx_runtime.jsx)("button", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											className: GatherView_module_css_default.gatherMini,
 											onClick: () => {
@@ -25640,7 +25597,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											},
 											children: testing === source.id ? t("gather.sources.testing") : t("gather.sources.test")
 										}),
-										(0, react_jsx_runtime.jsx)("button", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											className: GatherView_module_css_default.gatherMini,
 											onClick: () => {
@@ -25651,7 +25608,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										})
 									]
 								}),
-								(0, react_jsx_runtime.jsxs)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 									className: GatherView_module_css_default.gatherItemMeta,
 									children: [
 										source.url,
@@ -25661,7 +25618,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										source.lastFetchedAt !== null && ` · ${source.lastFetchedAt.slice(0, 16).replace("T", " ")}`
 									]
 								}),
-								source.excludeKeywords.length > 0 && (0, react_jsx_runtime.jsxs)("span", {
+								source.excludeKeywords.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 									className: GatherView_module_css_default.gatherItemMeta,
 									children: [
 										t("gather.sources.exclude"),
@@ -25672,10 +25629,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							]
 						}, source.id))
 					}),
-					expanded ? (0, react_jsx_runtime.jsxs)("div", {
+					expanded ? /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: GatherView_module_css_default.gatherForm,
 						children: [
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								className: GatherView_module_css_default.gatherInput,
 								value: name,
 								placeholder: t("gather.sources.namePlaceholder"),
@@ -25683,7 +25640,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									setName(event.target.value);
 								}
 							}),
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								className: GatherView_module_css_default.gatherInput,
 								value: url,
 								placeholder: "https://example.com/feed.xml",
@@ -25691,11 +25648,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									setUrl(event.target.value);
 								}
 							}),
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: GatherView_module_css_default.gatherFormRow,
-								children: [(0, react_jsx_runtime.jsxs)("label", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 									className: GatherView_module_css_default.gatherItemMeta,
-									children: [t("gather.sources.intervalLabel"), (0, react_jsx_runtime.jsx)("input", {
+									children: [t("gather.sources.intervalLabel"), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										className: GatherView_module_css_default.gatherInput,
 										type: "number",
 										min: 30,
@@ -25704,7 +25661,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											setInterval(Number(event.target.value));
 										}
 									})]
-								}), (0, react_jsx_runtime.jsx)("input", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 									className: GatherView_module_css_default.gatherInput,
 									value: exclude,
 									placeholder: t("gather.sources.excludePlaceholder"),
@@ -25713,14 +25670,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									}
 								})]
 							}),
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: GatherView_module_css_default.gatherFormRow,
-								children: [(0, react_jsx_runtime.jsx)("button", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: GatherView_module_css_default.gatherAction,
 									onClick: submit,
 									children: t("gather.sources.add")
-								}), (0, react_jsx_runtime.jsx)("button", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: GatherView_module_css_default.gatherMini,
 									onClick: () => {
@@ -25730,22 +25687,22 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								})]
 							})
 						]
-					}) : (0, react_jsx_runtime.jsxs)("div", {
+					}) : /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: GatherView_module_css_default.gatherFormRow,
-						children: [(0, react_jsx_runtime.jsx)("button", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: GatherView_module_css_default.gatherAction,
 							onClick: () => {
 								setExpanded(true);
 							},
 							children: t("gather.sources.add")
-						}), (0, react_jsx_runtime.jsx)(OpmlControls, {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)(OpmlControls, {
 							sources: state.sources,
 							gather,
 							t
 						})]
 					}),
-					(0, react_jsx_runtime.jsx)("p", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 						className: GatherView_module_css_default.gatherHint,
 						children: t("gather.schedule.limit")
 					})
@@ -25753,7 +25710,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			});
 		}
 		function OpmlControls({ sources, gather, t }) {
-			return (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [(0, react_jsx_runtime.jsx)("button", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 				type: "button",
 				className: GatherView_module_css_default.gatherMini,
 				onClick: () => {
@@ -25782,7 +25739,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					input.click();
 				},
 				children: t("gather.sources.opmlImport")
-			}), (0, react_jsx_runtime.jsx)("button", {
+			}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 				type: "button",
 				className: GatherView_module_css_default.gatherMini,
 				onClick: () => {
@@ -25803,22 +25760,22 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		}
 		function TasksSection({ state, gather, t }) {
 			const [expanded, setExpanded] = (0, react.useState)(null);
-			return (0, react_jsx_runtime.jsxs)("section", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 				className: GatherView_module_css_default.gatherPanel,
 				children: [
-					(0, react_jsx_runtime.jsxs)("header", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
 						className: GatherView_module_css_default.gatherPanelHead,
-						children: [(0, react_jsx_runtime.jsx)("h2", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h2", {
 							className: ContentStudio_module_css_default.groupTitle,
 							children: t("gather.tasks.title")
-						}), (0, react_jsx_runtime.jsx)("span", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: ContentStudio_module_css_default.listMeta,
 							children: state.tasks.length
 						})]
 					}),
-					(0, react_jsx_runtime.jsx)("ul", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("ul", {
 						className: GatherView_module_css_default.gatherList,
-						children: state.tasks.map((task) => (0, react_jsx_runtime.jsx)(TaskRow$1, {
+						children: state.tasks.map((task) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)(TaskRow$1, {
 							task,
 							gather,
 							expanded: expanded === task.id,
@@ -25828,7 +25785,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							t
 						}, task.id))
 					}),
-					(0, react_jsx_runtime.jsx)(TaskCreate, {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)(TaskCreate, {
 						state,
 						gather,
 						t
@@ -25843,20 +25800,20 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			failed: "gather.task.failed"
 		};
 		function TaskRow$1({ task, gather, expanded, toggle, t }) {
-			return (0, react_jsx_runtime.jsxs)("li", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("li", {
 				className: GatherView_module_css_default.gatherItem,
 				children: [
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: GatherView_module_css_default.gatherItemHead,
-						children: [(0, react_jsx_runtime.jsx)("span", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: GatherView_module_css_default.gatherItemTitle,
 							children: task.name
-						}), (0, react_jsx_runtime.jsx)("span", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: clsx(GatherView_module_css_default.gatherBadge, task.status === "failed" ? GatherView_module_css_default.gatherBadgeFailed : task.status === "running" ? GatherView_module_css_default.gatherBadgeOk : ""),
 							children: t(STATUS_LABEL[task.status])
 						})]
 					}),
-					(0, react_jsx_runtime.jsxs)("span", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 						className: GatherView_module_css_default.gatherItemMeta,
 						children: [
 							task.themeName,
@@ -25866,10 +25823,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							task.sourceIds.length
 						]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: GatherView_module_css_default.gatherItemHead,
 						children: [
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: GatherView_module_css_default.gatherMini,
 								onClick: () => {
@@ -25877,7 +25834,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								children: t("gather.task.run")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: GatherView_module_css_default.gatherMini,
 								onClick: () => {
@@ -25885,13 +25842,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								children: task.intervalMinutes === null ? t("gather.task.resume") : t("gather.task.pause")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: GatherView_module_css_default.gatherMini,
 								onClick: toggle,
 								children: t("gather.task.log")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: GatherView_module_css_default.gatherMini,
 								onClick: () => {
@@ -25902,12 +25859,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					expanded && (0, react_jsx_runtime.jsxs)("ul", {
+					expanded && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("ul", {
 						className: GatherView_module_css_default.gatherLog,
-						children: [task.log.length === 0 && (0, react_jsx_runtime.jsx)("li", {
+						children: [task.log.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("li", {
 							className: GatherView_module_css_default.gatherItemMeta,
 							children: t("gather.task.logEmpty")
-						}), task.log.map((entry) => (0, react_jsx_runtime.jsxs)("li", {
+						}), task.log.map((entry) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("li", {
 							className: GatherView_module_css_default.gatherItemMeta,
 							children: [
 								entry.at.slice(11, 19),
@@ -25930,7 +25887,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			const [maxItems, setMaxItems] = (0, react.useState)(20);
 			const [include, setInclude] = (0, react.useState)("");
 			const [exclude, setExclude] = (0, react.useState)("");
-			if (!expanded) return (0, react_jsx_runtime.jsx)("button", {
+			if (!expanded) return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 				type: "button",
 				className: GatherView_module_css_default.gatherAction,
 				onClick: () => {
@@ -25938,10 +25895,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				},
 				children: t("gather.task.add")
 			});
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: GatherView_module_css_default.gatherForm,
 				children: [
-					(0, react_jsx_runtime.jsx)("input", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 						className: GatherView_module_css_default.gatherInput,
 						value: name,
 						placeholder: t("gather.task.namePlaceholder"),
@@ -25949,26 +25906,26 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							setName(event.target.value);
 						}
 					}),
-					(0, react_jsx_runtime.jsxs)("select", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 						className: GatherView_module_css_default.gatherInput,
 						value: theme,
 						onChange: (event) => {
 							setTheme(event.target.value);
 						},
-						children: [(0, react_jsx_runtime.jsx)("option", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 							value: "",
 							children: t("gather.task.themePlaceholder")
-						}), state.themes.map((candidate) => (0, react_jsx_runtime.jsx)("option", {
+						}), state.themes.map((candidate) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 							value: candidate,
 							children: candidate
 						}, candidate))]
 					}),
-					(0, react_jsx_runtime.jsx)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: GatherView_module_css_default.gatherCheckList,
-						children: state.sources.map((source) => (0, react_jsx_runtime.jsxs)("label", {
+						children: state.sources.map((source) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 							className: GatherView_module_css_default.gatherItemMeta,
 							children: [
-								(0, react_jsx_runtime.jsx)("input", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 									type: "checkbox",
 									checked: selected.includes(source.id),
 									onChange: () => {
@@ -25980,9 +25937,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							]
 						}, source.id))
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: GatherView_module_css_default.gatherFormRow,
-						children: [(0, react_jsx_runtime.jsx)("input", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 							className: GatherView_module_css_default.gatherInput,
 							type: "number",
 							min: 20,
@@ -25990,7 +25947,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							onChange: (event) => {
 								setMaxItems(Number(event.target.value));
 							}
-						}), (0, react_jsx_runtime.jsx)("input", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 							className: GatherView_module_css_default.gatherInput,
 							value: interval,
 							placeholder: t("gather.task.intervalPlaceholder"),
@@ -25999,7 +25956,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							}
 						})]
 					}),
-					(0, react_jsx_runtime.jsx)("input", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 						className: GatherView_module_css_default.gatherInput,
 						value: include,
 						placeholder: t("gather.task.includePlaceholder"),
@@ -26007,7 +25964,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							setInclude(event.target.value);
 						}
 					}),
-					(0, react_jsx_runtime.jsx)("input", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 						className: GatherView_module_css_default.gatherInput,
 						value: exclude,
 						placeholder: t("gather.task.excludePlaceholder"),
@@ -26015,9 +25972,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							setExclude(event.target.value);
 						}
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: GatherView_module_css_default.gatherFormRow,
-						children: [(0, react_jsx_runtime.jsx)("button", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: GatherView_module_css_default.gatherAction,
 							onClick: () => {
@@ -26039,7 +25996,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								setExpanded(false);
 							},
 							children: t("gather.task.add")
-						}), (0, react_jsx_runtime.jsx)("button", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: GatherView_module_css_default.gatherMini,
 							onClick: () => {
@@ -26061,70 +26018,70 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				statusFilter,
 				sourceFilter
 			]);
-			return (0, react_jsx_runtime.jsxs)("section", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 				className: GatherView_module_css_default.gatherMaterials,
 				children: [
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: GatherView_module_css_default.gatherFilters,
 						children: [
-							(0, react_jsx_runtime.jsxs)("select", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 								className: GatherView_module_css_default.gatherInput,
 								value: state.selectedTheme ?? "",
 								onChange: (event) => {
 									gather.selectTheme(event.target.value === "" ? null : event.target.value);
 								},
-								children: [state.themes.length === 0 && (0, react_jsx_runtime.jsx)("option", {
+								children: [state.themes.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 									value: "",
 									children: t("gather.materials.noTheme")
-								}), state.themes.map((theme) => (0, react_jsx_runtime.jsx)("option", {
+								}), state.themes.map((theme) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 									value: theme,
 									children: theme
 								}, theme))]
 							}),
-							(0, react_jsx_runtime.jsxs)("select", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 								className: GatherView_module_css_default.gatherInput,
 								value: sourceFilter,
 								onChange: (event) => {
 									setSourceFilter(event.target.value);
 								},
-								children: [(0, react_jsx_runtime.jsx)("option", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 									value: "all",
 									children: t("gather.materials.allSources")
-								}), state.sources.map((source) => (0, react_jsx_runtime.jsx)("option", {
+								}), state.sources.map((source) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 									value: source.id,
 									children: source.name
 								}, source.id))]
 							}),
-							(0, react_jsx_runtime.jsxs)("select", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 								className: GatherView_module_css_default.gatherInput,
 								value: statusFilter,
 								onChange: (event) => {
 									setStatusFilter(event.target.value);
 								},
 								children: [
-									(0, react_jsx_runtime.jsx)("option", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: "all",
 										children: t("gather.materials.allStatus")
 									}),
-									(0, react_jsx_runtime.jsx)("option", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: "unread",
 										children: t("gather.materials.unread")
 									}),
-									(0, react_jsx_runtime.jsx)("option", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: "read",
 										children: t("gather.materials.read")
 									}),
-									(0, react_jsx_runtime.jsx)("option", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: "favorite",
 										children: t("gather.materials.favorite")
 									}),
-									(0, react_jsx_runtime.jsx)("option", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: "picked",
 										children: t("gather.materials.picked")
 									})
 								]
 							}),
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								className: GatherView_module_css_default.gatherInput,
 								value: search,
 								placeholder: t("gather.materials.searchPlaceholder"),
@@ -26134,28 +26091,28 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					state.loadingMaterials && (0, react_jsx_runtime.jsx)("div", {
+					state.loadingMaterials && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: ContentStudio_module_css_default.libraryState,
 						children: t("gather.materials.loading")
 					}),
-					!state.loadingMaterials && filtered.length === 0 && (0, react_jsx_runtime.jsx)("div", {
+					!state.loadingMaterials && filtered.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: ContentStudio_module_css_default.libraryState,
 						children: t("gather.materials.empty")
 					}),
-					(0, react_jsx_runtime.jsx)("ul", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("ul", {
 						className: GatherView_module_css_default.gatherMaterialList,
-						children: filtered.map((material) => (0, react_jsx_runtime.jsxs)("li", {
+						children: filtered.map((material) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("li", {
 							className: GatherView_module_css_default.gatherCardRow,
-							children: [(0, react_jsx_runtime.jsxs)("button", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								className: clsx(GatherView_module_css_default.gatherMaterialCard, state.selectedMaterialId === material.id && GatherView_module_css_default.gatherMaterialActive),
 								onClick: () => {
 									gather.selectMaterial(material.id);
 								},
-								children: [(0, react_jsx_runtime.jsx)("span", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: GatherView_module_css_default.gatherItemTitle,
 									children: material.title
-								}), (0, react_jsx_runtime.jsxs)("span", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 									className: GatherView_module_css_default.gatherItemMeta,
 									children: [
 										material.sourceName,
@@ -26163,7 +26120,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										material.score !== void 0 && ` · ${material.score}`
 									]
 								})]
-							}), (0, react_jsx_runtime.jsx)("button", {
+							}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: clsx(GatherView_module_css_default.gatherMini, GatherView_module_css_default.gatherTopicBank),
 								"aria-label": `${t("gather.detail.topicBank")}: ${material.title}`,
@@ -26210,24 +26167,24 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				material?.bodyFile,
 				state.selectedTheme
 			]);
-			if (material === void 0) return (0, react_jsx_runtime.jsx)("section", {
+			if (material === void 0) return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("section", {
 				className: GatherView_module_css_default.gatherDetail,
-				children: (0, react_jsx_runtime.jsx)("div", {
+				children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 					className: ContentStudio_module_css_default.libraryState,
 					children: t("gather.detail.empty")
 				})
 			});
-			return (0, react_jsx_runtime.jsxs)("section", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 				className: GatherView_module_css_default.gatherDetail,
 				children: [
-					(0, react_jsx_runtime.jsxs)("header", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
 						className: GatherView_module_css_default.gatherDetailHead,
 						children: [
-							(0, react_jsx_runtime.jsx)("h2", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h2", {
 								className: GatherView_module_css_default.gatherDetailTitle,
 								children: material.title
 							}),
-							(0, react_jsx_runtime.jsxs)("span", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 								className: GatherView_module_css_default.gatherItemMeta,
 								children: [
 									material.sourceName,
@@ -26235,7 +26192,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									` · ${t(`gather.materials.${material.status}`)}`
 								]
 							}),
-							(0, react_jsx_runtime.jsx)("a", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("a", {
 								className: GatherView_module_css_default.gatherLink,
 								href: material.url,
 								target: "_blank",
@@ -26244,10 +26201,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: GatherView_module_css_default.gatherFormRow,
 						children: [
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: GatherView_module_css_default.gatherMini,
 								onClick: () => {
@@ -26255,7 +26212,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								children: material.status === "read" ? t("gather.detail.markUnread") : t("gather.detail.markRead")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: GatherView_module_css_default.gatherMini,
 								onClick: () => {
@@ -26263,7 +26220,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								children: material.status === "favorite" ? t("gather.detail.unfavorite") : t("gather.detail.favorite")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: GatherView_module_css_default.gatherMini,
 								onClick: () => {
@@ -26276,7 +26233,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								children: t("gather.detail.pushCreate")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: GatherView_module_css_default.gatherMini,
 								title: t("gather.notice.topicBankPending"),
@@ -26287,68 +26244,68 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: GatherView_module_css_default.gatherAi,
-						children: [(0, react_jsx_runtime.jsxs)("div", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: GatherView_module_css_default.gatherFormRow,
-							children: [(0, react_jsx_runtime.jsx)("button", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: GatherView_module_css_default.gatherAction,
 								onClick: () => {
 									gather.processWithAi(material.id);
 								},
 								children: t("gather.detail.aiProcess")
-							}), material.summary === void 0 && (0, react_jsx_runtime.jsx)("span", {
+							}), material.summary === void 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: GatherView_module_css_default.gatherHint,
 								children: t("gather.detail.aiPending")
 							})]
-						}), material.summary !== void 0 && (0, react_jsx_runtime.jsxs)("div", {
+						}), material.summary !== void 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: GatherView_module_css_default.gatherAiResult,
 							children: [
-								(0, react_jsx_runtime.jsx)("p", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 									className: GatherView_module_css_default.gatherBodyText,
 									children: material.summary
 								}),
-								material.points !== void 0 && material.points.length > 0 && (0, react_jsx_runtime.jsx)("ul", {
+								material.points !== void 0 && material.points.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("ul", {
 									className: GatherView_module_css_default.gatherLog,
-									children: material.points.map((point, index) => (0, react_jsx_runtime.jsx)("li", {
+									children: material.points.map((point, index) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("li", {
 										className: GatherView_module_css_default.gatherBodyText,
 										children: point
 									}, index))
 								}),
-								material.score !== void 0 && (0, react_jsx_runtime.jsx)("span", {
+								material.score !== void 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: GatherView_module_css_default.gatherBadgeOk,
 									children: t("gather.detail.score", { n: material.score })
 								}),
-								material.tags !== void 0 && material.tags.length > 0 && (0, react_jsx_runtime.jsx)("span", {
+								material.tags !== void 0 && material.tags.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: GatherView_module_css_default.gatherItemMeta,
 									children: material.tags.join("、")
 								})
 							]
 						})]
 					}),
-					body !== null && (0, react_jsx_runtime.jsx)("div", {
+					body !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: GatherView_module_css_default.gatherBody,
 						dangerouslySetInnerHTML: { __html: sanitizeForRender(body) }
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: GatherView_module_css_default.gatherExcerpts,
-						children: [(0, react_jsx_runtime.jsx)("ul", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("ul", {
 							className: GatherView_module_css_default.gatherLog,
-							children: material.excerpts?.map((entry, index) => (0, react_jsx_runtime.jsx)("li", {
+							children: material.excerpts?.map((entry, index) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("li", {
 								className: GatherView_module_css_default.gatherBodyText,
 								children: entry
 							}, index))
-						}), (0, react_jsx_runtime.jsxs)("div", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: GatherView_module_css_default.gatherFormRow,
-							children: [(0, react_jsx_runtime.jsx)("input", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								className: GatherView_module_css_default.gatherInput,
 								value: excerpt,
 								placeholder: t("gather.detail.excerptPlaceholder"),
 								onChange: (event) => {
 									setExcerpt(event.target.value);
 								}
-							}), (0, react_jsx_runtime.jsx)("button", {
+							}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: GatherView_module_css_default.gatherMini,
 								onClick: () => {
@@ -26359,22 +26316,22 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})]
 						})]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: GatherView_module_css_default.gatherFormRow,
-						children: [(0, react_jsx_runtime.jsxs)("select", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 							className: GatherView_module_css_default.gatherInput,
 							value: bindTheme,
 							onChange: (event) => {
 								setBindTheme(event.target.value);
 							},
-							children: [(0, react_jsx_runtime.jsx)("option", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 								value: "",
 								children: t("gather.detail.bindPlaceholder")
-							}), state.themes.filter((theme) => theme !== state.selectedTheme).map((theme) => (0, react_jsx_runtime.jsx)("option", {
+							}), state.themes.filter((theme) => theme !== state.selectedTheme).map((theme) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 								value: theme,
 								children: theme
 							}, theme))]
-						}), (0, react_jsx_runtime.jsx)("button", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: GatherView_module_css_default.gatherMini,
 							onClick: () => {
@@ -26386,16 +26343,16 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							children: t("gather.detail.bindMove")
 						})]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: GatherView_module_css_default.gatherFormRow,
-						children: [(0, react_jsx_runtime.jsx)("input", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 							className: GatherView_module_css_default.gatherInput,
 							type: "date",
 							value: calendarDate,
 							onChange: (event) => {
 								setCalendarDate(event.target.value);
 							}
-						}), (0, react_jsx_runtime.jsx)("button", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: GatherView_module_css_default.gatherMini,
 							onClick: () => {
@@ -26412,13 +26369,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			return value.split(/[,，、\n]/u).map((word) => word.trim()).filter((word) => word.length > 0);
 		}
 		//#endregion
-		//#region lib/types/client/seo.js
-		/**
-		* The SEO/GEO helper of the create workbench, rules tier: deterministic
-		* keyword extraction (CJK bigrams plus latin words against a small stopword
-		* list), static per-type layout advice, and the local-region keyword combos.
-		* No AI, no network — the advisory surface the doc scopes as the basic tier.
-		*/
+		//#region src/client/seo.ts
 		/** CJK function words and fragments that never make a useful keyword. */
 		const STOP_BIGRAMS = [
 			"我的",
@@ -26556,14 +26507,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			return keywords.slice(0, cap).map((keyword) => `${clean}${keyword}`);
 		}
 		//#endregion
-		//#region lib/types/client/create.js
-		/**
-		* Pure logic of the create workbench: content-type metadata, version-list
-		* operations (append, manual-save merge window, pin, prune), word/reading
-		* counts, deliverable naming, export rendering, line diffing, and the
-		* selection splice. No React, no I/O — the view and the tests share this
-		* module, like `competitors.ts` and `calendar.ts`.
-		*/
+		//#region src/client/create.ts
 		/** The six built-in content types with the coarse `kind` they map to in metadata. */
 		const CREATE_TYPES = [
 			{
@@ -26599,11 +26543,19 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"story",
 			"concise"
 		];
-		/** The coarse metadata kind a content type maps to. */
+		/**
+		* The coarse metadata kind a content type maps to.
+		* @param id - the content type id.
+		* @returns the `OutputKind` of the matching entry, or `'other'` when the id has no entry.
+		*/
 		function contentTypeKind(id) {
 			return CREATE_TYPES.find((entry) => entry.id === id)?.kind ?? "other";
 		}
-		/** One prefixed, collision-resistant id (`cc-<time><rand>`). */
+		/**
+		* One prefixed, collision-resistant id (`cc-<time><rand>`).
+		* @param prefix - the id's leading segment, `'cc'` by default.
+		* @returns the composed id string.
+		*/
 		function newId(prefix = "cc") {
 			return `${prefix}-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
 		}
@@ -26921,7 +26873,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		}
 		/** The content types whose variant batches ride one request. */
 		const BATCHABLE_CONTENT_TYPES = ["xhs-note"];
-		/** Whether the content type can batch three variants in one request. */
+		/**
+		* Whether the content type can batch three variants in one request.
+		* @param contentType - the content type id to test.
+		* @returns whether the type is in `BATCHABLE_CONTENT_TYPES`.
+		*/
 		function isBatchable(contentType) {
 			return BATCHABLE_CONTENT_TYPES.includes(contentType);
 		}
@@ -27007,16 +26963,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			};
 		}
 		//#endregion
-		//#region lib/types/client/banned-words.js
-		/**
-		* Local banned-word pre-check: a curated, offline word list (advertising-law
-		* absolute claims, authority endorsements, medical efficacy, and financial
-		* promises) plus a deterministic scanner. Purely advisory — the view shows
-		* hits with a disclaimer and never blocks saving or exporting. The list is
-		* a curated subset in the spirit of the MIT-licensed Sensitive-lexicon
-		* project, reduced to phrase-level entries so a single character like 最
-		* cannot flood a text with false hits.
-		*/
+		//#region src/client/banned-words.ts
 		/**
 		* The bundled word list, grouped by category. Phrase-level entries only;
 		* extend here (never in the scanner) as the compliance needs grow.
@@ -27197,7 +27144,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"versionRow": "cIVj2a_versionRow"
 		};
 		//#endregion
-		//#region lib/types/client/CreateView.js
+		//#region src/client/CreateView.tsx
 		/**
 		* The create workbench view: three entries (blank new as the main path,
 		* paste-a-topic, and the topic-bank push once that column ships), then the
@@ -27977,8 +27924,8 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					setError(t("create.aiFailed").replace("{detail}", cause instanceof Error ? cause.message : String(cause)));
 				}
 			};
-			if (editor === null) return (0, react_jsx_runtime.jsxs)("div", { children: [
-				(0, react_jsx_runtime.jsx)("button", {
+			if (editor === null) return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [
+				/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 					type: "button",
 					className: CreateView_module_css_default.catalogToggle,
 					onClick: () => {
@@ -27987,45 +27934,45 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					children: showCatalog ? t("create.tab.workbench") : t("create.tab.catalog")
 				}),
 				showCatalog && catalog,
-				!showCatalog && (0, react_jsx_runtime.jsxs)("div", {
+				!showCatalog && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: ContentStudio_module_css_default.compForm,
 					children: [
-						(0, react_jsx_runtime.jsxs)("div", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: CreateView_module_css_default.entryGrid,
-							children: [(0, react_jsx_runtime.jsxs)("button", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								className: clsx(CreateView_module_css_default.entryCard, entryMode === "blank" && CreateView_module_css_default.entryCardActive),
 								onClick: () => {
 									setEntryMode("blank");
 								},
-								children: [(0, react_jsx_runtime.jsx)("span", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: CreateView_module_css_default.entryCardTitle,
 									children: t("create.entry.blank")
-								}), (0, react_jsx_runtime.jsx)("span", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: CreateView_module_css_default.entryCardHint,
 									children: t("create.entry.blankHint")
 								})]
-							}), (0, react_jsx_runtime.jsxs)("button", {
+							}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								className: clsx(CreateView_module_css_default.entryCard, entryMode === "paste" && CreateView_module_css_default.entryCardActive),
 								onClick: () => {
 									setEntryMode("paste");
 								},
-								children: [(0, react_jsx_runtime.jsx)("span", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: CreateView_module_css_default.entryCardTitle,
 									children: t("create.entry.paste")
-								}), (0, react_jsx_runtime.jsx)("span", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: CreateView_module_css_default.entryCardHint,
 									children: t("create.entry.pasteHint")
 								})]
 							})]
 						}),
-						entryMode === "paste" && (0, react_jsx_runtime.jsxs)("div", {
+						entryMode === "paste" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: ContentStudio_module_css_default.compFormRow,
-							children: [(0, react_jsx_runtime.jsx)("span", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: ContentStudio_module_css_default.compFieldLabel,
 								children: t("create.entry.pastePlaceholder")
-							}), (0, react_jsx_runtime.jsx)("textarea", {
+							}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 								className: ContentStudio_module_css_default.compTextarea,
 								value: pasted,
 								rows: 5,
@@ -28034,12 +27981,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								}
 							})]
 						}),
-						(0, react_jsx_runtime.jsxs)("div", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: ContentStudio_module_css_default.compFormRow,
-							children: [(0, react_jsx_runtime.jsx)("span", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: ContentStudio_module_css_default.compFieldLabel,
 								children: t("create.entry.title")
-							}), entryMode === "blank" && (0, react_jsx_runtime.jsx)("input", {
+							}), entryMode === "blank" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								className: ContentStudio_module_css_default.compInput,
 								value: title,
 								placeholder: t("create.entry.titlePlaceholder"),
@@ -28048,16 +27995,16 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								}
 							})]
 						}),
-						(0, react_jsx_runtime.jsxs)("div", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: ContentStudio_module_css_default.compFormRow,
 							children: [
-								(0, react_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: ContentStudio_module_css_default.compFieldLabel,
 									children: t("create.entry.theme")
 								}),
-								(0, react_jsx_runtime.jsxs)("label", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 									className: CreateView_module_css_default.versionMeta,
-									children: [(0, react_jsx_runtime.jsx)("input", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										type: "radio",
 										checked: themeChoice === "new",
 										onChange: () => {
@@ -28065,10 +28012,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										}
 									}), t("create.entry.themeNew")]
 								}),
-								themes.length > 0 && (0, react_jsx_runtime.jsxs)("label", {
+								themes.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 									className: CreateView_module_css_default.versionMeta,
 									children: [
-										(0, react_jsx_runtime.jsx)("input", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 											type: "radio",
 											checked: themeChoice === "existing",
 											onChange: () => {
@@ -28076,24 +28023,24 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											}
 										}),
 										t("create.entry.themeExisting"),
-										(0, react_jsx_runtime.jsxs)("select", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 											value: existingTheme,
 											disabled: themeChoice !== "existing",
 											onChange: (event) => {
 												setExistingTheme(event.target.value);
 											},
-											children: [(0, react_jsx_runtime.jsx)("option", {
+											children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 												value: "",
 												disabled: true,
 												children: "—"
-											}), themes.map((name) => (0, react_jsx_runtime.jsx)("option", {
+											}), themes.map((name) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 												value: name,
 												children: name
 											}, name))]
 										})
 									]
 								}),
-								themeChoice === "new" && (0, react_jsx_runtime.jsx)("input", {
+								themeChoice === "new" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 									className: ContentStudio_module_css_default.compInput,
 									value: newThemeName,
 									placeholder: t("create.entry.themePlaceholder"),
@@ -28103,13 +28050,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								})
 							]
 						}),
-						entryError !== null && (0, react_jsx_runtime.jsx)("span", {
+						entryError !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: CreateView_module_css_default.aiError,
 							children: entryError
 						}),
-						(0, react_jsx_runtime.jsxs)("div", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: ContentStudio_module_css_default.compActions,
-							children: [(0, react_jsx_runtime.jsx)("button", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.retry,
 								onClick: () => {
@@ -28117,7 +28064,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									else startPasted();
 								},
 								children: t("create.entry.start")
-							}), themes.map((name) => (0, react_jsx_runtime.jsx)("button", {
+							}), themes.map((name) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.chip,
 								onClick: () => {
@@ -28130,11 +28077,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				})
 			] });
 			const diffRows = rewritePreview === null ? [] : lineDiff(rewritePreview.before, rewritePreview.after);
-			return (0, react_jsx_runtime.jsxs)("div", { children: [
-				(0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [
+				/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: ContentStudio_module_css_default.compDetailHead,
 					children: [
-						(0, react_jsx_runtime.jsx)("input", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 							className: ContentStudio_module_css_default.compInput,
 							value: editor.title,
 							"aria-label": t("create.entry.title"),
@@ -28146,7 +28093,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								setDirty(true);
 							}
 						}),
-						(0, react_jsx_runtime.jsx)("select", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("select", {
 							value: editor.manifest.contentType,
 							"aria-label": t("create.type.label"),
 							onChange: (event) => {
@@ -28159,21 +28106,21 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								"voiceover",
 								"product-page",
 								"rewrite"
-							].map((id) => (0, react_jsx_runtime.jsx)("option", {
+							].map((id) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 								value: id,
 								children: t(`create.type.${id}`)
 							}, id))
 						}),
-						(0, react_jsx_runtime.jsx)("span", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: `${ContentStudio_module_css_default.badge} ${editor.publishedFile === null ? ContentStudio_module_css_default.statusDraft : ContentStudio_module_css_default.statusPublished}`,
 							children: editor.publishedFile === null ? t("status.draft") : t("status.published")
 						})
 					]
 				}),
-				(0, react_jsx_runtime.jsxs)("div", {
+				/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: ContentStudio_module_css_default.compActions,
 					children: [
-						(0, react_jsx_runtime.jsx)("button", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: ContentStudio_module_css_default.retry,
 							disabled: aiPending !== null,
@@ -28182,9 +28129,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							},
 							children: aiPending === "generate" ? t("create.generating") : t("create.generate")
 						}),
-						(0, react_jsx_runtime.jsxs)("label", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 							className: CreateView_module_css_default.versionMeta,
-							children: [(0, react_jsx_runtime.jsx)("input", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								type: "radio",
 								checked: count === 1,
 								onChange: () => {
@@ -28192,9 +28139,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								}
 							}), t("create.count.one")]
 						}),
-						(0, react_jsx_runtime.jsxs)("label", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 							className: CreateView_module_css_default.versionMeta,
-							children: [(0, react_jsx_runtime.jsx)("input", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								type: "radio",
 								checked: count === 3,
 								disabled: !isBatchable(editor.manifest.contentType),
@@ -28203,7 +28150,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								}
 							}), t("create.count.three")]
 						}),
-						(0, react_jsx_runtime.jsx)("button", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							disabled: aiPending !== null,
 							onClick: () => {
@@ -28211,7 +28158,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							},
 							children: t("create.save")
 						}),
-						(0, react_jsx_runtime.jsx)("button", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							disabled: aiPending !== null,
 							onClick: () => {
@@ -28219,7 +28166,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							},
 							children: t("create.publish")
 						}),
-						onSendToPublish !== void 0 && editor.publishedFile !== null && (0, react_jsx_runtime.jsx)("button", {
+						onSendToPublish !== void 0 && editor.publishedFile !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: ContentStudio_module_css_default.retry,
 							onClick: () => {
@@ -28232,44 +28179,44 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							},
 							children: t("create.sendToPublish")
 						}),
-						(0, react_jsx_runtime.jsx)("button", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							onClick: () => {
 								runExport();
 							},
 							children: t("create.export")
 						}),
-						dirty && (0, react_jsx_runtime.jsx)("span", {
+						dirty && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: CreateView_module_css_default.noticeLine,
 							children: t("create.dirty")
 						})
 					]
 				}),
-				batch !== null && (0, react_jsx_runtime.jsx)("div", {
+				batch !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 					className: CreateView_module_css_default.entryGrid,
-					children: batch.map((card, index) => (0, react_jsx_runtime.jsxs)("div", {
+					children: batch.map((card, index) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: CreateView_module_css_default.versionRow,
 						children: [
-							card.kind === "pending" && (0, react_jsx_runtime.jsx)("span", {
+							card.kind === "pending" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: CreateView_module_css_default.versionMeta,
 								children: t("create.batch.pending")
 							}),
-							card.kind === "failed" && (0, react_jsx_runtime.jsxs)("span", {
+							card.kind === "failed" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 								className: CreateView_module_css_default.aiError,
 								children: [t("create.batch.failed"), card.detail]
 							}),
-							card.kind === "done" && (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
-								(0, react_jsx_runtime.jsx)("span", {
+							card.kind === "done" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: CreateView_module_css_default.versionMeta,
 									children: t("create.batch.card").replace("{n}", String(index + 1))
 								}),
-								(0, react_jsx_runtime.jsx)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 									className: CreateView_module_css_default.diffBlock,
 									children: card.text.slice(0, 240)
 								}),
-								(0, react_jsx_runtime.jsx)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 									className: CreateView_module_css_default.versionActions,
-									children: (0, react_jsx_runtime.jsx)("button", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.retry,
 										disabled: aiPending !== null,
@@ -28283,19 +28230,19 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						]
 					}, index))
 				}),
-				notice !== null && (0, react_jsx_runtime.jsx)("div", {
+				notice !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 					className: CreateView_module_css_default.noticeLine,
 					role: "status",
 					children: notice
 				}),
-				error !== null && (0, react_jsx_runtime.jsx)("div", {
+				error !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 					className: CreateView_module_css_default.aiError,
 					role: "alert",
 					children: error
 				}),
-				overwritePending !== null && (0, react_jsx_runtime.jsxs)("div", {
+				overwritePending !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: ContentStudio_module_css_default.compActions,
-					children: [(0, react_jsx_runtime.jsx)("span", { children: t("create.publishConfirm").replace("{file}", overwritePending) }), (0, react_jsx_runtime.jsx)("button", {
+					children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("create.publishConfirm").replace("{file}", overwritePending) }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 						type: "button",
 						className: ContentStudio_module_css_default.retry,
 						onClick: () => {
@@ -28304,9 +28251,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						children: t("create.overwrite")
 					})]
 				}),
-				registerRetry !== null && (0, react_jsx_runtime.jsx)("div", {
+				registerRetry !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 					className: ContentStudio_module_css_default.compActions,
-					children: (0, react_jsx_runtime.jsx)("button", {
+					children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 						type: "button",
 						className: ContentStudio_module_css_default.retry,
 						onClick: () => {
@@ -28330,18 +28277,18 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						children: t("create.registerRetry")
 					})
 				}),
-				editor.manifest.topicRef !== null && (0, react_jsx_runtime.jsxs)("div", {
+				editor.manifest.topicRef !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: ContentStudio_module_css_default.compActions,
 					children: [
-						(0, react_jsx_runtime.jsxs)("span", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 							className: CreateView_module_css_default.noticeLine,
 							children: [
 								t("create.topic.label"),
 								editor.manifest.topicRef.title,
-								editor.manifest.topicRef.syncState !== "linked" && (0, react_jsx_runtime.jsxs)("span", { children: [" · ", t(`create.topic.${editor.manifest.topicRef.syncState}`)] })
+								editor.manifest.topicRef.syncState !== "linked" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [" · ", t(`create.topic.${editor.manifest.topicRef.syncState}`)] })
 							]
 						}),
-						writebackFailed && (0, react_jsx_runtime.jsx)("button", {
+						writebackFailed && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: ContentStudio_module_css_default.retry,
 							onClick: () => {
@@ -28349,7 +28296,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							},
 							children: t("create.writeback.retry")
 						}),
-						editor.manifest.topicRef.syncState === "orphan" && (0, react_jsx_runtime.jsx)("button", {
+						editor.manifest.topicRef.syncState === "orphan" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							onClick: () => {
 								detachTopic();
@@ -28358,19 +28305,19 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						})
 					]
 				}),
-				(0, react_jsx_runtime.jsxs)("div", {
+				/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: CreateView_module_css_default.editorGrid,
-					children: [(0, react_jsx_runtime.jsxs)("div", {
+					children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: CreateView_module_css_default.editorPane,
 						children: [
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: CreateView_module_css_default.editorToolbar,
 								children: [
-									(0, react_jsx_runtime.jsx)("span", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: CreateView_module_css_default.versionMeta,
 										children: t("create.rewrite.label")
 									}),
-									SELECTION_OPS.map((op) => (0, react_jsx_runtime.jsx)("button", {
+									SELECTION_OPS.map((op) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										disabled: aiPending !== null,
 										onClick: () => {
@@ -28378,23 +28325,23 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										},
 										children: t(`create.op.${op}`)
 									}, op)),
-									(0, react_jsx_runtime.jsxs)("select", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 										"aria-label": t("create.op.style"),
 										onChange: (event) => {
 											const style = event.target.value;
 											runRewrite("style", style);
 										},
 										value: "",
-										children: [(0, react_jsx_runtime.jsx)("option", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 											value: "",
 											disabled: true,
 											children: t("create.op.style")
-										}), REWRITE_STYLES.map((style) => (0, react_jsx_runtime.jsx)("option", {
+										}), REWRITE_STYLES.map((style) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 											value: style,
 											children: t(`create.style.${style}`)
 										}, style))]
 									}),
-									(0, react_jsx_runtime.jsx)("button", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										disabled: aiPending !== null,
 										onClick: () => {
@@ -28402,7 +28349,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										},
 										children: t("create.op.titles")
 									}),
-									(0, react_jsx_runtime.jsx)("button", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										disabled: aiPending !== null,
 										onClick: () => {
@@ -28410,7 +28357,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										},
 										children: t("create.evaluate")
 									}),
-									templateLibrary != null && (0, react_jsx_runtime.jsx)("button", {
+									templateLibrary != null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										onClick: () => {
 											templateLibrary.openPicker({
@@ -28428,13 +28375,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										},
 										children: t("create.pickTemplate")
 									}),
-									aiPending === "rewrite" && (0, react_jsx_runtime.jsx)("span", {
+									aiPending === "rewrite" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: CreateView_module_css_default.noticeLine,
 										children: t("create.rewriting")
 									})
 								]
 							}),
-							(0, react_jsx_runtime.jsx)("textarea", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 								ref: textareaRef,
 								className: CreateView_module_css_default.editorTextarea,
 								value: editor.text,
@@ -28447,20 +28394,20 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									setNotice(null);
 								}
 							}),
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: CreateView_module_css_default.statsLine,
 								children: [
-									(0, react_jsx_runtime.jsx)("span", { children: t("create.words").replace("{n}", String(words)) }),
-									(0, react_jsx_runtime.jsx)("span", { children: t("create.reading").replace("{n}", String(minutes)) }),
-									(0, react_jsx_runtime.jsx)("span", { children: t("create.paragraphs").replace("{n}", String(localMetrics(editor.text).paragraphs)) }),
-									persona.trim().length > 0 && (0, react_jsx_runtime.jsx)("span", { children: t("create.profile.applied") })
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("create.words").replace("{n}", String(words)) }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("create.reading").replace("{n}", String(minutes)) }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("create.paragraphs").replace("{n}", String(localMetrics(editor.text).paragraphs)) }),
+									persona.trim().length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("create.profile.applied") })
 								]
 							}),
-							rewritePreview !== null && (0, react_jsx_runtime.jsxs)("div", { children: [(0, react_jsx_runtime.jsxs)("div", {
+							rewritePreview !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.compActions,
 								children: [
-									(0, react_jsx_runtime.jsx)("strong", { children: t("create.rewrite.preview") }),
-									(0, react_jsx_runtime.jsx)("button", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: t("create.rewrite.preview") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: ContentStudio_module_css_default.retry,
 										onClick: () => {
@@ -28468,7 +28415,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										},
 										children: t("create.rewrite.apply")
 									}),
-									(0, react_jsx_runtime.jsx)("button", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										onClick: () => {
 											setRewritePreview(null);
@@ -28476,25 +28423,25 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										children: t("create.rewrite.discard")
 									})
 								]
-							}), (0, react_jsx_runtime.jsx)("div", {
+							}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 								className: CreateView_module_css_default.diffBlock,
-								children: diffRows.map((row, index) => (0, react_jsx_runtime.jsx)("div", {
+								children: diffRows.map((row, index) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 									className: clsx(CreateView_module_css_default.diffRow, row.kind === "add" && CreateView_module_css_default.diffAdd, row.kind === "del" && CreateView_module_css_default.diffDel),
 									children: row.text
 								}, index))
 							})] })
 						]
-					}), (0, react_jsx_runtime.jsxs)("div", {
+					}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: CreateView_module_css_default.sideStack,
 						children: [
-							(0, react_jsx_runtime.jsxs)("div", { children: [
-								(0, react_jsx_runtime.jsx)("strong", { children: t("create.context.title") }),
-								(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: t("create.context.title") }),
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: CreateView_module_css_default.contextField,
-									children: [(0, react_jsx_runtime.jsx)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: CreateView_module_css_default.versionMeta,
 										children: t("create.context.audience")
-									}), (0, react_jsx_runtime.jsx)("textarea", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 										className: CreateView_module_css_default.contextInput,
 										value: editor.manifest.context.audience ?? "",
 										onChange: (event) => {
@@ -28512,12 +28459,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										}
 									})]
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: CreateView_module_css_default.contextField,
-									children: [(0, react_jsx_runtime.jsx)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: CreateView_module_css_default.versionMeta,
 										children: t("create.context.points")
-									}), (0, react_jsx_runtime.jsx)("textarea", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 										className: CreateView_module_css_default.contextInput,
 										value: editor.manifest.context.points ?? "",
 										onChange: (event) => {
@@ -28535,12 +28482,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										}
 									})]
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: CreateView_module_css_default.contextField,
-									children: [(0, react_jsx_runtime.jsx)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: CreateView_module_css_default.versionMeta,
 										children: t("create.context.references")
-									}), (0, react_jsx_runtime.jsx)("textarea", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 										className: CreateView_module_css_default.contextInput,
 										value: editor.manifest.context.references ?? "",
 										onChange: (event) => {
@@ -28559,19 +28506,19 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									})]
 								})
 							] }),
-							(0, react_jsx_runtime.jsxs)("div", { children: [
-								(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: ContentStudio_module_css_default.compActions,
 									children: [
-										(0, react_jsx_runtime.jsx)("strong", { children: t("create.template.title") }),
-										(0, react_jsx_runtime.jsx)("button", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: t("create.template.title") }),
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											onClick: () => {
 												loadTemplates();
 											},
 											children: templates === null ? t("create.template.load") : t("create.template.reload")
 										}),
-										templates !== null && (0, react_jsx_runtime.jsx)("button", {
+										templates !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											onClick: () => {
 												setTemplateForm({
@@ -28584,27 +28531,27 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										})
 									]
 								}),
-								templateProblems.length > 0 && (0, react_jsx_runtime.jsx)("span", {
+								templateProblems.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: CreateView_module_css_default.aiError,
 									children: t("create.template.problems").replace("{n}", String(templateProblems.length))
 								}),
-								templates !== null && templateForm === null && (0, react_jsx_runtime.jsxs)("div", { children: [
-									templates.length === 0 && (0, react_jsx_runtime.jsx)("span", {
+								templates !== null && templateForm === null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [
+									templates.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: CreateView_module_css_default.versionMeta,
 										children: t("create.template.empty")
 									}),
-									templates.map((template) => (0, react_jsx_runtime.jsxs)("div", {
+									templates.map((template) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: CreateView_module_css_default.bannedRow,
-										children: [(0, react_jsx_runtime.jsxs)("button", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 											type: "button",
 											className: clsx(ContentStudio_module_css_default.chip, activeTemplateId === template.id && ContentStudio_module_css_default.chipCopied),
 											onClick: () => {
 												setActiveTemplateId((current) => current === template.id ? null : template.id);
 											},
 											children: [template.title, activeTemplateId === template.id ? ` · ${t("create.template.active")}` : ""]
-										}), (0, react_jsx_runtime.jsxs)("span", {
+										}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 											className: CreateView_module_css_default.versionActions,
-											children: [(0, react_jsx_runtime.jsx)("button", {
+											children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												onClick: () => {
 													setTemplateForm({
@@ -28614,7 +28561,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 													});
 												},
 												children: t("create.template.edit")
-											}), (0, react_jsx_runtime.jsx)("button", {
+											}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												onClick: () => {
 													removeTemplate(template.id);
@@ -28623,15 +28570,15 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											})]
 										})]
 									}, template.id)),
-									(0, react_jsx_runtime.jsx)("span", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: CreateView_module_css_default.versionMeta,
 										children: t("create.template.hint")
 									})
 								] }),
-								templateForm !== null && (0, react_jsx_runtime.jsxs)("div", {
+								templateForm !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: CreateView_module_css_default.contextField,
 									children: [
-										(0, react_jsx_runtime.jsx)("input", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 											className: ContentStudio_module_css_default.compInput,
 											value: templateForm.title,
 											placeholder: t("create.template.namePlaceholder"),
@@ -28642,7 +28589,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												});
 											}
 										}),
-										(0, react_jsx_runtime.jsx)("textarea", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 											className: CreateView_module_css_default.contextInput,
 											value: templateForm.body,
 											rows: 6,
@@ -28654,16 +28601,16 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												});
 											}
 										}),
-										(0, react_jsx_runtime.jsxs)("div", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 											className: CreateView_module_css_default.versionActions,
-											children: [(0, react_jsx_runtime.jsx)("button", {
+											children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												className: ContentStudio_module_css_default.retry,
 												onClick: () => {
 													saveTemplate();
 												},
 												children: t("create.template.save")
-											}), (0, react_jsx_runtime.jsx)("button", {
+											}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												onClick: () => {
 													setTemplateForm(null);
@@ -28674,11 +28621,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									]
 								})
 							] }),
-							(0, react_jsx_runtime.jsxs)("div", { children: [
-								(0, react_jsx_runtime.jsx)("strong", { children: t("create.seo.title") }),
-								(0, react_jsx_runtime.jsx)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: t("create.seo.title") }),
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 									className: CreateView_module_css_default.versionActions,
-									children: (0, react_jsx_runtime.jsx)("button", {
+									children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										onClick: () => {
 											setSeoKeywords(extractKeywords(editor.text));
@@ -28686,21 +28633,21 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										children: t("create.seo.extract")
 									})
 								}),
-								seoKeywords !== null && (0, react_jsx_runtime.jsxs)("div", { children: [
-									seoKeywords.length === 0 && (0, react_jsx_runtime.jsx)("span", {
+								seoKeywords !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [
+									seoKeywords.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: CreateView_module_css_default.versionMeta,
 										children: t("create.seo.none")
 									}),
-									(0, react_jsx_runtime.jsx)("div", { children: seoKeywords.map((keyword) => (0, react_jsx_runtime.jsxs)("span", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", { children: seoKeywords.map((keyword) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 										className: CreateView_module_css_default.bannedWord,
 										children: [keyword, "　"]
 									}, keyword)) }),
-									(0, react_jsx_runtime.jsxs)("div", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: CreateView_module_css_default.contextField,
-										children: [(0, react_jsx_runtime.jsx)("span", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: CreateView_module_css_default.versionMeta,
 											children: t("create.seo.region")
-										}), (0, react_jsx_runtime.jsx)("input", {
+										}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 											className: ContentStudio_module_css_default.compInput,
 											value: seoRegion,
 											placeholder: t("create.seo.regionPlaceholder"),
@@ -28709,34 +28656,34 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											}
 										})]
 									}),
-									geoKeywords(seoRegion, seoKeywords).length > 0 && (0, react_jsx_runtime.jsx)("div", { children: geoKeywords(seoRegion, seoKeywords).map((combo) => (0, react_jsx_runtime.jsxs)("span", {
+									geoKeywords(seoRegion, seoKeywords).length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", { children: geoKeywords(seoRegion, seoKeywords).map((combo) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 										className: CreateView_module_css_default.bannedCat,
 										children: [combo, "　"]
 									}, combo)) }),
-									(0, react_jsx_runtime.jsx)("span", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: CreateView_module_css_default.versionMeta,
 										children: t("create.seo.layout")
 									}),
-									layoutSuggestions(editor.manifest.contentType).map((stem) => (0, react_jsx_runtime.jsx)("div", {
+									layoutSuggestions(editor.manifest.contentType).map((stem) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 										className: CreateView_module_css_default.bannedRow,
-										children: (0, react_jsx_runtime.jsxs)("span", {
+										children: /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 											className: CreateView_module_css_default.versionMeta,
 											children: ["· ", t(`create.seo.layout.${stem}`)]
 										})
 									}, stem))
 								] })
 							] }),
-							(0, react_jsx_runtime.jsx)("div", { children: titles !== null && (0, react_jsx_runtime.jsxs)("div", { children: [
-								(0, react_jsx_runtime.jsx)("strong", { children: t("create.titles.title") }),
-								titles.length === 0 && (0, react_jsx_runtime.jsx)("span", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", { children: titles !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: t("create.titles.title") }),
+								titles.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: CreateView_module_css_default.versionMeta,
 									children: t("create.banned.clean")
 								}),
-								titles.map((line) => (0, react_jsx_runtime.jsxs)("div", {
+								titles.map((line) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: CreateView_module_css_default.bannedRow,
-									children: [(0, react_jsx_runtime.jsx)("span", { children: line }), (0, react_jsx_runtime.jsx)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: line }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: CreateView_module_css_default.versionActions,
-										children: (0, react_jsx_runtime.jsx)("button", {
+										children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											onClick: () => {
 												setEditor({
@@ -28750,59 +28697,59 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									})]
 								}, line))
 							] }) }),
-							(0, react_jsx_runtime.jsxs)("div", { children: [
-								(0, react_jsx_runtime.jsx)("strong", { children: t("create.evaluation.title") }),
-								evaluation === null && (0, react_jsx_runtime.jsx)("div", { children: (0, react_jsx_runtime.jsx)("span", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: t("create.evaluation.title") }),
+								evaluation === null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: CreateView_module_css_default.versionMeta,
 									children: t("create.evaluation.none")
 								}) }),
-								evaluation !== null && (0, react_jsx_runtime.jsxs)("div", {
+								evaluation !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: CreateView_module_css_default.versionRow,
 									children: [
-										(0, react_jsx_runtime.jsx)("div", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 											className: CreateView_module_css_default.versionHead,
-											children: (0, react_jsx_runtime.jsx)("strong", { children: t("create.evaluation.grade").replace("{grade}", evaluation.grade) })
+											children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: t("create.evaluation.grade").replace("{grade}", evaluation.grade) })
 										}),
 										[
 											["attraction", "create.evaluation.attraction"],
 											["readability", "create.evaluation.readability"],
 											["differentiation", "create.evaluation.differentiation"],
 											["audienceFit", "create.evaluation.audienceFit"]
-										].map(([key, labelKey]) => (0, react_jsx_runtime.jsxs)("div", {
+										].map(([key, labelKey]) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 											className: CreateView_module_css_default.bannedRow,
 											children: [
-												(0, react_jsx_runtime.jsx)("span", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 													className: CreateView_module_css_default.bannedCat,
 													children: t(labelKey)
 												}),
-												(0, react_jsx_runtime.jsx)("span", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 													className: CreateView_module_css_default.bannedWord,
 													children: evaluation[key].grade
 												}),
-												(0, react_jsx_runtime.jsx)("span", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 													className: CreateView_module_css_default.versionMeta,
 													children: evaluation[key].reason
 												})
 											]
 										}, key)),
-										(0, react_jsx_runtime.jsx)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: CreateView_module_css_default.versionMeta,
 											children: t("create.banned.disclaimer")
 										})
 									]
 								})
 							] }),
-							(0, react_jsx_runtime.jsxs)("div", { children: [
-								(0, react_jsx_runtime.jsx)("strong", { children: t("create.hashtags.title") }),
-								(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: t("create.hashtags.title") }),
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: CreateView_module_css_default.versionActions,
-									children: [(0, react_jsx_runtime.jsx)("button", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										onClick: () => {
 											suggestTags();
 										},
 										children: hashtags === null ? t("create.hashtags.suggest") : t("create.hashtags.resuggest")
-									}), (0, react_jsx_runtime.jsx)("button", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										disabled: hashtagPicks.length === 0,
 										onClick: () => {
@@ -28811,10 +28758,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										children: t("create.hashtags.insert")
 									})]
 								}),
-								hashtags !== null && (0, react_jsx_runtime.jsxs)("div", { children: [hashtags.length === 0 && (0, react_jsx_runtime.jsx)("span", {
+								hashtags !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [hashtags.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: CreateView_module_css_default.versionMeta,
 									children: t("create.hashtags.none")
-								}), hashtags.map((tag) => (0, react_jsx_runtime.jsx)("button", {
+								}), hashtags.map((tag) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: clsx(ContentStudio_module_css_default.chip, hashtagPicks.includes(tag) && ContentStudio_module_css_default.chipCopied),
 									onClick: () => {
@@ -28823,10 +28770,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									children: tag
 								}, tag))] })
 							] }),
-							(0, react_jsx_runtime.jsxs)("div", { children: [
-								(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: ContentStudio_module_css_default.compActions,
-									children: [(0, react_jsx_runtime.jsx)("strong", { children: t("create.sources.title") }), (0, react_jsx_runtime.jsx)("button", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: t("create.sources.title") }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										onClick: () => {
 											loadAssets();
@@ -28834,14 +28781,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										children: assets === null ? t("create.sources.load") : t("create.sources.reload")
 									})]
 								}),
-								assets !== null && (0, react_jsx_runtime.jsxs)("div", { children: [assets.length === 0 && (0, react_jsx_runtime.jsx)("span", {
+								assets !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [assets.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: CreateView_module_css_default.versionMeta,
 									children: t("create.sources.empty")
-								}), assets.filter((file) => !editor.manifest.sources.some((source) => source.file === file)).map((file) => (0, react_jsx_runtime.jsxs)("div", {
+								}), assets.filter((file) => !editor.manifest.sources.some((source) => source.file === file)).map((file) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: CreateView_module_css_default.bannedRow,
-									children: [(0, react_jsx_runtime.jsx)("span", { children: file }), (0, react_jsx_runtime.jsx)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: file }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: CreateView_module_css_default.versionActions,
-										children: (0, react_jsx_runtime.jsx)("button", {
+										children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											onClick: () => {
 												addSource(file);
@@ -28852,17 +28799,17 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								}, file))] }),
 								editor.manifest.sources.map((source) => {
 									const missing = assets !== null && source.file !== null && !assets.includes(source.file);
-									return (0, react_jsx_runtime.jsxs)("div", {
+									return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: CreateView_module_css_default.bannedRow,
 										children: [
-											(0, react_jsx_runtime.jsx)("span", { children: source.file ?? source.title }),
-											missing && (0, react_jsx_runtime.jsx)("span", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: source.file ?? source.title }),
+											missing && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 												className: CreateView_module_css_default.aiError,
 												children: t("create.sources.missing")
 											}),
-											(0, react_jsx_runtime.jsx)("span", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 												className: CreateView_module_css_default.versionActions,
-												children: (0, react_jsx_runtime.jsx)("button", {
+												children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 													type: "button",
 													onClick: () => {
 														removeSource(source.file);
@@ -28874,57 +28821,57 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									}, source.file ?? source.title);
 								})
 							] }),
-							(0, react_jsx_runtime.jsxs)("div", { children: [(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.compActions,
-								children: [(0, react_jsx_runtime.jsx)("strong", { children: t("create.versions") }), (0, react_jsx_runtime.jsx)("button", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", { children: t("create.versions") }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									onClick: () => {
 										setBanned(scanBannedWords(editor.text));
 									},
 									children: banned === null ? t("create.banned.run") : t("create.banned.rescan")
 								})]
-							}), banned !== null && (0, react_jsx_runtime.jsxs)("div", { children: [
-								banned.length === 0 && (0, react_jsx_runtime.jsx)("span", {
+							}), banned !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [
+								banned.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: CreateView_module_css_default.versionMeta,
 									children: t("create.banned.clean")
 								}),
-								banned.map((hit) => (0, react_jsx_runtime.jsxs)("div", {
+								banned.map((hit) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: CreateView_module_css_default.bannedRow,
 									children: [
-										(0, react_jsx_runtime.jsx)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: CreateView_module_css_default.bannedWord,
 											children: hit.word
 										}),
-										(0, react_jsx_runtime.jsx)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: CreateView_module_css_default.bannedCat,
 											children: t(`create.banned.cat.${hit.category}`)
 										}),
-										(0, react_jsx_runtime.jsx)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: CreateView_module_css_default.bannedCount,
 											children: t("create.banned.count").replace("{n}", String(hit.count))
 										})
 									]
 								}, hit.word)),
-								(0, react_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: CreateView_module_css_default.versionMeta,
 									children: t("create.banned.disclaimer")
 								})
 							] })] }),
-							(0, react_jsx_runtime.jsxs)("div", { children: [editor.manifest.versions.length === 0 && (0, react_jsx_runtime.jsx)("span", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [editor.manifest.versions.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: CreateView_module_css_default.versionMeta,
 								children: t("create.versions.empty")
-							}), [...editor.manifest.versions].reverse().map((version) => (0, react_jsx_runtime.jsxs)("div", {
+							}), [...editor.manifest.versions].reverse().map((version) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: CreateView_module_css_default.versionRow,
-								children: [(0, react_jsx_runtime.jsxs)("div", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: CreateView_module_css_default.versionHead,
-									children: [(0, react_jsx_runtime.jsxs)("strong", { children: [
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("strong", { children: [
 										"v",
 										version.v,
-										version.v === editor.manifest.currentVersion && (0, react_jsx_runtime.jsxs)("span", { children: [" · ", t("create.version.current")] }),
-										version.pinned && (0, react_jsx_runtime.jsx)("span", { children: " 📌" })
-									] }), (0, react_jsx_runtime.jsxs)("span", {
+										version.v === editor.manifest.currentVersion && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [" · ", t("create.version.current")] }),
+										version.pinned && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: " 📌" })
+									] }), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 										className: CreateView_module_css_default.versionActions,
-										children: [(0, react_jsx_runtime.jsx)("button", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											onClick: () => {
 												setEditor({
@@ -28934,7 +28881,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												setDirty(true);
 											},
 											children: t("create.version.restore")
-										}), (0, react_jsx_runtime.jsx)("button", {
+										}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											onClick: () => {
 												const next = pinVersion(editor.manifest, version.v);
@@ -28949,13 +28896,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											children: version.pinned ? t("create.version.unpin") : t("create.version.pin")
 										})]
 									})]
-								}), (0, react_jsx_runtime.jsxs)("span", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 									className: CreateView_module_css_default.versionMeta,
 									children: [
 										t(`create.trigger.${triggerClass(version.trigger)}`),
 										" · ",
 										t("create.words").replace("{n}", String(version.words)),
-										version.evaluation != null && (0, react_jsx_runtime.jsxs)("span", { children: [" · ", t("create.evaluation.grade").replace("{grade}", version.evaluation.grade)] })
+										version.evaluation != null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [" · ", t("create.evaluation.grade").replace("{grade}", version.evaluation.grade)] })
 									]
 								})]
 							}, version.v))] })
@@ -29032,7 +28979,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"toolbarGroup": "N5vr6a_toolbarGroup"
 		};
 		//#endregion
-		//#region lib/types/client/TopicBankView.js
+		//#region src/client/TopicBankView.tsx
 		/**
 		* The topic-bank view: the whole `_topics.json` bank in two faces — the P0
 		* table (title, source with its provenance entry, score, tags, status,
@@ -29363,17 +29310,17 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				setSelectedId(id);
 				setConfirming(false);
 			};
-			const createForm = form !== null && form.mode === "create" && (0, react_jsx_runtime.jsx)("div", {
+			const createForm = form !== null && form.mode === "create" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 				className: clsx(TopicBankView_module_css_default.detail, TopicBankView_module_css_default.formPanel),
-				children: (0, react_jsx_runtime.jsxs)("div", {
+				children: /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: TopicBankView_module_css_default.form,
 					children: [
-						(0, react_jsx_runtime.jsx)("label", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("label", {
 							className: TopicBankView_module_css_default.fieldLabel,
 							htmlFor: "topic-bank-create-title",
 							children: t("topicBank.field.title")
 						}),
-						(0, react_jsx_runtime.jsx)("input", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 							id: "topic-bank-create-title",
 							className: TopicBankView_module_css_default.formInput,
 							value: form.title,
@@ -29382,17 +29329,17 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								patchForm({ title: event.target.value });
 							}
 						}),
-						formError !== null && (0, react_jsx_runtime.jsx)("p", {
+						formError !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 							className: TopicBankView_module_css_default.formError,
 							children: formError
 						}),
-						(form.oneLiner.length > 0 || form.tagsText.length > 0 || form.description.length > 0) && (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
-							(0, react_jsx_runtime.jsx)("label", {
+						(form.oneLiner.length > 0 || form.tagsText.length > 0 || form.description.length > 0) && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("label", {
 								className: TopicBankView_module_css_default.fieldLabel,
 								htmlFor: "topic-bank-create-oneliner",
 								children: t("topicBank.field.oneLiner")
 							}),
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								id: "topic-bank-create-oneliner",
 								className: TopicBankView_module_css_default.formInput,
 								value: form.oneLiner,
@@ -29400,12 +29347,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									patchForm({ oneLiner: event.target.value });
 								}
 							}),
-							(0, react_jsx_runtime.jsx)("label", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("label", {
 								className: TopicBankView_module_css_default.fieldLabel,
 								htmlFor: "topic-bank-create-tags",
 								children: t("topicBank.field.tags")
 							}),
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								id: "topic-bank-create-tags",
 								className: TopicBankView_module_css_default.formInput,
 								value: form.tagsText,
@@ -29414,12 +29361,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									patchForm({ tagsText: event.target.value });
 								}
 							}),
-							(0, react_jsx_runtime.jsx)("label", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("label", {
 								className: TopicBankView_module_css_default.fieldLabel,
 								htmlFor: "topic-bank-create-description",
 								children: t("topicBank.field.description")
 							}),
-							(0, react_jsx_runtime.jsx)("textarea", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 								id: "topic-bank-create-description",
 								className: clsx(TopicBankView_module_css_default.formInput, TopicBankView_module_css_default.formTextarea),
 								value: form.description,
@@ -29428,16 +29375,16 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								}
 							})
 						] }),
-						(0, react_jsx_runtime.jsxs)("div", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: TopicBankView_module_css_default.formRow,
-							children: [(0, react_jsx_runtime.jsx)("button", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: TopicBankView_module_css_default.primary,
 								onClick: () => {
 									submitCreate();
 								},
 								children: t("topicBank.save")
-							}), (0, react_jsx_runtime.jsx)("button", {
+							}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: TopicBankView_module_css_default.btn,
 								onClick: () => {
@@ -29449,52 +29396,52 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					]
 				})
 			});
-			if (failed !== void 0) return (0, react_jsx_runtime.jsxs)("div", {
+			if (failed !== void 0) return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ContentStudio_module_css_default.libraryState,
 				children: [
-					(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 16 }),
-					(0, react_jsx_runtime.jsxs)("span", { children: [
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 16 }),
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
 						t("topicBank.error"),
 						": ",
 						failed
 					] }),
-					(0, react_jsx_runtime.jsxs)("button", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 						type: "button",
 						className: ContentStudio_module_css_default.retry,
 						onClick: () => {
 							load();
 						},
-						children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconRefreshOutline14, { size: 14 }), t("library.retry")]
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconRefreshOutline14, { size: 14 }), t("library.retry")]
 					})
 				]
 			});
-			if (snapshot === void 0) return (0, react_jsx_runtime.jsx)("div", {
+			if (snapshot === void 0) return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.libraryState,
 				children: t("topicBank.loading")
 			});
-			if (items.length === 0) return (0, react_jsx_runtime.jsxs)("div", { children: [
+			if (items.length === 0) return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [
 				createForm,
-				(0, react_jsx_runtime.jsx)("div", {
+				/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 					className: ContentStudio_module_css_default.libraryState,
 					children: t("topicBank.guide.hint")
 				}),
-				(0, react_jsx_runtime.jsxs)("div", {
+				/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: TopicBankView_module_css_default.guideActions,
-					children: [(0, react_jsx_runtime.jsx)("button", {
+					children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 						type: "button",
 						className: TopicBankView_module_css_default.primary,
 						onClick: () => {
 							openCreate();
 						},
 						children: t("topicBank.new")
-					}), templateLibrary != null && (0, react_jsx_runtime.jsx)("button", {
+					}), templateLibrary != null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 						type: "button",
 						className: TopicBankView_module_css_default.btn,
 						onClick: openTemplatePicker,
 						children: t("topicBank.useTemplate")
 					})]
 				}),
-				(0, react_jsx_runtime.jsx)(CapabilityPage, {
+				/* @__PURE__ */ (0, react_jsx_runtime.jsx)(CapabilityPage, {
 					title: t("topicBank.title"),
 					ids: ["hotspot", "calendar-plan"],
 					copiedId: copiedCapabilityId,
@@ -29502,20 +29449,20 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					t
 				})
 			] });
-			const editForm = form !== null && form.mode === "edit" && (0, react_jsx_runtime.jsxs)("div", {
+			const editForm = form !== null && form.mode === "edit" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: TopicBankView_module_css_default.form,
 				"aria-label": t("topicBank.edit"),
 				children: [
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: TopicBankView_module_css_default.formRow,
-						children: [(0, react_jsx_runtime.jsx)("button", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: TopicBankView_module_css_default.primary,
 							onClick: () => {
 								submitEdit();
 							},
 							children: t("topicBank.save")
-						}), (0, react_jsx_runtime.jsx)("button", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: TopicBankView_module_css_default.btn,
 							onClick: () => {
@@ -29524,12 +29471,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							children: t("topicBank.cancel")
 						})]
 					}),
-					(0, react_jsx_runtime.jsx)("label", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("label", {
 						className: TopicBankView_module_css_default.fieldLabel,
 						htmlFor: "topic-bank-title",
 						children: t("topicBank.field.title")
 					}),
-					(0, react_jsx_runtime.jsx)("input", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 						id: "topic-bank-title",
 						className: TopicBankView_module_css_default.formInput,
 						value: form.title,
@@ -29537,12 +29484,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							patchForm({ title: event.target.value });
 						}
 					}),
-					(0, react_jsx_runtime.jsx)("label", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("label", {
 						className: TopicBankView_module_css_default.fieldLabel,
 						htmlFor: "topic-bank-oneliner",
 						children: t("topicBank.field.oneLiner")
 					}),
-					(0, react_jsx_runtime.jsx)("input", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 						id: "topic-bank-oneliner",
 						className: TopicBankView_module_css_default.formInput,
 						value: form.oneLiner,
@@ -29550,32 +29497,32 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							patchForm({ oneLiner: event.target.value });
 						}
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: TopicBankView_module_css_default.formRow,
 						children: [
-							(0, react_jsx_runtime.jsx)("label", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("label", {
 								className: TopicBankView_module_css_default.fieldLabel,
 								htmlFor: "topic-bank-status",
 								children: t("topicBank.field.status")
 							}),
-							(0, react_jsx_runtime.jsx)("select", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("select", {
 								id: "topic-bank-status",
 								className: TopicBankView_module_css_default.formInput,
 								value: form.status,
 								onChange: (event) => {
 									patchForm({ status: event.target.value });
 								},
-								children: TOPIC_STATUSES.map((status) => (0, react_jsx_runtime.jsx)("option", {
+								children: TOPIC_STATUSES.map((status) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 									value: status,
 									children: t(`topic.status.${status}`)
 								}, status))
 							}),
-							(0, react_jsx_runtime.jsx)("label", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("label", {
 								className: TopicBankView_module_css_default.fieldLabel,
 								htmlFor: "topic-bank-plan",
 								children: t("topicBank.field.planDate")
 							}),
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								id: "topic-bank-plan",
 								className: TopicBankView_module_css_default.formInput,
 								type: "date",
@@ -29586,12 +29533,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					(0, react_jsx_runtime.jsx)("label", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("label", {
 						className: TopicBankView_module_css_default.fieldLabel,
 						htmlFor: "topic-bank-tags",
 						children: t("topicBank.field.tags")
 					}),
-					(0, react_jsx_runtime.jsx)("input", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 						id: "topic-bank-tags",
 						className: TopicBankView_module_css_default.formInput,
 						value: form.tagsText,
@@ -29600,12 +29547,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							patchForm({ tagsText: event.target.value });
 						}
 					}),
-					(0, react_jsx_runtime.jsx)("label", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("label", {
 						className: TopicBankView_module_css_default.fieldLabel,
 						htmlFor: "topic-bank-url",
 						children: t("topicBank.field.sourceUrl")
 					}),
-					(0, react_jsx_runtime.jsx)("input", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 						id: "topic-bank-url",
 						className: TopicBankView_module_css_default.formInput,
 						value: form.sourceUrl,
@@ -29614,12 +29561,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							patchForm({ sourceUrl: event.target.value });
 						}
 					}),
-					(0, react_jsx_runtime.jsx)("label", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("label", {
 						className: TopicBankView_module_css_default.fieldLabel,
 						htmlFor: "topic-bank-score",
 						children: t("topicBank.field.score")
 					}),
-					(0, react_jsx_runtime.jsx)("input", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 						id: "topic-bank-score",
 						className: TopicBankView_module_css_default.formInput,
 						type: "number",
@@ -29632,12 +29579,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							patchForm({ scoreText: event.target.value });
 						}
 					}),
-					(0, react_jsx_runtime.jsx)("label", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("label", {
 						className: TopicBankView_module_css_default.fieldLabel,
 						htmlFor: "topic-bank-description",
 						children: t("topicBank.field.description")
 					}),
-					(0, react_jsx_runtime.jsx)("textarea", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 						id: "topic-bank-description",
 						className: clsx(TopicBankView_module_css_default.formInput, TopicBankView_module_css_default.formTextarea),
 						value: form.description,
@@ -29646,24 +29593,24 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							patchForm({ description: event.target.value });
 						}
 					}),
-					formError !== null && (0, react_jsx_runtime.jsx)("p", {
+					formError !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 						className: TopicBankView_module_css_default.formError,
 						children: formError
 					})
 				]
 			});
-			return (0, react_jsx_runtime.jsxs)("div", { children: [
-				(0, react_jsx_runtime.jsxs)("header", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [
+				/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
 					className: TopicBankView_module_css_default.head,
 					children: [
-						(0, react_jsx_runtime.jsxs)("div", { children: [(0, react_jsx_runtime.jsx)("h2", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h2", {
 							className: ContentStudio_module_css_default.pageTitle,
 							children: t("topicBank.title")
-						}), (0, react_jsx_runtime.jsx)("span", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: ContentStudio_module_css_default.subtitle,
 							children: t("topicBank.subtitle")
 						})] }),
-						(0, react_jsx_runtime.jsx)("button", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: TopicBankView_module_css_default.primary,
 							onClick: () => {
@@ -29671,7 +29618,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							},
 							children: t("topicBank.new")
 						}),
-						templateLibrary != null && (0, react_jsx_runtime.jsx)("button", {
+						templateLibrary != null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: TopicBankView_module_css_default.btn,
 							onClick: openTemplatePicker,
@@ -29679,55 +29626,55 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						})
 					]
 				}),
-				(0, react_jsx_runtime.jsxs)("div", {
+				/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: TopicBankView_module_css_default.toolbar,
 					children: [
-						(0, react_jsx_runtime.jsxs)("select", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 							"aria-label": t("topicBank.view.aria"),
 							className: TopicBankView_module_css_default.control,
 							value: config.view,
 							onChange: (event) => {
 								patchConfig({ view: event.target.value });
 							},
-							children: [(0, react_jsx_runtime.jsx)("option", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 								value: "table",
 								children: t("topicBank.view.table")
-							}), (0, react_jsx_runtime.jsx)("option", {
+							}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 								value: "kanban",
 								children: t("topicBank.view.kanban")
 							})]
 						}),
-						(0, react_jsx_runtime.jsxs)("select", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 							"aria-label": t("topicBank.filter.source"),
 							className: TopicBankView_module_css_default.control,
 							value: config.filters.source,
 							onChange: (event) => {
 								patchFilters({ source: event.target.value });
 							},
-							children: [(0, react_jsx_runtime.jsx)("option", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 								value: "all",
 								children: t("topicBank.filter.all")
-							}), TOPIC_SOURCE_TYPES.map((source) => (0, react_jsx_runtime.jsx)("option", {
+							}), TOPIC_SOURCE_TYPES.map((source) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 								value: source,
 								children: t(`topic.source.${source}`)
 							}, source))]
 						}),
-						(0, react_jsx_runtime.jsxs)("select", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 							"aria-label": t("topicBank.filter.status"),
 							className: TopicBankView_module_css_default.control,
 							value: config.filters.status,
 							onChange: (event) => {
 								patchFilters({ status: event.target.value });
 							},
-							children: [(0, react_jsx_runtime.jsx)("option", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 								value: "all",
 								children: t("topicBank.filter.all")
-							}), TOPIC_STATUSES.map((status) => (0, react_jsx_runtime.jsx)("option", {
+							}), TOPIC_STATUSES.map((status) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 								value: status,
 								children: t(`topic.status.${status}`)
 							}, status))]
 						}),
-						(0, react_jsx_runtime.jsxs)("select", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 							"aria-label": t("topicBank.filter.plan"),
 							className: TopicBankView_module_css_default.control,
 							value: config.filters.planWindow,
@@ -29735,43 +29682,43 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								patchFilters({ planWindow: event.target.value });
 							},
 							children: [
-								(0, react_jsx_runtime.jsx)("option", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 									value: "all",
 									children: t("topicBank.plan.all")
 								}),
-								(0, react_jsx_runtime.jsx)("option", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 									value: "week",
 									children: t("topicBank.plan.week")
 								}),
-								(0, react_jsx_runtime.jsx)("option", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 									value: "month",
 									children: t("topicBank.plan.month")
 								})
 							]
 						}),
-						(0, react_jsx_runtime.jsxs)("select", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 							"aria-label": t("topicBank.filter.tag"),
 							className: TopicBankView_module_css_default.control,
 							value: config.filters.tag ?? "",
 							onChange: (event) => {
 								patchFilters({ tag: event.target.value === "" ? null : event.target.value });
 							},
-							children: [(0, react_jsx_runtime.jsx)("option", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 								value: "",
 								children: t("topicBank.filter.allTags")
-							}), tags.map((tag) => (0, react_jsx_runtime.jsx)("option", {
+							}), tags.map((tag) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 								value: tag,
 								children: tag
 							}, tag))]
 						}),
-						(0, react_jsx_runtime.jsxs)("label", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 							className: TopicBankView_module_css_default.toolbarGroup,
 							children: [
-								(0, react_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: TopicBankView_module_css_default.controlLabel,
 									children: t("topicBank.filter.score")
 								}),
-								(0, react_jsx_runtime.jsx)("input", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 									"aria-label": t("topicBank.filter.scoreMin"),
 									className: clsx(TopicBankView_module_css_default.control, TopicBankView_module_css_default.scoreInput),
 									type: "number",
@@ -29782,11 +29729,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										patchFilters({ scoreMin: Number(event.target.value) });
 									}
 								}),
-								(0, react_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: TopicBankView_module_css_default.controlLabel,
 									children: "–"
 								}),
-								(0, react_jsx_runtime.jsx)("input", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 									"aria-label": t("topicBank.filter.scoreMax"),
 									className: clsx(TopicBankView_module_css_default.control, TopicBankView_module_css_default.scoreInput),
 									type: "number",
@@ -29799,7 +29746,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								})
 							]
 						}),
-						(0, react_jsx_runtime.jsx)("input", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 							"aria-label": t("topicBank.filter.search"),
 							className: clsx(TopicBankView_module_css_default.control, TopicBankView_module_css_default.search),
 							value: config.filters.search,
@@ -29808,35 +29755,35 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								patchFilters({ search: event.target.value });
 							}
 						}),
-						(0, react_jsx_runtime.jsx)("span", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: TopicBankView_module_css_default.count,
 							children: t("topicBank.count", { n: visible.length })
 						})
 					]
 				}),
-				(0, react_jsx_runtime.jsxs)("div", {
+				/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: TopicBankView_module_css_default.toolbar,
-					children: [(0, react_jsx_runtime.jsxs)("label", {
+					children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 						className: TopicBankView_module_css_default.toolbarGroup,
-						children: [(0, react_jsx_runtime.jsx)("span", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: TopicBankView_module_css_default.controlLabel,
 							children: t("topicBank.export.theme")
-						}), (0, react_jsx_runtime.jsxs)("select", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 							"aria-label": t("topicBank.export.theme"),
 							className: TopicBankView_module_css_default.control,
 							value: exportTarget ?? "",
 							onChange: (event) => {
 								setExportTheme(event.target.value);
 							},
-							children: [themes.length === 0 && (0, react_jsx_runtime.jsx)("option", {
+							children: [themes.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 								value: "",
 								children: t("topicBank.export.noTheme")
-							}), themes.map((theme) => (0, react_jsx_runtime.jsx)("option", {
+							}), themes.map((theme) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 								value: theme,
 								children: theme
 							}, theme))]
 						})]
-					}), (0, react_jsx_runtime.jsx)("button", {
+					}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 						type: "button",
 						className: TopicBankView_module_css_default.btn,
 						disabled: exportTarget === null || visible.length === 0,
@@ -29847,7 +29794,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						children: t("topicBank.export.button")
 					})]
 				}),
-				notice !== null && (0, react_jsx_runtime.jsx)("button", {
+				notice !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 					type: "button",
 					className: TopicBankView_module_css_default.notice,
 					role: "status",
@@ -29856,35 +29803,35 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					},
 					children: notice
 				}),
-				snapshot.problems.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
+				snapshot.problems.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: ContentStudio_module_css_default.libraryProblems,
 					role: "alert",
-					children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), (0, react_jsx_runtime.jsx)("span", { children: t("topicBank.problems", { n: snapshot.problems.length }) })]
+					children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconWarningOutline16, { size: 14 }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("topicBank.problems", { n: snapshot.problems.length }) })]
 				}),
 				createForm,
-				checkedIds.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
+				checkedIds.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: TopicBankView_module_css_default.batchBar,
 					children: [
-						(0, react_jsx_runtime.jsx)("span", { children: t("topicBank.batch.selected", { n: checkedIds.length }) }),
-						(0, react_jsx_runtime.jsxs)("label", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("topicBank.batch.selected", { n: checkedIds.length }) }),
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 							className: TopicBankView_module_css_default.toolbarGroup,
-							children: [(0, react_jsx_runtime.jsx)("span", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: TopicBankView_module_css_default.controlLabel,
 								children: t("topicBank.batch.setStatus")
-							}), (0, react_jsx_runtime.jsx)("select", {
+							}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("select", {
 								"aria-label": t("topicBank.batch.setStatus"),
 								className: TopicBankView_module_css_default.control,
 								value: batchStatus,
 								onChange: (event) => {
 									setBatchStatus(event.target.value);
 								},
-								children: TOPIC_STATUSES.map((status) => (0, react_jsx_runtime.jsx)("option", {
+								children: TOPIC_STATUSES.map((status) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 									value: status,
 									children: t(`topic.status.${status}`)
 								}, status))
 							})]
 						}),
-						(0, react_jsx_runtime.jsx)("button", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: TopicBankView_module_css_default.btn,
 							onClick: () => {
@@ -29892,7 +29839,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							},
 							children: t("topicBank.batch.apply")
 						}),
-						(0, react_jsx_runtime.jsx)("input", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 							"aria-label": t("topicBank.batch.tagsPlaceholder"),
 							className: TopicBankView_module_css_default.control,
 							value: batchTagsText,
@@ -29901,7 +29848,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								setBatchTagsText(event.target.value);
 							}
 						}),
-						(0, react_jsx_runtime.jsx)("button", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: TopicBankView_module_css_default.btn,
 							onClick: () => {
@@ -29909,7 +29856,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							},
 							children: t("topicBank.batch.applyTags")
 						}),
-						(0, react_jsx_runtime.jsx)("button", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: TopicBankView_module_css_default.btn,
 							onClick: () => {
@@ -29917,7 +29864,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							},
 							children: t("topicBank.batch.export")
 						}),
-						(0, react_jsx_runtime.jsx)("button", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: TopicBankView_module_css_default.btn,
 							onClick: () => {
@@ -29927,31 +29874,31 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						})
 					]
 				}),
-				(0, react_jsx_runtime.jsx)(SplitDetail, {
-					list: config.view === "table" ? (0, react_jsx_runtime.jsxs)("div", {
+				/* @__PURE__ */ (0, react_jsx_runtime.jsx)(SplitDetail, {
+					list: config.view === "table" ? /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: TopicBankView_module_css_default.tableWrap,
-						children: [(0, react_jsx_runtime.jsxs)("table", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("table", {
 							className: TopicBankView_module_css_default.table,
-							children: [(0, react_jsx_runtime.jsx)("thead", { children: (0, react_jsx_runtime.jsxs)("tr", { children: [
-								(0, react_jsx_runtime.jsx)("th", { "aria-label": t("topicBank.batch.select") }),
-								(0, react_jsx_runtime.jsx)("th", { children: t("topicBank.column.title") }),
-								(0, react_jsx_runtime.jsx)("th", { children: t("topicBank.column.source") }),
-								(0, react_jsx_runtime.jsx)("th", { children: t("topicBank.column.score") }),
-								(0, react_jsx_runtime.jsx)("th", { children: t("topicBank.column.tags") }),
-								(0, react_jsx_runtime.jsx)("th", { children: t("topicBank.column.status") }),
-								(0, react_jsx_runtime.jsx)("th", { children: t("topicBank.column.planDate") }),
-								(0, react_jsx_runtime.jsx)("th", { children: t("topicBank.column.updatedAt") })
-							] }) }), (0, react_jsx_runtime.jsx)("tbody", { children: visible.map((item) => (0, react_jsx_runtime.jsxs)("tr", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("tr", { children: [
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { "aria-label": t("topicBank.batch.select") }),
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { children: t("topicBank.column.title") }),
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { children: t("topicBank.column.source") }),
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { children: t("topicBank.column.score") }),
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { children: t("topicBank.column.tags") }),
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { children: t("topicBank.column.status") }),
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { children: t("topicBank.column.planDate") }),
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { children: t("topicBank.column.updatedAt") })
+							] }) }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("tbody", { children: visible.map((item) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("tr", {
 								className: clsx(TopicBankView_module_css_default.row, item.id === selectedId && TopicBankView_module_css_default.rowActive),
 								onClick: () => {
 									selectItem(item.id);
 								},
 								children: [
-									(0, react_jsx_runtime.jsx)("td", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("td", {
 										onClick: (event) => {
 											event.stopPropagation();
 										},
-										children: (0, react_jsx_runtime.jsx)("input", {
+										children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 											type: "checkbox",
 											"aria-label": `${t("topicBank.batch.select")}: ${item.title}`,
 											checked: checkedIds.includes(item.id),
@@ -29960,19 +29907,19 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											}
 										})
 									}),
-									(0, react_jsx_runtime.jsxs)("td", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("td", {
 										className: TopicBankView_module_css_default.cellTitle,
-										children: [(0, react_jsx_runtime.jsx)("span", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: TopicBankView_module_css_default.cellTitleText,
 											children: item.title
-										}), item.oneLiner !== null && (0, react_jsx_runtime.jsx)("span", {
+										}), item.oneLiner !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: TopicBankView_module_css_default.cellMeta,
 											children: item.oneLiner
 										})]
 									}),
-									(0, react_jsx_runtime.jsxs)("td", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("td", {
 										className: TopicBankView_module_css_default.cellMuted,
-										children: [t(`topic.source.${item.source.type}`), item.source.url !== null && (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [" ", (0, react_jsx_runtime.jsx)("a", {
+										children: [t(`topic.source.${item.source.type}`), item.source.url !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [" ", /* @__PURE__ */ (0, react_jsx_runtime.jsx)("a", {
 											className: TopicBankView_module_css_default.link,
 											href: item.source.url,
 											target: "_blank",
@@ -29983,35 +29930,35 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											children: t("topicBank.openOriginal")
 										})] })]
 									}),
-									(0, react_jsx_runtime.jsx)("td", { children: item.score === null ? t("topic.score.none") : formatScore(item.score.total) }),
-									(0, react_jsx_runtime.jsx)("td", { children: item.tags.map((tag) => (0, react_jsx_runtime.jsx)("span", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("td", { children: item.score === null ? t("topic.score.none") : formatScore(item.score.total) }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("td", { children: item.tags.map((tag) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: TopicBankView_module_css_default.tag,
 										children: tag
 									}, tag)) }),
-									(0, react_jsx_runtime.jsx)("td", { children: (0, react_jsx_runtime.jsx)("span", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: TopicBankView_module_css_default.pill,
 										children: t(`topic.status.${item.status}`)
 									}) }),
-									(0, react_jsx_runtime.jsx)("td", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("td", {
 										className: TopicBankView_module_css_default.cellMuted,
 										children: item.planDate ?? "—"
 									}),
-									(0, react_jsx_runtime.jsx)("td", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("td", {
 										className: TopicBankView_module_css_default.cellMuted,
 										children: item.updatedAt.slice(0, 10)
 									})
 								]
 							}, item.id)) })]
-						}), visible.length === 0 && (0, react_jsx_runtime.jsx)("div", {
+						}), visible.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 							className: ContentStudio_module_css_default.libraryState,
 							children: t("topicBank.noMatch")
 						})]
-					}) : (0, react_jsx_runtime.jsxs)("div", { children: [(0, react_jsx_runtime.jsx)("p", {
+					}) : /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 						className: TopicBankView_module_css_default.kanbanHint,
 						children: t("topicBank.kanbanHint")
-					}), (0, react_jsx_runtime.jsx)("div", {
+					}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: TopicBankView_module_css_default.kanban,
-						children: groupByStatus(visible).map(({ status, items: columnItems }) => (0, react_jsx_runtime.jsxs)("div", {
+						children: groupByStatus(visible).map(({ status, items: columnItems }) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: clsx(TopicBankView_module_css_default.column, dragOver === status && TopicBankView_module_css_default.columnOver),
 							onDragOver: (event) => {
 								event.preventDefault();
@@ -30023,10 +29970,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							onDrop: () => {
 								dropTo(status);
 							},
-							children: [(0, react_jsx_runtime.jsxs)("div", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: TopicBankView_module_css_default.columnHead,
-								children: [(0, react_jsx_runtime.jsx)("span", { children: t(`topic.status.${status}`) }), (0, react_jsx_runtime.jsx)("span", { children: columnItems.length })]
-							}), columnItems.map((item) => (0, react_jsx_runtime.jsxs)("button", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t(`topic.status.${status}`) }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: columnItems.length })]
+							}), columnItems.map((item) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								draggable: true,
 								className: clsx(TopicBankView_module_css_default.card, item.id === selectedId && TopicBankView_module_css_default.cardActive),
@@ -30037,10 +29984,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								onClick: () => {
 									selectItem(item.id);
 								},
-								children: [(0, react_jsx_runtime.jsx)("span", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: TopicBankView_module_css_default.cardTitle,
 									children: item.title
-								}), (0, react_jsx_runtime.jsxs)("span", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 									className: TopicBankView_module_css_default.cardMeta,
 									children: [
 										item.score === null ? t("topic.score.none") : formatScore(item.score.total),
@@ -30051,29 +29998,29 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							}, item.id))]
 						}, status))
 					})] }),
-					detail: editForm !== false ? (0, react_jsx_runtime.jsx)("section", {
+					detail: editForm !== false ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("section", {
 						className: TopicBankView_module_css_default.detail,
 						children: editForm
-					}) : selected === void 0 ? (0, react_jsx_runtime.jsx)("section", {
+					}) : selected === void 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("section", {
 						className: TopicBankView_module_css_default.detail,
-						children: (0, react_jsx_runtime.jsx)("div", {
+						children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 							className: ContentStudio_module_css_default.libraryState,
 							children: t("topicBank.detail.empty")
 						})
-					}) : (0, react_jsx_runtime.jsxs)("section", {
+					}) : /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 						className: TopicBankView_module_css_default.detail,
 						children: [
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: TopicBankView_module_css_default.detailHead,
-								children: [(0, react_jsx_runtime.jsx)("h3", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h3", {
 									className: TopicBankView_module_css_default.detailTitle,
 									children: selected.title
-								}), (0, react_jsx_runtime.jsx)("span", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: TopicBankView_module_css_default.pill,
 									children: t(`topic.status.${selected.status}`)
 								})]
 							}),
-							(0, react_jsx_runtime.jsxs)("p", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("p", {
 								className: TopicBankView_module_css_default.detailMeta,
 								children: [
 									t(`topic.source.${selected.source.type}`),
@@ -30084,10 +30031,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									selected.planDate !== null && ` · ${t("topicBank.field.planDate")}: ${selected.planDate}`
 								]
 							}),
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: TopicBankView_module_css_default.actions,
 								children: [
-									(0, react_jsx_runtime.jsx)("button", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: TopicBankView_module_css_default.primary,
 										onClick: () => {
@@ -30100,14 +30047,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										},
 										children: t("topicBank.startCreate")
 									}),
-									(0, react_jsx_runtime.jsx)("button", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: clsx(TopicBankView_module_css_default.btn, TopicBankView_module_css_default.btnDisabled),
 										disabled: true,
 										title: t("topicBank.aiPending"),
 										children: t("topicBank.aiOptimize")
 									}),
-									(0, react_jsx_runtime.jsx)("button", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: TopicBankView_module_css_default.btn,
 										onClick: () => {
@@ -30116,7 +30063,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										},
 										children: t("topicBank.edit")
 									}),
-									(0, react_jsx_runtime.jsx)("button", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: clsx(TopicBankView_module_css_default.btn, TopicBankView_module_css_default.btnDanger),
 										onClick: () => {
@@ -30127,15 +30074,15 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									})
 								]
 							}),
-							confirming && (0, react_jsx_runtime.jsxs)("div", {
+							confirming && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: TopicBankView_module_css_default.confirmBox,
 								role: "alertdialog",
 								"aria-label": t("topicBank.confirmDelete"),
 								children: [
-									(0, react_jsx_runtime.jsx)("span", { children: t("topicBank.confirmDelete") }),
-									selected.scheduleItemId !== null && (0, react_jsx_runtime.jsxs)("label", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("topicBank.confirmDelete") }),
+									selected.scheduleItemId !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 										className: TopicBankView_module_css_default.checkboxLabel,
-										children: [(0, react_jsx_runtime.jsx)("input", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 											type: "checkbox",
 											checked: alsoRemoveSchedule,
 											onChange: (event) => {
@@ -30143,16 +30090,16 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											}
 										}), t("topicBank.deleteAlsoSchedule")]
 									}),
-									(0, react_jsx_runtime.jsxs)("div", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: TopicBankView_module_css_default.formRow,
-										children: [(0, react_jsx_runtime.jsx)("button", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											className: clsx(TopicBankView_module_css_default.btn, TopicBankView_module_css_default.btnDanger),
 											onClick: () => {
 												performDelete();
 											},
 											children: t("topicBank.deleteConfirm")
-										}), (0, react_jsx_runtime.jsx)("button", {
+										}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											className: TopicBankView_module_css_default.btn,
 											onClick: () => {
@@ -30163,29 +30110,29 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									})
 								]
 							}),
-							selected.oneLiner !== null && (0, react_jsx_runtime.jsxs)("div", {
+							selected.oneLiner !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: TopicBankView_module_css_default.fieldBlock,
-								children: [(0, react_jsx_runtime.jsx)("span", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: TopicBankView_module_css_default.fieldLabel,
 									children: t("topicBank.field.oneLiner")
-								}), (0, react_jsx_runtime.jsx)("p", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 									className: TopicBankView_module_css_default.fieldValue,
 									children: selected.oneLiner
 								})]
 							}),
-							selected.tags.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
+							selected.tags.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: TopicBankView_module_css_default.fieldBlock,
-								children: [(0, react_jsx_runtime.jsx)("span", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: TopicBankView_module_css_default.fieldLabel,
 									children: t("topicBank.column.tags")
-								}), (0, react_jsx_runtime.jsx)("p", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 									className: TopicBankView_module_css_default.fieldValue,
 									children: selected.tags.join(" / ")
 								})]
 							}),
-							selected.source.url !== null && (0, react_jsx_runtime.jsx)("p", {
+							selected.source.url !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 								className: TopicBankView_module_css_default.fieldValue,
-								children: (0, react_jsx_runtime.jsx)("a", {
+								children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("a", {
 									className: TopicBankView_module_css_default.link,
 									href: selected.source.url,
 									target: "_blank",
@@ -30193,38 +30140,38 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									children: t("topicBank.openOriginal")
 								})
 							}),
-							selected.source.snapshot !== null && (0, react_jsx_runtime.jsxs)("div", {
+							selected.source.snapshot !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: TopicBankView_module_css_default.snapshot,
 								children: [
-									(0, react_jsx_runtime.jsx)("span", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: TopicBankView_module_css_default.fieldLabel,
 										children: t("topicBank.snapshotLabel")
 									}),
-									(0, react_jsx_runtime.jsx)("p", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 										className: TopicBankView_module_css_default.fieldValue,
 										children: selected.source.snapshot.title
 									}),
-									(0, react_jsx_runtime.jsx)("p", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 										className: TopicBankView_module_css_default.fieldValue,
 										children: selected.source.snapshot.summary ?? t("topicBank.snapshotNoSummary")
 									}),
-									(0, react_jsx_runtime.jsx)("p", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 										className: TopicBankView_module_css_default.fieldValue,
 										children: t("topicBank.snapshotCaptured", { date: selected.source.snapshot.capturedAt.slice(0, 10) })
 									})
 								]
 							}),
-							selected.description !== null && (0, react_jsx_runtime.jsxs)("div", {
+							selected.description !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: TopicBankView_module_css_default.fieldBlock,
-								children: [(0, react_jsx_runtime.jsx)("span", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: TopicBankView_module_css_default.fieldLabel,
 									children: t("topicBank.field.description")
-								}), (0, react_jsx_runtime.jsx)("p", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 									className: TopicBankView_module_css_default.fieldValue,
 									children: selected.description
 								})]
 							}),
-							selected.scheduleItemId !== null && (0, react_jsx_runtime.jsx)("p", {
+							selected.scheduleItemId !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 								className: TopicBankView_module_css_default.detailMeta,
 								children: t("topicBank.linkedSchedule")
 							})
@@ -30235,14 +30182,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			] });
 		}
 		//#endregion
-		//#region lib/types/client/publish/model.js
-		/**
-		* Pure model of the publish view: the built-in platform registry (the single
-		* source of platform rules — the AI prompt, the char counter, and the tag
-		* formatting all read it), the task-level helpers behind the state machine,
-		* the due-task scan for the open-time prompt, and the manuscript-pool
-		* projection from the outputs library snapshot.
-		*/
+		//#region src/client/publish/model.ts
 		/** The built-in registry, one row per platform, domestic first. */
 		const PLATFORM_PROFILES = [
 			{
@@ -30316,7 +30256,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				styleHints: "快节奏短内容：一条主帖讲清一件事，可带话题词；首句抓眼球，结尾可引导讨论。"
 			}
 		];
-		/** Registry lookup by platform id. */
+		/**
+		* Registry lookup by platform id.
+		* @param platformId - the platform id to look up.
+		* @returns the platform's profile, or undefined when the id is not in the registry.
+		*/
 		function platformProfileOf(platformId) {
 			return PLATFORM_PROFILES.find((profile) => profile.platformId === platformId);
 		}
@@ -30510,7 +30454,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"view": "yIomAW_view"
 		};
 		//#endregion
-		//#region lib/types/client/PublishView.js
+		//#region src/client/PublishView.tsx
 		/**
 		* The publish view: the manuscript pool on the left of the create flow, the
 		* platform-matrix task builder, the per-platform AI adaptation board with
@@ -30637,20 +30581,20 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				publish.selectTask(taskId);
 				setTab("tasks");
 			};
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: PublishView_module_css_default.view,
 				children: [
-					(0, react_jsx_runtime.jsxs)("header", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
 						className: PublishView_module_css_default.head,
-						children: [(0, react_jsx_runtime.jsxs)("div", { children: [(0, react_jsx_runtime.jsx)("h2", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h2", {
 							className: PublishView_module_css_default.title,
 							children: t("publish.title")
-						}), (0, react_jsx_runtime.jsx)("p", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 							className: PublishView_module_css_default.hint,
 							children: t("publish.hint")
-						})] }), (0, react_jsx_runtime.jsx)("div", {
+						})] }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 							className: PublishView_module_css_default.headActions,
-							children: (0, react_jsx_runtime.jsx)("button", {
+							children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: PublishView_module_css_default.ghost,
 								onClick: () => {
@@ -30660,16 +30604,16 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						})]
 					}),
-					state.notice !== null && NOTICE_KEYS.includes(state.notice) && (0, react_jsx_runtime.jsxs)("div", {
+					state.notice !== null && NOTICE_KEYS.includes(state.notice) && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: clsx(PublishView_module_css_default.notice, state.notice.endsWith("failed") || state.notice === "load-failed" ? PublishView_module_css_default.noticeWarn : PublishView_module_css_default.noticeOk),
 						role: "status",
 						children: [
-							(0, react_jsx_runtime.jsx)("span", { children: t(`publish.notice.${state.notice}`) }),
-							state.error !== null && (0, react_jsx_runtime.jsx)("span", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t(`publish.notice.${state.notice}`) }),
+							state.error !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: PublishView_module_css_default.noticeDetail,
 								children: state.error
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: PublishView_module_css_default.mini,
 								onClick: () => {
@@ -30679,28 +30623,28 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					showProfiles && (0, react_jsx_runtime.jsxs)("section", {
+					showProfiles && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 						className: PublishView_module_css_default.profiles,
 						"aria-label": t("publish.profiles.title"),
 						children: [
-							(0, react_jsx_runtime.jsx)("h3", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h3", {
 								className: PublishView_module_css_default.sectionTitle,
 								children: t("publish.profiles.title")
 							}),
-							(0, react_jsx_runtime.jsx)("p", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 								className: PublishView_module_css_default.hint,
 								children: t("publish.profiles.hint")
 							}),
-							(0, react_jsx_runtime.jsx)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 								className: PublishView_module_css_default.profileGrid,
 								children: PLATFORM_PROFILES.map((profile) => {
 									const stored = profileDraft.find((candidate) => candidate.platformId === profile.platformId);
-									return (0, react_jsx_runtime.jsxs)("div", {
+									return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: PublishView_module_css_default.profileCard,
 										children: [
-											(0, react_jsx_runtime.jsxs)("label", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 												className: PublishView_module_css_default.profileHead,
-												children: [(0, react_jsx_runtime.jsx)("input", {
+												children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 													type: "checkbox",
 													checked: stored?.enabled ?? false,
 													onChange: (event) => {
@@ -30717,9 +30661,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 															} : candidate);
 														});
 													}
-												}), (0, react_jsx_runtime.jsx)("span", { children: profile.name })]
+												}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: profile.name })]
 											}),
-											(0, react_jsx_runtime.jsx)("input", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 												type: "text",
 												className: PublishView_module_css_default.aliasInput,
 												placeholder: t("publish.profiles.alias"),
@@ -30732,7 +30676,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 													} : candidate));
 												}
 											}),
-											(0, react_jsx_runtime.jsx)("textarea", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 												className: PublishView_module_css_default.overrideInput,
 												placeholder: t("publish.profiles.overrides"),
 												value: stored?.adaptationOverrides ?? "",
@@ -30748,16 +30692,16 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									}, profile.platformId);
 								})
 							}),
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: PublishView_module_css_default.profilesActions,
-								children: [(0, react_jsx_runtime.jsx)("button", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: PublishView_module_css_default.primary,
 									onClick: () => {
 										publish.saveProfiles(profileDraft);
 									},
 									children: t("publish.profiles.save")
-								}), (0, react_jsx_runtime.jsx)("button", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: PublishView_module_css_default.ghost,
 									onClick: () => {
@@ -30768,10 +30712,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					(0, react_jsx_runtime.jsxs)("nav", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("nav", {
 						className: PublishView_module_css_default.tabs,
 						role: "tablist",
-						children: [(0, react_jsx_runtime.jsx)("button", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							role: "tab",
 							"aria-selected": tab === "tasks",
@@ -30780,7 +30724,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								setTab("tasks");
 							},
 							children: t("publish.tab.tasks")
-						}), (0, react_jsx_runtime.jsx)("button", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							role: "tab",
 							"aria-selected": tab === "history",
@@ -30791,70 +30735,70 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							children: t("publish.tab.history")
 						})]
 					}),
-					tab === "tasks" && (0, react_jsx_runtime.jsxs)("div", {
+					tab === "tasks" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: PublishView_module_css_default.columns,
-						children: [(0, react_jsx_runtime.jsxs)("aside", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("aside", {
 							className: PublishView_module_css_default.taskList,
 							"aria-label": t("publish.tab.tasks"),
 							children: [
-								state.theme === null && (0, react_jsx_runtime.jsx)("p", {
+								state.theme === null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 									className: PublishView_module_css_default.empty,
 									children: t("publish.theme.none")
 								}),
-								state.tasks.length === 0 && state.theme !== null && (0, react_jsx_runtime.jsx)("p", {
+								state.tasks.length === 0 && state.theme !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 									className: PublishView_module_css_default.empty,
 									children: t("publish.tasks.empty")
 								}),
-								state.tasks.map((task) => (0, react_jsx_runtime.jsxs)("button", {
+								state.tasks.map((task) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 									type: "button",
 									className: clsx(PublishView_module_css_default.taskItem, task.taskId === state.openTaskId && PublishView_module_css_default.taskItemActive),
 									onClick: () => {
 										publish.selectTask(task.taskId);
 									},
-									children: [(0, react_jsx_runtime.jsx)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: PublishView_module_css_default.taskItemTitle,
 										children: task.title
-									}), (0, react_jsx_runtime.jsx)("span", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: clsx(PublishView_module_css_default.badge, STATUS_CLASS[task.status]),
 										children: t(`publish.status.${task.status}`)
 									})]
 								}, task.taskId))
 							]
-						}), (0, react_jsx_runtime.jsxs)("div", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: PublishView_module_css_default.main,
 							children: [
-								state.manifestProblems.length > 0 && (0, react_jsx_runtime.jsx)("p", {
+								state.manifestProblems.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 									className: PublishView_module_css_default.problem,
 									children: t("publish.problems").replace("{list}", state.manifestProblems.join("；"))
 								}),
-								form === null && openTask === null && (0, react_jsx_runtime.jsxs)("section", {
+								form === null && openTask === null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 									className: PublishView_module_css_default.pool,
 									"aria-label": t("publish.pool.title"),
 									children: [
-										(0, react_jsx_runtime.jsx)("h3", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h3", {
 											className: PublishView_module_css_default.sectionTitle,
 											children: t("publish.pool.title")
 										}),
-										(0, react_jsx_runtime.jsx)("p", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 											className: PublishView_module_css_default.hint,
 											children: t("publish.pool.hint")
 										}),
-										state.manuscripts.length === 0 && (0, react_jsx_runtime.jsx)("p", {
+										state.manuscripts.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 											className: PublishView_module_css_default.empty,
 											children: t("publish.pool.empty")
 										}),
-										(0, react_jsx_runtime.jsx)("div", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 											className: PublishView_module_css_default.poolGrid,
-											children: state.manuscripts.map((card) => (0, react_jsx_runtime.jsxs)("button", {
+											children: state.manuscripts.map((card) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 												type: "button",
 												className: PublishView_module_css_default.poolCard,
 												onClick: () => {
 													startFormFrom(card);
 												},
-												children: [(0, react_jsx_runtime.jsx)("span", {
+												children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 													className: PublishView_module_css_default.poolTitle,
 													children: card.title
-												}), (0, react_jsx_runtime.jsxs)("span", {
+												}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 													className: PublishView_module_css_default.poolMeta,
 													children: [
 														card.theme,
@@ -30866,17 +30810,17 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										})
 									]
 								}),
-								form !== null && (0, react_jsx_runtime.jsxs)("section", {
+								form !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 									className: PublishView_module_css_default.form,
 									"aria-label": t("publish.form.title"),
 									children: [
-										(0, react_jsx_runtime.jsx)("h3", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h3", {
 											className: PublishView_module_css_default.sectionTitle,
 											children: t("publish.form.title")
 										}),
-										(0, react_jsx_runtime.jsxs)("p", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("p", {
 											className: PublishView_module_css_default.formManuscript,
-											children: [form.title, (0, react_jsx_runtime.jsxs)("span", {
+											children: [form.title, /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 												className: PublishView_module_css_default.formMeta,
 												children: [
 													form.theme,
@@ -30885,26 +30829,26 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												]
 											})]
 										}),
-										(0, react_jsx_runtime.jsx)("div", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 											className: PublishView_module_css_default.platformGrid,
 											children: PLATFORM_PROFILES.map((profile) => {
 												const card = state.profiles.find((candidate) => candidate.platformId === profile.platformId);
 												const checked = form.platformIds.includes(profile.platformId);
-												return (0, react_jsx_runtime.jsxs)("label", {
+												return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 													className: clsx(PublishView_module_css_default.platformCard, checked && PublishView_module_css_default.platformCardActive, card?.enabled === false && PublishView_module_css_default.platformCardOff),
 													children: [
-														(0, react_jsx_runtime.jsx)("input", {
+														/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 															type: "checkbox",
 															checked,
 															onChange: () => {
 																togglePlatform(profile.platformId);
 															}
 														}),
-														(0, react_jsx_runtime.jsx)("span", {
+														/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 															className: PublishView_module_css_default.platformName,
 															children: profile.name
 														}),
-														(0, react_jsx_runtime.jsx)("span", {
+														/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 															className: PublishView_module_css_default.platformMeta,
 															children: card?.alias ?? profile.name
 														})
@@ -30912,12 +30856,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												}, profile.platformId);
 											})
 										}),
-										(0, react_jsx_runtime.jsxs)("div", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 											className: PublishView_module_css_default.formRow,
 											children: [
-												(0, react_jsx_runtime.jsxs)("label", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 													className: PublishView_module_css_default.formLabel,
-													children: [(0, react_jsx_runtime.jsx)("input", {
+													children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 														type: "radio",
 														name: "publish-mode",
 														checked: form.mode === "immediate",
@@ -30929,9 +30873,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 														}
 													}), t("publish.form.immediate")]
 												}),
-												(0, react_jsx_runtime.jsxs)("label", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 													className: PublishView_module_css_default.formLabel,
-													children: [(0, react_jsx_runtime.jsx)("input", {
+													children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 														type: "radio",
 														name: "publish-mode",
 														checked: form.mode === "scheduled",
@@ -30943,7 +30887,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 														}
 													}), t("publish.form.scheduled")]
 												}),
-												form.mode === "scheduled" && (0, react_jsx_runtime.jsx)("input", {
+												form.mode === "scheduled" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 													type: "datetime-local",
 													className: PublishView_module_css_default.input,
 													value: form.scheduledLocal,
@@ -30956,7 +30900,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												})
 											]
 										}),
-										(0, react_jsx_runtime.jsx)("textarea", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 											className: PublishView_module_css_default.noteInput,
 											placeholder: t("publish.form.note"),
 											value: form.note,
@@ -30967,13 +30911,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												});
 											}
 										}),
-										(0, react_jsx_runtime.jsxs)("p", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("p", {
 											className: PublishView_module_css_default.hint,
 											children: [t("publish.form.persona"), persona.trim().length > 0 ? t("publish.form.personaOn") : t("publish.form.personaOff")]
 										}),
-										(0, react_jsx_runtime.jsxs)("div", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 											className: PublishView_module_css_default.formActions,
-											children: [(0, react_jsx_runtime.jsx)("button", {
+											children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												className: PublishView_module_css_default.primary,
 												disabled: form.platformIds.length === 0,
@@ -30981,7 +30925,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 													submitForm();
 												},
 												children: t("publish.form.submit")
-											}), (0, react_jsx_runtime.jsx)("button", {
+											}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												className: PublishView_module_css_default.ghost,
 												onClick: () => {
@@ -30992,7 +30936,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										})
 									]
 								}),
-								form === null && openTask !== null && (0, react_jsx_runtime.jsx)(TaskDetail, {
+								form === null && openTask !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(TaskDetail, {
 									task: openTask,
 									state,
 									publish,
@@ -31005,37 +30949,37 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							]
 						})]
 					}),
-					tab === "history" && (0, react_jsx_runtime.jsxs)("section", {
+					tab === "history" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 						className: PublishView_module_css_default.history,
 						"aria-label": t("publish.tab.history"),
 						children: [
-							state.indexProblems.length > 0 && (0, react_jsx_runtime.jsx)("p", {
+							state.indexProblems.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 								className: PublishView_module_css_default.problem,
 								children: t("publish.problems").replace("{list}", state.indexProblems.join("；"))
 							}),
-							state.index.length === 0 && (0, react_jsx_runtime.jsx)("p", {
+							state.index.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 								className: PublishView_module_css_default.empty,
 								children: t("publish.history.empty")
 							}),
-							(0, react_jsx_runtime.jsxs)("table", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("table", {
 								className: PublishView_module_css_default.historyTable,
-								children: [(0, react_jsx_runtime.jsx)("thead", { children: (0, react_jsx_runtime.jsxs)("tr", { children: [
-									(0, react_jsx_runtime.jsx)("th", { children: t("publish.history.task") }),
-									(0, react_jsx_runtime.jsx)("th", { children: t("publish.history.theme") }),
-									(0, react_jsx_runtime.jsx)("th", { children: t("publish.history.platforms") }),
-									(0, react_jsx_runtime.jsx)("th", { children: t("publish.history.status") }),
-									(0, react_jsx_runtime.jsx)("th", { children: t("publish.history.updated") }),
-									(0, react_jsx_runtime.jsx)("th", { "aria-label": t("publish.history.actions") })
-								] }) }), (0, react_jsx_runtime.jsx)("tbody", { children: [...state.index].reverse().map((entry) => (0, react_jsx_runtime.jsxs)("tr", { children: [
-									(0, react_jsx_runtime.jsx)("td", { children: entry.title }),
-									(0, react_jsx_runtime.jsx)("td", { children: entry.theme }),
-									(0, react_jsx_runtime.jsx)("td", { children: entry.platformIds.map((id) => platformProfileOf(id)?.name ?? id).join("、") }),
-									(0, react_jsx_runtime.jsx)("td", { children: (0, react_jsx_runtime.jsx)("span", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("tr", { children: [
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { children: t("publish.history.task") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { children: t("publish.history.theme") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { children: t("publish.history.platforms") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { children: t("publish.history.status") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { children: t("publish.history.updated") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { "aria-label": t("publish.history.actions") })
+								] }) }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("tbody", { children: [...state.index].reverse().map((entry) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("tr", { children: [
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("td", { children: entry.title }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("td", { children: entry.theme }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("td", { children: entry.platformIds.map((id) => platformProfileOf(id)?.name ?? id).join("、") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: clsx(PublishView_module_css_default.badge, STATUS_CLASS[entry.status]),
 										children: t(`publish.status.${entry.status}`)
 									}) }),
-									(0, react_jsx_runtime.jsx)("td", { children: entry.updatedAt.slice(0, 16).replace("T", " ") }),
-									(0, react_jsx_runtime.jsx)("td", { children: (0, react_jsx_runtime.jsx)("button", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("td", { children: entry.updatedAt.slice(0, 16).replace("T", " ") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: PublishView_module_css_default.mini,
 										onClick: () => {
@@ -31056,33 +31000,33 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		*/
 		function TaskDetail({ task, state, publish, draftEdit, setDraftEdit, scheduleInputs, setScheduleInputs, t }) {
 			const isRecorded = task.status === "recorded";
-			return (0, react_jsx_runtime.jsxs)("section", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 				className: PublishView_module_css_default.detail,
 				"aria-label": task.title,
 				children: [
-					(0, react_jsx_runtime.jsxs)("header", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
 						className: PublishView_module_css_default.detailHead,
-						children: [(0, react_jsx_runtime.jsx)("h3", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h3", {
 							className: PublishView_module_css_default.sectionTitle,
 							children: task.title
-						}), (0, react_jsx_runtime.jsx)("span", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: clsx(PublishView_module_css_default.badge, STATUS_CLASS[task.status]),
 							children: t(`publish.status.${task.status}`)
 						})]
 					}),
-					(0, react_jsx_runtime.jsxs)("p", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("p", {
 						className: PublishView_module_css_default.facts,
 						children: [
-							(0, react_jsx_runtime.jsxs)("span", { children: [t("publish.fact.manuscript"), task.manuscriptFile] }),
-							task.topicId !== null && (0, react_jsx_runtime.jsxs)("span", { children: [t("publish.fact.topic"), task.topicId] }),
-							task.scheduledAt !== null && (0, react_jsx_runtime.jsxs)("span", { children: [t("publish.fact.scheduledAt"), task.scheduledAt.slice(0, 16).replace("T", " ")] }),
-							task.note !== null && (0, react_jsx_runtime.jsxs)("span", { children: [t("publish.fact.note"), task.note] })
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [t("publish.fact.manuscript"), task.manuscriptFile] }),
+							task.topicId !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [t("publish.fact.topic"), task.topicId] }),
+							task.scheduledAt !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [t("publish.fact.scheduledAt"), task.scheduledAt.slice(0, 16).replace("T", " ")] }),
+							task.note !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [t("publish.fact.note"), task.note] })
 						]
 					}),
-					!isRecorded && (0, react_jsx_runtime.jsxs)("div", {
+					!isRecorded && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: PublishView_module_css_default.detailActions,
 						children: [
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: PublishView_module_css_default.primary,
 								disabled: task.platforms.every((leg) => leg.status !== "pending"),
@@ -31093,7 +31037,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								children: t("publish.action.preview")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: PublishView_module_css_default.primary,
 								disabled: state.recording,
@@ -31102,10 +31046,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								children: t("publish.action.record")
 							}),
-							task.mode === "scheduled" && task.scheduleItemId === null && (0, react_jsx_runtime.jsxs)("span", {
+							task.mode === "scheduled" && task.scheduleItemId === null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 								className: PublishView_module_css_default.scheduleRow,
 								children: [
-									(0, react_jsx_runtime.jsx)("input", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										type: "date",
 										className: PublishView_module_css_default.input,
 										value: scheduleInputs.date,
@@ -31116,7 +31060,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											});
 										}
 									}),
-									(0, react_jsx_runtime.jsx)("input", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										type: "time",
 										className: PublishView_module_css_default.input,
 										value: scheduleInputs.time,
@@ -31127,7 +31071,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											});
 										}
 									}),
-									(0, react_jsx_runtime.jsx)("button", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: PublishView_module_css_default.ghost,
 										disabled: scheduleInputs.date.length === 0,
@@ -31138,7 +31082,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									})
 								]
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: PublishView_module_css_default.ghost,
 								onClick: () => {
@@ -31146,7 +31090,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								children: t("publish.action.copy")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: PublishView_module_css_default.danger,
 								onClick: () => {
@@ -31157,12 +31101,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					isRecorded && (0, react_jsx_runtime.jsxs)("div", {
+					isRecorded && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: PublishView_module_css_default.detailActions,
-						children: [(0, react_jsx_runtime.jsx)("p", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 							className: PublishView_module_css_default.recordedNote,
 							children: t("publish.recorded.note")
-						}), task.topicId !== null && (0, react_jsx_runtime.jsx)("button", {
+						}), task.topicId !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: PublishView_module_css_default.primary,
 							onClick: () => {
@@ -31171,43 +31115,43 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							children: t("publish.action.reflow")
 						})]
 					}),
-					(0, react_jsx_runtime.jsx)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: PublishView_module_css_default.legGrid,
 						children: task.platforms.map((leg) => {
 							const profile = platformProfileOf(leg.platformId);
 							const busy = state.busyPlatforms[`${task.taskId}:${leg.platformId}`] === true;
 							const editing = draftEdit !== null && draftEdit.taskId === task.taskId && draftEdit.platformId === leg.platformId;
-							return (0, react_jsx_runtime.jsxs)("div", {
+							return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: PublishView_module_css_default.legCard,
 								children: [
-									(0, react_jsx_runtime.jsxs)("header", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
 										className: PublishView_module_css_default.legHead,
 										children: [
-											(0, react_jsx_runtime.jsx)("span", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 												className: PublishView_module_css_default.platformName,
 												children: profile?.name ?? leg.platformId
 											}),
-											(0, react_jsx_runtime.jsx)("span", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 												className: PublishView_module_css_default.platformMeta,
 												children: leg.accountAlias
 											}),
-											(0, react_jsx_runtime.jsx)("span", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 												className: clsx(PublishView_module_css_default.badge, LEG_STATUS_CLASS[leg.status]),
 												children: t(`publish.leg.${leg.status}`)
 											})
 										]
 									}),
-									leg.coverPrompt !== null && (0, react_jsx_runtime.jsxs)("p", {
+									leg.coverPrompt !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("p", {
 										className: PublishView_module_css_default.legCover,
 										children: [t("publish.leg.cover"), leg.coverPrompt]
 									}),
-									leg.tags.length > 0 && profile !== void 0 && (0, react_jsx_runtime.jsx)("p", {
+									leg.tags.length > 0 && profile !== void 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 										className: PublishView_module_css_default.legTags,
 										children: formatTags(leg.tags, profile.tagStyle)
 									}),
-									(0, react_jsx_runtime.jsxs)("div", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: PublishView_module_css_default.legActions,
-										children: [(0, react_jsx_runtime.jsx)("button", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											className: PublishView_module_css_default.mini,
 											disabled: busy,
@@ -31215,7 +31159,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												publish.adaptPlatform(task.taskId, leg.platformId);
 											},
 											children: leg.status === "pending" ? t("publish.leg.adapt") : t("publish.leg.readapt")
-										}), !editing && (0, react_jsx_runtime.jsx)("button", {
+										}), !editing && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											className: PublishView_module_css_default.mini,
 											onClick: () => {
@@ -31231,10 +31175,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											children: t("publish.leg.edit")
 										})]
 									}),
-									editing && (0, react_jsx_runtime.jsxs)("div", {
+									editing && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: PublishView_module_css_default.editBlock,
 										children: [
-											(0, react_jsx_runtime.jsx)("textarea", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 												className: PublishView_module_css_default.editArea,
 												value: draftEdit.content,
 												onChange: (event) => {
@@ -31244,13 +31188,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 													});
 												}
 											}),
-											exceedsCharLimit(draftEdit.content, profile?.charLimit ?? null) && (0, react_jsx_runtime.jsx)("p", {
+											exceedsCharLimit(draftEdit.content, profile?.charLimit ?? null) && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 												className: PublishView_module_css_default.problem,
 												children: t("publish.leg.overLimit")
 											}),
-											(0, react_jsx_runtime.jsxs)("div", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 												className: PublishView_module_css_default.editActions,
-												children: [(0, react_jsx_runtime.jsx)("button", {
+												children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 													type: "button",
 													className: PublishView_module_css_default.primary,
 													onClick: () => {
@@ -31260,7 +31204,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 														})();
 													},
 													children: t("publish.leg.save")
-												}), (0, react_jsx_runtime.jsx)("button", {
+												}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 													type: "button",
 													className: PublishView_module_css_default.ghost,
 													onClick: () => {
@@ -31271,11 +31215,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											})
 										]
 									}),
-									leg.attempts.length > 0 && (0, react_jsx_runtime.jsxs)("details", {
+									leg.attempts.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("details", {
 										className: PublishView_module_css_default.logBox,
-										children: [(0, react_jsx_runtime.jsx)("summary", { children: t("publish.leg.log").replace("{count}", String(leg.attempts.length)) }), (0, react_jsx_runtime.jsx)("ul", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("summary", { children: t("publish.leg.log").replace("{count}", String(leg.attempts.length)) }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("ul", {
 											className: PublishView_module_css_default.logList,
-											children: [...leg.attempts].reverse().map((attempt, index) => (0, react_jsx_runtime.jsxs)("li", {
+											children: [...leg.attempts].reverse().map((attempt, index) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("li", {
 												className: attempt.ok ? PublishView_module_css_default.logOk : PublishView_module_css_default.logFail,
 												children: [
 													attempt.at.slice(11, 19),
@@ -31295,15 +31239,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			});
 		}
 		//#endregion
-		//#region lib/types/client/review/model.js
-		/**
-		* Review-view pure functions: metric rates, the viral/weak/long-tail
-		* verdicts against the account baselines, the analysis-pool filter, the
-		* period aggregation, the top/bottom digest selection, and the data-only
-		* report fallback. No I/O and no React — everything the UI and the report
-		* pipeline derive from snapshots lives here, so the thresholds have exactly
-		* one implementation to test.
-		*/
+		//#region src/client/review/model.ts
 		/**
 		* Client-side copies of the wire enums. The bundle-purity gate forbids
 		* cross-plugin value imports, so the view carries its own constants; the
@@ -31336,19 +31272,29 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		const LONGTAIL_PACE_FRACTION = .2;
 		/** Diagnosis draft cap: the front slice of the body that rides a diagnosis call. */
 		const DIAGNOSE_DRAFT_CHARS = 4e3;
-		/** Sum of one metrics record's interaction fields; missing metrics read as 0 in a sum. */
+		/**
+		* Sum of one metrics record's interaction fields; missing metrics read as 0 in a sum.
+		* @param metrics - the metrics record of one snapshot.
+		* @returns likes + collects + comments + shares, absent fields counted as 0.
+		*/
 		function interactionsOf(metrics) {
 			return (metrics.likes ?? 0) + (metrics.collects ?? 0) + (metrics.comments ?? 0) + (metrics.shares ?? 0);
 		}
 		/**
 		* Interaction rate: interactions over reads/plays. Null when the platform
 		* exports no reads — never a faked 0.
+		* @param metrics - the metrics record of one snapshot.
+		* @returns the rate as a fraction, or null without a positive reads value.
 		*/
 		function engagementRateOf(metrics) {
 			if (metrics.reads === null || metrics.reads <= 0) return null;
 			return interactionsOf(metrics) / metrics.reads;
 		}
-		/** Collect rate: collects over reads/plays; null when reads are missing. */
+		/**
+		* Collect rate: collects over reads/plays; null when reads are missing.
+		* @param metrics - the metrics record of one snapshot.
+		* @returns the rate as a fraction, or null without a positive reads value.
+		*/
 		function collectRateOf(metrics) {
 			if (metrics.reads === null || metrics.reads <= 0) return null;
 			return (metrics.collects ?? 0) / metrics.reads;
@@ -31356,6 +31302,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		/**
 		* Judge one snapshot against the baselines: viral at twice the baseline
 		* engagement rate, weak below half of it.
+		* @param metrics - the metrics record of one snapshot.
+		* @param baselines - the account baselines grounding the gates.
+		* @returns `'viral'`, `'weak'`, or `'neutral'`; an incomputable rate reads neutral.
 		*/
 		function verdictOf(metrics, baselines) {
 			const rate = engagementRateOf(metrics);
@@ -31370,6 +31319,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		* least two snapshots; anything less reads as false.
 		* @param workSnapshots - every snapshot of one work, any order.
 		* @param now - the evaluation instant.
+		* @returns whether the work meets the long-tail age and recent-pace gates.
 		*/
 		function isLongtail(workSnapshots, now) {
 			if (workSnapshots.length < 2) return false;
@@ -31397,6 +31347,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		* @param filters - the active filter set (platforms, forms, verdict slice).
 		* @param period - the inclusive capture-date window.
 		* @param baselines - the account baselines grounding the verdict filters.
+		* @returns the snapshots passing every filter, manifest order preserved.
 		*/
 		function poolSnapshots(manifest, filters, period, baselines) {
 			return manifest.snapshots.filter((snapshot) => {
@@ -31415,6 +31366,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		* @param snapshots - the pool snapshots (bound, period-filtered).
 		* @param baselines - the verdict ground (viral/weak counts).
 		* @param now - the evaluation instant (long-tail needs one).
+		* @returns the aggregation behind the summary cards and the report prompt.
 		*/
 		function aggregateSummary(snapshots, baselines, now) {
 			const perPlatform = {
@@ -31483,6 +31435,8 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		* Rank the pool for the leaderboard and the report's top/bottom lists:
 		* bound snapshots, latest per work, engagement-rate descending; works
 		* without a computable rate sink to the bottom sorted by raw interactions.
+		* @param snapshots - the pool snapshots (one entry per capture, any order).
+		* @returns one latest snapshot per work, ranked best first.
 		*/
 		function rankWorks(snapshots) {
 			const byWork = /* @__PURE__ */ new Map();
@@ -31505,6 +31459,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		* the counts past the sampling threshold and reporting it.
 		* @param ranked - the ranked pool from {@link rankWorks}.
 		* @param drafts - body text per work key (`platform:workId`), for excerpts.
+		* @returns the top and bottom digests plus whether the pool size halved the lists.
 		*/
 		function selectDigests(ranked, drafts) {
 			const count = ranked.length > 50 ? Math.max(Math.floor(5 / 2), 1) : 5;
@@ -31533,6 +31488,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		* @param summary - the period aggregation.
 		* @param ranked - the ranked pool.
 		* @param baselines - the account baselines grounding the viral labels.
+		* @returns the fallback report markdown.
 		*/
 		function dataOnlyReport(name, period, summary, ranked, baselines) {
 			const percent = (rate) => rate === null ? "—" : `${(rate * 100).toFixed(1)}%`;
@@ -31633,7 +31589,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"workTitle": "VEANyG_workTitle"
 		};
 		//#endregion
-		//#region lib/types/client/ReviewView.js
+		//#region src/client/ReviewView.tsx
 		/**
 		* The review view: a four-panel workbench over the review controller —
 		* 数据 (import + bindings + baselines), 看板 (filters + summary cards +
@@ -31713,47 +31669,47 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				review.stageImport(importPlatform, importFileName, importText);
 			};
 			const noticeText = (notice) => t(`review.notice.${notice}`);
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ReviewView_module_css_default.view,
 				children: [
-					(0, react_jsx_runtime.jsxs)("header", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("header", {
 						className: ReviewView_module_css_default.header,
 						children: [
-							(0, react_jsx_runtime.jsx)("h2", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h2", {
 								className: ReviewView_module_css_default.title,
 								children: t("review.title")
 							}),
-							(0, react_jsx_runtime.jsxs)("select", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 								className: ReviewView_module_css_default.themePick,
 								value: state.theme ?? "",
 								onChange: (event) => {
 									pickTheme(event.target.value);
 								},
 								"aria-label": t("review.theme.aria"),
-								children: [(0, react_jsx_runtime.jsx)("option", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 									value: "",
 									children: t("review.theme.placeholder")
-								}), themes.map((theme) => (0, react_jsx_runtime.jsx)("option", {
+								}), themes.map((theme) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 									value: theme,
 									children: theme
 								}, theme))]
 							}),
-							state.problems.length > 0 && (0, react_jsx_runtime.jsx)("span", {
+							state.problems.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: ReviewView_module_css_default.problems,
 								children: state.problems[0]
 							})
 						]
 					}),
-					state.notice !== null && (0, react_jsx_runtime.jsx)("div", {
+					state.notice !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: ReviewView_module_css_default.notice,
 						role: "status",
 						children: noticeText(state.notice)
 					}),
-					state.busy && (0, react_jsx_runtime.jsx)("div", {
+					state.busy && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: ReviewView_module_css_default.busy,
 						children: t("review.busy")
 					}),
-					(0, react_jsx_runtime.jsx)("nav", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("nav", {
 						className: ReviewView_module_css_default.tabs,
 						role: "tablist",
 						children: [
@@ -31761,7 +31717,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							"board",
 							"diagnose",
 							"reports"
-						].map((candidate) => (0, react_jsx_runtime.jsx)("button", {
+						].map((candidate) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							role: "tab",
 							"aria-selected": tab === candidate,
@@ -31772,40 +31728,40 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							children: t(`review.tab.${candidate}`)
 						}, candidate))
 					}),
-					state.theme === null && (0, react_jsx_runtime.jsx)("p", {
+					state.theme === null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 						className: ReviewView_module_css_default.empty,
 						children: t("review.empty.noTheme")
 					}),
-					state.loading && (0, react_jsx_runtime.jsx)("p", {
+					state.loading && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 						className: ReviewView_module_css_default.empty,
 						children: t("review.loading")
 					}),
-					state.theme !== null && !state.loading && (0, react_jsx_runtime.jsxs)("div", {
+					state.theme !== null && !state.loading && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ReviewView_module_css_default.body,
 						children: [
-							tab === "data" && (0, react_jsx_runtime.jsxs)("section", {
+							tab === "data" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 								className: ReviewView_module_css_default.panel,
 								children: [
-									(0, react_jsx_runtime.jsx)("h3", { children: t("review.import.title") }),
-									(0, react_jsx_runtime.jsx)("p", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h3", { children: t("review.import.title") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 										className: ReviewView_module_css_default.hint,
 										children: t("review.import.hint")
 									}),
-									(0, react_jsx_runtime.jsxs)("div", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: ReviewView_module_css_default.formRow,
 										children: [
-											(0, react_jsx_runtime.jsx)("select", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("select", {
 												value: importPlatform,
 												onChange: (event) => {
 													setImportPlatform(event.target.value);
 												},
 												"aria-label": t("review.import.platform"),
-												children: REVIEW_PLATFORMS.map((platform) => (0, react_jsx_runtime.jsx)("option", {
+												children: REVIEW_PLATFORMS.map((platform) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 													value: platform,
 													children: PLATFORM_LABELS[platform]
 												}, platform))
 											}),
-											(0, react_jsx_runtime.jsx)("input", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 												type: "file",
 												accept: ".csv,text/csv",
 												onChange: (event) => {
@@ -31813,7 +31769,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												},
 												"aria-label": t("review.import.file")
 											}),
-											(0, react_jsx_runtime.jsx)("button", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												disabled: state.busy || importText.length === 0,
 												onClick: stageImport,
@@ -31821,7 +31777,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											})
 										]
 									}),
-									state.preview !== null && (0, react_jsx_runtime.jsx)(ImportPreviewCard, {
+									state.preview !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(ImportPreviewCard, {
 										preview: state.preview,
 										ignoredColumns: state.ignoredColumns,
 										onIgnore: (columns) => {
@@ -31835,17 +31791,17 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										},
 										t
 									}),
-									unbound.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
+									unbound.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: ReviewView_module_css_default.subpanel,
 										children: [
-											(0, react_jsx_runtime.jsx)("h4", { children: t("review.bind.title", { count: String(unbound.length) }) }),
-											(0, react_jsx_runtime.jsx)("p", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h4", { children: t("review.bind.title", { count: String(unbound.length) }) }),
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 												className: ReviewView_module_css_default.hint,
 												children: t("review.bind.hint")
 											}),
-											(0, react_jsx_runtime.jsx)("ul", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("ul", {
 												className: ReviewView_module_css_default.workList,
-												children: unbound.slice(0, 20).map((snapshot) => (0, react_jsx_runtime.jsx)(BindRow, {
+												children: unbound.slice(0, 20).map((snapshot) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)(BindRow, {
 													snapshot,
 													review,
 													t
@@ -31853,114 +31809,114 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											})
 										]
 									}),
-									(0, react_jsx_runtime.jsx)(BaselinesPanel, {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)(BaselinesPanel, {
 										review,
 										manifest,
 										t
 									})
 								]
 							}),
-							tab === "board" && (0, react_jsx_runtime.jsxs)("section", {
+							tab === "board" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 								className: ReviewView_module_css_default.panel,
 								children: [
-									(0, react_jsx_runtime.jsx)(FilterPanel, {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)(FilterPanel, {
 										review,
 										t
 									}),
-									(0, react_jsx_runtime.jsxs)("div", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: ReviewView_module_css_default.cards,
 										children: [
-											(0, react_jsx_runtime.jsxs)("div", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 												className: ReviewView_module_css_default.statCard,
-												children: [(0, react_jsx_runtime.jsx)("span", {
+												children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 													className: ReviewView_module_css_default.statValue,
 													children: summary.totalWorks
-												}), (0, react_jsx_runtime.jsx)("span", {
+												}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 													className: ReviewView_module_css_default.statLabel,
 													children: t("review.stat.works")
 												})]
 											}),
-											(0, react_jsx_runtime.jsxs)("div", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 												className: ReviewView_module_css_default.statCard,
-												children: [(0, react_jsx_runtime.jsx)("span", {
+												children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 													className: ReviewView_module_css_default.statValue,
 													children: summary.viralCount
-												}), (0, react_jsx_runtime.jsx)("span", {
+												}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 													className: ReviewView_module_css_default.statLabel,
 													children: t("review.stat.viral")
 												})]
 											}),
-											(0, react_jsx_runtime.jsxs)("div", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 												className: ReviewView_module_css_default.statCard,
-												children: [(0, react_jsx_runtime.jsx)("span", {
+												children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 													className: ReviewView_module_css_default.statValue,
 													children: percent(summary.avgEngagementRate)
-												}), (0, react_jsx_runtime.jsx)("span", {
+												}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 													className: ReviewView_module_css_default.statLabel,
 													children: t("review.stat.rate")
 												})]
 											}),
-											(0, react_jsx_runtime.jsxs)("div", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 												className: ReviewView_module_css_default.statCard,
-												children: [(0, react_jsx_runtime.jsx)("span", {
+												children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 													className: ReviewView_module_css_default.statValue,
 													children: summary.longtailCount
-												}), (0, react_jsx_runtime.jsx)("span", {
+												}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 													className: ReviewView_module_css_default.statLabel,
 													children: t("review.stat.longtail")
 												})]
 											})
 										]
 									}),
-									(0, react_jsx_runtime.jsxs)("div", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: ReviewView_module_css_default.subpanel,
 										children: [
-											(0, react_jsx_runtime.jsx)("h4", { children: t("review.board.platforms") }),
-											(0, react_jsx_runtime.jsxs)("table", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h4", { children: t("review.board.platforms") }),
+											/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("table", {
 												className: ReviewView_module_css_default.table,
-												children: [(0, react_jsx_runtime.jsx)("thead", { children: (0, react_jsx_runtime.jsxs)("tr", { children: [
-													(0, react_jsx_runtime.jsx)("th", { children: t("review.table.platform") }),
-													(0, react_jsx_runtime.jsx)("th", { children: t("review.table.works") }),
-													(0, react_jsx_runtime.jsx)("th", { children: t("review.table.impressions") }),
-													(0, react_jsx_runtime.jsx)("th", { children: t("review.table.engagement") })
-												] }) }), (0, react_jsx_runtime.jsx)("tbody", { children: REVIEW_PLATFORMS.filter((platform) => summary.perPlatform[platform].works > 0).map((platform) => (0, react_jsx_runtime.jsxs)("tr", { children: [
-													(0, react_jsx_runtime.jsx)("td", { children: PLATFORM_LABELS[platform] }),
-													(0, react_jsx_runtime.jsx)("td", { children: summary.perPlatform[platform].works }),
-													(0, react_jsx_runtime.jsx)("td", { children: summary.perPlatform[platform].impressions ?? "—" }),
-													(0, react_jsx_runtime.jsx)("td", { children: summary.perPlatform[platform].engagement ?? "—" })
+												children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("tr", { children: [
+													/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { children: t("review.table.platform") }),
+													/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { children: t("review.table.works") }),
+													/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { children: t("review.table.impressions") }),
+													/* @__PURE__ */ (0, react_jsx_runtime.jsx)("th", { children: t("review.table.engagement") })
+												] }) }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("tbody", { children: REVIEW_PLATFORMS.filter((platform) => summary.perPlatform[platform].works > 0).map((platform) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("tr", { children: [
+													/* @__PURE__ */ (0, react_jsx_runtime.jsx)("td", { children: PLATFORM_LABELS[platform] }),
+													/* @__PURE__ */ (0, react_jsx_runtime.jsx)("td", { children: summary.perPlatform[platform].works }),
+													/* @__PURE__ */ (0, react_jsx_runtime.jsx)("td", { children: summary.perPlatform[platform].impressions ?? "—" }),
+													/* @__PURE__ */ (0, react_jsx_runtime.jsx)("td", { children: summary.perPlatform[platform].engagement ?? "—" })
 												] }, platform)) })]
 											}),
-											(0, react_jsx_runtime.jsx)("p", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 												className: ReviewView_module_css_default.hint,
 												children: t("review.board.noSum")
 											})
 										]
 									}),
-									(0, react_jsx_runtime.jsxs)("div", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: ReviewView_module_css_default.subpanel,
-										children: [(0, react_jsx_runtime.jsx)("h4", { children: t("review.board.leaderboard") }), ranked.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h4", { children: t("review.board.leaderboard") }), ranked.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 											className: ReviewView_module_css_default.empty,
 											children: t("review.empty.pool")
-										}) : (0, react_jsx_runtime.jsx)("ol", {
+										}) : /* @__PURE__ */ (0, react_jsx_runtime.jsx)("ol", {
 											className: ReviewView_module_css_default.workList,
 											children: ranked.slice(0, 10).map((snapshot, index) => {
 												const rate = engagementRateOf(snapshot.metrics);
-												return (0, react_jsx_runtime.jsxs)("li", {
+												return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("li", {
 													className: ReviewView_module_css_default.workRow,
 													children: [
-														(0, react_jsx_runtime.jsx)("span", {
+														/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 															className: ReviewView_module_css_default.workRank,
 															children: index + 1
 														}),
-														(0, react_jsx_runtime.jsx)("span", {
+														/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 															className: ReviewView_module_css_default.workTitle,
 															children: snapshot.title
 														}),
-														(0, react_jsx_runtime.jsx)("span", {
+														/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 															className: ReviewView_module_css_default.workMeta,
 															children: PLATFORM_LABELS[snapshot.platformId]
 														}),
-														(0, react_jsx_runtime.jsx)("span", {
+														/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 															className: ReviewView_module_css_default.workMeta,
 															children: percent(rate)
 														})
@@ -31971,14 +31927,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									})
 								]
 							}),
-							tab === "diagnose" && (0, react_jsx_runtime.jsxs)("section", {
+							tab === "diagnose" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 								className: ReviewView_module_css_default.panel,
-								children: [(0, react_jsx_runtime.jsx)("h3", { children: t("review.diagnose.title") }), cards.length === 0 ? (0, react_jsx_runtime.jsx)("p", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h3", { children: t("review.diagnose.title") }), cards.length === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 									className: ReviewView_module_css_default.empty,
 									children: t("review.empty.pool")
-								}) : (0, react_jsx_runtime.jsx)("ul", {
+								}) : /* @__PURE__ */ (0, react_jsx_runtime.jsx)("ul", {
 									className: ReviewView_module_css_default.workList,
-									children: cards.map((card) => (0, react_jsx_runtime.jsx)(DiagnoseRow, {
+									children: cards.map((card) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)(DiagnoseRow, {
 										card,
 										review,
 										persona: null,
@@ -31986,13 +31942,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									}, card.snapshot.snapshotId))
 								})]
 							}),
-							tab === "reports" && (0, react_jsx_runtime.jsxs)("section", {
+							tab === "reports" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 								className: ReviewView_module_css_default.panel,
 								children: [
-									(0, react_jsx_runtime.jsx)("h3", { children: t("review.report.title") }),
-									(0, react_jsx_runtime.jsxs)("div", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h3", { children: t("review.report.title") }),
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: ReviewView_module_css_default.formRow,
-										children: [(0, react_jsx_runtime.jsx)("input", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 											type: "text",
 											value: taskName,
 											placeholder: t("review.report.namePlaceholder"),
@@ -32000,7 +31956,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												setTaskName(event.target.value);
 											},
 											"aria-label": t("review.report.namePlaceholder")
-										}), (0, react_jsx_runtime.jsx)("button", {
+										}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											disabled: state.busy || taskName.trim().length === 0,
 											onClick: () => {
@@ -32011,11 +31967,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											children: t("review.report.generate")
 										})]
 									}),
-									state.reportDraft !== null && (0, react_jsx_runtime.jsxs)("div", {
+									state.reportDraft !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: ReviewView_module_css_default.subpanel,
 										children: [
-											(0, react_jsx_runtime.jsx)("h4", { children: t("review.report.editing") }),
-											(0, react_jsx_runtime.jsx)("textarea", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h4", { children: t("review.report.editing") }),
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 												className: ReviewView_module_css_default.reportEditor,
 												value: state.reportDraft,
 												rows: 18,
@@ -32023,24 +31979,24 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 													review.copyReportToEditor(event.target.value);
 												}
 											}),
-											(0, react_jsx_runtime.jsxs)("div", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 												className: ReviewView_module_css_default.formRow,
 												children: [
-													(0, react_jsx_runtime.jsx)("button", {
+													/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 														type: "button",
 														onClick: () => {
 															review.saveReport();
 														},
 														children: t("review.report.save")
 													}),
-													(0, react_jsx_runtime.jsx)("button", {
+													/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 														type: "button",
 														onClick: () => {
 															review.closeReport();
 														},
 														children: t("review.report.close")
 													}),
-													(0, react_jsx_runtime.jsx)("button", {
+													/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 														type: "button",
 														onClick: () => {
 															review.saveTemplate(`爆款模板-${Date.now()}`, state.reportDraft ?? "");
@@ -32051,31 +32007,31 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											})
 										]
 									}),
-									(0, react_jsx_runtime.jsxs)("div", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: ReviewView_module_css_default.subpanel,
-										children: [(0, react_jsx_runtime.jsx)("h4", { children: t("review.history.title") }), (manifest?.tasks.length ?? 0) === 0 ? (0, react_jsx_runtime.jsx)("p", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h4", { children: t("review.history.title") }), (manifest?.tasks.length ?? 0) === 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 											className: ReviewView_module_css_default.empty,
 											children: t("review.history.empty")
-										}) : (0, react_jsx_runtime.jsx)("ul", {
+										}) : /* @__PURE__ */ (0, react_jsx_runtime.jsx)("ul", {
 											className: ReviewView_module_css_default.workList,
-											children: [...manifest?.tasks ?? []].reverse().map((task) => (0, react_jsx_runtime.jsx)(TaskRow, {
+											children: [...manifest?.tasks ?? []].reverse().map((task) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)(TaskRow, {
 												task,
 												review,
 												t
 											}, task.taskId))
 										})]
 									}),
-									(0, react_jsx_runtime.jsxs)("div", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: ReviewView_module_css_default.subpanel,
 										children: [
-											(0, react_jsx_runtime.jsx)("h4", { children: t("review.reflow.title") }),
-											(0, react_jsx_runtime.jsx)("p", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h4", { children: t("review.reflow.title") }),
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 												className: ReviewView_module_css_default.hint,
 												children: t("review.reflow.hint")
 											}),
-											(0, react_jsx_runtime.jsx)("div", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 												className: ReviewView_module_css_default.formRow,
-												children: (0, react_jsx_runtime.jsx)("input", {
+												children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 													type: "text",
 													value: topicTitle,
 													placeholder: t("review.reflow.titlePlaceholder"),
@@ -32084,7 +32040,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 													}
 												})
 											}),
-											(0, react_jsx_runtime.jsx)("textarea", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 												className: ReviewView_module_css_default.topicNote,
 												rows: 3,
 												value: topicNote,
@@ -32093,7 +32049,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 													setTopicNote(event.target.value);
 												}
 											}),
-											(0, react_jsx_runtime.jsx)("button", {
+											/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												disabled: topicTitle.trim().length === 0,
 												onClick: () => {
@@ -32106,11 +32062,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											})
 										]
 									}),
-									state.templates.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
+									state.templates.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: ReviewView_module_css_default.subpanel,
-										children: [(0, react_jsx_runtime.jsx)("h4", { children: t("review.templates.title") }), (0, react_jsx_runtime.jsx)("ul", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h4", { children: t("review.templates.title") }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("ul", {
 											className: ReviewView_module_css_default.workList,
-											children: state.templates.map((file) => (0, react_jsx_runtime.jsx)("li", {
+											children: state.templates.map((file) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("li", {
 												className: ReviewView_module_css_default.workRow,
 												children: file
 											}, file))
@@ -32128,10 +32084,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			const toggle = (column) => {
 				onIgnore(ignoredColumns.includes(column) ? ignoredColumns.filter((candidate) => candidate !== column) : [...ignoredColumns, column]);
 			};
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ReviewView_module_css_default.subpanel,
 				children: [
-					(0, react_jsx_runtime.jsxs)("h4", { children: [
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("h4", { children: [
 						preview.fileName,
 						" · ",
 						preview.rows.length,
@@ -32139,19 +32095,19 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						preview.rejected.length,
 						" ✗"
 					] }),
-					preview.rejected.length > 0 && (0, react_jsx_runtime.jsx)("ul", {
+					preview.rejected.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("ul", {
 						className: ReviewView_module_css_default.rejectList,
-						children: preview.rejected.slice(0, 10).map((rejection) => (0, react_jsx_runtime.jsx)("li", { children: t("review.import.rowRejected", {
+						children: preview.rejected.slice(0, 10).map((rejection) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("li", { children: t("review.import.rowRejected", {
 							row: String(rejection.row),
 							reason: rejection.reason
 						}) }, rejection.row))
 					}),
-					preview.unknownColumns.length > 0 && (0, react_jsx_runtime.jsxs)("div", { children: [(0, react_jsx_runtime.jsx)("p", {
+					preview.unknownColumns.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 						className: ReviewView_module_css_default.hint,
 						children: t("review.import.unknownColumns")
-					}), preview.unknownColumns.map((column) => (0, react_jsx_runtime.jsxs)("label", {
+					}), preview.unknownColumns.map((column) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 						className: ReviewView_module_css_default.checkLabel,
-						children: [(0, react_jsx_runtime.jsx)("input", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 							type: "checkbox",
 							checked: ignoredColumns.includes(column),
 							onChange: () => {
@@ -32159,13 +32115,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							}
 						}), column]
 					}, column))] }),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ReviewView_module_css_default.formRow,
-						children: [(0, react_jsx_runtime.jsx)("button", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							onClick: onCommit,
 							children: t("review.import.commit")
-						}), (0, react_jsx_runtime.jsx)("button", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							onClick: onDiscard,
 							children: t("review.import.discard")
@@ -32177,18 +32133,18 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		/** One unbound snapshot with its manual contentId input. */
 		function BindRow({ snapshot, review, t }) {
 			const [contentId, setContentId] = (0, react.useState)("");
-			return (0, react_jsx_runtime.jsxs)("li", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("li", {
 				className: ReviewView_module_css_default.workRow,
 				children: [
-					(0, react_jsx_runtime.jsx)("span", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 						className: ReviewView_module_css_default.workTitle,
 						children: snapshot.title
 					}),
-					(0, react_jsx_runtime.jsx)("span", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 						className: ReviewView_module_css_default.workMeta,
 						children: PLATFORM_LABELS[snapshot.platformId]
 					}),
-					(0, react_jsx_runtime.jsx)("input", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 						type: "text",
 						className: ReviewView_module_css_default.bindInput,
 						placeholder: t("review.bind.placeholder"),
@@ -32197,7 +32153,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							setContentId(event.target.value);
 						}
 					}),
-					(0, react_jsx_runtime.jsx)("button", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 						type: "button",
 						disabled: contentId.trim().length === 0,
 						onClick: () => {
@@ -32213,11 +32169,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			const [engagement, setEngagement] = (0, react.useState)("");
 			const [collect, setCollect] = (0, react.useState)("");
 			const current = manifest?.baselines;
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ReviewView_module_css_default.subpanel,
 				children: [
-					(0, react_jsx_runtime.jsx)("h4", { children: t("review.baselines.title") }),
-					(0, react_jsx_runtime.jsxs)("p", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h4", { children: t("review.baselines.title") }),
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("p", {
 						className: ReviewView_module_css_default.hint,
 						children: [t("review.baselines.hint"), current !== void 0 && ` ${t("review.baselines.current", {
 							engagement: percent(current.engagementRate),
@@ -32225,10 +32181,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							source: current.source === "user" ? t("review.baselines.sourceUser") : t("review.baselines.sourceDefault")
 						})}`]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ReviewView_module_css_default.formRow,
 						children: [
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								type: "text",
 								className: ReviewView_module_css_default.bindInput,
 								placeholder: "5%",
@@ -32238,7 +32194,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								"aria-label": t("review.baselines.engagement")
 							}),
-							(0, react_jsx_runtime.jsx)("input", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								type: "text",
 								className: ReviewView_module_css_default.bindInput,
 								placeholder: "2%",
@@ -32248,7 +32204,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								"aria-label": t("review.baselines.collect")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								onClick: () => {
 									const parse = (text) => {
@@ -32281,12 +32237,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				const next = filters.contentTypes.includes(kind) ? filters.contentTypes.filter((candidate) => candidate !== kind) : [...filters.contentTypes, kind];
 				review.setFilters({ contentTypes: next });
 			};
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: ReviewView_module_css_default.subpanel,
 				children: [
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ReviewView_module_css_default.formRow,
-						children: [(0, react_jsx_runtime.jsx)("input", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 							type: "date",
 							value: filters.period.from,
 							onChange: (event) => {
@@ -32296,7 +32252,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								} });
 							},
 							"aria-label": t("review.filter.from")
-						}), (0, react_jsx_runtime.jsx)("input", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 							type: "date",
 							value: filters.period.to,
 							onChange: (event) => {
@@ -32308,12 +32264,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							"aria-label": t("review.filter.to")
 						})]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ReviewView_module_css_default.formRow,
 						children: [
-							REVIEW_PLATFORMS.map((platform) => (0, react_jsx_runtime.jsxs)("label", {
+							REVIEW_PLATFORMS.map((platform) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 								className: ReviewView_module_css_default.checkLabel,
-								children: [(0, react_jsx_runtime.jsx)("input", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 									type: "checkbox",
 									checked: filters.platforms.includes(platform),
 									onChange: () => {
@@ -32321,9 +32277,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									}
 								}), PLATFORM_LABELS[platform]]
 							}, platform)),
-							(0, react_jsx_runtime.jsxs)("label", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 								className: ReviewView_module_css_default.checkLabel,
-								children: [(0, react_jsx_runtime.jsx)("input", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 									type: "checkbox",
 									checked: filters.contentTypes.includes("image-text"),
 									onChange: () => {
@@ -32331,9 +32287,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									}
 								}), t("review.filter.imageText")]
 							}),
-							(0, react_jsx_runtime.jsxs)("label", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 								className: ReviewView_module_css_default.checkLabel,
-								children: [(0, react_jsx_runtime.jsx)("input", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 									type: "checkbox",
 									checked: filters.contentTypes.includes("video"),
 									onChange: () => {
@@ -32343,11 +32299,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					(0, react_jsx_runtime.jsx)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: ReviewView_module_css_default.formRow,
-						children: REVIEW_WORK_FILTERS.map((candidate) => (0, react_jsx_runtime.jsxs)("label", {
+						children: REVIEW_WORK_FILTERS.map((candidate) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 							className: ReviewView_module_css_default.checkLabel,
-							children: [(0, react_jsx_runtime.jsx)("input", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 								type: "radio",
 								name: "review-work-filter",
 								checked: filters.workFilter === candidate,
@@ -32367,12 +32323,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			const [open, setOpen] = (0, react.useState)(false);
 			const [draftText, setDraftText] = (0, react.useState)("");
 			const verdictClass = card.verdict === "viral" ? ReviewView_module_css_default.viralChip : card.verdict === "weak" ? ReviewView_module_css_default.weakChip : ReviewView_module_css_default.neutralChip;
-			return (0, react_jsx_runtime.jsxs)("li", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("li", {
 				className: ReviewView_module_css_default.workBlock,
-				children: [(0, react_jsx_runtime.jsxs)("div", {
+				children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: ReviewView_module_css_default.workRow,
 					children: [
-						(0, react_jsx_runtime.jsxs)("button", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 							type: "button",
 							className: ReviewView_module_css_default.linkish,
 							onClick: () => {
@@ -32384,23 +32340,23 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								card.snapshot.title
 							]
 						}),
-						(0, react_jsx_runtime.jsx)("span", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: ReviewView_module_css_default.workMeta,
 							children: PLATFORM_LABELS[card.snapshot.platformId]
 						}),
-						(0, react_jsx_runtime.jsx)("span", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: ReviewView_module_css_default.workMeta,
 							children: percent(engagementRateOf(card.snapshot.metrics))
 						}),
-						(0, react_jsx_runtime.jsx)("span", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: ReviewView_module_css_default.workMeta,
 							children: percent(collectRateOf(card.snapshot.metrics))
 						}),
-						(0, react_jsx_runtime.jsx)("span", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: `${ReviewView_module_css_default.chip} ${verdictClass}`,
 							children: t(`review.verdict.${card.longtail ? "longtail" : card.verdict}`)
 						}),
-						(0, react_jsx_runtime.jsx)("button", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							disabled: review.getState().busy,
 							onClick: () => {
@@ -32409,14 +32365,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							children: t("review.diagnose.run")
 						})
 					]
-				}), open && (0, react_jsx_runtime.jsxs)("div", {
+				}), open && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: ReviewView_module_css_default.workDetail,
 					children: [
-						(0, react_jsx_runtime.jsx)("p", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 							className: ReviewView_module_css_default.hint,
 							children: t("review.diagnose.draftHint")
 						}),
-						(0, react_jsx_runtime.jsx)("textarea", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 							className: ReviewView_module_css_default.topicNote,
 							rows: 3,
 							value: draftText,
@@ -32424,7 +32380,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								setDraftText(event.target.value);
 							}
 						}),
-						diagnosis !== void 0 && (0, react_jsx_runtime.jsx)("pre", {
+						diagnosis !== void 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("pre", {
 							className: ReviewView_module_css_default.diagnosis,
 							children: diagnosis
 						})
@@ -32434,14 +32390,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		}
 		/** One history task row: status, report actions, delete. */
 		function TaskRow({ task, review, t }) {
-			return (0, react_jsx_runtime.jsxs)("li", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("li", {
 				className: ReviewView_module_css_default.workRow,
 				children: [
-					(0, react_jsx_runtime.jsx)("span", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 						className: ReviewView_module_css_default.workTitle,
 						children: task.name
 					}),
-					(0, react_jsx_runtime.jsxs)("span", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 						className: ReviewView_module_css_default.workMeta,
 						children: [
 							task.period.from,
@@ -32449,18 +32405,18 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							task.period.to
 						]
 					}),
-					(0, react_jsx_runtime.jsx)("span", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 						className: `${ReviewView_module_css_default.chip} ${task.status === "ready" && !task.degraded ? ReviewView_module_css_default.viralChip : task.status === "failed" ? ReviewView_module_css_default.weakChip : ReviewView_module_css_default.neutralChip}`,
 						children: t(`review.status.${task.degraded ? "degraded" : task.status}`)
 					}),
-					task.reportFile !== null && (0, react_jsx_runtime.jsx)("button", {
+					task.reportFile !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 						type: "button",
 						onClick: () => {
 							review.editReport(task.taskId);
 						},
 						children: t("review.history.view")
 					}),
-					(0, react_jsx_runtime.jsx)("button", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 						type: "button",
 						onClick: () => {
 							if (!window.confirm(t("review.history.deleteConfirm"))) return;
@@ -32472,18 +32428,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			});
 		}
 		//#endregion
-		//#region lib/types/client/interaction/interaction-model.js
-		/**
-		* Pure logic of the interaction view: the persisted filter set with its
-		* versioned load migration, the conversation filters, the thread-line
-		* projection the reply prompt consumes, the batch slicing for the
-		* classifier and insight extractor, the insight merge across batches, and
-		* the topic input builder for the one-click push. No React, no I/O — the
-		* view and the tests share this module.
-		*
-		* The enum tables mirror the gateway's `interactions/types.ts` (the bundle
-		* purity gate bans cross-plugin value imports); the parity test pins them.
-		*/
+		//#region src/client/interaction/interaction-model.ts
 		/** All platforms, in picker order; mirrors the gateway table. */
 		const INTERACTION_PLATFORM_IDS = [
 			"xhs",
@@ -32530,7 +32475,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		];
 		/** Browser-local storage key of the filter set. */
 		const FILTERS_KEY$1 = "dsh-content-studio.interaction.filters";
-		/** The default filters: everything, no search. */
+		/**
+		* The default filters: everything, no search.
+		* @returns the filter set every malformed or version-stale load falls back to.
+		*/
 		function defaultInteractionFilters() {
 			return {
 				version: 1,
@@ -32574,7 +32522,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		function saveInteractionFilters(filters) {
 			localStorage.setItem(FILTERS_KEY$1, JSON.stringify(filters));
 		}
-		/** The last inbound message of a conversation, or null when it has none. */
+		/**
+		* The last inbound message of a conversation, or null when it has none.
+		* @param conversation - the conversation to scan.
+		* @returns the newest `direction: 'in'` message, or null.
+		*/
 		function lastInboundMessage(conversation) {
 			for (let index = conversation.messages.length - 1; index >= 0; index -= 1) {
 				const message = conversation.messages[index];
@@ -32582,7 +32534,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			}
 			return null;
 		}
-		/** The latest message of a conversation regardless of direction, or null. */
+		/**
+		* The latest message of a conversation regardless of direction, or null.
+		* @param conversation - the conversation to scan.
+		* @returns the last message in stored order, or null without messages.
+		*/
 		function lastMessage(conversation) {
 			return conversation.messages[conversation.messages.length - 1] ?? null;
 		}
@@ -32781,7 +32737,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"view": "PHOj3q_view"
 		};
 		//#endregion
-		//#region lib/types/client/InteractionView.js
+		//#region src/client/InteractionView.tsx
 		/**
 		* The interaction view: a unified fan inbox over the interaction controller.
 		* The header carries the derived summary chips; the toolbar holds the CSV
@@ -32835,6 +32791,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					}
 				})();
 			}, [listThemes]);
+			(0, react.useEffect)(() => {
+				interaction.load();
+			}, [interaction]);
+			(0, react.useEffect)(() => {
+				personas.ensureLoaded();
+			}, [personas]);
 			(0, react.useEffect)(() => {
 				if (state.notice === null) return;
 				const timer = window.setTimeout(() => {
@@ -32910,14 +32872,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			};
 			const summary = state.manifest?.summary;
 			const insights = state.manifest?.insights;
-			const listPane = (0, react_jsx_runtime.jsxs)("div", {
+			const listPane = /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: InteractionView_module_css_default.listInner,
-				children: [(0, react_jsx_runtime.jsxs)("div", {
+				children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: InteractionView_module_css_default.filters,
 					children: [
-						(0, react_jsx_runtime.jsx)("div", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 							className: InteractionView_module_css_default.chipRow,
-							children: INTERACTION_PLATFORM_IDS.map((platform) => (0, react_jsx_runtime.jsx)("button", {
+							children: INTERACTION_PLATFORM_IDS.map((platform) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: InteractionView_module_css_default.chip,
 								"aria-pressed": filters.platforms.includes(platform),
@@ -32927,62 +32889,62 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								children: t(PLATFORM_KEYS[platform])
 							}, platform))
 						}),
-						(0, react_jsx_runtime.jsxs)("div", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: InteractionView_module_css_default.selectRow,
 							children: [
-								(0, react_jsx_runtime.jsxs)("select", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 									className: InteractionView_module_css_default.select,
 									"aria-label": t("interaction.filter.status"),
 									value: filters.status,
 									onChange: (event) => {
 										interaction.setFilters({ status: event.target.value });
 									},
-									children: [(0, react_jsx_runtime.jsx)("option", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: "all",
 										children: t("interaction.filter.all")
-									}), INTERACTION_STATUS_IDS.map((status) => (0, react_jsx_runtime.jsx)("option", {
+									}), INTERACTION_STATUS_IDS.map((status) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: status,
 										children: t(`interaction.status.${status}`)
 									}, status))]
 								}),
-								(0, react_jsx_runtime.jsxs)("select", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 									className: InteractionView_module_css_default.select,
 									"aria-label": t("interaction.filter.type"),
 									value: filters.type,
 									onChange: (event) => {
 										interaction.setFilters({ type: event.target.value });
 									},
-									children: [(0, react_jsx_runtime.jsx)("option", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: "all",
 										children: t("interaction.filter.all")
-									}), INTERACTION_TYPE_IDS.map((type) => (0, react_jsx_runtime.jsx)("option", {
+									}), INTERACTION_TYPE_IDS.map((type) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: type,
 										children: t(`interaction.type.${type}`)
 									}, type))]
 								}),
-								(0, react_jsx_runtime.jsxs)("select", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 									className: InteractionView_module_css_default.select,
 									"aria-label": t("interaction.filter.sentiment"),
 									value: filters.sentiment,
 									onChange: (event) => {
 										interaction.setFilters({ sentiment: event.target.value });
 									},
-									children: [(0, react_jsx_runtime.jsx)("option", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: "all",
 										children: t("interaction.filter.all")
-									}), INTERACTION_SENTIMENT_IDS.map((sentiment) => (0, react_jsx_runtime.jsx)("option", {
+									}), INTERACTION_SENTIMENT_IDS.map((sentiment) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: sentiment,
 										children: t(`interaction.sentiment.${sentiment}`)
 									}, sentiment))]
 								}),
-								(0, react_jsx_runtime.jsxs)("select", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 									className: InteractionView_module_css_default.select,
 									"aria-label": t("interaction.filter.intent"),
 									value: filters.intent,
 									onChange: (event) => {
 										interaction.setFilters({ intent: event.target.value });
 									},
-									children: [(0, react_jsx_runtime.jsx)("option", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: "all",
 										children: t("interaction.filter.all")
 									}), [
@@ -32992,14 +32954,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										"demand",
 										"spam",
 										"unknown"
-									].map((intent) => (0, react_jsx_runtime.jsx)("option", {
+									].map((intent) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: intent,
 										children: t(`interaction.intent.${intent}`)
 									}, intent))]
 								})
 							]
 						}),
-						(0, react_jsx_runtime.jsx)("input", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 							className: InteractionView_module_css_default.search,
 							type: "search",
 							placeholder: t("interaction.filter.search"),
@@ -33009,14 +32971,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							}
 						})
 					]
-				}), (0, react_jsx_runtime.jsxs)("div", {
+				}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: InteractionView_module_css_default.cards,
-					children: [conversations.length === 0 && (0, react_jsx_runtime.jsx)("div", {
+					children: [conversations.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: InteractionView_module_css_default.emptySmall,
 						children: t("interaction.list.none")
 					}), conversations.map((conversation) => {
 						const latest = lastMessage(conversation);
-						return (0, react_jsx_runtime.jsxs)("button", {
+						return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 							type: "button",
 							className: InteractionView_module_css_default.card,
 							"aria-current": conversation.id === state.selectedId || void 0,
@@ -33024,30 +32986,30 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								interaction.select(conversation.id);
 							},
 							children: [
-								(0, react_jsx_runtime.jsxs)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 									className: InteractionView_module_css_default.cardHead,
-									children: [(0, react_jsx_runtime.jsx)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: InteractionView_module_css_default.cardName,
 										children: conversation.participant.nickname.length > 0 ? conversation.participant.nickname : conversation.participant.externalUserId
-									}), (0, react_jsx_runtime.jsx)("span", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: InteractionView_module_css_default.platform,
 										children: t(PLATFORM_KEYS[conversation.platform])
 									})]
 								}),
-								latest !== null && (0, react_jsx_runtime.jsx)("span", {
+								latest !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: InteractionView_module_css_default.cardExcerpt,
 									children: excerpt(latest.content)
 								}),
-								(0, react_jsx_runtime.jsxs)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 									className: InteractionView_module_css_default.cardMeta,
 									children: [
-										(0, react_jsx_runtime.jsx)("span", { children: t(`interaction.status.${conversation.status}`) }),
-										(0, react_jsx_runtime.jsxs)("span", { children: [
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t(`interaction.status.${conversation.status}`) }),
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
 											conversation.messages.length,
 											" ",
 											t("interaction.list.messages")
 										] }),
-										conversation.starred && (0, react_jsx_runtime.jsx)("span", {
+										conversation.starred && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											"aria-label": t("interaction.star"),
 											children: "★"
 										})
@@ -33058,47 +33020,48 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					})]
 				})]
 			});
-			const detailPane = selected === null ? (0, react_jsx_runtime.jsx)("div", {
+			const detailPane = selected === null ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 				className: InteractionView_module_css_default.empty,
 				children: t("interaction.detail.empty")
-			}) : (0, react_jsx_runtime.jsxs)("div", {
+			}) : /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: InteractionView_module_css_default.detail,
 				children: [
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: InteractionView_module_css_default.detailHead,
 						children: [
-							(0, react_jsx_runtime.jsx)("span", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: InteractionView_module_css_default.cardName,
 								children: selected.participant.nickname.length > 0 ? selected.participant.nickname : selected.participant.externalUserId
 							}),
-							(0, react_jsx_runtime.jsx)("select", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("select", {
 								className: InteractionView_module_css_default.select,
 								"aria-label": t("interaction.filter.status"),
 								value: selected.status,
 								onChange: (event) => {
 									interaction.patchConversation(selected.id, { status: event.target.value });
 								},
-								children: INTERACTION_STATUS_IDS.map((status) => (0, react_jsx_runtime.jsx)("option", {
+								children: INTERACTION_STATUS_IDS.map((status) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 									value: status,
 									children: t(`interaction.status.${status}`)
 								}, status))
 							}),
-							(0, react_jsx_runtime.jsxs)("select", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 								className: InteractionView_module_css_default.select,
 								"aria-label": t("interaction.detail.persona"),
+								title: personaState.personas.length === 0 ? t("persona.empty") : void 0,
 								value: selected.personaId ?? "",
 								onChange: (event) => {
 									interaction.patchConversation(selected.id, { personaId: event.target.value === "" ? null : event.target.value });
 								},
-								children: [(0, react_jsx_runtime.jsx)("option", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 									value: "",
 									children: t("interaction.detail.persona.none")
-								}), personaState.personas.map((entry) => (0, react_jsx_runtime.jsx)("option", {
+								}), personaState.personas.map((entry) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 									value: entry.id,
 									children: entry.name
 								}, entry.id))]
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: InteractionView_module_css_default.mini,
 								"aria-pressed": selected.starred,
@@ -33109,22 +33072,22 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					(selected.topicRef !== null || selected.outputRef !== null) && (0, react_jsx_runtime.jsxs)("div", {
+					(selected.topicRef !== null || selected.outputRef !== null) && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: InteractionView_module_css_default.refs,
-						children: [selected.topicRef !== null && (0, react_jsx_runtime.jsxs)("span", { children: [
+						children: [selected.topicRef !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
 							t("interaction.detail.topicRef"),
 							": ",
 							selected.topicRef
-						] }), selected.outputRef !== null && (0, react_jsx_runtime.jsxs)("span", { children: [
+						] }), selected.outputRef !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
 							t("interaction.detail.outputRef"),
 							": ",
 							selected.outputRef
 						] })]
 					}),
-					(0, react_jsx_runtime.jsx)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: InteractionView_module_css_default.tagRow,
 						"aria-label": t("interaction.detail.tags"),
-						children: TAG_OPTIONS.map((tag) => (0, react_jsx_runtime.jsx)("button", {
+						children: TAG_OPTIONS.map((tag) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: InteractionView_module_css_default.chip,
 							"aria-pressed": selected.tags.includes(tag),
@@ -33134,7 +33097,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							children: tag
 						}, tag))
 					}),
-					(0, react_jsx_runtime.jsx)("textarea", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 						className: InteractionView_module_css_default.note,
 						"aria-label": t("interaction.detail.note.aria"),
 						placeholder: t("interaction.detail.note.placeholder"),
@@ -33146,64 +33109,64 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							if (noteDraft !== selected.note) interaction.patchConversation(selected.id, { note: noteDraft });
 						}
 					}),
-					(0, react_jsx_runtime.jsx)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: InteractionView_module_css_default.thread,
 						"aria-label": t("interaction.detail.label"),
 						children: selected.messages.map((message) => {
 							const isFan = message.direction === "in";
-							return (0, react_jsx_runtime.jsxs)("button", {
+							return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 								type: "button",
 								className: isFan ? InteractionView_module_css_default.lineIn : InteractionView_module_css_default.lineOut,
 								"data-target": message.id === targetMessageId || void 0,
 								onClick: () => {
 									if (isFan) setTargetMessageId(message.id);
 								},
-								children: [(0, react_jsx_runtime.jsx)("span", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: InteractionView_module_css_default.lineRole,
 									children: isFan ? t("interaction.thread.fan") : t("interaction.thread.me")
-								}), (0, react_jsx_runtime.jsxs)("span", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 									className: InteractionView_module_css_default.lineBody,
-									children: [message.content, isFan && (0, react_jsx_runtime.jsxs)("span", {
+									children: [message.content, isFan && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 										className: InteractionView_module_css_default.taggings,
-										children: [(0, react_jsx_runtime.jsxs)("span", { children: [t(`interaction.sentiment.${message.sentiment.value}`), message.sentiment.source === "ai" && t("interaction.thread.aiTag")] }), (0, react_jsx_runtime.jsxs)("span", { children: [t(`interaction.intent.${message.intent.value}`), message.intent.source === "ai" && t("interaction.thread.aiTag")] })]
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [t(`interaction.sentiment.${message.sentiment.value}`), message.sentiment.source === "ai" && t("interaction.thread.aiTag")] }), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [t(`interaction.intent.${message.intent.value}`), message.intent.source === "ai" && t("interaction.thread.aiTag")] })]
 									})]
 								})]
 							}, message.id);
 						})
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: InteractionView_module_css_default.reply,
-						children: [(0, react_jsx_runtime.jsx)("span", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: InteractionView_module_css_default.sectionTitle,
 							children: t("interaction.reply.title")
-						}), target === null || target.direction !== "in" ? (0, react_jsx_runtime.jsx)("span", {
+						}), target === null || target.direction !== "in" ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: InteractionView_module_css_default.emptySmall,
 							children: t("interaction.reply.noTarget")
-						}) : (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
-							(0, react_jsx_runtime.jsxs)("div", {
+						}) : /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: InteractionView_module_css_default.replyControls,
 								children: [
-									(0, react_jsx_runtime.jsxs)("label", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 										className: InteractionView_module_css_default.label,
-										children: [t("interaction.reply.style"), (0, react_jsx_runtime.jsx)("select", {
+										children: [t("interaction.reply.style"), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("select", {
 											className: InteractionView_module_css_default.select,
 											value: style,
 											onChange: (event) => {
 												setStyle(event.target.value);
 											},
-											children: INTERACTION_STYLE_IDS.map((candidate) => (0, react_jsx_runtime.jsx)("option", {
+											children: INTERACTION_STYLE_IDS.map((candidate) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 												value: candidate,
 												children: t(`interaction.style.${candidate}`)
 											}, candidate))
 										})]
 									}),
-									(0, react_jsx_runtime.jsx)("button", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: InteractionView_module_css_default.mini,
 										onClick: pickTemplate,
 										children: t("interaction.reply.template")
 									}),
-									templateSkeleton !== null && (0, react_jsx_runtime.jsx)("button", {
+									templateSkeleton !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: InteractionView_module_css_default.mini,
 										onClick: () => {
@@ -33211,7 +33174,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										},
 										children: "✕"
 									}),
-									(0, react_jsx_runtime.jsx)("button", {
+									/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: InteractionView_module_css_default.primary,
 										disabled: state.busy,
@@ -33220,17 +33183,17 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									})
 								]
 							}),
-							target.replyDrafts.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
+							target.replyDrafts.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: InteractionView_module_css_default.drafts,
-								children: [(0, react_jsx_runtime.jsx)("span", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: InteractionView_module_css_default.sectionTitle,
 									children: t("interaction.reply.drafts")
-								}), target.replyDrafts.map((draft) => (0, react_jsx_runtime.jsxs)("div", {
+								}), target.replyDrafts.map((draft) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: InteractionView_module_css_default.draft,
-									children: [(0, react_jsx_runtime.jsx)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: InteractionView_module_css_default.draftBody,
 										children: draft.content
-									}), (0, react_jsx_runtime.jsx)("button", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: InteractionView_module_css_default.mini,
 										onClick: () => {
@@ -33240,7 +33203,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									})]
 								}, draft.id))]
 							}),
-							(0, react_jsx_runtime.jsx)("textarea", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 								className: InteractionView_module_css_default.composer,
 								"aria-label": t("interaction.reply.composer"),
 								value: composer,
@@ -33248,9 +33211,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									setComposer(event.target.value);
 								}
 							}),
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: InteractionView_module_css_default.replyActions,
-								children: [(0, react_jsx_runtime.jsx)("button", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: InteractionView_module_css_default.mini,
 									disabled: composer.trim().length === 0 || state.busy,
@@ -33259,7 +33222,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										interaction.saveDraft(selected.id, target.id, style, composer.trim(), selected.personaId);
 									},
 									children: t("interaction.reply.sendDraft")
-								}), (0, react_jsx_runtime.jsx)("button", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: InteractionView_module_css_default.primary,
 									disabled: composer.trim().length === 0 || state.busy,
@@ -33279,22 +33242,22 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					})
 				]
 			});
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: InteractionView_module_css_default.view,
 				children: [
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: InteractionView_module_css_default.header,
-						children: [(0, react_jsx_runtime.jsx)("h2", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h2", {
 							className: InteractionView_module_css_default.title,
 							children: t("interaction.title")
-						}), (0, react_jsx_runtime.jsx)("span", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: InteractionView_module_css_default.subtitle,
 							children: t("interaction.subtitle")
 						})]
 					}),
-					summary !== void 0 && (0, react_jsx_runtime.jsx)("div", {
+					summary !== void 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: InteractionView_module_css_default.summaryRow,
-						children: INTERACTION_STATUS_IDS.map((status) => (0, react_jsx_runtime.jsxs)("span", {
+						children: INTERACTION_STATUS_IDS.map((status) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 							className: InteractionView_module_css_default.summaryChip,
 							children: [
 								t(`interaction.summary.${status}`),
@@ -33303,7 +33266,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							]
 						}, status))
 					}),
-					state.problems.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
+					state.problems.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: InteractionView_module_css_default.problems,
 						children: [
 							t("interaction.problems"),
@@ -33311,21 +33274,21 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							state.problems.join("；")
 						]
 					}),
-					state.notice !== null && (0, react_jsx_runtime.jsx)("div", {
+					state.notice !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: InteractionView_module_css_default.notice,
 						role: "status",
-						children: t(`interaction.notice.${state.notice}`)
+						children: [t(`interaction.notice.${state.notice}`), state.errorDetail !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", { children: state.errorDetail })]
 					}),
-					state.busy && (0, react_jsx_runtime.jsxs)("div", {
+					state.busy && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: InteractionView_module_css_default.busy,
-						children: [t("interaction.busy"), state.progress !== null && (0, react_jsx_runtime.jsx)("span", { children: ` ${state.progress.done}/${state.progress.total}` })]
+						children: [t("interaction.busy"), state.progress !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: ` ${state.progress.done}/${state.progress.total}` })]
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: InteractionView_module_css_default.toolbar,
 						children: [
-							(0, react_jsx_runtime.jsxs)("label", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 								className: InteractionView_module_css_default.fileButton,
-								children: [t("interaction.import"), (0, react_jsx_runtime.jsx)("input", {
+								children: [t("interaction.import"), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 									type: "file",
 									accept: ".csv,text/csv",
 									className: InteractionView_module_css_default.fileInput,
@@ -33334,7 +33297,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									}
 								})]
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: InteractionView_module_css_default.mini,
 								disabled: state.busy || conversations.length === 0,
@@ -33343,7 +33306,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								children: t("interaction.classify")
 							}),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: InteractionView_module_css_default.mini,
 								disabled: state.busy || conversations.length === 0,
@@ -33352,33 +33315,33 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								},
 								children: t("interaction.insights")
 							}),
-							(0, react_jsx_runtime.jsx)("span", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: InteractionView_module_css_default.mcpPull,
 								title: t("interaction.mcp.disabled"),
-								children: (0, react_jsx_runtime.jsx)("button", {
+								children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: InteractionView_module_css_default.mini,
 									disabled: true,
 									children: t("interaction.mcp.pull")
 								})
 							}),
-							(0, react_jsx_runtime.jsxs)("span", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 								className: InteractionView_module_css_default.exportGroup,
-								children: [(0, react_jsx_runtime.jsxs)("select", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 									className: InteractionView_module_css_default.select,
 									"aria-label": t("interaction.export.aria"),
 									value: exportTheme,
 									onChange: (event) => {
 										setExportTheme(event.target.value);
 									},
-									children: [(0, react_jsx_runtime.jsx)("option", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: "",
 										children: t("interaction.export.aria")
-									}), themes.map((theme) => (0, react_jsx_runtime.jsx)("option", {
+									}), themes.map((theme) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: theme,
 										children: theme
 									}, theme))]
-								}), (0, react_jsx_runtime.jsx)("button", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: InteractionView_module_css_default.mini,
 									disabled: state.busy,
@@ -33390,10 +33353,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					state.preview !== null && (0, react_jsx_runtime.jsxs)("div", {
+					state.preview !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: InteractionView_module_css_default.preview,
 						children: [
-							(0, react_jsx_runtime.jsxs)("span", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 								className: InteractionView_module_css_default.sectionTitle,
 								children: [
 									t("interaction.import.preview"),
@@ -33401,14 +33364,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									state.preview.fileName
 								]
 							}),
-							(0, react_jsx_runtime.jsxs)("span", { children: [
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
 								state.preview.messages.length,
 								" ",
 								t("interaction.import.valid")
 							] }),
-							state.preview.rejected.length > 0 && (0, react_jsx_runtime.jsxs)("div", {
+							state.preview.rejected.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: InteractionView_module_css_default.rejected,
-								children: [(0, react_jsx_runtime.jsxs)("span", { children: [t("interaction.import.rejected"), ":"] }), state.preview.rejected.map((rejection) => (0, react_jsx_runtime.jsxs)("div", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [t("interaction.import.rejected"), ":"] }), state.preview.rejected.map((rejection) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: InteractionView_module_css_default.rejectedRow,
 									children: [
 										"#",
@@ -33418,16 +33381,16 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									]
 								}, rejection.row))]
 							}),
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: InteractionView_module_css_default.replyActions,
-								children: [(0, react_jsx_runtime.jsx)("button", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: InteractionView_module_css_default.mini,
 									onClick: () => {
 										interaction.discardImport();
 									},
 									children: t("interaction.import.discard")
-								}), (0, react_jsx_runtime.jsx)("button", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: InteractionView_module_css_default.primary,
 									disabled: state.preview.messages.length === 0,
@@ -33439,40 +33402,40 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					state.importReport !== null && state.preview === null && (0, react_jsx_runtime.jsxs)("div", {
+					state.importReport !== null && state.preview === null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: InteractionView_module_css_default.report,
 						children: [
-							(0, react_jsx_runtime.jsxs)("span", { children: [t("interaction.import.report"), ":"] }),
-							(0, react_jsx_runtime.jsxs)("span", { children: [
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [t("interaction.import.report"), ":"] }),
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
 								state.importReport.added,
 								" ",
 								t("interaction.import.added")
 							] }),
-							(0, react_jsx_runtime.jsxs)("span", { children: [
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
 								state.importReport.updated,
 								" ",
 								t("interaction.import.updated")
 							] }),
-							(0, react_jsx_runtime.jsxs)("span", { children: [
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
 								state.importReport.conversationsCreated,
 								" ",
 								t("interaction.import.created")
 							] }),
-							(0, react_jsx_runtime.jsxs)("span", { children: [
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [
 								state.importReport.threadWarnings.length,
 								" ",
 								t("interaction.import.threads")
 							] })
 						]
 					}),
-					insights !== void 0 && (0, react_jsx_runtime.jsxs)("div", {
+					insights !== void 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: InteractionView_module_css_default.insights,
 						children: [
-							(0, react_jsx_runtime.jsx)("span", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: InteractionView_module_css_default.sectionTitle,
 								children: t("interaction.insights.title")
 							}),
-							insights.generatedAt !== null && (0, react_jsx_runtime.jsxs)("span", {
+							insights.generatedAt !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 								className: InteractionView_module_css_default.generatedAt,
 								children: [
 									t("interaction.insights.generatedAt"),
@@ -33480,23 +33443,23 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									insights.generatedAt.slice(0, 10)
 								]
 							}),
-							insights.generatedAt === null && (0, react_jsx_runtime.jsx)("span", {
+							insights.generatedAt === null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: InteractionView_module_css_default.emptySmall,
 								children: t("interaction.insights.none")
 							}),
-							(0, react_jsx_runtime.jsx)(InsightList, {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(InsightList, {
 								label: t("interaction.insights.questions"),
 								entries: insights.topQuestions,
 								onPush: pushInsight,
 								t
 							}),
-							(0, react_jsx_runtime.jsx)(InsightList, {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(InsightList, {
 								label: t("interaction.insights.pain"),
 								entries: insights.painPoints,
 								onPush: pushInsight,
 								t
 							}),
-							(0, react_jsx_runtime.jsx)(InsightList, {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(InsightList, {
 								label: t("interaction.insights.interests"),
 								entries: insights.interests,
 								onPush: pushInsight,
@@ -33504,15 +33467,15 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					state.manifest === null && state.loading && (0, react_jsx_runtime.jsx)("div", {
+					state.manifest === null && state.loading && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: InteractionView_module_css_default.empty,
 						children: t("interaction.loading")
 					}),
-					state.manifest !== null && state.manifest.conversations.length === 0 && (0, react_jsx_runtime.jsx)("div", {
+					state.manifest !== null && state.manifest.conversations.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: InteractionView_module_css_default.empty,
 						children: t("interaction.empty")
 					}),
-					state.manifest !== null && state.manifest.conversations.length > 0 && (0, react_jsx_runtime.jsx)(SplitDetail, {
+					state.manifest !== null && state.manifest.conversations.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(SplitDetail, {
 						list: listPane,
 						detail: detailPane,
 						detailLabel: t("interaction.detail.label")
@@ -33523,15 +33486,15 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		/** One insight list with its per-entry topic push. */
 		function InsightList({ label, entries, onPush, t }) {
 			if (entries.length === 0) return null;
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: InteractionView_module_css_default.insightList,
-				children: [(0, react_jsx_runtime.jsx)("span", {
+				children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 					className: InteractionView_module_css_default.insightLabel,
 					children: label
-				}), entries.map((entry) => (0, react_jsx_runtime.jsxs)("div", {
+				}), entries.map((entry) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: InteractionView_module_css_default.insightRow,
 					children: [
-						(0, react_jsx_runtime.jsxs)("span", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 							className: InteractionView_module_css_default.insightText,
 							children: [
 								entry.label,
@@ -33539,11 +33502,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								entry.count
 							]
 						}),
-						entry.topicHint !== null && (0, react_jsx_runtime.jsx)("span", {
+						entry.topicHint !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: InteractionView_module_css_default.insightHint,
 							children: entry.topicHint
 						}),
-						(0, react_jsx_runtime.jsx)("button", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: InteractionView_module_css_default.mini,
 							onClick: () => {
@@ -33556,15 +33519,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			});
 		}
 		//#endregion
-		//#region lib/types/client/template/model.js
-		/**
-		* Pure template-library helpers: body segmentation (code regions are never
-		* touched), placeholder scanning, variable reconciliation, rendering, and
-		* import-pack validation. The body is the source of truth — the variables
-		* metadata follows it, never the other way around. Rendering output is plain
-		* text: views must render it through text nodes (React's own escaping), never
-		* through `innerHTML`.
-		*/
+		//#region src/client/template/model.ts
 		/**
 		* Every template category, mirrored client-side: the bundle purity gate
 		* forbids cross-plugin value imports, so the wire type stays type-only and
@@ -33894,7 +33849,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"templateVariableUnused": "aycneq_templateVariableUnused"
 		};
 		//#endregion
-		//#region lib/types/client/template/TemplateLibraryView.js
+		//#region src/client/template/TemplateLibraryView.tsx
 		/**
 		* The template library page: the list panel (filters, tags, cards), the
 		* editor sheet (metadata, body, reconciled variables, live preview, explicit
@@ -33937,37 +33892,37 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				if (window.confirm(t("template.delete.confirm").replace("{name}", record.name))) templates.remove(record.id);
 			};
 			const tagNames = new Map(state.tags.map((tag) => [tag.id, tag.name]));
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: TemplateLibraryView_module_css_default.template,
 				children: [
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: TemplateLibraryView_module_css_default.templateHead,
-						children: [(0, react_jsx_runtime.jsxs)("div", { children: [(0, react_jsx_runtime.jsx)("h2", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h2", {
 							className: TemplateLibraryView_module_css_default.templateTitle,
 							children: t("template.title")
-						}), (0, react_jsx_runtime.jsx)("p", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 							className: TemplateLibraryView_module_css_default.templateHint,
 							children: t("template.hint")
-						})] }), (0, react_jsx_runtime.jsxs)("div", {
+						})] }), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: TemplateLibraryView_module_css_default.templateActions,
 							children: [
-								(0, react_jsx_runtime.jsx)("label", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("label", {
 									className: TemplateLibraryView_module_css_default.templateAria,
 									htmlFor: "template-import-file",
 									children: t("template.import")
 								}),
-								(0, react_jsx_runtime.jsx)("select", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("select", {
 									"aria-label": t("template.import.strategy"),
 									value: importStrategy,
 									onChange: (event) => {
 										setImportStrategy(event.target.value);
 									},
-									children: IMPORT_STRATEGIES.map((strategy) => (0, react_jsx_runtime.jsx)("option", {
+									children: IMPORT_STRATEGIES.map((strategy) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 										value: strategy,
 										children: t(`template.import.${strategy}`)
 									}, strategy))
 								}),
-								(0, react_jsx_runtime.jsx)("input", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 									id: "template-import-file",
 									type: "file",
 									accept: "application/json,.json",
@@ -33978,7 +33933,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										event.target.value = "";
 									}
 								}),
-								(0, react_jsx_runtime.jsx)("button", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: TemplateLibraryView_module_css_default.templateMini,
 									onClick: () => {
@@ -33986,7 +33941,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									},
 									children: t("template.import")
 								}),
-								(0, react_jsx_runtime.jsx)("button", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: TemplateLibraryView_module_css_default.templateMini,
 									onClick: () => {
@@ -33994,7 +33949,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									},
 									children: t("template.exportAll")
 								}),
-								(0, react_jsx_runtime.jsx)("button", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: TemplateLibraryView_module_css_default.templateMini,
 									onClick: () => {
@@ -34003,7 +33958,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									title: t("template.starter.hint"),
 									children: t("template.starter")
 								}),
-								(0, react_jsx_runtime.jsx)("button", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: TemplateLibraryView_module_css_default.templatePrimary,
 									onClick: () => {
@@ -34015,16 +33970,16 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							]
 						})]
 					}),
-					state.importReport !== null && (0, react_jsx_runtime.jsxs)("div", {
+					state.importReport !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: TemplateLibraryView_module_css_default.templateBanner,
 						role: "status",
 						children: [
-							(0, react_jsx_runtime.jsx)("span", { children: t("template.import.report").replace("{file}", state.importReport.fileName).replace("{added}", String(state.importReport.summary.added)).replace("{skipped}", String(state.importReport.summary.skipped)).replace("{overwritten}", String(state.importReport.summary.overwritten)).replace("{renamed}", String(state.importReport.summary.renamed)).replace("{failed}", String(state.importReport.summary.failed.length)) }),
-							state.importReport.summary.failed.map((detail) => (0, react_jsx_runtime.jsx)("span", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("template.import.report").replace("{file}", state.importReport.fileName).replace("{added}", String(state.importReport.summary.added)).replace("{skipped}", String(state.importReport.summary.skipped)).replace("{overwritten}", String(state.importReport.summary.overwritten)).replace("{renamed}", String(state.importReport.summary.renamed)).replace("{failed}", String(state.importReport.summary.failed.length)) }),
+							state.importReport.summary.failed.map((detail) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: TemplateLibraryView_module_css_default.templateProblems,
 								children: detail
 							}, detail)),
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: TemplateLibraryView_module_css_default.templateMini,
 								onClick: () => {
@@ -34034,10 +33989,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							})
 						]
 					}),
-					state.notice !== null && (0, react_jsx_runtime.jsxs)("div", {
+					state.notice !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: TemplateLibraryView_module_css_default.templateBanner,
 						role: "status",
-						children: [(0, react_jsx_runtime.jsx)("span", { children: t(`template.notice.${state.notice}`) }), (0, react_jsx_runtime.jsx)("button", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t(`template.notice.${state.notice}`) }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: TemplateLibraryView_module_css_default.templateMini,
 							onClick: () => {
@@ -34046,19 +34001,19 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							children: t("template.notice.dismiss")
 						})]
 					}),
-					state.problems.length > 0 && (0, react_jsx_runtime.jsx)("div", {
+					state.problems.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 						className: TemplateLibraryView_module_css_default.templateBanner,
-						children: (0, react_jsx_runtime.jsx)("span", { children: `${t("template.problems")} ${state.problems.join("；")}` })
+						children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: `${t("template.problems")} ${state.problems.join("；")}` })
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: TemplateLibraryView_module_css_default.templateLayout,
-						children: [(0, react_jsx_runtime.jsxs)("div", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: TemplateLibraryView_module_css_default.templateList,
 							children: [
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: TemplateLibraryView_module_css_default.templateFilters,
 									children: [
-										(0, react_jsx_runtime.jsx)("input", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 											className: `${TemplateLibraryView_module_css_default.templateInput} ${TemplateLibraryView_module_css_default.templateSearch}`,
 											placeholder: t("template.search"),
 											value: prefs.search,
@@ -34066,36 +34021,36 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												templates.setFilter({ search: event.target.value });
 											}
 										}),
-										(0, react_jsx_runtime.jsxs)("select", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 											"aria-label": t("template.filter.category"),
 											value: prefs.category ?? "",
 											onChange: (event) => {
 												templates.setFilter({ category: event.target.value === "" ? null : event.target.value });
 											},
-											children: [(0, react_jsx_runtime.jsx)("option", {
+											children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 												value: "",
 												children: t("template.filter.all")
-											}), TEMPLATE_CATEGORIES.map((category) => (0, react_jsx_runtime.jsx)("option", {
+											}), TEMPLATE_CATEGORIES.map((category) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 												value: category,
 												children: TEMPLATE_CATEGORY_LABELS[category]
 											}, category))]
 										}),
-										(0, react_jsx_runtime.jsxs)("select", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("select", {
 											"aria-label": t("template.filter.status"),
 											value: prefs.status,
 											onChange: (event) => {
 												templates.setFilter({ status: event.target.value });
 											},
 											children: [
-												(0, react_jsx_runtime.jsx)("option", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 													value: "all",
 													children: t("template.status.all")
 												}),
-												(0, react_jsx_runtime.jsx)("option", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 													value: "active",
 													children: t("template.status.active")
 												}),
-												(0, react_jsx_runtime.jsx)("option", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 													value: "archived",
 													children: t("template.status.archived")
 												})
@@ -34103,9 +34058,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										})
 									]
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: TemplateLibraryView_module_css_default.templateTagRow,
-									children: [state.tags.map((tag) => (0, react_jsx_runtime.jsx)("button", {
+									children: [state.tags.map((tag) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: `${TemplateLibraryView_module_css_default.templateTag} ${prefs.tagIds.includes(tag.id) ? TemplateLibraryView_module_css_default.templateTagActive : ""}`,
 										onClick: () => {
@@ -34116,7 +34071,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										},
 										title: t("template.tag.removeHint"),
 										children: tag.name
-									}, tag.id)), (0, react_jsx_runtime.jsx)(TagInput, {
+									}, tag.id)), /* @__PURE__ */ (0, react_jsx_runtime.jsx)(TagInput, {
 										onAdd: (name) => {
 											templates.addTag(name);
 										},
@@ -34124,13 +34079,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										addLabel: t("template.tag.addAria")
 									})]
 								}),
-								(0, react_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: TemplateLibraryView_module_css_default.templateCardMeta,
 									children: t("template.count").replace("{n}", String(filtered.length))
 								}),
-								filtered.length === 0 && (0, react_jsx_runtime.jsxs)("div", {
+								filtered.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: TemplateLibraryView_module_css_default.templateEmpty,
-									children: [t("template.empty"), state.templates.length === 0 && (0, react_jsx_runtime.jsx)("div", { children: (0, react_jsx_runtime.jsx)("button", {
+									children: [t("template.empty"), state.templates.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: TemplateLibraryView_module_css_default.templatePrimary,
 										onClick: () => {
@@ -34139,28 +34094,28 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										children: t("template.starter.cta")
 									}) })]
 								}),
-								filtered.map((record) => (0, react_jsx_runtime.jsxs)("div", {
+								filtered.map((record) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: `${TemplateLibraryView_module_css_default.templateCard} ${record.status === "archived" ? TemplateLibraryView_module_css_default.templateCardArchived : ""}`,
 									children: [
-										(0, react_jsx_runtime.jsxs)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 											className: TemplateLibraryView_module_css_default.templateCardName,
-											children: [record.name, (0, react_jsx_runtime.jsx)("span", {
+											children: [record.name, /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 												className: TemplateLibraryView_module_css_default.templateCardMeta,
 												children: `${TEMPLATE_CATEGORY_LABELS[record.category]} · v${String(record.version)} · ${record.status === "archived" ? t("template.status.archived") : t("template.status.active")}`
 											})]
 										}),
-										record.description.trim().length > 0 && (0, react_jsx_runtime.jsx)("span", {
+										record.description.trim().length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: TemplateLibraryView_module_css_default.templateCardMeta,
 											children: record.description
 										}),
-										(0, react_jsx_runtime.jsx)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: TemplateLibraryView_module_css_default.templateCardMeta,
 											children: record.tagIds.map((tagId) => tagNames.get(tagId)).filter((name) => name !== void 0).join("、")
 										}),
-										(0, react_jsx_runtime.jsxs)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 											className: TemplateLibraryView_module_css_default.templateCardActions,
 											children: [
-												(0, react_jsx_runtime.jsx)("button", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 													type: "button",
 													className: TemplateLibraryView_module_css_default.templateMini,
 													onClick: () => {
@@ -34169,7 +34124,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 													},
 													children: t("template.card.edit")
 												}),
-												(0, react_jsx_runtime.jsx)("button", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 													type: "button",
 													className: TemplateLibraryView_module_css_default.templateMini,
 													onClick: () => {
@@ -34177,7 +34132,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 													},
 													children: t("template.card.copy")
 												}),
-												(0, react_jsx_runtime.jsx)("button", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 													type: "button",
 													className: TemplateLibraryView_module_css_default.templateMini,
 													onClick: () => {
@@ -34185,7 +34140,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 													},
 													children: t("template.card.export")
 												}),
-												(0, react_jsx_runtime.jsx)("button", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 													type: "button",
 													className: TemplateLibraryView_module_css_default.templateMini,
 													onClick: () => {
@@ -34193,7 +34148,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 													},
 													children: record.status === "active" ? t("template.card.archive") : t("template.card.restore")
 												}),
-												(0, react_jsx_runtime.jsx)("button", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 													type: "button",
 													className: `${TemplateLibraryView_module_css_default.templateMini} ${TemplateLibraryView_module_css_default.templateDanger}`,
 													onClick: () => {
@@ -34206,31 +34161,31 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									]
 								}, record.id))
 							]
-						}), (0, react_jsx_runtime.jsx)("div", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 							className: TemplateLibraryView_module_css_default.templateMain,
-							children: form === null ? (0, react_jsx_runtime.jsx)(GenerateBox, {
+							children: form === null ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)(GenerateBox, {
 								state,
 								templates,
 								t
-							}) : (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
-								state.aiDraft !== null && (0, react_jsx_runtime.jsxs)("div", {
+							}) : /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
+								state.aiDraft !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: TemplateLibraryView_module_css_default.templateDraft,
 									children: [
-										(0, react_jsx_runtime.jsx)("strong", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("strong", {
 											className: TemplateLibraryView_module_css_default.templateGenerateTitle,
 											children: t("template.ai.draft")
 										}),
-										state.aiDraft.problems.map((problem) => (0, react_jsx_runtime.jsx)("span", {
+										state.aiDraft.problems.map((problem) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: TemplateLibraryView_module_css_default.templateProblems,
 											children: problem
 										}, problem)),
-										(0, react_jsx_runtime.jsx)("pre", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("pre", {
 											className: TemplateLibraryView_module_css_default.templatePreviewOutput,
 											children: state.aiDraft.draft.body
 										}),
-										(0, react_jsx_runtime.jsxs)("div", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 											className: TemplateLibraryView_module_css_default.templateFoot,
-											children: [(0, react_jsx_runtime.jsx)("button", {
+											children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												className: TemplateLibraryView_module_css_default.templatePrimary,
 												onClick: () => {
@@ -34238,7 +34193,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 													setPreviewValues({});
 												},
 												children: t("template.ai.adopt")
-											}), (0, react_jsx_runtime.jsx)("button", {
+											}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												className: TemplateLibraryView_module_css_default.templateMini,
 												onClick: () => {
@@ -34249,44 +34204,44 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										})
 									]
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: TemplateLibraryView_module_css_default.templateFormGrid,
-									children: [(0, react_jsx_runtime.jsxs)("label", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 										className: TemplateLibraryView_module_css_default.templateField,
-										children: [(0, react_jsx_runtime.jsx)("span", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: TemplateLibraryView_module_css_default.templateLabel,
 											children: t("template.field.name")
-										}), (0, react_jsx_runtime.jsx)("input", {
+										}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 											className: TemplateLibraryView_module_css_default.templateInput,
 											value: form.name,
 											onChange: (event) => {
 												templates.patchForm({ name: event.target.value });
 											}
 										})]
-									}), (0, react_jsx_runtime.jsxs)("label", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 										className: TemplateLibraryView_module_css_default.templateField,
-										children: [(0, react_jsx_runtime.jsx)("span", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: TemplateLibraryView_module_css_default.templateLabel,
 											children: t("template.field.category")
-										}), (0, react_jsx_runtime.jsx)("select", {
+										}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("select", {
 											className: TemplateLibraryView_module_css_default.templateInput,
 											value: form.category,
 											onChange: (event) => {
 												templates.patchForm({ category: event.target.value });
 											},
-											children: TEMPLATE_CATEGORIES.map((category) => (0, react_jsx_runtime.jsx)("option", {
+											children: TEMPLATE_CATEGORIES.map((category) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 												value: category,
 												children: TEMPLATE_CATEGORY_LABELS[category]
 											}, category))
 										})]
 									})]
 								}),
-								(0, react_jsx_runtime.jsxs)("label", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 									className: TemplateLibraryView_module_css_default.templateField,
-									children: [(0, react_jsx_runtime.jsx)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: TemplateLibraryView_module_css_default.templateLabel,
 										children: t("template.field.description")
-									}), (0, react_jsx_runtime.jsx)("input", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 										className: TemplateLibraryView_module_css_default.templateInput,
 										value: form.description,
 										onChange: (event) => {
@@ -34294,26 +34249,26 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										}
 									})]
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: TemplateLibraryView_module_css_default.templateTagRow,
-									children: [state.tags.map((tag) => (0, react_jsx_runtime.jsx)("button", {
+									children: [state.tags.map((tag) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 										type: "button",
 										className: `${TemplateLibraryView_module_css_default.templateTag} ${form.tagIds.includes(tag.id) ? TemplateLibraryView_module_css_default.templateTagActive : ""}`,
 										onClick: () => {
 											templates.toggleFormTag(tag.id);
 										},
 										children: tag.name
-									}, tag.id)), state.tags.length === 0 && (0, react_jsx_runtime.jsx)("span", {
+									}, tag.id)), state.tags.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: TemplateLibraryView_module_css_default.templateCardMeta,
 										children: t("template.field.noTags")
 									})]
 								}),
-								(0, react_jsx_runtime.jsxs)("label", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 									className: TemplateLibraryView_module_css_default.templateField,
-									children: [(0, react_jsx_runtime.jsx)("span", {
+									children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 										className: TemplateLibraryView_module_css_default.templateLabel,
 										children: t("template.field.body")
-									}), (0, react_jsx_runtime.jsx)("textarea", {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 										className: `${TemplateLibraryView_module_css_default.templateTextarea} ${TemplateLibraryView_module_css_default.templateBodyTextarea}`,
 										value: form.body,
 										placeholder: t("template.field.bodyHint"),
@@ -34322,28 +34277,28 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										}
 									})]
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: TemplateLibraryView_module_css_default.templateVariableTable,
 									children: [
-										(0, react_jsx_runtime.jsx)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: TemplateLibraryView_module_css_default.templateLabel,
 											children: t("template.field.variables")
 										}),
-										form.variables.length === 0 && (0, react_jsx_runtime.jsx)("span", {
+										form.variables.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: TemplateLibraryView_module_css_default.templateCardMeta,
 											children: t("template.variable.none")
 										}),
 										form.variables.map((variable) => {
 											const active = scanTemplateVariables(form.body).includes(variable.name);
-											return (0, react_jsx_runtime.jsxs)("div", {
+											return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 												className: `${TemplateLibraryView_module_css_default.templateVariableRow} ${active ? "" : TemplateLibraryView_module_css_default.templateVariableUnused}`,
 												children: [
-													(0, react_jsx_runtime.jsx)("span", {
+													/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 														className: TemplateLibraryView_module_css_default.templateVariableName,
 														title: variable.name,
 														children: `{{${variable.name}}}`
 													}),
-													(0, react_jsx_runtime.jsx)("input", {
+													/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 														className: TemplateLibraryView_module_css_default.templateInput,
 														"aria-label": t("template.variable.label"),
 														placeholder: t("template.variable.label"),
@@ -34352,7 +34307,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 															templates.patchVariable(variable.name, { label: event.target.value });
 														}
 													}),
-													(0, react_jsx_runtime.jsx)("input", {
+													/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 														className: TemplateLibraryView_module_css_default.templateInput,
 														"aria-label": t("template.variable.description"),
 														placeholder: t("template.variable.description"),
@@ -34361,7 +34316,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 															templates.patchVariable(variable.name, { description: event.target.value });
 														}
 													}),
-													(0, react_jsx_runtime.jsx)("input", {
+													/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 														className: TemplateLibraryView_module_css_default.templateInput,
 														"aria-label": t("template.variable.default"),
 														placeholder: t("template.variable.default"),
@@ -34370,9 +34325,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 															templates.patchVariable(variable.name, { defaultValue: event.target.value });
 														}
 													}),
-													(0, react_jsx_runtime.jsxs)("label", {
+													/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 														className: TemplateLibraryView_module_css_default.templateCheckboxLabel,
-														children: [(0, react_jsx_runtime.jsx)("input", {
+														children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 															type: "checkbox",
 															checked: variable.required,
 															onChange: (event) => {
@@ -34380,7 +34335,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 															}
 														}), t("template.variable.required")]
 													}),
-													!active && (0, react_jsx_runtime.jsx)("button", {
+													!active && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 														type: "button",
 														className: TemplateLibraryView_module_css_default.templateMini,
 														onClick: () => {
@@ -34393,14 +34348,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										})
 									]
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: TemplateLibraryView_module_css_default.templatePreview,
 									children: [
-										(0, react_jsx_runtime.jsx)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: TemplateLibraryView_module_css_default.templateLabel,
 											children: t("template.preview.title")
 										}),
-										form.variables.map((variable) => (0, react_jsx_runtime.jsx)("input", {
+										form.variables.map((variable) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 											className: TemplateLibraryView_module_css_default.templateInput,
 											placeholder: `${variable.label || variable.name}${variable.required ? `（${t("template.variable.required")}）` : ""}`,
 											value: previewValues[variable.name] ?? "",
@@ -34411,33 +34366,33 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												});
 											}
 										}, variable.name)),
-										preview !== null && preview.unresolved.length > 0 && (0, react_jsx_runtime.jsx)("span", {
+										preview !== null && preview.unresolved.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: TemplateLibraryView_module_css_default.templateProblems,
 											children: t("template.preview.unresolved").replace("{list}", preview.unresolved.join("、"))
 										}),
-										(0, react_jsx_runtime.jsx)("pre", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("pre", {
 											className: TemplateLibraryView_module_css_default.templatePreviewOutput,
 											children: preview?.output ?? ""
 										})
 									]
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: TemplateLibraryView_module_css_default.templateGenerate,
 									children: [
-										(0, react_jsx_runtime.jsx)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: TemplateLibraryView_module_css_default.templateLabel,
 											children: t("template.ai.optimize")
 										}),
-										(0, react_jsx_runtime.jsxs)("div", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 											className: TemplateLibraryView_module_css_default.templateFoot,
-											children: [(0, react_jsx_runtime.jsx)("input", {
+											children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 												className: `${TemplateLibraryView_module_css_default.templateInput} ${TemplateLibraryView_module_css_default.templateFootNote}`,
 												placeholder: t("template.ai.optimizePrompt"),
 												value: state.optimizeSource,
 												onChange: (event) => {
 													templates.setOptimizeSource(event.target.value);
 												}
-											}), (0, react_jsx_runtime.jsx)("button", {
+											}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												className: TemplateLibraryView_module_css_default.templateMini,
 												disabled: state.aiBusy !== false,
@@ -34451,15 +34406,15 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												children: state.aiBusy === "optimize" ? t("template.ai.running") : t("template.ai.run")
 											})]
 										}),
-										(0, react_jsx_runtime.jsx)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: TemplateLibraryView_module_css_default.templateLabel,
 											children: t("template.ai.extract")
 										}),
-										(0, react_jsx_runtime.jsx)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: TemplateLibraryView_module_css_default.templateCardMeta,
 											children: t("template.ai.extractHint")
 										}),
-										(0, react_jsx_runtime.jsx)("textarea", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 											className: TemplateLibraryView_module_css_default.templateTextarea,
 											rows: 3,
 											placeholder: t("template.ai.extractPlaceholder"),
@@ -34468,9 +34423,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												templates.setExtractSource(event.target.value);
 											}
 										}),
-										(0, react_jsx_runtime.jsx)("div", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 											className: TemplateLibraryView_module_css_default.templateFoot,
-											children: (0, react_jsx_runtime.jsx)("button", {
+											children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												className: TemplateLibraryView_module_css_default.templateMini,
 												disabled: state.aiBusy !== false,
@@ -34485,10 +34440,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										})
 									]
 								}),
-								(0, react_jsx_runtime.jsxs)("div", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: TemplateLibraryView_module_css_default.templateFoot,
 									children: [
-										(0, react_jsx_runtime.jsx)("input", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 											className: `${TemplateLibraryView_module_css_default.templateInput} ${TemplateLibraryView_module_css_default.templateFootNote}`,
 											placeholder: t("template.changeNote"),
 											value: form.changeNote,
@@ -34496,7 +34451,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												templates.patchForm({ changeNote: event.target.value });
 											}
 										}),
-										(0, react_jsx_runtime.jsx)("button", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											className: TemplateLibraryView_module_css_default.templatePrimary,
 											disabled: state.saving || form.name.trim().length === 0 || form.body.trim().length === 0,
@@ -34505,7 +34460,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											},
 											children: t("template.save")
 										}),
-										form.id !== null && (0, react_jsx_runtime.jsx)("button", {
+										form.id !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											className: TemplateLibraryView_module_css_default.templateMini,
 											onClick: () => {
@@ -34514,7 +34469,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											},
 											children: t("template.history")
 										}),
-										(0, react_jsx_runtime.jsx)("button", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											className: TemplateLibraryView_module_css_default.templateMini,
 											onClick: () => {
@@ -34524,29 +34479,29 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										})
 									]
 								}),
-								state.historyOpen && (0, react_jsx_runtime.jsxs)("div", {
+								state.historyOpen && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 									className: TemplateLibraryView_module_css_default.templateHistory,
 									children: [
-										(0, react_jsx_runtime.jsx)("span", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: TemplateLibraryView_module_css_default.templateLabel,
 											children: t("template.history")
 										}),
-										state.history.length === 0 && (0, react_jsx_runtime.jsx)("span", {
+										state.history.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 											className: TemplateLibraryView_module_css_default.templateCardMeta,
 											children: t("template.history.empty")
 										}),
-										state.history.map((entry) => (0, react_jsx_runtime.jsxs)("div", {
+										state.history.map((entry) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 											className: TemplateLibraryView_module_css_default.templateHistoryRow,
 											children: [
-												(0, react_jsx_runtime.jsx)("span", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 													className: TemplateLibraryView_module_css_default.templateHistoryVersion,
 													children: t("template.history.version").replace("{version}", String(entry.version))
 												}),
-												(0, react_jsx_runtime.jsx)("span", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 													className: TemplateLibraryView_module_css_default.templateHistoryNote,
 													children: entry.changeNote.length > 0 ? entry.changeNote : entry.createdAt
 												}),
-												(0, react_jsx_runtime.jsx)("button", {
+												/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 													type: "button",
 													className: TemplateLibraryView_module_css_default.templateMini,
 													onClick: () => {
@@ -34557,7 +34512,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												})
 											]
 										}, entry.version)),
-										(0, react_jsx_runtime.jsx)("button", {
+										/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											className: TemplateLibraryView_module_css_default.templateMini,
 											onClick: () => {
@@ -34575,18 +34530,18 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		}
 		/** The empty-state AI generation box: description plus target category, explicit run. */
 		function GenerateBox({ state, templates, t }) {
-			return (0, react_jsx_runtime.jsxs)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 				className: TemplateLibraryView_module_css_default.templateGenerate,
 				children: [
-					(0, react_jsx_runtime.jsx)("p", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("p", {
 						className: TemplateLibraryView_module_css_default.templateGenerateTitle,
 						children: t("template.ai.generate.title")
 					}),
-					(0, react_jsx_runtime.jsx)("span", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 						className: TemplateLibraryView_module_css_default.templateCardMeta,
 						children: t("template.ai.generate.hint")
 					}),
-					(0, react_jsx_runtime.jsx)("textarea", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsx)("textarea", {
 						className: TemplateLibraryView_module_css_default.templateTextarea,
 						rows: 3,
 						placeholder: t("template.ai.generate.placeholder"),
@@ -34595,20 +34550,20 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							templates.setGenerateSource(event.target.value);
 						}
 					}),
-					(0, react_jsx_runtime.jsxs)("div", {
+					/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: TemplateLibraryView_module_css_default.templateFoot,
-						children: [(0, react_jsx_runtime.jsx)("select", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("select", {
 							className: TemplateLibraryView_module_css_default.templateInput,
 							"aria-label": t("template.field.category"),
 							value: state.generateCategory,
 							onChange: (event) => {
 								templates.setGenerateCategory(event.target.value);
 							},
-							children: TEMPLATE_CATEGORIES.map((category) => (0, react_jsx_runtime.jsx)("option", {
+							children: TEMPLATE_CATEGORIES.map((category) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("option", {
 								value: category,
 								children: TEMPLATE_CATEGORY_LABELS[category]
 							}, category))
-						}), (0, react_jsx_runtime.jsx)("button", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: TemplateLibraryView_module_css_default.templatePrimary,
 							disabled: state.aiBusy !== false,
@@ -34622,27 +34577,27 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							children: state.aiBusy === "generate" ? t("template.ai.running") : t("template.ai.run")
 						})]
 					}),
-					state.aiDraft !== null && (0, react_jsx_runtime.jsxs)("div", {
+					state.aiDraft !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: TemplateLibraryView_module_css_default.templateDraft,
 						children: [
-							state.aiDraft.problems.map((problem) => (0, react_jsx_runtime.jsx)("span", {
+							state.aiDraft.problems.map((problem) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: TemplateLibraryView_module_css_default.templateProblems,
 								children: problem
 							}, problem)),
-							(0, react_jsx_runtime.jsx)("pre", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("pre", {
 								className: TemplateLibraryView_module_css_default.templatePreviewOutput,
 								children: state.aiDraft.draft.body
 							}),
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: TemplateLibraryView_module_css_default.templateFoot,
-								children: [(0, react_jsx_runtime.jsx)("button", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: TemplateLibraryView_module_css_default.templatePrimary,
 									onClick: () => {
 										templates.adoptAiDraft();
 									},
 									children: t("template.ai.adopt")
-								}), (0, react_jsx_runtime.jsx)("button", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: TemplateLibraryView_module_css_default.templateMini,
 									onClick: () => {
@@ -34663,7 +34618,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				if (name.trim().length > 0) onAdd(name);
 				setName("");
 			};
-			return (0, react_jsx_runtime.jsx)("input", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 				className: TemplateLibraryView_module_css_default.templateInput,
 				placeholder,
 				"aria-label": addLabel,
@@ -34712,7 +34667,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"title": "_2SYzZq_title"
 		};
 		//#endregion
-		//#region lib/types/client/template/TemplatePickerModal.js
+		//#region src/client/template/TemplatePickerModal.tsx
 		/**
 		* The cross-column template picker modal, driven by the shared controller's
 		* picker state: the host column opens it with a {@link TemplatePickTarget},
@@ -34739,22 +34694,22 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			const selected = picker.selected;
 			const rendered = selected === null ? null : renderTemplate(selected.body, picker.values, selected.variables);
 			const missing = selected === null ? [] : missingRequired(selected.body, selected.variables, picker.values);
-			return (0, react_jsx_runtime.jsx)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 				className: TemplatePickerModal_module_css_default.overlay,
 				role: "dialog",
 				"aria-modal": "true",
 				"aria-label": t("template.picker.title"),
-				children: (0, react_jsx_runtime.jsxs)("div", {
+				children: /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: TemplatePickerModal_module_css_default.modal,
-					children: [(0, react_jsx_runtime.jsxs)("div", {
+					children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: TemplatePickerModal_module_css_default.head,
-						children: [(0, react_jsx_runtime.jsxs)("span", {
+						children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 							className: TemplatePickerModal_module_css_default.title,
-							children: [t("template.picker.title"), (0, react_jsx_runtime.jsx)("span", {
+							children: [t("template.picker.title"), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: TemplatePickerModal_module_css_default.subtitle,
 								children: `${TEMPLATE_CATEGORY_LABELS[picker.target.category]} → ${picker.target.targetLabel}`
 							})]
-						}), (0, react_jsx_runtime.jsx)("button", {
+						}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 							type: "button",
 							className: TemplatePickerModal_module_css_default.mini,
 							onClick: () => {
@@ -34762,46 +34717,46 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							},
 							children: t("template.picker.close")
 						})]
-					}), selected === null ? (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [(0, react_jsx_runtime.jsx)("input", {
+					}), selected === null ? /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 						className: TemplatePickerModal_module_css_default.input,
 						placeholder: t("template.search"),
 						value: picker.search,
 						onChange: (event) => {
 							templates.pickerSearch(event.target.value);
 						}
-					}), (0, react_jsx_runtime.jsxs)("div", {
+					}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: TemplatePickerModal_module_css_default.list,
-						children: [candidates.length === 0 && (0, react_jsx_runtime.jsx)("div", {
+						children: [candidates.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 							className: TemplatePickerModal_module_css_default.empty,
 							children: t("template.picker.empty")
-						}), candidates.map((record) => (0, react_jsx_runtime.jsxs)("button", {
+						}), candidates.map((record) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 							type: "button",
 							className: TemplatePickerModal_module_css_default.card,
 							onClick: () => {
 								templates.pickerSelect(record);
 							},
 							children: [
-								(0, react_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: TemplatePickerModal_module_css_default.cardName,
 									children: record.name
 								}),
-								record.description.trim().length > 0 && (0, react_jsx_runtime.jsx)("span", {
+								record.description.trim().length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: TemplatePickerModal_module_css_default.cardMeta,
 									children: record.description
 								}),
-								(0, react_jsx_runtime.jsx)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: TemplatePickerModal_module_css_default.cardMeta,
 									children: `v${String(record.version)}`
 								})
 							]
 						}, record.id))]
-					})] }) : (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
-						(0, react_jsx_runtime.jsxs)("div", {
+					})] }) : /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: TemplatePickerModal_module_css_default.fillHead,
-							children: [(0, react_jsx_runtime.jsx)("span", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: TemplatePickerModal_module_css_default.cardName,
 								children: selected.name
-							}), (0, react_jsx_runtime.jsx)("button", {
+							}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: TemplatePickerModal_module_css_default.mini,
 								onClick: () => {
@@ -34810,24 +34765,24 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								children: t("template.picker.back")
 							})]
 						}),
-						selected.description.trim().length > 0 && (0, react_jsx_runtime.jsx)("span", {
+						selected.description.trim().length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: TemplatePickerModal_module_css_default.cardMeta,
 							children: selected.description
 						}),
-						(0, react_jsx_runtime.jsx)("span", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: TemplatePickerModal_module_css_default.cardMeta,
 							children: t("template.picker.titleHint")
 						}),
-						selected.variables.length === 0 && (0, react_jsx_runtime.jsx)("span", {
+						selected.variables.length === 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: TemplatePickerModal_module_css_default.cardMeta,
 							children: t("template.variable.none")
 						}),
-						selected.variables.map((variable) => (0, react_jsx_runtime.jsxs)("label", {
+						selected.variables.map((variable) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("label", {
 							className: TemplatePickerModal_module_css_default.field,
 							children: [
-								(0, react_jsx_runtime.jsxs)("span", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 									className: TemplatePickerModal_module_css_default.label,
-									children: [variable.label || variable.name, variable.required && (0, react_jsx_runtime.jsxs)("span", {
+									children: [variable.label || variable.name, variable.required && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 										className: TemplatePickerModal_module_css_default.required,
 										children: [
 											"（",
@@ -34836,11 +34791,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										]
 									})]
 								}),
-								variable.description.trim().length > 0 && (0, react_jsx_runtime.jsx)("span", {
+								variable.description.trim().length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 									className: TemplatePickerModal_module_css_default.cardMeta,
 									children: variable.description
 								}),
-								(0, react_jsx_runtime.jsx)("input", {
+								/* @__PURE__ */ (0, react_jsx_runtime.jsx)("input", {
 									className: TemplatePickerModal_module_css_default.input,
 									value: picker.values[variable.name] ?? "",
 									onChange: (event) => {
@@ -34849,18 +34804,18 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								})
 							]
 						}, variable.name)),
-						rendered !== null && rendered.unresolved.length > 0 && (0, react_jsx_runtime.jsx)("span", {
+						rendered !== null && rendered.unresolved.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 							className: TemplatePickerModal_module_css_default.problems,
 							children: t("template.preview.unresolved").replace("{list}", rendered.unresolved.join("、"))
 						}),
-						rendered !== null && (0, react_jsx_runtime.jsx)("pre", {
+						rendered !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("pre", {
 							className: TemplatePickerModal_module_css_default.preview,
 							children: rendered.output
 						}),
-						picker.overwriteConfirm && (0, react_jsx_runtime.jsxs)("div", {
+						picker.overwriteConfirm && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: TemplatePickerModal_module_css_default.overwrite,
 							role: "alert",
-							children: [(0, react_jsx_runtime.jsx)("span", { children: t("template.picker.overwrite").replace("{target}", picker.target.targetLabel) }), (0, react_jsx_runtime.jsx)("button", {
+							children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("template.picker.overwrite").replace("{target}", picker.target.targetLabel) }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: TemplatePickerModal_module_css_default.mini,
 								onClick: () => {
@@ -34869,9 +34824,9 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								children: t("template.picker.cancel")
 							})]
 						}),
-						(0, react_jsx_runtime.jsxs)("div", {
+						/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 							className: TemplatePickerModal_module_css_default.foot,
-							children: [picker.target.apply !== void 0 ? (0, react_jsx_runtime.jsx)("button", {
+							children: [picker.target.apply !== void 0 ? /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: TemplatePickerModal_module_css_default.primary,
 								disabled: missing.length > 0,
@@ -34879,14 +34834,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									templates.pickerConfirm();
 								},
 								children: t("template.picker.confirm")
-							}) : (0, react_jsx_runtime.jsx)("button", {
+							}) : /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: TemplatePickerModal_module_css_default.primary,
 								onClick: () => {
 									templates.pickerCopyBody();
 								},
 								children: t("template.picker.copy")
-							}), missing.length > 0 && (0, react_jsx_runtime.jsx)("span", {
+							}), missing.length > 0 && /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 								className: TemplatePickerModal_module_css_default.problems,
 								children: t("template.picker.missing").replace("{list}", missing.join("、"))
 							})]
@@ -34896,7 +34851,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			});
 		}
 		//#endregion
-		//#region lib/types/client/ContentStudio.js
+		//#region src/client/ContentStudio.tsx
 		/**
 		* The frame-wide workbench surface occupying the `shell.overlay` hole.
 		* Easel-style two-column shell: a left inner nav — 工作台 / 对话 / 对标 /
@@ -35097,31 +35052,31 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					}
 				})();
 			};
-			return (0, react_jsx_runtime.jsx)("div", {
+			return /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 				className: ContentStudio_module_css_default.surface,
 				role: "dialog",
 				"aria-modal": "true",
 				"aria-label": t("studio.title"),
-				children: (0, react_jsx_runtime.jsxs)("div", {
+				children: /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 					className: ContentStudio_module_css_default.shell,
-					children: [(0, react_jsx_runtime.jsxs)("aside", {
+					children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("aside", {
 						className: ContentStudio_module_css_default.side,
 						children: [
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.sideBrand,
-								children: [(0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 16 }), (0, react_jsx_runtime.jsx)("span", { children: t("studio.title") })]
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconSparkle16, { size: 16 }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", { children: t("studio.title") })]
 							}),
-							(0, react_jsx_runtime.jsx)(AccountSelect, {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(AccountSelect, {
 								account,
 								accounts,
 								onSelect: selectAccount,
 								onAdd: addAccount,
 								t
 							}),
-							(0, react_jsx_runtime.jsx)("nav", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("nav", {
 								className: ContentStudio_module_css_default.sideNav,
 								"aria-label": t("studio.title"),
-								children: NAV_ITEMS.map(({ view: candidate, key }) => (0, react_jsx_runtime.jsx)("button", {
+								children: NAV_ITEMS.map(({ view: candidate, key }) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: clsx(ContentStudio_module_css_default.navItem, view === candidate && ContentStudio_module_css_default.navItemActive),
 									"aria-current": view === candidate || void 0,
@@ -35132,16 +35087,16 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									children: t(key)
 								}, candidate))
 							}),
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.sideFoot,
-								children: [(0, react_jsx_runtime.jsx)("button", {
+								children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 									type: "button",
 									className: ContentStudio_module_css_default.back,
 									onClick: () => {
 										studio.close();
 									},
 									children: t("studio.back")
-								}), (0, react_jsx_runtime.jsx)("a", {
+								}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("a", {
 									className: ContentStudio_module_css_default.aboutLink,
 									href: "https://github.com/guilinleolee/dsh-content-studio/issues",
 									target: "_blank",
@@ -35150,22 +35105,22 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 								})]
 							})
 						]
-					}), (0, react_jsx_runtime.jsxs)("div", {
+					}), /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 						className: ContentStudio_module_css_default.main,
 						children: [
-							(0, react_jsx_runtime.jsx)("button", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 								type: "button",
 								className: ContentStudio_module_css_default.close,
 								"aria-label": t("studio.close"),
 								onClick: () => {
 									studio.close();
 								},
-								children: (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCloseOutline16, { size: 16 })
+								children: /* @__PURE__ */ (0, react_jsx_runtime.jsx)(_deepseek_ai_dsh_client_ui_primitives.IconCloseOutline16, { size: 16 })
 							}),
-							(0, react_jsx_runtime.jsxs)("div", {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 								className: ContentStudio_module_css_default.frame,
 								children: [
-									view === "workbench" && (0, react_jsx_runtime.jsx)(ContentWorkbench, {
+									view === "workbench" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(ContentWorkbench, {
 										listOutputs,
 										listSchedule: schedule.list,
 										listTopics: topics.list,
@@ -35179,19 +35134,19 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										persona: personaText,
 										t
 									}),
-									view === "benchmark" && (0, react_jsx_runtime.jsx)(CapabilityPage, {
+									view === "benchmark" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(CapabilityPage, {
 										title: t("benchmark.title"),
 										ids: BENCHMARK_IDS,
 										copiedId,
 										pick: pickItem,
 										t
 									}),
-									view === "competitors" && (0, react_jsx_runtime.jsx)(CompetitorsView, {
+									view === "competitors" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(CompetitorsView, {
 										listOutputs,
 										...competitors,
 										t
 									}),
-									view === "topicBank" && (0, react_jsx_runtime.jsx)(TopicBankView, {
+									view === "topicBank" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(TopicBankView, {
 										topics,
 										schedule,
 										onStartCreate: startTopicCreate,
@@ -35202,13 +35157,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										templateLibrary: templates,
 										t
 									}),
-									view === "gather" && (0, react_jsx_runtime.jsx)(GatherView, {
+									view === "gather" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(GatherView, {
 										gather,
 										onPushToCreate: pushToCreate,
 										addToTopicBank: joinTopicBank,
 										t
 									}),
-									view === "accounts" && (0, react_jsx_runtime.jsx)(AccountsView, {
+									view === "accounts" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(AccountsView, {
 										account,
 										accounts,
 										onSelect: selectAccount,
@@ -35216,15 +35171,15 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										onRemove: removeAccount,
 										t
 									}),
-									view === "persona" && (0, react_jsx_runtime.jsx)(PersonaView, {
+									view === "persona" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(PersonaView, {
 										personas,
 										t
 									}),
-									view === "library" && (0, react_jsx_runtime.jsx)(ContentLibrary, {
+									view === "library" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(ContentLibrary, {
 										listOutputs,
 										t
 									}),
-									view === "publish" && (0, react_jsx_runtime.jsx)(PublishView, {
+									view === "publish" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(PublishView, {
 										publish,
 										persona: personaText,
 										pickedManuscript,
@@ -35233,19 +35188,19 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										},
 										t
 									}),
-									view === "review" && (0, react_jsx_runtime.jsx)(ReviewView, {
+									view === "review" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(ReviewView, {
 										review,
 										listThemes,
 										t
 									}),
-									view === "interaction" && (0, react_jsx_runtime.jsx)(InteractionView, {
+									view === "interaction" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(InteractionView, {
 										interaction,
 										personas,
 										templates,
 										listThemes,
 										t
 									}),
-									view === "calendar" && (0, react_jsx_runtime.jsx)(ContentCalendar, {
+									view === "calendar" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(ContentCalendar, {
 										listSchedule: schedule.list,
 										putSchedule: schedule.put,
 										removeSchedule: schedule.remove,
@@ -35256,14 +35211,14 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										onNavigate: setView,
 										t
 									}),
-									view === "templates" && (0, react_jsx_runtime.jsx)(TemplateLibraryView, {
+									view === "templates" && /* @__PURE__ */ (0, react_jsx_runtime.jsx)(TemplateLibraryView, {
 										templates,
 										t
 									}),
-									view === "create" && (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [picked !== null && (0, react_jsx_runtime.jsxs)("div", {
+									view === "create" && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [picked !== null && /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("div", {
 										className: GatherView_module_css_default.gatherPicked,
 										role: "status",
-										children: [(0, react_jsx_runtime.jsxs)("span", { children: [t("gather.picked.chip"), picked.title] }), (0, react_jsx_runtime.jsx)("button", {
+										children: [/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", { children: [t("gather.picked.chip"), picked.title] }), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 											type: "button",
 											className: GatherView_module_css_default.gatherMini,
 											onClick: () => {
@@ -35271,7 +35226,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 											},
 											children: t("gather.picked.clear")
 										})]
-									}), (0, react_jsx_runtime.jsx)(CreateView, {
+									}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)(CreateView, {
 										create,
 										listThemes,
 										persona: personaText,
@@ -35287,10 +35242,10 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 										topics,
 										schedule,
 										onSendToPublish: sendToPublish,
-										catalog: (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [(0, react_jsx_runtime.jsx)("div", {
+										catalog: /* @__PURE__ */ (0, react_jsx_runtime.jsxs)(react_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 											className: ContentStudio_module_css_default.tabs,
 											role: "tablist",
-											children: STUDIO_TABS.map((candidate) => (0, react_jsx_runtime.jsx)("button", {
+											children: STUDIO_TABS.map((candidate) => /* @__PURE__ */ (0, react_jsx_runtime.jsx)("button", {
 												type: "button",
 												role: "tab",
 												"aria-selected": tab === candidate.id,
@@ -35301,39 +35256,39 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 												},
 												children: t(candidate.id === "create" ? "tab.create" : "tab.operate")
 											}, candidate.id))
-										}), (0, react_jsx_runtime.jsx)("div", {
+										}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 											className: ContentStudio_module_css_default.body,
-											children: groups.map((group) => (0, react_jsx_runtime.jsxs)("section", {
+											children: groups.map((group) => /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("section", {
 												className: ContentStudio_module_css_default.group,
-												children: [(0, react_jsx_runtime.jsx)("h2", {
+												children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("h2", {
 													className: ContentStudio_module_css_default.groupTitle,
 													children: t(`group.${group.id}`)
-												}), (0, react_jsx_runtime.jsx)("div", {
+												}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("div", {
 													className: ContentStudio_module_css_default.grid,
 													children: group.items.map((item) => {
 														const copied = copiedId === item.id;
-														return (0, react_jsx_runtime.jsxs)("button", {
+														return /* @__PURE__ */ (0, react_jsx_runtime.jsxs)("button", {
 															type: "button",
 															className: clsx(ContentStudio_module_css_default.card, copied && ContentStudio_module_css_default.cardCopied),
 															onClick: () => {
 																pick(item.id, item.prompt);
 															},
 															children: [
-																(0, react_jsx_runtime.jsxs)("span", {
+																/* @__PURE__ */ (0, react_jsx_runtime.jsxs)("span", {
 																	className: ContentStudio_module_css_default.cardHead,
-																	children: [(0, react_jsx_runtime.jsx)("span", {
+																	children: [/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 																		className: ContentStudio_module_css_default.cardTitle,
 																		children: t(`cap.${item.id}.title`)
-																	}), (0, react_jsx_runtime.jsx)("span", {
+																	}), /* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 																		className: clsx(ContentStudio_module_css_default.badge, BADGE_CLASS[item.maturity]),
 																		children: t(`badge.${item.maturity}`)
 																	})]
 																}),
-																(0, react_jsx_runtime.jsx)("span", {
+																/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 																	className: ContentStudio_module_css_default.cardDetail,
 																	children: t(`cap.${item.id}.detail`)
 																}),
-																(0, react_jsx_runtime.jsx)("span", {
+																/* @__PURE__ */ (0, react_jsx_runtime.jsx)("span", {
 																	className: clsx(ContentStudio_module_css_default.cardHint, copied && ContentStudio_module_css_default.cardHintCopied),
 																	children: copied ? t("card.copied") : t("card.copyHint")
 																})
@@ -35347,7 +35302,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 									})] })
 								]
 							}),
-							(0, react_jsx_runtime.jsx)(TemplatePickerModal, {
+							/* @__PURE__ */ (0, react_jsx_runtime.jsx)(TemplatePickerModal, {
 								templates,
 								t
 							})
@@ -35361,7 +35316,11 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		/** Failure backoff sequence: doubling hours capped at 24h. */
 		const BACKOFF_BASE_MS = 3600 * 1e3;
 		const BACKOFF_MAX_MS = 1440 * 60 * 1e3;
-		/** Whether one material is exempt from retention trimming. */
+		/**
+		* Whether one material is exempt from retention trimming.
+		* @param material - the material to test.
+		* @returns whether its status is `favorite` or `picked`.
+		*/
 		function isRetentionExempt(material) {
 			return material.status === "favorite" || material.status === "picked";
 		}
@@ -35407,7 +35366,12 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 		function compareRetentionEntry(a, b) {
 			return compareRetention(a.material, b.material);
 		}
-		/** Whether one draft passes the keyword filters (case-insensitive substring match on title + summary). */
+		/**
+		* Whether one draft passes the keyword filters (case-insensitive substring match on title + summary).
+		* @param draft - the feed item draft to test.
+		* @param filters - the source's and the task's keyword filters in effect.
+		* @returns whether the draft survives exclusion, inclusion, and source-exclusion checks.
+		*/
 		function passesKeywordFilters(draft, filters) {
 			const haystack = `${draft.title ?? ""}\n${draft.summary ?? ""}`.toLowerCase();
 			const matches = (word) => haystack.includes(word.toLowerCase());
@@ -35500,12 +35464,16 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			const intervalMs = Math.max(source.intervalMinutes, 30) * 60 * 1e3;
 			return elapsedMs >= Math.max(intervalMs, backoffMs);
 		}
-		/** Snapshot file name for one material's body. */
+		/**
+		* Asset file name for one material's body snapshot.
+		* @param materialId - the material's id; also the file stem.
+		* @returns the file name the gateway writes the snapshot under (`body-<materialId>.html`).
+		*/
 		function bodyFileName(materialId) {
 			return `body-${materialId}.html`;
 		}
 		//#endregion
-		//#region lib/types/client/gather/storage.js
+		//#region src/client/gather/storage.ts
 		/** Storage-key prefix owned by the gather view. */
 		const GATHER_STORAGE_PREFIX = "content-studio.gather.";
 		const SOURCES_KEY = `${GATHER_STORAGE_PREFIX}sources`;
@@ -35571,22 +35539,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			};
 		}
 		//#endregion
-		//#region lib/types/client/gather/gather-store.js
-		/**
-		* The gather view controller: one observable state object backed by browser
-		* storage (sources, tasks, logs) and the on-disk manifests (materials),
-		* plus the front-side scheduler. The scheduler exists only while the
-		* workbench is open — a master tick runs due interval tasks, visibility
-		* changes pause and resume it, and reopening after a gap runs every overdue
-		* task once with its `since` cursor. That is compensation, not background
-		* polling: closing the workbench stops everything.
-		*
-		* All manifest writes funnel through one sequential run queue, so two task
-		* runs can never interleave their read-modify-write cycles; user state on
-		* materials survives every run because merges never touch existing entries.
-		* A failing fetch keeps the source's materials, marks the task `failed`,
-		* and starts the exponential failure backoff for that source.
-		*/
+		//#region src/client/gather/gather-store.ts
 		/** How often the master tick checks for due tasks while the workbench is open. */
 		const TICK_MS = 3e4;
 		/** Ring size of one task's run log. */
@@ -36107,17 +36060,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			};
 		}
 		//#endregion
-		//#region lib/types/client/persona/persona-store.js
-		/**
-		* The persona view controller: one observable state object over the
-		* `_personas.json` manifest (via the content-outputs persona faces) plus the
-		* wizard's browser-local draft buffer. The save path is purely local — AI
-		* actions (blank-field fill, résumé extraction, report generation) are
-		* explicit, separate, and never block saving; adopted AI values land in the
-		* draft first and reach disk only through a save. The old free-text persona
-		* (`dsh-content-studio.persona`) is imported once through the view's banner
-		* and cleared from browser storage.
-		*/
+		//#region src/client/persona/persona-store.ts
 		/** Browser-local storage keys owned by the persona view. */
 		const SELECTED_KEY = "dsh-content-studio.persona.selectedId";
 		const WIZARD_KEY = "dsh-content-studio.persona.wizard";
@@ -36277,7 +36220,8 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 						selectedId = null;
 						writeSelected(null);
 					}
-				} catch {
+				} catch (error) {
+					console.error("[persona] listPersonas failed", error);
 					setNotice("load-failed");
 				} finally {
 					loading = false;
@@ -36621,16 +36565,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			};
 		}
 		//#endregion
-		//#region lib/types/client/template/starter-pack.js
-		/**
-		* The bundled starter pack: eight seed skeletons across six categories that
-		* make an empty template library immediately usable, and demonstrate the
-		* pack format for the freemium "paid template pack" distribution channel.
-		* Ids are stable and readable (not UUIDs) so a re-import with the `skip`
-		* strategy is idempotent; the gateway re-validates every record, and the
-		* pack spec pins each body's placeholders to its declared variables.
-		* Client-safe data only — the bundle purity gate sees an in-plugin constant.
-		*/
+		//#region src/client/template/starter-pack.ts
 		/** Display name used in the import report. */
 		const STARTER_PACK_NAME = "starter-pack";
 		const PACKED_AT = "2026-09-27T00:00:00.000Z";
@@ -37204,15 +37139,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			}))
 		};
 		//#endregion
-		//#region lib/types/client/template/template-store.js
-		/**
-		* The template-library controller: one observable state object over the
-		* global template faces of the content-outputs Remote, the 模板库 page's
-		* editor, and the cross-column picker modal. Every AI action is explicit and
-		* lands in a draft the user adopts or discards — nothing reaches disk except
-		* through a save. The picker never writes: it hands the rendered body back to
-		* the host column, which owns where it lands.
-		*/
+		//#region src/client/template/template-store.ts
 		/** Browser-local storage key for the template library's view preferences (view-only state, loss-free). */
 		const PREFS_KEY = "dsh-content-studio.template.prefs";
 		function emptyForm(category = "creation") {
@@ -37743,16 +37670,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			return controller;
 		}
 		//#endregion
-		//#region lib/types/client/publish/publish-store.js
-		/**
-		* The publish view controller: one observable state object over the publish
-		* faces of the content-outputs Remote (theme-side `_publish.json` manifests,
-		* the global index, the account cards, derived drafts, and the per-platform
-		* AI adaptation), plus the calendar and topic-bank faces for the scheduling
-		* and reflow handoffs. Every AI call is explicit; a per-platform failure
-		* never blocks the other legs; task retries append attempt entries and never
-		* rewrite the logged history.
-		*/
+		//#region src/client/publish/publish-store.ts
 		/**
 		* Create the publish controller.
 		* @param deps - the gateway plus the library, calendar, and topic faces.
@@ -38190,17 +38108,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			return controller;
 		}
 		//#endregion
-		//#region lib/types/client/review/review-store.js
-		/**
-		* The review view controller: one observable state object over the
-		* `_review.json` manifest (via the content-outputs review faces), the
-		* two-step import flow (parse preview → confirmed commit), the explicit AI
-		* calls (single-work diagnosis, period report with its data-only fallback),
-		* the reflow into the topic bank, and the session-scoped filter/diagnosis
-		* buffers. Persistent business data (baselines, bindings, snapshots, tasks)
-		* lives in the manifest; only filters and in-progress diagnosis ride the
-		* browser session.
-		*/
+		//#region src/client/review/review-store.ts
 		/** Browser-local storage key of the session filter set. */
 		const FILTERS_KEY = "dsh-content-studio.review.filters";
 		/** The default session filters: the trailing month. */
@@ -38693,16 +38601,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			};
 		}
 		//#endregion
-		//#region lib/types/client/interaction/interaction-store.js
-		/**
-		* The interaction view controller: one observable state object over the
-		* library-root `_interactions.json` manifest (via the content-outputs
-		* interactions faces), the two-step CSV import, the explicit AI calls
-		* (reply drafts, batched sentiment/intent classification, batched insight
-		* extraction), the send-with-local-archive behavior, and the topic-bank
-		* push. Persistent business data (conversations, drafts, insights) lives in
-		* the manifest; only filters and the staged import ride the browser.
-		*/
+		//#region src/client/interaction/interaction-store.ts
 		/** The untagged tagging pair every stored message carries until classified. */
 		const untagged = {
 			sentiment: {
@@ -38732,6 +38631,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 				busy: false,
 				progress: null,
 				notice: null,
+				errorDetail: null,
 				preview: null,
 				importReport: null,
 				selectedId: null,
@@ -38747,6 +38647,13 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 					...next
 				};
 				notify();
+			};
+			/** Fail with a notice plus the server's own message, when one exists. */
+			const fail = (notice, error) => {
+				patch({
+					notice,
+					errorDetail: error instanceof Error ? error.message : null
+				});
 			};
 			const requireManifest = () => {
 				if (state.manifest === null) throw new Error("interactions manifest not loaded");
@@ -38821,11 +38728,8 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							busy: false,
 							notice: "import-parsed"
 						});
-					} catch {
-						patch({
-							busy: false,
-							notice: "import-failed"
-						});
+					} catch (error) {
+						fail("import-failed", error);
 					}
 				},
 				async commitImport() {
@@ -38846,11 +38750,8 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							busy: false,
 							notice: "import-committed"
 						});
-					} catch {
-						patch({
-							busy: false,
-							notice: "import-failed"
-						});
+					} catch (error) {
+						fail("import-failed", error);
 					}
 				},
 				discardImport() {
@@ -38902,11 +38803,8 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 							busy: false,
 							notice: "drafts-ready"
 						});
-					} catch {
-						patch({
-							busy: false,
-							notice: "drafts-failed"
-						});
+					} catch (error) {
+						fail("drafts-failed", error);
 					}
 				},
 				async saveDraft(conversationId, messageId, style, content, personaId) {
@@ -39141,7 +39039,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			};
 		}
 		//#endregion
-		//#region lib/types/client/locales.js
+		//#region src/client/locales.ts
 		/**
 		* `content-studio` namespace dictionaries: the sidebar entry, the workbench
 		* surface chrome, tab/group labels, maturity badges, and every capability
@@ -41507,7 +41405,7 @@ ${item.prompt}` : item.prompt)) setCopiedId(item.id);
 			"panel.emptyRecentTopics": "No topics yet; create one in the topic bank."
 		};
 		//#endregion
-		//#region lib/types/client/index.js
+		//#region src/client/index.ts
 		/** Dictionary namespace owned by this plugin. */
 		const NS = "content-studio";
 		/**

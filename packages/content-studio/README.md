@@ -14,13 +14,15 @@ Escape or the header close button dismisses the surface; closed state renders nu
 
 The **Gather** view (信息收集) is the information-collection surface: RSS/Atom source management (add, edit, enable, test connection, keyword excludes, OPML import with a preview that marks duplicates and folders, and a token-warning OPML export), collection tasks (per-task source set, theme binding, keyword filters, per-run cap, optional interval, and a 20-entry run log), and a two-pane material library backed by the on-disk `_gather.json` manifest. Materials support read/favorite/picked markers, excerpt snippets, theme rebinding, an explicit AI-processing button (summary, points, score, tags — always manual), pushing a material into the create view as a reference line (never the body), and adding it to the publication calendar. Scheduling runs only while the workbench is open — a master tick, visibility-aware pause/resume, and a single overdue catch-up on open; closing the workbench stops every timer, and the copy states this plainly. Sources, tasks, and logs live in browser storage under `content-studio.gather.` through one storage module; clearing browser data loses only those, never the materials.
 
+The **Review** view (复盘) closes the operations loop: platform metric exports import as CSV through a parse-preview-commit flow (unknown columns surface as checkboxes, bad rows are named, never dropped), only works bound to a creation content id enter the analysis pool, and the dashboard, per-work AI diagnosis, and the frozen six-section period report judge everything against persisted account baselines (viral at twice the baseline engagement rate, weak below half, long-tail by a 30-day pace gate). A failed AI call still lands a data-only report; conclusions reflow into the topic bank with one click, and viral templates save under `assets/review/templates/`. Storage lives in the theme's `_review.json` sidecar plus a hidden global index — `.dsh-output.json` is never touched.
+
 ## Model Experience
 
-Explicit only: the gather view's AI-processing button sends one framed request per click through the `contentOutputs/processMaterial` Remote, which rides the shared `llm` service. A failed or rate-limited call leaves the material untouched and shows a retry affordance; nothing here reaches a model request otherwise.
+Indirectly, through the `dsh-content-outputs` Remotes its buttons trigger: that gateway assembles every framed request on the shared `llm` service, while this package owns only the click, the pending state, and the retry affordance.
 
 #### KV Cache effect
 
-None; this package neither assembles nor sends a provider request.
+None; this package never assembles or sends a provider request, so it owns no request prefix.
 
 ## Known Limitations and Deferred Work
 

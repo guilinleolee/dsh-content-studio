@@ -90,6 +90,8 @@ export interface OutputProject {
   readonly assetCount: number
   /** True when the project directory carries a valid `.dsh-output.json`. */
   readonly hasMetadata: boolean
+  /** Topic the creation started from, mirrored from the create state; absent on older mirrors and pre-field metadata. */
+  readonly topicId?: string | null
 }
 
 /** One project directory the scanner could not project. */

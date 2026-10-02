@@ -85,6 +85,8 @@ export interface InteractionState {
         readonly total: number;
     } | null;
     readonly notice: InteractionNotice | null;
+    /** The underlying server message of the last failed call, for the notice line. */
+    readonly errorDetail: string | null;
     /** The staged import preview awaiting user confirmation. */
     readonly preview: InteractionImportPreview | null;
     /** The last commit's accounting, rendered as the import report. */

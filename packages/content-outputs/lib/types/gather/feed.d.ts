@@ -40,7 +40,11 @@ export declare function normalizeDedupUrl(url: string): string;
  * @returns the branded deduplication key.
  */
 export declare function dedupKey(rawGuid: string | undefined, link: string): GatherMaterialId;
-/** Normalize one parsed feed document (any supported format) into drafts. */
+/**
+ * Normalize one parsed feed document (any supported format) into drafts.
+ * @param parsed - the feedsmith-parsed document (RSS or Atom).
+ * @returns the feed title plus one draft per entry that has a link.
+ */
 export declare function normalizeParsedFeed(parsed: AnyFeed): {
     feedTitle: string | null;
     items: GatherItemDraft[];

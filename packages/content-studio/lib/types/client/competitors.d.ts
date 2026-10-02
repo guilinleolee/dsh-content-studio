@@ -75,7 +75,11 @@ export declare function importAccounts(json: string, existing: readonly Competit
     added: number;
     skipped: number;
 };
-/** Export the registry as the import/export JSON payload. */
+/**
+ * Export the registry as the import/export JSON payload.
+ * @param accounts - the accounts to serialize.
+ * @returns the pretty-printed JSON payload with a trailing newline, the exact format `importAccounts` accepts.
+ */
 export declare function exportAccounts(accounts: readonly CompetitorAccount[]): string;
 /**
  * One work's interaction score: likes + 2×comments + 3×shares, with views
@@ -151,5 +155,11 @@ export declare function aggregateAccountDigest(accountName: string, platform: Co
  * @returns the upsert input for the contentTopics Remote.
  */
 export declare function competitorWorkToTopicInput(work: CompetitorWork, capturedAt: string): TopicItemInput;
+/**
+ * Build the topic-idea markdown file the competitor view saves for one work.
+ * @param work - the source competitor work the idea came from.
+ * @param idea - the differentiated-angle suggestion; falls back to the work title when absent.
+ * @returns the markdown document with a `kind: topic-idea` front matter and source-attribution footer.
+ */
 export declare function buildIdeaMarkdown(work: CompetitorWork, idea: string | undefined): string;
 //# sourceMappingURL=competitors.d.ts.map

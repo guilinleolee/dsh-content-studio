@@ -27,7 +27,11 @@ export interface PlatformProfile {
 }
 /** The built-in registry, one row per platform, domestic first. */
 export declare const PLATFORM_PROFILES: readonly PlatformProfile[];
-/** Registry lookup by platform id. */
+/**
+ * Registry lookup by platform id.
+ * @param platformId - the platform id to look up.
+ * @returns the platform's profile, or undefined when the id is not in the registry.
+ */
 export declare function platformProfileOf(platformId: string): PlatformProfile | undefined;
 /** All registry platform ids. */
 export declare const PLATFORM_IDS: readonly string[];

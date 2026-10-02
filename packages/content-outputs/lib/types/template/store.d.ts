@@ -15,22 +15,37 @@
 import type { TemplateHistoryEntry, TemplateImportStrategy, TemplateImportSummary, TemplateInput, TemplatePack, TemplateRecord, TemplateStatus, TemplateTag, TemplateTaxonomy, TemplatesManifest, TemplatesSnapshot } from './types.ts';
 /** Library file names under `<templatesRoot>`. */
 export declare const TEMPLATES_FILENAME = "templates.json";
+/** Shared tag-list file name under `<templatesRoot>`. */
 export declare const TAXONOMY_FILENAME = "taxonomy.json";
+/** Per-template history snapshot directory under `<templatesRoot>`. */
 export declare const HISTORY_DIRNAME = "history";
 /** Stored-shape caps enforced at the wire boundary; generous, never a product decision. */
 export declare const TEMPLATE_MAX_NAME = 100;
+/** Character cap of one template's description. */
 export declare const TEMPLATE_MAX_DESCRIPTION = 500;
+/** Character cap of one template's body. */
 export declare const TEMPLATE_MAX_BODY = 100000;
+/** Cap on how many variables one template declares. */
 export declare const TEMPLATE_MAX_VARIABLES = 50;
+/** Character cap of one variable's placeholder name. */
 export declare const TEMPLATE_MAX_VARIABLE_NAME = 64;
+/** Character cap of one variable's label text. */
 export declare const TEMPLATE_MAX_VARIABLE_TEXT = 200;
+/** Character cap of one variable's description. */
 export declare const TEMPLATE_MAX_VARIABLE_DESCRIPTION = 500;
+/** Character cap of one variable's default value. */
 export declare const TEMPLATE_MAX_VARIABLE_DEFAULT = 2000;
+/** Cap on how many tags one template carries. */
 export declare const TEMPLATE_MAX_TAGS = 50;
+/** Character cap of one tag name. */
 export declare const TEMPLATE_MAX_TAG_NAME = 50;
+/** Character cap of one history entry's change note. */
 export declare const TEMPLATE_MAX_CHANGE_NOTE = 200;
+/** How many full-record history snapshots one template keeps. */
 export declare const TEMPLATE_HISTORY_LIMIT = 20;
+/** Character cap of template, tag, and related record ids. */
 export declare const TEMPLATE_MAX_ID = 64;
+/** Character cap of stored ISO-8601 timestamp strings. */
 export declare const TEMPLATE_MAX_TIMESTAMP = 40;
 /** Placeholder identifier shape inside a template body. */
 export declare const TEMPLATE_VARIABLE_NAME_PATTERN: RegExp;

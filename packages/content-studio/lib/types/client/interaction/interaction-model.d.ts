@@ -46,7 +46,10 @@ export interface InteractionFilters {
 }
 /** Browser-local storage key of the filter set. */
 export declare const FILTERS_KEY = "dsh-content-studio.interaction.filters";
-/** The default filters: everything, no search. */
+/**
+ * The default filters: everything, no search.
+ * @returns the filter set every malformed or version-stale load falls back to.
+ */
 export declare function defaultInteractionFilters(): InteractionFilters;
 /**
  * Load the stored filter set; anything malformed or version-stale reloads
@@ -60,9 +63,17 @@ export declare function loadInteractionFilters(): InteractionFilters;
  * @param filters - the filters to store.
  */
 export declare function saveInteractionFilters(filters: InteractionFilters): void;
-/** The last inbound message of a conversation, or null when it has none. */
+/**
+ * The last inbound message of a conversation, or null when it has none.
+ * @param conversation - the conversation to scan.
+ * @returns the newest `direction: 'in'` message, or null.
+ */
 export declare function lastInboundMessage(conversation: InteractionConversation): InteractionMessage | null;
-/** The latest message of a conversation regardless of direction, or null. */
+/**
+ * The latest message of a conversation regardless of direction, or null.
+ * @param conversation - the conversation to scan.
+ * @returns the last message in stored order, or null without messages.
+ */
 export declare function lastMessage(conversation: InteractionConversation): InteractionMessage | null;
 /**
  * Apply the filter set to the conversation list. Archived and spam

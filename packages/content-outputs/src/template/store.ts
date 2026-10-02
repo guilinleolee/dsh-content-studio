@@ -27,23 +27,38 @@ import { TEMPLATE_CATEGORIES } from './types.ts'
 
 /** Library file names under `<templatesRoot>`. */
 export const TEMPLATES_FILENAME = 'templates.json'
+/** Shared tag-list file name under `<templatesRoot>`. */
 export const TAXONOMY_FILENAME = 'taxonomy.json'
+/** Per-template history snapshot directory under `<templatesRoot>`. */
 export const HISTORY_DIRNAME = 'history'
 
 /** Stored-shape caps enforced at the wire boundary; generous, never a product decision. */
 export const TEMPLATE_MAX_NAME = 100
+/** Character cap of one template's description. */
 export const TEMPLATE_MAX_DESCRIPTION = 500
+/** Character cap of one template's body. */
 export const TEMPLATE_MAX_BODY = 100_000
+/** Cap on how many variables one template declares. */
 export const TEMPLATE_MAX_VARIABLES = 50
+/** Character cap of one variable's placeholder name. */
 export const TEMPLATE_MAX_VARIABLE_NAME = 64
+/** Character cap of one variable's label text. */
 export const TEMPLATE_MAX_VARIABLE_TEXT = 200
+/** Character cap of one variable's description. */
 export const TEMPLATE_MAX_VARIABLE_DESCRIPTION = 500
+/** Character cap of one variable's default value. */
 export const TEMPLATE_MAX_VARIABLE_DEFAULT = 2_000
+/** Cap on how many tags one template carries. */
 export const TEMPLATE_MAX_TAGS = 50
+/** Character cap of one tag name. */
 export const TEMPLATE_MAX_TAG_NAME = 50
+/** Character cap of one history entry's change note. */
 export const TEMPLATE_MAX_CHANGE_NOTE = 200
+/** How many full-record history snapshots one template keeps. */
 export const TEMPLATE_HISTORY_LIMIT = 20
+/** Character cap of template, tag, and related record ids. */
 export const TEMPLATE_MAX_ID = 64
+/** Character cap of stored ISO-8601 timestamp strings. */
 export const TEMPLATE_MAX_TIMESTAMP = 40
 
 /** Placeholder identifier shape inside a template body. */

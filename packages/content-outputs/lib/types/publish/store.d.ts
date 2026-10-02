@@ -15,9 +15,17 @@ export declare const PUBLISH_DIRNAME = "publish";
 export declare const PUBLISH_INDEX_FILENAME = "_publish-index.json";
 /** Global account cards at the library root. */
 export declare const PUBLISH_PROFILES_FILENAME = "_publish-profiles.json";
-/** Whether the value is one well-formed task id. */
+/**
+ * Whether the value is one well-formed task id.
+ * @param value - the id candidate.
+ * @returns whether it matches the UUID shape the store generates and the derived path embeds.
+ */
 export declare function isTaskId(value: string): boolean;
-/** Whether the value is one well-formed platform id. */
+/**
+ * Whether the value is one well-formed platform id.
+ * @param value - the platform-id candidate.
+ * @returns whether it matches the registry-key shape (lowercase letters, digits, dashes).
+ */
 export declare function isPlatformId(value: string): boolean;
 /**
  * Parse and validate one publish manifest. One malformed task never hides
@@ -72,7 +80,15 @@ export declare function readPublishIndexFile(root: string): Promise<{
  * @param manifest - the complete next manifest.
  */
 export declare function writePublishManifestFile(root: string, theme: string, manifest: PublishManifest): Promise<void>;
-/** Absolute path of one derived draft. */
+/**
+ * Absolute path of one derived draft.
+ * @param root - absolute outputs library root.
+ * @param theme - outputs-project directory name.
+ * @param taskId - the owning task's UUID.
+ * @param platformId - the platform registry key.
+ * @returns the guarded `assets/publish/<taskId>/<platformId>.md` path.
+ * @throws when the task or platform id is malformed.
+ */
 export declare function resolvePublishDerivedPath(root: string, theme: string, taskId: string, platformId: string): string;
 /**
  * Write one derived draft under `assets/publish/<taskId>/<platformId>.md`.
@@ -90,6 +106,10 @@ export declare function writePublishDerivedFile(root: string, theme: string, tas
 }>;
 /**
  * Read one derived draft back.
+ * @param root - absolute outputs library root.
+ * @param theme - outputs-project directory name.
+ * @param taskId - the owning task's UUID.
+ * @param platformId - the platform registry key.
  * @returns the text, or undefined when the draft does not exist yet.
  */
 export declare function readPublishDerivedFile(root: string, theme: string, taskId: string, platformId: string): Promise<string | undefined>;

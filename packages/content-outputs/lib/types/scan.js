@@ -125,6 +125,7 @@ export async function scanProject(root, topic) {
         deliverables,
         assetCount,
         hasMetadata,
+        topicId: metadata?.create?.topicId ?? null,
     };
     return { project };
 }

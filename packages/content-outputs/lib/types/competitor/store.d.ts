@@ -19,7 +19,10 @@ export declare const COMPETITOR_MANIFEST_FILENAME = "_competitors.json";
  * @returns the manifest with only valid entries, plus every dropped one named.
  */
 export declare function parseCompetitorManifest(raw: string): CompetitorManifestRead;
-/** The empty manifest every absent or unreadable manifest reads as. */
+/**
+ * The empty manifest every absent or unreadable manifest reads as.
+ * @returns the manifest with no works, no reports, and empty sync stamps.
+ */
 export declare function emptyManifest(): CompetitorManifest;
 /**
  * Validate one incoming manifest wholesale; used by the write path to reject

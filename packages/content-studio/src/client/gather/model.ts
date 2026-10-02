@@ -20,7 +20,11 @@ export const GATHER_BODY_CHAR_LIMIT = 100_000
 const BACKOFF_BASE_MS = 60 * 60 * 1000
 const BACKOFF_MAX_MS = 24 * 60 * 60 * 1000
 
-/** Whether one material is exempt from retention trimming. */
+/**
+ * Whether one material is exempt from retention trimming.
+ * @param material - the material to test.
+ * @returns whether its status is `favorite` or `picked`.
+ */
 export function isRetentionExempt(material: GatherMaterial): boolean {
   return material.status === 'favorite' || material.status === 'picked'
 }
@@ -71,7 +75,12 @@ export interface GatherKeywordFilters {
   readonly excludeKeywords: readonly string[]
 }
 
-/** Whether one draft passes the keyword filters (case-insensitive substring match on title + summary). */
+/**
+ * Whether one draft passes the keyword filters (case-insensitive substring match on title + summary).
+ * @param draft - the feed item draft to test.
+ * @param filters - the source's and the task's keyword filters in effect.
+ * @returns whether the draft survives exclusion, inclusion, and source-exclusion checks.
+ */
 export function passesKeywordFilters(draft: GatherItemDraft, filters: GatherKeywordFilters): boolean {
   const haystack = `${draft.title ?? ''}\n${draft.summary ?? ''}`.toLowerCase()
   const matches = (word: string): boolean => haystack.includes(word.toLowerCase())
@@ -189,7 +198,11 @@ export function isSourceDue(
   return elapsedMs >= Math.max(intervalMs, backoffMs)
 }
 
-/** Snapshot file name for one material's body. */
+/**
+ * Asset file name for one material's body snapshot.
+ * @param materialId - the material's id; also the file stem.
+ * @returns the file name the gateway writes the snapshot under (`body-<materialId>.html`).
+ */
 export function bodyFileName(materialId: string): string {
   return `body-${materialId}.html`
 }

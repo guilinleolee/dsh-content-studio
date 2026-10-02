@@ -147,7 +147,10 @@ export function parseCompetitorManifest(raw) {
     }
     return { manifest: { formatVersion: 0, syncedAt, works, reports }, problems };
 }
-/** The empty manifest every absent or unreadable manifest reads as. */
+/**
+ * The empty manifest every absent or unreadable manifest reads as.
+ * @returns the manifest with no works, no reports, and empty sync stamps.
+ */
 export function emptyManifest() {
     return { formatVersion: 0, syncedAt: {}, works: [], reports: [] };
 }

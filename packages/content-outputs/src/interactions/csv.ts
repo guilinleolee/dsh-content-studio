@@ -53,7 +53,11 @@ function normalizeHeader(cell: string): string {
   return cell.trim().toLowerCase()
 }
 
-/** Escape one CSV field per RFC 4180: quotes double, delimiters force quoting. */
+/**
+ * Escape one CSV field per RFC 4180: quotes double, delimiters force quoting.
+ * @param value - the raw field text.
+ * @returns the field safe to place as one CSV record cell.
+ */
 export function escapeCsvField(value: string): string {
   return /[",\r\n]/u.test(value) ? `"${value.replaceAll('"', '""')}"` : value
 }

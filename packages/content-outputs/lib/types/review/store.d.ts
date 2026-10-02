@@ -107,6 +107,9 @@ export declare function writeReviewReportFile(root: string, theme: string, file:
 }>;
 /**
  * Read one report file back from its stored reference.
+ * @param root - absolute outputs library root.
+ * @param theme - outputs-project directory name.
+ * @param reference - the stored report reference, relative to `assets/review/`.
  * @returns the markdown, or an empty record when the file does not exist.
  */
 export declare function readReviewReportFile(root: string, theme: string, reference: string): Promise<{
@@ -125,11 +128,16 @@ export declare function writeReviewTemplateFile(root: string, theme: string, fil
 }>;
 /**
  * List saved template file names under `assets/review/templates/`.
+ * @param root - absolute outputs library root.
+ * @param theme - outputs-project directory name.
  * @returns the sorted plain file names.
  */
 export declare function listReviewTemplatesFile(root: string, theme: string): Promise<readonly string[]>;
 /**
  * Read one saved template's content.
+ * @param root - absolute outputs library root.
+ * @param theme - outputs-project directory name.
+ * @param file - plain template file name.
  * @returns the markdown, or an empty record when the file does not exist.
  */
 export declare function readReviewTemplateFile(root: string, theme: string, file: string): Promise<{

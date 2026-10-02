@@ -99,7 +99,10 @@ export interface PersonaForm {
   report: PersonaReport | null
 }
 
-/** The empty form of a brand-new persona. */
+/**
+ * The empty form of a brand-new persona.
+ * @returns the form with every field blank, no editing target, and no stored report.
+ */
 export function emptyForm(): PersonaForm {
   const fields = {} as Record<PersonaFieldKey, PersonaFormField>
   for (const key of PERSONA_FIELD_KEYS) fields[key] = { value: '', source: 'user', aiMeta: null }

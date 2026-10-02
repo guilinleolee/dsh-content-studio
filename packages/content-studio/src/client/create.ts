@@ -33,12 +33,20 @@ export const MANUAL_MERGE_WINDOW_MS = 5 * 60_000
 /** Version quota: the newest unpinned versions survive; pinned ones never age out. */
 export const VERSION_CAP = 30
 
-/** The coarse metadata kind a content type maps to. */
+/**
+ * The coarse metadata kind a content type maps to.
+ * @param id - the content type id.
+ * @returns the `OutputKind` of the matching entry, or `'other'` when the id has no entry.
+ */
 export function contentTypeKind(id: CreateContentType): OutputKind {
   return CREATE_TYPES.find(entry => entry.id === id)?.kind ?? 'other'
 }
 
-/** One prefixed, collision-resistant id (`cc-<time><rand>`). */
+/**
+ * One prefixed, collision-resistant id (`cc-<time><rand>`).
+ * @param prefix - the id's leading segment, `'cc'` by default.
+ * @returns the composed id string.
+ */
 export function newId(prefix = 'cc'): string {
   return `${prefix}-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`
 }
@@ -364,7 +372,11 @@ export function triggerClass(trigger: string): 'ai' | 'manual' | 'restore' | 're
 /** The content types whose variant batches ride one request. */
 export const BATCHABLE_CONTENT_TYPES: readonly CreateContentType[] = ['xhs-note']
 
-/** Whether the content type can batch three variants in one request. */
+/**
+ * Whether the content type can batch three variants in one request.
+ * @param contentType - the content type id to test.
+ * @returns whether the type is in `BATCHABLE_CONTENT_TYPES`.
+ */
 export function isBatchable(contentType: CreateContentType): boolean {
   return BATCHABLE_CONTENT_TYPES.includes(contentType)
 }

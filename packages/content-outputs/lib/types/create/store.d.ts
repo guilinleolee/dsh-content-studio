@@ -20,7 +20,11 @@ export declare const CREATE_MANIFEST_FILENAME = "_create.json";
 export declare const CREATE_MAX_STORED_VERSIONS = 60;
 /** Hard per-version size cap; generation and drafts stay far below it. */
 export declare const CREATE_MAX_CONTENT_CHARS = 400000;
-/** Whether the manifest envelope and every version conform; one violation rejects whole. */
+/**
+ * Whether the manifest envelope and every version conform; one violation rejects whole.
+ * @param manifest - the manifest being read or written.
+ * @throws naming the first format violation.
+ */
 export declare function assertCreateManifest(manifest: CreateManifest): void;
 /**
  * Parse and validate one manifest document. The manifest rejects whole on

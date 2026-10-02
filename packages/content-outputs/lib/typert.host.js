@@ -591,6 +591,7 @@ const _deepseek_ai_dsh_content_outputs_contentOutputs_list_result$schema = z.obj
   'deliverables': z.array(z.string()).readonly(),
   'assetCount': z.number().readonly(),
   'hasMetadata': z.boolean().readonly(),
+  'topicId': z.union([z.literal(null), z.string()]).readonly().optional(),
 })).readonly(),
   'problems': z.array(z.object({
   'topic': z.string().readonly(),
@@ -1549,6 +1550,7 @@ const _deepseek_ai_dsh_content_outputs_contentOutputs_readCreateMetadata_result$
   'publishedVersion': z.union([z.literal(null), z.number()]).readonly(),
   'publishedPath': z.union([z.literal(null), z.string()]).readonly(),
   'publishedAt': z.union([z.literal(null), z.string()]).readonly(),
+  'topicId': z.union([z.literal(null), z.string()]).readonly().optional(),
 }).readonly().optional(),
 })]),
   'problem': z.union([z.literal(null), z.string()]),
@@ -1963,6 +1965,7 @@ const _deepseek_ai_dsh_content_outputs_contentOutputs_writeCreateMetadata_parame
   'publishedVersion': z.union([z.literal(null), z.number()]).readonly(),
   'publishedPath': z.union([z.literal(null), z.string()]).readonly(),
   'publishedAt': z.union([z.literal(null), z.string()]).readonly(),
+  'topicId': z.union([z.literal(null), z.string()]).readonly().optional(),
 }).readonly().optional(),
 })
 const _deepseek_ai_dsh_content_outputs_contentOutputs_writeCreateMetadata_result$schema = z.void()
@@ -2366,7 +2369,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#PublishAdaptResult',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_adaptPublishContent_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":753,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":756,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/analyzeCompetitorWork',
@@ -2416,7 +2419,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#ReviewAiResult',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_analyzeReviewWork_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":995,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1002,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/buildPublishPackage',
@@ -2451,7 +2454,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#PublishPackage',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_buildPublishPackage_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":740,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":743,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/classifyInteractions',
@@ -2476,7 +2479,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#InteractionClassifyResult',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_classifyInteractions_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1087,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1094,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/commitInteractionImport',
@@ -2501,7 +2504,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#InteractionImportCommitResult',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_commitInteractionImport_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1060,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1067,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/commitReviewImport',
@@ -2526,7 +2529,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#ReviewImportCommitResult',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_commitReviewImport_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":917,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":920,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/deleteAsset',
@@ -2586,7 +2589,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#CreateTemplateList',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_deleteCreateTemplate_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":554,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":546,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/deletePersona',
@@ -2636,7 +2639,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs#contentOutputs/deleteReviewTask:result',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_deleteReviewTask_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":928,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":931,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/deleteTemplate',
@@ -2661,7 +2664,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs#contentOutputs/deleteTemplate:result',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_deleteTemplate_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":798,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":801,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/evaluateCreateContent',
@@ -2701,7 +2704,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs#contentOutputs/exportInteractionCsv:result',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_exportInteractionCsv_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1127,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1134,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/exportTemplates',
@@ -2726,7 +2729,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#TemplatePack',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_exportTemplates_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":831,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":834,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/extractInteractionInsights',
@@ -2751,7 +2754,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#InteractionInsightResult',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_extractInteractionInsights_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1101,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1108,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/fetchFeed',
@@ -2852,7 +2855,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#InteractionReplyResult',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_generateInteractionReply_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1073,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1080,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/generateReviewReport',
@@ -2877,7 +2880,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#ReviewAiResult',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_generateReviewReport_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1009,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1016,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/getPersona',
@@ -2927,7 +2930,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#TemplateHistoryRead',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_getTemplateHistory_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":809,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":812,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/importTemplates',
@@ -2962,7 +2965,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#TemplateImportSummary',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_importTemplates_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":844,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":847,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/list',
@@ -3017,7 +3020,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#CreateTemplateList',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_listCreateTemplates_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":531,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":523,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/listPersonas',
@@ -3062,7 +3065,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#ReviewIndexRead',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_listReviewIndex_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":893,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":896,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/listReviewTemplates',
@@ -3087,7 +3090,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs#contentOutputs/listReviewTemplates:result',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_listReviewTemplates_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":972,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":977,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/listTemplates',
@@ -3102,7 +3105,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#TemplatesSnapshot',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_listTemplates_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":765,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":768,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/moveAsset',
@@ -3152,7 +3155,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#InteractionImportPreview',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_parseInteractionImport_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1047,"column":3},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1054,"column":3},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/parseReviewImport',
@@ -3177,7 +3180,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#ReviewImportPreview',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_parseReviewImport_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":905,"column":3},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":908,"column":3},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/processMaterial',
@@ -3252,7 +3255,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#TemplateAiResult',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_processTemplateAi_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":857,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":860,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/publishCreateFinal',
@@ -3312,7 +3315,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#CreateTemplateList',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_putCreateTemplate_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":544,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":536,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/putPersona',
@@ -3397,7 +3400,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#TemplateRecord',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_putTemplate_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":776,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":779,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/putTemplateTags',
@@ -3422,7 +3425,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs#contentOutputs/putTemplateTags:result',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_putTemplateTags_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":820,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":823,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/readAsset',
@@ -3572,7 +3575,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#InteractionsManifestRead',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readInteractions_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1021,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1028,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/readPublishDerived',
@@ -3617,7 +3620,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs#contentOutputs/readPublishDerived:result',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishDerived_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":711,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":714,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/readPublishManifest',
@@ -3692,7 +3695,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs#contentOutputs/readPublishSource:result',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readPublishSource_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":725,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":728,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/readReviewManifest',
@@ -3717,7 +3720,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#ReviewManifestRead',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewManifest_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":869,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":872,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/readReviewReport',
@@ -3752,7 +3755,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#ReviewReportRead',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewReport_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":950,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":955,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/readReviewTemplate',
@@ -3787,7 +3790,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#ReviewReportRead',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_readReviewTemplate_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":981,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":988,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/registerCreatePublish',
@@ -3872,7 +3875,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs#contentOutputs/sendInteractionReply:result',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_sendInteractionReply_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1115,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1122,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/setTemplateStatus',
@@ -3907,7 +3910,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#TemplateRecord',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_setTemplateStatus_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":788,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":791,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/writeAsset',
@@ -4097,7 +4100,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs/types#InteractionsManifest',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writeInteractions_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1035,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":1042,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/writePublishDerived',
@@ -4247,7 +4250,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewManifest:result',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewManifest_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":882,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":885,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewReport',
@@ -4292,7 +4295,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewReport:result',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewReport_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":941,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":944,"column":9},
     },
     {
       id: '@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewTemplate',
@@ -4337,7 +4340,7 @@ export const TYPERT = {
         typeSymbol: '@deepseek-ai/dsh-content-outputs#contentOutputs/writeReviewTemplate:result',
         schema: _deepseek_ai_dsh_content_outputs_contentOutputs_writeReviewTemplate_result$schema,
       },
-      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":962,"column":9},
+      sourceLocation: {"file":"packages/creation/content-outputs/src/index.ts","line":967,"column":9},
     },
   ],
   model: {

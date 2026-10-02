@@ -614,14 +614,6 @@ let ContentOutputsGateway = (() => {
             return this.createAi.rewrite(request);
         }
         /**
-         * Evaluate one draft through the model: four rubric dimensions plus an
-         * overall advisory grade. Explicit per call, queued one at a time,
-         * rate limits retried with backoff; nothing is persisted here. A
-         * paid-tier feature — the advisory result never blocks anything.
-         * @param request - the content type, title, and draft text.
-         * @returns the structured evaluation with its provenance.
-         */
-        /**
          * List the global custom templates. A malformed bank reads as empty with
          * the rejection named, so the manager can warn before overwriting.
          * @returns the valid templates plus every rejection.
@@ -648,6 +640,14 @@ let ContentOutputsGateway = (() => {
         async deleteCreateTemplate(id) {
             return { templates: await deleteCreateTemplateFile(this.root, id), problems: [] };
         }
+        /**
+         * Evaluate one draft through the model: four rubric dimensions plus an
+         * overall advisory grade. Explicit per call, queued one at a time,
+         * rate limits retried with backoff; nothing is persisted here. A
+         * paid-tier feature — the advisory result never blocks anything.
+         * @param request - the content type, title, and draft text.
+         * @returns the structured evaluation with its provenance.
+         */
         async evaluateCreateContent(request) {
             await this.createQuota.requirePaidFeature('evaluation');
             return this.createAi.evaluate(request);
@@ -772,6 +772,9 @@ let ContentOutputsGateway = (() => {
         }
         /**
          * Read one derived platform draft back for the preview pane.
+         * @param theme - outputs-project directory name.
+         * @param taskId - the owning task's UUID.
+         * @param platformId - the platform registry key.
          * @returns the text, or an empty record when the draft does not exist yet.
          */
         async readPublishDerived(theme, taskId, platformId) {
@@ -971,6 +974,8 @@ let ContentOutputsGateway = (() => {
         }
         /**
          * Read one report file back for the viewer and editor.
+         * @param theme - outputs-project directory name.
+         * @param file - plain report file name (`report-<taskId>-<ts>.md`).
          * @returns the markdown, or an empty record when the file does not exist.
          */
         async readReviewReport(theme, file) {
@@ -996,6 +1001,8 @@ let ContentOutputsGateway = (() => {
         }
         /**
          * Read one saved template's content.
+         * @param theme - outputs-project directory name.
+         * @param file - plain template file name.
          * @returns the markdown, or an empty record when the file does not exist.
          */
         async readReviewTemplate(theme, file) {

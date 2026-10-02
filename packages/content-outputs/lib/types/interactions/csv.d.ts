@@ -18,7 +18,11 @@ export declare const INTERACTION_MAX_MESSAGE_CHARS = 20000;
  * `conversation_id`, `status`, and `tags` — an export re-imports unchanged.
  */
 export declare const INTERACTION_CSV_COLUMNS: readonly string[];
-/** Escape one CSV field per RFC 4180: quotes double, delimiters force quoting. */
+/**
+ * Escape one CSV field per RFC 4180: quotes double, delimiters force quoting.
+ * @param value - the raw field text.
+ * @returns the field safe to place as one CSV record cell.
+ */
 export declare function escapeCsvField(value: string): string;
 /**
  * Parse one import file into the preview: validated message rows plus

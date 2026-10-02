@@ -56,7 +56,10 @@ export interface PersonaForm {
     /** The stored report rides the form untouched: editing it is a separate save path. */
     report: PersonaReport | null;
 }
-/** The empty form of a brand-new persona. */
+/**
+ * The empty form of a brand-new persona.
+ * @returns the form with every field blank, no editing target, and no stored report.
+ */
 export declare function emptyForm(): PersonaForm;
 /**
  * Build the form from a stored entry.

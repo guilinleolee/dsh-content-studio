@@ -55,11 +55,23 @@ export declare const AI_RETRY_MAX = 4;
  * @param failure - the failed attempt's error or its p-retry context.
  */
 export declare function honorRetryAfter(failure: unknown): Promise<void>;
-/** Whether one thrown error (or its p-retry context) is an upstream rate limit worth retrying. */
+/**
+ * Whether one thrown error (or its p-retry context) is an upstream rate limit worth retrying.
+ * @param failure - the failed attempt's error or its p-retry context.
+ * @returns whether the underlying error codes as `RATE_LIMIT` or HTTP 429.
+ */
 export declare function isRateLimitError(failure: unknown): boolean;
-/** Provider-requested retry delay in milliseconds, capped so one source cannot pin the queue. */
+/**
+ * Provider-requested retry delay in milliseconds, capped so one source cannot pin the queue.
+ * @param failure - the failed attempt's error or its p-retry context.
+ * @returns the provider `Retry-After` delay capped at 30s, or undefined when absent.
+ */
 export declare function retryAfterMs(failure: unknown): number | undefined;
-/** Terminal model finish reasons that mean the call failed. */
+/**
+ * Terminal model finish reasons that mean the call failed.
+ * @param finish - the model call's finish reason.
+ * @returns the failure as an `Error` carrying the failure code, or undefined for a clean `stop`.
+ */
 export declare function finishError(finish: FinishReason): Error | undefined;
 /**
  * Parse the model's JSON answer into the structured result. Model output is

@@ -54,7 +54,10 @@ export const PERSONA_STYLE_PRESET_LABELS = {
     hardcore: '硬核干货',
     empathy: '温柔共情',
 };
-/** The empty form of a brand-new persona. */
+/**
+ * The empty form of a brand-new persona.
+ * @returns the form with every field blank, no editing target, and no stored report.
+ */
 export function emptyForm() {
     const fields = {};
     for (const key of PERSONA_FIELD_KEYS)

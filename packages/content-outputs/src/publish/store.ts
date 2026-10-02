@@ -35,12 +35,20 @@ const TASK_ID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-
 /** Platform ids are registry keys: lowercase letters, digits, dashes. */
 const PLATFORM_ID_PATTERN = /^[a-z0-9][a-z0-9-]{0,31}$/u
 
-/** Whether the value is one well-formed task id. */
+/**
+ * Whether the value is one well-formed task id.
+ * @param value - the id candidate.
+ * @returns whether it matches the UUID shape the store generates and the derived path embeds.
+ */
 export function isTaskId(value: string): boolean {
   return TASK_ID_PATTERN.test(value)
 }
 
-/** Whether the value is one well-formed platform id. */
+/**
+ * Whether the value is one well-formed platform id.
+ * @param value - the platform-id candidate.
+ * @returns whether it matches the registry-key shape (lowercase letters, digits, dashes).
+ */
 export function isPlatformId(value: string): boolean {
   return PLATFORM_ID_PATTERN.test(value)
 }
@@ -251,7 +259,15 @@ export async function writePublishManifestFile(root: string, theme: string, mani
   await writeAtomicallyLocked(indexPath, `${JSON.stringify({ formatVersion: 0, entries } satisfies PublishIndex, null, 2)}\n`)
 }
 
-/** Absolute path of one derived draft. */
+/**
+ * Absolute path of one derived draft.
+ * @param root - absolute outputs library root.
+ * @param theme - outputs-project directory name.
+ * @param taskId - the owning task's UUID.
+ * @param platformId - the platform registry key.
+ * @returns the guarded `assets/publish/<taskId>/<platformId>.md` path.
+ * @throws when the task or platform id is malformed.
+ */
 export function resolvePublishDerivedPath(root: string, theme: string, taskId: string, platformId: string): string {
   if (!isTaskId(taskId)) throw new Error(`invalid publish task id: ${JSON.stringify(taskId)}`)
   if (!isPlatformId(platformId)) throw new Error(`invalid publish platform id: ${JSON.stringify(platformId)}`)
@@ -284,6 +300,10 @@ export async function writePublishDerivedFile(
 
 /**
  * Read one derived draft back.
+ * @param root - absolute outputs library root.
+ * @param theme - outputs-project directory name.
+ * @param taskId - the owning task's UUID.
+ * @param platformId - the platform registry key.
  * @returns the text, or undefined when the draft does not exist yet.
  */
 export async function readPublishDerivedFile(root: string, theme: string, taskId: string, platformId: string): Promise<string | undefined> {

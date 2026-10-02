@@ -86,6 +86,16 @@ export function InteractionView({ interaction, personas, templates, listThemes, 
     })()
   }, [listThemes])
 
+  // The inbox loads from disk on mount: nothing else triggers the read.
+  useEffect(() => {
+    void interaction.load()
+  }, [interaction])
+  // The persona picker needs the persona list loaded even when the persona
+  // view was never visited (ensureLoaded is idempotent).
+  useEffect(() => {
+    void personas.ensureLoaded()
+  }, [personas])
+
   useEffect(() => {
     if (state.notice === null) return
     const timer = window.setTimeout(() => { interaction.clearNotice() }, 4000)
@@ -327,6 +337,7 @@ export function InteractionView({ interaction, personas, templates, listThemes, 
           <select
             className={css.select}
             aria-label={t('interaction.detail.persona')}
+            title={personaState.personas.length === 0 ? t('persona.empty') : undefined}
             value={selected.personaId ?? ''}
             onChange={(event) => { void interaction.patchConversation(selected.id, { personaId: event.target.value === '' ? null : event.target.value }) }}
           >
@@ -513,7 +524,10 @@ export function InteractionView({ interaction, personas, templates, listThemes, 
         <div className={css.problems}>{t('interaction.problems')} {state.problems.join('；')}</div>
       )}
       {state.notice !== null && (
-        <div className={css.notice} role="status">{t(`interaction.notice.${state.notice}`)}</div>
+        <div className={css.notice} role="status">
+          {t(`interaction.notice.${state.notice}`)}
+          {state.errorDetail !== null && <div>{state.errorDetail}</div>}
+        </div>
       )}
       {state.busy && (
         <div className={css.busy}>

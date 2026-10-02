@@ -19,9 +19,17 @@ export declare const REWRITE_STYLES: readonly CreateStyleKey[];
 export declare const MANUAL_MERGE_WINDOW_MS: number;
 /** Version quota: the newest unpinned versions survive; pinned ones never age out. */
 export declare const VERSION_CAP = 30;
-/** The coarse metadata kind a content type maps to. */
+/**
+ * The coarse metadata kind a content type maps to.
+ * @param id - the content type id.
+ * @returns the `OutputKind` of the matching entry, or `'other'` when the id has no entry.
+ */
 export declare function contentTypeKind(id: CreateContentType): OutputKind;
-/** One prefixed, collision-resistant id (`cc-<time><rand>`). */
+/**
+ * One prefixed, collision-resistant id (`cc-<time><rand>`).
+ * @param prefix - the id's leading segment, `'cc'` by default.
+ * @returns the composed id string.
+ */
 export declare function newId(prefix?: string): string;
 /**
  * The manifest a new creation starts from: no versions yet, no topic link.
@@ -164,7 +172,11 @@ export declare function buildExportMarkdown(meta: {
 export declare function triggerClass(trigger: string): 'ai' | 'manual' | 'restore' | 'retarget' | 'rewrite';
 /** The content types whose variant batches ride one request. */
 export declare const BATCHABLE_CONTENT_TYPES: readonly CreateContentType[];
-/** Whether the content type can batch three variants in one request. */
+/**
+ * Whether the content type can batch three variants in one request.
+ * @param contentType - the content type id to test.
+ * @returns whether the type is in `BATCHABLE_CONTENT_TYPES`.
+ */
 export declare function isBatchable(contentType: CreateContentType): boolean;
 /** The local advisory hashtag pool: common creator niches, matched against the text. */
 export declare const HASHTAG_POOL: readonly string[];
